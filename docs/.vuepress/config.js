@@ -65,10 +65,6 @@ module.exports = {
                 path: "/node-guides/join-validator-mainnet",
               },
               {
-                title: "Backup a Validator",
-                path: "/node-guides/backup-a-validator",
-              },
-              {
                 title: "Migrate a Validator",
                 path: "/node-guides/migrate-a-validator",
               },
