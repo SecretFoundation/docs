@@ -9,7 +9,7 @@ To backup everything you need to restore your validator, simply do the following
 If you are using the software sign (which is the default signing method of tendermint), your Tendermint Key is located in `~/.secretd/config/priv_validator_key.json`.
 
 1. Backup `~/.secretd/config/priv_validator_key.json`.
-2. Backup the self-delegator wallet. See the [wallet section](#wallet).
+2. Backup the self-delegator wallet. See the [wallet section](backup/wallets).
 
 The easiest way is to backup the whole config folder.
 
