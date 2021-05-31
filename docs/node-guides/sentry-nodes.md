@@ -19,6 +19,26 @@ Sentry nodes can be quickly spun up or change their IP addresses. Because the li
 For those implementing Sentries on Validators who already have Public IP exposed. Currently any peer, be it a validator or full node, is given 16 attempts with exponential backoff, which in total amounts to around 35 hours, to connect. If the node remains unreachable then it is automatically removed from the address book.
 An unreachable validator node is not gossiped across the network i.e. all other nodes will each try to connect to the unreachable validator node before removing it from their address book.
 
+### Get your node peer ids
+
+Log into your sentry node(s), and validator, then run the following commands to get the peer information:
+
+Get node id
+
+```bash
+secretd tendermint show-node-id
+```
+
+```bash
+ip r
+```
+
+Save your peer information, be sure to remember which are for sentries and which is for your validator, you'll need it later:
+
+```
+<your-node-id>@<your-public-ip>:26656
+```
+
 ### Setup Sentry Node
 
 To setup basic sentry node architecture you can follow the instructions below:
