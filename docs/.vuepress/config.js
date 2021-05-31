@@ -92,6 +92,10 @@ module.exports = {
                 //path: '/node-guides/active-node-peers'
               },
               {
+                title: "Quick Sync",
+                //path: '/node-guides/quick-sync'
+              },
+              {
                 title: "Vulcan Network Upgrade",
                 path: "/upgrade-secret-1-to-secret-2",
               },
