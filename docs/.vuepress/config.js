@@ -38,7 +38,7 @@ module.exports = {
         ],
       },
       {
-        title: "SecretNodes", // requireds
+        title: "Node Operators", // requireds
         collapsable: true, // optional, defaults to true
         sidebarDepth: 1, // optional, defaults to 1
         children: [
@@ -48,7 +48,7 @@ module.exports = {
             sidebarDepth: 1,
           },
           {
-            title: "Validators",
+            title: "SecretNodes",
             path: "/validators-and-full-nodes/secret-nodes",
             sidebarDepth: 1,
             children: [

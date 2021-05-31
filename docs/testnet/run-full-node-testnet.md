@@ -14,13 +14,14 @@ This document details how to join the Secret Network `testnet` as a full node. O
 
 - 1GB RAM
 - 100GB HDD
-- 1 dedicated core of any Intel Skylake processor (Intel® 6th generation) or better
+- 1 dedicated core of any Intel Xeon CPU with SGX through SPS.
 
 ### Recommended requirements
 
-- 2GB RAM
+- 4GB RAM
 - 256GB SSD
-- 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better
+- 2 dedicated core of any Intel Xeon CPU with SGX through SPS.
+- Known Working CPUs (E-2276G, E-2278G, E-2286G, E-2288G) Non Xeon CPUs are reported to not get updated often enough to be compliant.
 - Motherboard with support for SGX in the BIOS
 
 Refer to https://ark.intel.com/content/www/us/en/ark.html#@Processors if unsure if your processor supports SGX

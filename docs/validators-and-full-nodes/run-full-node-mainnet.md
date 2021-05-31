@@ -10,19 +10,21 @@ This document details how to join the Secret Network `mainnet` as a validator.
 - Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 - Reading https://docs.tendermint.com/master/tendermint-core/running-in-production.html
 
-#### Minimum requirements
+### Minimum requirements
 
-- Up to date SGX ([Read this](https://learn.scrt.network/sgx.html), [Setup](setup-sgx.md), [Verify](verify-sgx.md))
 - 1GB RAM
-- 100GB HDD (Premium SSD)
-- 1 dedicated core of any Intel Skylake processor (Intel® 6th generation) or better
+- 100GB HDD
+- 1 dedicated core of any Intel Xeon CPU with SGX through SPS.
 
-#### Recommended requirements
+### Recommended requirements
 
-- Up to date SGX ([Read this](https://learn.scrt.network/sgx.html), [Setup](setup-sgx.md), [Verify](verify-sgx.md))
-- 2GB RAM
-- 256GB SSD (Premium SSD)
-- 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better
+- 4GB RAM
+- 256GB SSD
+- 2 dedicated core of any Intel Xeon CPU with SGX through SPS.
+- Known Working CPUs (E-2276G, E-2278G, E-2286G, E-2288G) Non Xeon CPUs are reported to not get updated often enough to be compliant.
+- Motherboard with support for SGX in the BIOS
+
+Refer to https://ark.intel.com/content/www/us/en/ark.html#@Processors if unsure if your processor supports SGX
 
 ### Installation
 
