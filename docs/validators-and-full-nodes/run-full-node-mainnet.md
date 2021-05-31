@@ -203,7 +203,7 @@ When the value of `catching_up` is _false_, your node is fully sync'd with the n
   },
 ```
 
-#### Next steps
+#### Get your Node ID.
 
 Get your node ID with:
 
@@ -217,10 +217,9 @@ And publish yourself as a node with this ID:
 <your-node-id>@<your-public-ip>:26656
 ```
 
-Add as sentry node.
-If you want to add this node as a [Sentry Node](sentry-nodes.md) then add the node to `private_peer_ids` in `~/.secretd/config/config.toml` on your validator. 
+#### How you can use your full node.
 
-If someone wants to add you as a peer, have them add the above address to their `persistent_peers` in their `~/.secretd/config/config.toml`.
+1. If someone wants to add you as a peer, have them add the above address to their `persistent_peers` in their `~/.secretd/config/config.toml`.
 And if someone wants to use you from their `secretcli` then have them run:
 
 ```bash
@@ -229,4 +228,30 @@ secretcli config output json
 secretcli config indent true
 secretcli config trust-node true
 secretcli config node tcp://<your-public-ip>:26657
+```
+
+2. Convert your full node into a sentry node.
+If you want to add this node as a [Sentry Node](sentry-nodes.md) then add the node to `private_peer_ids` in `~/.secretd/config/config.toml` on your validator.
+
+Then restart your new sentry node.
+
+```bash
+sudo systemctl restart secret-node
+```
+
+3. Convert your full node into an archive node.
+If you want to add this node as a [Archive Node](archive-nodes.md) first you must stop your node.
+
+Stop your node with
+
+```bash
+sudo systemctl stop secret-node
+```
+
+Then change pruning to nothing `pruning = "nothing"` in `~/.secretd/config/app.toml` on the node you wish to convert into an archive node. NOTE: This will reset all the blockchain data that has syncd so far on the node. Only do this if you are sure you want an archive node, please see [Archive Node](archive-nodes.md) for more information, including higher system requirements.
+
+Then restart your new sentry node.
+
+```bash
+sudo systemctl restart secret-node
 ```
