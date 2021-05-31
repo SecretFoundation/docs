@@ -234,6 +234,6 @@ secretcli config node tcp://<your-public-ip>:26657
 If you want to add this node as a sentry node then follow [this guide](sentry-nodes.html#basic-sentry-node-architecture).
 
 3. Convert your full node into an archive node.
-If you want to add this node as an archive node then follow [this guide](archive-nodes.md).
+If you want to convert this node into an archive node then follow [this guide](archive-nodes.md).
 
 
