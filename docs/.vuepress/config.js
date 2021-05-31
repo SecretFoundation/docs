@@ -77,6 +77,10 @@ module.exports = {
                 path: "/validators-and-full-nodes/sentry-nodes",
               },
               {
+                title: "Archive Nodes",
+                path: "/validators-and-full-nodes/archive-nodes",
+              },
+              {
                 title: "Active Node Peers",
                 //path: '/validators-and-full-nodes/active-node-peers'
               },
