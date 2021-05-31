@@ -1,0 +1,31 @@
+Arguments: 
+  /usr/local/bin/node /Users/moonstash/.yarn/bin/yarn.js build
+
+PATH: 
+  /Users/moonstash/.yarn/bin:/Users/moonstash/.config/yarn/global/node_modules/.bin:/Users/moonstash/.rbenv/shims:/Users/moonstash/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Keybase.app/Contents/SharedSupport/bin:/Users/moonstash/.cargo/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.15.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/moonstash/Documents/GitHub/secretdocs/package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /Users/moonstash/.yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/Users/moonstash/.yarn/lib/cli.js:310:30)
+      at /Users/moonstash/.yarn/lib/cli.js:321:13
+
+npm manifest: 
+  
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
