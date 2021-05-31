@@ -1,6 +1,6 @@
 # Development Roadmap
 
-Currently, the live Secret Network supports [staking](../validators-and-full-nodes/secret-nodes.md), [transactions](transactions.md), and [governance](governance.md) activities.
+Currently, the live Secret Network supports [staking](../node-guides/secret-nodes.md), [transactions](transactions.md), and [governance](governance.md) activities.
 
 The next version of Secret Network is expected to offer Secret Contract functionality. Our subsequent milestones are:
 

@@ -33,8 +33,8 @@ rm -rf ~/.sgx_secrets/*
 
 You're probably familiar with SGX by now:
 
-- [Setup SGX](validators-and-full-nodes/setup-sgx.md)
-- [Verify SGX](validators-and-full-nodes/verify-sgx.md)
+- [Setup SGX](node-guides/setup-sgx.md)
+- [Verify SGX](node-guides/verify-sgx.md)
 
 ## 1. Prepare your `secret-1` validator to halt after block #1,246,400
 

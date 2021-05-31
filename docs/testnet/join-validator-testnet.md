@@ -106,7 +106,7 @@ Penalties for double-signing:
 
 ### Protecting your validator agains DDoS attacks
 
-See [Sentry Nodes](../validators-and-full-nodes/sentry-nodes.md).
+See [Sentry Nodes](../node-guides/sentry-nodes.md).
 
 ### Staking more tokens
 

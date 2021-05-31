@@ -128,7 +128,7 @@ This key encrypts you inputs and decrypts the outputs to/of Secret Contracts.
 1. Backup `~/.secretd/config/priv_validator_key.json`.
 2. Backup the self-delegator wallet. See the [wallet section](#wallet).
 
-Also see [Backup a Validator](validators-and-full-nodes/backup-a-validator.md) and [Migrate a Validator](validators-and-full-nodes/migrate-a-validator.md).
+Also see [Backup a Validator](node-guides/backup-a-validator.md) and [Migrate a Validator](node-guides/migrate-a-validator.md).
 
 # Full Node Private key
 

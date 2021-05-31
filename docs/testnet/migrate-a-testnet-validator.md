@@ -52,7 +52,7 @@ secretcli status | jq .sync_info
 
 To prevert double signing, you should stop the validator node and only then stop the new full node.
 
-Please read about [the dangers in running a validator](/validators-and-full-nodes/join-validator-mainnet.md#dangers-in-running-a-validator).
+Please read about [the dangers in running a validator](/node-guides/join-validator-mainnet.md#dangers-in-running-a-validator).
 
 On the validator node on the old machine:
 

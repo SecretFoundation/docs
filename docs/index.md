@@ -46,17 +46,17 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 # Docs
 
 - [Install the `secretcli` light client (Windows, Mac & Linux)](./light-client-mainnet.md)
-- [How to use the `secretcli` light client](./validators-and-full-nodes/secretcli.md)
+- [How to use the `secretcli` light client](./node-guides/secretcli.md)
 - [How to participate in on-chain governance](./protocol/governance.md)
-- [How to run a full node on mainnet](./validators-and-full-nodes/run-full-node-mainnet.md)
+- [How to run a full node on mainnet](./node-guides/run-full-node-mainnet.md)
 - [How to run an LCD server](./lcd-server-example.md)
 - [Ledger Nano S (and X) support](./ledger-nano-s.md)
-- [How to join as a mainnet validator](./validators-and-full-nodes/join-validator-mainnet.md)
-- [How to backup a validator](./validators-and-full-nodes/backup-a-validator.md)
+- [How to join as a mainnet validator](./node-guides/join-validator-mainnet.md)
+- [How to backup a validator](./node-guides/backup-a-validator.md)
 - [How to backup a everything (Validators, Full Nodes, Wallets)](./backups.md)
-- [How to migrate a validator to a new machine](./validators-and-full-nodes/migrate-a-validator.md)
-- [How to setup SGX on your machine](./validators-and-full-nodes/setup-sgx.md)
-- [How to verify the SGX setup on your machine](./validators-and-full-nodes/verify-sgx.md)
+- [How to migrate a validator to a new machine](./node-guides/migrate-a-validator.md)
+- [How to setup SGX on your machine](./node-guides/setup-sgx.md)
+- [How to verify the SGX setup on your machine](./node-guides/verify-sgx.md)
 - [How to use SecretJS to develop Secret dApps](https://github.com/enigmampc/enigma-blockchain-contracts-guide/blob/master/cosmwasm-js.md)
 
 # Implementation Discussions

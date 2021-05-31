@@ -44,45 +44,45 @@ module.exports = {
         children: [
           {
             title: "Secret Light Client",
-            path: "/validators-and-full-nodes/secretcli",
+            path: "/node-guides/secretcli",
             sidebarDepth: 1,
           },
           {
             title: "SecretNodes",
-            path: "/validators-and-full-nodes/secret-nodes",
+            path: "/node-guides/secret-nodes",
             sidebarDepth: 1,
             children: [
               {
                 title: "Setup SGX",
-                path: "/validators-and-full-nodes/setup-sgx",
+                path: "/node-guides/setup-sgx",
               },
               {
                 title: "Run a Full Node",
-                path: "/validators-and-full-nodes/run-full-node-mainnet",
+                path: "/node-guides/run-full-node-mainnet",
               },
               {
                 title: "Join as a Validator",
-                path: "/validators-and-full-nodes/join-validator-mainnet",
+                path: "/node-guides/join-validator-mainnet",
               },
               {
                 title: "Backup a Validator",
-                path: "/validators-and-full-nodes/backup-a-validator",
+                path: "/node-guides/backup-a-validator",
               },
               {
                 title: "Migrate a Validator",
-                path: "/validators-and-full-nodes/migrate-a-validator",
+                path: "/node-guides/migrate-a-validator",
               },
               {
                 title: "Sentry Nodes",
-                path: "/validators-and-full-nodes/sentry-nodes",
+                path: "/node-guides/sentry-nodes",
               },
               {
                 title: "Archive Nodes",
-                path: "/validators-and-full-nodes/archive-nodes",
+                path: "/node-guides/archive-nodes",
               },
               {
                 title: "Active Node Peers",
-                //path: '/validators-and-full-nodes/active-node-peers'
+                //path: '/node-guides/active-node-peers'
               },
               {
                 title: "Vulcan Network Upgrade",
@@ -92,7 +92,7 @@ module.exports = {
           },
           {
             title: "Delegators",
-            path: "/validators-and-full-nodes/delegating-mainnet",
+            path: "/node-guides/delegating-mainnet",
           },
         ],
       },
