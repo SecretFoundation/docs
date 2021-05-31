@@ -34,7 +34,7 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 
 # Wallets
 
-- [Ledger Nano S and Ledger Nano X](./ledger-nano-s.md)
+- [Ledger Nano S and Ledger Nano X](./ledger-nano.md)
 - [Keplr](https://wallet.keplr.app)
 - [Math Wallet](https://mathwallet.org/secretnetwork-wallet/)
 - [Citadel.one](https://app.citadel.one)
@@ -50,7 +50,7 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 - [How to participate in on-chain governance](./protocol/governance.md)
 - [How to run a full node on mainnet](./node-guides/run-full-node-mainnet.md)
 - [How to run an LCD server](./lcd-server-example.md)
-- [Ledger Nano S (and X) support](./ledger-nano-s.md)
+- [Ledger Nano S (and X) support](./guides/ledger-nano.md)
 - [How to join as a mainnet validator](./node-guides/join-validator-mainnet.md)
 - [How to backup a validator](./node-guides/backup-a-validator.md)
 - [How to backup a everything (Validators, Full Nodes, Wallets)](./backups.md)
