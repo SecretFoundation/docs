@@ -38,7 +38,7 @@ module.exports = {
         ],
       },
       {
-        title: "Secret Node Operators", // requireds
+        title: "SecretNodes", // requireds
         collapsable: true, // optional, defaults to true
         sidebarDepth: 1, // optional, defaults to 1
         children: [
