@@ -21,13 +21,39 @@ An unreachable validator node is not gossiped across the network i.e. all other 
 
 To setup your sentry node architecture you can follow the instructions below:
 
-Validators nodes should edit their `.secretd/config/config.toml`:
+Sentry Nodes should edit their config.toml:
+
+First follow the [Full Node Guide](run-full-node-mainnet.md)
+
+Edit the full nodes config file you want to use as a sentry node:
 
 ```bash
 nano /.secretd/config/config.toml
 ```
 
-Proceed to make the following changes:
+Proceed to add the peer id of your validator to the `.secretd/config/config.toml`:
+
+```bash
+# Comma separated list of peer IDs to keep private (will not be gossiped to other peers)
+# Example ID: 3e16af0cead27979e1fc3dac57d03df3c7a77acc@1.4.7.7:26656
+private_peer_ids = "node_ids_of_private_peers"
+```
+
+Now proceed to restart your secret node with the following command.
+
+```bash
+sudo systemctl restart secret-node
+```
+
+You now have an sentry node running!
+
+Validators nodes should add their sentry node peer information to their `.secretd/config/config.toml`:
+
+```bash
+nano .secretd/config/config.toml
+```
+
+Proceed to add the peer id of your sentry nodes to the persistent_peers list and set pex to false:
 
 ```bash
 # Comma separated list of nodes to keep persistent connections to
@@ -38,13 +64,13 @@ persistent_peers =[list of sentry nodes]
 pex = false
 ```
 
-Sentry Nodes should edit their config.toml:
+Now proceed to restart your secret node with the following command.
 
 ```bash
-# Comma separated list of peer IDs to keep private (will not be gossiped to other peers)
-# Example ID: 3e16af0cead27979e1fc3dac57d03df3c7a77acc@3.87.179.235:26656
-private_peer_ids = "node_ids_of_private_peers"
+sudo systemctl restart secret-node
 ```
+
+You're now running your validator behind a sentry node!
 
 ### Resources:
 
