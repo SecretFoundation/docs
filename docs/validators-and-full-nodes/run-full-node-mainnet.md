@@ -125,7 +125,7 @@ sudo systemctl enable secret-node
 
 Edit your secret-node.service file
 
-After you run the last command, your "secret-node.service" file should be located here '/etc/systemd/system/secret-node.service". To edit it, run the following command.
+After you run the last command, your 'secret-node.service' file should be located here '/etc/systemd/system/secret-node.service'. To edit it, run the following command.
 
 ```bash
 sudo nano /etc/systemd/system/secret-node.service
