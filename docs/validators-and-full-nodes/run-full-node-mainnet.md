@@ -203,7 +203,9 @@ When the value of `catching_up` is _false_, your node is fully sync'd with the n
   },
 ```
 
-#### Get your node ID with:
+#### Next steps
+
+Get your node ID with:
 
 ```bash
 secretd tendermint show-node-id
@@ -215,7 +217,10 @@ And publish yourself as a node with this ID:
 <your-node-id>@<your-public-ip>:26656
 ```
 
-So if someone wants to add you as a peer, have them add the above address to their `persistent_peers` in their `~/.secretd/config/config.toml`.
+Add as sentry node.
+If you want to add this node as a [Sentry Node](sentry-nodes.md) then add the node to `private_peer_ids` in `~/.secretd/config/config.toml` on your validator. 
+
+If someone wants to add you as a peer, have them add the above address to their `persistent_peers` in their `~/.secretd/config/config.toml`.
 And if someone wants to use you from their `secretcli` then have them run:
 
 ```bash
