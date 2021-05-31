@@ -91,6 +91,22 @@ module.exports = {
             ],
           },
           {
+            title: "Backup", // required
+            path: "/", // optional, link of the title, which should be an absolute path and must exist
+            collapsable: true, // optional, defaults to true
+            sidebarDepth: 1, // optional, defaults to 1
+            children: [
+              {
+                title: "Node Backup",
+                path: "/backup/backup-a-validator",
+              },
+              {
+                title: "Backup Everything",
+                path: "/protocol/backup",
+              },
+            ],
+          },
+          {
             title: "Delegators",
             path: "/node-guides/delegating-mainnet",
           },
