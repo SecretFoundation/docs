@@ -38,15 +38,26 @@ module.exports = {
         ],
       },
       {
-        title: "Node Operators", // requireds
+        title: "Secret CLI", // required
+        path: "/", // optional, link of the title, which should be an absolute path and must exist
         collapsable: true, // optional, defaults to true
         sidebarDepth: 1, // optional, defaults to 1
         children: [
           {
-            title: "Secret Light Client",
-            path: "/node-guides/secretcli",
-            sidebarDepth: 1,
+            title: "Install Secret CLI",
+            path: "/cli/install-cli",
           },
+          {
+            title: "Secret CLI",
+            path: "/cli/secretcli",
+          },
+        ],
+      },
+      {
+        title: "Node Operators", // requireds
+        collapsable: true, // optional, defaults to true
+        sidebarDepth: 1, // optional, defaults to 1
+        children: [
           {
             title: "SecretNodes",
             path: "/node-guides/secret-nodes",
