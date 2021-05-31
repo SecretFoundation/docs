@@ -98,7 +98,7 @@ module.exports = {
               },
               {
                 title: "Backup Everything",
-                path: "/protocol/backup",
+                path: "/backup/backup",
               },
             ],
           },
