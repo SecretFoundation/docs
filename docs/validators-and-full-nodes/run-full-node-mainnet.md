@@ -121,7 +121,44 @@ perl -i -pe 's;laddr = "tcp://127.0.0.1:26657";laddr = "tcp://0.0.0.0:26657";' ~
 
 ```bash
 sudo systemctl enable secret-node
+```
 
+Edit your secret-node.service file
+
+After you run the last command, your "secret-node.service" file should be located here '/etc/systemd/system/secret-node.service". To edit it, run the following command.
+
+``bash
+sudo nano /etc/systemd/system/secret-node.service
+```
+
+Make sure your secret-node service file is structured like this. Be sure to edit "<your-username>" to be your servers username without the carrots.
+
+```bash
+[Unit]
+Description=Secret node service
+After=network.target
+
+[Service]
+Type=simple
+Environment=SCRT_ENCLAVE_DIR=/usr/lib
+WorkingDirectory=/home/<your-username>
+ExecStart=/usr/local/bin/secretd start
+User=<your-username>
+Restart=on-failure
+StartLimitInterval=0
+RestartSec=3
+LimitNOFILE=65535
+LimitMEMLOCK=209715200
+
+[Install]
+WantedBy=multi-user.target
+```
+
+If you had to edit it, then save and exit nano.
+
+Start the secret-node service.
+
+```bash
 sudo systemctl start secret-node # (Now your new node is live and catching up)
 ```
 
