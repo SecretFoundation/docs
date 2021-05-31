@@ -38,39 +38,7 @@ module.exports = {
         ],
       },
       {
-        title: "Developers", // required
-        path: "/dev/developers", // optional, link of the title, which should be an absolute path and must exist
-        collapsable: true, // optional, defaults to true
-        sidebarDepth: 1, // optional, defaults to 1
-        children: [
-          {
-            title: "Secret Contracts",
-            path: "/dev/secret-contracts.md",
-          },
-          {
-            title: "Privacy Model",
-            path: "/dev/privacy-model-of-secret-contracts.md",
-          },
-          {
-            title: "Development Guide",
-            path: "/dev/developing-secret-contracts.md",
-          },
-          {
-            title: "Quickstart",
-            path: "/dev/quickstart.md",
-          },
-          {
-            title: "SecretJS",
-            path: "/dev/secret-js",
-          },
-          {
-            title: "Tutorials",
-            path: "/dev/tutorials.md",
-          },
-        ],
-      },
-      {
-        title: "Node Operators", // requireds
+        title: "Secret Node Operators", // requireds
         collapsable: true, // optional, defaults to true
         sidebarDepth: 1, // optional, defaults to 1
         children: [
@@ -122,65 +90,6 @@ module.exports = {
             title: "Delegators",
             path: "/validators-and-full-nodes/delegating-mainnet",
           },
-        ],
-      },
-      {
-        title: "Testnet",
-        sidebarDepth: 1,
-        collapsable: true, // optional, defaults to trues
-        children: [
-          {
-            title: "Validators (CLI)",
-            sidebarDepth: 0,
-            path: "/testnet/install_cli",
-            children: [
-              {
-                title: "Setup SGX",
-                path: "/testnet/setup-sgx-testnet",
-              },
-              {
-                title: "Verify SGX",
-                path: "/testnet/verify-sgx",
-              },
-              {
-                title: "Run a Full Node",
-                path: "/testnet/run-full-node-testnet",
-              },
-              {
-                title: "Run a Full Node Docker",
-                path: "/testnet/run-full-node-docker",
-              },
-              {
-                title: "Join as a Validator",
-                path: "/testnet/join-validator-testnet",
-              },
-              {
-                title: "Backup a Validator",
-                path: "/testnet/backup-a-testnet-validator",
-              },
-              {
-                title: "Migrate a Validator",
-                path: "/testnet/migrate-a-testnet-validator",
-              },
-            ],
-          },
-          {
-            title: "Delegators (CLI)",
-            path: "",
-          },
-        ],
-      },
-      {
-        title: "Protocol", // required
-        path: "/protocol/intro", // optional, link of the title, which should be an absolute path and must exist
-        collapsable: true, // optional, defaults to true
-        sidebarDepth: 0, // optional, defaults to 1
-        children: [
-          "/protocol/components",
-          "/protocol/encryption-specs",
-          "/protocol/transactions",
-          "/protocol/governance",
-          "/protocol/sgx",
         ],
       },
     ],
