@@ -231,27 +231,9 @@ secretcli config node tcp://<your-public-ip>:26657
 ```
 
 2. Convert your full node into a sentry node.
-If you want to add this node as a [Sentry Node](sentry-nodes.md) then add the node to `private_peer_ids` in `~/.secretd/config/config.toml` on your validator.
-
-Then restart your new sentry node.
-
-```bash
-sudo systemctl restart secret-node
-```
+If you want to add this node as a sentry node then follow [this guide](sentry-nodes.html#basic-sentry-node-architecture).
 
 3. Convert your full node into an archive node.
-If you want to add this node as a [Archive Node](archive-nodes.md) first you must stop your node.
+If you want to add this node as an archive node then follow [this guide](archive-nodes.md).
 
-Stop your node with
 
-```bash
-sudo systemctl stop secret-node
-```
-
-Then change pruning to nothing `pruning = "nothing"` in `~/.secretd/config/app.toml` on the node you wish to convert into an archive node. NOTE: This will reset all the blockchain data that has syncd so far on the node. Only do this if you are sure you want an archive node, please see [Archive Node](archive-nodes.md) for more information, including higher system requirements.
-
-Then restart your new sentry node.
-
-```bash
-sudo systemctl restart secret-node
-```
