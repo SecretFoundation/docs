@@ -183,10 +183,6 @@ module.exports = {
           "/protocol/sgx",
         ],
       },
-      {
-        title: "Secret Wiki",
-        path: "https://learn.scrt.network/",
-      },
     ],
   },
 };
