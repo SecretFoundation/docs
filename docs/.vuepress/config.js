@@ -93,12 +93,20 @@ module.exports = {
             sidebarDepth: 1, // optional, defaults to 1
             children: [
               {
-                title: "Node Backup",
+                title: "Validator Backup",
                 path: "/backup/backup-a-validator",
               },
               {
-                title: "Backup Everything",
-                path: "/backup/backups",
+                title: "Full Node Backup",
+                path: "/backup/backup-a-full-node",
+              },
+              {
+                title: "Wallets",
+                path: "/backup/wallets",
+              },
+              {
+                title: "Client Transaction Key",
+                path: "/backup/client-tx-key",
               },
             ],
           },

@@ -1,15 +1,8 @@
-# How to backup and restore everything
+# How to backup Wallets
 
-- [How to backup and restore everything](#how-to-backup-and-restore-everything)
 - [Wallet](#wallet)
   - [Mnemonics](#mnemonics)
   - [Export](#export)
-- [Client Transaction Encryption Key for Secret Contracs](#client-transaction-encryption-key-for-secret-contracs)
-- [Validator Private Key](#validator-private-key)
-- [Full Node Private key](#full-node-private-key)
-- [Full Node Data](#full-node-data)
-
-# Wallet
 
 ## Mnemonics
 
@@ -116,42 +109,3 @@ $ secretcli keys list
   }
 ]
 ```
-
-# Client Transaction Encryption Key for Secret Contracs
-
-1. Backup `~/.secretcli/id_tx_io.json`.
-
-This key encrypts you inputs and decrypts the outputs to/of Secret Contracts.
-
-# Validator Private Key
-
-1. Backup `~/.secretd/config/priv_validator_key.json`.
-2. Backup the self-delegator wallet. See the [wallet section](#wallet).
-
-Also see [Backup a Validator](node-guides/backup-a-validator.md) and [Migrate a Validator](node-guides/migrate-a-validator.md).
-
-# Full Node Private key
-
-1. Backup `~/.secretd/config/node_key.json`.
-
-Why you might want to backup your node ID:
-
-- In case you are a seed node.
-- In case you are a persistent peer for other full nodes.
-- In case you manage a setup of senty nodes and use node IDs in your config files.
-
-# Full Node Data
-
-1. Gracefully shut down the node:
-
-   ```bash
-   sudo systemctl stop secret-node
-   ```
-
-2. Backup the `~/.secretd/data/` directory except for the `~/.secretd/data/priv_validator_state.json` file.
-3. Backup the `~/.secretd/.compute/` directory.
-4. Restart the node:
-
-   ```bash
-   sudo systemctl start secret-node
-   ```
