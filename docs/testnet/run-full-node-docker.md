@@ -16,18 +16,18 @@ The scripts in the guide will be for Linux (tested on Ubuntu 18.04), but you cou
 ### Minimum requirements
 
 - 1GB RAM
-- 100GB HDD
+- 150GB SSD for Prune Everyting, or default pruining. 500GB to 1TB premium SSD for Archive nodes.
 - 1 dedicated core of any Intel Xeon CPU with SGX through SPS.
 
 ### Recommended requirements
 
 - 4GB RAM
-- 256GB SSD
+- 256GB SSD for Prune Everyting, or default pruining. 500GB to 1TB premium SSD for Archive nodes.
 - 2 dedicated core of any Intel Xeon CPU with SGX through SPS.
 - Known Working CPUs (E-2276G, E-2278G, E-2286G, E-2288G) Non Xeon CPUs are reported to not get updated often enough to be compliant.
 - Motherboard with support for SGX in the BIOS
 
-Refer to https://ark.intel.com/content/www/us/en/ark.html#@Processors if unsure if your processor supports SGX
+Refer to https://ark.intel.com/content/www/us/en/ark.html#@Processors if unsure if your processor supports SGX.
 
 ## Installation
 
