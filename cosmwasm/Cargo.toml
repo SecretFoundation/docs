@@ -1,3 +1,0 @@
-[workspace]
-members = ["packages/*"]
-exclude = ["contracts", "packages/wasmi-runtime", "packages/enclave-test"]
