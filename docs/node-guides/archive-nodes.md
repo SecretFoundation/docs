@@ -6,6 +6,14 @@ An archive node keeps all the past blocks. An archive node makes it convenient t
 
 To setup your archive node you can follow the instructions below:
 
+First follow the [Full Node Guide](run-full-node-mainnet.md)
+
+Now stop the full node you want to convert to an archive node.
+
+```bash
+sudo systemctl stop secret-node
+```
+
 Full nodes should edit their `.secretd/config/config.toml`:
 
 ```bash
@@ -22,8 +30,15 @@ Proceed to make the following changes:
 pruning = "nothing"
 ```
 
+Now you must reset the data on your full node, so it can sync in archive mode.
+```bash
+secretd unsafe-reset-all
+```
+
 Now proceed to restart your secret node with the following command.
 
 ```bash
-sudo systemctl restart secret-node
+sudo systemctl start secret-node
 ```
+
+You now have an Archive node running!
