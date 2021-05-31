@@ -127,7 +127,7 @@ Edit your secret-node.service file
 
 After you run the last command, your "secret-node.service" file should be located here '/etc/systemd/system/secret-node.service". To edit it, run the following command.
 
-``bash
+```bash
 sudo nano /etc/systemd/system/secret-node.service
 ```
 
@@ -160,6 +160,14 @@ Start the secret-node service.
 
 ```bash
 sudo systemctl start secret-node # (Now your new node is live and catching up)
+```
+
+Configure your full node.
+
+```bash
+secretcli config output json
+secretcli config indent true
+secretcli config trust-node true
 ```
 
 You are now a full node. :tada:
