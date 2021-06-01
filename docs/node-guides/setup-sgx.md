@@ -17,13 +17,13 @@ Note: `sgx_linux_x64_driver_2.11.0_2d2b795.bin` is the latest driver as of May 3
 
 If you are a node runner all you must do to install SGX is to save this as a script and run it.
 
-1. Open text editor and save the script
+1. Download the sgx install script.
 
 ```bash
 wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guides/sgx.md
 ```
 
-Execute the script
+Execute the script.
 
 ```bash
 sudo bash sgx.md
