@@ -17,7 +17,7 @@ sudo systemctl stop secret-node
 Full nodes should edit their `.secretd/config/config.toml`:
 
 ```bash
-nano /.secretd/config/app.toml
+nano .secretd/config/app.toml
 ```
 
 Proceed to make the following changes:

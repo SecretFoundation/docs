@@ -64,6 +64,10 @@ module.exports = {
             sidebarDepth: 1,
             children: [
               {
+                title: "Hardware Compliance",
+                path: "/node-guides/hardware-compliance",
+              },
+              {
                 title: "Setup SGX",
                 path: "/node-guides/setup-sgx",
               },
