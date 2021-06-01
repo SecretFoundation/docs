@@ -123,13 +123,6 @@ The above command produces no output when it succeeds. If you want to verify tha
 ls /dev/isgx &>/dev/null && echo "SGX Driver installed" || echo "SGX Driver NOT installed"
 ```
 
-To uninstall the SGX SDK, run:
-
-```bash
-sudo "$HOME"/.sgxsdk/sgxsdk/uninstall.sh
-rm -rf "$HOME/.sgxsdk"
-```
-
 To uninstall the rest of the dependencies, run:
 
 ```bash
@@ -144,7 +137,7 @@ sudo apt purge -y libsgx-enclave-common libsgx-enclave-common-dev libsgx-urts sg
 4. [Ref 4](https://edp.fortanix.com/docs/installation/guide/)
 
 
-# Contributers
+##### Contributers
 
 * [FreshSCRT](https://secretnodes.com/secret/chains/secret-2/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
 * [secretnodes](https://secretnodes.com/secret/chains/secret-2/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
