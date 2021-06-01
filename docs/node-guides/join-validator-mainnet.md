@@ -81,13 +81,19 @@ Or run: `secretcli q staking validators | grep moniker`. You should see your mon
 
 There are a couple of scenarios that can lead to losing a precentage of your and your delegators' stake. These are called slashing events.
 
-The following is updated as of March 23, 2020.
+The following is updated as of May 31, 2021.
 
 #### Slashing for downtime
 
 Conditions for downtime:
 
-- Signing less than 2500 blocks out of every 5000-block window. For a block time of 5.8 seconds, this roughly translates to being up for 4 hours out of every 8-hour window.
+It's based on actual blocktime as opposed to being based on theoretical blocktime ie (SignedBlocksWindow & MinSignedPerWindow network parameters).
+
+Here are some examples based on 6.8 & 6.4 real world blocktimes, which we will fluctuate between with activity on the network.
+
+- Signing less than 11250 blocks out of every 22500-block window. For a block time of 6.8 seconds, this roughly translates to being up for 10.625 hours out of every 21.25-hour window.
+
+- Signing less than 11250 blocks out of every 22500-block window. For a block time of 6.4 seconds, this roughly translates to being up for 20 hours out of every 40-hour window.
 
 Penalties for downtime:
 
