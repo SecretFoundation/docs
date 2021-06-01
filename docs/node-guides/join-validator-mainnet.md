@@ -89,11 +89,13 @@ Conditions for downtime:
 
 It's based on actual blocktime as opposed to being based on theoretical blocktime ie (SignedBlocksWindow & MinSignedPerWindow network parameters).
 
-Here are some examples based on 6.8 & 6.4 real world blocktimes, which we will fluctuate between with activity on the network.
+Signing less than `MinSignedPerWindow` blocks out of every `SignedBlocksWindow` window will result in a downtime slash. Blocktime tends to fluctuate on the network.
 
-- Signing less than 11250 blocks out of every 22500-block window. For a block time of 6.8 seconds, this roughly translates to being up for 10.625 hours out of every 21.25-hour window.
+Parameters: 11250 blocks out of every 22500-blocks. 
 
-- Signing less than 11250 blocks out of every 22500-block window. For a block time of 6.4 seconds, this roughly translates to being up for 20 hours out of every 40-hour window.
+- For a block time of 6.8 seconds, this roughly translates to being up for 10.625 hours out of every 21.25-hour window.
+
+- For a block time of 6.4 seconds, this roughly translates to being up for 20 hours out of every 40-hour window.
 
 Penalties for downtime:
 
