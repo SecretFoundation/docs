@@ -80,7 +80,7 @@ module.exports = {
                 path: "/node-guides/migrate-a-validator",
               },
               {
-                title: "Sentry Nodes",
+                title: "Sentry Node Architecture",
                 path: "/node-guides/sentry-nodes",
               },
               {
@@ -96,7 +96,7 @@ module.exports = {
                 //path: '/node-guides/quick-sync'
               },
               {
-                title: "Vulcan Network Upgrade",
+                title: "Vulcan Network Upgrade (OLD)",
                 path: "/upgrade-secret-1-to-secret-2",
               },
             ],
