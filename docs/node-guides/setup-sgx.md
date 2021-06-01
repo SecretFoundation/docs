@@ -15,7 +15,21 @@ If you're running a local machine and not a cloud-based VM -
 
 Note: `sgx_linux_x64_driver_2.11.0_2d2b795.bin` is the latest driver as of May 31st, 2021. Please check under https://download.01.org/intel-sgx/sgx-linux/ that this is still the case. If not, please send us a PR or notify us.
 
-If you are a node runner all you must do to install SGX is to save this as a script
+If you are a node runner all you must do to install SGX is to save this as a script and run it.
+
+1. Open text editor and save the script
+
+```bash
+wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guides/sgx.md
+```
+
+Execute the script
+
+```bash
+sudo bash sgx.md
+```
+
+Copy of raw script.
 
 ```bash
 #! /bin/bash
@@ -124,7 +138,7 @@ sudo apt purge -y libsgx-enclave-common libsgx-enclave-common-dev libsgx-urts sg
 
 # Refs
 
-1. https://github.com/apache/incubator-teaclave-sgx-sdk/wiki/Environment-Setup
-2. https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md
-3. https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly
-4. https://edp.fortanix.com/docs/installation/guide/
+1. [Ref 1](https://github.com/apache/incubator-teaclave-sgx-sdk/wiki/Environment-Setup)
+2. [Ref 2](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
+3. [Ref 3](https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly)
+4. [Ref 4](https://edp.fortanix.com/docs/installation/guide/)
