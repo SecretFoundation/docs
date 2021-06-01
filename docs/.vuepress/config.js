@@ -33,7 +33,7 @@ module.exports = {
           },
           {
             title: "Using SCRT with Ledger (CLI)",
-            path: "/ledger-nano-s",
+            path: "/guides/ledger-nano",
           },
         ],
       },
