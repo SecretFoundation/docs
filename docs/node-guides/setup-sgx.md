@@ -20,13 +20,13 @@ If you are a node runner all you must do to install SGX is to save this as a scr
 1. Download the sgx install script.
 
 ```bash
-wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guides/sgx.md
+wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guides/sgx
 ```
 
 Execute the script.
 
 ```bash
-sudo bash sgx.md
+sudo bash sgx
 ```
 
 Copy of raw script.
