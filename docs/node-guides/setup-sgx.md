@@ -56,7 +56,7 @@ echo "#####       Installing Intel SGX driver       #####"
 echo "###############################################\n\n"
 
 # download SGX driver
-wget "https://download.01.org/intel-sgx/sgx-linux/2.13/distro/${OS}/sgx_linux_x64_driver_2.11.0_2d2b795.bin"
+wget "https://download.01.org/intel-sgx/sgx-linux/2.13.3/distro/${OS}/sgx_linux_x64_driver_2.11.0_2d2b795.bin"
 
 # Make the driver installer executable
 chmod +x ./sgx_linux_x64_driver_*.bin
