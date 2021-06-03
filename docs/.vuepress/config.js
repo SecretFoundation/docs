@@ -101,7 +101,7 @@ module.exports = {
               },
               {
                 title: "Quick Sync",
-                //path: '/node-guides/quick-sync'
+                path: "/node-guides/quick-sync",
               },
               {
                 title: "Vulcan Network Upgrade (OLD)",
