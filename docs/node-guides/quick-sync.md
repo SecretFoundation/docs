@@ -19,15 +19,15 @@ wget http://23.29.117.206/data.tar.gz
 wget http://23.29.117.206/compute.tar.gz
 ```
 
-Then untar and move the files into the secretd directory.
+Then untar and move the files into the secretd directory. Run each of these commands one at a time.
 
 ```bash
-- tar -xf data.tar.gz
-- tar -xf compute.tar.gz 
-- rm -r .secretd/.compute
-- rm -r .secretd/data
-- mv data .secretd/
-- mv .compute .secretd/
+tar -xf data.tar.gz
+tar -xf compute.tar.gz 
+rm -r .secretd/.compute
+rm -r .secretd/data
+mv data .secretd/
+mv .compute .secretd/
 ```
 
 
