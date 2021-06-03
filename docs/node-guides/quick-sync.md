@@ -12,7 +12,7 @@ To do this, first stop your node with.
 sudo systemctl stop secret-node
 ```
 
-Download the quicksync files provided by Dan from (chainofsecrets.org)[https://chainofsecrets.org] by running the below commands.
+Download the quicksync files provided by Dan from [chainofsecrets.org](https://chainofsecrets.org) by running the below commands.
 
 ```bash
 wget http://23.29.117.206/data.tar.gz
