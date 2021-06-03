@@ -32,4 +32,13 @@ Supermicro builds several boards that are mainnet compliant. Here is a current w
  * [X11SCW-F Motherboard link](https://www.supermicro.com/products/motherboard/X11/X11SCW-F.cfm)
  * Barebone version `SYS-5019C-WR` [SYS-5019C-WR link](https://www.supermicro.com/en/products/system/1U/5019/SYS-5019C-WR.cfm)
 
+4. Motherboard `X11SCZ-F`
+ 
+5. Motherboard `X11SSL-F`
 
+#### Dell Information
+
+1. Build `Dell R240`
+
+#### HP Information
+1. Build `HP DL20 G10`
