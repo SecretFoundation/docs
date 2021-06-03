@@ -99,7 +99,7 @@ ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx do
 
 #### Register and configure your node:
 
-_NOTE_: Substitute **$YOUR_KEY_NAME** (below) with the `key-alias` you created earlier.
+_NOTE_: Substitute **$YOUR_KEY_NAME** (below) with the `key-alias` you created earlier. Be sure to exclude the `$` character from the keyname.
 
 ```bash
 secretcli tx register auth ./attestation_cert.der --from "$YOUR_KEY_NAME" --gas 250000 --gas-prices 0.25uscrt

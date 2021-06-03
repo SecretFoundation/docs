@@ -34,6 +34,9 @@ Copy of raw script.
 ```bash
 #! /bin/bash
 
+set -eu
+set -o pipefail
+
 UBUNTUVERSION=$(lsb_release -r -s | cut -d '.' -f 1)
 PSW_PACKAGES='libsgx-enclave-common libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
 
@@ -41,11 +44,11 @@ if (($UBUNTUVERSION < 16)); then
 	echo "Your version of Ubuntu is not supported. Must have Ubuntu 16.04 and up. Aborting installation script..."
 	exit 1
 elif (($UBUNTUVERSION < 18)); then
-	DISTRO='xenial'
-	OS='ubuntu16.04-server'
-else
 	DISTRO='bionic'
 	OS='ubuntu18.04-server'
+else
+	DISTRO='focal'
+	OS='ubuntu20.04-server'
 fi
 
 echo "\n\n###############################################"
