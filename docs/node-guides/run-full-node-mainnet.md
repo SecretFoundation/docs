@@ -12,7 +12,7 @@ This document details how to join the Secret Network `mainnet` as a validator.
 
 ### Minimum requirements
 
-- 1GB RAM
+- 3GB RAM
 - 150GB SSD for Prune Everyting, or default pruining. 1TB premium SSD for Archive nodes.
 - 1 dedicated core of any Intel Xeon CPU with SGX through SPS.
 
