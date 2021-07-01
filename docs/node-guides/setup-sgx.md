@@ -37,6 +37,11 @@ Copy of raw script.
 set -eu
 set -o pipefail
 
+#! /bin/bash
+
+set -eu
+set -o pipefail
+
 UBUNTUVERSION=$(lsb_release -r -s | cut -d '.' -f 1)
 PSW_PACKAGES='libsgx-enclave-common libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
 
