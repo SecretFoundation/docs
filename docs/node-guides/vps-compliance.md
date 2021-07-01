@@ -8,6 +8,8 @@ title : 'VPS Compliance'
 
 This is intended to guide you in selecting SGX compliant VPS options for the Secret Network mainnet.
 
+Note. When renting a compliant bare metal machine from a VPS provider, ensure you do not accept any chassis or CPU substitutes they propose, unless those substitutes are on the [Hardware Compliance list.](https://docs.scrt.network/node-guides/hardware-compliance.html)
+
 
 #### Microsoft Azure Confidential Computing
 
@@ -36,5 +38,7 @@ Leaseweb has been tested and confirmed working by the Secret Network community.
 2. Ensure that Hyperthreading & overclocking/undervolting are disabled in the bios.
 3. [Install SGX](https://docs.scrt.network/node-guides/setup-sgx.html).
 4. Continue with the node setup guide [starting here.](https://build.scrt.network/validators-and-full-nodes/run-full-node-mainnet.html)
+
+##### Contributers
 
 
