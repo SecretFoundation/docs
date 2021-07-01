@@ -69,7 +69,7 @@ module.exports = {
               },
               {
                 title: "VPS Compliance",
-                //path: '/node-guides/vps-compliance'
+                path: "/node-guides/vps-compliance",
               },
               {
                 title: "Setup SGX",
