@@ -96,6 +96,10 @@ module.exports = {
                 path: "/node-guides/archive-nodes",
               },
               {
+                title: "Prune Everything Nodes",
+                path: "/node-guides/prune-everything",
+              },
+              {
                 title: "Active Node Peers",
                 //path: '/node-guides/active-node-peers'
               },
