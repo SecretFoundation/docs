@@ -81,7 +81,7 @@ Or run: `secretcli q staking validators | grep moniker`. You should see your mon
 
 There are a couple of scenarios that can lead to losing a precentage of your and your delegators' stake. These are called slashing events.
 
-The following is updated as of May 31, 2021.
+The following is updated as of July 8, 2021.
 
 #### Slashing for downtime
 
@@ -99,7 +99,7 @@ Parameters: 11250 blocks out of every 22500-blocks.
 
 Penalties for downtime:
 
-- Slashing of 1% of your and your delegators' staking amount.
+- Slashing of 0.01% of your and your delegators' staking amount.
 - Jailing for 10 minutes of your validator node. You don't earn block rewards for this period and at the end must manually unjail your node with `secretcli tx slashing unjail --from <key-alias> --gas-prices 0.25uscrt`.
 
 #### Slashing for double-signing
