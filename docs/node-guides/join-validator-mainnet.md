@@ -93,7 +93,7 @@ Signing less than `MinSignedPerWindow` blocks out of every `SignedBlocksWindow` 
 
 Parameters: 11250 blocks out of every 22500-blocks. 
 
-- For a block time of 6.8 seconds, this roughly translates to being up for 21.25f hours out of every 21.25-hour window.
+- For a block time of 6.8 seconds, this roughly translates to being up for 21.25 hours out of every 21.25-hour window.
 
 - For a block time of 6.4 seconds, this roughly translates to being up for 20 hours out of every 40-hour window.
 
