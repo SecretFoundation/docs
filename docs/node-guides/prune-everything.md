@@ -1,4 +1,4 @@
-# Archive Nodes
+# Prune Everything Nodes
 
 ### Prune all blockchain data.
 
@@ -8,7 +8,7 @@ To setup your prune everything node you can follow the instructions below:
 
 First follow the [Full Node Guide](run-full-node-mainnet.md)
 
-Now stop the full node you want to convert to an archive node.
+Now stop the full node you want to convert to a prune everything node.
 
 ```bash
 sudo systemctl stop secret-node
@@ -41,4 +41,4 @@ Now proceed to restart your secret node with the following command.
 sudo systemctl start secret-node
 ```
 
-You now have an Archive node running!
+You now have a Prune Everything node running!
