@@ -34,7 +34,7 @@ sudo tail -f /var/log/fail2ban.log
 
 ## Setup a basic Firewall with UFW
 
-Uncomplicated Firewall is a program for managing a netfilter firewall designed to be easy to use. It uses a command-line interface consisting of a small number of simple commands, and uses iptables for configuration. UFW is available by default in all Ubuntu installations after 8.04 LTS.
+Uncomplicated Firewall is a program for managing a netfilter firewall designed to be easy to use. It uses a command-line interface consisting of a small number of simple commands, and uses iptables for configuration. UFW is available by default in all Ubuntu installations after 18.04 LTS.
 
 # Setup
 
