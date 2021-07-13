@@ -66,7 +66,7 @@ This allows SSH connections by the firewall.
 sudo ufw allow ssh/tcp
 ```
 
-This limits SSH login attempts on the machine. The default is to limit SSH connections from a specific IP address if it attempts 6 or more connections within 30 seconds. Note: fail2ban will do something similar by default, but it doesn't hurt to use both. Using fail2ban vs ufw or in combination with ufw all comes down to preference.
+This limits SSH login attempts on the machine. The default is to limit SSH connections from a specific IP address if it attempts 6 or more connections within 30 seconds.
 
 ```bash
 sudo ufw limit ssh/tcp
