@@ -79,6 +79,10 @@ module.exports = {
                 title: "Run a Full Node",
                 path: "/node-guides/run-full-node-mainnet",
               },
+              {,
+                title: "Basic Security",
+                path: "/guides/basic-security",
+              },               
               {
                 title: "Join as a Validator",
                 path: "/node-guides/join-validator-mainnet",
