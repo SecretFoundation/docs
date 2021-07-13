@@ -46,6 +46,10 @@ sudo ufw status
 
 Then proceed to configure your firewall with the following options, preferably in this order.
 
+
+This sets the default to allow outgoing connections unless specified they should not be allowed.
+
+
 ```bash
 sudo ufw default allow outgoing
 ```
