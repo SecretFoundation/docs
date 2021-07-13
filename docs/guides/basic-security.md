@@ -84,7 +84,7 @@ This enables the firewall you just configured.
 
 ```bash
 sudo ufw enable
-```bash
+```
 
 Note: At any point in time you can disable your UFW firewall by running the following command.
 
