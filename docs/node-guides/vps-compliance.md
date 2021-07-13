@@ -24,9 +24,13 @@ To setup a node on Microsoft Azure do the following.
 
 #### Psychz
 
+www.psychz.net/
+
 Coming Soon.
 
 #### nforce
+
+www.nforce.com/
 
 Coming soon.
 
@@ -38,6 +42,13 @@ Leaseweb has been tested and confirmed working by the Secret Network community.
 2. Ensure that Hyperthreading & overclocking/undervolting are disabled in the bios.
 3. [Install SGX](https://docs.scrt.network/node-guides/setup-sgx.html).
 4. Continue with the node setup guide [starting here.](https://build.scrt.network/validators-and-full-nodes/run-full-node-mainnet.html)
+
+
+#### Phoenisnap
+
+www.phoenixnap.com/
+
+Coming soon.
 
 ##### Contributers
 
