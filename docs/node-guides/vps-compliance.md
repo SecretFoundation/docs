@@ -58,6 +58,6 @@ Alternatively, Eddie from FreshSCRTs is helping users expedite the delivery of t
 
 ##### Contributers
 
-* [Eddie from FreshSCRTs.com](https://secretnodes.com/secret/chains/secret-2/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
+* [Eddie from FreshSCRTs](https://secretnodes.com/secret/chains/secret-2/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
 * [Ian from secretnodes.com](https://secretnodes.com/secret/chains/secret-2/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
 * [Mohammed from securesecrets.org](https://secretnodes.com/secret/chains/secret-2/validators/45521282C12E0EC1691495FCA714947DCA072745)
