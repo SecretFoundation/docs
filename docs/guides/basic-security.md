@@ -2,39 +2,13 @@
 
 To add basic security to your node, we've provided a guide that covers 2 simple tools.
 
-* Fail2ban
-* UFW
-
-## Setup basic intrusion prevention software with Fail2ban
-
-Fail2Ban is an intrusion prevention software framework that protects computer servers from brute-force attacks. Written in the Python programming language, it is able to run on POSIX systems that have an interface to a packet-control system or firewall installed locally, for example, iptables or TCP Wrapper.
-
-# Setup
-
-Install, enable, and start fail2ban
-
-```bash
-sudo apt -y install fail2ban
-```
-
-```bash
-sudo systemctl enable fail2ban
-```
-
-```bash
-sudo systemctl start fail2ban
-```
-
-To see what fail2ban is up to, you can check the logs by running the following command.
-
-```bash
-sudo tail -f /var/log/fail2ban.log
-```
+* Uncomplicated Firewall UFW
+* Key based SSH authentication.
 
 
 ## Setup a basic Firewall with UFW
 
-Uncomplicated Firewall is a program for managing a netfilter firewall designed to be easy to use. It uses a command-line interface consisting of a small number of simple commands, and uses iptables for configuration. UFW is available by default in all Ubuntu installations after 18.04 LTS.
+Uncomplicated Firewall is a program for managing a netfilter firewall designed to be easy to use. It uses a command-line interface consisting of a small number of simple commands, and uses iptables for configuration. UFW is available by default in all Ubuntu installations after 18.04 LTS. UFW also includes some features for intrusion prevention, such as the "limit" command for ssh which we will cover in this guide.
 
 # Setup
 
@@ -94,4 +68,93 @@ Note: At any point in time you can disable your UFW firewall by running the foll
 
 ```bash
 sudo ufw disable
+```
+
+## Key based SSH authentication
+
+SSH keys, similarly to crypto currency keys, consist of a public and private key. The machine you store the private key on should be a machine you trust, and the correspending public key is what you add to your server to secure it. **For this reasons be sure to securely store a backup of your private ssh key.**
+
+From your local machine that you plan to SSH from, enerate an SSH key. This is likely going to be your laptop or desktop computer. This is written for OSX or Linux.
+
+```bash
+ssh-keygen -t ecdsa
+```
+
+Decide on a name for your key and proceed through the prompts.
+
+```bash
+Your identification has been saved in /Users/myname/.ssh/id_rsa.
+Your public key has been saved in /Users/myname/.ssh/id_rsa.pub
+The key fingerprint is:
+ae:89:72:0b:85:da:5a:f4:7c:1f:c2:43:fd:c6:44:38 myname@mymac.local
+The key's randomart image is:
++--[ RSA 2048]----+
+|                 |
+|         .       |
+|        E .      |
+|   .   . o       |
+|  o . . S .      |
+| + + o . +       |
+|. + o = o +      |
+| o...o * o       |
+|.  oo.o .        |
++-----------------+
+```
+
+Copy the contents of your public key. Note, your file name will differ from the command below based on how you named your key.
+
+```bash
+cat id_rsa.pub
+```
+
+Give the ssh folder the correct permissions.
+
+```bash
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+```
+
+Copy the contents of your newly generated public key.
+
+```bash
+cat /Users/myname/.ssh/id_rsa.pub
+```
+
+*Now log into the server that you want to protect with your new SSH key* and create a copy of the pubkey.
+
+Create a file and paste in the public key information you copied from the previous step. Be sure to save the file.
+
+```bash
+nano key.pub
+```
+
+Now add the pubkey to the authorized keys list.
+
+```bash
+cat id_rsa.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+```
+
+Once you've confirmed that you can login via the new key, you can proceed to lock down the server to only allow access via the key.
+
+Edit sshd_config to disallow password based authentication.
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Change PasswordAuthentication yes" to "PasswordAuthentication no" and then save.
+
+```bash
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+#       X11Forwarding no
+#       AllowTcpForwarding no
+#       PermitTTY no
+#       ForceCommand cvs server
+PasswordAuthentication no
+```
+
+Restart ssh process for settings to take effect.
+
+```bash
+service ssh restart
 ```
