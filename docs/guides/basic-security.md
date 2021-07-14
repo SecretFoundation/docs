@@ -83,12 +83,12 @@ ssh-keygen -t ecdsa
 Decide on a name for your key and proceed through the prompts.
 
 ```bash
-Your identification has been saved in /Users/myname/.ssh/id_rsa.
-Your public key has been saved in /Users/myname/.ssh/id_rsa.pub
+Your identification has been saved in /Users/myname/.ssh/id_ecdsa.
+Your public key has been saved in /Users/myname/.ssh/id_ecdsa.pub
 The key fingerprint is:
 ae:89:72:0b:85:da:5a:f4:7c:1f:c2:43:fd:c6:44:38 myname@mymac.local
 The key's randomart image is:
-+--[ RSA 2048]----+
++--[ ECDSA 256]---+
 |                 |
 |         .       |
 |        E .      |
@@ -116,10 +116,11 @@ mkdir -p ~/.ssh && chmod 700 ~/.ssh
 Copy the contents of your newly generated public key.
 
 ```bash
-cat /Users/myname/.ssh/id_rsa.pub
+cat /Users/myname/.ssh/id_ecdsa.pub
 ```
 
 ## Copy ssh public key to your server.
+
 *Now log into the server that you want to protect with your new SSH key* and create a copy of the pubkey.
 
 Create a file and paste in the public key information you copied from the previous step. Be sure to save the file.
@@ -131,7 +132,7 @@ nano key.pub
 Now add the pubkey to the authorized keys list.
 
 ```bash
-cat id_rsa.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+cat key.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 ```
 
 Once you've confirmed that you can login via the new key, you can proceed to lock down the server to only allow access via the key.
