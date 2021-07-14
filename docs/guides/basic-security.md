@@ -104,7 +104,7 @@ The key's randomart image is:
 Copy the contents of your public key. Note, your file name will differ from the command below based on how you named your key.
 
 ```bash
-cat id_rsa.pub
+cat /Users/myname/.ssh/id_rsa.pub
 ```
 
 Give the ssh folder the correct permissions.
@@ -119,6 +119,7 @@ Copy the contents of your newly generated public key.
 cat /Users/myname/.ssh/id_rsa.pub
 ```
 
+## Copy ssh public key to your server.
 *Now log into the server that you want to protect with your new SSH key* and create a copy of the pubkey.
 
 Create a file and paste in the public key information you copied from the previous step. Be sure to save the file.
