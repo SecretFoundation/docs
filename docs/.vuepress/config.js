@@ -51,6 +51,10 @@ module.exports = {
             title: "Secret CLI",
             path: "/cli/secretcli",
           },
+          {
+            title: "Governance",
+            path: "/guides/governance",
+          },          
         ],
       },
       {
