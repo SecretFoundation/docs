@@ -187,6 +187,14 @@ secretcli config node tcp://localhost:26657
 secretcli status
 ```
 
+Note: If your new node is not sync'd yet and you want to query from the cli, you can use the following node.
+
+```bash
+secretcli config node http://api.scrt.network:26656
+
+secretcli status
+```
+
 When the value of `catching_up` is _false_, your node is fully sync'd with the network.
 
 ```bash
