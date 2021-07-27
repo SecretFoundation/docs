@@ -24,11 +24,11 @@ To setup a node on Microsoft Azure do the following.
 
 #### Psychz
 
-Find the detailed step by step instructions [here](https://docs.scrt.network/node-guides/Psychz.html)
+Find the detailed step by step instructions [here](../node-guides/Psychz.html)
 
 #### nforce
 
-Find the detailed step by step instructions [here](https://docs.scrt.network/node-guides/Nforce.html)
+Find the detailed step by step instructions [here](../node-guides/Nforce.html)
 
 #### leaseweb
 
