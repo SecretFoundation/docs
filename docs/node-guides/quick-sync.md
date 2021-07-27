@@ -15,8 +15,8 @@ sudo systemctl stop secret-node
 Download the quicksync files provided by Dan from [chainofsecrets.org](https://chainofsecrets.org) by running the below commands.
 
 ```bash
-wget http://23.29.117.206/data.tar.gz
-wget http://23.29.117.206/compute.tar.gz
+http://174.138.166.130/data-05-26-2021.tar.gz
+http://174.138.166.130/compute-05-26-2021.tar.gz
 ```
 
 Then untar and move the files into the secretd directory. Run each of these commands one at a time.
