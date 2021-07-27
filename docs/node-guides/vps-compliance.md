@@ -47,6 +47,20 @@ Leaseweb has been tested and confirmed working by the Secret Network community.
 4. Continue with the node setup guide [starting here.](https://build.scrt.network/validators-and-full-nodes/run-full-node-mainnet.html)
 
 
+#### Phoenixnap
+
+1. Rent a [VPS from them](http://bit.ly/secretsgx) with any of the hardware that shows as working on the [Hardware Compliance list](https://docs.scrt.network/node-guides/hardware-compliance.html).
+2. Ensure that Hyperthreading & overclocking/undervolting are disabled in the bios.
+3. [Install SGX](https://docs.scrt.network/node-guides/setup-sgx.html).
+4. Continue with the node setup guide [starting here.](https://build.scrt.network/validators-and-full-nodes/run-full-node-mainnet.html)
+
+Alternatively, Eddie from FreshSCRTs is helping users expedite the delivery of their VPS as well as giving some upgrades from phoenixnap. You can pursue that by doing the following.
+
+1. Signup for phoenixnap using [this link](http://bit.ly/secretsgx).
+2. Message Eddie your order number [on telegram](https://t.me/onegaia).
+
 ##### Contributers
 
-
+* [Eddie from FreshSCRTs](https://secretnodes.com/secret/chains/secret-2/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
+* [Ian from secretnodes.com](https://secretnodes.com/secret/chains/secret-2/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
+* [Mohammed from securesecrets.org](https://secretnodes.com/secret/chains/secret-2/validators/45521282C12E0EC1691495FCA714947DCA072745)
