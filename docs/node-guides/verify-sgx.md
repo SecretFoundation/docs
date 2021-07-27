@@ -24,7 +24,9 @@ Other driver/OS combinations are not guaranteed to work with these instructions.
 
 ### 1. Download the test package
 
-`wget https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.0/secretnetwork_1.0.0_amd64.deb`
+```bash
+wget https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.0/secretnetwork_1.0.0_amd64.deb
+```
 
 ### 2. Unpack
 
@@ -121,6 +123,20 @@ ERROR: failed to create attestation report: Error calling the VM: SGX_ERROR_SERV
 
 Make sure the `aesmd-service` is running `systemctl status aesmd.service`
 
+#### Output is:
+
+```
+secretd init-enclave
+Creating new enclave registration key
+2021-07-27 02:37:24,017 INFO  [cosmwasm_sgx_vm::seed] Initializing enclave..
+2021-07-27 02:37:25,962 INFO  [cosmwasm_sgx_vm::seed] Initialized enclave successfully!
+ERROR  [wasmi_runtime_enclave::registration::cert] Platform is updated but requires further BIOS configuration
+ERROR  [wasmi_runtime_enclave::registration::cert] The following vulnerabilities must be mitigated: ["INTEL-SA-00161", "You must disable hyperthreading in the BIOS", "INTEL-SA-00289", "You must disable overclocking/undervolting in the BIOS"]
+Platform status is SW_HARDENING_AND_CONFIGURATION_NEEDED. This means is updated but requires further BIOS configuration
+```
+
+Please disable hyperthreading and overclocking/undervolting in your BIOS.
+
 #### I'm seeing `CONFIGURATION_AND_SW_HARDENING_NEEDED` in the `isvEnclaveQuoteStatus` field, but with more advisories than what is allowed
 
 This could mean a number of different things related to the configuration of the machine. Most common are:
@@ -132,3 +148,5 @@ This could mean a number of different things related to the configuration of the
 #### I'm seeing `SGX_ERROR_DEVICE_BUSY`
 
 Most likely you tried reinstalling the driver and rerunning the enclave - restarting should solve the problem
+
+
