@@ -12,7 +12,7 @@ To do this, first stop your node with.
 sudo systemctl stop secret-node
 ```
 
-Download the quicksync files provided by Dan from [chainofsecrets.org](https://chainofsecrets.org) by running the below commands.
+Download the quicksync files.
 
 ```bash
 http://174.138.166.130/data-05-26-2021.tar.gz
@@ -30,6 +30,23 @@ mv data .secretd/
 mv .compute .secretd/
 ```
 
+Then change your node to prune everything so it works with the quicksync file.
+
+Navigate to .secretd/config directory and edit the app.toml
+
+```bash
+nano app.toml
+```
+
+Change the following value from "syncable" to "nothing"
+
+```bash
+# Pruning sets the pruning strategy: syncable, nothing, everything
+# syncable: only those states not needed for state syncing will be deleted (keeps last 100 + every 10000th)
+# nothing: all historic states will be saved, nothing will be deleted (i.e. archiving node)
+# everything: all saved states will be deleted, storing only the current state
+pruning = "nothing"
+```
 
 Then start your node back up
 
