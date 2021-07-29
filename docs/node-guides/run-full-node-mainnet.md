@@ -114,7 +114,7 @@ mkdir -p ~/.secretd/.node
 secretd configure-secret node-master-cert.der "$SEED"
 
 perl -i -pe 's/^persistent_peers = ".*?"/persistent_peers = "9871fffde934152b04d4fdf57f91d7ab73f46a78\@api.scrt.network:26667"/' ~/.secretd/config/config.toml
-perl -i -pe 's;laddr = "tcp://127.0.0.1:26657";laddr = "tcp://0.0.0.0:26667";' ~/.secretd/config/config.toml
+perl -i -pe 's;laddr = "tcp://127.0.0.1:26657";laddr = "tcp://0.0.0.0:26657";' ~/.secretd/config/config.toml
 ```
 
 #### Start your node as a service:
