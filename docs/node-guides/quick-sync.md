@@ -15,15 +15,15 @@ sudo systemctl stop secret-node
 Download the quicksync files.
 
 ```bash
-http://174.138.166.130/data-05-26-2021.tar.gz
-http://174.138.166.130/compute-05-26-2021.tar.gz
+wget http://174.138.166.130/data-05-26-2021.tar.gz
+wget http://174.138.166.130/compute-05-26-2021.tar.gz
 ```
 
 Then untar and move the files into the secretd directory. Run each of these commands one at a time.
 
 ```bash
-tar -xf data.tar.gz
-tar -xf compute.tar.gz 
+tar -xf data-05-25-2021.tar.gz
+tar -xf compute-05-25-2021.tar.gz 
 rm -r .secretd/.compute
 rm -r .secretd/data
 mv data .secretd/
