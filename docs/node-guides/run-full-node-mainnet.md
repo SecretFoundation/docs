@@ -63,7 +63,7 @@ echo $PUBLIC_KEY
 
 ```bash
 secretcli config chain-id secret-2
-secretcli config node http://rpc.enigma.co:26657
+secretcli config node http://api.scrt.network:26656
 secretcli config output json
 secretcli config indent true
 ```
