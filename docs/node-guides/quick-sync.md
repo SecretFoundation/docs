@@ -56,4 +56,4 @@ sudo systemctl start secret-node
 
 ##### Contributers
 
-* [chainofsecrets](https://secretnodes.com/secret/chains/secret-2/validators/1B68882AB7CD6BC4CDDD742FC8F3D1FDE31C1A82)
+*
