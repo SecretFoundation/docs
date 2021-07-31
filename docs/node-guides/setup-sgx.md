@@ -106,6 +106,11 @@ fi
 sudo apt install -y $PSW_PACKAGES
 ```
 
+Install the libsgx-uae-service
+```
+sudo apt-get install libsgx-uae-service
+```
+
 # Testing your SGX setup
 
 ### Run `secretd init-enclave`
