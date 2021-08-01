@@ -13,7 +13,7 @@
    secretcli config chain-id secret-2
    secretcli config output json
    secretcli config indent true
-   secretcli config node tcp://secret-2.node.enigma.co:26657
+   secretcli config node tcp://api.scrt.network:26656
    secretcli config trust-node true
    ```
 
