@@ -45,7 +45,7 @@ Change the following value from "syncable" to "nothing"
 # syncable: only those states not needed for state syncing will be deleted (keeps last 100 + every 10000th)
 # nothing: all historic states will be saved, nothing will be deleted (i.e. archiving node)
 # everything: all saved states will be deleted, storing only the current state
-pruning = "nothing"
+pruning = "everything"
 ```
 
 Then start your node back up
