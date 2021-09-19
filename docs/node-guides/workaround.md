@@ -1,4 +1,4 @@
-# Secret-3 new node Workaround
+# Secret-3 New Node Workaround
 
 [Credit to Gaia / FreshSCRTs](https://secretnodes.com/secret/chains/secret-3/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
 
