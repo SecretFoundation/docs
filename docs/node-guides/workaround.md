@@ -86,6 +86,15 @@ secretcli config indent true
 
 If you haven't **already created a key**, use these steps to create a secret address and send some SCRT to it. The key will be used to register your node with the Secret Network.
 
+#### Configure CLI settings
+
+```bash
+secretcli config chain-id secret-2
+secretcli config node http://api.scrt.network:26656
+secretcli config output json
+secretcli config indent true
+```
+
 ##### Generate a new key pair for yourself
 
 (change `<key-alias>` with any word of your choice, this is just for your internal/personal reference):
@@ -131,15 +140,6 @@ secretd configure-secret node-master-cert.der "$SEED"
 
 perl -i -pe 's/^persistent_peers = ".*?"/persistent_peers = "e768e605f9a3a8eb7c36c36a6dbf9bd707ac0bd0\@bootstrap.secretnodes.org:26667"/' ~/.secretd/config/config.toml
 perl -i -pe 's;laddr = "tcp://127.0.0.1:26657";laddr = "tcp://0.0.0.0:26657";' ~/.secretd/config/config.toml
-```
-
-Configure CLI settings
-
-```bash
-secretcli config chain-id secret-2
-secretcli config node http://api.scrt.network:26656
-secretcli config output json
-secretcli config indent true
 ```
 
 ## 5. Import the quicksync data
