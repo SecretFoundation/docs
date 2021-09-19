@@ -100,6 +100,10 @@ module.exports = {
                 path: "/node-guides/sentry-nodes",
               },
               {
+                title: "Setup Validator Monitoring",
+                path: "/node-guides/setup-validator-monitoring",
+              },
+              {
                 title: "Archive Nodes",
                 path: "/node-guides/archive-nodes",
               },
