@@ -147,11 +147,9 @@ secretcli config indent true
 ```bash
 cd ~
 
-wget "https://engfilestorage.blob.core.windows.net/quicksync-secret-3/quicksync.tar.xz"
+curl https://quicksync.scrt.network/secret-3-sep19.tar.gz -o secret-3-sep19.tar.gz
 
-echo "66fe25ae54a8c3957999300c5955ee74452c7826e0a5e0eabc2234058e5d601d quicksync.tar.xz" | sha256sum --check
-
-pv quicksync.tar.xz | tar -xJf -
+tar -xf secret-3-sep19.tar.gz
 ```
 
 ## 6. Finish setup and start node
