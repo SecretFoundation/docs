@@ -1,20 +1,18 @@
-# Run a full node on the Secret Network
+# Secret-3 new node Workaround
+
+[Credit to Gaia / FreshSCRTs](https://secretnodes.com/secret/chains/secret-3/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
 
 :warning: This guide is currently using a work around to spin up a node. It will be updated after new binaries are released.
 
-- [Validators](#validators)
-  - [1. Install the new binaries on your SGX machine](#2-install-the-new-binaries-on-your-sgx-machine)
+- [SGX](#SGX)
+  - [1. Install old binaries on your SGX machine](#2-install-the-old-binaries-on-your-sgx-machine)
   - [2. Install the new binaries on your SGX machine](#2-install-the-Secret-Network-binaries-on-your-machine)
-  - [3. Import the quicksync data](#3-import-the-quicksync-data)
-  - [4. Migrate your validator's signing key](#4-migrate-your-validators-signing-key)
-  - [5. Migrate your node's encrypted seed](#5-migrate-your-nodes-encrypted-seed)
-  - [6. Migrate your validator's wallet](#6-migrate-your-validators-wallet)
-  - [7. Set up your SGX machine and become a `secret-3` validator](#7-set-up-your-sgx-machine-and-become-a-secret-3-validator)
-- [In case of an upgrade failure](#in-case-of-an-upgrade-failure)
-- [Removing an installation](#removing-an-installation)
-  - [Appendix: Registration on a new Secret-3 node](#appendix-registration-on-a-new-secret-3-node)
+  - [3. Configure your node](#3-configure-your-node)
+  - [4. Wallets](#4-wallets)
+  - [5. Import the quicksync data](#5-import-the-quicksync-data)
+  - [6. Finish setup and Start Node](#7-finish-setup-and-start-node)
 
-# Validators
+# SGX
 
 Resources:
 
@@ -28,9 +26,9 @@ wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guid
 sudo bash sgx
 ```
 
-## 2. Install the Secret Network 1.0.4 binaries on your machine
+## 2. Install the old binaries on your machine
 
-(This is a community shared work around to getting a node up and running currently)
+These are the official 1.0.4 binaries.
 
 On the machine:
 
@@ -46,12 +44,16 @@ sudo apt install ./secretnetwork_1.0.4_amd64.deb
 secretd init-enclave
 ```
 
-## 3. Install the Secret Network 1.0.5 binaries on your machine
+## 3. Install the new binaries on your machine
+
+Remove the 1.0.4 binaries and install the 1.0.5 binaries.
 
 On the machine:
 
 ```bash
 cd ~
+
+sudo apt purge -y secretnetwork
 
 wget "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.5/secretnetwork_1.0.5_amd64.deb"
 
@@ -60,11 +62,87 @@ echo "6b0259f3669ab81d41424c1db5cea5440b00eb3426cac3f9246d0223bbf9f74c secretnet
 sudo apt install -y ./secretnetwork_1.0.5_amd64.deb
 
 sudo chmod +x /usr/local/bin/secretd
-
-secretd init <MONIKER> --chain-id secret-3
 ```
 
-## 3. Import the quicksync data
+## 3. Configure your node
+
+Create the enclave attestation certificate and store its public key:
+
+```bash
+secretd init <MONIKER> --chain-id secret-3
+
+PUBLIC_KEY=$(secretd parse attestation_cert.der 2> /dev/null | cut -c 3-)
+echo $PUBLIC_KEY
+```
+
+```bash
+secretcli config chain-id secret-2
+secretcli config node http://api.scrt.network:26656
+secretcli config output json
+secretcli config indent true
+```
+
+## 4. Wallets
+
+If you haven't **already created a key**, use these steps to create a secret address and send some SCRT to it. The key will be used to register your node with the Secret Network.
+
+##### Generate a new key pair for yourself
+
+(change `<key-alias>` with any word of your choice, this is just for your internal/personal reference):
+
+```bash
+secretcli keys add <key-alias>
+```
+
+**:warning:Note:warning:: Backup the mnemonics!**
+**:warning:Note:warning:: Please make sure you also [backup your validator](backup-a-validator.md)**
+
+**Note**: If you already have a key you can import it with the bip39 mnemonic with `secretcli keys add <key-alias> --recover` or with `secretcli keys export` (exports to `stderr`!!) & `secretcli keys import`.
+
+Then transfer funds to the address you just created.
+
+##### Check that you have the funds:
+
+```bash
+secretcli q account $(secretcli keys show -a <key-alias>)
+```
+
+If you get the following message, it means that you have no tokens yet:
+
+```bash
+ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx does not exist
+```
+
+#### Register and configure your node:
+
+_NOTE_: Substitute **$YOUR_KEY_NAME** (below) with the `key-alias` you created earlier. Be sure to exclude the `$` character from the keyname.
+
+```bash
+secretcli tx register auth ./attestation_cert.der --from "$YOUR_KEY_NAME" --gas 250000 --gas-prices 0.25uscrt
+
+SEED=$(secretcli query register seed "$PUBLIC_KEY" | cut -c 3-)
+echo $SEED
+
+secretcli query register secret-network-params
+
+mkdir -p ~/.secretd/.node
+
+secretd configure-secret node-master-cert.der "$SEED"
+
+perl -i -pe 's/^persistent_peers = ".*?"/persistent_peers = "e768e605f9a3a8eb7c36c36a6dbf9bd707ac0bd0\@bootstrap.secretnodes.org:26667"/' ~/.secretd/config/config.toml
+perl -i -pe 's;laddr = "tcp://127.0.0.1:26657";laddr = "tcp://0.0.0.0:26657";' ~/.secretd/config/config.toml
+```
+
+Configure CLI settings
+
+```bash
+secretcli config chain-id secret-2
+secretcli config node http://api.scrt.network:26656
+secretcli config output json
+secretcli config indent true
+```
+
+## 5. Import the quicksync data
 
 ```bash
 cd ~
@@ -76,72 +154,12 @@ echo "66fe25ae54a8c3957999300c5955ee74452c7826e0a5e0eabc2234058e5d601d quicksync
 pv quicksync.tar.xz | tar -xJf -
 ```
 
-# In case of an upgrade failure
-
-If after a few hours the Enigma team announces on the chat that the upgrade failed, we will relaunch `secret-2`.
-
-1. On the old machine (`secret-2`):
-
-   ```bash
-   perl -i -pe 's/^halt-time =.*/halt-time = 0/' ~/.secretd/config/app.toml
-
-   sudo systemctl restart secret-node
-   ```
-
-2. Wait for 67% of voting power to come back online.
-
-# Removing an installation
-
-You can remove previous `secretnetwork` installations and start fresh using:
+## 6. Finish setup and start node
 
 ```bash
-cd ~
-sudo systemctl stop secret-node
-secretd unsafe-reset-all
-sudo apt purge -y secretnetwork
-rm -rf ~/.secretd/*
-```
-
-## Appendix: Registration on a new Secret-3 node
-
-```bash
-cd ~
-
-rm ~/.secretd/config/genesis.json
-
-secretd init <MONIKER> --chain-id secret-3
-
-wget -O ~/.secretd/config/genesis.json "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.5/genesis.json"
-
-echo "1c5682a609369c37e2ca10708fe28d78011c2006045a448cdb4e833ef160bf3f .secretd/config/genesis.json" | sha256sum --check
-
-secretd init-enclave # Can be skipped if you're installing secret-3 on your secret-2 machine
-
-PUBLIC_KEY=$(secretd parse attestation_cert.der 2> /dev/null | cut -c 3-)
-echo $PUBLIC_KEY
-
-secretcli config chain-id secret-3
-secretcli config node http://20.51.225.193:26657
-secretcli config trust-node true
-secretcli config output json
-secretcli config indent true
-
-secretcli tx register auth ./attestation_cert.der --from "$YOUR_KEY_NAME" --gas 250000 --gas-prices 0.25uscrt # Can be skipped if you're installing secret-3 on your secret-2 machine
-
-SEED=$(secretcli query register seed "$PUBLIC_KEY" | cut -c 3-) # Can be skipped if you're installing secret-3 on your secret-2 machine
-echo $SEED # Can be skipped if you're installing secret-3 on your secret-2 machine
-
-secretcli query register secret-network-params # Can be skipped if you're installing secret-3 on your secret-2 machine
-
-mkdir -p ~/.secretd/.node
-
-secretd configure-secret node-master-cert.der "$SEED" # Can be skipped if you're installing secret-3 on your secret-2 machine
-
-perl -i -pe 's/persistent_peers =.*/persistent_peers = "27db2f21cfcbfa40705d5c516858f51d5af07e03\@20.51.225.193:26656"/' ~/.secretd/config/config.toml
+secretcli config node tcp://0.0.0.0:26657
 
 sudo systemctl enable secret-node
 
 sudo systemctl start secret-node # (Now your new node is live and catching up)
-
-secretcli config node tcp://localhost:26657
 ```
