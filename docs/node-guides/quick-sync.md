@@ -23,11 +23,9 @@ Note : To check for other quicksync files you can browse https://quicksync.scrt.
 Then untar and move the files into the secretd directory. Run each of these commands one at a time.
 
 ```bash
-tar -xf secret-3-sep19.tar.gz
 rm -r .secretd/.compute
 rm -r .secretd/data
-mv data .secretd/
-mv .compute .secretd/
+tar -xf secret-3-sep19.tar.gz
 ```
 
 Then change your node to prune everything so it works with the quicksync file.
