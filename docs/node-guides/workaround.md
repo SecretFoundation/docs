@@ -76,8 +76,8 @@ echo $PUBLIC_KEY
 ```
 
 ```bash
-secretcli config chain-id secret-2
-secretcli config node http://api.scrt.network:26656
+secretcli config chain-id secret-3
+secretcli config node http://beta-api.scrt.network:26657
 secretcli config output json
 secretcli config indent true
 ```
@@ -85,15 +85,6 @@ secretcli config indent true
 ## 4. Wallets
 
 If you haven't **already created a key**, use these steps to create a secret address and send some SCRT to it. The key will be used to register your node with the Secret Network.
-
-#### Configure CLI settings
-
-```bash
-secretcli config chain-id secret-2
-secretcli config node http://api.scrt.network:26656
-secretcli config output json
-secretcli config indent true
-```
 
 ##### Generate a new key pair for yourself
 
