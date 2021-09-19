@@ -1,5 +1,7 @@
 # Join as a Validator
 
+
+### NOTE : This guide is for SECRET-2. As of the last update of this guide, the most recent chain is SECRET-3
 ### How to become a validator on Secret Network
 
 #### 1. [Run a new full node](run-full-node-mainnet.md) on a new machine.
