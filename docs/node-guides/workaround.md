@@ -26,7 +26,7 @@ wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guid
 sudo bash sgx
 ```
 
-## 2. Install the old binaries on your machine
+## 1. Install the old binaries on your machine
 
 These are the official 1.0.4 binaries.
 
@@ -44,7 +44,7 @@ sudo apt install ./secretnetwork_1.0.4_amd64.deb
 secretd init-enclave
 ```
 
-## 3. Install the new binaries on your machine
+## 2. Install the new binaries on your machine
 
 Remove the 1.0.4 binaries and install the 1.0.5 binaries.
 
