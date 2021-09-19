@@ -16,8 +16,8 @@
 
 Resources:
 
-- [Setup SGX](node-guides/setup-sgx.md)
-- [Verify SGX](node-guides/verify-sgx.md)
+- [Setup SGX](setup-sgx.md)
+- [Verify SGX](verify-sgx.md)
 
 Download the SGX script and execute it
 
