@@ -100,9 +100,19 @@ module.exports = {
                 path: "/node-guides/sentry-nodes",
               },
               {
-                title: "Setup Validator Monitoring",
-                path: "/node-guides/setup-validator-monitoring",
-              },
+                title: "Node Monitoring",
+                path: "/node-guides/node-monitoring",
+                sidebarDepth: 1,
+                children: [
+                {
+                  title: "Manual Installation",
+                  path: "/node-guides/monitoring-manual-install",
+                },
+                {
+                  title: "Run with Docker",
+                  path: "/node-guides/monitoring-docker",
+                }
+              ]},
               {
                 title: "Archive Nodes",
                 path: "/node-guides/archive-nodes",
