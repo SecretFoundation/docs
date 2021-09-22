@@ -80,8 +80,8 @@ module.exports = {
                 path: "/node-guides/setup-sgx",
               },
               {
-                title: "Secret 3 Full Node Workaround",
-                path: "/node-guides/workaround",
+                title: "Run Full Node",
+                path: "/node-guides/run-full-node-mainnet",
               },
               {
                 title: "Basic Security",
