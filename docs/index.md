@@ -34,7 +34,7 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 
 # Wallets
 
-- [Ledger Nano S and Ledger Nano X](./ledger-nano.md)
+- [Ledger Nano S and Ledger Nano X](./guides/ledger-nano.md)
 - [Keplr](https://wallet.keplr.app)
 - [Math Wallet](https://mathwallet.org/secretnetwork-wallet/)
 - [Citadel.one](https://app.citadel.one)
