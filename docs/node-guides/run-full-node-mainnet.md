@@ -64,11 +64,9 @@ wget -O ~/.secretd/config/genesis.json "https://github.com/enigmampc/SecretNetwo
 
 echo "1c5682a609369c37e2ca10708fe28d78011c2006045a448cdb4e833ef160bf3f .secretd/config/genesis.json" | sha256sum --check
 
-wget "https://engfilestorage.blob.core.windows.net/quicksync-secret-3/quicksync.tar.xz"
+curl https://quicksync.scrt.network/secret-3-sep19.tar.gz -o secret-3-sep19.tar.gz
 
-echo "66fe25ae54a8c3957999300c5955ee74452c7826e0a5e0eabc2234058e5d601d quicksync.tar.xz" | sha256sum --check
-
-pv quicksync.tar.xz | tar -xJf -
+tar -xf secret-3-sep19.tar.gz
 ```
 
 #### Create the enclave attestation certificate and store its public key:
@@ -84,7 +82,7 @@ echo $PUBLIC_KEY
 
 ```bash
 secretcli config chain-id secret-3
-secretcli config node http://20.51.225.193:26657
+secretcli config node http://api.scrt.network:26657
 secretcli config output json
 secretcli config indent true
 secretcli config trust-node true
@@ -137,7 +135,7 @@ secretd configure-secret node-master-cert.der "$SEED"
 
 perl -i -pe 's/pruning =.*/pruning = "everything"/' ~/.secretd/config/app.toml
 
-perl -i -pe 's/persistent_peers =.*/persistent_peers = "3612fb4f7b146f45e8f09a8b8c36ebc041934049\@185.56.139.85:26656,b8e2408b7f4cb556b71350ea4c6930b8db1e2599\@anode1.trivium.xiphiar.com:26656,e768e605f9a3a8eb7c36c36a6dbf9bd707ac0bd0\@bootstrap.secretnodes.org:26656,27db2f21cfcbfa40705d5c516858f51d5af07e03\@20.51.225.193:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/persistent_peers =.*/persistent_peers = "3612fb4f7b146f45e8f09a8b8c36ebc041934049\@185.56.139.85:26656,b8e2408b7f4cb556b71350ea4c6930b8db1e2599\@anode1.trivium.xiphiar.com:26656,e768e605f9a3a8eb7c36c36a6dbf9bd707ac0bd0\@bootstrap.scrt.network:26656,27db2f21cfcbfa40705d5c516858f51d5af07e03\@20.51.225.193:26656"/' ~/.secretd/config/config.toml
 
 perl -i -pe 's;laddr = "tcp://127.0.0.1:26657";laddr = "tcp://0.0.0.0:26657";' ~/.secretd/config/config.toml
 ```
