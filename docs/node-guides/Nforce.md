@@ -4,11 +4,13 @@ title : 'Nforce Guide and Setup'
 
 # Guide to get started with setup on Nforce.
 
-Things to node before setting up on Nforce.
+Website: [nForce](https://www.nforce.com/customserver)
+
+Things to note before setting up on Nforce.
 1. Only certain chasis and CPU confiuration have SGX enabled.
 2. You need to manually communicate with Nforce to give you the right configuration so that SGX works on the BIOS.
 
-## Installtion Step By Step
+## Installation Step By Step
 
 ### 1. Getting the Right Configuration 
 
