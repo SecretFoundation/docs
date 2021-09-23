@@ -11,56 +11,61 @@ This is intended to guide you in selecting SGX compliant VPS options for the Sec
 Note. When renting a compliant bare metal machine from a VPS provider, ensure you do not accept any chassis or CPU substitutes they propose, unless those substitutes are on the [Hardware Compliance list.](https://docs.scrt.network/node-guides/hardware-compliance.html)
 
 
-#### Microsoft Azure Confidential Computing
+```
+Note all cost estimates are based this off the following recommendations:
+- Processor: E-series rather than E3 (due to age)
+- SSD: 1TB+
+- RAM: 16GB+ (discussions appear to be happening that 32GB may be required)
 
-Microsoft Azure is tested and confirmed working by the Secret Network Community.
-
-To setup a node on Microsoft Azure do the following.
-
-1. Visit the Azure Confidental Compute page [here](https://azure.microsoft.com/en-us/solutions/confidential-compute/) and click "Get Started"
-2. Click "Get it now" on the following page and signup for a Microsoft Azure Account.
-3. While provisioning your VPS be sure to have at least 250GB of premium SSD storage available.
-4. After your confidential compute VM is deployed, continue with the node setup guide [starting here.](https://build.scrt.network/validators-and-full-nodes/run-full-node-mainnet.html)
-
-#### Psychz
-
-Find the detailed step by step instructions [here](../node-guides/Psychz.html)
-
-#### nforce
-
-Find the detailed step by step instructions [here](../node-guides/Nforce.html)
-
-#### leaseweb
-
-Leaseweb has been tested and confirmed working by the Secret Network community.
-
-1. Rent a [VPS from them](https://www.leaseweb.com/dedicated-servers/build-your-own) with any of the hardware that shows as working on the [Hardware Compliance list](https://docs.scrt.network/node-guides/hardware-compliance.html).
-2. Ensure that Hyperthreading & overclocking/undervolting are disabled in the bios.
-3. [Install SGX](https://docs.scrt.network/node-guides/setup-sgx.html).
-4. Continue with the node setup guide [starting here.](https://build.scrt.network/validators-and-full-nodes/run-full-node-mainnet.html)
-
-#### Vultr
-
-1. Go to their dedicated hosts/ Bare Metal services section and rent a Intel E-2286G Processor (6 cores / 12 threads @ 4.0 GHz)
-2. Using the Boot Connection log into the BIOS and Ensure that Hyperthreading & overclocking/undervolting are disabled in the bios.
-3. [Install SGX](https://docs.scrt.network/node-guides/setup-sgx.html).
-4. Continue with the node setup guide [starting here.](https://build.scrt.network/validators-and-full-nodes/run-full-node-mainnet.html)
+Just because a VPS is cheaper does *NOT* necessarily make it better.
+```
 
 
-#### Phoenixnap
+#### [Microsoft Azure Confidential Computing](https://azure.microsoft.com/en-us/solutions/confidential-compute/)
 
-1. Rent a [VPS from them](http://bit.ly/secretsgx) with any of the hardware that shows as working on the [Hardware Compliance list](https://docs.scrt.network/node-guides/hardware-compliance.html).
-2. Ensure that Hyperthreading & overclocking/undervolting are disabled in the bios.
-3. [Install SGX](https://docs.scrt.network/node-guides/setup-sgx.html).
-4. Continue with the node setup guide [starting here.](https://build.scrt.network/validators-and-full-nodes/run-full-node-mainnet.html)
+Cost estimate: TBD
 
-Alternatively, Eddie from FreshSCRTs is helping users expedite the delivery of their VPS as well as giving some upgrades from phoenixnap. You can pursue that by doing the following.
+Find the detailed step by step instructions [here](../node-guides/azure.html)
 
-1. Signup for phoenixnap using [this link](http://bit.ly/secretsgx).
-2. Message Eddie your order number [on telegram](https://t.me/onegaia).
+
+#### [Psychz](https://www.psychz.net/dashboard/client/web/order/dedicated-server?processor=&processorBaseFreq=&numberOfCpu=7391&cpuCores=&location=)
+
+Cost estimate: $144/mo
+
+Find the detailed step by step instructions [here](../node-guides/psychz.html)
+
+
+#### [nforce](https://www.nforce.com/customserver)
+
+Cost estimate: $95/mo
+
+Find the detailed step by step instructions [here](../node-guides/nforce.html)
+
+
+#### [leaseweb](https://www.leaseweb.com/dedicated-servers/build-your-own)
+
+Cost estimate: $89/mo
+
+Find the detailed step by step instructions [here](../node-guides/leaseweb.html)
+
+
+#### [Vultr](https://www.vultr.com/products/bare-metal/)
+
+Cost estimate: $185/mo
+
+Find the detailed step by step instructions [here](../node-guides/vultr.html)
+
+
+#### [Phoenixnap](https://admin.phoenixnap.com/wap-pncpadmin-shell/orderForm?bmbPath=/order-management/order-form?currencyCode=usd)
+
+Cost estimate: $210/mo
+
+Find the detailed step by step instructions [here](../node-guides/phoenixnap.html)
+
 
 ##### Contributers
 
-* [Eddie from FreshSCRTs](https://secretnodes.com/secret/chains/secret-2/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
-* [Ian from secretnodes.com](https://secretnodes.com/secret/chains/secret-2/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
-* [Mohammed from securesecrets.org](https://secretnodes.com/secret/chains/secret-2/validators/45521282C12E0EC1691495FCA714947DCA072745)
+* [Dylan from Lavender.Five](https://secretnodes.com/secret/chains/secret-3/validators/84BC2C72491187FAB144F628166E10D592786616)
+* [Eddie from FreshSCRTs](https://secretnodes.com/secret/chains/secret-3/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
+* [Ian from secretnodes.com](https://secretnodes.com/secret/chains/secret-3/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
+* [Mohammed from securesecrets.org](https://secretnodes.com/secret/chains/secret-3/validators/45521282C12E0EC1691495FCA714947DCA072745)
