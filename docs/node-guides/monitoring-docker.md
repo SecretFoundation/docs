@@ -65,7 +65,7 @@ $ git clone https://github.com/Xiphiar/node_tooling.git
 $ cd ./node_tooling/monitoring
 ```
 
-2. **(If you want to collect metrics from your secret-node)** In the prometheus folder, modify cosmos.yml, replace `NODE_IP` with the IP of your node. (If your node is on the docker host machine, use `172.17.0.1`)
+2. In the prometheus folder, modify cosmos.yaml, replace `NODE_IP` with the IP of your node. (If your node is on the docker host machine, use `172.17.0.1`)
 ```bash
 $ nano ./prometheus/cosmos.yaml
 ```
@@ -81,10 +81,12 @@ $ cp ./prometheus/cosmos.yaml ./prometheus/prometheus.yml
 ```bash
 $ docker-compose --profile monitor up -d
 ```
-2. Login to Grafana at `http://yopur-ip:3000` with username `admin` and password `admin`
+2. Login to Grafana at `http://your-ip:3000` with username `admin` and password `admin`
+
+The containers will restart automatically after rebooting unless they are stopped manually.
 
 ## Using the Cosmos SDK Grafana Dashboard
-The dashboard for Cosmod SDK nodes is pre-installed, to use it:
+The dashboard for Cosmos SDK nodes is pre-installed, to use it:
 
 1. Enable Tendermint metrics in your secret-node
 ```bash:
@@ -102,15 +104,24 @@ $ docker-compose --profile monitor up -d
 3. Login to grafana and open the Cosmos Dashboard from the [Manage Dashboards](http://localhost:3000/dashboards) page.
 4. Set the chain-id to `secret-3`
 
+## Application Ports
+The docker images expose the following ports:
+
+* `3000` Grafana. Your main dashboard. Default login is admin\admin.
+* `9090` Prometheus. Access to this port should be restricted.
+* `9100` Node Exporter. Access to this port should be restricted.
+* Your secret node metrics on port `26660` should also be restricted.
+
+If you followed the basic security guide, these ports are already restricted. You will need to allow the grafana port:
+
+`sudo ufw allow 3000`
+
+You can also allow access from a specific IP if desired:
+
+`sudo ufw allow from 123.123.123.123 to any port 3000`
+
 ## Stop the Containers
 1. From the `node_tooling/monitoring` directory:
 ```
 $ docker-compose down
 ```
-
-## Application Ports
-The docker images expose the following ports:
-
-* `3000` Grafana. Your main dashboard. Default login is admin\admin.
-* `9090` Prometheus. This should be shielded from the open internet.
-* `9100` Node Exporter. This should be shielded from the open internet.
