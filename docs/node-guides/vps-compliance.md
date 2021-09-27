@@ -25,42 +25,42 @@ Just because a VPS is cheaper does *NOT* necessarily make it better.
 
 Cost estimate: TBD
 
-Find the detailed step by step instructions [here](../node-guides/vps/azure.html)
+Find the detailed step by step instructions [here](../node-guides/azure.html)
 
 
 #### [Psychz](https://www.psychz.net/dashboard/client/web/order/dedicated-server?processor=&processorBaseFreq=&numberOfCpu=7391&cpuCores=&location=)
 
 Cost estimate: $144/mo
 
-Find the detailed step by step instructions [here](../node-guides/vps/psychz.html)
+Find the detailed step by step instructions [here](../node-guides/psychz.html)
 
 
 #### [nforce](https://www.nforce.com/customserver)
 
 Cost estimate: $95/mo
 
-Find the detailed step by step instructions [here](../node-guides/vps/nforce.html)
+Find the detailed step by step instructions [here](../node-guides/nforce.html)
 
 
 #### [leaseweb](https://www.leaseweb.com/dedicated-servers/build-your-own)
 
 Cost estimate: $89/mo
 
-Find the detailed step by step instructions [here](../node-guides/vps/leaseweb.html)
+Find the detailed step by step instructions [here](../node-guides/leaseweb.html)
 
 
 #### [Vultr](https://www.vultr.com/products/bare-metal/)
 
 Cost estimate: $185/mo
 
-Find the detailed step by step instructions [here](../node-guides/vps/vultr.html)
+Find the detailed step by step instructions [here](../node-guides/vultr.html)
 
 
 #### [Phoenixnap](https://admin.phoenixnap.com/wap-pncpadmin-shell/orderForm?bmbPath=/order-management/order-form?currencyCode=usd)
 
 Cost estimate: $210/mo
 
-Find the detailed step by step instructions [here](../node-guides/vps/phoenixnap.html)
+Find the detailed step by step instructions [here](../node-guides/phoenixnap.html)
 
 
 ##### Contributers
