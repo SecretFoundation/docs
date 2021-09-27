@@ -13,7 +13,7 @@ If you're running a local machine and not a cloud-based VM -
 
 ### Install SGX
 
-Note: `sgx_linux_x64_driver_2.11.0_2d2b795.bin` is the latest driver as of May 31st, 2021. Please check under https://download.01.org/intel-sgx/sgx-linux/ that this is still the case. If not, please send us a PR or notify us.
+Note: `sgx_linux_x64_driver_2.11.0_2d2b795.bin` is the latest driver as of August 24th, 2021. Please check under https://download.01.org/intel-sgx/sgx-linux/ that this is still the case. If not, please send us a PR or notify us.
 
 If you are a node runner all you must do to install SGX is to save this as a script and run it.
 
@@ -34,29 +34,34 @@ Copy of raw script.
 ```bash
 #! /bin/bash
 
-set -eu
-set -o pipefail
-
 UBUNTUVERSION=$(lsb_release -r -s | cut -d '.' -f 1)
 PSW_PACKAGES='libsgx-enclave-common libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
 
 if (($UBUNTUVERSION < 16)); then
 	echo "Your version of Ubuntu is not supported. Must have Ubuntu 16.04 and up. Aborting installation script..."
 	exit 1
-elif (($UBUNTUVERSION < 18)); then
+elif (($UBUNTUVERSION == 16)); then
 	DISTRO='xenial'
 	OS='ubuntu16.04-server'
-else
+elif (($UBUNTUVERSION == 18)); then
 	DISTRO='bionic'
 	OS='ubuntu18.04-server'
+elif (($UBUNTUVERSION == 20)); then
+	DISTRO='focal'
+	OS='ubuntu20.04-server'
 fi
 
 echo "\n\n###############################################"
 echo "#####       Installing Intel SGX driver       #####"
 echo "###############################################\n\n"
 
-# download SGX driver
-wget "https://download.01.org/intel-sgx/sgx-linux/2.13.3/distro/${OS}/sgx_linux_x64_driver_2.11.0_2d2b795.bin"
+# Download SGX driver
+if (($UBUNTUVERSION == 16)); then
+   # Ubuntu 16 was deprecated by the latest Intel SGX drivers
+   wget "https://download.01.org/intel-sgx/sgx-linux/2.13/distro/${OS}/sgx_linux_x64_driver_2.11.0_0373e2e.bin"
+else
+   wget "https://download.01.org/intel-sgx/sgx-linux/2.14/distro/${OS}/sgx_linux_x64_driver_2.11.0_2d2b795.bin"
+fi
 
 # Make the driver installer executable
 chmod +x ./sgx_linux_x64_driver_*.bin
@@ -97,8 +102,8 @@ if (($UBUNTUVERSION > 18)); then
    sudo apt install -y gdebi
    # Install all the additional necessary dependencies (besides the driver and the SDK)
    # for building a rust enclave
-   wget -O /tmp/libprotobuf10_3.0.0-9_amd64.deb http://ftp.br.debian.org/debian/pool/main/p/protobuf/libprotobuf10_3.0.0-9_amd64.deb
-   yes | sudo gdebi /tmp/libprotobuf10_3.0.0-9_amd64.deb
+   wget -O /tmp/libprotobuf28_3.17.3-2_amd64.deb http://ftp.br.debian.org/debian/pool/main/p/protobuf/libprotobuf28_3.17.3-2_amd64.deb
+   yes | sudo gdebi /tmp/libprotobuf28_3.17.3-2_amd64.deb
 else
    PSW_PACKAGES+=' libprotobuf-dev'
 fi
@@ -108,9 +113,11 @@ sudo apt install -y $PSW_PACKAGES
 
 # Testing your SGX setup
 
+## For Node Runners
+
 ### Run `secretd init-enclave`
 
-See [Verify SGX](verify-sgx.md) for a guide how to test your setup
+See [Verify SGX](verify-sgx.md) for a guide how to test your setup.
 
 # Uninstall
 
@@ -126,6 +133,13 @@ The above command produces no output when it succeeds. If you want to verify tha
 ls /dev/isgx &>/dev/null && echo "SGX Driver installed" || echo "SGX Driver NOT installed"
 ```
 
+To uninstall the SGX SDK, run:
+
+```bash
+sudo "$HOME"/.sgxsdk/sgxsdk/uninstall.sh
+rm -rf "$HOME/.sgxsdk"
+```
+
 To uninstall the rest of the dependencies, run:
 
 ```bash
@@ -134,13 +148,13 @@ sudo apt purge -y libsgx-enclave-common libsgx-enclave-common-dev libsgx-urts sg
 
 # Refs
 
-1. [Ref 1](https://github.com/apache/incubator-teaclave-sgx-sdk/wiki/Environment-Setup)
-2. [Ref 2](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
-3. [Ref 3](https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly)
-4. [Ref 4](https://edp.fortanix.com/docs/installation/guide/)
-
+1. https://github.com/apache/incubator-teaclave-sgx-sdk/wiki/Environment-Setup
+2. https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md
+3. https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly
+4. https://edp.fortanix.com/docs/installation/guide/
 
 ##### Contributers
 
-* [FreshSCRT](https://secretnodes.com/secret/chains/secret-2/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
-* [secretnodes](https://secretnodes.com/secret/chains/secret-2/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
+* [FreshSCRT](https://secretnodes.com/secret/chains/secret-3/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
+* [secretnodes](https://secretnodes.com/secret/chains/secret-3/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
+* [Lavender.Five](https://secretnodes.com/secret/chains/secret-3/validators/84BC2C72491187FAB144F628166E10D592786616)

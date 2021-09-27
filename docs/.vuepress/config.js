@@ -7,10 +7,11 @@ module.exports = {
     nav: [
       { text: "Home", link: "https://scrt.network" },
       { text: "Blog", link: "https://blog.scrt.network" },
-      { text: "Chat", link: "https://chat.scrt.network" },
+      { text: "Discord", link: "https://chat.scrt.network" },
       { text: "Forum", link: "https://forum.scrt.network" },
       { text: "Twitter", link: "https://twitter.com/SecretNetwork" },
       { text: "Github", link: "https://github.com/enigmampc/SecretNetwork" },
+      { text: "Telegram", link: "https://t.co/lIiXm3c1hu" },
     ],
     sidebar: [
       {
@@ -54,7 +55,7 @@ module.exports = {
           {
             title: "Governance",
             path: "/guides/governance",
-          },          
+          },
         ],
       },
       {
@@ -86,7 +87,7 @@ module.exports = {
               {
                 title: "Basic Security",
                 path: "/guides/basic-security",
-              },               
+              },
               {
                 title: "Join as a Validator",
                 path: "/node-guides/join-validator-mainnet",
@@ -104,15 +105,16 @@ module.exports = {
                 path: "/node-guides/node-monitoring",
                 sidebarDepth: 1,
                 children: [
-                {
-                  title: "Manual Installation",
-                  path: "/node-guides/monitoring-manual-install",
-                },
-                {
-                  title: "Run with Docker",
-                  path: "/node-guides/monitoring-docker",
-                }
-              ]},
+                  {
+                    title: "Manual Installation",
+                    path: "/node-guides/monitoring-manual-install",
+                  },
+                  {
+                    title: "Run with Docker",
+                    path: "/node-guides/monitoring-docker",
+                  },
+                ],
+              },
               {
                 title: "Archive Nodes",
                 path: "/node-guides/archive-nodes",
@@ -162,6 +164,21 @@ module.exports = {
           {
             title: "Delegators",
             path: "/node-guides/delegating-mainnet",
+          },
+        ],
+      },
+      {
+        title: "Post Mortems",
+        collapsable: true, // optional, defaults to true
+        sidebarDepth: 1, // optional, defaults to 1
+        children: [
+          {
+            title: "Testnet Halt 95",
+            path: "/post-mortems/testnet-halt-95",
+          },
+          {
+            title: "September 2021 Earn Contract Exploit",
+            path: "/post-mortems/september-2021-exploit",
           },
         ],
       },
