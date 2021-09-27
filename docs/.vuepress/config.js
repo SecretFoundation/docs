@@ -164,6 +164,18 @@ module.exports = {
             title: "Delegators",
             path: "/node-guides/delegating-mainnet",
           },
+          {
+            title: "Post Mortems",
+            path: "/", // optional, link of the title, which should be an absolute path and must exist
+            collapsable: true, // optional, defaults to true
+            sidebarDepth: 1, // optional, defaults to 1
+            children: [
+              {
+                title: "Testnet Halt 95",
+                path: "/post-mortems/testnet-halt-95",
+              },
+            ],
+          }
         ],
       },
     ],
