@@ -7,10 +7,11 @@ module.exports = {
     nav: [
       { text: "Home", link: "https://scrt.network" },
       { text: "Blog", link: "https://blog.scrt.network" },
-      { text: "Chat", link: "https://chat.scrt.network" },
+      { text: "Discord", link: "https://chat.scrt.network" },
       { text: "Forum", link: "https://forum.scrt.network" },
       { text: "Twitter", link: "https://twitter.com/SecretNetwork" },
       { text: "Github", link: "https://github.com/enigmampc/SecretNetwork" },
+      { text: "Telegram", link: "https://t.co/lIiXm3c1hu" },
     ],
     sidebar: [
       {
