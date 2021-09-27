@@ -174,6 +174,10 @@ module.exports = {
                 title: "Testnet Halt 95",
                 path: "/post-mortems/testnet-halt-95",
               },
+              {
+                title: "September 2021 Earn Contract Exploit",
+                path: "/post-mortems/september-2021-exploit"
+              }
             ],
           }
         ],
