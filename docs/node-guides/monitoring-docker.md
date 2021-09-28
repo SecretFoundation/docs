@@ -125,3 +125,7 @@ You can also allow access from a specific IP if desired:
 ```
 $ docker-compose down
 ```
+
+##### Contributers
+
+* [Trivium | TriviumNode.com](https://secretnodes.com/secret/chains/secret-3/validators/A990AE301F4E8AB8E14D6965897303E30C7D3456)
