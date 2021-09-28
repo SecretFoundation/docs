@@ -113,8 +113,6 @@ sudo apt install -y $PSW_PACKAGES
 
 # Testing your SGX setup
 
-## For Node Runners
-
 ### Run `secretd init-enclave`
 
 See [Verify SGX](verify-sgx.md) for a guide how to test your setup.
