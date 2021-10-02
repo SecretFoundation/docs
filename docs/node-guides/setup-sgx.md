@@ -1,5 +1,7 @@
 # Prepare your Hardware
 
+Ensure your hardware is [Secret Node Compliant](hardware-compliance.md).
+
 If you're running a local machine and not a cloud-based VM -
 
 1. Go to your BIOS menu
