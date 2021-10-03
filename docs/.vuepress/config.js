@@ -30,7 +30,7 @@ module.exports = {
           },
           {
             title: "Protocol",
-            path: "/protocol",
+            path: "/protocol/protocol",
           },
           {
             title: "Network Architecture",
@@ -40,9 +40,9 @@ module.exports = {
             title: "Development Roadmap",
             path: "/protocol/roadmap",
           },
-          { 
-            title: "Frequently Asked Questions", 
-            path: "/questions" 
+          {
+            title: "Frequently Asked Questions",
+            path: "/questions",
           },
           {
             title: "Using SCRT with Ledger (CLI)",
@@ -50,7 +50,6 @@ module.exports = {
           },
         ],
       },
-      
       {
         title: "Ecosystem", // required
         path: "/", // optional, link of the title, which should be an absolute path and must exist
@@ -115,7 +114,7 @@ module.exports = {
               },
               {
                 title: "Basic Security",
-                path: "/guides/basic-security",
+                path: "/node-guides/basic-security",
               },
               {
                 title: "Join as a Validator",
