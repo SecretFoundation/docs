@@ -24,6 +24,10 @@ module.exports = {
             title: "Overview",
             path: "/overview",
           },
+          {
+            title: "About the Network",
+            path: "/network" 
+          },
           { 
             title: "Protocol", 
             path: "/protocol"
