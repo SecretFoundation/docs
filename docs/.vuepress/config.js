@@ -24,6 +24,10 @@ module.exports = {
             title: "Overview",
             path: "/overview",
           },
+          { 
+            title: "Protocol", 
+            path: "/protocol"
+          },
           {
             title: "Network Architecture",
             path: "/protocol/architecture",
@@ -31,6 +35,10 @@ module.exports = {
           {
             title: "Development Roadmap",
             path: "/protocol/roadmap",
+          },
+          {
+            title: "Using SCRT with Ledger (CLI)",
+            path: "/guides/ledger-nano",
           },
           {
             title: "Using SCRT with Ledger (CLI)",
