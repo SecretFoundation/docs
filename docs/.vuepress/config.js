@@ -26,11 +26,11 @@ module.exports = {
           },
           {
             title: "About the Network",
-            path: "/network" 
+            path: "/network",
           },
-          { 
-            title: "Protocol", 
-            path: "/protocol"
+          {
+            title: "Protocol",
+            path: "/protocol",
           },
           {
             title: "Network Architecture",
@@ -40,13 +40,30 @@ module.exports = {
             title: "Development Roadmap",
             path: "/protocol/roadmap",
           },
-          {
-            title: "Using SCRT with Ledger (CLI)",
-            path: "/guides/ledger-nano",
+          { 
+            title: "Frequently Asked Questions", 
+            path: "/questions" 
           },
           {
             title: "Using SCRT with Ledger (CLI)",
             path: "/guides/ledger-nano",
+          },
+        ],
+      },
+      
+      {
+        title: "Ecosystem", // required
+        path: "/", // optional, link of the title, which should be an absolute path and must exist
+        collapsable: true, // optional, defaults to true
+        sidebarDepth: 1, // optional, defaults to 1
+        children: [
+          {
+            title: "Secret Apps",
+            path: "/ecosystem/apps",
+          },
+          {
+            title: "Community Projects",
+            path: "/ecosystem/projects",
           },
         ],
       },
@@ -192,6 +209,13 @@ module.exports = {
             title: "September 2021 Earn Contract Exploit",
             path: "/post-mortems/september-2021-exploit",
           },
+        ],
+      },
+      {
+        title: "Foundation",
+        children: [
+          { title: "About", path: "/foundation/foundation" },
+          { title: "Committees", path: "/foundation/committees" },
         ],
       },
     ],

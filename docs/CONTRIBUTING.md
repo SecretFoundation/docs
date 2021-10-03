@@ -16,7 +16,7 @@ We have a list of issues tagged for [community contributions](https://github.com
 
 ### Participate in the Community
 
-We have a [forum](https://forum.scrt.network) and a [wiki](https://learn.scrt.network), plus a [Discord](https://discord.gg/sPfC5Jx) where members of the community might offer helpful advice if you have ideas or questions. There's a development committee focusing on improving developer experience and adoption in Secret Network. You can see the projects the development committee is working on [here](https://github.com/SecretFoundation/dev_committee/projects/1).
+We have a [forum](https://forum.scrt.network), plus a [Discord](https://discord.gg/sPfC5Jx) where members of the community might offer helpful advice if you have ideas or questions. There's a development committee focusing on improving developer experience and adoption in Secret Network. You can see the projects the development committee is working on [here](https://github.com/SecretFoundation/dev_committee/projects/1).
 
 ### Report Bugs
 
@@ -28,7 +28,7 @@ Before creating bug reports, please check [this list](#before-submitting-a-bug-r
 
 #### Before Submitting A Bug Report
 
-- **Check [the FAQs](https://learn.scrt.network/questions)** for a list of commonly asked questions and our best answers.
+- **Check [the FAQs](https://docs.scrt.network/questions)** for a list of commonly asked questions and our best answers.
 - **Look through recent posts on [the forum](https://forum.scrt.network)** to see any relevant discussions.
 - **Perform a [search](https://github.com/search?q=+is%3Aissue+user%3Aenigmampc)** to see if the problem has already been reported.
 

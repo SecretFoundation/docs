@@ -17,7 +17,6 @@ Mainnet is out! Get the latest release at [https://github.com/enigmampc/SecretNe
 - Homepage: [https://scrt.network](https://scrt.network)
 - Blog: [https://blog.scrt.network](https://blog.scrt.network)
 - Forum: [https://forum.scrt.network](https://forum.scrt.network)
-- Wiki: [https://learn.scrt.network](https://learn.scrt.network)
 - Discord: [https://chat.scrt.network](https://chat.scrt.network)
 - Twitter: [https://twitter.com/SecretNetwork](https://twitter.com/SecretNetwork)
 - Community Telegram Channel: [https://t.me/SCRTnetwork](https://t.me/SCRTnetwork)
