@@ -50,17 +50,17 @@ _NOTE_: Substitute **$YOUR_MONIKER** (below) with your node's nickname or alias.
 ```bash
 cd ~
 
-wget "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.5/secretnetwork_1.0.5_amd64.deb"
+wget "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.6/secretnetwork_1.0.6_amd64.deb"
 
-echo "6b0259f3669ab81d41424c1db5cea5440b00eb3426cac3f9246d0223bbf9f74c secretnetwork_1.0.5_amd64.deb" | sha256sum --check
+echo "e0153d0dcde41059a9d2f9b9ccf1648fbc3ebaf7c72198f3f26f1f8b8f678988 secretnetwork_1.0.6_amd64.deb" | sha256sum --check
 
-sudo apt install -y ./secretnetwork_1.0.5_amd64.deb
+sudo apt install -y ./secretnetwork_1.0.6_amd64.deb
 
 sudo chmod +x /usr/local/bin/secretd
 
 secretd init <MONIKER> --chain-id secret-3
 
-wget -O ~/.secretd/config/genesis.json "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.5/genesis.json"
+wget -O ~/.secretd/config/genesis.json "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.6/genesis.json"
 
 echo "1c5682a609369c37e2ca10708fe28d78011c2006045a448cdb4e833ef160bf3f .secretd/config/genesis.json" | sha256sum --check
 
