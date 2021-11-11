@@ -2,11 +2,16 @@
 description: 'Instructions for setting up the rust based relayer, Hermes'
 ---
 
+# NOTE: THIS IS STILL IN PROGRESS, CHANNELS WILL NEED TO BE SORTED OUT/CHANGED
+
+
+
+
 # Hermes
 
 ## Assumptions
 
-We assume that you already have access to Secret, Osmosis and Cosmos nodes. These can be either local nodes, or you can access them over the network. However, for networked version, you will need to adjust the systemd configuration not to depend on the chains that are run on other servers. And naturally the hermes configuration needs to adjust the addressing of each chain as well.
+We assume that you already have access to Secret, Osmosis, Cosmos, and Sifchain nodes. These can be either local nodes, or you can access them over the network. However, for networked version, you will need to adjust the systemd configuration not to depend on the chains that are run on other servers. And naturally the hermes configuration needs to adjust the addressing of each chain as well.
 
 The given example has all relayed chains run locally, Secret is on standard ports, other chains are configured as follows:
 
@@ -18,7 +23,18 @@ In these instructions, Hermes is installed under /ibc/hermes, adjust the paths a
 
 These instructions are based on installation on Debian 10, but should work the same on Debian 11 or recent Ubuntu.
 
-You will need **rust**, **build-essential** and **git** installed to follow these instructions.
+You will need **rust**, **build-essential** and **git** installed to follow these instructions:
+
+```
+# rust:
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# build-essential:
+sudo apt-get install build-essential -y
+
+# git:
+sudo apt install git-all -y
+```
 
 ## Building Hermes
 
@@ -73,6 +89,7 @@ clear_packets_interval = 100
 
 [[chains]]
 id = 'secret-4'
+
 rpc_addr = 'http://127.0.0.1:26657'
 grpc_addr = 'http://127.0.0.1:29090'
 websocket_addr = 'ws://127.0.0.1:26657/websocket'
@@ -194,7 +211,7 @@ Success: "validation passed successfully"
 
 ## Setting up wallets
 
-We do this by creating key configuration files that are imported to hermes. Here we go trhough Secret key setting, other chains are similar.
+We do this by creating key configuration files that are imported to hermes. Here we go through Secret key setting, other chains are similar.
 
 ```text
 {
