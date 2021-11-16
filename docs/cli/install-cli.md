@@ -18,7 +18,7 @@ Note - As per the recent chnages in the Cosmos SDK, home directory for the CLI i
    ```
 
    You currently have two options for getting your own secret node:
-   1. [Rent or use a free-tier node from figment](https://datahub.figment.io/services/secret).
+   1. [Rent or use a free-tier node from figment](https://figment.io/datahub/secret-network/).
    2. [Set up your own node](node-guides/run-full-node-mainnet.md).
 
 4) Check the installation:
