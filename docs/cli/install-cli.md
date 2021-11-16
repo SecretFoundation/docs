@@ -7,19 +7,18 @@
    - Mac/Windows: Rename it from `secretcli-${VERSION}-${OS}` to `secretcli` or `secretcli.exe` and put it in your path.
    - Ubuntu/Debian: `sudo dpkg -i secret*.deb`
 
+Note - As per the recent chnages in the Cosmos SDK, home directory for the CLI is now `~/.secretd` check more info [HERE](https://github.com/scrtlabs/SupernovaDocs/blob/master/app%20developers/cli.md)
+
 3) Configure:
 
    ```bash
-   secretcli config chain-id secret-2
+   secretcli config chain-id secret-4
    secretcli config output json
-   secretcli config indent true
-   secretcli config node tcp://api.scrt.network:26656
-   secretcli config trust-node true
+   secretcli config node http://bootstrap.node.scrtlabs.com:26657
    ```
 
-   `secret-2.node.scrt.network` is not a real node though.
    You currently have two options for getting your own secret node:
-   1. [Rent or use a free-tier node from figment](https://figment.io/datahub/secret-network/).
+   1. [Rent or use a free-tier node from figment](https://datahub.figment.io/services/secret).
    2. [Set up your own node](node-guides/run-full-node-mainnet.md).
 
 4) Check the installation:
