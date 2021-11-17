@@ -14,7 +14,7 @@ Note - As per the recent chnages in the Cosmos SDK, home directory for the CLI i
    ```bash
    secretcli config chain-id secret-4
    secretcli config output json
-   secretcli config node http://bootstrap.node.scrtlabs.com:26657
+   secretcli config node http://api.scrt.network:26657
    ```
 
    You currently have two options for getting your own secret node:

@@ -79,12 +79,7 @@ Where `proposal.json` is:
       "value": 105
     }
   ],
-  "deposit": [
-    {
-      "denom": "uscrt",
-      "amount": "10000000"
-    }
-  ]
+  "deposit": "10000000uscrt"
 }
 ```
 
