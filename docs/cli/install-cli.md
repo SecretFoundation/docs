@@ -7,7 +7,7 @@
    - Mac/Windows: Rename it from `secretcli-${VERSION}-${OS}` to `secretcli` or `secretcli.exe` and put it in your path.
    - Ubuntu/Debian: `sudo dpkg -i secret*.deb`
 
-Note - As per the recent chnages in the Cosmos SDK, home directory for the CLI is now `~/.secretd` check more info [HERE](https://github.com/scrtlabs/SupernovaDocs/blob/master/app%20developers/cli.md)
+Note - As per the recent changes in the Cosmos SDK, home directory for the CLI is now `~/.secretd` check more info [HERE](https://github.com/scrtlabs/SupernovaDocs/blob/master/app%20developers/cli.md)
 
 3) Configure:
 
