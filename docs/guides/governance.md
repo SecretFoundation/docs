@@ -22,7 +22,9 @@ For more information about the governance process and how it works, please check
 
 ## Create a Governance Proposal
 
-In order to create a governance proposal, you must submit an initial deposit along with a title and description. Currently, in order to enter the voting period, a proposal must accumulate within a week deposits of at least [1000 `SCRT`](https://github.com/enigmampc/SecretNetwork/blob/b0792cc7f63a9264afe5de252a5821788c21834d/enigma-1-genesis.json#L1851-L1856).
+In order to create a governance proposal, you must submit an initial deposit along with a title and description. Currently, in order to enter the voting period, a proposal must accumulate within a week deposits of at least [100 `SCRT`](https://secretnodes.com/secret/chains/secret-4/governance/proposals/32).
+
+Note - Please remember through the duration of this guide that the secretcli counts SCRT in USCRT. 1 SCRT = 1,000,000 USCRT.
 
 Various modules outside of governance may implement their own proposal types and handlers (eg. parameter changes), where the governance module itself supports `Text` proposals. Any module outside of governance has it's command mounted on top of `submit-proposal`.
 
@@ -35,7 +37,7 @@ secretcli tx gov submit-proposal \
   --title <title> \
   --description <description> \
   --type Text \
-  --deposit 1000000uscrt \
+  --deposit 100000000uscrt \
   --from <key_alias>
 ```
 
@@ -52,7 +54,7 @@ Where `proposal.json` is:
   "type": "Text",
   "title": "My Cool Proposal",
   "description": "A description with line breaks \n and `code formatting`",
-  "deposit": "1000000uscrt"
+  "deposit": "100000000uscrt"
 }
 ```
 
@@ -77,12 +79,7 @@ Where `proposal.json` is:
       "value": 105
     }
   ],
-  "deposit": [
-    {
-      "denom": "uscrt",
-      "amount": "10000000"
-    }
-  ]
+  "deposit": "10000000uscrt"
 }
 ```
 
@@ -156,18 +153,8 @@ Where `proposal.json` is:
   "title": "Community Pool Spend",
   "description": "Spend 10 SCRT with line breaks \n and `code formatting`",
   "recipient": "secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "amount": [
-    {
-      "denom": "uscrt",
-      "amount": "10000000"
-    }
-  ],
-  "deposit": [
-    {
-      "denom": "uscrt",
-      "amount": "10000000"
-    }
-  ]
+  "amount": "100000000uscrt",
+  "deposit":"100000000uscrt"
 }
 ```
 
