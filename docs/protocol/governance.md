@@ -125,9 +125,9 @@ Where `proposal.json` is:
 
 Please note:
 
-- The `subspace` is always the `ModuleName`: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/keys.go#L11
-- The `key` is usually defined in `x/$MODULE_NAME/types/params.go`: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L19-L22
-- The `value`'s type is usually near the `key` definition: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L26-L31
+- The `subspace` is always the `ModuleName`: E.g. <https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/keys.go#L11>
+- The `key` is usually defined in `x/$MODULE_NAME/types/params.go`: E.g. <https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L19-L22>
+- The `value`'s type is usually near the `key` definition: E.g. <https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L26-L31>
 - :warning: `subspace` and `key` are case sensitive and `value` must be of the correct type and within the allowed bounds. Proposals with errors on these inputs should not enter voting period (should not get deposits) or be voted on with `NoWithVeto`.
 - :warning: Currently parameter changes are _evaluated_ but not _validated_, so it is very important that any `value` change is valid (i.e. correct type and within bounds) for its respective parameter, eg. `MaxValidators` should be an integer and not a decimal.
 - :warning: Proper vetting of a parameter change proposal should prevent this from happening (no deposits should occur during the governance process), but it should be noted regardless.
@@ -136,7 +136,7 @@ Please note:
 
 - `distribution.baseproposerreward + distribution.bonusproposerreward < 1`. See [this](https://github.com/enigmampc/SecretNetwork/issues/95) and [this](https://github.com/cosmos/cosmos-sdk/issues/5808) for more info.
 
-To read more go to https://github.com/gavinly/CosmosParametersWiki.
+To read more go to <https://github.com/gavinly/CosmosParametersWiki>.
 
 ### Community Pool Spend
 
@@ -153,18 +153,8 @@ Where `proposal.json` is:
   "title": "Community Pool Spend",
   "description": "Spend 10 SCRT with line breaks \n and `code formatting`",
   "recipient": "secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "amount": [
-    {
-      "denom": "uscrt",
-      "amount": "10000000"
-    }
-  ],
-  "deposit": [
-    {
-      "denom": "uscrt",
-      "amount": "10000000"
-    }
-  ]
+  "amount": "10000000uscrt",
+  "deposit": "10000000uscrt"
 }
 ```
 
