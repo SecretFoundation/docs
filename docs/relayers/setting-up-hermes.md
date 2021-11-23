@@ -58,7 +58,7 @@ Now is time to clone the source repository and build it. Note that we need to ch
 ```text
 git clone https://github.com/informalsystems/ibc-rs.git hermes
 cd hermes
-git checkout v0.8.0
+git checkout v0.9.0
 cargo build --release
 cp target/release/hermes ~/bin
 cd
@@ -108,9 +108,9 @@ trust_threshold = { numerator = '1', denominator = '3'}
 [chains.packet_filter]
 policy = 'allow'
 list = [
-  ['transfer', 'channel-0'],
-  ['transfer', 'channel-1'],
-  ['transfer', 'channel-5'],
+  ['transfer', 'channel-0'], # Cosmos
+  ['transfer', 'channel-1'], # Osmosis
+  ['transfer', 'channel-2'], # Terra
 ]
 
 
@@ -139,7 +139,7 @@ trust_threshold = { numerator = '1', denominator = '3' }
 [chains.packet_filter]
 policy = 'allow'
 list = [
-  ['transfer', 'channel-42'],
+  ['transfer', 'channel-88'],
 ]
 
 #
@@ -168,11 +168,11 @@ trust_threshold = { numerator = '1', denominator = '3' }
 [chains.packet_filter]
 policy = 'allow'
 list = [
-  ['transfer', 'channel-207'],
+  ['transfer', 'channel-235'],
 ]
 
 #
-# Chain configuration Sifchain
+# Chain configuration Sifchain still forthcoming
 #
 
 [[chains]]
@@ -197,7 +197,7 @@ trust_threshold = { numerator = '1', denominator = '3' }
 [chains.packet_filter]
 policy = 'allow'
 list = [
-  ['transfer', 'channel-14'],
+  ['transfer', 'channel-'], # to be determined
 ]
 
 ```
