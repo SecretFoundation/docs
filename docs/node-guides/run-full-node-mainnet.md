@@ -222,6 +222,7 @@ perl -i -pe 's/laddr = .+?26657"/laddr = "tcp:\/\/0.0.0.0:26657"/' ~/.secretd/co
 ```
 
 ### 18. Enable `secret-node` as a system service:
+Note that the `secret-node` system file is created in a previous step.
 
 ```bash
 sudo systemctl enable secret-node
@@ -285,7 +286,9 @@ secretcli config output json
 secretcli config node tcp://<your-public-ip>:26657
 ```
 
-### 22. Optional: make your full node is a validator
+### 22. Optional: make your full node into a validator
+
+**For full instructions on becoming a validator, see [Joining mainnet as a validator](join-validator-mainnet.md). Otherwise for a quick summary, follow the remaining instructions:**
 
 Your full node is now part of the network, storing and verifying chain data and Secret Contracts, and helping to distribute transactions and blocks. It's usable as a sentry node, for people to connect their CLI or light clients, or just to support the network.
 
