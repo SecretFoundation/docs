@@ -9,6 +9,7 @@ This document details how to join the Secret Network `secret-4` mainnet as a ful
 - Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 - Reading [Tendermint: Running in production](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html)
 - RPC address of an already active node. You can use any node that exposes RPC services.
+- Refer to [Intel Processor Specifications](https://ark.intel.com/content/www/us/en/ark.html#@Processors) if you're unsure if your processor supports SGX
 
 ### Minimum requirements
 
@@ -24,12 +25,10 @@ This document details how to join the Secret Network `secret-4` mainnet as a ful
 - 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better
 - Motherboard with support for SGX in the BIOS
 
-Refer to [Intel Processor Specifications](https://ark.intel.com/content/www/us/en/ark.html#@Processors) if you're unsure if your processor supports SGX
-
 ## Installation
 
 ### 0. Step up SGX on your local machine
-See instructions for [setup](setup-sgx-mainnet.md) and [verification](verify-sgx.md).
+See instructions for [setup](setup-sgx-mainnet.md) and [verification](verify-sgx.md). See [registration](registration.md) if you'd like a more comprehensive overview on what's happening in these steps.
 
 ### 1. Download the Secret Network package installer for Debian/Ubuntu:
 

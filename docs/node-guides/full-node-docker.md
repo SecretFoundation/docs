@@ -4,7 +4,7 @@ So you don't want to fiddle with the .deb file, and just want to run your node? 
 
 This guide will help you set up a node, but you will need to maintain it, or change the default setup. We recommend being familiar with Linux, docker, and docker-compose.
 
-The scripts in the guide will be for Linux (tested on Ubuntu 18.04), but you could get this working on Windows if you swing that way too.
+The scripts in the guide will be for Linux (tested on Ubuntu 20.04), but you could get this working on Windows if you swing that way too.
 
 ## Requirements
 
@@ -15,25 +15,24 @@ The scripts in the guide will be for Linux (tested on Ubuntu 18.04), but you cou
 
 ### Minimum requirements
 
-- 1GB RAM
-- 150GB SSD for Prune Everyting, or default pruining. 1TB premium SSD for Archive nodes.
-- 1 dedicated core of any Intel Xeon CPU with SGX through SPS.
+- 16GB RAM (and 10 GB of swap memory)
+- 100GB HDD
+- 1 dedicated core of any Intel Skylake processor (Intel® 6th generation) or better
 
 ### Recommended requirements
 
-- 4GB RAM
-- 256GB SSD for Prune Everyting, or default pruining. 1TB premium SSD for Archive nodes.
-- 2 dedicated core of any Intel Xeon CPU with SGX through SPS.
-- Known Working CPUs (E-2276G, E-2278G, E-2286G, E-2288G, E-2176G, E-2178G, E-2186G, E-2188G) Non Xeon CPUs are reported to not get updated often enough to be compliant.
+- 32GB RAM
+- 256GB SSD
+- 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better
 - Motherboard with support for SGX in the BIOS
 
-Refer to https://ark.intel.com/content/www/us/en/ark.html#@Processors if unsure if your processor supports SGX.
+Refer to https://ark.intel.com/content/www/us/en/ark.html#@Processors if unsure is your processor supports SGX
 
 ## Installation
 
 ### 0. Step up SGX on your local machine
 
-See instructions [here](../node-guides/setup-sgx.md)
+See instructions [here](./setup-sgx-mainnet.md)
 
 ### 1. Make sure you have the SGX device installed
 
@@ -100,7 +99,7 @@ services:
     tty: true
 
   node:
-    image: enigmampc/secret-network-node:v1.0.0-mainnet
+    image: enigmampc/secret-network-node:v1.2.0-mainnet
     devices:
       - /dev/isgx
     volumes:
@@ -130,7 +129,6 @@ NOTE: If you want to persist the node beyond a reboot, change the paths
 
 ```
       - /tmp/.secretd:/root/.secretd
-      - /tmp/.secretcli:/root/.secretcli
       - /tmp/.sgx_secrets:/root/.sgx_secrets
 ```
 
@@ -138,7 +136,6 @@ To something persistent (e.g. in your home directory) like:
 
 ```
       - /home/bob/.secretd:/root/.secretd
-      - /home/bob/.secretcli:/root/.secretcli
       - /home/bob/.sgx_secrets:/root/.sgx_secrets
 ```
 
@@ -147,14 +144,14 @@ Note: If you delete or lose either the .secretd or the .sgx_secrets folder your 
 ### 5. Set up environment variables
 
 - MONIKER - your network name
-- RPC_URL - address of a node with an open RPC service (you can use `secret-2.node.enigma.co:26657`)
-- CHAINID - chain-id of the network (for mainnet this is `secret-2`)
-- PERSISTENT_PEERS - List of peers to connect to initially (you can use `bee0edb320d50c839349224b9be1575ca4e67948@secret-2.node.enigma.co:26656`)
+- RPC_URL - address of a node with an open RPC service (you can use `bootstrap.node.scrtlabs.com:26657`)
+- CHAINID - chain-id of the network (for testnet this is `supernova-1`, for mainnet this is `secret-4`)
+- PERSISTENT_PEERS - List of peers to connect to initially (for this testnet use `115aa0a629f5d70dd1d464bc7e42799e00f4edae@bootstrap.node.scrtlabs.com:26656`)
 - REGISTRATION_SERVICE - Address of registration service (this will help the node start automatically without going through all the manual steps in the other guide) - `register.mainnet.enigma.co:26667`
 
 You can set an environment variable using the `export` syntax
 
-`export RPC_URL=register.mainnet.enigma.co:26667`
+`export RPC_URL=bootstrap.node.scrtlabs.com:26657`
 
 ### 6. Start your node
 
@@ -166,8 +163,8 @@ After creating the machine a healthy status of the node will have 2 containers a
 
 ```
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS                    PORTS                                  NAMES
-bf9ba8dd0802        enigmampc/secret-network-node:v1.0.0-mainnet   "/bin/bash startup.sh"   13 minutes ago      Up 13 minutes (healthy)   0.0.0.0:26656-26657->26656-26657/tcp   secret-node_node_1
-2405b23aa1bd        enigmampc/aesm                             "/bin/sh -c './aesm_…"   13 minutes ago      Up 13 minutes                                                    secret-node_aesm_1
+bf9ba8dd0802        enigmampc/secret-network-node:v1.2.0   "/bin/bash startup.sh"   13 minutes ago      Up 13 minutes (healthy)   0.0.0.0:26656-26657->26656-26657/tcp   secret-node_node_1
+2405b23aa1bd        cashmaney/aesm                             "/bin/sh -c './aesm_…"   13 minutes ago      Up 13 minutes                                                    secret-node_aesm_1
 ```
 
 ### 7. Helpful aliases
@@ -179,7 +176,7 @@ echo 'alias secretcli="docker exec -it secret-node_node_1 secretcli"' >> $HOME/.
 echo 'alias secretd="docker exec -it secret-node_node_1 secretd"' >> $HOME/.bashrc
 ```
 
-Where `secret-node_node_1` should be the name of the node container (may be different on your machine, you can check with `docker ps`)
+Where `secret-node_node_1` should be the name of the node container (but it may be different, you can check with `docker ps`)
 
 ### 8. Troubleshooting
 

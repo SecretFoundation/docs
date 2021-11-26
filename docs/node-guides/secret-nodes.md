@@ -7,5 +7,5 @@ It is possible for anyone who holds SCRT to become a Secret Network validator or
 ## Walkthrough
 
 1. [Install SGX](setup-sgx.md)
-2. [Run a full node](run-full-node-mainnet.md)
-3. [Be a validator](join-validator-mainnet.md)
+2. [Run a full node](run-full-node-mainnet.md) or [in Docker](full-node-docker.md)
+4. [Be a validator](join-validator-mainnet.md)
