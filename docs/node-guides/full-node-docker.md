@@ -26,13 +26,13 @@ The scripts in the guide will be for Linux (tested on Ubuntu 20.04), but you cou
 - 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better
 - Motherboard with support for SGX in the BIOS
 
-Refer to https://ark.intel.com/content/www/us/en/ark.html#@Processors if unsure is your processor supports SGX
+Refer to https://ark.intel.com/content/www/us/en/ark.html#@Processors if unsure if your processor supports SGX.
 
 ## Installation
 
 ### 0. Step up SGX on your local machine
 
-See instructions [here](./setup-sgx-mainnet.md)
+See instructions [here](./setup-sgx.md)
 
 ### 1. Make sure you have the SGX device installed
 

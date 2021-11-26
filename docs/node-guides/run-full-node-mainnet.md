@@ -28,7 +28,7 @@ This document details how to join the Secret Network `secret-4` mainnet as a ful
 ## Installation
 
 ### 0. Step up SGX on your local machine
-See instructions for [setup](setup-sgx-mainnet.md) and [verification](verify-sgx.md). See [registration](registration.md) if you'd like a more comprehensive overview on what's happening in these steps.
+See instructions for [setup](setup-sgx.md) and [verification](verify-sgx.md). See [registration](registration.md) if you'd like a more comprehensive overview on what's happening in these steps.
 
 ### 1. Download the Secret Network package installer for Debian/Ubuntu:
 
