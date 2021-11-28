@@ -52,7 +52,7 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 - [How to join as a mainnet validator](docs/node-guides/join-validator-mainnet.md)
 - [How to backup a validator](docs/backup/backup-a-validator.md)
 - [How to backup a Full Nodes](docs/backup/backup-a-full-node.mdd)
-- [How to backup a Wallets)](docs/backup/wallets.md)
+- [How to backup Wallets)](docs/backup/wallets.md)
 - [How to migrate a validator to a new machine](docs/node-guides/migrate-a-validator.md)
 - [How to setup SGX on your machine](docs/node-guides/setup-sgx.md)
 - [How to verify the SGX setup on your machine](docs/node-guides/verify-sgx.md)
