@@ -18,7 +18,9 @@ Verified compliant processors:
 Verified non-compliant processors:
 - CPU: all 3rd generation `E-23xxG` processors are confirmed not working.
 
-NOTE: CPU must support SGX via SPS. CPUs that only support SGX via intelME will not work.
+IMPORTANT NOTE: __CPU must support SGX via SPS.__ CPUs that only support SGX via intelME will not work.
+
+[List of Processors that Support Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/support/articles/000028173/processors.html)
 
 #### Supermicro Information
 
