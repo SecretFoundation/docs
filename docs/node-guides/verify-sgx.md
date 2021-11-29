@@ -8,7 +8,7 @@ This process verifies that the local node is running a genuine enclave and that 
 
 For this reason, we recommend checking the result of the attestation process ahead of time, which can tell you if an update is required.
 
-**Note:** for the incentivized testnet we are going to run with more relaxed requirements than mainnet - be aware that your incentivized testnet setup may not work on mainnet if you do not verify 
+**Note:** for the incentivized testnet we are going to run with more relaxed requirements than mainnet - be aware that your incentivized testnet setup may not work on mainnet if you do not verify it
 
 ## Instructions
 
