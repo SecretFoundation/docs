@@ -2,13 +2,13 @@
 
 # Background
 
-To make sure the entire network runs on SGX nodes we use a process called _registration_. This process, performed by each node runner, involves authenticating the local enclave both with Intel Attestation Services and on-chain.
+To ensure the entire network runs on SGX nodes, we use a process called _registration_. This process, performed by each node runner, involves authenticating the local enclave with Intel Attestation Services and on-chain.
 
-This process not only verifies that the local node is running a genuine enclave, but that it is patched, and not vulnerable to any known exploits. This means that you may be running SGX-enabled hardware, but may be missing microcode, or firmware which affect SGX-security.
+This process verifies that the local node is running a genuine enclave and that it is patched and not vulnerable to any known exploits. This means that you may be running SGX-enabled hardware but might be missing microcode or firmware, affecting SGX-security.
 
-For this reason it is recommended to check ahead of time the result of the attestation process, which can tell you if an update is required.
+For this reason, we recommend checking the result of the attestation process ahead of time, which can tell you if an update is required.
 
-**Note:** for the incentivized testnet we are going to run with more relaxed requirements than mainnet - be aware that your incentivized testnet setup may not work on mainnet if you do not verify it
+**Note:** for the incentivized testnet we are going to run with more relaxed requirements than mainnet - be aware that your incentivized testnet setup may not work on mainnet if you do not verify 
 
 ## Instructions
 
@@ -137,6 +137,7 @@ Platform status is SW_HARDENING_AND_CONFIGURATION_NEEDED. This means is updated 
 
 Please disable hyperthreading and overclocking/undervolting in your BIOS.
 
+
 #### I'm seeing `CONFIGURATION_AND_SW_HARDENING_NEEDED` in the `isvEnclaveQuoteStatus` field, but with more advisories than what is allowed
 
 This could mean a number of different things related to the configuration of the machine. Most common are:
@@ -144,6 +145,12 @@ This could mean a number of different things related to the configuration of the
 - ["INTEL-SA-00161", "INTEL-SA-00233"] - Hyper-threading must be disabled in the BIOS
 - ["INTEL-SA-00289"] - Overclocking/undervolting must be disabled by the BIOS
 - ["INTEL-SA-00219"] - Integrated graphics should be disabled in the BIOS - we recommend performing this step if you can, though it isn't required
+
+If you are still having trouble getting rid of INTEL-SA-00219 and INTEL-SA-00289, here are some possible settings to look for outside of the CPU settings:
+- Primary Display = 'PCI Express'
+- IGPU Multi-Monitor = Disabled
+- Onboard VGA = Disabled
+
 
 #### I'm seeing `SGX_ERROR_DEVICE_BUSY`
 
