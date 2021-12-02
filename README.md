@@ -6,7 +6,7 @@ Secret Network secures the decentralized web
 
 Want to build a better internet? Solve for privacy.
 
-Secret Network is a blockchain-based, open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains. Our mission: improve the adoption and usability of decentralized technologies, for the benefit of all.
+Secret Network is a blockchain-based, open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains. Our mission: to improve the adoption and usability of decentralized technologies for the benefit of all.
 
 Mainnet is out! Get the latest release at [https://github.com/enigmampc/SecretNetwork/releases/latest](https://github.com/enigmampc/SecretNetwork/releases/latest).
 
@@ -17,6 +17,7 @@ Mainnet is out! Get the latest release at [https://github.com/enigmampc/SecretNe
 - Homepage: [https://scrt.network](https://scrt.network)
 - Blog: [https://blog.scrt.network](https://blog.scrt.network)
 - Forum: [https://forum.scrt.network](https://forum.scrt.network)
+- Wiki: [https://docs.scrt.network](https://docs.scrt.network)
 - Discord: [https://chat.scrt.network](https://chat.scrt.network)
 - Twitter: [https://twitter.com/SecretNetwork](https://twitter.com/SecretNetwork)
 - Community Telegram Channel: [https://t.me/SCRTnetwork](https://t.me/SCRTnetwork)
@@ -24,7 +25,7 @@ Mainnet is out! Get the latest release at [https://github.com/enigmampc/SecretNe
 
 # Block Explorers
 
-Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. Transactions, validators, governance proposals, and more can be viewed using the following Secret Network block explorers:
+Secret Network uses the SCRT coin (Secret) for fees, staking, governance, and to secure the network. View transactions, validators, governance proposals, and more using the following Secret Network block explorers:
 
 - [Cashmaney](https://explorer.cashmaney.com)
 - [secretnodes](https://secretnodes.com)
@@ -42,15 +43,16 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 
 # Docs
 
-- [Install the `secretcli` light client (Windows, Mac & Linux)](docs/light-client-mainnet.md)
-- [How to use the `secretcli` light client](docs/node-guides/secretcli.md)
+- [Install the `secretcli` light client (Windows, Mac & Linux)](docs/cli/install-cli.md)
+- [How to use the `secretcli` light client](docs/cli/secretcli.md)
 - [How to participate in on-chain governance](docs/protocol/governance.md)
 - [How to run a full node on mainnet](docs/node-guides/run-full-node-mainnet.md)
 - [How to run an LCD server](docs/lcd-server-example.md)
 - [Ledger Nano S (and X) support](docs/guides/ledger-nano.md)
 - [How to join as a mainnet validator](docs/node-guides/join-validator-mainnet.md)
-- [How to backup a validator](docs/node-guides/backup-a-validator.md)
-- [How to backup a everything (Validators, Full Nodes, Wallets)](docs/backups.md)
+- [How to backup a validator](docs/backup/backup-a-validator.md)
+- [How to backup Full Nodes](docs/backup/backup-a-full-node.mdd)
+- [How to backup Wallets](docs/backup/wallets.md)
 - [How to migrate a validator to a new machine](docs/node-guides/migrate-a-validator.md)
 - [How to setup SGX on your machine](docs/node-guides/setup-sgx.md)
 - [How to verify the SGX setup on your machine](docs/node-guides/verify-sgx.md)
@@ -69,4 +71,4 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 
 # License
 
-SecretNetwork is free software: you can redistribute it and/or modify it under the terms of the [GNU Affero General Public License](LICENSE) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. The GNU Affero General Public License is based on the GNU GPL, but has an additional term to allow users who interact with the licensed software over a network to receive the source for that program.
+Secret Network is free software: you can redistribute it and/or modify it under the terms of the [GNU Affero General Public License](LICENSE) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. The GNU Affero General Public License is based on the GNU GPL but has an additional term to allow users who interact with the licensed software over a network to receive the source for that program.

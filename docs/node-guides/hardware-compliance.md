@@ -12,9 +12,15 @@ This is intended to guide you in selecting SGX compliant hardware for the Secret
 
 Intel XEON
 
-CPU: `E-2276G`, `E-2278G`, `E-2286G`, `E-2288G`, `E-2176G`, `E-2178G`, `E-2186G`, `E-2188G`
+Verified compliant processors:
+- CPU: `E-2276G`, `E-2278G`, `E-2286G`, `E-2288G`, `E-2176G`, `E-2178G`, `E-2186G`, `E-2188G`
 
-NOTE: CPU must support SGX via SPS. CPUs that only support SGX via intelME will not work.
+Verified non-compliant processors:
+- CPU: all 3rd generation `E-23xxG` processors are confirmed not working.
+
+IMPORTANT NOTE: __CPU must support SGX via SPS.__ CPUs that only support SGX via intelME will not work.
+
+[List of Processors that Support Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/support/articles/000028173/processors.html)
 
 #### Supermicro Information
 

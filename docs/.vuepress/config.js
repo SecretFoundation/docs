@@ -166,6 +166,18 @@ module.exports = {
             ],
           },
           {
+            title: "IBC Relayers", // required
+            path: "/", // optional, link of the title, which should be an absolute path and must exist
+            collapsable: true, // optional, defaults to true
+            sidebarDepth: 1, // optional, defaults to 1
+            children: [
+              {
+                title: "Setting Up Hermes",
+                path: "/relayers/setting-up-hermes",
+              },
+            ],
+          },
+          {
             title: "Backup", // required
             path: "/", // optional, link of the title, which should be an absolute path and must exist
             collapsable: true, // optional, defaults to true

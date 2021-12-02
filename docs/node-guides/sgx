@@ -68,8 +68,8 @@ if (($UBUNTUVERSION > 18)); then
    sudo apt install -y gdebi
    # Install all the additional necessary dependencies (besides the driver and the SDK)
    # for building a rust enclave
-   wget -O /tmp/libprotobuf28_3.17.3-2_amd64.deb http://ftp.br.debian.org/debian/pool/main/p/protobuf/libprotobuf28_3.17.3-2_amd64.deb
-   yes | sudo gdebi /tmp/libprotobuf28_3.17.3-2_amd64.deb
+   wget -O /tmp/libprotobuf30_3.19.1-1_amd64.deb http://ftp.br.debian.org/debian/pool/main/p/protobuf/libprotobuf30_3.19.1-1_amd64.deb
+   yes | sudo gdebi /tmp/libprotobuf30_3.19.1-1_amd64.deb
 else
    PSW_PACKAGES+=' libprotobuf-dev'
 fi
