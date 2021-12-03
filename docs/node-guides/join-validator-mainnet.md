@@ -1,17 +1,16 @@
 # Join as a Validator
 
 
-### NOTE : This guide is for SECRET-2. As of the last update of this guide, the most recent chain is SECRET-3
 ### How to become a validator on Secret Network
 
 #### 1. [Run a new full node](run-full-node-mainnet.md) on a new machine.
 
 #### 2. Set your `minimum-gas-price` parameter
 
-We recommend starting with `0.025uscrt` per gas unit:
+We recommend starting with `0.0125uscrt` per gas unit:
 
 ```bash
-perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.025uscrt"/' ~/.secretd/config/app.toml
+perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125uscrt"/' ~/.secretd/config/app.toml
 sudo systemctl restart secret-node
 ```
 
