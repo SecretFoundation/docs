@@ -41,10 +41,6 @@ module.exports = {
             path: "/protocol/roadmap",
           },
           {
-            title: "Frequently Asked Questions",
-            path: "/questions",
-          },
-          {
             title: "Using SCRT with Ledger (CLI)",
             path: "/guides/ledger-nano",
           },
