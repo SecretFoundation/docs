@@ -15,14 +15,14 @@ This document details how to join the Secret Network `secret-4` mainnet as a ful
 
 - 16GB RAM
 - 256GB SDD
-- 1 dedicated core of any Intel Skylake processor (Intel® 6th generation) or better
+- 1 dedicated core of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
 - Motherboard with support for SGX in the BIOS
 
 ### Recommended requirements
 
 - 32GB RAM
 - 512GB SSD
-- 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better
+- 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
 - Motherboard with support for SGX in the BIOS
 
 ## Installation
