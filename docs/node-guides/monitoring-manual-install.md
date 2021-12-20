@@ -129,8 +129,8 @@ wget https://github.com/prometheus/prometheus/releases/download/v2.30.0/promethe
 2.  Copy the binary files into the `/usr/local/bin/`directory:
     
 ```bash:
-sudo cp ./prometheus /usr/local/bin/sudo 
-cp ./promtool /usr/local/bin/
+sudo cp ./prometheus /usr/local/bin/
+sudo cp ./promtool /usr/local/bin/
 ```
     
 3.  Set the ownership of these files to the `prometheus` user previously created:
