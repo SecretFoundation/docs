@@ -41,8 +41,8 @@ tar xvf node_exporter-1.2.2.linux-amd64.tar.gz
 3.  Copy the binary file into the directory `/usr/local/bin` and set the ownership to the user you have created in step previously:
     
 ```bash:
-sudo cp node_exporter-1.2.2.linux-amd64/node_exporter /usr/local/binsudo 
-chown node_exporter:node_exporter /usr/local/bin/node_exporter
+sudo cp node_exporter-1.2.2.linux-amd64/node_exporter /usr/local/bin
+sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter
 ```
     
 4.  Remove the leftover files of Node Exporter, as they are not needed any longer:
@@ -115,7 +115,8 @@ sudo systemctl enable node_exporter
 ## Download and install Prometheus
 1.  Download and Unpack [Prometheus](https://prometheus.io/download/) latest release of Prometheus:
 ```bash:
-sudo apt-get update && apt-get upgradewget https://github.com/prometheus/prometheus/releases/download/v2.30.0/prometheus-2.30.0.linux-amd64.tar.gztar xfz prometheus-_.tar.gzcd prometheus-_
+sudo apt-get update && apt-get upgrade
+wget https://github.com/prometheus/prometheus/releases/download/v2.30.0/prometheus-2.30.0.linux-amd64.tar.gztar xfz prometheus-_.tar.gzcd prometheus-_
 ```
     
    The following two binaries are in the directory:
@@ -128,29 +129,29 @@ sudo apt-get update && apt-get upgradewget https://github.com/prometheus/prometh
 2.  Copy the binary files into the `/usr/local/bin/`directory:
     
 ```bash:
-sudo cp ./prometheus /usr/local/bin/sudo 
-cp ./promtool /usr/local/bin/
+sudo cp ./prometheus /usr/local/bin/
+sudo cp ./promtool /usr/local/bin/
 ```
     
 3.  Set the ownership of these files to the `prometheus` user previously created:
     
 ```bash:
-sudo chown prometheus:prometheus /usr/local/bin/prometheussudo 
-chown prometheus:prometheus /usr/local/bin/promtool
+sudo chown prometheus:prometheus /usr/local/bin/prometheus
+sudo chown prometheus:prometheus /usr/local/bin/promtool
 ```
     
 4.  Copy the `consoles` and `console_libraries` directories to `/etc/prometheus`:
     
 ```bash:
-sudo cp -r ./consoles /etc/prometheussudo 
-cp -r ./console_libraries /etc/prometheus
+sudo cp -r ./consoles /etc/prometheus
+sudo cp -r ./console_libraries /etc/prometheus
 ```
     
 5.  Set the ownership of the two folders, as well as of all files that they contain, to our `prometheus` user:
     
 ```bash:
-sudo chown -R prometheus:prometheus /etc/prometheus/consolessudo 
-chown -R prometheus:prometheus /etc/prometheus/console_libraries
+sudo chown -R prometheus:prometheus /etc/prometheus/consoles
+sudo chown -R prometheus:prometheus /etc/prometheus/console_libraries
 ```
     
 6.  In our home folder, remove the source files that are not needed anymore:
