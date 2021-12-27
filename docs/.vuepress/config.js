@@ -117,6 +117,7 @@ module.exports = {
       {
         title: "Node Operators", // requireds
         collapsable: true, // optional, defaults to true
+        path: "/node-guides/run-full-node-mainnet", // optional, link of the title, which should be an absolute path and must exist
         sidebarDepth: 1, // optional, defaults to 1
         children: [
           {
@@ -195,7 +196,7 @@ module.exports = {
           },
           {
             title: "IBC Relayers", // required
-            path: "/", // optional, link of the title, which should be an absolute path and must exist
+            path: "/relayers/setting-up-hermes", // optional, link of the title, which should be an absolute path and must exist
             collapsable: true, // optional, defaults to true
             sidebarDepth: 1, // optional, defaults to 1
             children: [
@@ -273,10 +274,6 @@ module.exports = {
                   },
                 ],
               },
-              {
-                title: "Delegators (CLI)",
-                path: "",
-              },
             ],
           },
         ],
@@ -290,7 +287,6 @@ module.exports = {
           "/protocol/components",
           "/protocol/encryption-specs",
           "/protocol/transactions",
-          "/protocol/governance",
           "/protocol/sgx",
         ],
       },
