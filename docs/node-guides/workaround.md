@@ -118,7 +118,7 @@ ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx do
 _NOTE_: Substitute **$YOUR_KEY_NAME** (below) with the `key-alias` you created earlier. Be sure to exclude the `$` character from the keyname.
 
 ```bash
-secretcli tx register auth ./attestation_cert.der --from "$YOUR_KEY_NAME" --gas 250000 --gas-prices 0.25uscrt
+secretcli tx register auth ./attestation_cert.der --from "$YOUR_KEY_NAME"
 
 SEED=$(secretcli query register seed "$PUBLIC_KEY" | cut -c 3-)
 echo $SEED

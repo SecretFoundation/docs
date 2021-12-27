@@ -307,7 +307,7 @@ Continue when you have confirmed your account has some SCRT in it.
 Next upload the compiled, optimized contract to the testnet.
 
 ```bash
-secretcli tx compute store contract.wasm.gz --from <your account alias> -y --gas 1000000 --gas-prices=1.0uscrt
+secretcli tx compute store contract.wasm.gz --from <your account alias> -y
 ```
 
 The result is a transaction hash (txhash). Query it to see the `code_id` in the logs, which you'll use to create an instance of the contract.

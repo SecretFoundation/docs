@@ -104,7 +104,7 @@ secretcli config trust-node true
 secretcli config output json
 secretcli config indent true
 
-secretcli tx register auth ./attestation_cert.der --from "$YOUR_KEY_NAME" --gas 250000 --gas-prices 0.25uscrt
+secretcli tx register auth ./attestation_cert.der --from "$YOUR_KEY_NAME" --gas-prices 0.0125uscrt
 
 SEED=$(secretcli query register seed "$PUBLIC_KEY" | cut -c 3-)
 echo $SEED
@@ -134,7 +134,7 @@ watch 'secretcli status | jq ".sync_info.catching_up == false"'
 Once your node is done catching up, you can unjail your validator:
 
 ```bash
-secretcli tx slashing unjail --from "$YOUR_KEY_NAME" --gas-prices 0.25uscrt
+secretcli tx slashing unjail --from "$YOUR_KEY_NAME" --gas-prices 0.0125uscrt
 ```
 
 You’re now a validator in `secret-2`! :tada:
