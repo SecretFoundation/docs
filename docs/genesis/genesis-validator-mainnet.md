@@ -153,7 +153,7 @@ enigmacli tx staking create-validator \
   --commission-max-change-rate="0.01" \
   --min-self-delegation="1" \
   --gas=200000 \
-  --gas-prices="0.025uscrt" \
+  --gas-prices="0.0125uscrt" \
   --moniker=<MONIKER> \
   --from=<key-alias>
 ```

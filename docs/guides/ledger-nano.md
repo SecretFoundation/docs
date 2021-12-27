@@ -104,7 +104,7 @@ secretcli tx send <account name or address> <to_address> <amount> --ledger
 ### Delegate SCRT to a validator
 
 ```bash
-secretcli tx staking delegate <validator address> <amount to bond> --from <account key> --gas auto --gas-prices <gasPrice> --ledger
+secretcli tx staking delegate <validator address> <amount to bond> --from <account key> --ledger
 ```
 
 ### Collect rewards and commission

@@ -197,7 +197,7 @@ secretcli tx send ... --fees=50000uscrt
 or
 
 ```bash
-secretcli tx send ... --gas-prices=0.025uscrt
+secretcli tx send ... --gas-prices=0.0125uscrt
 ```
 
 ### Account
