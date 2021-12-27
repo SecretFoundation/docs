@@ -32,5 +32,5 @@ Go to IPMI(remote managment) and create a session to log into the BIOS, I used t
 
 ![Psychz Dasbord!](../images/images/Psychz_Dashboard.png "Psychz Dasbord")
 
-### 4. Install SGX utilities from the [Secret Network Documentation](build.scrt.network)
+### 4. Install SGX utilities from the [Secret Network Documentation](docs.scrt.network)
 Login with your credentials and proceed with SGX installation.

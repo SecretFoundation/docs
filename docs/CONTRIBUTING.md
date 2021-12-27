@@ -69,7 +69,7 @@ Unsure where to begin contributing to Secret Network?
 
 You can start by looking through the [open issues labeled `help-wanted`](https://github.com/enigmampc/SecretNetwork/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22+).
 
-If you want to learn more about Secret Network and how to build Secret Contracts and secret apps, the [full documentation](https://build.scrt.network) is available online. You can find the source to the docs in [this repository](https://github.com/enigmampc/SecretNetwork/docs).
+If you want to learn more about Secret Network and how to build Secret Contracts and secret apps, the [full documentation](https://docs.scrt.network) is available online. You can find the source to the docs in [this repository](https://github.com/enigmampc/SecretNetwork/docs).
 
 ### Submit Pull Requests
 

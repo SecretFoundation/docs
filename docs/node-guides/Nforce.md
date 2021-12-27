@@ -32,4 +32,4 @@ Go to remote managment and create a session to log into the BIOS (their are mult
 
 ![Nforce Buying the Server!](../images/images/Nforce_Dashbord.png "NForce Buying the Server")
 
-### 4. Install SGX utilities from the [Secret Network Documentation](build.scrt.network)
+### 4. Install SGX utilities from the [Secret Network Documentation](docs.scrt.network)

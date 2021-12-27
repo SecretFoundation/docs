@@ -5,7 +5,7 @@ title: Protocol
 # About the Protocol
 The Secret Network is a blockchain protocol that gives developers ability to use private or sensitive data. This makes it easy for developers to build new types of solutions (Secret Apps) that protect data privacy while greatly increasing usability. These improvements are critical for achieving mass adoption of privacy-first, decentralized applications.
 
-> This is a high-level overview of how Secret Network functions. For a more in-depth description, check out our full [documentation](https://build.scrt.network) for developers and node operators.
+> This is a high-level overview of how Secret Network functions. For a more in-depth description, check out our full [documentation](https://docs.scrt.network) for developers and node operators.
 
 ## How Secret Works
 Essentially, Secret Network offers a platform to build censorship-resistant applications that keep data encrypted. Rather than letting specific organizations manage private data, Secret relies on a decentralized network of secure processors. Every node operator is equipped with specialized hardware that allows them to run code inside secure enclaves - also known as Trusted Execution Environments, or TEEs. Nobody, including device administrators, can access the raw information being decrypted and processed.
@@ -21,7 +21,7 @@ Secret contract functionality is based on [CosmWasm](https://www.cosmwasm.com) (
 
 ![Architecture Diagram](/diagrams/architecture.png)
 
-> If you want to build your own Secret App, check out our full [documentation](https://build.scrt.network), which includes a secret contract development guide and other useful resources.
+> If you want to build your own Secret App, check out our full [documentation](https://docs.scrt.network), which includes a secret contract development guide and other useful resources.
 
 ## Secret Contracts and Use Cases
 Decentralized technologies need privacy at their core in order to be secure and usable. Secret contracts (smart contracts on Secret Network) utilize encrypted inputs, encrypted outputs and encrypted state. This greatly improves usability of existing blockchain applications and expands the scope of products that can be built on public blockchains.

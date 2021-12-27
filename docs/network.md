@@ -8,7 +8,7 @@ Secret Network is a decentralized network of computers **("secret nodes")** that
 
 ### Validators / Secret Nodes
 
-Nodes in Secret Network perform computations and verify blockchain activity. The network uses a popular delegated proof-of-stake consensus algorithm, [Tendermint](https://tendermint.com/). Up to 50 node operators at any time can be validators for Secret Network. For more information on how you can run your own secret node, [visit our full developer documentation.](https://build.scrt.network/validators-and-full-nodes/secret-nodes.html)
+Nodes in Secret Network perform computations and verify blockchain activity. The network uses a popular delegated proof-of-stake consensus algorithm, [Tendermint](https://tendermint.com/). Up to 50 node operators at any time can be validators for Secret Network. For more information on how you can run your own secret node, [visit our full developer documentation.](https://docs.scrt.network/validators-and-full-nodes/secret-nodes.html)
 
 ### Network Economics and SCRT
 
@@ -30,13 +30,13 @@ If you have SCRT coins but do not want to run your own node, delegation is a gre
 
 Multiple wallets already provide support for SCRT transactions, staking, and governance.
 
-* [Ledger Nano S and Ledger Nano X](https://build.scrt.network/ledger-nano-s.html)
+* [Ledger Nano S and Ledger Nano X](https://docs.scrt.network/ledger-nano-s.html)
 * [Keplr](https://wallet.keplr.app)
 * [Math Wallet](https://mathwallet.org)
 
 ### How do I run a Secret Node?
 
-Learn more in the full [documentation](https://build.scrt.network/validators-and-full-nodes/secret-nodes.html).
+Learn more in the full [documentation](https://docs.scrt.network/validators-and-full-nodes/secret-nodes.html).
 
 ### Community Staking Guides
 
