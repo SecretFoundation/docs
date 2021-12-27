@@ -62,6 +62,39 @@ module.exports = {
           },
         ],
       },
+
+      {
+        title: "Developers", // required
+        path: "/dev/developers", // optional, link of the title, which should be an absolute path and must exist
+        collapsable: true, // optional, defaults to true
+        sidebarDepth: 1, // optional, defaults to 1
+        children: [
+          {
+            title: "Secret Contracts",
+            path: "/dev/secret-contracts.md",
+          },
+          {
+            title: "Privacy Model",
+            path: "/dev/privacy-model-of-secret-contracts.md",
+          },
+          {
+            title: "Development Guide",
+            path: "/dev/developing-secret-contracts.md",
+          },
+          {
+            title: "Quickstart",
+            path: "/dev/quickstart.md",
+          },
+          {
+            title: "SecretJS",
+            path: "/dev/secret-js",
+          },
+          {
+            title: "Tutorials",
+            path: "/dev/tutorials.md",
+          },
+        ],
+      },
       {
         title: "Secret CLI", // required
         path: "/", // optional, link of the title, which should be an absolute path and must exist
