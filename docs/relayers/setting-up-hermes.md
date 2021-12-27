@@ -1,23 +1,18 @@
 ---
-description: 'Instructions for setting up the rust based relayer, Hermes'
+description: 'Instructions for setting up the rust-based relayer, Hermes'
 ---
-
-# NOTE: THIS IS STILL IN PROGRESS, CHANNELS WILL NEED TO BE SORTED OUT/CHANGED
-
-
-
-
 # Hermes
 
 ## Assumptions
 
-We assume that you already have access to Secret, Osmosis, Cosmos, and Sifchain nodes. These can be either local nodes, or you can access them over the network. However, for networked version, you will need to adjust the systemd configuration not to depend on the chains that are run on other servers. And naturally the hermes configuration needs to adjust the addressing of each chain as well.
+We assume that you already have access to Secret, Osmosis, Cosmos, and Terra nodes. These can be either local nodes, or you can access them over the network. However, for networked version, you will need to adjust the systemd configuration not to depend on the chains that are run on other servers. And naturally the hermes configuration needs to adjust the addressing of each chain as well. **All nodes should be ran on the same machine, using NVMe drives.**
 
 The given example has all relayed chains run locally, Secret is on standard ports, other chains are configured as follows:
 
-* Osmosis: 36657 and 39090
-* Cosmos: 46657 and 49090
-* Sifchain: 56657 and 59090
+* Secret: 26657 and 9090
+* Cosmos: 10657 and 10090
+* Terra: 11657 and 11090
+* Osmosis: 12657 and 12090
 
 In these instructions, Hermes is installed under /ibc/hermes, adjust the paths according to your setup.
 
@@ -69,7 +64,7 @@ Next we will check that the newly built hermes version is the correct one:
 ```text
 hermes@demo:~$ bin/hermes version
 Nov 04 15:52:48.299  INFO ThreadId(01) using default configuration from '/ibc/hermes/.hermes/config.toml'
-hermes 0.8.0
+hermes 0.9.0
 ```
 
 ## Configuring Hermes
@@ -77,33 +72,133 @@ hermes 0.8.0
 Choose your favourite editor and edit the following configuration template to mach your setup. There are features like telemetry and rest API that you can enable, but they are not necessary, so they are left out from this tutorial.
 
 ```text
+# The global section has parameters that apply globally to the relayer operation.
 [global]
-strategy = 'packets'
-filter = true
-log_level = 'info'
-clear_packets_interval = 100
 
-#
-# Chain configuration Secret
-#
+# Specify the verbosity for the relayer logging output. Default: 'info'
+# Valid options are 'error', 'warn', 'info', 'debug', 'trace'.
+log_level = 'info'
+
+
+# Specify the mode to be used by the relayer. [Required]
+[mode]
+
+# Specify the client mode.
+[mode.clients]
+
+# Whether or not to enable the client workers. [Required]
+enabled = true
+
+# Whether or not to enable periodic refresh of clients. [Default: true]
+# Note: Even if this is disabled, clients will be refreshed automatically if
+#      there is activity on a connection or channel they are involved with.
+refresh = true
+
+# Whether or not to enable misbehaviour detection for clients. [Default: false]
+misbehaviour = false
+
+# Specify the connections mode.
+[mode.connections]
+
+# Whether or not to enable the connection workers for handshake completion. [Required]
+enabled = false
+
+# Specify the channels mode.
+[mode.channels]
+
+# Whether or not to enable the channel workers for handshake completion. [Required]
+enabled = false
+
+# Specify the packets mode.
+[mode.packets]
+
+# Whether or not to enable the packet workers. [Required]
+enabled = true
+
+# Parametrize the periodic packet clearing feature.
+# Interval (in number of blocks) at which pending packets
+# should be eagerly cleared. A value of '0' will disable
+# periodic packet clearing. [Default: 100]
+clear_interval = 100
+
+# Whether or not to clear packets on start. [Default: false]
+clear_on_start = true
+
+# Enable or disable the filtering mechanism.
+# Valid options are 'true', 'false'.
+# Currently Hermes supports two filters:
+# 1. Packet filtering on a per-chain basis; see the chain-specific
+#   filter specification below in [chains.packet_filter].
+# 2. Filter for all activities based on client state trust threshold; this filter
+#   is parametrized with (numerator = 1, denominator = 3), so that clients with
+#   thresholds different than this will be ignored.
+# If set to 'true', both of the above filters will be enabled.
+# [Default: false]
+filter = true
+
+# Toggle the transaction confirmation mechanism.
+# The tx confirmation mechanism periodically queries the `/tx_search` RPC
+# endpoint to check that previously-submitted transactions
+# (to any chain in this config file) have delivered successfully.
+# Experimental feature. Affects telemetry if set to false.
+# [Default: true]
+tx_confirmation = true
+
+# The REST section defines parameters for Hermes' built-in RESTful API.
+# https://hermes.informal.systems/rest.html
+[rest]
+
+# Whether or not to enable the REST service. Default: false
+enabled = true
+
+# Specify the IPv4/6 host over which the built-in HTTP server will serve the RESTful
+# API requests. Default: 127.0.0.1
+host = '127.0.0.1'
+
+# Specify the port over which the built-in HTTP server will serve the restful API
+# requests. Default: 3000
+port = 3000
+
+
+# The telemetry section defines parameters for Hermes' built-in telemetry capabilities.
+# https://hermes.informal.systems/telemetry.html
+[telemetry]
+
+# Whether or not to enable the telemetry service. Default: false
+enabled = true
+
+# Specify the IPv4/6 host over which the built-in HTTP server will serve the metrics
+# gathered by the telemetry service. Default: 127.0.0.1
+host = '127.0.0.1'
+
+# Specify the port over which the built-in HTTP server will serve the metrics gathered
+# by the telemetry service. Default: 3001
+port = 3001
+
 
 [[chains]]
 id = 'secret-4'
 
+# API access to Secret node with indexing
 rpc_addr = 'http://127.0.0.1:26657'
-grpc_addr = 'http://127.0.0.1:29090'
+grpc_addr = 'http://127.0.0.1:26090'
 websocket_addr = 'ws://127.0.0.1:26657/websocket'
 
 rpc_timeout = '20s'
 account_prefix = 'secret'
 key_name = 'secret-relayer'
 store_prefix = 'ibc'
-max_msg_num=15
-max_gas = 1000000
-gas_price = { price = 0.0125, denom = 'uscrt' }
+max_msg_num = 30
+max_tx_size = 2097152
+default_gas = 50000
+max_gas = 3000000
+gas_adjustment = 0.1
+gas_price = { price = 0.015, denom = 'uscrt' }
 clock_drift = '5s'
+max_block_time = '10s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3'}
+address_type = { derivation = 'cosmos' }
 
 [chains.packet_filter]
 policy = 'allow'
@@ -113,7 +208,6 @@ list = [
   ['transfer', 'channel-2'], # Terra
 ]
 
-
 #
 # Chain configuration Osmosis
 #
@@ -122,19 +216,25 @@ list = [
 id = 'osmosis-1'
 
 # API access to Osmosis node with indexing
-rpc_addr = 'http://127.0.0.1:36657'
-grpc_addr = 'http://127.0.0.1:39090'
-websocket_addr = 'ws://127.0.0.1:36657/websocket'
+rpc_addr = 'http://127.0.0.1:12657'
+grpc_addr = 'http://127.0.0.1:12090'
+websocket_addr = 'ws://127.0.0.1:12657/websocket'
 
 rpc_timeout = '20s'
 account_prefix = 'osmo'
-key_name = 'osmo-relayer'
+key_name = 'osmosis-relayer'
 store_prefix = 'ibc'
-max_gas =  1000000
+max_msg_num = 30
+max_tx_size = 2097152
+default_gas = 100000
+max_gas = 3000000
+gas_adjustment = 0.1
 gas_price = { price = 0.000, denom = 'uosmo' }
 clock_drift = '5s'
-trusting_period = '7days'
+max_block_time = '10s'
+trusting_period = '10days'
 trust_threshold = { numerator = '1', denominator = '3' }
+address_type = { derivation = 'cosmos' }
 
 [chains.packet_filter]
 policy = 'allow'
@@ -142,95 +242,88 @@ list = [
   ['transfer', 'channel-88'],
 ]
 
-#
-# Chain configuration Cosmos
-#
-
 [[chains]]
 id = 'cosmoshub-4'
 
 # API access to Cosmos node with indexing
-rpc_addr = 'http://127.0.0.1:46657'
-grpc_addr = 'http://127.0.0.1:49090'
-websocket_addr = 'ws://127.0.0.1:46657/websocket'
+rpc_addr = 'http://127.0.0.1:10657'
+grpc_addr = 'http://127.0.0.1:10090'
+websocket_addr = 'ws://127.0.0.1:10657/websocket'
 
-rpc_timeout = '20s'
+rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'cosmos-relayer'
+address_type = { derivation = 'cosmos' }
 store_prefix = 'ibc'
-max_msg_num=15
-max_gas = 1000000
-gas_price = { price = 0.0001, denom = 'uatom' }
-clock_drift = '5s'
+default_gas = 2000000
+max_gas = 3000000
+gas_price = { price = 0.008, denom = 'uatom' }
+gas_adjustment = 0.1
+max_msg_num = 25
+max_tx_size = 180000
+clock_drift = '15s'
+max_block_time = '10s'
 trusting_period = '14days'
+memo_prefix = ''
 trust_threshold = { numerator = '1', denominator = '3' }
-
 [chains.packet_filter]
 policy = 'allow'
 list = [
-  ['transfer', 'channel-235'],
-]
-
-#
-# Chain configuration Sifchain still forthcoming
-#
+   ['transfer', 'channel-235'] #secret
+ ]
 
 [[chains]]
-id = 'sifchain-1'
+id = 'columbus-5'
 
 # API access to Cosmos node with indexing
-rpc_addr = 'http://127.0.0.1:56657'
-grpc_addr = 'http://127.0.0.1:59090'
-websocket_addr = 'ws://127.0.0.1:56657/websocket'
-
-rpc_timeout = '20s'
-account_prefix = 'sif'
-key_name = 'sif-relayer'
+rpc_addr = 'http://127.0.0.1:11657'
+grpc_addr = 'http://127.0.0.1:11090'
+websocket_addr = 'ws://127.0.0.1:11657/websocket'
+rpc_timeout = '10s'
+account_prefix = 'terra'
+key_name = 'terra-relayer'
+address_type = { derivation = 'cosmos' }
 store_prefix = 'ibc'
-max_msg_num=15
-max_gas = 10000000
-gas_price = { price = 0.001, denom = 'rowan' }
-clock_drift = '5s'
+default_gas = 1000000
+max_gas = 3000000
+gas_price = { price = 450, denom = 'ukrw' } #0.0147 uluna
+gas_adjustment = 0.1
+max_msg_num = 30
+max_tx_size = 1800000
+clock_drift = '15s'
+max_block_time = '10s'
 trusting_period = '14days'
+memo_prefix = ''
 trust_threshold = { numerator = '1', denominator = '3' }
-
 [chains.packet_filter]
 policy = 'allow'
 list = [
-  ['transfer', 'channel-'], # to be determined
+ ['transfer', 'channel-16'] #secret
 ]
-
 ```
 
 You can validate the configuration with following:
 
 ```text
-hermes@Demo:~$ bin/hermes -c .hermes/config.toml  config validate
+hermes@Demo:~$ bin/hermes -c .hermes/config.toml config validate
 Success: "validation passed successfully"
 ```
 
 ## Setting up wallets
 
-We do this by creating key configuration files that are imported to hermes. Here we go through Secret key setting, other chains are similar.
+We will need to create a new wallet, import it, and ultimately fund it. Note the unique derivation paths for terra and secret.
 
 ```text
-{
-  "name":"secret-relayer",
-  "type":"local",
-  "address":"secretxxx",
-  "pubkey":"{\"@type\":\"/cosmos.crypto.secp256k1.PubKey\",\"key\":\"xxx\"}",
-  "mnemonic": "24 words seed"
-}
+hermes -c .hermes/config.toml keys restore secret-4 -m "mnemonics" -n "secret-relayer" -p "m/44'/529'/0'/0/0"
+
+hermes -c .hermes/config.toml keys restore cosmoshub-4 -m "mnemonics" -n "cosmos-relayer"
+
+hermes -c .hermes/config.toml keys restore osmosis-1 -m "mnemonics" -n "osmosis-relayer"
+
+hermes -c .hermes/config.toml keys restore columbus-5 -m "mnemonics" -n "terra-relayer" -p "m/44'/330'/0'/0/0"
 ```
 
-Next we will import this key configuration to hermes and shred the used json file. \(Using chain\_id **secret-4**.\)
-
-```text
-bin/hermes keys add secret-4 -f ./seed-secret.json
-shred -u ./seed-secret.json
-```
-
-If you want to make sure the keys got imported, you can check them with following command \(smart thing to run it before shredding the json file\):
+If you want to make sure the keys got imported, you can check them with following command:
 
 ```text
 bin/hermes keys list secret-4
