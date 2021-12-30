@@ -2,7 +2,7 @@
 
 Get up and running on Secret Network with a local docker environment, as well as testnet (holodeck), to start working with Secret Contracts.
 
-To learn more about secret contracts, please visit our [documentation page](https://build.scrt.network/dev/secret-contracts.html).
+To learn more about secret contracts, please visit our [documentation page](https://docs.scrt.network/dev/secret-contracts.html).
 
 <details>
   <summary>Topics covered on this page</summary>
