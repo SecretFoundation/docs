@@ -44,7 +44,7 @@ docker run -it --rm \
 
 **NOTE**: The _secretdev_ docker container can be stopped by CTRL+C
 
-![](docker-run.png)
+![](../images/images/docker-run.png)
 
 At this point you're running a local SecretNetwork full-node. Let's connect to the container so we can view and manage the secret keys:
 
@@ -59,7 +59,7 @@ The local blockchain has a couple of keys setup for you (similar to accounts if 
 secretcli keys list --keyring-backend test
 ````
 
-![](secretcli-keys-list.png)
+![](../images/images/secretcli-keys-list.png)
 
 `exit` when you are done
 
