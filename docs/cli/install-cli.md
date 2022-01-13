@@ -1,13 +1,13 @@
 # Install the `secretcli` Secret Network light client
 
-1. Get the latest release of `secretcli` for your OS: https://github.com/enigmampc/SecretNetwork/releases/latest.
+1. Get the latest release of `secretcli` for your OS: https://github.com/enigmampc/SecretNetwork/releases/latest
 
 2) Install:
 
-   - Mac/Windows: Rename it from `secretcli-${VERSION}-${OS}` to `secretcli` or `secretcli.exe` and put it in your path.
+   - Mac/Windows: Rename it from `secretcli-${VERSION}-${OS}` to `secretcli` or `secretcli.exe` and put it in your path
    - Ubuntu/Debian: `sudo dpkg -i secret*.deb`
 
-Note - As per the recent changes in the Cosmos SDK, home directory for the CLI is now `~/.secretd` check more info [HERE](https://github.com/scrtlabs/SupernovaDocs/blob/master/app%20developers/cli.md)
+Note - The home directory for the CLI is now `~/.secretd` due to recent changes in the Cosmos SDK. More info can be found [HERE](https://github.com/scrtlabs/SupernovaDocs/blob/master/app%20developers/cli.md)
 
 3) Configure:
 
@@ -17,9 +17,9 @@ Note - As per the recent changes in the Cosmos SDK, home directory for the CLI i
    secretcli config node http://api.scrt.network:26657
    ```
 
-   You currently have two options for getting your own secret node:
+   There are two options for getting your own secret node:
    1. [Rent or use a free-tier node from figment](https://figment.io/datahub/secret-network/).
-   2. [Set up your own node](node-guides/run-full-node-mainnet.md).
+   2. [Set up your own node](https://docs.scrt.network/node-guides/run-full-node-mainnet.html).
 
 4) Check the installation:
 
