@@ -2,7 +2,7 @@
 
 ## Secret CLI
 
-`secretcli` is the command-line interface tool that enables you to interact with a node that runs on the Secret Network.
+`secretcli` is the command-line interface tool for interacting with nodes running on the Secret Network.
 
 [How to install and use `secretcli`](/cli/install-cli.md).
 
@@ -13,14 +13,14 @@
       - [Generate Keys](#generate-keys)
       - [Generate Multisig Public Keys](#generate-multisig-public-keys)
     - [Tx Broadcasting](#tx-broadcasting)
-    - [Fees & Gas](#fees--gas)
+    - [Fees & Gas](#fees-gas)
     - [Account](#account)
       - [Get Tokens](#get-tokens)
       - [Query Account Balance](#query-account-balance)
     - [Send Tokens](#send-tokens)
     - [Query Transactions](#query-transactions)
       - [Matching a Set of Events](#matching-a-set-of-events)
-      - [Matching a Transaction's Hash](#matching-a-transactions-hash)
+      - [Matching a Transaction Hash](#matching-a-transaction-hash)
     - [Secret Contracts](#secret-contracts)
       - [Uploading a Secret Contract](#uploading-a-secret-contract)
       - [Deploying a Secret Contract](#deploying-a-secret-contract)
@@ -34,7 +34,7 @@
     - [Governance](#governance)
     - [Fee Distribution](#fee-distribution)
       - [Query Distribution Parameters](#query-distribution-parameters)
-      - [Query distribution Community Pool](#query-distribution-community-pool)
+      - [Query Distribution Community Pool](#query-distribution-community-pool)
       - [Query Outstanding Validator rewards](#query-outstanding-validator-rewards)
       - [Query Validator Commission](#query-validator-commission)
       - [Query Validator Slashes](#query-validator-slashes)
@@ -351,7 +351,7 @@ You can find a list of available `events` on each of the SDK modules:
 - [Bank events](https://github.com/cosmos/cosmos-sdk/blob/master/x/bank/spec/04_events.md)
   :::
 
-#### Matching a Transaction's Hash
+#### Matching a Transaction Hash
 
 You can also query a single transaction by its hash using the following command:
 
@@ -477,7 +477,7 @@ To check the current distribution parameters, run:
 secretcli q distribution params
 ```
 
-#### Query distribution Community Pool
+#### Query Distribution Community Pool
 
 To query all coins in the community pool which is under Governance control:
 
