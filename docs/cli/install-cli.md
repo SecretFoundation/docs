@@ -18,8 +18,8 @@ Note - The home directory for the CLI is now `~/.secretd` due to recent changes 
    ```
 
    There are two options for getting your own secret node:
-   1. [Rent or use a free-tier node from figment](https://figment.io/datahub/secret-network/).
-   2. [Set up your own node](https://docs.scrt.network/node-guides/run-full-node-mainnet.html).
+   1. [Rent or use a free-tier node from figment](https://figment.io/datahub/secret-network/)
+   2. [Set up your own node](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)
 
 4) Check the installation:
 
