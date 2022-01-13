@@ -29,24 +29,24 @@ A recommended walkthrough, with practical insights on Secret contract functions,
 
 
 ## Simple Secret Voting App
-Use [this link](https://github.com/enigmampc/SecretSimpleVote/blob/master/src/contract.rs) to see a sample voting contract and a line by line description of everything you need to know.
+Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to see a sample voting contract and a line by line description of everything you need to know.
 
 A dedicated walkthrough for this app is made in [How To Build Secret Apps: An Evolving Development Guide](https://scrt.network/blog/how-to-build-secret-apps/)
 
 
 ## Secret Contracts Guide
-This [repository](https://github.com/enigmampc/secret-contracts-guide) can be used to master Secret Contract development.
+This [repository](https://github.com/scrtlabs/secret-contracts-guide) can be used to master Secret Contract development.
 
 In this repository you'll find information on:
 - setting up a local Secret Network developer testnet
 - learning secret contract development basics and shortcuts
 - build and deploy secret contracts of varying complexity with UIs
 
-A key aspect addresses [how to build a frontend](https://github.com/enigmampc/secret-contracts-guide/blob/master/building-a-frontend.md) using React.
+A key aspect addresses [how to build a frontend](https://github.com/scrtlabs/secret-contracts-guide/blob/master/building-a-frontend.md) using React.
 
 
 ## Secret Sealed Bid Auction
-Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed-bid (secret) auction contract that makes use of [SNIP-20](https://github.com/enigmampc/snip20-reference-impl) and a walkthrough of the contract.
+Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed-bid (secret) auction contract that makes use of [SNIP-20](https://github.com/scrtlabs/snip20-reference-impl) and a walkthrough of the contract.
 
 For an even more advanced version of this stunning Secret Sealed Bid Auction app, you can refer to its enhanced [Secret Auction Factory](https://github.com/baedrik/secret-auction-factory) put in production.
 
@@ -67,7 +67,7 @@ Figment's YouTube tutorials playlist can be found [here](https://youtube.com/pla
 
 
 ## SecretJS Templates
-Refer to the reference [SecretJS Templates](https://github.com/enigmampc/SecretJS-Templates) provided by the SCRT Labs team which covers the followings: 
+Refer to the reference [SecretJS Templates](https://github.com/scrtlabs/SecretJS-Templates) provided by the SCRT Labs team which covers the followings: 
 - Connecting to Secret Network
 - Creating account using SecretJS
 - Query Secret Network

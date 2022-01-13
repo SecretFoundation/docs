@@ -2,7 +2,7 @@
 
 - **Chain id:** `enigma-testnet`
 - **Date:** 16/03/2020 3am UTC
-- **Related issues:** https://github.com/enigmampc/SecretNetwork/issues/95
+- **Related issues:** https://github.com/scrtlabs/SecretNetwork/issues/95
 
 ### Description
 
@@ -61,9 +61,9 @@
 
 ### Action Items:
 
-- https://github.com/enigmampc/SecretNetwork/issues/95
-- https://github.com/enigmampc/SecretNetwork/issues/97
-- https://github.com/enigmampc/SecretNetwork/issues/104
+- https://github.com/scrtlabs/SecretNetwork/issues/95
+- https://github.com/scrtlabs/SecretNetwork/issues/97
+- https://github.com/scrtlabs/SecretNetwork/issues/104
 
 ## Recovery Process
 

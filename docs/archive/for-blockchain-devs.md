@@ -7,7 +7,7 @@
 ## Local installation
 
 ```bash
-git clone https://github.com/enigmampc/SecretNetwork
+git clone https://github.com/scrtlabs/SecretNetwork
 cd SecretNetwork
 go mod tidy
 make install # installs secretd and secretcli
@@ -46,7 +46,7 @@ secretd start --pruning nothing # starts a node
 ## Docker installation
 
 ```bash
-git clone https://github.com/enigmampc/SecretNetwork
+git clone https://github.com/scrtlabs/SecretNetwork
 cd SecretNetwork
 docker build -t secretdev -f Dockerfile_devnet .
 

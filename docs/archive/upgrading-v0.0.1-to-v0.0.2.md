@@ -46,7 +46,7 @@ Follow the [How to migrate a validator to a new machine](../node-guides/migrate-
   secretd unsafe-reset-all
 
   # Download & install v0.0.2
-  wget https://github.com/enigmampc/SecretNetwork/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb
+  wget https://github.com/scrtlabs/SecretNetwork/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb
   sudo dpkg -i enigmachain_0.0.2_amd64.deb
   sudo systemctl enable secret-node
 

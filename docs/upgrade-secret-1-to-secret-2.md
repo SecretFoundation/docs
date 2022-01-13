@@ -53,7 +53,7 @@ On the new SGX machine (`secret-2`):
 ```bash
 cd ~
 
-wget "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.0/secretnetwork_1.0.0_amd64.deb"
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.0.0/secretnetwork_1.0.0_amd64.deb"
 
 echo "87aee80a112f429db0b8b6703b1eba33accea0f08af9e65339d14d92a5186b24 secretnetwork_1.0.0_amd64.deb" | sha256sum --check
 
@@ -87,7 +87,7 @@ cd ~
 
 secretd init $MONIKER --chain-id secret-2
 
-wget -O ~/.secretd/config/genesis.json "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.0/genesis.json"
+wget -O ~/.secretd/config/genesis.json "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.0.0/genesis.json"
 
 echo "4ca53e34afed034d16464d025291fe16a847c9aca0a259f9237413171b19b4cf .secretd/config/genesis.json" | sha256sum --check
 

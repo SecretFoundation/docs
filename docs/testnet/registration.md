@@ -6,7 +6,7 @@ The report contains both a report that the enclave is genuine, a code hash, and 
 
 #### Seed
 this is a parameter that is shared between all enclaves on the network in order to garuantee determinisic calculations. 
-When a node authenticates succesfully, the network encrypts the seed and shares it with the node. Protocol internals are described [here](https://github.com/enigmampc/SecretNetwork/blob/master/docs/protocol/encryption-specs.md)  
+When a node authenticates succesfully, the network encrypts the seed and shares it with the node. Protocol internals are described [here](https://github.com/scrtlabs/SecretNetwork/blob/master/docs/protocol/encryption-specs.md)  
 
 ## Background
 
@@ -33,7 +33,7 @@ This means that running an enclave that is differs by 1 byte will be impossible.
 At the end of this process (if it is successful) the network will output an _encrypted seed_ (unique to this node), which is required for our node to start. 
 After decryption inside the enclave, the result is a seed that is known to all enclaves on the network, and is the source of determinism between all network nodes.
 
-For a deeper dive into the protocol see the [protocol documentation](https://github.com/enigmampc/SecretNetwork/blob/master/docs/protocol/encryption-specs.md#node-startup)
+For a deeper dive into the protocol see the [protocol documentation](https://github.com/scrtlabs/SecretNetwork/blob/master/docs/protocol/encryption-specs.md#node-startup)
 
 ```
 Note: Due to the way rust and C code are compiled recompilation of the enclave code is non deterministic, and will be rejected during the attestation process.

@@ -8,7 +8,7 @@ Note: This guide is for Ledger Nano S but according to community members it also
 - If you don't, or you using your Ledger device for the first time, you should check Ledger's [Getting Started](https://support.ledger.com/hc/en-us/sections/360001415213-Getting-started) guide.
 - We also advise you to check your Ledger's genuineness and upgrade your firmware to the newest one available (`v1.6.0+`).
 - Have a machine with [Ledger Live](https://www.ledger.com/ledger-live) installed.
-- Have the latest version of our latest binaries installed. You can get it [here](https://github.com/enigmampc/SecretNetwork/releases/latest).
+- Have the latest version of our latest binaries installed. You can get it [here](https://github.com/scrtlabs/SecretNetwork/releases/latest).
 
 ## Install Cosmos Ledger App
 
@@ -57,7 +57,7 @@ We recommend using [Keplr Wallet](https://keplr.xyz/) as the interface for using
 
 ## SecretCLI
 
-For a more advanced user, it is possible to interface with the CLI utility, SecretCLI with a Ledger device. You can get it [here](https://github.com/enigmampc/SecretNetwork/releases/latest)
+For a more advanced user, it is possible to interface with the CLI utility, SecretCLI with a Ledger device. You can get it [here](https://github.com/scrtlabs/SecretNetwork/releases/latest)
 
 ### Create an account
 
