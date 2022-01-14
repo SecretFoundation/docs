@@ -92,9 +92,9 @@ The `src` folder contains the following files:
 
 ##### `contract.rs` 
 
-This file contains functions which define the available contract operations. The functions which all secret contracts contain will be: `init`, `handle`, and `query`. 
+This file contains functions which define the available contract operations. The functions which all Secret Contracts contain will be: `init`, `handle`, and `query`. 
 
-- `init` is called once at instantiation of the secret contract with 3 parameters: `deps`, `env`, and `msg`. The internal state (`State` struct imported from `state.rs`)of the secret contract is initialized with these parameters.
+- `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters are used to initialize the internal state (the `State` struct imported from `state.rs`) of the Smart Contract.
 
 ```rust
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -141,8 +141,8 @@ pub struct Env {
    - `BlockInfo` defines the current block height, time, and chain-id. 
    - `MessageInfo` defines the address which instantiated the contract and possibly funds sent to the contract at instantiation. 
    - `ContractInfo` is the address of the contract instance.
-   - `contract_key` is the code-id used when instantiating the contract
-   - `contract_code_hash` is the hex encoded hash of the code. This is used by Secret Network to harden against replaying the contract. It is used to bind the request to a destination contract in a stronger way than just the contract address which can be faked
+   - `contract_key` is the code-id used when instantiating the contract.
+   - `contract_code_hash` is the hex encoded hash of the code. This is used by Secret Network to harden against replaying the contract. It is used to bind the request to a destination contract in a stronger way than just the contract address which can be faked.
 
 
 `msg` is the `InitMsg` struct imported from `msg.rs`. In this case, it defines the initial state of the counter.
@@ -152,7 +152,7 @@ pub struct InitMsg {
 }
 ```
 
-The return value of `init`(if there are no errors) is an `InitResponse`.
+The return value of `init` is an `InitResponse`.
 ```rust
 pub struct InitResponse<T = Empty>
 where
@@ -163,9 +163,9 @@ where
 }
 ```
 
-- `handle` handles all incoming transactions. These computations occur on-chain. 
+- `handle` handles all incoming transactions. These computations occur _on-chain_. 
 
-The `msg` parameter is the `HandleMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable functions(`try_increment` and `try_reset`) are defined in `contract.rs`. 
+The `msg` parameter is the `HandleMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable functions, `try_increment` and `try_reset`, are defined in `contract.rs`. 
 
 ```rust
 pub fn handle<S: Storage, A: Api, Q: Querier>(
@@ -180,9 +180,9 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-- `query` messages are off-chain computations. 
+- `query` messages are _off-chain_ computations. 
 
-The `msg` parameter is the `QueryMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable function(`query_count`) is defined in `contract.rs`. 
+The `msg` parameter is the `QueryMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable function, `query_count`, is defined in `contract.rs`. 
 
 ```rust
 pub fn query<S: Storage, A: Api, Q: Querier>(
@@ -250,7 +250,7 @@ pub struct CountResponse {
 
 ##### `lib.rs`
 
-This file is essentially boilerplate that you shouldn't need to modify. It provides the necessary abstraction to interact with the wasmi VM and compile the contract to wasm.
+This file is essentially boilerplate that you **shouldn't need to modify**. It provides the necessary abstraction to interact with the wasmi VM and compile the contract to wasm.
 
 #### Compile the Secret Contract
 
@@ -262,7 +262,7 @@ cargo wasm
 
 #### Run Unit Tests
 
-*Tests in this template currently fail unless you have SGX enabled.*
+*All tests in this template currently fail unless you have SGX enabled!*
 
 ```
 RUST_BACKTRACE=1 cargo unit-test
@@ -280,7 +280,7 @@ cargo integration-test
 
 We can also generate JSON Schemas that serve as a guide for anyone trying to use the contract, to specify which arguments they need.
 
-Auto-generate msg schemas (when changed):
+To auto-generate `msg` schemas when they are changed, run:
 
 ```
 cargo schema
