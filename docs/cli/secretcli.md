@@ -165,7 +165,7 @@ Multisig addresses can also be generated on-the-fly and printed by typing:
 secretcli keys show --multisig-threshold K name1 name2 name3 [...]
 ```
 
-For more information regarding how to generate, sign and broadcast transactions with a multi-signature account see [Multisig Transactions](#multisig-transactions).
+For more information on generating, signing and broadcasting transactions using multiple signatures see [Multisig Transactions](#multisig-transactions).
 
 ### Tx Broadcasting
 
@@ -174,8 +174,8 @@ flag can have a value of `sync` (default), `async`, or `block`, where `sync` mak
 the client return a CheckTx response, `async` makes the client return immediately,
 and `block` makes the client wait for the tx to be committed (or timing out).
 
-It is important to note that the `block` mode should **not** be used in most
-circumstances. This is because broadcasting can timeout but the tx may still be
+It is important to note, that the `block` mode should **not** be used in most
+circumstances because broadcasting can timeout, but the tx may still be
 included in a block. This can result in many undesirable situations. Therefore, it
 is best to use `sync` or `async` and query by tx hash to determine when the tx
 is included in a block.
