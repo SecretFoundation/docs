@@ -182,13 +182,12 @@ is included in a block.
 
 ### Fees & Gas
 
-Each transaction may either supply fees or gas prices, but not both.
+Each transaction supplies fees or gas prices, but never both.
 
-Validator's have a minimum gas price (multi-denom) configuration and they use
-this value when when determining if they should include the transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. Note, your transaction must supply fees that are greater than or equal to **any** of the denominations the validator requires.
+Validator's have a minimum gas price (multi-denom) configuration used to determin if they should include a transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. 
 
-**Note**: With such a mechanism in place, validators may start to prioritize
-txs by `gasPrice` in the mempool, so providing higher fees or gas prices may yield higher tx priority.
+**Note**: Transactions must supply fees greater than or equal to **any** fees set by validators. Validators may start to prioritize
+txs by `gasPrice` in the mempool, increaseing tx priority based on fees or gas prices. 
 
 e.g.
 
