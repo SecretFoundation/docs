@@ -3,9 +3,9 @@ title : 'Secret Contracts'
 ---
 # Secret Contracts
 
-Secret Contracts are the first implementation of general purpose privacy preserving computations on public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs and encrypted state). These privacy guarantees are made possible by a decentralized network of validators, who run Secret Contracts execution inside Trusted Execution Environments (TEEs).
+Secret Contracts are the first implementation of general purpose privacy preserving computations a on public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs, and encrypted state). These privacy guarantees are made possible by a decentralized network of validators who run Secret Contract execution inside Trusted Execution Environments (TEEs).
 
-Secret Contracts are Rust based smart contracts that compile to WebAssembly. Secret Contracts, which are based on [Go-CosmWasm](https://github.com/enigmampc/SecretNetwork/tree/master/go-cosmwasm), introduce the _compute_ module that runs inside the TEE to enable secure data processing (inputs, outputs and contract state.
+Secret Contracts are Rust-based smart contracts that compile to WebAssembly. Secret Contracts, which are based on [Go-CosmWasm](https://github.com/scrtlabs/SecretNetwork/tree/master/go-cosmwasm), introduce the _compute_ module that runs inside the TEE to enable secure data processing (inputs, outputs, and contract state.
 
 ![architecture](https://user-images.githubusercontent.com/15679491/99459758-9a44c580-28fc-11eb-9af2-82479bbb2d23.png)
 
@@ -14,26 +14,25 @@ Next, we will go through steps to:
 - install the Rust dependencies
 - create your first project
 
-The Rust dependencies include the Rust compiler, cargo (_package manager_), toolchain and a package to generate projects. You can check out the Rust book, rustlings course, examples and more [here](https://www.rust-lang.org/learn).
-
 1. Install Rust
 
-More information about installing Rust can be found here: https://www.rust-lang.org/tools/install.
+More information about installing Rust can be found at [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
 
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 ```
 
-**Update the rust compiler**
+**Update the Rust Compiler**
 
-In case rust is installed already, make sure to update the rust compiler.
+In case Rust is installed already, make sure to update the rust compiler.
 
 ```
 rustup update
 ```
 
 2. Add rustup target wasm32 for both stable and nightly
+These dependencies include the Rust compiler, cargo (_package manager_), toolchain, and a package to generate projects. To learn more about Rust, check out [https://www.rust-lang.org/learn](https://www.rust-lang.org/learn) which includes the Rust book, rustlings course, examples, and more.
 
 ```
 rustup default stable
@@ -57,22 +56,22 @@ apt install build-essential
 cargo install cargo-generate --features vendored-openssl
 ```
 
-### Create your first Secret Contract
+### Create Your First Secret Contract
 
 1. generate the initial project
 2. compile the secret contract
 3. run unit tests
 4. optimize the wasm contract bytecode to prepare for deployment
-5. deploy the secret contract to your local Secret Network
+5. deploy the Secret Contract to your local Secret Network
 6. instantiate it with contract parameters
 
-#### Generate the Secret Contract Project
+#### Generate the Simple Counter Project
 
 ```
 cargo generate --git https://github.com/enigmampc/secret-template --name mysimplecounter
 ```
 
-The git project above is a secret contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
+The git project above is a Secret Contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
 
 Change directory to the project you created and view the structure and files that were created.
 
@@ -80,15 +79,14 @@ Change directory to the project you created and view the structure and files tha
 cd mysimplecounter
 ```
 
-The generate creates a directory with the project name and has this structure:
+The `generate` command creates a directory with the project name and has the following structure:
 
 ```
 Cargo.lock	Developing.md	LICENSE		Publishing.md	examples	schema		tests
 Cargo.toml	Importing.md	NOTICE		README.md	rustfmt.toml	src
 ```
 
-
-As an example secret contract, `mysimplecounter`, handles a state keeping track of a number which may be incremented by any address, but only reset by the creator.
+As an example Secret Contract, `mysimplecounter`, handles a state keeping track of a number which may be incremented by any address, but only reset by the creator.
 
 The `src` folder contains the following files:
 
