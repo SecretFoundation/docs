@@ -243,11 +243,11 @@ secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
 	--chain-id=<chain-id>
 ```
 
-::: Warning Note
+::: warning Note
 The `amount` argument accepts the format `<value|coin_name>`.
 :::
 
-::: Tip Note
+::: tip Note
 You may want to cap the maximum gas consumed by transactions via the `--gas` flag.
 
 If you pass `--gas=auto`, the gas supply is automatically estimated before transaction execution.
@@ -293,7 +293,7 @@ secretcli tx sign \
   unsignedSendTx.json > signedSendTx.json
 ```
 
-::: Tip Note
+::: tip Note
 The `--generate-only` flag prevents `secretcli` from accessing the local keybase.
 When the flag is supplied `<sender-key-alias-or-address>` must be an address.
 :::
