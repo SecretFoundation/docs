@@ -230,12 +230,12 @@ Optionally, you can supply your address within the command as:
 secretcli q account $(secretcli keys show -a <key-alias>)
 ```
 
-::: warning Note
+::: Warning Note
 When you query an account balance with zero tokens, you will get this error: `No account with address <secret-address> was found in the state.` This can also happen if you fund the account before your node has fully synced with the chain. These are both normal.
 
 ### Send Tokens
 
-The following command could be used to send coins from one account to another:
+Use the following command to send tokens from one account to another:
 
 ```bash
 secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
@@ -243,33 +243,33 @@ secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
 	--chain-id=<chain-id>
 ```
 
-::: warning Note
+::: Warning Note
 The `amount` argument accepts the format `<value|coin_name>`.
 :::
 
-::: tip Note
-You may want to cap the maximum gas that can be consumed by the transaction via the `--gas` flag.
+::: Tip Note
+You may want to cap the maximum gas consumed by transactions via the `--gas` flag.
 
-If you pass `--gas=auto`, the gas supply will be automatically estimated before executing the transaction.
+If you pass `--gas=auto`, the gas supply is automatically estimated before transaction execution.
 
-Gas estimate might be inaccurate as state changes could occur in between the end of the simulation and the actual execution of a transaction, thus an adjustment is applied on top of the original estimate in order to ensure the transaction is broadcasted successfully. The adjustment can be controlled via the `--gas-adjustment` flag, whose default value is 1.0.
+Innacurrate gas estimates may occur inbetween the end of the simulation and the actual execution of a transaction. An adjustment needs to be applied on top of the original estimate for the transaction to be broadcasted successfully. Adjustment are controlled via the `--gas-adjustment` flag, with a default value of 1.0.
 :::
 
-Now, view the updated balances of the origin and destination accounts:
+To view updated balances of origin and destination accounts use:
 
 ```bash
 secretcli q account <secret-address>
 secretcli q account <recipient-address>
 ```
 
-You can also check your balance at a given block by using the `--block` flag:
+You can also check balances at any block using the `--block` flag:
 
 ```bash
 secretcli q account <secret-address> --block=<block_height>
 ```
 
 You can simulate a transaction without actually broadcasting it by appending the
-`--dry-run` flag to the command line:
+`--dry-run` flag:
 
 ```bash
 secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
@@ -278,7 +278,7 @@ secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
 ```
 
 Furthermore, you can build a transaction and print its JSON format to STDOUT by
-appending `--generate-only` to the list of the command line arguments:
+appending `--generate-only` to the list of arguments:
 
 ```bash
 secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
@@ -293,18 +293,18 @@ secretcli tx sign \
   unsignedSendTx.json > signedSendTx.json
 ```
 
-::: tip Note
+::: Tip Note
 The `--generate-only` flag prevents `secretcli` from accessing the local keybase.
-Thus when such flag is supplied `<sender-key-alias-or-address>` must be an address.
+When the flag is supplied `<sender-key-alias-or-address>` must be an address.
 :::
 
-You can validate the transaction's signatures by typing the following:
+You can validate transaction signatures by typing the following:
 
 ```bash
 secretcli tx sign --validate-signatures --from=<key-alias> signedSendTx.json
 ```
 
-You can broadcast the signed transaction to a node by providing the JSON file to the following command:
+You can broadcast the signed transaction to a node by providing the JSON file using:
 
 ```bash
 secretcli tx broadcast --node=<node> signedSendTx.json
