@@ -206,7 +206,7 @@ secretcli tx send ... --gas-prices=0.0125uscrt
 
 #### Get Tokens
 
-On a testnet, getting tokens is usually done via a faucet.
+On a testnet, getting tokens is usually done via a faucet. You can get tokens for testing purposes using the Secret Network faucet [HERE](https://faucet.secrettestnet.io/)
 
 #### Query Account Balance
 
@@ -224,14 +224,14 @@ secretcli keys show -a <key-alias>
 
 (the _-a_ flag is used to display the address only)
 
-Optionally, you can supply your address within the command as:
+You can also supply your address with the following command:
 
 ```bash
 secretcli q account $(secretcli keys show -a <key-alias>)
 ```
 
 ::: warning Note
-When you query an account balance with zero tokens, you will get this error: `No account with address <secret-address> was found in the state.` This can also happen if you fund the account before your node has fully synced with the chain. These are both normal.
+When querying an account balance with zero tokens, you will get the error: `No account with address <secret-address> was found in the state.` This can also happen if you fund the account before your node is fully synced. These are both normal.
 
 ### Send Tokens
 
