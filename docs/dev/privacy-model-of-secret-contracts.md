@@ -49,17 +49,17 @@ Secret Contract developers must always consider the trade-off between privacy, u
 
 # Verified Values During Contract Execution
 
-During execution, some contracts may want to use "external-data" - meaning data that is generated outside of the enclave and sent into the enclave - such as the tx sender address, the funds sent with the tx, block height, etc..
-As these parameters get sent to the enclave, they can theoretically be tampered with, and an attacker might send false data.
-Thus, relying on such data might be risky.
+During execution, some contracts may want to use "external-data" - meaning data that is generated outside of the enclave and sent into the enclave - such as the tx sender address, the funds sent with the tx, block height, etc.
+As these parameters are sent to the enclave, they can theoretically be tampered with, and an attacker might send false data.
+Thus, relying on such data is **conceivably risky**.
 
-As an example, let's say we are implementing an admin interface for a contract, i.e. functionality that is open only for a predefined address.
-In that case, we want to know that the `env.message.sender` parameter that is given during contract execution is legit, then we want to check that `env.message.sender == predefined_address` and provide admin functionality if that condition is met.
+For example, let's say we are implementing an admin interface for a contract, i.e. functionality that is open only for a predefined address.
+We want to ensure the `env.message.sender` parameter provided during contract execution is legitimate, so we will confirm that `env.message.sender == predefined_address`. If this condition is met we can provide admin functionality.
 If the `env.message.sender` parameter can be tampered with - we effectively can't rely on it and cannot implement the admin interface.
 
 ## Tx Parameter Verification
 
-Some parameters are easier to verify, but for others it is less trivial to do so. Exact details about individual parameters are detailed further in this document.
+Some parameters are easier to verify than others. Exact details about individual parameters are detailed further in this document.
 
 The parameter verification method depends on the contract caller:
 
@@ -72,7 +72,7 @@ The parameter verification method depends on the contract caller:
   - Receiver contract verifies that the signature it created matches the signature it got from the caller.
   - For the specifics, visit the [encryption specs](../protocol/encryption-specs.md#Output).
 
-# `Init` and `Handle`
+# `init` and `handle`
 
 `init` is the constructor of a contract. This function is called only once in the lifetime of the contract.  
 `handle` is a regular execute transaction within a contract.
@@ -159,7 +159,7 @@ The return value of `handle` is called `data`. It is encrypted.
 
 ### Logs and Messages (Same for `init` and `handle`)
 
-Logs (or events) is a list of key-value pair. The keys and values are encrypted, but the list structure itself is not encrypted.
+Logs (or events) is a list of key-value pairs. The keys and values are encrypted, but the list structure itself is not encrypted.
 
 | Output         | Type                   | Encrypted? | Notes                                      |
 | -------------- | ---------------------- | ---------- | ------------------------------------------ |
@@ -205,7 +205,7 @@ Types of messages:
 ### Errors
 
 Contract execution can result in multiple types of errors.  
-The fact that the contract returned an error is public.
+**Contracts returning errors is public.**
 
 #### Contract errors
 
@@ -241,7 +241,7 @@ Some examples of `VMErrors`:
 - Got out of gas while accessing storage
 - Passing null pointers from the contract to the VM (E.g. `read_db(null)`)
 - Trying to write to read-only storage (E.g. inside a `query`)
-- Passing a faulty message to the blockchain (Trying to send fund you don't have, trying to callback to a non-existing contract)
+- Passing a faulty message to the blockchain (Trying to send funds you don't have, trying to callback to a non-existing contract)
 
 # Query
 
@@ -249,7 +249,7 @@ Some examples of `VMErrors`:
 
 - It doesn't affect transactions on-chain.
 - It has read-only access to the storage (state) of the contract.
-- The fact that `query` was invoked is known only to the executing node. And to whoever monitors your internet traffic, in case the executing node is on your local machine.
+- The fact that `query` was invoked is known only to the executing node, in addition to whoever monitors your internet traffic, in case the executing node is on your local machine.
 - Queries are metered by gas but don't incur fees. The executing node decides its gas limit for queries.
 - Access control: Cannot use `env.message.sender` as it's not a transaction. Can use pre-configured passwords or API keys that have been stored in state previously by `init` and `handle`.
 
