@@ -50,7 +50,7 @@ apt install build-essential
 
 4. Run cargo install cargo-generate
 
-[Cargo generate](https://docs.rs/crate/cargo-generate/) is the tool you'll use to create a secret contract project.
+[Cargo generate](https://docs.rs/crate/cargo-generate/) is the tool you'll use to create a Secret Contract project.
 
 ```
 cargo install cargo-generate --features vendored-openssl
@@ -59,7 +59,7 @@ cargo install cargo-generate --features vendored-openssl
 ### Create Your First Secret Contract
 
 1. generate the initial project
-2. compile the secret contract
+2. compile the Secret Contract
 3. run unit tests
 4. optimize the wasm contract bytecode to prepare for deployment
 5. deploy the Secret Contract to your local Secret Network
@@ -92,9 +92,9 @@ The `src` folder contains the following files:
 
 ##### `contract.rs` 
 
-This file contains functions which define the available contract operations. The functions which all Secret Contracts contain will be: `init`, `handle`, and `query`. 
+This file contains functions defining available Secret Contract operations. The functions which all Secret Contracts contain will be: `init`, `handle`, and `query`. 
 
-- `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters are used to initialize the internal state (the `State` struct imported from `state.rs`) of the Smart Contract.
+- `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters initialize the internal state (the `State` struct imported from `state.rs`) of the Secret Contract.
 
 ```rust
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -250,7 +250,7 @@ pub struct CountResponse {
 
 ##### `lib.rs`
 
-This file is essentially boilerplate that you **shouldn't need to modify**. It provides the necessary abstraction to interact with the wasmi VM and compile the contract to wasm.
+This file is essentially boilerplate you **shouldn't need to modify**. It provides the necessary abstraction to interact with the wasmi VM and compile the contract to wasm.
 
 #### Compile the Secret Contract
 
