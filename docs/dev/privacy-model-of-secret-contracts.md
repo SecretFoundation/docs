@@ -7,6 +7,9 @@ For an in depth look at the Secret Network encryption specs, visit [here](../pro
 
 Secret Contract developers must always consider the trade-off between privacy, user experience, performance and gas usage.
 
+<details>
+  <summary><b>Table of Contents<b></summary>
+  
 - [Privacy Model of Secret Contracts](#privacy-model-of-secret-contracts)
 - [Verified Values During Contract Execution](#verified-values-during-contract-execution)
   - [Tx Parameter Verification](#tx-parameter-verification)
@@ -23,14 +26,14 @@ Secret Contract developers must always consider the trade-off between privacy, u
       - [Contract panic](#contract-panic)
       - [External errors (VM or interaction with the blockchain)](#external-errors-vm-or-interaction-with-the-blockchain)
 - [Query](#query)
-  - [Inputs](#inputs-1)
-  - [API calls](#api-calls-1)
-  - [Outputs](#outputs-1)
+  - [Inputs](#inputs-2)
+  - [API calls](#api-calls-2)
+  - [Outputs](#outputs-2)
     - [Return value of `query`](#return-value-of-query)
     - [Errors](#errors-1)
-      - [Contract errors](#contract-errors-1)
-      - [Contract panic](#contract-panic-1)
-      - [External errors (VM or interaction with the blockchain)](#external-errors-vm-or-interaction-with-the-blockchain-1)
+      - [Contract errors](#contract-errors-2)
+      - [Contract panic](#contract-panic-2)
+      - [External errors (VM or interaction with the blockchain)](#external-errors-vm-or-interaction-with-the-blockchain-2)
 - [External query](#external-query)
 - [Data leakage attacks by analyzing metadata of contract usage](#data-leakage-attacks-by-analyzing-metadata-of-contract-usage)
   - [Differences in input sizes](#differences-in-input-sizes)
@@ -41,6 +44,8 @@ Secret Contract developers must always consider the trade-off between privacy, u
   - [Differences in output messages/callbacks](#differences-in-output-messagescallbacks)
   - [Differences in output events](#differences-in-output-events)
   - [Differences in output types - success vs. error](#differences-in-output-types---success-vs-error)
+
+</details>
 
 # Verified Values During Contract Execution
 
