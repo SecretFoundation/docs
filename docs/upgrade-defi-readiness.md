@@ -5,7 +5,7 @@
 sudo cp "$(which secretd)" secretd-v1.0.0
 
 # download new version
-wget -O secretd-v1.0.4 https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.4/secretd
+wget -O secretd-v1.0.4 https://github.com/scrtlabs/SecretNetwork/releases/download/v1.0.4/secretd
 
 # check integrity of new version
 echo "4ba817f2f5dba092359ec26e5aaedec7df41c370469a8879ef24898fbd38c8e7 secretd-v1.0.4" | sha256sum --check

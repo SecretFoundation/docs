@@ -107,7 +107,7 @@ To create the smart contract you'll:
 Generate the smart contract project
 
 ```
-cargo generate --git https://github.com/enigmampc/secret-template --name mysimplecounter
+cargo generate --git https://github.com/scrtlabs/secret-template --name mysimplecounter
 ```
 
 The git project above is a cosmwasm smart contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.

@@ -10,7 +10,7 @@ module.exports = {
       { text: "Discord", link: "https://chat.scrt.network" },
       { text: "Forum", link: "https://forum.scrt.network" },
       { text: "Twitter", link: "https://twitter.com/SecretNetwork" },
-      { text: "Github", link: "https://github.com/enigmampc/SecretNetwork" },
+      { text: "Github", link: "https://github.com/scrtlabs/SecretNetwork" },
       { text: "Telegram", link: "https://t.co/lIiXm3c1hu" },
     ],
     sidebar: [

@@ -44,7 +44,7 @@ docker run -it --rm \
 
 **NOTE**: The _secretdev_ docker container can be stopped by CTRL+C
 
-![](docker-run.png)
+![](../images/images/docker-run.png)
 
 At this point you're running a local SecretNetwork full-node. Let's connect to the container so we can view and manage the secret keys:
 
@@ -59,7 +59,7 @@ The local blockchain has a couple of keys setup for you (similar to accounts if 
 secretcli keys list --keyring-backend test
 ````
 
-![](secretcli-keys-list.png)
+![](../images/images/secretcli_keys_list.png)
 
 `exit` when you are done
 
@@ -119,7 +119,7 @@ To create the smart contract you'll:
 ### Generate the smart contract project
 
 ```bash
-cargo generate --git https://github.com/enigmampc/secret-template --name mysimplecounter
+cargo generate --git https://github.com/scrtlabs/secret-template --name mysimplecounter
 ```
 
 The git project above is a cosmwasm smart contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
@@ -271,7 +271,7 @@ Holodeck is the official Secret Network testnet. To deploy your contract to the 
 
 #### Install and Configure the Secret Network Light Client
 
-If you don't have the latest `secretcli`, using these [steps](https://github.com/enigmampc/SecretNetwork/blob/master/docs/testnet/install_cli.md) to download the 
+If you don't have the latest `secretcli`, using these [steps](https://github.com/scrtlabs/SecretNetwork/blob/master/docs/testnet/install_cli.md) to download the 
 CLI and add its location to your PATH.
 
 Before deploying your contract make sure it's configured to point to an existing RPC node. You can also use the testnet bootstrap node. Set the `chain-id` to 
@@ -383,7 +383,7 @@ pub struct CountResponse {
 ```
 ### Secret Contract code explanation
 
-Use [this link](https://github.com/enigmampc/SecretSimpleVote/blob/master/src/contract.rs) to a see a sample voting contract and a line by line description of everything you need to know
+Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to a see a sample voting contract and a line by line description of everything you need to know
 
 
 ### Unit Tests
@@ -418,15 +418,15 @@ mod tests {
 ```
 
 ## Secret Toolkit
-[Secret Toolkit](https://github.com/enigmampc/secret-toolkit) is a collection of Rust packages that contain common tools used in development of Secret Contracts running on the Secret Network.
+[Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) is a collection of Rust packages that contain common tools used in development of Secret Contracts running on the Secret Network.
 
 #### Calling other Contracts
-[Secret Toolkit](https://github.com/enigmampc/secret-toolkit) contains very helpful tools that can be used to call other contracts from your own.  [Here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/CALLING_OTHER_CONTRACTS.md) is a guide on how to call other contracts from your own using the `InitCallback`, `HandleCallback`, and `Query` traits defined in the [utils package](https://github.com/enigmampc/secret-toolkit/tree/master/packages/utils).
+[Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) contains very helpful tools that can be used to call other contracts from your own.  [Here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/CALLING_OTHER_CONTRACTS.md) is a guide on how to call other contracts from your own using the `InitCallback`, `HandleCallback`, and `Query` traits defined in the [utils package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/utils).
 
-If you are specifically wanting to call Handle functions or Queries of [SNIP-20 token contracts](https://github.com/enigmampc/snip20-reference-impl), there are individually named functions you can use to make it even simpler than using the generic traits.  These are located in the [SNIP-20 package](https://github.com/enigmampc/secret-toolkit/tree/master/packages/snip20).
+If you are specifically wanting to call Handle functions or Queries of [SNIP-20 token contracts](https://github.com/scrtlabs/snip20-reference-impl), there are individually named functions you can use to make it even simpler than using the generic traits.  These are located in the [SNIP-20 package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/snip20).
 
 ## Secret Contracts - Advanced
-Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed-bid (secret) auction contract that makes use of [SNIP-20](https://github.com/enigmampc/snip20-reference-impl) and a walkthrough of the contract
+Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed-bid (secret) auction contract that makes use of [SNIP-20](https://github.com/scrtlabs/snip20-reference-impl) and a walkthrough of the contract
 
 ### Tutorials from Secret Network community
 Visit [this link](https://learn.figment.io/network-documentation/secret) for all tutorials about Secret Network

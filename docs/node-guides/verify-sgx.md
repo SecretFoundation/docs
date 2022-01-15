@@ -25,7 +25,7 @@ Other driver/OS combinations are not guaranteed to work with these instructions.
 ### 1. Download the test package
 
 ```bash
-wget https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.0/secretnetwork_1.0.0_amd64.deb
+wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.0.0/secretnetwork_1.0.0_amd64.deb
 ```
 
 ### 2. Unpack

@@ -1,6 +1,6 @@
 # Install the `secretcli` Secret Network light client
 
-1. Get the latest release of `secretcli` for your OS [HERE](https://github.com/enigmampc/SecretNetwork/releases/latest)
+1. Get the latest release of `secretcli` for your OS [HERE](https://github.com/scrtlabs/SecretNetwork/releases/latest)
 
 2) Install:
 
