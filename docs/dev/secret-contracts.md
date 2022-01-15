@@ -5,7 +5,7 @@ title : 'Secret Contracts'
 
 Secret Contracts are the first implementation of general purpose privacy preserving computations a on public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs, and encrypted state). These privacy guarantees are made possible by a decentralized network of validators who run Secret Contract execution inside Trusted Execution Environments (TEEs).
 
-Secret Contracts are Rust-based smart contracts that compile to WebAssembly. Secret Contracts, which are based on [Go-CosmWasm](https://github.com/scrtlabs/SecretNetwork/tree/master/go-cosmwasm), introduce the _compute_ module that runs inside the TEE to enable secure data processing (inputs, outputs, and contract state.
+Secret Contracts are Rust-based smart contracts that compile to WebAssembly. Secret Contracts, which are based on [Go-CosmWasm](https://github.com/scrtlabs/SecretNetwork/tree/master/go-cosmwasm), introduce the _compute_ module that runs inside the TEE to enable secure data processing (inputs, outputs, and contract state).
 
 ![architecture](https://user-images.githubusercontent.com/15679491/99459758-9a44c580-28fc-11eb-9af2-82479bbb2d23.png)
 
@@ -68,7 +68,7 @@ cargo install cargo-generate --features vendored-openssl
 #### Generate the Simple Counter Project
 
 ```
-cargo generate --git https://github.com/enigmampc/secret-template --name mysimplecounter
+cargo generate --git https://github.com/scrtlabs/secret-template --name mysimplecounter
 ```
 
 The git project above is a Secret Contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
@@ -113,7 +113,7 @@ pub fn init<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-[`deps`](https://github.com/enigmampc/SecretNetwork/blob/master/cosmwasm/packages/std/src/traits.rs) and [`env`](https://github.com/enigmampc/SecretNetwork/blob/master/cosmwasm/packages/std/src/types.rs) are structs `Extern` and `Env` imported from [cosmwasm_std](https://github.com/enigmampc/SecretNetwork/tree/master/cosmwasm/packages/std)
+[`deps`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/traits.rs) and [`env`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/types.rs) are structs `Extern` and `Env` imported from [cosmwasm_std](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/std)
 
 `deps` contains all external dependencies of the contract.
 
@@ -206,9 +206,9 @@ pub struct State {
 }
 ```
 
-The state is saved in a [`Storage`](https://github.com/enigmampc/SecretNetwork/blob/master/cosmwasm/packages/std/src/traits.rs#L42-L72) struct.
+The state is saved in a [`Storage`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/traits.rs#L42-L72) struct.
 
-This `Storage` struct is wrapped in a [`Singleton` and `ReadonlySingleton`](https://github.com/enigmampc/SecretNetwork/tree/master/cosmwasm/packages/storage#singleton). To learn more about the different types of storage, read the documentation for [cosmwasm_storage](https://github.com/enigmampc/SecretNetwork/tree/master/cosmwasm/packages/storage). 
+This `Storage` struct is wrapped in a [`Singleton` and `ReadonlySingleton`](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/storage#singleton). To learn more about the different types of storage, read the documentation for [cosmwasm_storage](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/storage). 
 
 ```rust
 pub fn config<S: Storage>(storage: &mut S) -> Singleton<S, State> {
@@ -220,7 +220,7 @@ pub fn config_read<S: Storage>(storage: &S) -> ReadonlySingleton<S, State> {
 }
 ```
 
-In this example, the state contains an integer `count` and the `owner` of the contract. `owner` is an instance of the [`CanonicalAddr`](https://github.com/enigmampc/SecretNetwork/blob/master/cosmwasm/packages/std/src/addresses.rs#L56-L88) struct. `Storage` and `CanonicalAddr` are imported from [cosmwasm_std](https://github.com/enigmampc/SecretNetwork/tree/master/cosmwasm/packages/std).
+In this example, the state contains an integer `count` and the `owner` of the contract. `owner` is an instance of the [`CanonicalAddr`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/addresses.rs#L56-L88) struct. `Storage` and `CanonicalAddr` are imported from [cosmwasm_std](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/std).
 
 ##### `msg.rs`
 

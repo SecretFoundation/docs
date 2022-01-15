@@ -1,7 +1,7 @@
 # Azure Image Guide
 
-This file is a copy of the file [here](https://github.com/enigmampc/SecretNetwork/blob/master/deployment/azure/secret-node-azure-template/Usage.md) and is mainly here for visibility.
-The files you need to run this guide are [here](https://github.com/enigmampc/SecretNetwork/tree/master/deployment/azure/secret-node-azure-template)
+This file is a copy of the file [here](https://github.com/scrtlabs/SecretNetwork/blob/master/deployment/azure/secret-node-azure-template/Usage.md) and is mainly here for visibility.
+The files you need to run this guide are [here](https://github.com/scrtlabs/SecretNetwork/tree/master/deployment/azure/secret-node-azure-template)
 
 ## Requirements
 

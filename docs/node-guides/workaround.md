@@ -35,7 +35,7 @@ On the machine:
 ```bash
 cd ~
 
-wget https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.4/secretnetwork_1.0.4_amd64.deb
+wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.0.4/secretnetwork_1.0.4_amd64.deb
 
 echo "97c1aa2421a203184e541928cc9c409c50afcfac5cbd55993e6a9593399587f9 secretnetwork_1.0.4_amd64.deb" | sha256sum --check
 
@@ -55,7 +55,7 @@ cd ~
 
 sudo apt purge -y secretnetwork
 
-wget "https://github.com/enigmampc/SecretNetwork/releases/download/v1.0.5/secretnetwork_1.0.5_amd64.deb"
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.0.5/secretnetwork_1.0.5_amd64.deb"
 
 echo "6b0259f3669ab81d41424c1db5cea5440b00eb3426cac3f9246d0223bbf9f74c secretnetwork_1.0.5_amd64.deb" | sha256sum --check
 

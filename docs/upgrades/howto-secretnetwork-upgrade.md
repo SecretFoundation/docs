@@ -31,7 +31,7 @@ perl -i -pe 's/"enigma-1"/"secret-1"/' exported_state.json
 Using the CLI:
 
 ```bash
-wget https://github.com/enigmampc/bech32.enigma.co/releases/download/cli/bech32-convert
+wget https://github.com/scrtlabs/bech32.enigma.co/releases/download/cli/bech32-convert
 chmod +x bech32-convert
 
 cat exported_state.json | ./bech32-convert > secret-1-genesis.json

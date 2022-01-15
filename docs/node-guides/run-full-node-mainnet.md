@@ -33,7 +33,7 @@ See instructions for [setup](setup-sgx.md) and [verification](verify-sgx.md). Se
 ### 1. Download the Secret Network package installer for Debian/Ubuntu:
 
 ```bash
-wget https://github.com/enigmampc/SecretNetwork/releases/download/v1.2.0/secretnetwork_1.2.0_amd64.deb
+wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/secretnetwork_1.2.0_amd64.deb
 # check the hash of the downloaded binary
 echo "b8cf9be5c81e510584a9e829b9db4bfee02fedb2584e76bb6d6901a29d73ad06 secretnetwork_1.2.0_amd64.deb" | sha256sum --check
 ```

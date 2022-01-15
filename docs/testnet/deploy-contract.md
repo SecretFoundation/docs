@@ -14,7 +14,7 @@ You can read more about the process, and other comparisons to Solidity, in the [
 
 ### 1. Download the prebuilt contract
 
-`https://github.com/enigmampc/SecretNetwork/releases/download/v0.8.1/contract.wasm.gz`
+`https://github.com/scrtlabs/SecretNetwork/releases/download/v0.8.1/contract.wasm.gz`
 
 This contract is a copy of the contract used to create the SSCRT privacy coin, so now you'll be creating your own privacy coin!
 
@@ -88,4 +88,4 @@ The contract is now initialized, congratulations! Our final step is to find the 
 
 Congratulations, you're done deploying your first contract!
 
-The contract code is based on the code that can be found [here](https://github.com/enigmampc/secret-secret) if you want to learn more, or interact with your new privacy coin.
+The contract code is based on the code that can be found [here](https://github.com/scrtlabs/secret-secret) if you want to learn more, or interact with your new privacy coin.

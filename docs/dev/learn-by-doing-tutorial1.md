@@ -17,7 +17,7 @@ Make sure you have completed the [Secret Pathway Tutorials 1-5](https://learn.fi
 To generate a new project we follow the directions from the [Secret Pathway Tutorial 5](https://learn.figment.io/network-documentation/secret/tutorials/5.-writing-and-deploying-your-first-secret-contract#generate-the-smart-contract-project), however we choose a new name, in this case `reminder`.
 
 ```rust
-cargo generate --git https://github.com/enigmampc/secret-template --name reminder
+cargo generate --git https://github.com/scrtlabs/secret-template --name reminder
 ```
 
 In addition to everything we need to compile a contract, this template includes sample code for the simple counter contract. We are going to remove that in order to start from scratch. **Go into the `src` directory and empty the contents of the following three files `contract.rs`, `msg.rs`, and `state.rs`.** Do NOT remove or edit `lib.rs`.
@@ -255,12 +255,12 @@ pub struct Reminder {
 
 First, we define a `static` unique key to point to our `State` struct and give it the value `b"config"`. Note, we will also need unique key values for each `Reminder`, but we will wait to create those in our `handle` function using the address of the sender. Next, we define our `State` struct, which keeps track of the `max_size` of the reminder messages along with a running count of the number of users and total reminders recorded. A `Reminder` consists of the reminder `content` (as a vector of bytes) and the timestamp when it was recorded.
 
-You can serialize your data on storage in any way you want. It is recommended that you use `bincode2` serialization from the [Secret Contract Development Toolkit](https://github.com/enigmampc/secret-toolkit) if you do not want numbers and `Option` types encoded on the chain at variable lengths. Other types of serialization, such as json encode numbers as strings, so different values can have different byte lengths in storage. That can lead to data leakage if information can be discerned due to that difference (see [here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/WALKTHROUGH.md#staters) and [here](https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html#api-calls-2) for more detailed information).
+You can serialize your data on storage in any way you want. It is recommended that you use `bincode2` serialization from the [Secret Contract Development Toolkit](https://github.com/scrtlabs/secret-toolkit) if you do not want numbers and `Option` types encoded on the chain at variable lengths. Other types of serialization, such as json encode numbers as strings, so different values can have different byte lengths in storage. That can lead to data leakage if information can be discerned due to that difference (see [here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/WALKTHROUGH.md#staters) and [here](https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html#api-calls-2) for more detailed information).
 
 The toolkit is not automatically added in the secret contract template, so add the following line to the end of the `Cargo.toml` file in the root directory of your project:
 
 ```toml
-secret-toolkit = { git = "https://github.com/enigmampc/secret-toolkit" }
+secret-toolkit = { git = "https://github.com/scrtlabs/secret-toolkit" }
 ```
 
 We now define three helper functions in `state.rs` to read and write data to storage using bincode2 <sup id="a2">[2](#f2)</sup>:

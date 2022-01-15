@@ -69,7 +69,7 @@ cargo install cargo-generate --features vendored-openssl
 #### Generate the Secret Contract Project
 
 ```
-cargo generate --git https://github.com/enigmampc/secret-template --name mysimplecounter
+cargo generate --git https://github.com/scrtlabs/secret-template --name mysimplecounter
 ```
 
 The git project above is a secret contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
