@@ -1,8 +1,8 @@
 # Secret Tutorials
 
-Provided are references to aid in building Secret Network apps and smart contract development, beginning with reference tutorials and code repositories.
+References to help build Secret Networks dApps and Secret Contracts are found below, beginning with reference tutorials and code repositories.
 
-To learn more about secret smart contracts, please visit our [documentation page](/dev/secret-contracts.html).
+To learn more about Secret Contracts, please visit our [documentation page](/dev/secret-contracts.html).
 
 To follow a guided walk-through on setting up your development environment, developing a first basic Secret contract (Simple Secret Counter) and deploying it, please visit our [Quickstart](/dev/quickstart.html) documentation page.
 
@@ -25,7 +25,7 @@ To follow a guided walk-through on setting up your development environment, deve
 ## Tutorial Developing Your First Secret Contract
 Refer to this [tutorial](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1) from `darwinzer0` about developing a Secret Exploding Message app.
 
-A recommended walkthrough, with practical insights on Secret contract functions, messages & storage.
+A recommended walkthrough, with practical insights on Secret Contract functions, messages & storage.
 
 
 ## Simple Secret Voting App
@@ -39,8 +39,8 @@ This [repository](https://github.com/scrtlabs/secret-contracts-guide) can be use
 
 In this repository you'll find information on:
 - setting up a local Secret Network developer testnet
-- learning secret contract development basics and shortcuts
-- build and deploy secret contracts of varying complexity with UIs
+- learning Secret Contract development basics and shortcuts
+- build and deploy Secret Contracts of varying complexity with UIs
 
 A key aspect addresses [how to build a frontend](https://github.com/scrtlabs/secret-contracts-guide/blob/master/building-a-frontend.md) using React.
 
