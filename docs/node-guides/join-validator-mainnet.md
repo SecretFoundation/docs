@@ -3,6 +3,8 @@
 
 ### How to become a validator on Secret Network
 
+In order to become an **active** validator, you must have more stake than the [bottom validator](https://www.mintscan.io/secret/validators). You may still execute the following steps, but you will not be active and therefore won't receive staking rewards.
+
 #### 1. [Run a new full node](run-full-node-mainnet.md) on a new machine. 
 In order to become a validator, you node must be fully synced with the network. You can check this by doing:
 
