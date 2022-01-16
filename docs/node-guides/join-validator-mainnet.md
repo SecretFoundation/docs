@@ -82,8 +82,8 @@ ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx do
 secretcli tx staking create-validator \
   --amount=<amount-to-delegate-to-yourself>uscrt \
   --pubkey=$(secretd tendermint show-validator) \
-  --identity {KEYBASE_IDENTITY} \
-  --details "To infinity and beyond!" \
+  --identity={KEYBASE_IDENTITY} \
+  --details="To infinity and beyond!" \
   --commission-rate="0.10" \
   --commission-max-rate="0.20" \
   --commission-max-change-rate="0.01" \
