@@ -459,7 +459,7 @@ secretcli status
 
 ### Governance
 
-Governance is the process from which users in the Secret Network can come to consensus
+Governance is the process of Secret Network users coming to consensus
 on software upgrades, parameters of the mainnet or signaling mechanisms through
 text proposals. This is done through voting on proposals, which will be submitted
 by `SCRT` holders on the mainnet.
@@ -470,7 +470,7 @@ by `SCRT` holders on the mainnet.
 
 #### Query Distribution Parameters
 
-To check the current distribution parameters, run:
+To check current distribution parameters, run:
 
 ```bash
 secretcli q distribution params
@@ -478,7 +478,7 @@ secretcli q distribution params
 
 #### Query Distribution Community Pool
 
-To query all coins in the community pool which is under Governance control:
+To query all coins in the community pool under Governance control:
 
 ```bash
 secretcli q distribution community-pool
@@ -486,7 +486,7 @@ secretcli q distribution community-pool
 
 #### Query Outstanding Validator rewards
 
-To check the current outstanding (un-withdrawn) rewards, run:
+To check current outstanding (un-withdrawn) rewards, run:
 
 ```bash
 secretcli q distribution validator-outstanding-rewards <validator-address>
@@ -494,7 +494,7 @@ secretcli q distribution validator-outstanding-rewards <validator-address>
 
 #### Query Validator Commission
 
-To check the current outstanding commission for a validator, run:
+To check current outstanding commission for a validator, run:
 
 ```bash
 secretcli q distribution commission <validator-operator-address>
