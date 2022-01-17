@@ -165,7 +165,7 @@ Multisig addresses can also be generated on-the-fly and printed by typing:
 secretcli keys show --multisig-threshold K name1 name2 name3 [...]
 ```
 
-For more information regarding how to generate, sign and broadcast transactions with a multi-signature account see [Multisig Transactions](#multisig-transactions).
+For more information on generating, signing and broadcasting transactions using multiple signatures see [Multisig Transactions](#multisig-transactions).
 
 ### Tx Broadcasting
 
@@ -174,8 +174,8 @@ flag can have a value of `sync` (default), `async`, or `block`, where `sync` mak
 the client return a CheckTx response, `async` makes the client return immediately,
 and `block` makes the client wait for the tx to be committed (or timing out).
 
-It is important to note that the `block` mode should **not** be used in most
-circumstances. This is because broadcasting can timeout but the tx may still be
+It is important to note, that the `block` mode should **not** be used in most
+circumstances because broadcasting can timeout, but the tx may still be
 included in a block. This can result in many undesirable situations. Therefore, it
 is best to use `sync` or `async` and query by tx hash to determine when the tx
 is included in a block.
@@ -205,7 +205,7 @@ secretcli tx send ... --gas-prices=0.0125uscrt
 
 #### Get Tokens
 
-On a testnet, getting tokens is usually done via a faucet.
+On a testnet, getting tokens is usually done via a faucet. You can get tokens for testing purposes using the Secret Network faucet [HERE](https://faucet.secrettestnet.io/)
 
 #### Query Account Balance
 
@@ -223,14 +223,14 @@ secretcli keys show -a <key-alias>
 
 (the _-a_ flag is used to display the address only)
 
-Optionally, you can supply your address within the command as:
+You can also supply your address with the following command:
 
 ```bash
 secretcli q account $(secretcli keys show -a <key-alias>)
 ```
 
 ::: warning Note
-When you query an account balance with zero tokens, you will get this error: `No account with address <secret-address> was found in the state.` This can also happen if you fund the account before your node has fully synced with the chain. These are both normal.
+When querying an account balance with zero tokens, you will get the error: `No account with address <secret-address> was found in the state.` This can also happen if you fund the account before your node is fully synced. These are both normal.
 
 ### Send Tokens
 
@@ -313,11 +313,11 @@ secretcli tx broadcast --node=<node> signedSendTx.json
 
 #### Matching a Set of Events
 
-You can use the transaction search command to query for transactions that match a specific set of `events`, which are added on every transaction.
+Use the transaction search command to query for transactions matching a specific set of `events`, which are added on every transaction.
 
-Each event is composed by a key-value pair in the form of `{eventType}.{eventAttribute}={value}`.
+Each event contains a key-value pair in the form of `{eventType}.{eventAttribute}={value}`.
 
-Events can also be combined to query for a more specific result using the `&` symbol.
+Events can be combined to query for more specific results using the `&` symbol.
 
 You can query transactions by `events` as follows:
 
