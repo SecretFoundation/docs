@@ -527,9 +527,9 @@ secretcli q distribution rewards <delegator-address>
 
 ### Multisig Transactions
 
-Multisig transactions require signatures of multiple private keys. Thus, generating and signing a transaction from a multisig account involve cooperation among the parties involved. A multisig transaction can be initiated by any of the key holders, and at least one of them would need to import other parties' public keys into their Keybase and generate a multisig public key in order to finalize and broadcast the transaction.
+Multisig transactions require signatures of multiple private keys. Generating and signing a transaction from a multisig account involves multiple parties. A multisig transaction is initiated by any key holder, and at least one of them would need to import other parties' public keys into their Keybase and generate a multisig public key to finalize and broadcast the multisig transaction.
 
-For example, given a multisig key comprising the keys `p1`, `p2`, and `p3`, each of which is held by a distinct party, the user holding `p1` would require to import both `p2` and `p3` in order to generate the multisig account public key:
+For example, given a multisig key comprising the keys `p1`, `p2`, and `p3`, each of which is held by a distinct party, the user holding `p1` will need to import both `p2` and `p3` to generate the multisig account public key:
 
 ```bash
 secretcli keys add \
@@ -546,7 +546,7 @@ secretcli keys add \
   --multisig=p1,p2,p3
 ```
 
-A new multisig public key `p1p2p3` has been stored, and its address will be
+When a new multisig public key `p1p2p3` has been stored its address will be
 used as signer of multisig transactions:
 
 ```bash
@@ -563,7 +563,7 @@ secretcli keys show p1p2p3 --show-multisig
 ```
 
 The first step to create a multisig transaction is to initiate it on behalf
-of the multisig address created above:
+of the multisig address created above using the following command:
 
 ```bash
 secretcli tx send secret1570v2fq3twt0f0x02vhxpuzc9jc4yl30q2qned 1000000uscrt \
