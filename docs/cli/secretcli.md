@@ -352,7 +352,7 @@ You can find a list of available `events` on each of the SDK modules:
 
 #### Matching a Transaction Hash
 
-You can also query a single transaction by its hash using the following command:
+You can query a single transaction by its hash using the following command:
 
 ```bash
 secretcli q tx [hash]
@@ -368,8 +368,8 @@ To upload a contract:
 secretcli tx compute store ./contract.wasm.gz --from mykey --source "https://github.com/<username>/<repo>/tarball/<version>" --builder "enigmampc/secret-contract-optimizer:1.0.2"
 ```
 
-- `--source`: Optional tarball of the source code, so that your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
-- `--builder`: Optional docker image that was used to compile `./contract.wasm.gz`, so that your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
+- `--source`: Optional tarball of the source code, so your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
+- `--builder`: Optional docker image used to compile `./contract.wasm.gz`, so that your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
 
 To get the contract's code ID:
 
@@ -416,25 +416,25 @@ secretcli q compute query $CONTRACT_ADDRESS "$QUERY_INPUT_MSG"
 ### Slashing
 
 ::: tip Note
-You can find Slashing related CLI commands under
+You can find slashing related CLI commands under
 [Validators/Slashing](join-validator-mainnet.md#Slashing).
 :::
 
 ### Minting
 
-You can query for the minting/inflation parameters via:
+You can query for minting/inflation parameters via:
 
 ```bash
 secretcli q mint params
 ```
 
-To query for the current inflation value:
+To query for current inflation value:
 
 ```bash
 secretcli q mint inflation
 ```
 
-To query for the current annual provisions value:
+To query for current annual provisions value:
 
 ```bash
 secretcli q mint annual-provisions
