@@ -314,11 +314,11 @@ secretcli tx broadcast --node=<node> signedSendTx.json
 
 #### Matching a Set of Events
 
-You can use the transaction search command to query for transactions that match a specific set of `events`, which are added on every transaction.
+Use the transaction search command to query for transactions matching a specific set of `events`, which are added on every transaction.
 
-Each event is composed by a key-value pair in the form of `{eventType}.{eventAttribute}={value}`.
+Each event contains a key-value pair in the form of `{eventType}.{eventAttribute}={value}`.
 
-Events can also be combined to query for a more specific result using the `&` symbol.
+Events can be combined to query for more specific results using the `&` symbol.
 
 You can query transactions by `events` as follows:
 
