@@ -614,7 +614,7 @@ secretcli tx broadcast signedTx.json
 ## Shells Completion Scripts
 
 Completion scripts for popular UNIX shell interpreters such as `Bash` and `Zsh`
-can be generated through the `completion` command, which is available for both
+can be generated through the `completion` command, which is available for both the
 `secretd` and `secretcli`.
 
 If you want to generate `Bash` completion scripts run the following command:
