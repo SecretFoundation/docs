@@ -184,10 +184,10 @@ is included in a block.
 
 Each transaction supplies fees or gas prices, but never both.
 
-Validator's have a minimum gas price (multi-denom) configuration used to determin if they should include a transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. 
+Validator's have a minimum gas price (multi-denom) configuration used to determine if they should include a transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. 
 
 **Note**: Transactions must supply fees greater than or equal to **any** fees set by validators. Validators may start to prioritize
-txs by `gasPrice` in the mempool, increaseing tx priority based on fees or gas prices. 
+txs by `gasPrice` in the mempool, increasing tx priority based on fees or gas prices. 
 
 e.g.
 
