@@ -184,8 +184,8 @@ is included in a block.
 
 Each transaction may either supply fees or gas prices, but not both.
 
-Validator's have a minimum gas price (multi-denom) configuration and they use
-this value when when determining if they should include the transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. Note, your transaction must supply fees that are greater than or equal to **any** of the denominations the validator requires.
+Each validator has a minimum gas price (multi-denom) configuration, and they use
+this value when determining if they should include the transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. Note, your transaction must supply fees that are greater than or equal to **any** of the denominations the validator requires.
 
 **Note**: With such a mechanism in place, validators may start to prioritize
 txs by `gasPrice` in the mempool, so providing higher fees or gas prices may yield higher tx priority.
@@ -252,7 +252,7 @@ You may want to cap the maximum gas that can be consumed by the transaction via 
 
 If you pass `--gas=auto`, the gas supply will be automatically estimated before executing the transaction.
 
-Gas estimate might be inaccurate as state changes could occur in between the end of the simulation and the actual execution of a transaction, thus an adjustment is applied on top of the original estimate in order to ensure the transaction is broadcasted successfully. The adjustment can be controlled via the `--gas-adjustment` flag, whose default value is 1.0.
+Gas estimate might be inaccurate as state changes could occur in between the end of the simulation and the actual execution of a transaction, thus an adjustment is applied on top of the original estimate in order to ensure the transaction is broadcast successfully. The adjustment can be controlled via the `--gas-adjustment` flag, whose default value is 1.0.
 :::
 
 Now, view the updated balances of the origin and destination accounts:
@@ -295,7 +295,7 @@ secretcli tx sign \
 
 ::: tip Note
 The `--generate-only` flag prevents `secretcli` from accessing the local keybase.
-Thus when such flag is supplied `<sender-key-alias-or-address>` must be an address.
+Thus when such a flag is supplied `<sender-key-alias-or-address>` it must be an address.
 :::
 
 You can validate the transaction's signatures by typing the following:
@@ -316,7 +316,7 @@ secretcli tx broadcast --node=<node> signedSendTx.json
 
 You can use the transaction search command to query for transactions that match a specific set of `events`, which are added on every transaction.
 
-Each event is composed by a key-value pair in the form of `{eventType}.{eventAttribute}={value}`.
+Each event is composed of a key-value pair in the form of `{eventType}.{eventAttribute}={value}`.
 
 Events can also be combined to query for a more specific result using the `&` symbol.
 
