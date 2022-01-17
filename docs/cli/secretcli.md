@@ -230,7 +230,7 @@ Optionally, you can supply your address within the command as:
 secretcli q account $(secretcli keys show -a <key-alias>)
 ```
 
-::: Warning Note
+::: warning Note
 When you query an account balance with zero tokens, you will get this error: `No account with address <secret-address> was found in the state.` This can also happen if you fund the account before your node has fully synced with the chain. These are both normal.
 
 ### Send Tokens
