@@ -445,7 +445,7 @@ secretcli q mint annual-provisions
 
 ::: tip Note
 You can find CLI commands related to delegating under
-[Delegate](delegating-mainnet.md).
+[Delegate](https://docs.scrt.network/node-guides/delegating-mainnet.html#delegate-to-a-validator).
 :::
 
 ### Nodes
@@ -456,7 +456,7 @@ If you are running a full node or a validator node, view the status by typing:
 secretcli status
 ```
 
-[How to run a full node on mainnet](run-full-node-mainnet.md).
+[How to run a full node on mainnet](https://docs.scrt.network/node-guides/run-full-node-mainnet.html).
 
 ### Governance
 
