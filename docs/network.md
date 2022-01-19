@@ -14,7 +14,7 @@ Secret Network nodes perform computations and verify blockchain activity. The ne
 
 Secret Network is secured by SCRT (Secret), which is used for fees, staking, and governance. Nodes in the network receive fees and network rewards in SCRT, and they must *stake* SCRT in order to operate. When nodes go offline, they can be "slashed" and lose a portion of their SCRT stake. Holders of SCRT who are not operating nodes may *bond* their stake to a specific node to become a *delegator.* Delegators earn a share of network fees and rewards by supporting a particular set of validators. Both node operators and delegators earn a return on their staked, or delegated, SCRT coins. Returns depend on the number of coins staked on the network, and the SCRT inflation rate. **Historically, returns from staking SCRT are between 25-30% annually).
 
-A key utility for SCRT is governance. Secret nodes can create and vote on governance proposals using SCRT, allowing for decentralized communmity control of the networky. Most network parameters, such as the inflation and community tax rates, are decided through on-chain governance using SCRT.
+A key utility for SCRT is governance. Secret nodes can create and vote on governance proposals using SCRT, allowing for decentralized community control of the network. Most network parameters, such as the inflation and community tax rates, are decided through on-chain governance using SCRT.
 
 Transactions, validators, current inflation, governance proposals, and more are viewed using the following Secret Network block explorer:
 
