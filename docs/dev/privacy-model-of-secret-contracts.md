@@ -706,7 +706,7 @@ By looking at the encrypted output, an attacker can guess which function was cal
 1. 1 byte (uint8): `123`
 2. 11 bytes (formatted string): `amount: 123`
 
-Again, a quick fix will be to padd the shorter case to be as long as the longest case (assuming it's harder to shrink the longer case):
+Again, a quick fix will be to pad the shorter case to be as long as the longest case (assuming it's harder to shrink the longer case):
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -742,9 +742,9 @@ Be creative. :rainbow:
 
 ## Differences in output messages/callbacks
 
-Secret Contracts can output messages to be executed right after, in the same transaction as the current execution.have out that are decryptable only by the contract and the transaction sender.
+Secret Contracts can output messages to be executed immediately follow the current execution, in the same transaction as the current execution. Secret Contracts have outputs that are decryptable only by the contract and the transaction sender.
 
-Very similar to previous cases, if a contract output mesasges that are different or with different structures, an attacker might find out information about the execution of a contract.
+Very similar to previous cases, if a contract output messages that are different, or contain different structures, an attacker might be able to identify information about the execution of a contract.
 
 Let's see an example for a contract with 2 `handle` functions:
 
@@ -791,7 +791,7 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 
 Those outputs are plaintext as they are fowarded to the Secret Network for processing. By looking at these two outputs, an attacker will know which function was called based on the type of messages - `BankMsg::Send` vs. `StakingMsg::Delegate`.
 
-Some messages are partially encrypted, like `Wasm::Instantiate` and `Wasm::Execute`, but only the `msg` field is encrypted, so differences in `contract_addr`, `callback_code_hash`, `send` can reveal unintended data, as well as the size of `msg` which is encrypted but can reveal data the same way as previos examples.
+Some messages are partially encrypted, like `Wasm::Instantiate` and `Wasm::Execute`, but only the `msg` field is encrypted, so differences in `contract_addr`, `callback_code_hash`, `send` can reveal unintended data, as well as the size of `msg` which is encrypted but can reveal data the same way as previous examples.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -866,7 +866,7 @@ Examples:
 
 ## Differences in output types - success vs. error
 
-If a contract returns an `StdError`, the output looks like this:
+If a contract returns a `StdError`, the output looks like this:
 
 ```json
 {
@@ -882,4 +882,4 @@ Otherwise the output looks like this:
 }
 ```
 
-Therefore similar to previous examples, an attacker might guess what happned in an execution. E.g. if a contract have only a `send` function, if an error was returned an attacker can know that the `msg.sender` tried to send funds to someone unknown and the `send` didn't went through.
+Therefore similar to previous examples, an attacker might guess what happened in an execution. E.g. if a contract has only a `send` function, if an error was returned an attacker can know that the `msg.sender` tried to send funds to someone unknown and the `send` didn't execute.
