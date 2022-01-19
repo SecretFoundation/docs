@@ -2,15 +2,17 @@
 
 ## Overview
 
-Intel’s Software Guard Extensions (SGX) are a form of Trusted Execution Environment (TEE) that the Secret Network will use. SGX chips are found in most Intel hardware products. From the perspective of users and most application developers, these SGX chips work like black boxes for data. This means no one - neither the device owner nor system operator, nor an observer of the Secret Network - can see what is happening inside that memory space. The Secret Network currently uses Intel SGX enclaves because they provide strong cryptographic guarantees.
+The Secret Network uses a type of Trusted Execution Environment based on Intel’s Software Guard Extensions (SGX). SGX chips are found in most Intel hardware products. By using SGX chips, the chip owners, system operators, and observers have strong cryptographic guarantees that no party can view what's happening inside of the Secret Networks memory space. 
 
-Enclaves contain their own private signing/attestation key which is generated within the enclave. No-one has access to it outside of the enclave. It follows that data can only be signed with this key as part of the specified instruction set running in an enclave. For more details on key generation and management within enclaves, see our section about [encryption](encryption-specs.md). For our purposes, the attestation key is only used once upon registration. Following that process new keys are provisioned to the enclave and used to communicate with the network, as described in more detail below.
+Enclaves generate and contain their private signing/attestation keys, preventing access from any entity outside of each enclave. All data can only be signed using keys associated with specific instruction sets running in each enclave. For more details on key generation and management within enclaves, see our section about [encryption](encryption-specs.md). 
+
+For our purposes, the attestation key is only used once upon registration. After registration new keys are provisioned to the enclave and used to communicate with the network. This process is described in more detail below.
 
 Enclaves also go through a detailed registration and attestation process. Specifically, the attestation process which each validator running an SGX enclave must go through ensures the following assertions regarding privacy and correctness:
 
-- the application’s identity,
-- its intactness (that it has not been tampered with),
-- that it is running securely within an enclave on an Intel SGX enabled platform.
+- The application’s identity
+- Its intactness (that it has not been tampered with)
+- That it is running securely within an enclave on an Intel SGX enabled platform
 
 For more detailed information on the Intel SGX remote attestation process, see the below section on the attestation process.
 
