@@ -6,6 +6,9 @@ Check out the [CosmWasm docs](https://docs.cosmwasm.com) as well. They are proba
 
 Don't forget to go over the [differences between SecretWasm and CosmWasm](#differences-from-cosmwasm).
 
+<details>
+  <summary><b>Table of Contents<b></summary>
+
 - [Developing Secret Contracts](#developing-secret-contracts)
   - [IDEs](#ides)
   - [Personal Secret Network for Secret Contract development](#personal-secret-network-for-secret-contract-development)
@@ -15,7 +18,7 @@ Don't forget to go over the [differences between SecretWasm and CosmWasm](#diffe
   - [Inputs](#inputs)
   - [APIs](#apis)
   - [State](#state)
-  - [Some libraries/crates considerations](#some-librariescrates-considerations)
+  - [Some libraries/crates considerations](#some-libraries-crates-considerations)
   - [Randomness](#randomness)
     - [Roll your own](#roll-your-own)
       - [Poker deck shuffling example](#poker-deck-shuffling-example)
@@ -33,6 +36,8 @@ Don't forget to go over the [differences between SecretWasm and CosmWasm](#diffe
     - [Wallet integration](#wallet-integration)
   - [Differences from CosmWasm](#differences-from-cosmwasm)
 
+</details>
+
 ## IDEs
 
 Secret Contracts are developed with the [Rust](https://www.rust-lang.org/) programming language and compiled to [WASM](https://webassembly.org/) binaries.
@@ -42,12 +47,14 @@ These IDEs are known to work very well for developing Secret Contracts:
 - [CLion](https://www.jetbrains.com/clion/)
 - [VSCode](https://code.visualstudio.com/) with the [rust-analyzer](https://rust-analyzer.github.io/) extension
 
-## Personal Secret Network for Secret Contract development
+## Personal Secret Network for Secret Contract Development
 
-The developer blockchain is configured to run inside a docker container. Install [Docker](https://docs.docker.com/get-docker/) for your environment (Mac, Windows, Linux).
+The developer blockchain is configured to run inside a docker container. Install [Docker](https://docs.docker.com/get-docker/) for your environment (Mac, Windows, Linux). 
+
+**NOTE**: M1 Macs require additional effort to develop Secret Contracts for. Linux is the recommended platform.
 
 Open a terminal window and change to your project directory.
-Then start SecretNetwork, labelled _secretdev_:
+Then start SecretNetwork, labeled _secretdev_:
 
 ```
 $ docker run -it --rm \
@@ -79,13 +86,13 @@ secretcli keys list --keyring-backend test
 
 `init` is the constructor of your contract. This function is called only once in the lifetime of the contract.
 
-Example Invocation from `secretcli`:
+Example invocation from `secretcli`:
 
 ```bash
 secretcli tx compute instantiate "$CODE_ID" "$INPUT_MSG" --label "$UNIQUE_LABEL" --from "$MY_KEY"
 ```
 
-Example Invocation from `SecretJS`:
+Example invocation from `SecretJS`:
 
 ```js
 // TODO
@@ -95,14 +102,14 @@ Example Invocation from `SecretJS`:
 
 `handle` is the implementation of execute transactions.
 
-Example Invocation from `secretcli`:
+Example invocation from `secretcli`:
 
 ```bash
 secretcli tx compute execute "$CONTRACT_ADDRESS" "$INPUT_ARGS" --from "$MY_KEY" # Option A
 secretcli tx compute execute --label "$LABEL" "$INPUT_ARGS" --from "$MY_KEY"    # Option B
 ```
 
-Example Invocation from `SecretJS`:
+Example invocation from `SecretJS`:
 
 ```js
 // TODO
@@ -110,15 +117,15 @@ Example Invocation from `SecretJS`:
 
 ## Query
 
-`query` is the implementation of read-only queries. Queries run over the current blockchain state but don't incur fees and don't have access to `msg.sender`. They are still metered by a gas limit that is set on the executing node.
+`query` is the implementation of read-only queries. Queries run over the current blockchain state, don't incur fees, and don't have access to `msg.sender`. **Queries are still metered by a gas limit as set on the executing node.**
 
-Example Invocation from `secretcli`:
+Example invocation from `secretcli`:
 
 ```bash
 secretcli q compute query "$CONTRACT_ADDRESS" "$INPUT_ARGS"
 ```
 
-Example Invocation from `SecretJS`:
+Example invocation from `SecretJS`:
 
 ```js
 // TODO
@@ -132,18 +139,18 @@ Example Invocation from `SecretJS`:
 
 ## Debug printing
 
-Under normal circumstances, contracts can not be debugged while running 
+Under normal circumstances, contracts **cannot** be debugged while running 
 on-chain, inside the enclave.
 In most cases where you need to track down the source of an issue, this is fine:
-- If some function is behaving oddly, a unit test can be written to isolate and
-  fix the issue.
-- If you have a `Result::Err` being thrown somewhere, it usually has a clear and
+- If a function is behaving unexpectedly, a unit test can be written to isolate
+  and fix the issue.
+- If a `Result::Err` being thrown, it usually has a clear and
   distinct error message which can be tracked to its source.
-- If your contract returns a result but it's wrong for some reason, and you
+- If your contract returns a result but it's wrong, and you
   can't figure out why, you can add logs to the response that show the values
-  of some variables.
+  of variables.
 
-But, there is one error case that just halts the contract, reverts the state,
+There is one error case that halts the contract, reverts the state,
 and returns no feedback for the cause of the failure: **PANICS**
 
 Starting from version 1.1.0 of SecretNetwork, we provide another useful tool to
@@ -172,8 +179,7 @@ and they will only have an effect when used during development!
 
 Naturally, we don't want node runners to see private debug information in
 production, so the interfaces used by this API are only available in the
-local dev image. Trying to store a module that was compiled with this flag to
-testnet or mainnet will fail on validation.
+local dev image. **Attempting to store a module that was compiled with this flag to testnet or mainnet will fail on validation.**
 
 ## Some libraries/crates considerations
 
@@ -191,8 +197,8 @@ testnet or mainnet will fail on validation.
 2. Once the room is full, all secrets are combined with sha256 to [create a random seed](https://github.com/scrtlabs/SecretHoldEm/blob/4f67c469bb4a0f53522c7ad069e54ae5c1effb6b/contract/src/contract.rs#L349-L355).
 3. With that seed, the [deck is shuffled](https://github.com/scrtlabs/SecretHoldEm/blob/4f67c469bb4a0f53522c7ad069e54ae5c1effb6b/contract/src/contract.rs#L356-L357).
 4. Each round a [game counter is incremented](https://github.com/scrtlabs/SecretHoldEm/blob/4f67c469bb4a0f53522c7ad069e54ae5c1effb6b/contract/src/contract.rs#L602-L614), and along with the players' secrets is used to create a new seed for re-shuffling the deck.
-5. On the frondend side, [SecretJS is used to generate a secure random number](https://github.com/scrtlabs/SecretHoldEm/blob/4f67c469bb4a0f53522c7ad069e54ae5c1effb6b/gui/src/App.js#L334-L354) and sends it as a secret when a player joins the table. A random number is not really necessary, and every secret number would work just as well.
-6. As long as at least one player is not colluding with the rest, and by properties of sha256, the seeds for shuffling the deck are known only to the contract and to no one else. If all players are colliding, they might as well all play with open hands. :joy:
+5. On the frontend side, [SecretJS is used to generate a secure random number](https://github.com/scrtlabs/SecretHoldEm/blob/4f67c469bb4a0f53522c7ad069e54ae5c1effb6b/gui/src/App.js#L334-L354) and sends it as a secret when a player joins the table. A random number is not really necessary, and every secret number would work just as well.
+6. As long as at least one player is not colluding with the rest, and by properties of sha256, the seeds for shuffling the deck are known only to the contract and to no one else. If all players are colluding, they might as well all play with open hands. :joy:
 
 ### Use an external oracle
 
@@ -209,7 +215,7 @@ For example:
 7. Have `get_random_number` also callback to the caller contract with the random number.
 8. You can even have a cron job to send data from [random.org](https://www.random.org/) to `input_entropy`.
 
-This exmaple has a much worse UX than rolling your own randomness, but at least contracts won't have to rely on users to send entropy and also won't take the risk of messing up the implementation.
+This example has a much worse UX than rolling your own randomness, but at least contracts won't have to rely on users to send entropy and also won't take the risk of messing up the implementation.
 
 ## Outputs
 
@@ -261,8 +267,8 @@ A Secret App is usually comprised of the following components:
 
 - A Secret Contract deployed on the Secret Network
 - A frontend app built with a JavaScript framework (E.g. ReactJS, VueJS, AngularJS, etc.)
-- The frontend app connects to the Secret Network using SecretJS,
-- SecretJS interacts with a REST API exposed by nodes in the Secret Network. The REST API/HTTPS server is commonly referred to as LCD Server (Light Client Daemon :shrug:). Usually by connecting SecretJS with a wallet, the wallet handles the interactions with the LCD server.
+- The frontend app connects to the Secret Network using SecretJS
+- SecretJS interacts with a REST API exposed by nodes in the Secret Network. The REST API/HTTPS server is commonly referred to as LCD Server (Light Client Daemon). By connecting SecretJS with a wallet, the wallet handles the interactions with the LCD server.
 
 ### Wallet integration
 
