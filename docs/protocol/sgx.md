@@ -31,8 +31,8 @@ Remote attestation, an advanced feature of Intel SGX, is the process of proving 
 
 Remote attestation provides verification for three things: 
 
-- the application’s identity 
-- its intactness (that it has not been tampered with) 
+- The application’s identity 
+- Its intactness (that it has not been tampered with) 
 - That it's running securely within an enclave on an Intel SGX enabled platform 
 
 Attestation is necessary in order to make remote access secure because an enclave’s contents may have to be accessed remotely, not from the same platform [[1]]
