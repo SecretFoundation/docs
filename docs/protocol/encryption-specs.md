@@ -42,13 +42,13 @@
 
 # Bootstrap Process
 
-Before the genesis of a new chain, there must be a bootstrap node to generate network-wide secrets to fuel all the privacy features of the chain.
+Before the genesis of a new chain, there must be a bootstrap node to generate network-wide secrets to enable the privacy features of Secret Network.
 
 ## `consensus_seed`
 
-- Create a remote attestation proof that the node's Enclave is genuine.
-- Generate inside the Enclave a true random 256 bits seed: `consensus_seed`.
-- Seal `consensus_seed` with MRSIGNER to a local file: `$HOME/.sgx_secrets/consensus_seed.sealed`.
+- Create a remote attestation proof that the node's Enclave is genuine
+- Generate inside the Enclave a true random 256 bit seed: `consensus_seed`
+- Seal `consensus_seed` with MRSIGNER to a local file: `$HOME/.sgx_secrets/consensus_seed.sealed`
 
 ```js
 // 256 bits
@@ -65,8 +65,8 @@ seal({
 
 TODO reasoning
 
-- Key Derivation inside the Enclave is done deterministically using HKDF-SHA256 [[1]](https://tools.ietf.org/html/rfc5869#section-2)[[2]](https://en.wikipedia.org/wiki/HKDF).
-- The HKDF-SHA256 [salt](https://tools.ietf.org/html/rfc5869#section-3.1) is chosen to be Bitcoin's halving block hash.
+- Key derivation inside the Enclave is done deterministically using HKDF-SHA256 [[1]](https://tools.ietf.org/html/rfc5869#section-2)[[2]](https://en.wikipedia.org/wiki/HKDF)
+- The HKDF-SHA256 [salt](https://tools.ietf.org/html/rfc5869#section-3.1) is chosen to be Bitcoin's halving block hash
 
 ```js
 hkdf_salt = 0x000000000000000000024bead8df69990852c202db0e0097c1a12ea637d7e96d;
@@ -76,8 +76,8 @@ hkdf_salt = 0x000000000000000000024bead8df69990852c202db0e0097c1a12ea637d7e96d;
 
 ### `consensus_seed_exchange_privkey`
 
-- `consensus_seed_exchange_privkey`: A curve25519 private key. Will be used to derive encryption keys in order to securely share `consensus_seed` with new nodes in the network.
-- From `consensus_seed_exchange_privkey` calculate `consensus_seed_exchange_pubkey`.
+- `consensus_seed_exchange_privkey`: A curve25519 private key is used to derive encryption keys in order to securely share `consensus_seed` with new nodes in the network
+- From `consensus_seed_exchange_privkey` calculate `consensus_seed_exchange_pubkey`
 
 ```js
 consensus_seed_exchange_privkey = hkdf({
@@ -92,8 +92,8 @@ consensus_seed_exchange_pubkey = calculate_curve25519_pubkey(
 
 ### `consensus_io_exchange_privkey`
 
-- `consensus_io_exchange_privkey`: A curve25519 private key. Will be used to derive encryption keys in order to decrypt transaction inputs and encrypt transaction outputs.
-- From `consensus_io_exchange_privkey` calculate `consensus_io_exchange_pubkey`.
+- `consensus_io_exchange_privkey`: A curve25519 private key is used to derive encryption keys in order to decrypt transaction inputs and encrypt transaction outputs
+- From `consensus_io_exchange_privkey` calculate `consensus_io_exchange_pubkey`
 
 ```js
 consensus_io_exchange_privkey = hkdf({
@@ -108,7 +108,7 @@ consensus_io_exchange_pubkey = calculate_curve25519_pubkey(
 
 ### `consensus_state_ikm`
 
-- `consensus_state_ikm`: An input keyring material (IKM) for HKDF-SHA256 to derive encryption keys for contracts' state.
+- `consensus_state_ikm`: An input keyring material (IKM) for HKDF-SHA256 is used to derive encryption keys for contract state
 
 ```js
 consensus_state_ikm = hkdf({
@@ -119,7 +119,7 @@ consensus_state_ikm = hkdf({
 
 ### `consensus_callback_secret`
 
-- `consensus_callback_secret`: A curve25519 private key. Will be used to create callback signatures when contracts call other contracts.
+- `consensus_callback_secret`: A curve25519 private key is used to create callback signatures when contracts call other contracts
 
 ```js
 consensus_state_ikm = hkdf({
@@ -132,9 +132,9 @@ consensus_state_ikm = hkdf({
 
 TODO reasoning
 
-- Seal `consensus_seed` to disk at `$HOME/.sgx_secrets/consensus_seed.sealed`.
+- Seal `consensus_seed` to disk at `$HOME/.sgx_secrets/consensus_seed.sealed`
 - Publish to `genesis.json`:
-  - The remote attestation proof that the Enclave is genuine.
+  - The remote attestation proof that the Enclave is genuine
   - `consensus_seed_exchange_pubkey`
   - `consensus_io_exchange_pubkey`
 
