@@ -140,22 +140,22 @@ TODO reasoning
 
 # Node Startup
 
-When a full node resumes its participation in the network, it reads `consensus_seed` from `$HOME/.sgx_secrets/consensus_seed.sealed` and again does [key derivation](#Key-Derivation) as outlined above.
+When a full node resumes network participation, it reads `consensus_seed` from `$HOME/.sgx_secrets/consensus_seed.sealed`, and again does [key derivation](#Key-Derivation) as outlined above.
 
 # New Node Registration
 
-A new node wants to join the network as a full node.
+New nodes want to join the network as full nodes.
 
 ## On the new node
 
 TODO reasoning
 
-- Verify the remote attestation proof of the bootstrap node from `genesis.json`.
-- Create a remote attestation proof that the node's Enclave is genuine.
-- Generate inside the node's Enclave a true random curve25519 private key: `registration_privkey`.
-- From `registration_privkey` calculate `registration_pubkey`.
+- Verify remote attestation proof of the bootstrap node from `genesis.json`
+- Create a remote attestation proof the node's Enclave is genuine
+- Generate inside the node's Enclave a true random curve25519 private key: `registration_privkey`
+- From `registration_privkey` calculate `registration_pubkey`
 - Send an `secretcli tx register auth` transaction with the following inputs:
-  - The remote attestation proof that the node's Enclave is genuine.
+  - The remote attestation proof the node's Enclave is genuine
   - `registration_pubkey`
   - 256 bits true random `nonce`
 
@@ -163,22 +163,22 @@ TODO reasoning
 
 TODO reasoning
 
-- Receive the `secretcli tx register auth` transaction.
-- Verify the remote attestation proof that the new node's Enclave is genuine.
+- Receive the `secretcli tx register auth` transaction
+- Verify the remote attestation proof that the new node's Enclave is genuine
 
 ### `seed_exchange_key`
 
 TODO reasoning
 
-- `seed_exchange_key`: An [AES-128-SIV](https://tools.ietf.org/html/rfc5297) encryption key. Will be used to send `consensus_seed` to the new node.
-- AES-128-SIV was chosen to prevent IV misuse by client libraries.
+- `seed_exchange_key`: An [AES-128-SIV](https://tools.ietf.org/html/rfc5297) encryption key is used to send `consensus_seed` to the new node
+- AES-128-SIV was chosen to prevent IV misuse by client libraries
   - https://tools.ietf.org/html/rfc5297
   - https://github.com/miscreant/meta
-  - The input key is 256 bits, but half of it is used to derive the internal IV.
-  - AES-SIV does not pad the cipertext, and this leaks information about the plaintext data, specifically its size.
+  - The input key is 256 bits, but half of it is used to derive the internal IV
+  - AES-SIV does not pad the cipertext, and this leaks information about the plaintext data, specifically its size
 - `seed_exchange_key` is derived the following way:
-  - `seed_exchange_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_seed_exchange_privkey` and `registration_pubkey`.
-  - `seed_exchange_key` is derived using HKDF-SHA256 from `seed_exchange_ikm` and `nonce`.
+  - `seed_exchange_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_seed_exchange_privkey` and `registration_pubkey`
+  - `seed_exchange_key` is derived using HKDF-SHA256 from `seed_exchange_ikm` and `nonce`
 
 ```js
 seed_exchange_ikm = ecdh({
@@ -196,7 +196,7 @@ seed_exchange_key = hkdf({
 
 TODO reasoning
 
-- The output of the `secretcli tx register auth` transaction is `consensus_seed` encrypted with AES-128-SIV, `seed_exchange_key` as the encryption key, using the public key of the registering node for the AD.
+- The output of `secretcli tx register auth` is `consensus_seed` encrypted with AES-128-SIV with `seed_exchange_key` as the encryption key, using the public key of the registering node for the AD
 
 ```js
 encrypted_consensus_seed = aes_128_siv_encrypt({
@@ -210,18 +210,16 @@ return encrypted_consensus_seed;
 
 ## Back on the new node, inside its Enclave
 
-- Receive the `secretcli tx register auth` transaction output (`encrypted_consensus_seed`).
+- Receive the `secretcli tx register auth` transaction output (`encrypted_consensus_seed`)
 
 ### `seed_exchange_key`
 
 TODO reasoning
 
-- `seed_exchange_key`: An AES-128-SIV encryption key. Will be used to decrypt `consensus_seed`.
+- `seed_exchange_key`: An AES-128-SIV encryption key is used to decrypt `consensus_seed`
 - `seed_exchange_key` is derived the following way:
-
-  - `seed_exchange_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_seed_exchange_pubkey` (public in `genesis.json`) and `registration_privkey` (available only inside the new node's Enclave).
-
-  - `seed_exchange_key` is derived using HKDF-SHA256 with `seed_exchange_ikm` and `nonce`.
+  - `seed_exchange_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_seed_exchange_pubkey` (public in `genesis.json`) and `registration_privkey` (available only inside the new node's Enclave)
+  - `seed_exchange_key` is derived using HKDF-SHA256 with `seed_exchange_ikm` and `nonce`
 
 ```js
 seed_exchange_ikm = ecdh({
@@ -239,9 +237,9 @@ seed_exchange_key = hkdf({
 
 TODO reasoning
 
-- `encrypted_consensus_seed` is encrypted with AES-128-SIV, `seed_exchange_key` as the encryption key and the public key of the registering node as the `ad` as the decryption additional data.
-- The new node now has all of these^ parameters inside its Enclave, so it's able to decrypt `consensus_seed` from `encrypted_consensus_seed`.
-- Seal `consensus_seed` to disk at `$HOME/.sgx_secrets/consensus_seed.sealed`.
+- `encrypted_consensus_seed` is encrypted with AES-128-SIV, `seed_exchange_key` as the encryption key and the public key of the registering node as the `ad` as the decryption additional data
+- The new node now has all of these parameters inside its Enclave, so it's able to decrypt `consensus_seed` from `encrypted_consensus_seed`
+- Seal `consensus_seed` to disk at `$HOME/.sgx_secrets/consensus_seed.sealed`
 
 ```js
 consensus_seed = aes_128_siv_decrypt({
@@ -261,8 +259,8 @@ seal({
 
 TODO reasoning
 
-- The new node can now do [key derivation](#key-derivation) to get all the required network-wide secrets in order participate in blocks execution and validation.
-- After a machine/process reboot, the node can go through the [node startup process](#node-startup) again.
+- The new node can now do [key derivation](#key-derivation) to get all the required network-wide secrets for participating in block execution and validation.
+- After a machine/process reboot, the node can go through the [node startup process](#node-startup) again
 
 # Contracts State Encryption
 
