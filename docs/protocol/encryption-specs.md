@@ -261,27 +261,27 @@ seal({
 
 TODO reasoning
 
-- The new node can now do [key derivation](#key-derivation) to get all the required network-wide secrets in order participate in blocks execution and validation.
-- After a machine/process reboot, the node can go through the [node startup process](#node-startup) again.
+- The new node can now do [key derivation](#key-derivation) to get all the required network-wide secrets in order participate in blocks execution and validation
+- After a machine/process reboot, the node can go through the [node startup process](#node-startup) again
 
 # Contracts State Encryption
 
 TODO reasoning
 
-- While executing a function call inside the Enclave as part of a transaction, the contract code can call `write_db(field_name, value)`, `read_db(field_name)` and `remove_db(field_name)`.
-- Contracts' state is stored on-chain inside a key-value store, thus the `field_name` must remain constant between calls.
+- While executing a function call inside the Enclave as part of a transaction, the contract code can call `write_db(field_name, value)`, `read_db(field_name)`, and `remove_db(field_name)`
+- Contract state is stored on-chain inside a key-value store; the `field_name` must remain constant between calls
 - `encryption_key` is derived using HKDF-SHA256 from:
   - `consensus_state_ikm`
   - `field_name`
   - `contract_key`
-- `ad` (Additional Data) is used to prevent leaking information about the same value written to the same key at different times.
+- `ad` (additional data) is used to prevent leaking information about the same value written to the same key at different times
 
 ## `contract_key`
 
-- `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`.
-- Its purpose is to make sure that each contract have a unique unforgeable encryption key.
-  - Unique: Make sure the state of two contracts with the same code is different.
-  - Unforgeable: Make sure a malicious node runner won't be able to locally encrypt transactions with it's own encryption key and then decrypt the resulting state with the fake key.
+- `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`
+- Its purpose is to make sure each contract has a unique unforgeable encryption key
+  - Unique: Make sure the state of two contracts with the same code is different
+  - Unforgeable: Make sure a malicious node runner won't be able to locally encrypt transactions with it's own encryption key, and then decrypt the resulting state with the fake key
 - When a contract is deployed (i.e., on contract init), `contract_key` is generated inside the Enclave as follows:
 
 ```js
@@ -301,7 +301,7 @@ authenticated_contract_key = hmac_sha256({
 contract_key = concat(signer_id, authenticated_contract_key);
 ```
 
-- Every time a contract execution is called, `contract_key` should be sent to the Enclave.
+- Every time a contract execution is called, `contract_key` should be sent to the Enclave
 - In the Enclave, the following verification needs to happen:
 
 ```js
