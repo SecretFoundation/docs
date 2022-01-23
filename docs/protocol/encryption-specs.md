@@ -266,20 +266,20 @@ TODO reasoning
 
 TODO reasoning
 
-- While executing a function call inside the Enclave as part of a transaction, the contract code can call `write_db(field_name, value)`, `read_db(field_name)` and `remove_db(field_name)`.
-- Contracts' state is stored on-chain inside a key-value store, thus the `field_name` must remain constant between calls.
+- While executing a function call inside the Enclave as part of a transaction, the contract code can call `write_db(field_name, value)`, `read_db(field_name)`, and `remove_db(field_name)`
+- Contract state is stored on-chain inside a key-value store; the `field_name` must remain constant between calls
 - `encryption_key` is derived using HKDF-SHA256 from:
   - `consensus_state_ikm`
   - `field_name`
   - `contract_key`
-- `ad` (Additional Data) is used to prevent leaking information about the same value written to the same key at different times.
+- `ad` (additional data) is used to prevent leaking information about the same value written to the same key at different times
 
 ## `contract_key`
 
-- `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`.
-- Its purpose is to make sure that each contract have a unique unforgeable encryption key.
-  - Unique: Make sure the state of two contracts with the same code is different.
-  - Unforgeable: Make sure a malicious node runner won't be able to locally encrypt transactions with it's own encryption key and then decrypt the resulting state with the fake key.
+- `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`
+- Its purpose is to make sure each contract has a unique unforgeable encryption key
+  - Unique: Make sure the state of two contracts with the same code is different
+  - Unforgeable: Make sure a malicious node runner won't be able to locally encrypt transactions with it's own encryption key, and then decrypt the resulting state with the fake key
 - When a contract is deployed (i.e., on contract init), `contract_key` is generated inside the Enclave as follows:
 
 ```js
@@ -299,7 +299,7 @@ authenticated_contract_key = hmac_sha256({
 contract_key = concat(signer_id, authenticated_contract_key);
 ```
 
-- Every time a contract execution is called, `contract_key` should be sent to the Enclave.
+- Every time a contract execution is called, `contract_key` should be sent to the Enclave
 - In the Enclave, the following verification needs to happen:
 
 ```js
@@ -416,12 +416,12 @@ internal_remove_db(encrypted_field_name);
 
 TODO reasoning
 
-- `tx_encryption_key`: An AES-128-SIV encryption key. Will be used to encrypt tx inputs and decrypt tx outputs.
-  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_pubkey` and `tx_sender_wallet_privkey` (on the sender's side).
-  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_privkey` and `tx_sender_wallet_pubkey` (inside the Enclave of every full node).
-- `tx_encryption_key` is derived using HKDF-SHA256 with `tx_encryption_ikm` and a random number `nonce`. This is to prevent using the same key for the same tx sender multiple times.
-- The input (`msg`) to the contract is always prepended with the sha256 hash of the contract's code.
-  - This is meant to prevent replaying an encrypted input of a legitimate contract to a malicious contract and asking the malicious contract to decrypt the input. In this attack example the output will still be encrypted with a `tx_encryption_key` that only the original sender knows, but the malicious contract can be written to save the decrypted input to its state and then via a getter with no access control retrieve the encrypted input.
+- `tx_encryption_key`: An AES-128-SIV encryption key used to encrypt tx inputs and decrypt tx outputs
+  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_pubkey` and `tx_sender_wallet_privkey` (on the sender's side)
+  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_privkey` and `tx_sender_wallet_pubkey` (inside the Enclave of every full node)
+- `tx_encryption_key` is derived using HKDF-SHA256 with `tx_encryption_ikm` and a random number `nonce` to prevent using the same key for the same tx sender multiple times
+- The input (`msg`) to the contract is always prepended with the sha256 hash of the contract's code
+  - This is meant to prevent replaying an encrypted input of a legitimate contract to a malicious contract, and asking the malicious contract to decrypt the input      - In this attack example the output will still be encrypted with a `tx_encryption_key` that only the original sender knows, but the malicious contract can be written to save the decrypted input to its state, and then via a getter with no access control retrieve the encrypted input
 
 ## Input
 
@@ -487,10 +487,11 @@ msg = codeHashAndMsg.slice(64);
   - Logs are treated as Tendermint events
   - Messages can be callbacks to another contract call or contract init
   - Messages can also instruct sending funds from the contract's wallet
-  - There's a data section which is free-form bytes to be interpreted by the client (or dApp)
-  - And there's also an error section
-- Therefore the output must be partially encrypted.
-- An example output for an execution:
+  - A data section which is free-form bytes to be interpreted by the client (or dApp)
+  - An error section
+- The output must be partially encrypted
+
+Here is an example output for an execution:
 
   ```js
   {
@@ -541,14 +542,16 @@ msg = codeHashAndMsg.slice(64);
   }
   ```
 
-- Notice on a `Contract` message, the `msg` value should be the same `msg` as in our `tx_input`, so we need to prepend the `nonce` and `tx_sender_wallet_pubkey` just like we did on the tx sender above.
-- On a `Contract` message, we also send a `callback_signature`, so we can later on verify the parameters sent to the enclave:
+- Notice on a `Contract` message, the `msg` value should be the same `msg` as in our `tx_input`, so we need to prepend the `nonce` and `tx_sender_wallet_pubkey` just like we did on the tx sender above
+- On a `Contract` message, we also send a `callback_signature`, so we can verify the parameters sent to the enclave:
   ```
   callback_signature = sha256(consensus_callback_secret | calling_contract_addr | encrypted_msg | funds_to_send)
   ```
-  For more on that, [read here](../dev/privacy-model-of-secret-contracts.md#verified-values-during-contract-execution).
-- For the rest of the encrypted outputs we only need to send the ciphertext, as the tx sender can get `consensus_io_exchange_pubkey` from `genesis.json` and `nonce` from the `tx_input` that is attached to the `tx_output`.
-- An example output with an error:
+For more on that, [read here](../dev/privacy-model-of-secret-contracts.md#verified-values-during-contract-execution).
+
+- For the rest of the encrypted outputs we only need to send the ciphertext, as the tx sender can get `consensus_io_exchange_pubkey` from `genesis.json` and `nonce` from the `tx_input` that is attached to the `tx_output`
+
+Here is an example output with an error:
   ```js
   {
     "err": "{\"watermelon\":6,\"coffee\":5}" // need to encrypt this value
@@ -630,7 +633,7 @@ return output;
 ### Back on the transaction sender
 
 - The transaction output is written to the chain
-- Only the wallet with the right `tx_sender_wallet_privkey` can derive `tx_encryption_key`, so for everyone else it will just be encrypted.
+- Only the wallet with the right `tx_sender_wallet_privkey` can derive `tx_encryption_key`, so for everyone else it will just be encrypted
 - Every encrypted value can be decrypted the following way:
 
 ```js
@@ -648,7 +651,7 @@ aes_128_siv_decrypt({
 });
 ```
 
-- For `output["ok"]["messages"][i]["type"] == "Contract"`, `output["ok"]["messages"][i]["msg"]` will be decrypted in [this](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1) manner by the consensus layer when it handles the contract callback.
+- For `output["ok"]["messages"][i]["type"] == "Contract"`, `output["ok"]["messages"][i]["msg"]` will be decrypted in [this](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1) manner by the consensus layer when it handles the contract callback
 
 # Blockchain Upgrades
 
@@ -664,29 +667,29 @@ No encryption padding, so a value of e.g. "yes" or "no" can be deanonymized by i
 
 ## Two contracts with the same `contract_key` could deanonymize each other's states
 
-If an attacker can create a contract with the same `contract_key` as another contract, the state of the original contract can potentially be deanonymized.
+If an attacker creates a contract with the same `contract_key` as another contract, the state of the original contract can potentially be deanonymized.
 
-For example, an original contract with a permissioned getter, such that only whitelisted addresses can query the getter. In the malicious contract the attacker can set themselves as the owner and ask the malicious contract to decrypt the state of the original contract via that permissioned getter.
+For example, an original contract with a permissioned getter, such that only whitelisted addresses can query the getter. In the malicious contract, the attacker can set themselves as the owner and decrypt the state of the original contract using a permissioned getter.
 
 ## Tx Replay attacks
 
-After a contract runs on the chain, an attacker can sync up a node up to a specific block in the chain, and then call into the enclave with the same authenticated user inputs that were given to the enclave on-chain, but out-of-order, or omit selected messages. A contract that does not anticipate or protect against this might end up de-anonymizing the information provided by users. For example, in a naive voting contract (or other personal data collection algorithm), we can de-anonymize a voter by re-running the vote without the target's request, and analyze the difference in final results.
+After a contract runs on the chain, an attacker can sync up a node up to a specific block in the chain, and then call into the enclave with the same authenticated user inputs given to the enclave on-chain, but out-of-order, or omit selected messages. A contract not anticipating or protecting against this might end up de-anonymizing the information provided by users. For example, in a naive voting contract (or other personal data collection algorithm), we can de-anonymize a voter by re-running the vote without the target's request, and analyze the difference in final results.
 
 ## More Advanced Tx Replay attacks -- search to decision for Millionaire's problem
 
-This attack provides a specific example of a TX replay attack extracting the full information of a client based on replaying a TX.
+This attack provides a specific example of a tx replay attack extracting the full information of a client based on replaying a tx.
 
-Specifically, assume for millionaire's that you have a contract where one person inputs their amount of money, then the other person does, then the contract sends them both a single bit saying who has more -- this is the simplest implementation for Millionaire's problem-solving. As person 2, binary search the interval of possible money amounts person 1 could have -- say you know person 1 has less than N dollars. First, query with N/2 as your value with your node detached from the wider network, get the single bit out (whether the true value is higher or lower), then repeat by re-syncing your node and calling in.
+Specifically, assume for millionaire's that you have a contract where one person inputs their amount of money, then the other person does, then the contract sends them both a single bit saying who has more — this is the simplest implementation for Millionaire's problem-solving. As person 2, binary search the interval of possible money amounts person 1 could have — say you know person 1 has less than N dollars. First, query with N/2 as your value with your node detached from the wider network, get the single bit out (whether the true value is higher or lower), then repeat by re-syncing your node and calling in.
 By properties of binary search, in log(n) tries (where n is the size of the interval) you'll have the exact value of person 1's input.
 
 The naive solution to this is requiring the node to successfully broadcast the data of person 1 and person 2 to the network before revealing an answer (which is an implicit heartbeat test, that also ensures the transaction isn't replay-able), but even that's imperfect since you can reload the contract and replay the network state up to that broadcast, restoring the original state of the contract, then perform the attack with repeated rollbacks.
 
-Assaf: You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX.
+Note: You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX.
 
 ## Partial storage rollback during contract runtime
 
-Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage. BUT we can not (yet) verify that the value is the most recent value that was stored there. This means that a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this can cause a contract to expose old secrets with new permissions, or new secrets with old permissions. The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
+Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage. BUT we can not (yet) verify that the value is the most recent value that was stored there. This means a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this causes a contract to expose old secrets with new permissions, or new secrets with old permissions. The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
 
 ## Tx outputs can leak data
 
-E.g. a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. Also applies with deposits, callbacks and transfers.
+For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. Also applies with deposits, callbacks and transfers.
