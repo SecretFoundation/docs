@@ -418,12 +418,12 @@ internal_remove_db(encrypted_field_name);
 
 TODO reasoning
 
-- `tx_encryption_key`: An AES-128-SIV encryption key. Will be used to encrypt tx inputs and decrypt tx outputs.
-  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_pubkey` and `tx_sender_wallet_privkey` (on the sender's side).
-  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_privkey` and `tx_sender_wallet_pubkey` (inside the Enclave of every full node).
-- `tx_encryption_key` is derived using HKDF-SHA256 with `tx_encryption_ikm` and a random number `nonce`. This is to prevent using the same key for the same tx sender multiple times.
-- The input (`msg`) to the contract is always prepended with the sha256 hash of the contract's code.
-  - This is meant to prevent replaying an encrypted input of a legitimate contract to a malicious contract and asking the malicious contract to decrypt the input. In this attack example the output will still be encrypted with a `tx_encryption_key` that only the original sender knows, but the malicious contract can be written to save the decrypted input to its state and then via a getter with no access control retrieve the encrypted input.
+- `tx_encryption_key`: An AES-128-SIV encryption key used to encrypt tx inputs and decrypt tx outputs
+  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_pubkey` and `tx_sender_wallet_privkey` (on the sender's side)
+  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_privkey` and `tx_sender_wallet_pubkey` (inside the Enclave of every full node)
+- `tx_encryption_key` is derived using HKDF-SHA256 with `tx_encryption_ikm` and a random number `nonce` to prevent using the same key for the same tx sender multiple times
+- The input (`msg`) to the contract is always prepended with the sha256 hash of the contract's code
+  - This is meant to prevent replaying an encrypted input of a legitimate contract to a malicious contract, and asking the malicious contract to decrypt the input      - In this attack example the output will still be encrypted with a `tx_encryption_key` that only the original sender knows, but the malicious contract can be written to save the decrypted input to its state, and then via a getter with no access control retrieve the encrypted input
 
 ## Input
 
@@ -489,10 +489,11 @@ msg = codeHashAndMsg.slice(64);
   - Logs are treated as Tendermint events
   - Messages can be callbacks to another contract call or contract init
   - Messages can also instruct sending funds from the contract's wallet
-  - There's a data section which is free-form bytes to be interpreted by the client (or dApp)
-  - And there's also an error section
-- Therefore the output must be partially encrypted.
-- An example output for an execution:
+  - A data section which is free-form bytes to be interpreted by the client (or dApp)
+  - An error section
+- The output must be partially encrypted
+
+Here is an example output for an execution:
 
   ```js
   {
@@ -543,14 +544,16 @@ msg = codeHashAndMsg.slice(64);
   }
   ```
 
-- Notice on a `Contract` message, the `msg` value should be the same `msg` as in our `tx_input`, so we need to prepend the `nonce` and `tx_sender_wallet_pubkey` just like we did on the tx sender above.
-- On a `Contract` message, we also send a `callback_signature`, so we can later on verify the parameters sent to the enclave:
+- Notice on a `Contract` message, the `msg` value should be the same `msg` as in our `tx_input`, so we need to prepend the `nonce` and `tx_sender_wallet_pubkey` just like we did on the tx sender above
+- On a `Contract` message, we also send a `callback_signature`, so we can verify the parameters sent to the enclave:
   ```
   callback_signature = sha256(consensus_callback_secret | calling_contract_addr | encrypted_msg | funds_to_send)
   ```
-  For more on that, [read here](../dev/privacy-model-of-secret-contracts.md#verified-values-during-contract-execution).
-- For the rest of the encrypted outputs we only need to send the ciphertext, as the tx sender can get `consensus_io_exchange_pubkey` from `genesis.json` and `nonce` from the `tx_input` that is attached to the `tx_output`.
-- An example output with an error:
+For more on that, [read here](../dev/privacy-model-of-secret-contracts.md#verified-values-during-contract-execution).
+
+- For the rest of the encrypted outputs we only need to send the ciphertext, as the tx sender can get `consensus_io_exchange_pubkey` from `genesis.json` and `nonce` from the `tx_input` that is attached to the `tx_output`
+
+Here is an example output with an error:
   ```js
   {
     "err": "{\"watermelon\":6,\"coffee\":5}" // need to encrypt this value
@@ -632,7 +635,7 @@ return output;
 ### Back on the transaction sender
 
 - The transaction output is written to the chain
-- Only the wallet with the right `tx_sender_wallet_privkey` can derive `tx_encryption_key`, so for everyone else it will just be encrypted.
+- Only the wallet with the right `tx_sender_wallet_privkey` can derive `tx_encryption_key`, so for everyone else it will just be encrypted
 - Every encrypted value can be decrypted the following way:
 
 ```js
@@ -650,7 +653,7 @@ aes_128_siv_decrypt({
 });
 ```
 
-- For `output["ok"]["messages"][i]["type"] == "Contract"`, `output["ok"]["messages"][i]["msg"]` will be decrypted in [this](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1) manner by the consensus layer when it handles the contract callback.
+- For `output["ok"]["messages"][i]["type"] == "Contract"`, `output["ok"]["messages"][i]["msg"]` will be decrypted in [this](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1) manner by the consensus layer when it handles the contract callback
 
 # Blockchain Upgrades
 
