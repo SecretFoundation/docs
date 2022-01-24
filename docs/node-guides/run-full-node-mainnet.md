@@ -259,7 +259,7 @@ You are now a full node. :tada:
 
 ### 21. Optimization
 
-In order to be able to handle minting and other Secret Contract-heavy operations, it's recommended to update your 
+In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your 
 SGX memory enclave cache:
 
 ```bash
