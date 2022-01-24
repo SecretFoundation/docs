@@ -18,24 +18,32 @@ For more detailed information on the Intel SGX remote attestation process, see t
 
 ## Why SGX
 
-Intel SGX is one of the most widely available, and widely used implementations of Trusted Execution Environments. We have selected this technology for the initial version of the Secret Network for two main reasons:
+Intel SGX is one of the most used and widely available implementations of Trusted Execution Environments (TEEs). We have selected this technology for the initial version of the Secret Network for two main reasons:
 
-1. Usability: SGX is more performant and more flexible than other solutions for privacy-preserving computation. The Secret Network is building a platform for decentralized, general purpose private computation. This requires a privacy solution that can enable a wide-range of use cases. It also requires computations to be on par, performance-wise, with non-privacy preserving computation, so that speed does not interfere with application usability.
-2. Security: Because SGX is one of the most widely adopted technologies for TEEs, it is also battle-hardened. Attacks are often theoretical, executed in laboratory settings, and are rapidly addressed by Intel. Many high-value targets exist which have not been compromised. No privacy solution is 100% secure, but we believe the security guarantees provided by Intel SGX are adequate for a wide range of use-cases.
+1. Usability: SGX is more performant and more flexible than other solutions for privacy-preserving computation. The Secret Network is building a platform for decentralized, general purpose private computation. This requires a privacy solution that can enable a wide-range of use cases. It also requires computations to be on par, performance-wise, with non-privacy preserving computation, so that speed does not limit application usability.
+2. Security: SGX is one of the most widely adopted technologies for TEEs, it is also battle-hardened. Attacks are often theoretical, executed in laboratory settings, and are rapidly addressed by Intel. Many high-value targets exist which have not been compromised. No privacy solution is 100% secure, but we believe the security guarantees provided by Intel SGX are adequate for a wide range of use-cases.
 
 ## SGX Updates
 
-The Secret Network uses validators who are equipped with Intel SGX. Upon registration, validators will be required to have the latest compatible version of Intel SGX. When significant updates are released, the network may enforce upgrades via a governance proposal and accompanying Secret Network code update (hard fork).
+The Secret Network uses validators equipped with Intel SGX. Upon registration, validators are required to have the latest compatible version of Intel SGX. When significant updates are released, the network may enforce upgrades through governance proposals and Secret Network code updates (hard forks).
 
 ## Remote Attestation
 
-Remote attestation, an advanced feature of Intel SGX, is the process of proving that an enclave has been established in a secure hardware environment. This means that a remote party can verify that the right application is running inside an enclave on an Intel SGX enabled platform. Remote attestation provides verification for three things: the application’s identity, its intactness (that it has not been tampered with), and that it is running securely within an enclave on an Intel SGX enabled platform. Attestation is necessary in order to make remote access secure, since very often the enclave’s contents may have to be accessed remotely, not from the same platform [[1]]
+Remote attestation, an advanced feature of Intel SGX, is the process of proving an enclave is established in a secure hardware environment. A remote party should be able to verify that the right application is running inside an enclave on an Intel SGX enabled platform. 
 
-The attestation process consists of seven stages, encompassing several actors, namely the service provider (referred to as a challenger) on one platform; and the application, the application’s enclave, the Intel-provided Quoting Enclave (QE) and Provisioning Enclave (PvE) on another platform. A separate entity in the attestation process is Intel Attestation Service (IAS), which carries out the verification of the enclave [[1]][[2]][[3]].
+Remote attestation provides verification for three things: 
+
+- The application’s identity 
+- Its intactness (that it has not been tampered with) 
+- That it's running securely within an enclave on an Intel SGX enabled platform 
+
+Attestation is necessary in order to make remote access secure because an enclave’s contents may have to be accessed remotely, not from the same platform [[1]]
+
+The attestation process consists of seven stages, encompassing several actors, namely the service provider (referred to as a challenger) on one platform; and the application, the application’s enclave, the Intel-provided Quoting Enclave (QE), and Provisioning Enclave (PvE) on another platform. A separate entity in the attestation process is Intel Attestation Service (IAS), which carries out the verification of the enclave [[1]][[2]][[3]].
 
 In short, the seven stages of remote attestation comprise of making a remote attestation request
 (stage 1), performing a local attestation (stages 2-3), converting the local attestation to a remote
-attestation (stages 4-5), returning the remote attestation to the challenger (stage 6) and verifying
+attestation (stages 4-5), returning the remote attestation to the challenger (stage 6), and verifying
 the remote attestation (stage 7) [[1]][[3]].
 
 Intel Remote Attestation also includes the establishment of a secure communication session between the service provider and the application. This is analogous to how the familiar TLS handshake includes both authentication and session establishment.
