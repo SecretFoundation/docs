@@ -3,7 +3,30 @@
 
 ### How to become a validator on Secret Network
 
-#### 1. [Run a new full node](run-full-node-mainnet.md) on a new machine.
+In order to become an **active** validator, you must have more stake than the [bottom validator](https://www.mintscan.io/secret/validators). You may still execute the following steps, but you will not be active and therefore won't receive staking rewards.
+
+#### 1. [Run a new full node](run-full-node-mainnet.md) on a new machine. 
+In order to become a validator, you node must be fully synced with the network. You can check this by doing:
+
+```bash
+secretd status
+```
+
+When the value of `catching_up` is _false_, your node is fully sync'd with the network.
+
+```bash
+  "sync_info": {
+    "latest_block_hash": "7BF95EED4EB50073F28CF833119FDB8C7DFE0562F611DF194CF4123A9C1F4640",
+    "latest_app_hash": "7C0C89EC4E903BAC730D9B3BB369D870371C6B7EAD0CCB5080B5F9D3782E3559",
+    "latest_block_height": "668538",
+    "latest_block_time": "2020-10-31T17:50:56.800119764Z",
+    "earliest_block_hash": "E7CAD87A4FDC47DFDE3D4E7C24D80D4C95517E8A6526E2D4BB4D6BC095404113",
+    "earliest_app_hash": "",
+    "earliest_block_height": "1",
+    "earliest_block_time": "2021-09-15T14:02:31Z",
+    "catching_up": false
+  },
+```
 
 #### 2. Set your `minimum-gas-price` parameter
 
@@ -44,7 +67,7 @@ Then transfer funds to address you just created.
 #### 5. Check that you have the funds:
 
 ```bash
-secretcli q account $(secretcli keys show -a <key-alias>)
+secretcli q bank balances $(secretcli keys show -a <key-alias>)
 ```
 
 If you get the following message, it means that you have no tokens yet:
@@ -53,14 +76,16 @@ If you get the following message, it means that you have no tokens yet:
 ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx does not exist
 ```
 
-#### 6. Join the network as a new validator: replace `<MONIKER>` with the moniker you configured in step 3 of [creating a full-node](https://github.com/enigmampc/SecretNetwork/blob/develop/docs/node-guides/run-full-node-mainnet.md), and adjust the amount you want to stake
+#### 6. Join the network as a new validator: replace `<MONIKER>` with the moniker you configured in step 3 of [creating a full-node](run-full-node-mainnet.md), and adjust the amount you want to stake
 
-(remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100k SCRT).
+(remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 10 SCRT).
 
 ```bash
 secretcli tx staking create-validator \
-  --amount=<amount-to-delegate-to-yourself>uscrt \
+  --amount=100000000uscrt \
   --pubkey=$(secretd tendermint show-validator) \
+  --identity={KEYBASE_IDENTITY} \
+  --details="To infinity and beyond!" \
   --commission-rate="0.10" \
   --commission-max-rate="0.20" \
   --commission-max-change-rate="0.01" \

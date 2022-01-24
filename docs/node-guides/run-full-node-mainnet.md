@@ -164,7 +164,7 @@ secretcli config output json
 Set up a key. Make sure you back up the mnemonic and the keyring password.
 
 ```bash
-secretcli keys add $INSERT_YOUR_KEY_NAME
+secretcli keys add <key-alias>
 ```
 
 This will output your address, a 45 character-string starting with `secret1...`. Then you can fund it with some SCRT.
@@ -182,7 +182,7 @@ secretcli tx register auth </opt/secret/.sgx_secrets/attestation_cert.der> --fro
 Run this step on the CLI machine.
 
 ```bash
-SEED=$(secretcli query register seed "$PUBLIC_KEY" | cut -c 3-)
+SEED=$(secretcli query register seed <PUBLIC_KEY> | cut -c 3-)
 echo $SEED
 ```
 
@@ -205,7 +205,7 @@ From here on, run commands on the full node again.
 
 ```bash
 mkdir -p ~/.secretd/.node
-secretd configure-secret node-master-cert.der "$SEED"
+secretd configure-secret node-master-cert.der <SEED>
 ```
 
 ### 16. Add persistent peers to your configuration file.
@@ -287,40 +287,4 @@ secretcli config node tcp://<your-public-ip>:26657
 
 ### 22. Optional: make your full node into a validator
 
-**For full instructions on becoming a validator, see [Joining mainnet as a validator](join-validator-mainnet.md). Otherwise for a quick summary, follow the remaining instructions:**
-
-Your full node is now part of the network, storing and verifying chain data and Secret Contracts, and helping to distribute transactions and blocks. It's usable as a sentry node, for people to connect their CLI or light clients, or just to support the network.
-
-It is however not producing blocks yet, and you can't delegate funds to it for staking. To do that you'll have to turn it into a validator by submitting a `create-validator` transaction.
-
-On the full node, get the pubkey of the node:
-
-```bash
-secretd tendermint show-validator
-```
-
-The pubkey is an 83-character string starting with `secretvalconspub...`.
-
-On the CLI machine, run the following command. The account you use becomes the operator account for your validator, which you'll use to collect rewards, participate in on-chain governance, etc., so make sure you keep good backups of the key. `<moniker>` is the name for your validator which is shown e.g. in block explorers.
-
-```bash
-secretcli tx staking create-validator \
-  --amount=<amount-to-delegate-to-yourself>uscrt \
-  --pubkey=<pubkey of the full node> \
-  --commission-rate="0.10" \
-  --commission-max-rate="0.20" \
-  --commission-max-change-rate="0.01" \
-  --min-self-delegation="1" \
-  --moniker="<moniker>" \
-  --from=$INSERT_YOUR_KEY_NAME
-```
-
-The `create-validator` command allows using some more parameters. For more info on these and the additional parameters, run `secretcli tx staking create-validator --help`.
-
-After you submitted the transaction, check you've been added as a validator:
-
-```bash
-secretcli q staking validators | grep moniker
-```
-
-Congratulations! You are now running a validator on the Secret Network testnet.
+To turn your full node into a validator, see [Joining Mainnet as a Validator](join-validator-mainnet.md). 
