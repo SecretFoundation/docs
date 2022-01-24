@@ -17,22 +17,22 @@ Essentially, Secret Network offers a platform to build censorship-resistant appl
 4. Validators achieve consensus on the results
 5. Encrypted outputs and encrypted contract state are recorded on Secret Network
 
-Secret contract functionality is based on [CosmWasm](https://www.cosmwasm.com) (a smart contracting platform) running inside TEEs operated by the secret nodes on the network. [WebAssembly](https://webassembly.org) (the “Wasm” part of CosmWasm) allows code written in various languages to run securely on a blockchain. Enigma and other members of the Secret Network community are working in parallel with the CosmWasm dev team and making valuable contributions. Building on their hard work, we are developing a module named `compute`, designed to enable secure data processing.
+Secret Contract functionality is based on [CosmWasm](https://www.cosmwasm.com) (a smart contracting platform) running inside TEEs operated by the secret nodes on the network. [WebAssembly](https://webassembly.org) (the “Wasm” part of CosmWasm) allows code written in various languages to run securely on a blockchain. Enigma and other members of the Secret Network community are working in parallel with the CosmWasm dev team and making valuable contributions. Building on their hard work, we are developing a module named `compute`, designed to enable secure data processing.
 
 ![Architecture Diagram](/diagrams/architecture.png)
 
-> If you want to build your own Secret App, check out our full [documentation](https://docs.scrt.network), which includes a secret contract development guide and other useful resources.
+> If you want to build your own Secret App, check out our full [documentation](https://docs.scrt.network), which includes a Secret Contract development guide and other useful resources.
 
 ## Secret Contracts and Use Cases
-Decentralized technologies need privacy at their core in order to be secure and usable. Secret contracts (smart contracts on Secret Network) utilize encrypted inputs, encrypted outputs and encrypted state. This greatly improves usability of existing blockchain applications and expands the scope of products that can be built on public blockchains.
+Decentralized technologies need privacy at their core in order to be secure and usable. Secret Contracts (smart contracts on Secret Network) utilize encrypted inputs, encrypted outputs and encrypted state. This greatly improves usability of existing blockchain applications and expands the scope of products that can be built on public blockchains.
 
 Below we highlight some existing use cases for which Secret Network can provide clear performance, security, and usability advantages:
 
 ### Access Control / Digital Content Management
-Used for monetization of digital content in decentralized web, such applications would store a decryption key (secret) to the content in the encrypted secret contract state, and when users make the required payment (triggering event), the secret contract will share a decryption key (secret) that is unique to each user. This use-case is not possible to build in the traditional blockchain networks as all data in state is publicly visible.
+Used for monetization of digital content in decentralized web, such applications would store a decryption key (secret) to the content in the encrypted Secret Contract state, and when users make the required payment (triggering event), the Secret Contract will share a decryption key (secret) that is unique to each user. This use-case is not possible to build in the traditional blockchain networks as all data in state is publicly visible.
 
 ### Secret Auctions and Secret Voting
-These related use cases involve replacing the inefficient, two-step “commit-reveal” schemes with a better approach, which relies on secret contract functionality. Both secret auctions and secret voting would allow the users to submit their encrypted bids/votes and the secret contract can compute on encrypted inputs to determine the winner(s), without requiring the users to reveal bids or votes. 
+These related use cases involve replacing the inefficient, two-step “commit-reveal” schemes with a better approach, which relies on Secret Contract functionality. Both secret auctions and secret voting would allow the users to submit their encrypted bids/votes and the Secret Contract can compute on encrypted inputs to determine the winner(s), without requiring the users to reveal bids or votes. 
 
 ### Decentralized Finance
 Imagine an open, global economy with more accessible financial services, e.g. savings, lending, trading, insurance, and more! On Secret Network, DeFi customers maintain privacy while interacting with a permissionless economic system that creates new opportunities for wealth.

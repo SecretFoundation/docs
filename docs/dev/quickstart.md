@@ -2,7 +2,7 @@
 
 Get up and running on Secret Network with a local docker environment, as well as testnet (holodeck), to start working with Secret Contracts.
 
-To learn more about secret contracts, please visit our [documentation page](https://docs.scrt.network/dev/secret-contracts.html).
+To learn more about Secret Contracts, please visit our [documentation page](https://docs.scrt.network/dev/secret-contracts.html).
 
 <details>
   <summary>Topics covered on this page</summary>
@@ -23,7 +23,7 @@ To learn more about secret contracts, please visit our [documentation page](http
   - [SecretJS](#secretjs)
   - [Keplr integration](#keplr-integration)
   - Other resources
-    * [Privacy model of secret contracts](#privacy-model-of-secret-contracts)
+    * [Privacy model of Secret Contracts](#privacy-model-of-secret-contracts)
     * [Tutorials from Secret Network community](#tutorials-from-secret-network-community)
     * [CosmWasm resources](#cosmwasm-resources)
   
@@ -174,7 +174,7 @@ cargo schema
 
 ### Deploy Smart Contract to our local Testnet
 
-Before deploying or storing the contract on a testnet, you need to run the [secret contract optimizer](https://hub.docker.com/r/enigmampc/secret-contract-optimizer).
+Before deploying or storing the contract on a testnet, you need to run the [Secret Contract optimizer](https://hub.docker.com/r/enigmampc/secret-contract-optimizer).
 
 #### Optimize compiled wasm
 

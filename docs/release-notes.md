@@ -22,9 +22,9 @@ to be able to test their setups on a configuration which will mirror the mainnet
 #### Contracts
 
 - Upgraded CosmWasm to v0.10
-- Added ability to vote on governance proposals from secret contracts
-- Added ability to query staking rewards from secret contracts
-- Added ability to query current interest rates from secret contracts
+- Added ability to vote on governance proposals from Secret Contracts
+- Added ability to query staking rewards from Secret Contracts
+- Added ability to query current interest rates from Secret Contracts
 
 #### Registration Process
 

@@ -4,7 +4,7 @@ References to help build Secret Networks dApps and Secret Contracts are found be
 
 To learn more about Secret Contracts, please visit our [documentation page](/dev/secret-contracts.html).
 
-To follow a guided walk-through on setting up your development environment, developing a first basic Secret contract (Simple Secret Counter) and deploying it, please visit our [Quickstart](/dev/quickstart.html) documentation page.
+To follow a guided walk-through on setting up your development environment, developing a first basic Secret Contract (Simple Secret Counter) and deploying it, please visit our [Quickstart](/dev/quickstart.html) documentation page.
 
 <details>
   <summary>Topics covered on this page</summary>
