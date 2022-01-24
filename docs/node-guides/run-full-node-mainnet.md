@@ -257,7 +257,16 @@ Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF committed state app_ha
 
 You are now a full node. :tada:
 
-### 21. Get your node ID with:
+### 21. Optimization
+
+In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your 
+SGX memory enclave cache:
+
+```bash
+sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclave-cache-size = \"15\"/" ~/.secretd/config/app.toml
+```
+
+### 22. Get your node ID with:
 
 ```bash
 secretd tendermint show-node-id
@@ -285,6 +294,6 @@ secretcli config output json
 secretcli config node tcp://<your-public-ip>:26657
 ```
 
-### 22. Optional: make your full node into a validator
+### 23. Optional: make your full node into a validator
 
 To turn your full node into a validator, see [Joining Mainnet as a Validator](join-validator-mainnet.md). 
