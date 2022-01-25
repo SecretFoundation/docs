@@ -7,6 +7,9 @@ For an in depth look at the Secret Network encryption specs, visit [here](../pro
 
 Secret Contract developers must always consider the trade-off between privacy, user experience, performance and gas usage.
 
+<details>
+  <summary><b>Table of Contents<b></summary>
+  
 - [Privacy Model of Secret Contracts](#privacy-model-of-secret-contracts)
 - [Verified Values During Contract Execution](#verified-values-during-contract-execution)
   - [Tx Parameter Verification](#tx-parameter-verification)
@@ -23,14 +26,14 @@ Secret Contract developers must always consider the trade-off between privacy, u
       - [Contract panic](#contract-panic)
       - [External errors (VM or interaction with the blockchain)](#external-errors-vm-or-interaction-with-the-blockchain)
 - [Query](#query)
-  - [Inputs](#inputs-1)
-  - [API calls](#api-calls-1)
-  - [Outputs](#outputs-1)
+  - [Inputs](#inputs-2)
+  - [API calls](#api-calls-2)
+  - [Outputs](#outputs-2)
     - [Return value of `query`](#return-value-of-query)
     - [Errors](#errors-1)
-      - [Contract errors](#contract-errors-1)
-      - [Contract panic](#contract-panic-1)
-      - [External errors (VM or interaction with the blockchain)](#external-errors-vm-or-interaction-with-the-blockchain-1)
+      - [Contract errors](#contract-errors-2)
+      - [Contract panic](#contract-panic-2)
+      - [External errors (VM or interaction with the blockchain)](#external-errors-vm-or-interaction-with-the-blockchain-2)
 - [External query](#external-query)
 - [Data leakage attacks by analyzing metadata of contract usage](#data-leakage-attacks-by-analyzing-metadata-of-contract-usage)
   - [Differences in input sizes](#differences-in-input-sizes)
@@ -42,19 +45,21 @@ Secret Contract developers must always consider the trade-off between privacy, u
   - [Differences in output events](#differences-in-output-events)
   - [Differences in output types - success vs. error](#differences-in-output-types---success-vs-error)
 
+</details>
+
 # Verified Values During Contract Execution
 
-During execution, some contracts may want to use "external-data" - meaning data that is generated outside of the enclave and sent into the enclave - such as the tx sender address, the funds sent with the tx, block height, etc..
-As these parameters get sent to the enclave, they can theoretically be tampered with, and an attacker might send false data.
-Thus, relying on such data might be risky.
+During execution, some contracts may want to use "external-data" - meaning data that is generated outside of the enclave and sent into the enclave - such as the tx sender address, the funds sent with the tx, block height, etc.
+As these parameters are sent to the enclave, they can theoretically be tampered with, and an attacker might send false data.
+Thus, relying on such data is **conceivably risky**.
 
-As an example, let's say we are implementing an admin interface for a contract, i.e. functionality that is open only for a predefined address.
-In that case, we want to know that the `env.message.sender` parameter that is given during contract execution is legit, then we want to check that `env.message.sender == predefined_address` and provide admin functionality if that condition is met.
+For example, let's say we are implementing an admin interface for a contract, i.e. functionality that is open only for a predefined address.
+We want to ensure the `env.message.sender` parameter provided during contract execution is legitimate, so we will confirm that `env.message.sender == predefined_address`. If this condition is met we can provide admin functionality.
 If the `env.message.sender` parameter can be tampered with - we effectively can't rely on it and cannot implement the admin interface.
 
 ## Tx Parameter Verification
 
-Some parameters are easier to verify, but for others it is less trivial to do so. Exact details about individual parameters are detailed further in this document.
+Some parameters are easier to verify than others. Exact details about individual parameters are detailed further in this document.
 
 The parameter verification method depends on the contract caller:
 
@@ -67,7 +72,7 @@ The parameter verification method depends on the contract caller:
   - Receiver contract verifies that the signature it created matches the signature it got from the caller.
   - For the specifics, visit the [encryption specs](../protocol/encryption-specs.md#Output).
 
-# `Init` and `Handle`
+# `init` and `handle`
 
 `init` is the constructor of a contract. This function is called only once in the lifetime of the contract.  
 `handle` is a regular execute transaction within a contract.
@@ -154,7 +159,7 @@ The return value of `handle` is called `data`. It is encrypted.
 
 ### Logs and Messages (Same for `init` and `handle`)
 
-Logs (or events) is a list of key-value pair. The keys and values are encrypted, but the list structure itself is not encrypted.
+Logs (or events) is a list of key-value pairs. The keys and values are encrypted, but the list structure itself is not encrypted.
 
 | Output         | Type                   | Encrypted? | Notes                                      |
 | -------------- | ---------------------- | ---------- | ------------------------------------------ |
@@ -200,7 +205,7 @@ Types of messages:
 ### Errors
 
 Contract execution can result in multiple types of errors.  
-The fact that the contract returned an error is public.
+**Contracts returning errors is public.**
 
 #### Contract errors
 
@@ -236,7 +241,7 @@ Some examples of `VMErrors`:
 - Got out of gas while accessing storage
 - Passing null pointers from the contract to the VM (E.g. `read_db(null)`)
 - Trying to write to read-only storage (E.g. inside a `query`)
-- Passing a faulty message to the blockchain (Trying to send fund you don't have, trying to callback to a non-existing contract)
+- Passing a faulty message to the blockchain (Trying to send funds you don't have, trying to callback to a non-existing contract)
 
 # Query
 
@@ -244,7 +249,7 @@ Some examples of `VMErrors`:
 
 - It doesn't affect transactions on-chain.
 - It has read-only access to the storage (state) of the contract.
-- The fact that `query` was invoked is known only to the executing node. And to whoever monitors your internet traffic, in case the executing node is on your local machine.
+- The fact that `query` was invoked is known only to the executing node, in addition to whoever monitors your internet traffic, in case the executing node is on your local machine.
 - Queries are metered by gas but don't incur fees. The executing node decides its gas limit for queries.
 - Access control: Cannot use `env.message.sender` as it's not a transaction. Can use pre-configured passwords or API keys that have been stored in state previously by `init` and `handle`.
 
@@ -701,7 +706,7 @@ By looking at the encrypted output, an attacker can guess which function was cal
 1. 1 byte (uint8): `123`
 2. 11 bytes (formatted string): `amount: 123`
 
-Again, a quick fix will be to padd the shorter case to be as long as the longest case (assuming it's harder to shrink the longer case):
+Again, a quick fix will be to pad the shorter case to be as long as the longest case (assuming it's harder to shrink the longer case):
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -737,9 +742,9 @@ Be creative. :rainbow:
 
 ## Differences in output messages/callbacks
 
-Secret Contracts can output messages to be executed right after, in the same transaction as the current execution.have out that are decryptable only by the contract and the transaction sender.
+Secret Contracts can output messages to be executed immediately follow the current execution, in the same transaction as the current execution. Secret Contracts have outputs that are decryptable only by the contract and the transaction sender.
 
-Very similar to previous cases, if a contract output mesasges that are different or with different structures, an attacker might find out information about the execution of a contract.
+Very similar to previous cases, if a contract output messages that are different, or contain different structures, an attacker might be able to identify information about the execution of a contract.
 
 Let's see an example for a contract with 2 `handle` functions:
 
@@ -786,7 +791,7 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 
 Those outputs are plaintext as they are fowarded to the Secret Network for processing. By looking at these two outputs, an attacker will know which function was called based on the type of messages - `BankMsg::Send` vs. `StakingMsg::Delegate`.
 
-Some messages are partially encrypted, like `Wasm::Instantiate` and `Wasm::Execute`, but only the `msg` field is encrypted, so differences in `contract_addr`, `callback_code_hash`, `send` can reveal unintended data, as well as the size of `msg` which is encrypted but can reveal data the same way as previos examples.
+Some messages are partially encrypted, like `Wasm::Instantiate` and `Wasm::Execute`, but only the `msg` field is encrypted, so differences in `contract_addr`, `callback_code_hash`, `send` can reveal unintended data, as well as the size of `msg` which is encrypted but can reveal data the same way as previous examples.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -861,7 +866,7 @@ Examples:
 
 ## Differences in output types - success vs. error
 
-If a contract returns an `StdError`, the output looks like this:
+If a contract returns a `StdError`, the output looks like this:
 
 ```json
 {
@@ -877,4 +882,4 @@ Otherwise the output looks like this:
 }
 ```
 
-Therefore similar to previous examples, an attacker might guess what happned in an execution. E.g. if a contract have only a `send` function, if an error was returned an attacker can know that the `msg.sender` tried to send funds to someone unknown and the `send` didn't went through.
+Therefore similar to previous examples, an attacker might guess what happened in an execution. E.g. if a contract has only a `send` function, if an error was returned an attacker can know that the `msg.sender` tried to send funds to someone unknown and the `send` didn't execute.
