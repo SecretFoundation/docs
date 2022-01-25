@@ -28,7 +28,7 @@
     - [On the transaction sender](#on-the-transaction-sender)
     - [On the consensus layer, inside the enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1)
   - [Output](#output)
-    - [On the consensus layer, inside the Enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-2)
+    - [On the consensus layer, inside the enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-2)
     - [Back on the transaction sender](#back-on-the-transaction-sender)
 - [Blockchain upgrades](#blockchain-upgrades)
 - [Theoretical attacks](#theoretical-attacks)
