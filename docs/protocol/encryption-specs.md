@@ -1,54 +1,53 @@
 # Encryption
 
-- [Encryption](#encryption)
-- [Bootstrap Process](#bootstrap-process)
+- [Bootstrap process](#bootstrap-process)
   - [`consensus_seed`](#consensus_seed)
-  - [Key Derivation](#key-derivation)
+  - [Key derivation](#key-derivation)
     - [`consensus_seed_exchange_privkey`](#consensus_seed_exchange_privkey)
     - [`consensus_io_exchange_privkey`](#consensus_io_exchange_privkey)
     - [`consensus_state_ikm`](#consensus_state_ikm)
     - [`consensus_callback_secret`](#consensus_callback_secret)
-  - [Bootstrap Process Epilogue](#bootstrap-process-epilogue)
-- [Node Startup](#node-startup)
-- [New Node Registration](#new-node-registration)
+  - [Bootstrap process epilogue](#bootstrap-process-epilogue)
+- [Node startup](#node-startup)
+- [New node registration](#new-node-registration)
   - [On the new node](#on-the-new-node)
-  - [On the consensus layer, inside the Enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node)
+  - [On the consensus layer, inside the enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node)
     - [`seed_exchange_key`](#seed_exchange_key)
     - [Sharing `consensus_seed` with the new node](#sharing-consensus_seed-with-the-new-node)
-  - [Back on the new node, inside its Enclave](#back-on-the-new-node-inside-its-enclave)
+  - [Back on the new node, inside its enclave](#back-on-the-new-node-inside-its-enclave)
     - [`seed_exchange_key`](#seed_exchange_key-1)
     - [Decrypting `encrypted_consensus_seed`](#decrypting-encrypted_consensus_seed)
-  - [New Node Registration Epilogue](#new-node-registration-epilogue)
-- [Contracts State Encryption](#contracts-state-encryption)
+  - [New node registration epilogue](#new-node-registration-epilogue)
+- [Contracts state encryption](#contracts-state-encryption)
   - [`contract_key`](#contract_key)
   - [write_db(field_name, value)](#write_dbfield_name-value)
   - [read_db(field_name)](#read_dbfield_name)
   - [remove_db(field_name)](#remove_dbfield_name)
-- [Transaction Encryption](#transaction-encryption)
+- [Transaction encryption](#transaction-encryption)
   - [Input](#input)
     - [On the transaction sender](#on-the-transaction-sender)
-    - [On the consensus layer, inside the Enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1)
+    - [On the consensus layer, inside the enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1)
   - [Output](#output)
-    - [On the consensus layer, inside the Enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-2)
+    - [On the consensus layer, inside the enclave of every full node](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-2)
     - [Back on the transaction sender](#back-on-the-transaction-sender)
-- [Blockchain Upgrades](#blockchain-upgrades)
-- [Theoretical Attacks](#theoretical-attacks)
+- [Blockchain upgrades](#blockchain-upgrades)
+- [Theoretical attacks](#theoretical-attacks)
   - [Deanonymizing with ciphertext byte count](#deanonymizing-with-ciphertext-byte-count)
   - [Two contracts with the same `contract_key` could deanonymize each other's states](#two-contracts-with-the-same-contract_key-could-deanonymize-each-others-states)
-  - [Tx Replay attacks](#tx-replay-attacks)
-  - [More Advanced Tx Replay attacks -- search to decision for Millionaire's problem](#more-advanced-tx-replay-attacks----search-to-decision-for-millionaires-problem)
+  - [Tx replay attacks](#tx-replay-attacks)
+  - [More advanced tx replay attacks -- search to decision for millionaire's problem](#more-advanced-tx-replay-attacks----search-to-decision-for-millionaires-problem)
   - [Partial storage rollback during contract runtime](#partial-storage-rollback-during-contract-runtime)
   - [Tx outputs can leak data](#tx-outputs-can-leak-data)
 
-# Bootstrap Process
+# Bootstrap process
 
-Before the genesis of a new chain, there must be a bootstrap node to generate network-wide secrets to fuel all the privacy features of the chain.
+Before the genesis of a new chain, there must be a bootstrap node to generate network-wide secrets to enable the privacy features of Secret Network.
 
 ## `consensus_seed`
 
-- Create a remote attestation proof that the node's Enclave is genuine.
-- Generate inside the Enclave a true random 256 bits seed: `consensus_seed`.
-- Seal `consensus_seed` with MRSIGNER to a local file: `$HOME/.sgx_secrets/consensus_seed.sealed`.
+- Create a remote attestation proof that the node's enclave is genuine
+- Generate inside the Enclave a true random 256 bit seed: `consensus_seed`
+- Seal `consensus_seed` with MRSIGNER to a local file: `$HOME/.sgx_secrets/consensus_seed.sealed`
 
 ```js
 // 256 bits
@@ -61,12 +60,12 @@ seal({
 });
 ```
 
-## Key Derivation
+## Key derivation
 
 TODO reasoning
 
-- Key Derivation inside the Enclave is done deterministically using HKDF-SHA256 [[1]](https://tools.ietf.org/html/rfc5869#section-2)[[2]](https://en.wikipedia.org/wiki/HKDF).
-- The HKDF-SHA256 [salt](https://tools.ietf.org/html/rfc5869#section-3.1) is chosen to be Bitcoin's halving block hash.
+- Key derivation inside the Enclave is done deterministically using HKDF-SHA256 [[1]](https://tools.ietf.org/html/rfc5869#section-2)[[2]](https://en.wikipedia.org/wiki/HKDF)
+- The HKDF-SHA256 [salt](https://tools.ietf.org/html/rfc5869#section-3.1) is chosen to be Bitcoin's halving block hash
 
 ```js
 hkdf_salt = 0x000000000000000000024bead8df69990852c202db0e0097c1a12ea637d7e96d;
@@ -76,8 +75,8 @@ hkdf_salt = 0x000000000000000000024bead8df69990852c202db0e0097c1a12ea637d7e96d;
 
 ### `consensus_seed_exchange_privkey`
 
-- `consensus_seed_exchange_privkey`: A curve25519 private key. Will be used to derive encryption keys in order to securely share `consensus_seed` with new nodes in the network.
-- From `consensus_seed_exchange_privkey` calculate `consensus_seed_exchange_pubkey`.
+- `consensus_seed_exchange_privkey`: A curve25519 private key is used to derive encryption keys in order to securely share `consensus_seed` with new nodes in the network
+- From `consensus_seed_exchange_privkey` calculate `consensus_seed_exchange_pubkey`
 
 ```js
 consensus_seed_exchange_privkey = hkdf({
@@ -92,8 +91,8 @@ consensus_seed_exchange_pubkey = calculate_curve25519_pubkey(
 
 ### `consensus_io_exchange_privkey`
 
-- `consensus_io_exchange_privkey`: A curve25519 private key. Will be used to derive encryption keys in order to decrypt transaction inputs and encrypt transaction outputs.
-- From `consensus_io_exchange_privkey` calculate `consensus_io_exchange_pubkey`.
+- `consensus_io_exchange_privkey`: A curve25519 private key is used to derive encryption keys in order to decrypt transaction inputs and encrypt transaction outputs
+- From `consensus_io_exchange_privkey` calculate `consensus_io_exchange_pubkey`
 
 ```js
 consensus_io_exchange_privkey = hkdf({
@@ -108,7 +107,7 @@ consensus_io_exchange_pubkey = calculate_curve25519_pubkey(
 
 ### `consensus_state_ikm`
 
-- `consensus_state_ikm`: An input keyring material (IKM) for HKDF-SHA256 to derive encryption keys for contracts' state.
+- `consensus_state_ikm`: An input keyring material (IKM) for HKDF-SHA256 is used to derive encryption keys for contract state
 
 ```js
 consensus_state_ikm = hkdf({
@@ -119,7 +118,7 @@ consensus_state_ikm = hkdf({
 
 ### `consensus_callback_secret`
 
-- `consensus_callback_secret`: A curve25519 private key. Will be used to create callback signatures when contracts call other contracts.
+- `consensus_callback_secret`: A curve25519 private key is used to create callback signatures when contracts call other contracts
 
 ```js
 consensus_state_ikm = hkdf({
@@ -128,57 +127,58 @@ consensus_state_ikm = hkdf({
 }); // 256 bits
 ```
 
-## Bootstrap Process Epilogue
+## Bootstrap process epilogue
 
 TODO reasoning
 
-- Seal `consensus_seed` to disk at `$HOME/.sgx_secrets/consensus_seed.sealed`.
+- Seal `consensus_seed` to disk at `$HOME/.sgx_secrets/consensus_seed.sealed`
 - Publish to `genesis.json`:
-  - The remote attestation proof that the Enclave is genuine.
+  - The remote attestation proof that the Enclave is genuine
   - `consensus_seed_exchange_pubkey`
   - `consensus_io_exchange_pubkey`
 
-# Node Startup
+# Node startup
 
-When a full node resumes its participation in the network, it reads `consensus_seed` from `$HOME/.sgx_secrets/consensus_seed.sealed` and again does [key derivation](#Key-Derivation) as outlined above.
+When a full node resumes network participation, it reads `consensus_seed` from `$HOME/.sgx_secrets/consensus_seed.sealed`, and again does [key derivation](#Key-Derivation) as outlined above.
 
-# New Node Registration
+# New node registration
 
-A new node wants to join the network as a full node.
+New nodes want to join the network as full nodes.
 
 ## On the new node
 
 TODO reasoning
 
-- Verify the remote attestation proof of the bootstrap node from `genesis.json`.
-- Create a remote attestation proof that the node's Enclave is genuine.
-- Generate inside the node's Enclave a true random curve25519 private key: `registration_privkey`.
-- From `registration_privkey` calculate `registration_pubkey`.
+
+- Verify remote attestation proof of the bootstrap node from `genesis.json`
+- Create a remote attestation proof the node's Enclave is genuine
+- Generate inside the node's Enclave a true random curve25519 private key: `registration_privkey`
+- From `registration_privkey` calculate `registration_pubkey`
 - Send an `secretcli tx register auth` transaction with the following inputs:
-  - The remote attestation proof that the node's Enclave is genuine.
+  - The remote attestation proof the node's Enclave is genuine
   - `registration_pubkey`
   - 256 bits true random `nonce`
 
-## On the consensus layer, inside the Enclave of every full node
+## On the consensus layer, inside the enclave of every full node
 
 TODO reasoning
 
-- Receive the `secretcli tx register auth` transaction.
-- Verify the remote attestation proof that the new node's Enclave is genuine.
+- Receive the `secretcli tx register auth` transaction
+- Verify the remote attestation proof that the new node's Enclave is genuine
 
 ### `seed_exchange_key`
 
 TODO reasoning
 
-- `seed_exchange_key`: An [AES-128-SIV](https://tools.ietf.org/html/rfc5297) encryption key. Will be used to send `consensus_seed` to the new node.
-- AES-128-SIV was chosen to prevent IV misuse by client libraries.
+- `seed_exchange_key`: An [AES-128-SIV](https://tools.ietf.org/html/rfc5297) encryption key is used to send `consensus_seed` to the new node
+- AES-128-SIV was chosen to prevent IV misuse by client libraries
   - https://tools.ietf.org/html/rfc5297
   - https://github.com/miscreant/meta
-  - The input key is 256 bits, but half of it is used to derive the internal IV.
-  - AES-SIV does not pad the cipertext, and this leaks information about the plaintext data, specifically its size.
+  - The input key is 256 bits, but half of it is used to derive the internal IV
+  - AES-SIV does not pad the cipertext, and this leaks information about the plaintext data, specifically its size
 - `seed_exchange_key` is derived the following way:
-  - `seed_exchange_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_seed_exchange_privkey` and `registration_pubkey`.
-  - `seed_exchange_key` is derived using HKDF-SHA256 from `seed_exchange_ikm` and `nonce`.
+  - `seed_exchange_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_seed_exchange_privkey` and `registration_pubkey`
+  - `seed_exchange_key` is derived using HKDF-SHA256 from `seed_exchange_ikm` and `nonce`
 
 ```js
 seed_exchange_ikm = ecdh({
@@ -196,7 +196,7 @@ seed_exchange_key = hkdf({
 
 TODO reasoning
 
-- The output of the `secretcli tx register auth` transaction is `consensus_seed` encrypted with AES-128-SIV, `seed_exchange_key` as the encryption key, using the public key of the registering node for the AD.
+- The output of `secretcli tx register auth` is `consensus_seed` encrypted with AES-128-SIV with `seed_exchange_key` as the encryption key, using the public key of the registering node for the AD
 
 ```js
 encrypted_consensus_seed = aes_128_siv_encrypt({
@@ -208,20 +208,18 @@ encrypted_consensus_seed = aes_128_siv_encrypt({
 return encrypted_consensus_seed;
 ```
 
-## Back on the new node, inside its Enclave
+## Back on the new node, inside its enclave
 
-- Receive the `secretcli tx register auth` transaction output (`encrypted_consensus_seed`).
+- Receive the `secretcli tx register auth` transaction output (`encrypted_consensus_seed`)
 
 ### `seed_exchange_key`
 
 TODO reasoning
 
-- `seed_exchange_key`: An AES-128-SIV encryption key. Will be used to decrypt `consensus_seed`.
+- `seed_exchange_key`: An AES-128-SIV encryption key is used to decrypt `consensus_seed`
 - `seed_exchange_key` is derived the following way:
-
-  - `seed_exchange_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_seed_exchange_pubkey` (public in `genesis.json`) and `registration_privkey` (available only inside the new node's Enclave).
-
-  - `seed_exchange_key` is derived using HKDF-SHA256 with `seed_exchange_ikm` and `nonce`.
+  - `seed_exchange_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_seed_exchange_pubkey` (public in `genesis.json`) and `registration_privkey` (available only inside the new node's Enclave)
+  - `seed_exchange_key` is derived using HKDF-SHA256 with `seed_exchange_ikm` and `nonce`
 
 ```js
 seed_exchange_ikm = ecdh({
@@ -239,9 +237,9 @@ seed_exchange_key = hkdf({
 
 TODO reasoning
 
-- `encrypted_consensus_seed` is encrypted with AES-128-SIV, `seed_exchange_key` as the encryption key and the public key of the registering node as the `ad` as the decryption additional data.
-- The new node now has all of these^ parameters inside its Enclave, so it's able to decrypt `consensus_seed` from `encrypted_consensus_seed`.
-- Seal `consensus_seed` to disk at `$HOME/.sgx_secrets/consensus_seed.sealed`.
+- `encrypted_consensus_seed` is encrypted with AES-128-SIV, `seed_exchange_key` as the encryption key and the public key of the registering node as the `ad` as the decryption additional data
+- The new node now has all of these parameters inside its Enclave, so it's able to decrypt `consensus_seed` from `encrypted_consensus_seed`
+- Seal `consensus_seed` to disk at `$HOME/.sgx_secrets/consensus_seed.sealed`
 
 ```js
 consensus_seed = aes_128_siv_decrypt({
@@ -257,31 +255,31 @@ seal({
 });
 ```
 
-## New Node Registration Epilogue
+## New node registration epilogue
 
 TODO reasoning
 
-- The new node can now do [key derivation](#key-derivation) to get all the required network-wide secrets in order participate in blocks execution and validation.
-- After a machine/process reboot, the node can go through the [node startup process](#node-startup) again.
+- The new node can now do [key derivation](#key-derivation) to get all the required network-wide secrets for participating in block execution and validation.
+- After a machine/process reboot, the node can go through the [node startup process](#node-startup) again
 
-# Contracts State Encryption
+# Contracts state encryption
 
 TODO reasoning
 
-- While executing a function call inside the Enclave as part of a transaction, the contract code can call `write_db(field_name, value)`, `read_db(field_name)` and `remove_db(field_name)`.
-- Contracts' state is stored on-chain inside a key-value store, thus the `field_name` must remain constant between calls.
+- While executing a function call inside the Enclave as part of a transaction, the contract code can call `write_db(field_name, value)`, `read_db(field_name)`, and `remove_db(field_name)`
+- Contract state is stored on-chain inside a key-value store; the `field_name` must remain constant between calls
 - `encryption_key` is derived using HKDF-SHA256 from:
   - `consensus_state_ikm`
   - `field_name`
   - `contract_key`
-- `ad` (Additional Data) is used to prevent leaking information about the same value written to the same key at different times.
+- `ad` (additional data) is used to prevent leaking information about the same value written to the same key at different times
 
 ## `contract_key`
 
-- `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`.
-- Its purpose is to make sure that each contract have a unique unforgeable encryption key.
-  - Unique: Make sure the state of two contracts with the same code is different.
-  - Unforgeable: Make sure a malicious node runner won't be able to locally encrypt transactions with it's own encryption key and then decrypt the resulting state with the fake key.
+- `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`
+- Its purpose is to make sure each contract has a unique unforgeable encryption key
+  - Unique: Make sure the state of two contracts with the same code is different
+  - Unforgeable: Make sure a malicious node runner won't be able to locally encrypt transactions with it's own encryption key, and then decrypt the resulting state with the fake key
 - When a contract is deployed (i.e., on contract init), `contract_key` is generated inside the Enclave as follows:
 
 ```js
@@ -301,8 +299,8 @@ authenticated_contract_key = hmac_sha256({
 contract_key = concat(signer_id, authenticated_contract_key);
 ```
 
-- Every time a contract execution is called, `contract_key` should be sent to the Enclave.
-- In the Enclave, the following verification needs to happen:
+- Every time a contract execution is called, `contract_key` should be sent to the enclave
+- In the enclave, the following verification needs to happen:
 
 ```js
 signer_id = contract_key.slice(0, 32);
@@ -414,16 +412,17 @@ encrypted_field_name = aes_128_siv_encrypt({
 internal_remove_db(encrypted_field_name);
 ```
 
-# Transaction Encryption
+# Transaction encryption
 
 TODO reasoning
 
-- `tx_encryption_key`: An AES-128-SIV encryption key. Will be used to encrypt tx inputs and decrypt tx outputs.
-  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_pubkey` and `tx_sender_wallet_privkey` (on the sender's side).
-  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_privkey` and `tx_sender_wallet_pubkey` (inside the Enclave of every full node).
-- `tx_encryption_key` is derived using HKDF-SHA256 with `tx_encryption_ikm` and a random number `nonce`. This is to prevent using the same key for the same tx sender multiple times.
-- The input (`msg`) to the contract is always prepended with the sha256 hash of the contract's code.
-  - This is meant to prevent replaying an encrypted input of a legitimate contract to a malicious contract and asking the malicious contract to decrypt the input. In this attack example the output will still be encrypted with a `tx_encryption_key` that only the original sender knows, but the malicious contract can be written to save the decrypted input to its state and then via a getter with no access control retrieve the encrypted input.
+- `tx_encryption_key`: An AES-128-SIV encryption key used to encrypt tx inputs and decrypt tx outputs
+  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_pubkey` and `tx_sender_wallet_privkey` (on the sender's side)
+  - `tx_encryption_ikm` is derived using [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) with `consensus_io_exchange_privkey` and `tx_sender_wallet_pubkey` (inside the Enclave of every full node)
+- `tx_encryption_key` is derived using HKDF-SHA256 with `tx_encryption_ikm` and a random number `nonce` to prevent using the same key for the same tx sender multiple times
+- The input (`msg`) to the contract is always prepended with the sha256 hash of the contract's code
+  - This is meant to prevent replaying an encrypted input of a legitimate contract to a malicious contract, and asking the malicious contract to decrypt the input      
+   - In this attack example the output will still be encrypted with a `tx_encryption_key` that only the original sender knows, but the malicious contract can be written to save the decrypted input to its state, and then via a getter with no access control retrieve the encrypted input
 
 ## Input
 
@@ -455,7 +454,7 @@ encrypted_msg = aes_128_siv_encrypt({
 tx_input = concat(ad, encrypted_msg);
 ```
 
-### On the consensus layer, inside the Enclave of every full node
+### On the consensus layer, inside the enclave of every full node
 
 ```js
 nonce = tx_input.slice(0, 32); // 32 bytes
@@ -489,10 +488,11 @@ msg = codeHashAndMsg.slice(64);
   - Logs are treated as Tendermint events
   - Messages can be callbacks to another contract call or contract init
   - Messages can also instruct sending funds from the contract's wallet
-  - There's a data section which is free-form bytes to be interpreted by the client (or dApp)
-  - And there's also an error section
-- Therefore the output must be partially encrypted.
-- An example output for an execution:
+  - A data section which is free-form bytes to be interpreted by the client (or dApp)
+  - An error section
+- The output must be partially encrypted
+
+Here is an example output for an execution:
 
   ```js
   {
@@ -543,14 +543,16 @@ msg = codeHashAndMsg.slice(64);
   }
   ```
 
-- Notice on a `Contract` message, the `msg` value should be the same `msg` as in our `tx_input`, so we need to prepend the `nonce` and `tx_sender_wallet_pubkey` just like we did on the tx sender above.
-- On a `Contract` message, we also send a `callback_signature`, so we can later on verify the parameters sent to the enclave:
+- Notice on a `Contract` message, the `msg` value should be the same `msg` as in our `tx_input`, so we need to prepend the `nonce` and `tx_sender_wallet_pubkey` just like we did on the tx sender above
+- On a `Contract` message, we also send a `callback_signature`, so we can verify the parameters sent to the enclave:
   ```
   callback_signature = sha256(consensus_callback_secret | calling_contract_addr | encrypted_msg | funds_to_send)
   ```
-  For more on that, [read here](../dev/privacy-model-of-secret-contracts.md#verified-values-during-contract-execution).
-- For the rest of the encrypted outputs we only need to send the ciphertext, as the tx sender can get `consensus_io_exchange_pubkey` from `genesis.json` and `nonce` from the `tx_input` that is attached to the `tx_output`.
-- An example output with an error:
+For more on that, [read here](../dev/privacy-model-of-secret-contracts.md#verified-values-during-contract-execution).
+
+- For the rest of the encrypted outputs we only need to send the ciphertext, as the tx sender can get `consensus_io_exchange_pubkey` from `genesis.json` and `nonce` from the `tx_input` that is attached to the `tx_output`
+
+Here is an example output with an error:
   ```js
   {
     "err": "{\"watermelon\":6,\"coffee\":5}" // need to encrypt this value
@@ -563,7 +565,7 @@ msg = codeHashAndMsg.slice(64);
   }
   ```
 
-### On the consensus layer, inside the Enclave of every full node
+### On the consensus layer, inside the enclave of every full node
 
 ```js
 // already have from tx_input:
@@ -632,7 +634,7 @@ return output;
 ### Back on the transaction sender
 
 - The transaction output is written to the chain
-- Only the wallet with the right `tx_sender_wallet_privkey` can derive `tx_encryption_key`, so for everyone else it will just be encrypted.
+- Only the wallet with the right `tx_sender_wallet_privkey` can derive `tx_encryption_key`, so for everyone else it will just be encrypted
 - Every encrypted value can be decrypted the following way:
 
 ```js
@@ -650,13 +652,13 @@ aes_128_siv_decrypt({
 });
 ```
 
-- For `output["ok"]["messages"][i]["type"] == "Contract"`, `output["ok"]["messages"][i]["msg"]` will be decrypted in [this](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1) manner by the consensus layer when it handles the contract callback.
+- For `output["ok"]["messages"][i]["type"] == "Contract"`, `output["ok"]["messages"][i]["msg"]` will be decrypted in [this](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1) manner by the consensus layer when it handles the contract callback
 
-# Blockchain Upgrades
+# Blockchain upgrades
 
 TODO
 
-# Theoretical Attacks
+# Theoretical attacks
 
 TODO add more
 
@@ -666,29 +668,29 @@ No encryption padding, so a value of e.g. "yes" or "no" can be deanonymized by i
 
 ## Two contracts with the same `contract_key` could deanonymize each other's states
 
-If an attacker can create a contract with the same `contract_key` as another contract, the state of the original contract can potentially be deanonymized.
+If an attacker creates a contract with the same `contract_key` as another contract, the state of the original contract can potentially be deanonymized.
 
-For example, an original contract with a permissioned getter, such that only whitelisted addresses can query the getter. In the malicious contract the attacker can set themselves as the owner and ask the malicious contract to decrypt the state of the original contract via that permissioned getter.
+For example, an original contract with a permissioned getter, such that only whitelisted addresses can query the getter. In the malicious contract, the attacker can set themselves as the owner and decrypt the state of the original contract using a permissioned getter.
 
-## Tx Replay attacks
+## Tx replay attacks
 
-After a contract runs on the chain, an attacker can sync up a node up to a specific block in the chain, and then call into the enclave with the same authenticated user inputs that were given to the enclave on-chain, but out-of-order, or omit selected messages. A contract that does not anticipate or protect against this might end up de-anonymizing the information provided by users. For example, in a naive voting contract (or other personal data collection algorithm), we can de-anonymize a voter by re-running the vote without the target's request, and analyze the difference in final results.
+After a contract runs on the chain, an attacker can sync up a node up to a specific block in the chain, and then call into the enclave with the same authenticated user inputs given to the enclave on-chain, but out-of-order, or omit selected messages. A contract not anticipating or protecting against this might end up de-anonymizing the information provided by users. For example, in a naive voting contract (or other personal data collection algorithm), we can de-anonymize a voter by re-running the vote without the target's request, and analyze the difference in final results.
 
-## More Advanced Tx Replay attacks -- search to decision for Millionaire's problem
+## More advanced tx replay attacks -- search to decision for millionaire's problem
 
-This attack provides a specific example of a TX replay attack extracting the full information of a client based on replaying a TX.
+This attack provides a specific example of a tx replay attack extracting the full information of a client based on replaying a tx.
 
-Specifically, assume for millionaire's that you have a contract where one person inputs their amount of money, then the other person does, then the contract sends them both a single bit saying who has more -- this is the simplest implementation for Millionaire's problem-solving. As person 2, binary search the interval of possible money amounts person 1 could have -- say you know person 1 has less than N dollars. First, query with N/2 as your value with your node detached from the wider network, get the single bit out (whether the true value is higher or lower), then repeat by re-syncing your node and calling in.
+Specifically, assume for millionaire's that you have a contract where one person inputs their amount of money, then the other person does, then the contract sends them both a single bit saying who has more — this is the simplest implementation for Millionaire's problem-solving. As person 2, binary search the interval of possible money amounts person 1 could have — say you know person 1 has less than N dollars. First, query with N/2 as your value with your node detached from the wider network, get the single bit out (whether the true value is higher or lower), then repeat by re-syncing your node and calling in.
 By properties of binary search, in log(n) tries (where n is the size of the interval) you'll have the exact value of person 1's input.
 
 The naive solution to this is requiring the node to successfully broadcast the data of person 1 and person 2 to the network before revealing an answer (which is an implicit heartbeat test, that also ensures the transaction isn't replay-able), but even that's imperfect since you can reload the contract and replay the network state up to that broadcast, restoring the original state of the contract, then perform the attack with repeated rollbacks.
 
-Assaf: You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX.
+Note: You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX.
 
 ## Partial storage rollback during contract runtime
 
-Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage. BUT we can not (yet) verify that the value is the most recent value that was stored there. This means that a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this can cause a contract to expose old secrets with new permissions, or new secrets with old permissions. The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
+Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage. BUT we can not (yet) verify that the value is the most recent value that was stored there. This means a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this causes a contract to expose old secrets with new permissions, or new secrets with old permissions. The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
 
 ## Tx outputs can leak data
 
-E.g. a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. Also applies with deposits, callbacks and transfers.
+For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. Also applies with deposits, callbacks and transfers.
