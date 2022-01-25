@@ -29,7 +29,7 @@ Decentralized technologies need privacy to be secure and usable. Secret Contract
 Below we highlight existing use cases the Secret Network provides clear performance, security, and usability advantages for:
 
 ### Access Control / Digital Content Management
-Used for monetization of digital content in decentralized web, such applications would store a decryption key (secret) to the content in the encrypted secret contract state, and when users make the required payment (triggering event), the secret contract will share a decryption key (secret) that is unique to each user. This use-case is not possible to build in the traditional blockchain networks as all data in state is publicly visible.
+Used for monetization of digital content in decentralized web, such applications would store a decryption key (secret) to the content in the encrypted Secret Contract state, and when users make the required payment (triggering event), the Secret Contract will share a decryption key (secret) that is unique to each user. This use-case is not possible to build in the traditional blockchain networks as all data in state is publicly visible.
 
 ### Secret Auctions and Secret Voting
 These related use cases involve replacing the inefficient, two-step “commit-reveal” schemes with a better approach with Secret Contracts. Both secret auctions and secret voting allows users to submit encrypted bids or votes and the Secret Contract can compute encrypted inputs to determine the winner(s), without requiring the users to reveal bids or votes. 

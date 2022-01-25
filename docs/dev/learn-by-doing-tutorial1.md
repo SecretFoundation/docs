@@ -1,8 +1,8 @@
-# Tutorial: Developing your first secret contract
+# Tutorial: Developing your first Secret Contract
 
 ## Introduction
 
-In this tutorial you will learn the basics of creating a new secret contract from scratch. You will learn the basics of handling messages and storing data for your contract on the chain. The contract that you make will allow individual users to store a private reminder on the secret network that can be read back at a later time. Using a secret contract for such a task is probably overkill, but it will teach you the basics of secret contract construction which provides a foundation for building more complex secret dapps using the same principles.
+In this tutorial you will learn the basics of creating a new Secret Contract from scratch. You will learn the basics of handling messages and storing data for your contract on the chain. The contract that you make will allow individual users to store a private reminder on the secret network that can be read back at a later time. Using a Secret Contract for such a task is probably overkill, but it will teach you the basics of Secret Contract construction which provides a foundation for building more complex secret dapps using the same principles.
 
 ### Pre-requisites
 
@@ -22,9 +22,9 @@ cargo generate --git https://github.com/scrtlabs/secret-template --name reminder
 
 In addition to everything we need to compile a contract, this template includes sample code for the simple counter contract. We are going to remove that in order to start from scratch. **Go into the `src` directory and empty the contents of the following three files `contract.rs`, `msg.rs`, and `state.rs`.** Do NOT remove or edit `lib.rs`.
 
-## Secret contract functions
+## Secret Contract functions
 
-There are three main functions that any secret contract can execute once it has been deployed to the network:
+There are three main functions that any Secret Contract can execute once it has been deployed to the network:
 
 1. `init` is the constructor for your contract and it is only executed once. It is used to configure your contract based on user-supplied parameters.
 2. `handle` takes a handle message as input from a client, executes transactions based on the content of the message, and outputs a response message to the client.
@@ -84,7 +84,7 @@ At the top of this file, we have a number of module imports, some of which will 
 
 A keen eye will note that `deps` is defined as `&mut Extern<S, A, Q>` in `init` and `handle`, but in `query` it is not mutable: `&Extern<S, A, Q>`. This is because a `query` is unable to change the `storage`, it is read-only. In addition, `query` does not have access to the external state of the contract, which importantly means that the address of the sender of the query is not available from within the `query` function. The reason for this is explained in more detail in the [Privacy Model of Secret Networks](https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html#verified-values-during-contract-execution).
 
-## Secret contract messages
+## Secret Contract messages
 
 Now we need to specify the valid structure of input messages and output responses for each of our three main contract functions. We will define these message structures in `src/msg.rs`.
 
@@ -213,21 +213,21 @@ pub enum QueryAnswer {
 }
 ```
 
-Sometimes an incoming message or a response will have an optional field. Those are defined with Rust `Option` types. The secret contract SDK will include those fields as needed in the response to the client automatically. In our `Read` response we define `reminder` and `timestamp` using an `Option` type, because it is possible that there is no reminder for the user.
+Sometimes an incoming message or a response will have an optional field. Those are defined with Rust `Option` types. The Secret Contract SDK will include those fields as needed in the response to the client automatically. In our `Read` response we define `reminder` and `timestamp` using an `Option` type, because it is possible that there is no reminder for the user.
 
 ### A note about data types between the client and contract
 
-A message is, in fact, received by the contract as an encrypted and then Base64-encoded version of the JSON stringify'd version of the original message (i.e., Javascript object) defined in the client code. This transformation is transparent to you as a secret contract developer, but awareness of this process is important because of how it affects data types. Your contract will create a schema document for each message type if you add `derive(JsonSchema)` macro to your message definitions. But you might still need to do some additional value checking and type casting in your contract code depending on the context.
+A message is, in fact, received by the contract as an encrypted and then Base64-encoded version of the JSON stringify'd version of the original message (i.e., Javascript object) defined in the client code. This transformation is transparent to you as a Secret Contract developer, but awareness of this process is important because of how it affects data types. Your contract will create a schema document for each message type if you add `derive(JsonSchema)` macro to your message definitions. But you might still need to do some additional value checking and type casting in your contract code depending on the context.
 
 In addition, number values in Javascript are limited in range. The maximum safe integer value in Javascript falls somewhere between maximum `i32` and `i64` values in Rust. Therefore, 128-bit integers, for example, need to be sent from the client as string values. Because 128-bit numbers are commonly used in contracts to represent currency values (e.g. $\mu$SCRT), the Cosmos SDK (which Secret Network is built on) has a pre-defined type `Uint128`. A message type with a `Uint128` field will expect a string from the incoming JSON, which is further validated to be a correct representation of 128-bit unsigned integer value. In order, to use the `Uint128` field value in your contract code, e.g., to put it in contract storage, you will then need to convert it to a Rust `u128` type.
 
 Likewise, a message type that has a `HumanAddr` or `CanonicalAddr` as a field value will also be sent from the client using string values.
 
-## Secret contract storage
+## Secret Contract storage
 
-Now we are going to define how we want to model our contract's state in the contract storage. We will put that code in `src/state.rs`. Once we have completed that we will wire everything together in our `init`, `handle`, and `query` functions in `src/contract.rs` and we will have a fully working secret contract.
+Now we are going to define how we want to model our contract's state in the contract storage. We will put that code in `src/state.rs`. Once we have completed that we will wire everything together in our `init`, `handle`, and `query` functions in `src/contract.rs` and we will have a fully working Secret Contract.
 
-Conceptually, storage for a secret contract is quite simple. It is a key-value store on the chain where each unit of data is identified by a unique key and the value of the data is a serialized representation of some data structure in Rust. Storage is encrypted and only the contract has access to its own storage.
+Conceptually, storage for a Secret Contract is quite simple. It is a key-value store on the chain where each unit of data is identified by a unique key and the value of the data is a serialized representation of some data structure in Rust. Storage is encrypted and only the contract has access to its own storage.
 
 For our contract we need to store two types of information: 1) general state information for the contract and 2) the reminder messages for each user. Add the following code in `src/state.rs`:
 
@@ -257,7 +257,7 @@ First, we define a `static` unique key to point to our `State` struct and give i
 
 You can serialize your data on storage in any way you want. It is recommended that you use `bincode2` serialization from the [Secret Contract Development Toolkit](https://github.com/scrtlabs/secret-toolkit) if you do not want numbers and `Option` types encoded on the chain at variable lengths. Other types of serialization, such as json encode numbers as strings, so different values can have different byte lengths in storage. That can lead to data leakage if information can be discerned due to that difference (see [here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/WALKTHROUGH.md#staters) and [here](https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html#api-calls-2) for more detailed information).
 
-The toolkit is not automatically added in the secret contract template, so add the following line to the end of the `Cargo.toml` file in the root directory of your project:
+The toolkit is not automatically added in the Secret Contract template, so add the following line to the end of the `Cargo.toml` file in the root directory of your project:
 
 ```toml
 secret-toolkit = { git = "https://github.com/scrtlabs/secret-toolkit" }
@@ -291,7 +291,7 @@ pub fn may_load<T: DeserializeOwned, S: ReadonlyStorage>(storage: &S, key: &[u8]
 }
 ```
 
-## Wiring it all together in our secret contract functions
+## Wiring it all together in our Secret Contract functions
 
 Now we are ready to fill in our three contract functions in `contract.rs`: `init`, `handle`, and `query`.
 
@@ -477,11 +477,11 @@ fn query_stats<S: Storage, A: Api, Q: Querier>(deps: &Extern<S, A, Q>) -> StdRes
 }
 ```
 
-You now have a working reminder secret contract! The completed contract code can be found [here](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1/code).
+You now have a working reminder Secret Contract! The completed contract code can be found [here](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1/code).
 
 ## Next steps
 
-Unlike a normal web service, there is no mechanism for a secret contract to repeatedly push information through an open socket connection in response to a handle or query message. Instead, if you want to support that behavior, then you must develop a pull mechanism where the client makes repeated executions of the contract. However, as our contract currently implements the functionality of reading a reminder as a handle execution that would very quickly cost the user a lot of `SCRT` due to gas fees! The solution is to create a private viewing key that allows a user to see their own reminder using a query instead of a handle message. In the next tutorial we will show how that can be done in the context of a simple React application.
+Unlike a normal web service, there is no mechanism for a Secret Contract to repeatedly push information through an open socket connection in response to a handle or query message. Instead, if you want to support that behavior, then you must develop a pull mechanism where the client makes repeated executions of the contract. However, as our contract currently implements the functionality of reading a reminder as a handle execution that would very quickly cost the user a lot of `SCRT` due to gas fees! The solution is to create a private viewing key that allows a user to see their own reminder using a query instead of a handle message. In the next tutorial we will show how that can be done in the context of a simple React application.
 
 ## Notes
 
