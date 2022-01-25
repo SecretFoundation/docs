@@ -135,7 +135,7 @@ ERROR  [wasmi_runtime_enclave::registration::cert] The following vulnerabilities
 Platform status is SW_HARDENING_AND_CONFIGURATION_NEEDED. This means is updated but requires further BIOS configuration
 ```
 
-Please disable hyperthreading and overclocking/undervolting in your BIOS.
+Please disable hyperthreading and overclocking/undervolting (Turboboost) in your BIOS.
 
 
 #### I'm seeing `CONFIGURATION_AND_SW_HARDENING_NEEDED` in the `isvEnclaveQuoteStatus` field, but with more advisories than what is allowed
@@ -143,7 +143,7 @@ Please disable hyperthreading and overclocking/undervolting in your BIOS.
 This could mean a number of different things related to the configuration of the machine. Most common are:
 
 - ["INTEL-SA-00161", "INTEL-SA-00233"] - Hyper-threading must be disabled in the BIOS
-- ["INTEL-SA-00289"] - Overclocking/undervolting must be disabled by the BIOS
+- ["INTEL-SA-00289"] - Overclocking/undervolting must be disabled by the BIOS (sometimes known as Turboboost)
 - ["INTEL-SA-00219"] - Integrated graphics should be disabled in the BIOS - we recommend performing this step if you can, though it isn't required
 
 If you are still having trouble getting rid of INTEL-SA-00219 and INTEL-SA-00289, here are some possible settings to look for outside of the CPU settings:
