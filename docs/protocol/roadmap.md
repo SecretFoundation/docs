@@ -1,8 +1,8 @@
 # Development Roadmap
 
-Currently, the live Secret Network supports [staking](../node-guides/secret-nodes.md), [transactions](transactions.md), and [governance](governance.md) activities.
+Secret Network supports [staking](../node-guides/secret-nodes.md), [transactions](transactions.md), and [governance](governance.md) activities.
 
-The next version of Secret Network is expected to offer Secret Contract functionality. Our subsequent milestones are:
+The next version of Secret Network will offer Secret Contract functionality. Our subsequent milestones are:
 
 - [x] Enable cosmwasm-based contracts to be deployed on Secret Network testnet
 - [x] Enable cosmwasm-based contracts to be deployed within Intel SGX enclaves (the TEE that the Secret Network will initially use) on the Secret Network testnet

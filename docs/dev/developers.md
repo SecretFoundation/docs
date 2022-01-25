@@ -12,4 +12,4 @@ Developers can write Secret Contracts for CosmWasm running inside secure enclave
 
 - [SecretJS](secret-js.md)
 
-- [Developing your first secret contract](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1)
+- [Developing Your First Secret Contract](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1)

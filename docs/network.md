@@ -8,7 +8,7 @@ Secret Network is a decentralized network of computers **("secret nodes")** util
 
 ### Validators / Secret Nodes
 
-The Secret Network nodes perform computations and verify blockchain activity. The network uses a popular delegated proof-of-stake (DPoS) consensus algorithm, [Tendermint](https://tendermint.com/). Up to 50 node operators at any time can be validators for the Secret Network. For more information on how you can run your own secret node, [visit our full developer documentation.](https://docs.scrt.network/validators-and-full-nodes/secret-nodes.html)
+Secret Network nodes perform computations and verify blockchain activity. The network uses a popular delegated proof-of-stake (DPoS) consensus algorithm, [Tendermint](https://tendermint.com/). Up to 50 node operators at any time can be validators for Secret Network. For more information on how you can run your own secret node, [visit our full developer documentation.](https://docs.scrt.network/validators-and-full-nodes/secret-nodes.html)
 
 ### Network Economics and SCRT
 
@@ -22,7 +22,7 @@ Transactions, validators, current inflation, governance proposals, and more are 
 
 ### Delegation
 
-If you have SCRT, but do not want to run your own node, delegation is a great option. Delegating gives some of your staking power to a specific validator on Secret Network who will then give you a share of their staking fees and rewards. As a delegator, you essentially get the same returns as a node operator minus their commissions. If there is an on-chain governance vote, a delegator's vote will be the same as their validator; unless the delegator manually changes their vote. There can only be 50 active nodes on the network (may change in the future), and delegators play a crucial role in decentralization.
+If you have SCRT coins, but do not want to run your own node, delegation is a great option. Delegating gives some of your staking power to a specific validator on Secret Network who will then give you a share of their staking fees and rewards. As a delegator, you essentially get the same returns as a node operator minus their commissions. If there is an on-chain governance vote, a delegator's vote will be the same as their validator's; unless the delegator manually changes their vote. There can only be 50 active nodes on the network (may change in the future), and delegators play a crucial role in decentralization.
 
 ### Wallet Support
 

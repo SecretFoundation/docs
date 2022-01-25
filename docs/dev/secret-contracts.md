@@ -3,9 +3,9 @@ title : 'Secret Contracts'
 ---
 # Secret Contracts
 
-Secret Contracts are the first implementation of general purpose privacy preserving computations on public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs and encrypted state). These privacy guarantees are made possible by a decentralized network of validators, who run Secret Contracts execution inside Trusted Execution Environments (TEEs).
+Secret Contracts are the first implementation of general purpose privacy preserving computations a on public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs, and encrypted state). These privacy guarantees are made possible by a decentralized network of validators who run Secret Contract execution inside Trusted Execution Environments (TEEs).
 
-Secret Contracts are Rust based smart contracts that compile to WebAssembly. Secret Contracts, which are based on [Go-CosmWasm](https://github.com/enigmampc/SecretNetwork/tree/master/go-cosmwasm), introduce the _compute_ module that runs inside the TEE to enable secure data processing (inputs, outputs and contract state.
+Secret Contracts are Rust-based smart contracts that compile to WebAssembly. Secret Contracts, which are based on [Go-CosmWasm](https://github.com/scrtlabs/SecretNetwork/tree/master/go-cosmwasm), introduce the _compute_ module that runs inside the TEE to enable secure data processing (inputs, outputs, and contract state).
 
 ![architecture](https://user-images.githubusercontent.com/15679491/99459758-9a44c580-28fc-11eb-9af2-82479bbb2d23.png)
 
@@ -14,26 +14,25 @@ Next, we will go through steps to:
 - install the Rust dependencies
 - create your first project
 
-The Rust dependencies include the Rust compiler, cargo (_package manager_), toolchain and a package to generate projects. You can check out the Rust book, rustlings course, examples and more [here](https://www.rust-lang.org/learn).
-
 1. Install Rust
 
-More information about installing Rust can be found here: https://www.rust-lang.org/tools/install.
+More information about installing Rust can be found at [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
 
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 ```
 
-**Update the rust compiler**
+**Update the Rust Compiler**
 
-In case rust is installed already, make sure to update the rust compiler.
+In case Rust is installed already, make sure to update the rust compiler.
 
 ```
 rustup update
 ```
 
 2. Add rustup target wasm32 for both stable and nightly
+These dependencies include the Rust compiler, cargo (_package manager_), toolchain, and a package to generate projects. To learn more about Rust, check out [https://www.rust-lang.org/learn](https://www.rust-lang.org/learn) which includes the Rust book, rustlings course, examples, and more.
 
 ```
 rustup default stable
@@ -51,28 +50,28 @@ apt install build-essential
 
 4. Run cargo install cargo-generate
 
-[Cargo generate](https://docs.rs/crate/cargo-generate/) is the tool you'll use to create a secret contract project.
+[Cargo generate](https://docs.rs/crate/cargo-generate/) is the tool you'll use to create a Secret Contract project.
 
 ```
 cargo install cargo-generate --features vendored-openssl
 ```
 
-### Create your first Secret Contract
+### Create Your First Secret Contract
 
 1. generate the initial project
-2. compile the secret contract
+2. compile the Secret Contract
 3. run unit tests
 4. optimize the wasm contract bytecode to prepare for deployment
-5. deploy the secret contract to your local Secret Network
+5. deploy the Secret Contract to your local Secret Network
 6. instantiate it with contract parameters
 
-#### Generate the Secret Contract Project
+#### Generate the Simple Counter Project
 
 ```
-cargo generate --git https://github.com/enigmampc/secret-template --name mysimplecounter
+cargo generate --git https://github.com/scrtlabs/secret-template --name mysimplecounter
 ```
 
-The git project above is a secret contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
+The git project above is a Secret Contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
 
 Change directory to the project you created and view the structure and files that were created.
 
@@ -80,23 +79,22 @@ Change directory to the project you created and view the structure and files tha
 cd mysimplecounter
 ```
 
-The generate creates a directory with the project name and has this structure:
+The `generate` command creates a directory with the project name and has the following structure:
 
 ```
 Cargo.lock	Developing.md	LICENSE		Publishing.md	examples	schema		tests
 Cargo.toml	Importing.md	NOTICE		README.md	rustfmt.toml	src
 ```
 
-
-As an example secret contract, `mysimplecounter`, handles a state keeping track of a number which may be incremented by any address, but only reset by the creator.
+As an example Secret Contract, `mysimplecounter`, handles a state keeping track of a number which may be incremented by any address, but only reset by the creator.
 
 The `src` folder contains the following files:
 
 ##### `contract.rs` 
 
-This file contains functions which define the available contract operations. The functions which all secret contracts contain will be: `init`, `handle`, and `query`. 
+This file contains functions defining available Secret Contract operations. The functions which all Secret Contracts contain will be: `init`, `handle`, and `query`. 
 
-- `init` is called once at instantiation of the secret contract with 3 parameters: `deps`, `env`, and `msg`. The internal state (`State` struct imported from `state.rs`)of the secret contract is initialized with these parameters.
+- `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters initialize the internal state (the `State` struct imported from `state.rs`) of the Secret Contract.
 
 ```rust
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -115,7 +113,7 @@ pub fn init<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-[`deps`](https://github.com/enigmampc/SecretNetwork/blob/master/cosmwasm/packages/std/src/traits.rs) and [`env`](https://github.com/enigmampc/SecretNetwork/blob/master/cosmwasm/packages/std/src/types.rs) are structs `Extern` and `Env` imported from [cosmwasm_std](https://github.com/enigmampc/SecretNetwork/tree/master/cosmwasm/packages/std)
+[`deps`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/traits.rs) and [`env`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/types.rs) are structs `Extern` and `Env` imported from [cosmwasm_std](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/std)
 
 `deps` contains all external dependencies of the contract.
 
@@ -143,8 +141,8 @@ pub struct Env {
    - `BlockInfo` defines the current block height, time, and chain-id. 
    - `MessageInfo` defines the address which instantiated the contract and possibly funds sent to the contract at instantiation. 
    - `ContractInfo` is the address of the contract instance.
-   - `contract_key` is the code-id used when instantiating the contract
-   - `contract_code_hash` is the hex encoded hash of the code. This is used by Secret Network to harden against replaying the contract. It is used to bind the request to a destination contract in a stronger way than just the contract address which can be faked
+   - `contract_key` is the code-id used when instantiating the contract.
+   - `contract_code_hash` is the hex encoded hash of the code. This is used by Secret Network to harden against replaying the contract. It is used to bind the request to a destination contract in a stronger way than just the contract address which can be faked.
 
 
 `msg` is the `InitMsg` struct imported from `msg.rs`. In this case, it defines the initial state of the counter.
@@ -154,7 +152,7 @@ pub struct InitMsg {
 }
 ```
 
-The return value of `init`(if there are no errors) is an `InitResponse`.
+The return value of `init` is an `InitResponse`.
 ```rust
 pub struct InitResponse<T = Empty>
 where
@@ -165,9 +163,9 @@ where
 }
 ```
 
-- `handle` handles all incoming transactions. These computations occur on-chain. 
+- `handle` handles all incoming transactions. These computations occur _on-chain_. 
 
-The `msg` parameter is the `HandleMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable functions(`try_increment` and `try_reset`) are defined in `contract.rs`. 
+The `msg` parameter is the `HandleMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable functions, `try_increment` and `try_reset`, are defined in `contract.rs`. 
 
 ```rust
 pub fn handle<S: Storage, A: Api, Q: Querier>(
@@ -182,9 +180,9 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-- `query` messages are off-chain computations. 
+- `query` messages are _off-chain_ computations. 
 
-The `msg` parameter is the `QueryMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable function(`query_count`) is defined in `contract.rs`. 
+The `msg` parameter is the `QueryMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable function, `query_count`, is defined in `contract.rs`. 
 
 ```rust
 pub fn query<S: Storage, A: Api, Q: Querier>(
@@ -208,9 +206,9 @@ pub struct State {
 }
 ```
 
-The state is saved in a [`Storage`](https://github.com/enigmampc/SecretNetwork/blob/master/cosmwasm/packages/std/src/traits.rs#L42-L72) struct.
+The state is saved in a [`Storage`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/traits.rs#L42-L72) struct.
 
-This `Storage` struct is wrapped in a [`Singleton` and `ReadonlySingleton`](https://github.com/enigmampc/SecretNetwork/tree/master/cosmwasm/packages/storage#singleton). To learn more about the different types of storage, read the documentation for [cosmwasm_storage](https://github.com/enigmampc/SecretNetwork/tree/master/cosmwasm/packages/storage). 
+This `Storage` struct is wrapped in a [`Singleton` and `ReadonlySingleton`](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/storage#singleton). To learn more about the different types of storage, read the documentation for [cosmwasm_storage](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/storage). 
 
 ```rust
 pub fn config<S: Storage>(storage: &mut S) -> Singleton<S, State> {
@@ -222,7 +220,7 @@ pub fn config_read<S: Storage>(storage: &S) -> ReadonlySingleton<S, State> {
 }
 ```
 
-In this example, the state contains an integer `count` and the `owner` of the contract. `owner` is an instance of the [`CanonicalAddr`](https://github.com/enigmampc/SecretNetwork/blob/master/cosmwasm/packages/std/src/addresses.rs#L56-L88) struct. `Storage` and `CanonicalAddr` are imported from [cosmwasm_std](https://github.com/enigmampc/SecretNetwork/tree/master/cosmwasm/packages/std).
+In this example, the state contains an integer `count` and the `owner` of the contract. `owner` is an instance of the [`CanonicalAddr`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/addresses.rs#L56-L88) struct. `Storage` and `CanonicalAddr` are imported from [cosmwasm_std](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/std).
 
 ##### `msg.rs`
 
@@ -252,7 +250,7 @@ pub struct CountResponse {
 
 ##### `lib.rs`
 
-This file is essentially boilerplate that you shouldn't need to modify. It provides the necessary abstraction to interact with the wasmi VM and compile the contract to wasm.
+This file is essentially boilerplate you **shouldn't need to modify**. It provides the necessary abstraction to interact with the wasmi VM and compile the contract to wasm.
 
 #### Compile the Secret Contract
 
@@ -264,7 +262,7 @@ cargo wasm
 
 #### Run Unit Tests
 
-*Tests in this template currently fail unless you have SGX enabled.*
+*All tests in this template currently fail unless you have SGX enabled!*
 
 ```
 RUST_BACKTRACE=1 cargo unit-test
@@ -282,7 +280,7 @@ cargo integration-test
 
 We can also generate JSON Schemas that serve as a guide for anyone trying to use the contract, to specify which arguments they need.
 
-Auto-generate msg schemas (when changed):
+To auto-generate `msg` schemas when they are changed, run:
 
 ```
 cargo schema

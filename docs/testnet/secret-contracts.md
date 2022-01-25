@@ -7,7 +7,7 @@ Secret Contracts are based on [CosmWasm](https://www.cosmwasm.com) which is impl
 
 The Secret Network has a _compute_ module that we'll use to store, query and instantiate the smart contract. Once stored on the blockchain the contract has to be created (or instantiated) in order to execute its methods. This is similar to doing `migrate` on Ethereum using Truffle, which handles the deployment and creation of a smart contract.
 
-**Secret contracts run inside Trusted Execution Environments (TEEs), where computations are performed using encrypted data (inputs, outouts, and contract state).**
+**Secret Contracts run inside Trusted Execution Environments (TEEs), where computations are performed using encrypted data (inputs, outouts, and contract state).**
 
 Next, we will go through steps to:
 - install Rust
@@ -51,7 +51,7 @@ apt install build-essential
 
 4. Run cargo install cargo-generate
 
-[Cargo generate](https://doc.rust-lang.org/cargo) is the tool you'll use to create a secret contract project.
+[Cargo generate](https://doc.rust-lang.org/cargo) is the tool you'll use to create a Secret Contract project.
 
 ```
 cargo install cargo-generate --features vendored-openssl
@@ -60,19 +60,19 @@ cargo install cargo-generate --features vendored-openssl
 ### Create your first Secret Contract
 
 1. generate the initial project
-2. compile the secret contract
+2. compile the Secret Contract
 3. run unit tests
 4. optimize the wasm contract bytecode to prepare for deployment
-5. deploy the secret contract to your local Secret Network
+5. deploy the Secret Contract to your local Secret Network
 6. instantiate it with contract parameters
 
 #### Generate the Secret Contract Project
 
 ```
-cargo generate --git https://github.com/enigmampc/secret-template --name mysimplecounter
+cargo generate --git https://github.com/scrtlabs/secret-template --name mysimplecounter
 ```
 
-The git project above is a secret contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
+The git project above is a Secret Contract template that implements a simple counter. The contract is created with a parameter for the initial count and allows subsequent incrementing.
 
 Change directory to the project you created and view the structure and files that were created.
 

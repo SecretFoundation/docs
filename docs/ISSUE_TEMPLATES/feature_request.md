@@ -6,7 +6,7 @@ about: Suggest an idea for this project
 
 <!--
 
-Have you read Secret Network's Code of Conduct? By filing an Issue, you are expected to comply with it, including treating everyone with respect: https://github.com/enigmampc/SecretNetwork/CODE_OF_CONDUCT.md
+Have you read Secret Network's Code of Conduct? By filing an Issue, you are expected to comply with it, including treating everyone with respect: https://github.com/scrtlabs/SecretNetwork/CODE_OF_CONDUCT.md
 
 Do you want to ask a question? Are you looking for support? The Secret Network Forum is the best place to get support: https://forum.scrt.network
 

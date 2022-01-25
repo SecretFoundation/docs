@@ -182,13 +182,12 @@ is included in a block.
 
 ### Fees & Gas
 
-Each transaction may either supply fees or gas prices, but not both.
+Each transaction supplies fees or gas prices, but never both.
 
-Each validator has a minimum gas price (multi-denom) configuration, and they use
-this value when determining if they should include the transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. Note, your transaction must supply fees that are greater than or equal to **any** of the denominations the validator requires.
+Validator's have a minimum gas price (multi-denom) configuration used to determine if they should include a transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. 
 
-**Note**: With such a mechanism in place, validators may start to prioritize
-txs by `gasPrice` in the mempool, so providing higher fees or gas prices may yield higher tx priority.
+**Note**: Transactions must supply fees greater than or equal to **any** fees set by validators. Validators may start to prioritize
+txs by `gasPrice` in the mempool, increasing tx priority based on fees or gas prices. 
 
 e.g.
 
@@ -235,7 +234,7 @@ When querying an account balance with zero tokens, you will get the error: `No a
 
 ### Send Tokens
 
-The following command could be used to send coins from one account to another:
+Use the following command to send tokens from one account to another:
 
 ```bash
 secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
@@ -248,28 +247,28 @@ The `amount` argument accepts the format `<value|coin_name>`.
 :::
 
 ::: tip Note
-You may want to cap the maximum gas that can be consumed by the transaction via the `--gas` flag.
+You may want to cap the maximum gas consumed by transactions via the `--gas` flag.
 
-If you pass `--gas=auto`, the gas supply will be automatically estimated before executing the transaction.
+If you pass `--gas=auto`, the gas supply is automatically estimated before transaction execution.
 
-Gas estimate might be inaccurate as state changes could occur in between the end of the simulation and the actual execution of a transaction, thus an adjustment is applied on top of the original estimate in order to ensure the transaction is broadcast successfully. The adjustment can be controlled via the `--gas-adjustment` flag, whose default value is 1.0.
+Innacurrate gas estimates may occur inbetween the end of the simulation and the actual execution of a transaction. An adjustment needs to be applied on top of the original estimate for the transaction to be broadcasted successfully. Adjustment are controlled via the `--gas-adjustment` flag, with a default value of 1.0.
 :::
 
-Now, view the updated balances of the origin and destination accounts:
+To view updated balances of origin and destination accounts use:
 
 ```bash
 secretcli q account <secret-address>
 secretcli q account <recipient-address>
 ```
 
-You can also check your balance at a given block by using the `--block` flag:
+You can also check balances at any block using the `--block` flag:
 
 ```bash
 secretcli q account <secret-address> --block=<block_height>
 ```
 
 You can simulate a transaction without actually broadcasting it by appending the
-`--dry-run` flag to the command line:
+`--dry-run` flag:
 
 ```bash
 secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
@@ -278,7 +277,7 @@ secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
 ```
 
 Furthermore, you can build a transaction and print its JSON format to STDOUT by
-appending `--generate-only` to the list of the command line arguments:
+appending `--generate-only` to the list of arguments:
 
 ```bash
 secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
@@ -295,16 +294,16 @@ secretcli tx sign \
 
 ::: tip Note
 The `--generate-only` flag prevents `secretcli` from accessing the local keybase.
-Thus when such a flag is supplied `<sender-key-alias-or-address>` it must be an address.
+When the flag is supplied `<sender-key-alias-or-address>` must be an address.
 :::
 
-You can validate the transaction's signatures by typing the following:
+You can validate transaction signatures by typing the following:
 
 ```bash
 secretcli tx sign --validate-signatures --from=<key-alias> signedSendTx.json
 ```
 
-You can broadcast the signed transaction to a node by providing the JSON file to the following command:
+You can broadcast the signed transaction to a node by providing the JSON file using:
 
 ```bash
 secretcli tx broadcast --node=<node> signedSendTx.json
@@ -314,11 +313,11 @@ secretcli tx broadcast --node=<node> signedSendTx.json
 
 #### Matching a Set of Events
 
-You can use the transaction search command to query for transactions that match a specific set of `events`, which are added on every transaction.
+Use the transaction search command to query for transactions matching a specific set of `events`, which are added on every transaction.
 
-Each event is composed of a key-value pair in the form of `{eventType}.{eventAttribute}={value}`.
+Each event contains a key-value pair in the form of `{eventType}.{eventAttribute}={value}`.
 
-Events can also be combined to query for a more specific result using the `&` symbol.
+Events can be combined to query for more specific results using the `&` symbol.
 
 You can query transactions by `events` as follows:
 
@@ -353,7 +352,7 @@ You can find a list of available `events` on each of the SDK modules:
 
 #### Matching a Transaction Hash
 
-You can also query a single transaction by its hash using the following command:
+You can query a single transaction by its hash using the following command:
 
 ```bash
 secretcli q tx [hash]
@@ -369,8 +368,8 @@ To upload a contract:
 secretcli tx compute store ./contract.wasm.gz --from mykey --source "https://github.com/<username>/<repo>/tarball/<version>" --builder "enigmampc/secret-contract-optimizer:1.0.2"
 ```
 
-- `--source`: Optional tarball of the source code, so that your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
-- `--builder`: Optional docker image that was used to compile `./contract.wasm.gz`, so that your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
+- `--source`: Optional tarball of the source code, so your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
+- `--builder`: Optional docker image used to compile `./contract.wasm.gz`, so that your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
 
 To get the contract's code ID:
 
@@ -417,25 +416,25 @@ secretcli q compute query $CONTRACT_ADDRESS "$QUERY_INPUT_MSG"
 ### Slashing
 
 ::: tip Note
-You can find Slashing related CLI commands under
+You can find slashing related CLI commands under
 [Validators/Slashing](join-validator-mainnet.md#Slashing).
 :::
 
 ### Minting
 
-You can query for the minting/inflation parameters via:
+You can query for minting/inflation parameters via:
 
 ```bash
 secretcli q mint params
 ```
 
-To query for the current inflation value:
+To query for current inflation value:
 
 ```bash
 secretcli q mint inflation
 ```
 
-To query for the current annual provisions value:
+To query for current annual provisions value:
 
 ```bash
 secretcli q mint annual-provisions
@@ -445,7 +444,7 @@ secretcli q mint annual-provisions
 
 ::: tip Note
 You can find CLI commands related to delegating under
-[Delegate](delegating-mainnet.md).
+[Delegate](https://docs.scrt.network/node-guides/delegating-mainnet.html#delegate-to-a-validator).
 :::
 
 ### Nodes
@@ -456,11 +455,11 @@ If you are running a full node or a validator node, view the status by typing:
 secretcli status
 ```
 
-[How to run a full node on mainnet](run-full-node-mainnet.md).
+[How to run a full node on mainnet](https://docs.scrt.network/node-guides/run-full-node-mainnet.html).
 
 ### Governance
 
-Governance is the process from which users in the Secret Network can come to consensus
+Governance is the process of Secret Network users coming to consensus
 on software upgrades, parameters of the mainnet or signaling mechanisms through
 text proposals. This is done through voting on proposals, which will be submitted
 by `SCRT` holders on the mainnet.
@@ -471,7 +470,7 @@ by `SCRT` holders on the mainnet.
 
 #### Query Distribution Parameters
 
-To check the current distribution parameters, run:
+To check current distribution parameters, run:
 
 ```bash
 secretcli q distribution params
@@ -479,7 +478,7 @@ secretcli q distribution params
 
 #### Query Distribution Community Pool
 
-To query all coins in the community pool which is under Governance control:
+To query all coins in the community pool under Governance control:
 
 ```bash
 secretcli q distribution community-pool
@@ -487,7 +486,7 @@ secretcli q distribution community-pool
 
 #### Query Outstanding Validator rewards
 
-To check the current outstanding (un-withdrawn) rewards, run:
+To check current outstanding (un-withdrawn) rewards, run:
 
 ```bash
 secretcli q distribution validator-outstanding-rewards <validator-address>
@@ -495,7 +494,7 @@ secretcli q distribution validator-outstanding-rewards <validator-address>
 
 #### Query Validator Commission
 
-To check the current outstanding commission for a validator, run:
+To check current outstanding commission for a validator, run:
 
 ```bash
 secretcli q distribution commission <validator-operator-address>
@@ -527,9 +526,9 @@ secretcli q distribution rewards <delegator-address>
 
 ### Multisig Transactions
 
-Multisig transactions require signatures of multiple private keys. Thus, generating and signing a transaction from a multisig account involve cooperation among the parties involved. A multisig transaction can be initiated by any of the key holders, and at least one of them would need to import other parties' public keys into their Keybase and generate a multisig public key in order to finalize and broadcast the transaction.
+Multisig transactions require signatures of multiple private keys. Generating and signing a transaction from a multisig account involves multiple parties. A multisig transaction is initiated by any key holder, and at least one of them would need to import other parties' public keys into their Keybase and generate a multisig public key to finalize and broadcast the multisig transaction.
 
-For example, given a multisig key comprising the keys `p1`, `p2`, and `p3`, each of which is held by a distinct party, the user holding `p1` would require to import both `p2` and `p3` in order to generate the multisig account public key:
+For example, given a multisig key comprising the keys `p1`, `p2`, and `p3`, each of which is held by a distinct party, the user holding `p1` will need to import both `p2` and `p3` to generate the multisig account public key:
 
 ```bash
 secretcli keys add \
@@ -546,7 +545,7 @@ secretcli keys add \
   --multisig=p1,p2,p3
 ```
 
-A new multisig public key `p1p2p3` has been stored, and its address will be
+When a new multisig public key `p1p2p3` has been stored its address will be
 used as signer of multisig transactions:
 
 ```bash
@@ -563,7 +562,7 @@ secretcli keys show p1p2p3 --show-multisig
 ```
 
 The first step to create a multisig transaction is to initiate it on behalf
-of the multisig address created above:
+of the multisig address created above using the following command:
 
 ```bash
 secretcli tx send secret1570v2fq3twt0f0x02vhxpuzc9jc4yl30q2qned 1000000uscrt \
@@ -614,7 +613,7 @@ secretcli tx broadcast signedTx.json
 ## Shells Completion Scripts
 
 Completion scripts for popular UNIX shell interpreters such as `Bash` and `Zsh`
-can be generated through the `completion` command, which is available for both
+can be generated through the `completion` command, which is available for both the
 `secretd` and `secretcli`.
 
 If you want to generate `Bash` completion scripts run the following command:

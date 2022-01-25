@@ -8,11 +8,11 @@ The following is a set of guidelines for contributing to Secret Network and its 
 
 ### Follow the Code of Conduct
 
-This open-source project is governed by the [Secret Network Code of Conduct](https://github.com/enigmampc/SecretNetwork/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+This open-source project is governed by the [Secret Network Code of Conduct](https://github.com/scrtlabs/SecretNetwork/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
 ### Contribute to code
 
-We have a list of issues tagged for [community contributions](https://github.com/enigmampc/SecretNetwork/labels/help%20wanted). If you are interested to contribute to any of these projects express your interest and join our community so that we can provide you the necessary guidance.
+We have a list of issues tagged for [community contributions](https://github.com/scrtlabs/SecretNetwork/labels/help%20wanted). If you are interested to contribute to any of these projects express your interest and join our community so that we can provide you the necessary guidance.
 
 ### Participate in the Community
 
@@ -54,7 +54,7 @@ When you are creating your enhancement suggestion, please [include as many detai
 
 #### How Do I Submit A (Good) Enhancement Suggestion?
 
-Enhancement suggestions are tracked as [issues](https://guides.github.com/features/issues) in our [GitHub project boards](https://github.com/enigmampc/SecretNetwork/projects). Create an issue in [this repository](https://github.com/enigmampc/SecretNetwork) and follow these guidelines:
+Enhancement suggestions are tracked as [issues](https://guides.github.com/features/issues) in our [GitHub project boards](https://github.com/scrtlabs/SecretNetwork/projects). Create an issue in [this repository](https://github.com/scrtlabs/SecretNetwork) and follow these guidelines:
 
 - **Use a clear and descriptive title** for the issue to identify the suggestion.
 - **Provide a step-by-step description of the suggested enhancement** with as many details of the benefits and requirements as possible.
@@ -67,9 +67,9 @@ Enhancement suggestions are tracked as [issues](https://guides.github.com/featur
 
 Unsure where to begin contributing to Secret Network?
 
-You can start by looking through the [open issues labeled `help-wanted`](https://github.com/enigmampc/SecretNetwork/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22+).
+You can start by looking through the [open issues labeled `help-wanted`](https://github.com/scrtlabs/SecretNetwork/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22+).
 
-If you want to learn more about Secret Network and how to build Secret Contracts and secret apps, the [full documentation](https://docs.scrt.network) is available online. You can find the source to the docs in [this repository](https://github.com/enigmampc/SecretNetwork/docs).
+If you want to learn more about Secret Network and how to build Secret Contracts and secret apps, the [full documentation](https://docs.scrt.network) is available online. You can find the source to the docs in [this repository](https://github.com/scrtlabs/SecretNetwork/docs).
 
 ### Submit Pull Requests
 
