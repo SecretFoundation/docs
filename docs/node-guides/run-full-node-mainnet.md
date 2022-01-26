@@ -272,12 +272,6 @@ sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclav
 secretd tendermint show-node-id
 ```
 
-And publish yourself as a node with this ID:
-
-```
-<your-node-id>@<your-public-ip>:26656
-```
-
 Be sure to point your CLI to your running node instead of the bootstrap node
 
 ```
