@@ -3,20 +3,20 @@ title : 'Secret Contracts'
 ---
 # Secret Contracts
 
-Secret Contracts are the first implementation of general purpose privacy preserving computations a on public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs, and encrypted state). These privacy guarantees are made possible by a decentralized network of validators who run Secret Contract execution inside Trusted Execution Environments (TEEs).
+Secret Contracts are the first implementation of general purpose privacy preserving computations a on public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs, and encrypted state). Privacy guarantees are made possible through a decentralized network of validators executing Secret Contracts inside Trusted Execution Environments (TEEs).
 
-Secret Contracts are Rust-based smart contracts that compile to WebAssembly. Secret Contracts, which are based on [Go-CosmWasm](https://github.com/scrtlabs/SecretNetwork/tree/master/go-cosmwasm), introduce the _compute_ module that runs inside the TEE to enable secure data processing (inputs, outputs, and contract state).
+Secret Contracts are made with Rust and compile to WebAssembly. They are based on [Go-CosmWasm](https://github.com/scrtlabs/SecretNetwork/tree/master/go-cosmwasm), and introduce the _compute_ module running inside TEEs to enable secure data processing (inputs, outputs, and contract state).
 
 ![architecture](https://user-images.githubusercontent.com/15679491/99459758-9a44c580-28fc-11eb-9af2-82479bbb2d23.png)
 
 Next, we will go through steps to:
 - Install Rust
-- Install the Rust dependencies
+- Install Rust dependencies
 - Create your first project
 
 1. Install Rust
 
-More information about installing Rust can be found at [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
+More information on installing Rust can be found [HERE](https://www.rust-lang.org/tools/install).
 
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
