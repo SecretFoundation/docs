@@ -3,7 +3,7 @@ title : 'Secret Contracts'
 ---
 # Secret Contracts
 
-Secret Contracts are the first implementation of general purpose privacy preserving computations a on public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs, and encrypted state). Privacy guarantees are made possible through a decentralized network of validators executing Secret Contracts inside Trusted Execution Environments (TEEs).
+Secret Contracts are the first implementation of general purpose privacy preserving computations on a public blockchain. While similar to Ethereum smart contracts in design, Secret Contracts work with encrypted data (inputs, encrypted outputs, and encrypted state). Privacy guarantees are made possible through a decentralized network of validators executing Secret Contracts inside Trusted Execution Environments (TEEs).
 
 Secret Contracts are made with Rust and compile to WebAssembly. They are based on [Go-CosmWasm](https://github.com/scrtlabs/SecretNetwork/tree/master/go-cosmwasm), and introduce the _compute_ module running inside TEEs to enable secure data processing (inputs, outputs, and contract state).
 
