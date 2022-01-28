@@ -16,16 +16,24 @@ Next, we will go through steps to:
 
 1. Install Rust
 
-More information on installing Rust can be found [HERE](https://www.rust-lang.org/tools/install).
+Install Rust using your terminal with the following command: 
 
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Proceed with Rust installation using the default configuration, then configure your current shell with:
+
+```
 source $HOME/.cargo/env
 ```
 
-**Update the Rust Compiler**
+For more information on installing Rust [Click Here](https://www.rust-lang.org/tools/install). 
 
-In case Rust is installed already, make sure to update the rust compiler.
+
+**Update Rust Compiler**
+
+If Rust is already installed, make sure to update the rust compiler using: 
 
 ```
 rustup update
