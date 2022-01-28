@@ -10,9 +10,9 @@ Secret Contracts are Rust-based smart contracts that compile to WebAssembly. Sec
 ![architecture](https://user-images.githubusercontent.com/15679491/99459758-9a44c580-28fc-11eb-9af2-82479bbb2d23.png)
 
 Next, we will go through steps to:
-- install Rust
-- install the Rust dependencies
-- create your first project
+- Install Rust
+- Install the Rust dependencies
+- Create your first project
 
 1. Install Rust
 
