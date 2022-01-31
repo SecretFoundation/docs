@@ -105,9 +105,9 @@ The `src` folder contains the following files:
 
 This file contains functions defining available Secret Contract operations. The functions which all Secret Contracts contain will be: `init`, `handle`, and `query`. 
 
-- `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters initialize the internal state (the `State` struct imported from `state.rs`) of the Secret Contract.
+- `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters initialize the internal state (the `State` struct imported from `state.rs`) of the Secret Contract, and is shown below:
 
-```rust
+```
 pub fn init<S: Storage, A: Api, Q: Querier>(
     deps: &mut Extern<S, A, Q>,
     env: Env,
@@ -119,6 +119,8 @@ pub fn init<S: Storage, A: Api, Q: Querier>(
     };
 
     config(&mut deps.storage).save(&state)?;
+    
+    debug_print!("Contract was initialized by {}", env.message.sender);
 
     Ok(InitResponse::default())
 }
