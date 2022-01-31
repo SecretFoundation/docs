@@ -40,7 +40,10 @@ rustup update
 ```
 
 2. Add rustup target wasm32 for both stable and nightly
-These dependencies include the Rust compiler, cargo (_package manager_), toolchain, and a package to generate projects. To learn more about Rust, check out [https://www.rust-lang.org/learn](https://www.rust-lang.org/learn) which includes the Rust book, rustlings course, examples, and more.
+
+These dependencies include the Rust compiler, cargo (_package manager_), toolchain, and a package to generate projects. 
+
+To learn more about Rust, check out [https://www.rust-lang.org/learn](https://www.rust-lang.org/learn) which includes the Rust book, rustlings course, examples, and more.
 
 ```
 rustup default stable
@@ -58,7 +61,7 @@ apt install build-essential
 
 4. Run cargo install cargo-generate
 
-[Cargo generate](https://docs.rs/crate/cargo-generate/) is the tool you'll use to create a Secret Contract project.
+[Cargo generate](https://docs.rs/crate/cargo-generate/) is the tool for creating Secret Contract projects.
 
 ```
 cargo install cargo-generate --features vendored-openssl
@@ -66,12 +69,12 @@ cargo install cargo-generate --features vendored-openssl
 
 ### Create Your First Secret Contract
 
-1. generate the initial project
-2. compile the Secret Contract
-3. run unit tests
-4. optimize the wasm contract bytecode to prepare for deployment
-5. deploy the Secret Contract to your local Secret Network
-6. instantiate it with contract parameters
+1. Generate initial project
+2. Compile Secret Contract
+3. Run unit tests
+4. Optimize wasm contract bytecode for deployment
+5. Deploy Secret Contract to local Secret Network
+6. Instantiate it with contract parameters
 
 #### Generate the Simple Counter Project
 
