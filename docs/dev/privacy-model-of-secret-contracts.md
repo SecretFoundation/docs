@@ -1,9 +1,9 @@
 # Privacy Model of Secret Contracts
 
-Secret Contracts are based on CosmWasm v0.10, but they have additional privacy properties that can only be found on Secret Network.
+Secret Contracts are based on CosmWasm v0.10, but they have additional privacy properties unique to the Secret Network.
 
 If you're a contract developer, you might want to first catch up on [developing Secret Contracts](./developing-secret-contracts.md).  
-For an in depth look at the Secret Network encryption specs, visit [here](../protocol/encryption-specs.md#encryption).
+For an in depth look at the Secret Network encryption specs, visit [HERE](../protocol/encryption-specs.md#encryption).
 
 Secret Contract developers must always consider the trade-off between privacy, user experience, performance and gas usage.
 
@@ -49,13 +49,13 @@ Secret Contract developers must always consider the trade-off between privacy, u
 
 # Verified Values During Contract Execution
 
-During execution, some contracts may want to use "external-data" - meaning data that is generated outside of the enclave and sent into the enclave - such as the tx sender address, the funds sent with the tx, block height, etc.
-As these parameters are sent to the enclave, they can theoretically be tampered with, and an attacker might send false data.
-Thus, relying on such data is **conceivably risky**.
+During execution, some contracts may want to use "external-data" - meaning data generated outside of the enclave and sent into the enclave - such as the tx sender address, the funds sent with the tx, block height, etc...
 
-For example, let's say we are implementing an admin interface for a contract, i.e. functionality that is open only for a predefined address.
+As these parameters are sent to the enclave, they can theoretically be tampered with, and an attacker might send false data; making relying on this data **conceivably risky**.
+
+For example, let's say we are implementing an admin interface for a contract, i.e. functionality only for a predefined address.
 We want to ensure the `env.message.sender` parameter provided during contract execution is legitimate, so we will confirm that `env.message.sender == predefined_address`. If this condition is met we can provide admin functionality.
-If the `env.message.sender` parameter can be tampered with - we effectively can't rely on it and cannot implement the admin interface.
+If the `env.message.sender` parameter can be tampered with — we effectively can't rely on it and cannot implement the admin interface.
 
 ## Tx Parameter Verification
 
@@ -64,27 +64,27 @@ Some parameters are easier to verify than others. Exact details about individual
 The parameter verification method depends on the contract caller:
 
 - If the contract is called by a transaction (i.e. someone sends a compute tx) we use the already-signed transaction and verify it's data inside the enclave. More specifically:
-  - Verify that the signed data and the signature bytes are self consistent.
-  - Verify that the parameters sent to the enclave matches with the signed data.
+  - Verify the signed data and the signature bytes are self consistent
+  - Verify the parameters sent to the enclave matches with the signed data
 - If the contract is called by another contract (i.e. we don't have a signed tx to rely on) we create a callback signature (which can only be created inside the enclave), effectively signing the parameters sent to the next contract:
-  - Caller contract creates `callback_signature` based on parameters it sends, passes it on to the next contract.
+  - Caller contract creates `callback_signature` based on parameters it sends, passes it on to the next contract
   - Receiver contract creates `callback_signature` based on the parameter it got.
-  - Receiver contract verifies that the signature it created matches the signature it got from the caller.
-  - For the specifics, visit the [encryption specs](../protocol/encryption-specs.md#Output).
+  - Receiver contract verifies the signature it created matches the signature it got from the caller
+  - For the specifics, visit the [encryption specs](../protocol/encryption-specs.md#Output)
 
 # `init` and `handle`
 
 `init` is the constructor of a contract. This function is called only once in the lifetime of the contract.  
 `handle` is a regular execute transaction within a contract.
 
-- They have a read and write access to the storage (state) of the contract.
-- The fact that `init` or `handle` was invoked is public.
-- They are metered by gas and incur fees according to the gas price of the sending node.
-- Access control: Can use `env.message.sender`.
+- They have a read and write access to the storage (state) of the contract
+- The fact that `init` or `handle` was invoked is public
+- They are metered by gas and incur fees according to the gas price of the sending node
+- Access control: Can use `env.message.sender`
 
 ## Inputs
 
-Inputs that are encrypted are known only to the transaction sender and to the contract.
+Encrypted inputs are known only to the transaction sender and to the contract.
 
 | Input                    | Type                     | Encrypted? | Trusted? | Notes |
 | ------------------------ | ------------------------ | ---------- | -------- | ----- |
@@ -134,12 +134,12 @@ The fact that `deps.storage.get`, `deps.storage.set` or `deps.storage.remove` we
 
 Legend:
 
-- `Private invocation = Yes` means the request never exits SGX and thus an attacker cannot know it even occurred.
-- `Private invocation = No` & `Private data = Yes` means an attacker can know that the contract used this API but cannot know the input parameters or return values.
+- `Private invocation = Yes` means the request never exits SGX and thus an attacker cannot know it even occurred
+- `Private invocation = No` & `Private data = Yes` means an attacker can know the contract used this API, but cannot know the input parameters or return values
 
 ## Outputs
 
-Outputs that are encrypted are only known to the transaction sender and to the contract.
+Encrypted outputs are only known to the transaction sender and to the contract.
 
 ### Return value of `init`
 
@@ -167,7 +167,8 @@ Logs (or events) is a list of key-value pairs. The keys and values are encrypted
 | `log[i].key`   | `String`               | Yes        |                                            |
 | `log[i].value` | `String`               | Yes        |                                            |
 
-Messages are actions that will be taken after the current execution and will all be part of the current transaction.  
+Messages are actions taken after the current execution and will all be part of the current transaction.  
+    
 Types of messages:
 
 - `CosmosMsg::Custom`
@@ -231,27 +232,27 @@ Contract developers should test their contracts rigorously and make sure they ca
 
 #### External errors (VM or interaction with the blockchain)
 
-A `VMError` occurs when there's an error during the contract's execution but outside the contract's code.  
+A `VMError` occurs when there's an error during the contract's execution, but outside the contract's code.  
 In this case the error message is not encrypted as well.
 
 Some examples of `VMErrors`:
 
-- Memory allocation errors (The contract tried to allocate too much)
+- Memory allocation errors (the contract tried to allocate too much)
 - Contract out of gas
-- Got out of gas while accessing storage
+- Ran out of gas while accessing storage
 - Passing null pointers from the contract to the VM (E.g. `read_db(null)`)
 - Trying to write to read-only storage (E.g. inside a `query`)
-- Passing a faulty message to the blockchain (Trying to send funds you don't have, trying to callback to a non-existing contract)
+- Passing a faulty message to the blockchain (trying to send funds you don't have, trying to callback to a non-existing contract)
 
 # Query
 
 `query` is an execution of a contract on the node of the query sender.
 
-- It doesn't affect transactions on-chain.
-- It has read-only access to the storage (state) of the contract.
-- The fact that `query` was invoked is known only to the executing node, in addition to whoever monitors your internet traffic, in case the executing node is on your local machine.
-- Queries are metered by gas but don't incur fees. The executing node decides its gas limit for queries.
-- Access control: Cannot use `env.message.sender` as it's not a transaction. Can use pre-configured passwords or API keys that have been stored in state previously by `init` and `handle`.
+- It doesn't affect transactions on-chain
+- It has read-only access to the storage (state) of the contract
+- When `query` was invoked it is known only to the executing node, in addition to whoever monitors your internet traffic, in case the executing node is on your local machine
+- Queries are metered by gas but don't incur fees. The executing node decides its gas limit for queries
+- Access control: Cannot use `env.message.sender` as it's not a transaction, and can use pre-configured passwords or API keys stored in state previously by `init` and `handle`
 
 ## Inputs
 
