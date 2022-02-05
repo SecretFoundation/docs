@@ -35,7 +35,7 @@ See instructions for [setup](setup-sgx.md) and [verification](verify-sgx.md). Se
 ```bash
 wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.2/secretnetwork_v1.2.2_mainnet_amd64.deb
 # check the hash of the downloaded binary
-echo "b8cf9be5c81e510584a9e829b9db4bfee02fedb2584e76bb6d6901a29d73ad06 secretnetwork_v1.2.2_mainnet_amd64.deb" | sha256sum --check
+echo "1a51d3d9324979ef9a1f56023e458023488b4583bf4587abeed2d1f389aea947 secretnetwork_v1.2.2_mainnet_amd64.deb" | sha256sum --check
 ```
 
 ([How to verify releases](../verify-releases.md))
