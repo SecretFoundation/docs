@@ -33,17 +33,23 @@ See instructions for [setup](setup-sgx.md) and [verification](verify-sgx.md). Se
 ### 1. Download the Secret Network package installer for Debian/Ubuntu:
 
 ```bash
-wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/secretnetwork_1.2.0_amd64.deb
+wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.2/secretnetwork_v1.2.2_mainnet_amd64.deb
 # check the hash of the downloaded binary
-echo "b8cf9be5c81e510584a9e829b9db4bfee02fedb2584e76bb6d6901a29d73ad06 secretnetwork_1.2.0_amd64.deb" | sha256sum --check
+echo "1a51d3d9324979ef9a1f56023e458023488b4583bf4587abeed2d1f389aea947 secretnetwork_v1.2.2_mainnet_amd64.deb" | sha256sum --check
 ```
 
-([How to verify releases](https://github.com/scrtlabs/SecretNetwork/blob/master/docs/verify-releases.md))
+([How to verify releases](../verify-releases.md))
 
 ### 2. Install the package:
 
+Note: if you are upgrading from v1.2.0, it may say secret-node is downgrading to version 0. Ignore it.
 ```bash
-sudo dpkg -i secretnetwork_1.2.0_amd64.deb
+sudo dpkg -i secretnetwork_v1.2.2_mainnet_amd64.deb
+```
+
+Verify the installation by doing:
+```bash
+secretd version
 ```
 
 ### 3. Initialize your installation of the Secret Network.
