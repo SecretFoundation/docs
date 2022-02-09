@@ -4,7 +4,7 @@ Secret Contacts are based on CosmWasm v0.10.
 
 For more information check out the CosmWasm docs [HERE](https://docs.cosmwasm.com).
 
-Before proceding, we reccomend learning about the differences between SecretWasm and CosWasm [HERE](#differences-from-cosmwasm).
+Before proceding, we reccomend learning about differences between SecretWasm and CosWasm [HERE](#differences-from-cosmwasm).
 
 <details>
   <summary><b>Table of Contents<b></summary>
@@ -40,9 +40,9 @@ Before proceding, we reccomend learning about the differences between SecretWasm
 
 ## IDEs
 
-Secret Contracts are developed with the [Rust](https://www.rust-lang.org/) programming language and compiled to [WASM](https://webassembly.org/) binaries.
+Secret Contracts are written in the [Rust](https://www.rust-lang.org/) programming language and compiled to [WASM](https://webassembly.org/) binaries.
 
-These IDEs are known to work very well for developing Secret Contracts:
+IDEs working well for developing Secret Contracts are:
 
 - [CLion](https://www.jetbrains.com/clion/)
 - [VSCode](https://code.visualstudio.com/) with the [rust-analyzer](https://rust-analyzer.github.io/) extension
