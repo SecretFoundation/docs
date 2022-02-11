@@ -38,9 +38,9 @@ A dedicated walkthrough for this app is made in [How To Build Secret Apps: An Ev
 This [repository](https://github.com/scrtlabs/secret-contracts-guide) can be used to master Secret Contract development.
 
 In this repository you'll find information on:
-- setting up a local Secret Network developer testnet
-- learning Secret Contract development basics and shortcuts
-- build and deploy Secret Contracts of varying complexity with UIs
+- Setting up a local Secret Network developer testnet
+- Learning Secret Contract development basics and shortcuts
+- Build and deploy Secret Contracts of varying complexity with UIs
 
 A key aspect addresses [how to build a frontend](https://github.com/scrtlabs/secret-contracts-guide/blob/master/building-a-frontend.md) using React.
 
@@ -54,7 +54,7 @@ The VueJS UI code is available [here](https://github.com/stakeordie/scrt-auction
 
 
 ## Figment Learning Materials
-Visit [this link](https://learn.figment.io/network-documentation/secret) for all tutorials about Secret Network reported by our partner Figment.io.
+Visit [this link](https://learn.figment.io/network-documentation/secret) for all tutorials about Secret Network by our partner Figment.io.
 
 Make sure you go through the [Secret Pathway Tutorials 1-5](https://learn.figment.io/network-documentation/secret/secret-pathway#secret-pathway-tutorials) covering:
 1. Connect to a Secret node using DataHub
@@ -67,7 +67,7 @@ Figment's YouTube tutorials playlist can be found [here](https://youtube.com/pla
 
 
 ## SecretJS Templates
-Refer to the reference [SecretJS Templates](https://github.com/scrtlabs/SecretJS-Templates) provided by the SCRT Labs team which covers the followings: 
+Refer to the reference [SecretJS Templates](https://github.com/scrtlabs/SecretJS-Templates) provided by SCRT Labs to learn about: 
 - Connecting to Secret Network
 - Creating account using SecretJS
 - Query Secret Network
@@ -86,12 +86,12 @@ If you are interested to know how to programmatically use the bridge, you can lo
 
 ## References for Secret Contracts
 ### SNIP-20 Contracts
-To master the SNIP-20 contract specifications, you can refer to these 2 key parts:
+To master the SNIP-20 contract specifications, you can refer to these two key parts:
 - [SNIP-20 specifications](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-20.md)
 - [SNIP-20 reference implementation](https://github.com/scrtlabs/snip20-reference-impl)
 
 ### SNIP-721 NFT
-To master the SNIP-721 contract specifications for Non-Fungible Tokens (NFT), you can refer to these 2 key parts:
+To master the SNIP-721 contract specifications for Non-Fungible Tokens (NFT), you can refer to these two key parts:
 - [SNIP-721 specifications](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md)
 - [SNIP-721 reference implementation](https://github.com/baedrik/snip721-reference-impl)
 
