@@ -212,16 +212,18 @@ secretd tx compute store contract.wasm.gz --from a --gas 1000000 -y --keyring-ba
 
 #### Querying the Smart Contract and Code
 
-List current smart contract code
+List the current smart contract code inside of the Docker container using: 
+
 ```bash
-secretcli query compute list-code
+secretd query compute list-code
+
+# You will see the output found below after running 'secretd query compute list-code', but with your own "creator" and "data_hash" values. 
+
 [
   {
     "id": 1,
     "creator": "secret1zy80x04d4jh4nvcqmamgjqe7whus5tcw406sna",
     "data_hash": "D98F0CA3E8568B6B59772257E07CAC2ED31DD89466BFFAA35B09564B39484D92",
-    "source": "",
-    "builder": ""
   }
 ]
 ```
