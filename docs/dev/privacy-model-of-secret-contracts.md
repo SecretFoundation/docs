@@ -478,7 +478,7 @@ Again, some quick fixes for this issue might be:
 1. Renaming `transfer` to `tsfr`
 2. Padding `send` to have the same length as `transfer`: `sendsend`
 
-```rustrust
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
