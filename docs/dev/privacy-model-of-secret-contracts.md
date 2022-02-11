@@ -382,7 +382,7 @@ Secret Contract developers must analyze the privacy model of their contract - Wh
 
 An example input API for a contract with 2 `handle` functions:
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -404,7 +404,7 @@ These inputs are encrypted, but by looking at their size an attacker can guess w
 
 A quick fix for this issue might be renaming `Transfer` to `Tsfr`:
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -442,7 +442,7 @@ Contracts' state is stored on-chain inside a key-value store where the `key` mus
 
 Let's see an example for a contract with 2 `handle` functions:
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -478,7 +478,7 @@ Again, some quick fixes for this issue might be:
 1. Renaming `transfer` to `tsfr`
 2. Padding `send` to have the same length as `transfer`: `sendsend`
 
-```
+```rustrust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -512,7 +512,7 @@ Very similar to the state key sizes case, if a contract uses storage values with
 
 Let's see an example for a contract with 2 `handle` functions:
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -554,7 +554,7 @@ Again, some quick fixes for this issue might be:
 1. Changing the `Transferred` string to `Tsfr`
 2. Padding `Sent` to have the same length as `Transferred`: `SentSentSen`
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -594,7 +594,7 @@ An attacker can monitor requests from Smart Contracts to the API the Secret Netw
 
 Let's see an example for a contract with 2 `handle` functions:
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -631,7 +631,7 @@ By looking at the order of state operation, an attacker can guess which function
 
 This use case might be more difficult to solve, as it is highly depends on functionality, but an example solution would be to redesign the storage accessing patterns a bit to include one big read in the start of each function and one big write in the end of each function.
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -673,7 +673,7 @@ Very similar to previous cases, if a contract uses return values with different 
 
 Let's see an example for a contract with 2 `handle` functions:
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -708,7 +708,7 @@ By looking at the encrypted output, an attacker can guess which function was cal
 
 Again, a quick fix will be to pad the shorter case to be as long as the longest case (assuming it's harder to shrink the longer case):
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -793,7 +793,7 @@ Those outputs are plaintext as they are fowarded to the Secret Network for proce
 
 Some messages are partially encrypted, like `Wasm::Instantiate` and `Wasm::Execute`, but only the `msg` field is encrypted, so differences in `contract_addr`, `callback_code_hash`, `send` can reveal unintended data, as well as the size of `msg` which is encrypted but can reveal data the same way as previous examples.
 
-```
+```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
