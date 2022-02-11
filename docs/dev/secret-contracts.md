@@ -107,7 +107,7 @@ This file contains functions defining available Secret Contract operations. The 
 
 - `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters initialize the internal state (the `State` struct imported from `state.rs`) of the Secret Contract, and is shown below:
 
-```
+```rust
 pub fn init<S: Storage, A: Api, Q: Querier>(
     deps: &mut Extern<S, A, Q>,
     env: Env,
@@ -130,7 +130,7 @@ pub fn init<S: Storage, A: Api, Q: Querier>(
 
 `deps` contains all external dependencies of the contract.
 
-```
+```rust
 pub struct Extern<S: Storage, A: Api, Q: Querier> {
     pub storage: S,
     pub api: A,
@@ -140,7 +140,7 @@ pub struct Extern<S: Storage, A: Api, Q: Querier> {
 
 `env` contains external state information of the contract.
 
-```
+```rust
 pub struct Env {
     pub block: BlockInfo,
     pub message: MessageInfo,
@@ -158,7 +158,8 @@ pub struct Env {
    - `contract_code_hash` is the hex encoded hash of the code. This is used by Secret Network to harden against replaying the contract. It is used to bind the request to a destination contract in a stronger way than just the contract address which can be faked
 
 `msg` is the `InitMsg` struct imported from `msg.rs`. In this case, it defines the initial state of the counter.
-```
+
+```rust
 pub struct InitMsg {
     pub count: i32,
 }
@@ -166,7 +167,7 @@ pub struct InitMsg {
 
 The return value of `init` is an `InitResponse`.
 
-```
+```rust
 pub struct InitResponse<T = Empty>
 where
     T: Clone + fmt::Debug + PartialEq + JsonSchema,
@@ -180,7 +181,7 @@ where
 
 The `msg` parameter is the `HandleMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable functions, `try_increment` and `try_reset`, are defined in `contract.rs`. 
 
-```
+```rust
 pub fn handle<S: Storage, A: Api, Q: Querier>(
     deps: &mut Extern<S, A, Q>,
     env: Env,
@@ -197,7 +198,7 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 
 The `msg` parameter is the `QueryMsg` struct imported from `msg.rs`. This struct defines the available operations, while the callable function, `query_count`, is defined in `contract.rs`. 
 
-```
+```rust
 pub fn query<S: Storage, A: Api, Q: Querier>(
     deps: &Extern<S, A, Q>,
     msg: QueryMsg,
@@ -212,7 +213,7 @@ pub fn query<S: Storage, A: Api, Q: Querier>(
 
 The internal state is defined in this file, by the `State` struct. 
 
-```
+```rust
 pub struct State {
     pub count: i32,
     pub owner: CanonicalAddr,
@@ -223,7 +224,7 @@ The state is saved in a [`Storage`](https://github.com/scrtlabs/SecretNetwork/bl
 
 This `Storage` struct is wrapped in a [`Singleton` and `ReadonlySingleton`](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/storage#singleton). To learn more about the different types of storage, read the documentation for [cosmwasm_storage](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/storage). 
 
-```
+```rust
 pub fn config<S: Storage>(storage: &mut S) -> Singleton<S, State> {
     singleton(storage, CONFIG_KEY)
 }
@@ -243,7 +244,7 @@ The `InitMsg` struct describes the `msg` parameter passed to the contract `init`
 
 `HandleMsg` and `QueryMsg` are enums representing possible transaction or query computations. These enums are used to describe the `msg` parameter for `handle` and `query` functions in `contract.rs`. 
 
-```
+```rust
 pub enum HandleMsg {
     Increment {},
     Reset { count: i32 },
@@ -255,7 +256,8 @@ pub enum QueryMsg {
 ```
 
 Calls to `handle` and `query` can optionally provide a response. These response messages are defined as structs. In this example, the `query_count` function in `contract.rs` returns the `CountResponse` struct. 
-```
+
+```rust
 pub struct CountResponse {
     pub count: i32,
 }
