@@ -241,12 +241,12 @@ To create an instance of this project we must also provide some JSON input data,
 ```bash
 INIT='{"count": 100000000}'
 CODE_ID=1
-secretcli tx compute instantiate $CODE_ID "$INIT" --from a --label "my counter" -y --keyring-backend test
+secretd tx compute instantiate $CODE_ID "$INIT" --from a --label "my counter" -y --keyring-backend test
 ```
 
 With the contract now initialized, we can find its address
 ```bash
-secretcli query compute list-contract-by-code 1
+secretd query compute list-contract-by-code 1
 ```
 Our instance is secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg
 
@@ -254,12 +254,12 @@ We can query the contract state
 ```bash
 CONTRACT=secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg
 
-secretcli query compute query $CONTRACT '{"get_count": {}}'
+secretd query compute query $CONTRACT '{"get_count": {}}'
 ```
 
 And we can increment our counter
 ```bash
-secretcli tx compute execute $CONTRACT '{"increment": {}}' --from a --keyring-backend test
+secretd tx compute execute $CONTRACT '{"increment": {}}' --from a --keyring-backend test
 ```
 
 ### Deploy to the Holodeck Testnet
