@@ -207,7 +207,7 @@ docker exec -it secretdev /bin/bash
 
 cd code
 
-secretcli tx compute store contract.wasm.gz --from a --gas 1000000 -y --keyring-backend test
+secretd tx compute store contract.wasm.gz --from a --gas 1000000 -y --keyring-backend test
 ```
 
 #### Querying the Smart Contract and Code
