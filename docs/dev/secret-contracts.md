@@ -40,7 +40,10 @@ rustup update
 ```
 
 2. Add rustup target wasm32 for both stable and nightly
-These dependencies include the Rust compiler, cargo (_package manager_), toolchain, and a package to generate projects. To learn more about Rust, check out [https://www.rust-lang.org/learn](https://www.rust-lang.org/learn) which includes the Rust book, rustlings course, examples, and more.
+
+These dependencies include the Rust compiler, cargo (_package manager_), toolchain, and a package to generate projects. 
+
+To learn more about Rust, check out [https://www.rust-lang.org/learn](https://www.rust-lang.org/learn) which includes the Rust book, rustlings course, examples, and more.
 
 ```
 rustup default stable
@@ -58,7 +61,7 @@ apt install build-essential
 
 4. Run cargo install cargo-generate
 
-[Cargo generate](https://docs.rs/crate/cargo-generate/) is the tool you'll use to create a Secret Contract project.
+[Cargo generate](https://docs.rs/crate/cargo-generate/) is the tool for creating Secret Contract projects.
 
 ```
 cargo install cargo-generate --features vendored-openssl
@@ -66,12 +69,12 @@ cargo install cargo-generate --features vendored-openssl
 
 ### Create Your First Secret Contract
 
-1. generate the initial project
-2. compile the Secret Contract
-3. run unit tests
-4. optimize the wasm contract bytecode to prepare for deployment
-5. deploy the Secret Contract to your local Secret Network
-6. instantiate it with contract parameters
+1. Generate initial project
+2. Compile Secret Contract
+3. Run unit tests
+4. Optimize wasm contract bytecode for deployment
+5. Deploy Secret Contract to local Secret Network
+6. Instantiate it with contract parameters
 
 #### Generate the Simple Counter Project
 
@@ -102,7 +105,7 @@ The `src` folder contains the following files:
 
 This file contains functions defining available Secret Contract operations. The functions which all Secret Contracts contain will be: `init`, `handle`, and `query`. 
 
-- `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters initialize the internal state (the `State` struct imported from `state.rs`) of the Secret Contract.
+- `init` is called once at instantiation of the Secret Contract with 3 parameters: `deps`, `env`, and `msg`. These parameters initialize the internal state (the `State` struct imported from `state.rs`) of the Secret Contract, and is shown below:
 
 ```rust
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -116,6 +119,8 @@ pub fn init<S: Storage, A: Api, Q: Querier>(
     };
 
     config(&mut deps.storage).save(&state)?;
+    
+    debug_print!("Contract was initialized by {}", env.message.sender);
 
     Ok(InitResponse::default())
 }
@@ -146,14 +151,14 @@ pub struct Env {
 }
 ```
 
-   - `BlockInfo` defines the current block height, time, and chain-id. 
-   - `MessageInfo` defines the address which instantiated the contract and possibly funds sent to the contract at instantiation. 
-   - `ContractInfo` is the address of the contract instance.
-   - `contract_key` is the code-id used when instantiating the contract.
-   - `contract_code_hash` is the hex encoded hash of the code. This is used by Secret Network to harden against replaying the contract. It is used to bind the request to a destination contract in a stronger way than just the contract address which can be faked.
-
+   - `BlockInfo` defines current block height, time, and chain-id 
+   - `MessageInfo` defines the address which instantiated the contract and possibly funds sent to the contract at instantiation 
+   - `ContractInfo` is the address of the contract instance
+   - `contract_key` is the code-id used when instantiating the contract
+   - `contract_code_hash` is the hex encoded hash of the code. This is used by Secret Network to harden against replaying the contract. It is used to bind the request to a destination contract in a stronger way than just the contract address which can be faked
 
 `msg` is the `InitMsg` struct imported from `msg.rs`. In this case, it defines the initial state of the counter.
+
 ```rust
 pub struct InitMsg {
     pub count: i32,
@@ -161,6 +166,7 @@ pub struct InitMsg {
 ```
 
 The return value of `init` is an `InitResponse`.
+
 ```rust
 pub struct InitResponse<T = Empty>
 where
@@ -250,6 +256,7 @@ pub enum QueryMsg {
 ```
 
 Calls to `handle` and `query` can optionally provide a response. These response messages are defined as structs. In this example, the `query_count` function in `contract.rs` returns the `CountResponse` struct. 
+
 ```rust
 pub struct CountResponse {
     pub count: i32,
