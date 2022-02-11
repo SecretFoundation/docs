@@ -4,7 +4,7 @@ Secret Contacts are based on CosmWasm v0.10.
 
 For more information check out the CosmWasm docs [HERE](https://docs.cosmwasm.com).
 
-Before proceding, we reccomend learning about differences between SecretWasm and CosWasm [HERE](#differences-from-cosmwasm).
+Before proceeding, we reccomend learning about differences between SecretWasm and CosWasm [HERE](#differences-from-cosmwasm).
 
 <details>
   <summary><b>Table of Contents<b></summary>
