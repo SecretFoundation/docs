@@ -281,9 +281,9 @@ Before deploying your contract make sure it's configured to point to an existing
 without providing an account password each time.
 
 ```bash
-secretcli config node http://bootstrap.secrettestnet.io:26657
+secretcli config node http://testnet.securesecrets.org:1317/
 
-secretcli config chain-id holodeck-2
+config chain-id pulsar-2 
 
 secretcli config trust-node true
 
