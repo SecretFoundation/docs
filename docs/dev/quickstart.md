@@ -300,7 +300,15 @@ secretcli keys add <your account alias>
 
 This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from 
 [the faucet](https://faucet.secrettestnet.io/). 
-Continue when you have confirmed your account has some SCRT in it.
+
+Continue when you have confirmed your account has some SCRT in it. To confirm the correct Secret address is funded use the following code: 
+
+```bash
+query bank balances <your account address>
+```
+
+Note: The Secret faucet should fund your test net account with ~100000000 uscrt. If you query for your account balance before the network has sent and synced the funds sent to your Secret address you will see "balances":[] — please wait for faucet tx to complete. 
+
 
 #### Store the Secret Contract on Holodeck
 
