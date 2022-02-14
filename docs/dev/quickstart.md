@@ -301,6 +301,12 @@ secretcli keys add <your account alias>
 This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from 
 [the faucet](https://faucet.secrettestnet.io/). 
 
+To get your Secret address use: 
+
+```bash
+secretcli keys show <key-alias> -a
+```
+
 Continue when you have confirmed your account has some SCRT in it. To confirm the correct Secret address is funded use the following code: 
 
 ```bash
