@@ -281,11 +281,9 @@ Before deploying your contract make sure it's configured to point to an existing
 without providing an account password each time.
 
 ```bash
-secretcli config node http://bootstrap.secrettestnet.io:26657
+secretcli config node https://rpc.pulsar.griptapejs.com:443
 
-secretcli config chain-id holodeck-2
-
-secretcli config trust-node true
+secretcli config chain-id pulsar-2
 
 secretcli config keyring-backend test
 ```
