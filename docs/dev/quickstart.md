@@ -321,7 +321,7 @@ Note: The Secret faucet should fund your test net account with ~100000000 uscrt.
 Next upload the compiled, optimized contract to the testnet.
 
 ```bash
-secretcli tx compute store contract.wasm.gz --from <your account alias> -y
+secretcli tx compute store contract.wasm.gz --from <key-alias> --gas 10000000 --gas-prices=1.0uscrt
 ```
 
 The result is a transaction hash (txhash). Query it to see the `code_id` in the logs, which you'll use to create an instance of the contract.
