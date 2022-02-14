@@ -304,7 +304,7 @@ This will output your address, a 45 character-string starting with `secret1...`.
 To get your Secret address use: 
 
 ```bash
-secretcli keys show <key-alias> -a
+secretcli keys show -a <key-alias>
 ```
 
 Continue when you have confirmed your account has some SCRT in it. To confirm the correct Secret address is funded use the following code: 
