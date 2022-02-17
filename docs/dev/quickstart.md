@@ -7,19 +7,19 @@ To learn more about Secret Contracts, please visit our [documentation page](http
 <details>
   <summary>Topics covered on this page</summary>
 
-  - [Setup the Local Developer Testnet](#setup-the-local-developer-testnet)
+  - [Setup the local leveloper testnet](#setup-the-local-developer-testnet)
   - [Setup Secret Contracts](#setup-secret-contracts)
-  - [Create Initial Smart Contract](#create-initial-smart-contract)
-  - [Deploy Smart Contract to local Testnet](#deploy-smart-contract-to-our-local-testnet)
-  - [Instantiate the Smart Contract](#instantiate-the-smart-contract)
-  - Migrating to Testnet
-    * [Deploy to the Pulsar Testnet](#deploy-to-the-pulsar-testnet)
+  - [Create initial smart contract](#create-initial-smart-contract)
+  - [Deploy smart contract to local testnet](#deploy-smart-contract-to-our-local-testnet)
+  - [Instantiate the smart contract](#instantiate-the-smart-contract)
+  - Migrating to testnet
+    * [Deploy to the Pulsar testnet](#deploy-to-the-pulsar-testnet)
     * [Get SCRT from faucet](#get-some-scrt-from-the-faucet)
     * [Store the Secret Contract](#store-the-secret-contract-on-pulsar)
   - Secret Contracts
     * [Secret Contracts 101](#secret-contracts-101)
     * [Secret Contract code explanation](#secret-contract-code-explanation)
-    * [Secret Contracts - Advanced](#secret-contracts---advanced)
+    * [Secret Contracts - advanced](#secret-contracts---advanced)
   - [SecretJS](#secretjs)
   - [Keplr integration](#keplr-integration)
   - Other resources
