@@ -135,6 +135,8 @@ perl -i -pe 's;laddr = "tcp://127.0.0.1:26657";laddr = "tcp://0.0.0.0:26657";' ~
 
 ## 5. Import the quicksync data
 
+**NOTE**: quicksyncs are not provided at this time
+
 ```bash
 cd ~
 
