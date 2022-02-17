@@ -1,4 +1,4 @@
-# Secret Contracts Quickstart
+# Secret contracts quickstart
 
 Get up and running on Secret Network with a local docker environment, as well as testnet (Pulsar-2), to start working with Secret Contracts.
 
@@ -108,14 +108,14 @@ Cargo generate is the tool you'll use to create a smart contract project (https:
 cargo install cargo-generate --features vendored-openssl
 ```
 
-## Create Initial Smart Contract
+## Create initial smart contract
 
 To create the smart contract you'll:
 - Generate the initial project
 - Compile the smart contract
 - Run unit tests
 - Optimize the wasm contract bytecode to prepare for deployment
-- Deploy the smart contract to your local SecretNetwork
+- Deploy the smart contract to your local Secret Network
 - Instantiate it with contract parameters
 
 ### Generate the smart contract project
@@ -345,7 +345,7 @@ You can use the testnet explorer [Transactions](https://secretnodes.com/secret/c
 
 ## Secret Contracts 101
 
-### Project Structure
+### Project structure
 
 The source directory (`src/`) has these files:
 ```
@@ -401,7 +401,7 @@ pub struct CountResponse {
 Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to a see a sample voting contract, and a line by line description of everything you need to know.
 
 
-### Unit Tests
+### Unit tests
 
 Unit tests are coded in the `contract.rs` file itself:
 
@@ -432,15 +432,15 @@ mod tests {
     }
 ```
 
-## Secret Toolkit
+## Secret toolkit
 [Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) is a collection of Rust packages containing common tools used in development of Secret Contracts running on the Secret Network.
 
-#### Calling other Contracts
+#### Calling other contracts
 [Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) contains helpful tools for calling other contracts from your own.  [Here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/CALLING_OTHER_CONTRACTS.md) is a guide on how to call other contracts from your own using the `InitCallback`, `HandleCallback`, and `Query` traits defined in the [utils package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/utils).
 
 If you are specifically wanting to call Handle functions or Queries of [SNIP-20 token contracts](https://github.com/scrtlabs/snip20-reference-impl), there are individually named functions you can use to make it even simpler than using the generic traits.  These are located in the [SNIP-20 package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/snip20).
 
-## Secret Contracts - Advanced
+## Secret Contracts - advanced
 Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed-bid (secret) auction contract making use of [SNIP-20](https://github.com/scrtlabs/snip20-reference-impl) and a walkthrough of the contract.
 
 ### Tutorials from Secret Network community
