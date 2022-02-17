@@ -332,12 +332,12 @@ secretcli query tx <txhash>
 
 #### Instantiate your Secret Contract
 
-To create an instance of your contract on Holodeck set the `CODE_ID` value below to the `code_id` you got by querying the txhash.
+To create an instance of your contract on Pulsar-2 set the `CODE_ID` value below to the `code_id` you got by querying the txhash.
 
 ```bash
 INIT='{"count": 100000000}'
 CODE_ID=<code_id>
-secretcli tx compute instantiate $CODE_ID "$INIT" --from <your account alias> --label "my counter" -y
+secretcli tx compute instantiate $CODE_ID "$INIT" --from <your account alias> --label "my simple counter" -y
 ```
 
 You can use the testnet explorer [Transactions](http://explorer.secrettestnet.io/transactions) tab to view the contract instantiation.
