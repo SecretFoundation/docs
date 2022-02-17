@@ -340,7 +340,7 @@ CODE_ID=<code_id>
 secretcli tx compute instantiate $CODE_ID "$INIT" --from <your account alias> --label "my simple counter" -y
 ```
 
-You can use the testnet explorer [Transactions](http://explorer.secrettestnet.io/transactions) tab to view the contract instantiation.
+You can use the testnet explorer [Transactions](https://secretnodes.com/secret/chains/pulsar-2) tab to view the contract instantiation.
 
 ## Secret Contracts 101
 
@@ -353,7 +353,7 @@ contract.rs  lib.rs  msg.rs  state.rs
 
 The developer modifies `contract.rs` for contract logic, contract entry points are `init`, `handle` and `query` functions.
 
-`init` in the Counter contract initializes the storage, specifically the current count and the signer/owner of the instance being initialized.
+`init` in contract.rs initializes the storage, specifically the current count and the signer/owner of the instance being initialized.
 
 We also define `handle`, a generic handler for all functions writing to storage, the counter can be incremented and reset. These functions are provided the storage and the environment, the latter's used by the `reset` function to compare the signer with the contract owner.
 
@@ -397,7 +397,7 @@ pub struct CountResponse {
 ```
 ### Secret Contract code explanation
 
-Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to a see a sample voting contract and a line by line description of everything you need to know
+Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to a see a sample voting contract, and a line by line description of everything you need to know.
 
 
 ### Unit Tests
@@ -432,18 +432,18 @@ mod tests {
 ```
 
 ## Secret Toolkit
-[Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) is a collection of Rust packages that contain common tools used in development of Secret Contracts running on the Secret Network.
+[Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) is a collection of Rust packages containing common tools used in development of Secret Contracts running on the Secret Network.
 
 #### Calling other Contracts
-[Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) contains very helpful tools that can be used to call other contracts from your own.  [Here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/CALLING_OTHER_CONTRACTS.md) is a guide on how to call other contracts from your own using the `InitCallback`, `HandleCallback`, and `Query` traits defined in the [utils package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/utils).
+[Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) contains helpful tools for calling other contracts from your own.  [Here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/CALLING_OTHER_CONTRACTS.md) is a guide on how to call other contracts from your own using the `InitCallback`, `HandleCallback`, and `Query` traits defined in the [utils package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/utils).
 
 If you are specifically wanting to call Handle functions or Queries of [SNIP-20 token contracts](https://github.com/scrtlabs/snip20-reference-impl), there are individually named functions you can use to make it even simpler than using the generic traits.  These are located in the [SNIP-20 package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/snip20).
 
 ## Secret Contracts - Advanced
-Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed-bid (secret) auction contract that makes use of [SNIP-20](https://github.com/scrtlabs/snip20-reference-impl) and a walkthrough of the contract
+Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed-bid (secret) auction contract making use of [SNIP-20](https://github.com/scrtlabs/snip20-reference-impl) and a walkthrough of the contract.
 
 ### Tutorials from Secret Network community
-Visit [this link](https://learn.figment.io/network-documentation/secret) for all tutorials about Secret Network
+Visit [this link](https://learn.figment.io/network-documentation/secret) for all tutorials about Secret Network.
 
 ### CosmWasm resources
 Smart Contracts in the Secret Network based based on CosmWasm. Therefore, for troubleshooting and additional context, CosmWasm documentation may be very useful. Here are some of the links we relied on in putting together this guide:
