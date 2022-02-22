@@ -94,6 +94,9 @@ You can see another `param-change` example here: [enigma-1-proposal-3.json](http
 | `auth`         | `TxSizeCostPerByte`       | string (uint64)  | `"10"`                                                                                                    |
 | `auth`         | `SigVerifyCostED25519`    | string (uint64)  | `"590"`                                                                                                   |
 | `auth`         | `SigVerifyCostSecp256k1`  | string (uint64)  | `"1000"`                                                                                                  |
+| `baseapp`      | `BlockParams`             | object           | `{"max_bytes":"10000000","max_gas":"10000000"}`                                                           |
+| `baseapp`      | `EvidenceParams`          | object           | `{"max_age_num_blocks":"100000","max_age_duration":"172800000000000","max_bytes":"50000"}`                |
+| `baseapp`      | `ValidatorParams`         | object           | `{"pub_key_types":["ed25519"]}`                                                                           |
 | `bank`         | `sendenabled`             | bool             | `true`                                                                                                    |
 | `crisis`       | `ConstantFee`             | object (coin)    | `{"denom": "uscrt", "amount": "1000"}`                                                                    |
 | `distribution` | `communitytax`            | string (dec)     | `"0.020000000000000000"`                                                                                  |
@@ -154,7 +157,7 @@ Where `proposal.json` is:
   "description": "Spend 10 SCRT with line breaks \n and `code formatting`",
   "recipient": "secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "amount": "100000000uscrt",
-  "deposit":"100000000uscrt"
+  "deposit": "100000000uscrt"
 }
 ```
 
