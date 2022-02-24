@@ -27,7 +27,6 @@ Mainnet is out! Get the latest version [HERE.](https://github.com/scrtlabs/Secre
 
 Secret Network uses the SCRT coin (Secret) for fees, staking, governance, and to secure the network. View transactions, validators, governance proposals, and more using the following Secret Network block explorers:
 
-- [Cashmaney](https://explorer.cashmaney.com)
 - [secretnodes](https://secretnodes.com)
 
 # Wallets
