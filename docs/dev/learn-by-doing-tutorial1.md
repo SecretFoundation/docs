@@ -6,7 +6,7 @@ In this tutorial you will learn the basics of creating a new Secret Contract fro
 
 ### Pre-requisites
 
-Make sure you have completed the [Secret Pathway Tutorials 1-5](https://learn.figment.io/network-documentation/secret/secret-pathway#secret-pathway-tutorials) prior to doing this tutorial. You should also have a working knowledge of the Rust programming language. If you have never used Rust before, you can learn more [here](https://doc.rust-lang.org/book/). You can use any IDE that supports Rust or just a text editor. Here are some options:
+Make sure you have completed the [Secret Contracts Quickstart Guide](https://docs.scrt.network/dev/quickstart.html) prior to doing this tutorial. You should also have a working knowledge of the Rust programming language. If you have never used Rust before, you can learn more [here](https://doc.rust-lang.org/book/). You can use any IDE that supports Rust or just a text editor. Here are some options:
 
 * [Visual Studio Code Rust extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust)
 * [IntelliJ Rust plugin](https://www.jetbrains.com/rust/)
