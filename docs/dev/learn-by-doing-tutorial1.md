@@ -14,7 +14,7 @@ Make sure you have completed the [Secret Pathway Tutorials 1-5](https://learn.fi
 
 ### Generating our project
 
-To generate a new project we follow the directions from the [Secret Pathway Tutorial 5](https://learn.figment.io/network-documentation/secret/tutorials/5.-writing-and-deploying-your-first-secret-contract#generate-the-smart-contract-project), however we choose a new name, in this case `reminder`.
+To generate a new project we follow the directions from the [Secret Contracts](https://docs.scrt.network/dev/secret-contracts.html), however we choose a new name, in this case `reminder`.
 
 ```rust
 cargo generate --git https://github.com/scrtlabs/secret-template --name reminder
@@ -24,13 +24,13 @@ In addition to everything we need to compile a contract, this template includes 
 
 ## Secret Contract functions
 
-There are three main functions that any Secret Contract can execute once it has been deployed to the network:
+There are three main functions Secret Contracts execute after network deployment:
 
-1. `init` is the constructor for your contract and it is only executed once. It is used to configure your contract based on user-supplied parameters.
+1. `init` is the constructor for your contract, and it is only executed once. `init` configures the contract based on user-supplied parameters.
 2. `handle` takes a handle message as input from a client, executes transactions based on the content of the message, and outputs a response message to the client.
 3. `query` takes a query message as input from a client, reads data from storage to answer the query, and outputs a response message to the client.
 
-The key difference between `handle` and `query` is that `handle` can execute transactions that change the state of the storage, whereas `query` is read-only. `handle` transactions therefore require a gas payment from the requester in order to succeed, but a `query` does not<sup id="a1">[1](#f1)</sup>. You can see this in the `customFees` object created in the Figment Learn [Tutorial 5](https://learn.figment.io/network-documentation/secret/tutorials/5.-writing-and-deploying-your-first-secret-contract#deploying-the-contract).
+The key difference between `handle` and `query` is that `handle` can execute transactions that change the state of the storage, whereas `query` is read-only. `handle` transactions therefore require a gas payment from the requester in order to succeed, but a `query` does not.
 
 We define these three functions (and any additional helper functions) in our `src/contract.rs` file as follows:
 
@@ -70,19 +70,19 @@ pub fn query<S: Storage, A: Api, Q: Querier>(
 
 At the top of this file, we have a number of module imports, some of which will be defined in other files as we go. Then you see the templates for `init`, `handle`, and `query`. The parameters for these three functions are similar. Both `init` and `handle` take three parameters `deps`, `env`, and `msg`. The `query` function only takes `deps` and `msg`.
 
-* `deps` is a struct that contains three external dependencies of the contract:
+* `deps` is a struct containing three external dependencies of the contract:
   * `deps.storage` implements `get()`, `set()`, and `remove()` methods to read, write, and delete data from the private storage of the contract;
-  * `deps.api` currently only implements two methods that translate back and forth between secret network human address Strings (`"secret..."`) and a binary canonical address format;
+  * `deps.api` implements two methods that translate back and forth between Secret Network human address Strings (`"secret..."`), and a binary canonical address format;
   * `deps.querier` implements a number of functions to query other contracts.
-* `env` is a struct that contains the following information about the external state of contract:
-  * `env.block`, a struct that includes the current block height, time, and chain-id;
+* `env` is a struct containing information about the external state of the contract:
+  * `env.block`, a struct including the current block height, time, and chain-id;
   * `env.message`, a struct with information about the address that executed the contract (`env.message.sender`), plus any funds that might have been sent to the contract at that time;
   * `env.contract`, the address of the contract;
   * `env.contract-key`, the code id used when instantiating the contract;
   * `env.contract_code_hash`, a hex encoded hash of the code id.
 * `msg` contains the message sent by the client. We will discuss message types in more detail in the next section.
 
-A keen eye will note that `deps` is defined as `&mut Extern<S, A, Q>` in `init` and `handle`, but in `query` it is not mutable: `&Extern<S, A, Q>`. This is because a `query` is unable to change the `storage`, it is read-only. In addition, `query` does not have access to the external state of the contract, which importantly means that the address of the sender of the query is not available from within the `query` function. The reason for this is explained in more detail in the [Privacy Model of Secret Networks](https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html#verified-values-during-contract-execution).
+A keen eye will note that `deps` is defined as `&mut Extern<S, A, Q>` in `init` and `handle`, but in `query` it is not mutable: `&Extern<S, A, Q>`. This is because a `query` is unable to change the `storage`, it is read-only. In addition, `query` does not have access to the external state of the contract, making the address of the query sender not available from within the `query` function. The reason for this is explained in more detail in the [Privacy Model of Secret Networks](https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html#verified-values-during-contract-execution).
 
 ## Secret Contract messages
 
