@@ -1,9 +1,9 @@
 # Privacy Model of Secret Contracts
 
-Secret Contracts are based on CosmWasm v0.10, but they have additional privacy properties that can only be found on Secret Network.
+Secret Contracts are based on CosmWasm v0.10, but they have additional privacy properties unique to the Secret Network.
 
 If you're a contract developer, you might want to first catch up on [developing Secret Contracts](./developing-secret-contracts.md).  
-For an in depth look at the Secret Network encryption specs, visit [here](../protocol/encryption-specs.md#encryption).
+For an in depth look at the Secret Network encryption specs, visit [HERE](../protocol/encryption-specs.md#encryption).
 
 Secret Contract developers must always consider the trade-off between privacy, user experience, performance and gas usage.
 
@@ -49,13 +49,13 @@ Secret Contract developers must always consider the trade-off between privacy, u
 
 # Verified Values During Contract Execution
 
-During execution, some contracts may want to use "external-data" - meaning data that is generated outside of the enclave and sent into the enclave - such as the tx sender address, the funds sent with the tx, block height, etc.
-As these parameters are sent to the enclave, they can theoretically be tampered with, and an attacker might send false data.
-Thus, relying on such data is **conceivably risky**.
+During execution, some contracts may want to use "external-data" - meaning data generated outside of the enclave and sent into the enclave - such as the tx sender address, the funds sent with the tx, block height, etc...
 
-For example, let's say we are implementing an admin interface for a contract, i.e. functionality that is open only for a predefined address.
+As these parameters are sent to the enclave, they can theoretically be tampered with, and an attacker might send false data; making relying on this data **conceivably risky**.
+
+For example, let's say we are implementing an admin interface for a contract, i.e. functionality only for a predefined address.
 We want to ensure the `env.message.sender` parameter provided during contract execution is legitimate, so we will confirm that `env.message.sender == predefined_address`. If this condition is met we can provide admin functionality.
-If the `env.message.sender` parameter can be tampered with - we effectively can't rely on it and cannot implement the admin interface.
+If the `env.message.sender` parameter can be tampered with — we effectively can't rely on it and cannot implement the admin interface.
 
 ## Tx Parameter Verification
 
@@ -64,27 +64,27 @@ Some parameters are easier to verify than others. Exact details about individual
 The parameter verification method depends on the contract caller:
 
 - If the contract is called by a transaction (i.e. someone sends a compute tx) we use the already-signed transaction and verify it's data inside the enclave. More specifically:
-  - Verify that the signed data and the signature bytes are self consistent.
-  - Verify that the parameters sent to the enclave matches with the signed data.
+  - Verify the signed data and the signature bytes are self consistent
+  - Verify the parameters sent to the enclave matches with the signed data
 - If the contract is called by another contract (i.e. we don't have a signed tx to rely on) we create a callback signature (which can only be created inside the enclave), effectively signing the parameters sent to the next contract:
-  - Caller contract creates `callback_signature` based on parameters it sends, passes it on to the next contract.
+  - Caller contract creates `callback_signature` based on parameters it sends, passes it on to the next contract
   - Receiver contract creates `callback_signature` based on the parameter it got.
-  - Receiver contract verifies that the signature it created matches the signature it got from the caller.
-  - For the specifics, visit the [encryption specs](../protocol/encryption-specs.md#Output).
+  - Receiver contract verifies the signature it created matches the signature it got from the caller
+  - For the specifics, visit the [encryption specs](../protocol/encryption-specs.md#Output)
 
 # `init` and `handle`
 
 `init` is the constructor of a contract. This function is called only once in the lifetime of the contract.  
 `handle` is a regular execute transaction within a contract.
 
-- They have a read and write access to the storage (state) of the contract.
-- The fact that `init` or `handle` was invoked is public.
-- They are metered by gas and incur fees according to the gas price of the sending node.
-- Access control: Can use `env.message.sender`.
+- They have a read and write access to the storage (state) of the contract
+- The fact that `init` or `handle` was invoked is public
+- They are metered by gas and incur fees according to the gas price of the sending node
+- Access control: Can use `env.message.sender`
 
 ## Inputs
 
-Inputs that are encrypted are known only to the transaction sender and to the contract.
+Encrypted inputs are known only to the transaction sender and to the contract.
 
 | Input                    | Type                     | Encrypted? | Trusted? | Notes |
 | ------------------------ | ------------------------ | ---------- | -------- | ----- |
@@ -134,12 +134,12 @@ The fact that `deps.storage.get`, `deps.storage.set` or `deps.storage.remove` we
 
 Legend:
 
-- `Private invocation = Yes` means the request never exits SGX and thus an attacker cannot know it even occurred.
-- `Private invocation = No` & `Private data = Yes` means an attacker can know that the contract used this API but cannot know the input parameters or return values.
+- `Private invocation = Yes` means the request never exits SGX and thus an attacker cannot know it even occurred
+- `Private invocation = No` & `Private data = Yes` means an attacker can know the contract used this API, but cannot know the input parameters or return values
 
 ## Outputs
 
-Outputs that are encrypted are only known to the transaction sender and to the contract.
+Encrypted outputs are only known to the transaction sender and to the contract.
 
 ### Return value of `init`
 
@@ -167,7 +167,8 @@ Logs (or events) is a list of key-value pairs. The keys and values are encrypted
 | `log[i].key`   | `String`               | Yes        |                                            |
 | `log[i].value` | `String`               | Yes        |                                            |
 
-Messages are actions that will be taken after the current execution and will all be part of the current transaction.  
+Messages are actions taken after the current execution and will all be part of the current transaction.  
+    
 Types of messages:
 
 - `CosmosMsg::Custom`
@@ -231,37 +232,37 @@ Contract developers should test their contracts rigorously and make sure they ca
 
 #### External errors (VM or interaction with the blockchain)
 
-A `VMError` occurs when there's an error during the contract's execution but outside the contract's code.  
+A `VMError` occurs when there's an error during the contract's execution, but outside the contract's code.  
 In this case the error message is not encrypted as well.
 
 Some examples of `VMErrors`:
 
-- Memory allocation errors (The contract tried to allocate too much)
+- Memory allocation errors (the contract tried to allocate too much)
 - Contract out of gas
-- Got out of gas while accessing storage
+- Ran out of gas while accessing storage
 - Passing null pointers from the contract to the VM (E.g. `read_db(null)`)
 - Trying to write to read-only storage (E.g. inside a `query`)
-- Passing a faulty message to the blockchain (Trying to send funds you don't have, trying to callback to a non-existing contract)
+- Passing a faulty message to the blockchain (trying to send funds you don't have, trying to callback to a non-existing contract)
 
 # Query
 
 `query` is an execution of a contract on the node of the query sender.
 
-- It doesn't affect transactions on-chain.
-- It has read-only access to the storage (state) of the contract.
-- The fact that `query` was invoked is known only to the executing node, in addition to whoever monitors your internet traffic, in case the executing node is on your local machine.
-- Queries are metered by gas but don't incur fees. The executing node decides its gas limit for queries.
-- Access control: Cannot use `env.message.sender` as it's not a transaction. Can use pre-configured passwords or API keys that have been stored in state previously by `init` and `handle`.
+- It doesn't affect transactions on-chain
+- It has read-only access to the storage (state) of the contract
+- When `query` was invoked it is known only to the executing node, in addition to whoever monitors your internet traffic, in case the executing node is on your local machine
+- Queries are metered by gas but don't incur fees. The executing node decides its gas limit for queries
+- Access control: Cannot use `env.message.sender` as it's not a transaction, and can use pre-configured passwords or API keys stored in state previously by `init` and `handle`
 
 ## Inputs
 
-Inputs that are encrypted and known only to the query sender and to the contract. In `query` we don't have an `env` like we do in `init` and `handle`.
+Encrypted inputs are known by the query sender and the contract. In `query` we don't have an `env` like we do in `init` and `handle`.
 
 | Input | Type       | Encrypted? | Trusted? | Notes |
 | ----- | ---------- | ---------- | -------- | ----- |
 | `msg` | `QueryMsg` | Yes        | Yes      |       |
-
-Note that `Trusted = No` means this data is easily forgeable. An attacker can take its node offline and replay old inputs. This data that is `Trusted = No` by itself cannot be trusted in order to reveal secrets. This is more applicable to `init` and `handle`, but know that an attacker can replay the input `msg` to its offline node. Although `query` cannot change the contract's state and the attacker cannot decrypt the query output, the attacker might be able to deduce private information by monitoring output sizes at different times. See [differences in output return values size](#differences-in-output-return-values-size) to learn more about this kind of attack and how to mitigate it.
+  
+Note: `Trusted = No` means this data is easily forgeable. An attacker can take its node offline and replay old inputs. This data that is `Trusted = No` by itself cannot be trusted in order to reveal secrets. This is more applicable to `init` and `handle`, but know that an attacker can replay the input `msg` to its offline node. Although `query` cannot change the contract's state and the attacker cannot decrypt the query output, the attacker might be able to deduce private information by monitoring output sizes at different times. See [differences in output return values size](#differences-in-output-return-values-size) to learn more about this kind of attack and how to mitigate it.
 
 ## API calls
 
@@ -280,12 +281,12 @@ Note that `Trusted = No` means this data is easily forgeable. An attacker can ta
 
 Legend:
 
-- `Private invocation = Yes` means the request never exits SGX and thus an attacker cannot know it even occurred. Only applicable if the executing node is remote.
-- `Private invocation = No` & `Private data = Yes` means an attacker can know that the contract used this API but cannot know the input parameters or return values. Only applicable if the executing node is remote.
+- `Private invocation = Yes` means the request never exits SGX, and an attacker cannot know it occurred (only applicable if the executing node is remote)
+- `Private invocation = No` & `Private data = Yes` means an attacker can know the contract used this API, but cannot know the input parameters or return values (only applicable if the executing node is remote)
 
 ## Outputs
 
-Outputs that are encrypted are only known to the query sender and to the contract.
+Encrypted outputs are only known to the query sender and to the contract.
 
 ### Return value of `query`
 
@@ -297,8 +298,7 @@ The return value of `query` is similar to `data` in `handle`. It is encrypted.
 
 ### Errors
 
-Contract execution can result in multiple types of errors.  
-The fact that the contract returned an error is public.
+Contract execution can result in multiple types of errors, and returned erros are public.   
 
 #### Contract errors
 
@@ -324,7 +324,7 @@ Contract developers should test their contracts rigorously and make sure they ca
 
 #### External errors (VM or interaction with the blockchain)
 
-A `VMError` occurs when there's an error during the contract's execution but outside of the contract's code.  
+A `VMError` occurs when there's an error during the contract's execution, but outside of the contract's code.  
 In this case the error message is not encrypted as well.
 
 Some examples of `VMErrors`:
@@ -340,12 +340,12 @@ Some examples of `VMErrors`:
 
 External `query` is an execution of a contract from another contract in the middle of its run.
 
-- Can be called from another `init`, `handle` or `query`.
-- It has read-only access to the storage (state) of the contract.
-- `init` & `handle`: The fact that external `query` was invoked public.
-- `query`: The fact that `query` was invoked is known only to the executing node. And to whoever monitors your internet traffic, in case the executing node is on your local machine.
-- External `query` is metered by the gas limit of the caller contract.
-- Access control: Cannot use `env.message.sender`, just like `query`.
+- Can be called from another `init`, `handle` or `query`
+- It has read-only access to the storage (state) of the contract
+- `init` & `handle`: The fact that external `query` was invoked public
+- `query`: `query` was invoked, and is known only to the executing node + whoever monitors your internet traffic (in case the executing node is on your local machine)
+- External `query` is metered by the gas limit of the caller contract
+- Access control: Cannot use `env.message.sender`, just like `query`
 
 Types of external `query`:
 
@@ -361,20 +361,20 @@ Types of external `query`:
 
 Legend:
 
-- `Private invocation = Yes` means the request never exits SGX and thus an attacker cannot know it even occurred. Only applicable if the executing node is remote.
-- `Private invocation = No` & `Private data = Yes` means an attacker can know that the contract used this API but cannot know the input parameters or return values. Only applicable if the executing node is remote.
+- `Private invocation = Yes` means the request never exits SGX and an attacker cannot know it occurred (only applicable if the executing node is remote)
+- `Private invocation = No` & `Private data = Yes` means an attacker can know the contract used this API, but cannot know the input parameters or return values (only applicable if the executing node is remote)
 
-External queries of type `WasmQuery` work exactly like [Queries](#query), except that if an external query of type `WasmQuery` is invoked from `init` or `handle` it is executed on-chain, so it is exposed to monitoring by every node in the Secret Network.
+External queries of type `WasmQuery` work exactly like [Queries](#query), except that if an external query of type `WasmQuery` is invoked from `init` or `handle` it is executed on-chain; so it is exposed to monitoring by every node in the Secret Network.
 
 # Data leakage attacks by analyzing metadata of contract usage
 
 Depending on the contract's implementation, an attacker might be able to de-anonymization information about the contract and its clients. Contract developers must consider all the following scenarios and more, and implement mitigations in case some of these attack vectors can compromise privacy aspects of their application.
 
-In all the following scenarios, assume that an attacker has a local full node in its control. They cannot break into SGX, but they can tightly monitor and debug every other aspect of the node, including trying to feed old transactions directly to the contract inside SGX (replay). Also, though it's encrypted, they can also monitor memory (size), CPU (load) and disk usage (read/write timings and sizes) of the SGX chip.
+In all the following scenarios, assume that attackers have local control of a full node. They cannot break into SGX, but they can tightly monitor and debug every other aspect of the node, including trying to feed old transactions directly to the contract inside SGX (replay). Also, though it's encrypted, they can also monitor memory (size), CPU (load) and disk usage (read/write timings and sizes) of the SGX chip.
 
-For encryption, the Secret Network is using [AES-SIV](https://tools.ietf.org/html/rfc5297), which does not pad the ciphertext. This means it leaks information about the plaintext data, specifically about its size, though in most cases it's more secure than other padded encryption schemes. Read more about the encryption specs [in here](protocol/encryption-specs.md).
+For encryption, the Secret Network is using [AES-SIV](https://tools.ietf.org/html/rfc5297), which does not pad the ciphertext. This means it leaks information about the plaintext data, specifically about its size, though in most cases it's more secure than other padded encryption schemes. Read more about the encryption specs [HERE](protocol/encryption-specs.md).
 
-Most of the below examples talk about an attacker revealing which function was executed on the contract, but this is not the only type of data leakage that an attacker might target.
+Most of the below examples talk about an attacker revealing which function was executed on the contract, but this is not the only type of data leakage attackers may target.
 
 Secret Contract developers must analyze the privacy model of their contract - What kind of information must remain private and what kind of information, if revealed, won't affect the operation of the contract and its users. **Analyze what it is that you need to keep private and structure your Secret Contract's boundaries to protect that.**
 
@@ -395,7 +395,7 @@ pub enum HandleMsg {
 }
 ```
 
-This means that the inputs for transactions on this contract would look like:
+This means the inputs for contract transactions look like:
 
 1. `{"send":{"amount":123}}`
 2. `{"transfer":{"amount":123}}`
@@ -429,16 +429,16 @@ Another point to consider. If the attacker had additional knowledge, for example
 1. `{"send":{"amount":55}}`
 2. `{"tsfr":{"amount":123}}`
 
-Note that a client side solution can also be applied, but this is considered a very bad practice in infosec, as you cannot guarantee control of the client. E.g. you could pad the input to the maximum possible in this contract before encrypting it on the client side:
+Note: A client side solution can also be applied, but this is considered a very bad practice in infosec, as you cannot guarantee control of the client. E.g. you could pad the input to the maximum possible in this contract before encrypting it on the client side:
 
 1. `{"send":{ "amount" : 55 } }`
 2. `{"transfer":{"amount":123}}`
 
-Again, this is very not recommended as you cannot guarantee control of the client!
+Again, this is not recommended because you cannot guarantee control of the client!
 
 ## Differences in state key sizes
 
-Contracts' state is stored on-chain inside a key-value store, thus the `key` must remain constant between calls. This means that if a contract uses storage keys with different sizes, an attacker might find out information about the execution of a contract.
+Contracts' state is stored on-chain inside a key-value store where the `key` must remain constant between calls. This means if a contract uses storage keys with different sizes, an attacker might find out information about the execution of a contract.
 
 Let's see an example for a contract with 2 `handle` functions:
 
@@ -468,15 +468,15 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-By looking at state write operation, an attacker can guess which function was called based on the size of the key that was used to write to storage:
+By looking at a state write operation, an attacker can guess which function was called based on the size of the key used to write to storage:
 
 1. `send`
 2. `transfer`
 
 Again, some quick fixes for this issue might be:
 
-1. Renaming `transfer` to `tsfr`.
-2. Padding `send` to have the same length as `transfer`: `sendsend`.
+1. Renaming `transfer` to `tsfr`
+2. Padding `send` to have the same length as `transfer`: `sendsend`
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -544,15 +544,15 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-By looking at state write operation, an attacker can guess which function was called based on the size of the value that was used to write to storage:
+By looking at state write operation, an attacker can guess which function was called based on the size of the value used to write to storage:
 
 1. `Sent amount: 123`
 2. `Transferred amount: 123`
 
 Again, some quick fixes for this issue might be:
 
-1. Changing the `Transferred` string to `Tsfr`.
-2. Padding `Sent` to have the same length as `Transferred`: `SentSentSen`.
+1. Changing the `Transferred` string to `Tsfr`
+2. Padding `Sent` to have the same length as `Transferred`: `SentSentSen`
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -590,7 +590,7 @@ Be creative. :rainbow:
 
 ## Differences in state accessing order
 
-An attacker can monitor requests from Smart Contracts to the API that the Secret Network exposes for contracts. So while `key` and `value` are encrypted in `read_db(key)` and `write_db(key,value)`, it is public knowledge that `read_db` or `write_db` were called.
+An attacker can monitor requests from Smart Contracts to the API the Secret Network exposes for contracts, while `key` and `value` are encrypted in `read_db(key)` and `write_db(key,value)`; it is public knowledge `read_db` or `write_db` were called.
 
 Let's see an example for a contract with 2 `handle` functions:
 
@@ -661,13 +661,13 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 
 Now by looking at the order of state operation, an attacker cannot guess which function was called. It's always `read_db()` then `write_db()`.
 
-Note that this might affect gas usage for the worse (reading/writing data that isn't necessary to this function) or for the better (fewer reads and writes), so there's always a trade-off between privacy, user experience, performance and gas usage.
+Note that this might increase gas usage (reading/writing data that isn't necessary to this function) or decrease gas usage (fewer reads and writes), so there's always a trade-off between privacy, user experience, performance and gas usage.
 
 Be creative. :rainbow:
 
 ## Differences in output return values size
 
-Secret Contracts can have return values that are decryptable only by the contract and the transaction sender.
+Secret Contracts can have decryptable return values by the contract and the transaction sender.
 
 Very similar to previous cases, if a contract uses return values with different sizes, an attacker might find out information about the execution of a contract.
 
@@ -742,13 +742,13 @@ Be creative. :rainbow:
 
 ## Differences in output messages/callbacks
 
-Secret Contracts can output messages to be executed immediately follow the current execution, in the same transaction as the current execution. Secret Contracts have outputs that are decryptable only by the contract and the transaction sender.
+Secret Contracts can output messages to be executed immediately following the current execution, in the same transaction as the current execution. Secret Contracts have decryptable outputs only by the contract and the transaction sender.
 
-Very similar to previous cases, if a contract output messages that are different, or contain different structures, an attacker might be able to identify information about the execution of a contract.
+Very similar to previous cases, if contract output messages are different, or contain different structures, an attacker might be able to identify information about contract execution.
 
 Let's see an example for a contract with 2 `handle` functions:
 
-```rust
+```
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
@@ -860,9 +860,9 @@ Output events:
 
 Examples:
 
-- number of logs
-- size of logs
-- ordering of logs (short,long vs. long,short)
+- Number of logs
+- Size of logs
+- Ordering of logs (short,long vs. long,short)
 
 ## Differences in output types - success vs. error
 
@@ -882,4 +882,4 @@ Otherwise the output looks like this:
 }
 ```
 
-Therefore similar to previous examples, an attacker might guess what happened in an execution. E.g. if a contract has only a `send` function, if an error was returned an attacker can know that the `msg.sender` tried to send funds to someone unknown and the `send` didn't execute.
+Therefore similar to previous examples, an attacker might guess what happened in an execution. E.g. If a contract has only a `send` function, if an error was returned an attacker can know that the `msg.sender` tried to send funds to someone unknown and the `send` didn't execute.
