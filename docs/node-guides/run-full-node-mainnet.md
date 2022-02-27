@@ -223,7 +223,7 @@ perl -i -pe 's/seeds = ""/seeds = "7649dcfda0eb77b38fde8e817da8071faea3cd13\@boo
 You may use the following peers, or you can choose your own from [this list](https://securesecrets.notion.site/Secret-Network-secret-4-peer-list-54c6cdcc77f040c9a4e877c8d40f953a).
 
 ```bash
-perl -i -pe 's/persistent_peers = ""/persistent_peers = "7c9f5e1cd79c4d5ee83e2a82b133efe0bd74732d\@secret-ibc.blockngine.io:26656,7ecc77c5d79520cd613488e69bfbb324ac22280c\@node.securesecrets.org:26656,4378c3df119539623d190e6b81e359b57b152675\@135.148.55.229:10656,971911193b09a17c347565d311a3cc4f6004156d\@peer.node.scrtlabs.com:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "555d083ffc6b4acca46fa0c78a545bb799f72296\@morty.secretnodes.com:26656,7c9f5e1cd79c4d5ee83e2a82b133efe0bd74732d\@secret-ibc.blockngine.io:26656,7ecc77c5d79520cd613488e69bfbb324ac22280c\@node.securesecrets.org:26656,4378c3df119539623d190e6b81e359b57b152675\@135.148.55.229:10656,971911193b09a17c347565d311a3cc4f6004156d\@peer.node.scrtlabs.com:26656"/' ~/.secretd/config/config.toml
 ```
 
 ### 17. Listen for incoming RPC requests so that light nodes can connect to you:
