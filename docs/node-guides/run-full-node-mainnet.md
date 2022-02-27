@@ -217,7 +217,7 @@ secretd configure-secret node-master-cert.der <SEED>
 ### 16. Add persistent peers and seeds to your configuration file.
 
 ```bash
-perl -i -pe 's/seeds = ""/seeds = "7649dcfda0eb77b38fde8e817da8071faea3cd13\@bootstrap.scrt.network:26657,ac74aa5908816a54c0da62b6f1cbfa9cc4a8a4ff\@45.77.125.31:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/seeds = ""/seeds = "7649dcfda0eb77b38fde8e817da8071faea3cd13\@bootstrap.scrt.network:26656,ac74aa5908816a54c0da62b6f1cbfa9cc4a8a4ff\@45.77.125.31:26656"/' ~/.secretd/config/config.toml
 ```
 
 You may use the following peers, or you can choose your own from [this list](https://securesecrets.notion.site/Secret-Network-secret-4-peer-list-54c6cdcc77f040c9a4e877c8d40f953a).
