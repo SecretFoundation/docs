@@ -30,6 +30,12 @@ cargo build
 
 In addition to everything we need to compile a contract, this template includes sample code for the simple counter contract. We are going to remove that in order to start from scratch. **Go into the `src` directory and empty the contents of the following three files `contract.rs`, `msg.rs`, and `state.rs`.** Do NOT remove or edit `lib.rs`.
 
+You will also need to delete the `Cargo.lock` file, and replace the contents of the `Cargo.toml` file with the contents of the `Cargo.toml` file found [HERE](https://github.com/darwinzer0/secret-contract-tutorials/blob/main/tutorial1/code/Cargo.toml). This will ensure that you are able to successfully compile the project at the end of this tutorial by running:
+
+```bash 
+cargo build
+```  
+
 ## Secret Contract functions
 
 There are three main functions Secret Contracts execute after network deployment:
@@ -481,7 +487,15 @@ fn query_stats<S: Storage, A: Api, Q: Querier>(deps: &Extern<S, A, Q>) -> StdRes
 }
 ```
 
-You now have a working reminder Secret Contract! The completed contract code can be found [here](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1/code).
+If you have completed this tutorial sucessfully, you will be able to compile the contract code without any errors using: 
+
+```bash 
+cargo build
+```
+
+You now have a working reminder Secret Contract! 
+
+If you are experiencing errors when compiling, or want to view the full contracts code, see the completed contract code [HERE](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1/code).
 
 ## Next steps
 
