@@ -222,17 +222,17 @@ pub enum QueryAnswer {
 }
 ```
 
-Sometimes incoming messages, or a responses, will have an optional field. Those are defined with Rust `Option` types. The Secret Contract SDK will include those fields as needed in the response to the client automatically. In our `Read` response we define `reminder` and `timestamp` using an `Option` type, because it is possible that there is no reminder for the user.
+Sometimes incoming messages, or responses, will have an optional field. Those are defined with Rust `Option` types. The Secret Contract SDK will include those fields as needed in the response to the client automatically. In our `Read` response we define `reminder` and `timestamp` using an `Option` type, because it is possible that there is no reminder for the user.
 
 ### A note about data types between the client and contract
 
-Messages are recieved by contracts as encrypted and then Base64-encoded versions of the JSON stringify'd version of the original messages (i.e., Javascript object) defined in the client code. This transformation is transparent to you as a Secret Contract developer, but awareness of this process is important because of how it affects data types. Your contract will create a schema document for each message type if you add the `derive(JsonSchema)` macro to your message definitions, but you might still need to do some additional value checking and type casting in your contract code depending on the context.
+Messages are received by contracts as encrypted and then Base64-encoded versions of the JSON stringified version of the original messages (i.e., Javascript object) defined in the client code. This transformation is transparent to you as a Secret Contract developer, but awareness of this process is important because of how it affects data types. Your contract will create a schema document for each message type if you add the `derive(JsonSchema)` macro to your message definitions, but you might still need to do some additional value checking and type casting in your contract code depending on the context.
 
 In addition, number values in Javascript are limited in range. The maximum safe integer value in Javascript falls somewhere between maximum `i32` and `i64` values in Rust. Therefore, 128-bit integers, for example, need to be sent from the client as string values because 128-bit numbers are commonly used in contracts to represent currency values (e.g. $\mu$SCRT), the Cosmos SDK (which Secret Network is built on) has a pre-defined type `Uint128`. 
 
-A message type with a `Uint128` field will expect a string from the incoming JSON, which is validated to be a correct representation of a 128-bit unsigned integer value. In order, to use the `Uint128` field value in your contract code, e.g., to put it in contract storage, you will then need to convert it to a Rust `u128` type.
+A message type with a `Uint128` field will expect a string from the incoming JSON, which is validated to be a correct representation of a 128-bit unsigned integer value. In order to use the `Uint128` field value in your contract code, e.g., to put it in contract storage, you will then need to convert it to a Rust `u128` type.
 
-Likewise, a message type with `HumanAddr` or `CanonicalAddr` as a field values will also be sent from the client using string values.
+Likewise, a message type with `HumanAddr` or `CanonicalAddr` as field values will also be sent from the client using string values.
 
 ## Secret Contract storage
 
@@ -275,7 +275,7 @@ You can serialize your data on storage in any way you want. We recommend you use
 We now define three helper functions in `state.rs` to read and write data to storage using bincode2 <sup id="a2">[2](#f2)</sup>:
 
 * `save` will serialize a struct using `bincode2` and write it to storage using the storage `set()` method.
-* `load` will retrieve the data from storage using the `get()` method, deserialize it, and returns a `StdResult` with the data. If the key is not found, a "not found" `StdError` is returned. Using the `?` operator in the calling function will cause the error to be sent back up as the response.
+* `load` will retrieve the data from storage using the `get()` method, deserialize it, and return a `StdResult` with the data. If the key is not found, a "not found" `StdError` is returned. Using the `?` operator in the calling function will cause the error to be sent back up as the response.
 * `may_load` is an alternative implementation of `load` returning an `Option` form of the result. If the key is not found, `Ok(None)` is returned. This version is more convenient if you want to customize error reporting when the data is not found.
 
 Add the following code to the end of the state.rs file: 
@@ -308,7 +308,7 @@ Now we are ready to fill in our three contract functions in `contract.rs`: `init
 
 ### `init` function
 
-In `state.rs` we have said that `max_size` will be stored as a `u16` type, which means that highest maximum reminder size is 65535 bytes. If the `i32` value for `max_size` sent in `InitMsg` is outside of those bounds we need to throw an error. We can create a helper function to test that by adding the following cose, which will cause our `init` function to return a `StdError` with an informative error message to the client if `max_size` is out of bounds: 
+In `state.rs` we have said that `max_size` will be stored as a `u16` type, which means that the highest maximum reminder size is 65535 bytes. If the `i32` value for `max_size` sent in `InitMsg` is outside of those bounds we need to throw an error. We can create a helper function to test that by adding the following cose, which will cause our `init` function to return a `StdError` with an informative error message to the client if `max_size` is out of bounds: 
 
 ```rust
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -458,7 +458,7 @@ fn try_read<S: Storage, A: Api, Q: Querier>(
 
 ### `query` function
 
-The implementation of our `Stats` query is quite straightforward compared to the handle requests. One difference is that `query` simply returns a `StdResult<Binary>`, because it only needs to return the binary-encoded `Stats` struct containing `reminder_count`. A `query` does not access `env` and does not affect on-chain transactions, so there is no need to wrap it up with `messages` and `log` like in a `HandleResponse`.
+The implementation of our `Stats` query is quite straightforward compared to handle requests. One difference is that `query` simply returns a `StdResult<Binary>`, because it only needs to return the binary-encoded `Stats` struct containing `reminder_count`. A `query` does not access `env` and does not affect on-chain transactions, so there is no need to wrap it up with `messages` and `log` like in a `HandleResponse`.
 
 ```rust
 pub fn query<S: Storage, A: Api, Q: Querier>(
@@ -477,15 +477,15 @@ fn query_stats<S: Storage, A: Api, Q: Querier>(deps: &Extern<S, A, Q>) -> StdRes
 }
 ```
 
-If you have completed this tutorial sucessfully, you will be able to compile the contract code without any errors using: 
+If you have completed this tutorial ssuccessfully, you will be able to compile the contract code without any errors using: 
 
 ```bash 
 cargo build
 ```
 
-You now have a working reminder Secret Contract! 
+You now have a working Secret Contract! 
 
-If you are experiencing errors when compiling, or want to view the full contracts code, see the completed contract code [HERE](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1/code).
+If you are experiencing errors when compiling, or want to view the full contract code, see the completed version [HERE](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1/code).
 
 ## Next steps
 
@@ -493,7 +493,7 @@ Unlike a normal web service, there is no mechanism for a Secret Contract to repe
 
 ## Notes
 
-<b id="f1">1</b>: Although, queries do not impose a fee, they are metered by gas. This allows a node to reject a long-running query.[↩](#a1)
+<b id="f1">1</b>: Although queries do not impose a fee, they are metered by gas. This allows a node to reject a long-running query.[↩](#a1)
 
 <b id="f2">2</b>: These functions are based on the [Sealed Bid Auction contract code](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/src/state.rs).[↩](#a2)
 
