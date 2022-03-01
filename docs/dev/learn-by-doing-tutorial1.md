@@ -16,8 +16,16 @@ Make sure you have completed the [Secret Contracts Quickstart Guide](https://doc
 
 To generate a new project we follow the directions from the [Secret Contracts](https://docs.scrt.network/dev/secret-contracts.html), however we choose a new name, in this case `reminder`.
 
-```rust
+```bash
 cargo generate --git https://github.com/scrtlabs/secret-template --name reminder
+```
+
+Go into the project folder, and you should see the following contents: cargo.toml, Developing.md, Importing.md, LICENSE, Makefile, NOTICE, Publishing.md, README.md, examples, rustfmt.toml, schema, src, and tests.     
+
+After generating the new project, make sure it compiles successfully by running the following command at the top of the projects directory: 
+
+```bash 
+cargo build
 ```
 
 In addition to everything we need to compile a contract, this template includes sample code for the simple counter contract. We are going to remove that in order to start from scratch. **Go into the `src` directory and empty the contents of the following three files `contract.rs`, `msg.rs`, and `state.rs`.** Do NOT remove or edit `lib.rs`.
@@ -86,18 +94,18 @@ A keen eye will note that `deps` is defined as `&mut Extern<S, A, Q>` in `init` 
 
 ## Secret Contract messages
 
-Now we need to specify the valid structure of input messages and output responses for each of our three main contract functions. We will define these message structures in `src/msg.rs`.
+Now we need to structure input messages and output responses for each of our three main contract functions. We will define these message structures in `src/msg.rs`.
 
 ### Sketching out our contract's functionality
 
 Before we specify any message structures, let's step back and detail some functionality we want our contract to implement by coming up with some simple user stories:
 
-* We want a contract that lets a user upload a string of text (the reminder) that will be stored for that user only.
+* We want users to be able to upload a string of text (the reminder) that will be stored for only each user.
 * A user should be able to read their stored message, but it should not be accessible to anyone else.
 * When a user receives their reminder they should also get information on when it was added.
-* When no message is stored and a user tries to read their reminder, then the user should receive a message that no reminder exists.
+* When no message is stored, and a user tries to read their reminder, then the user should receive a message that no reminder exists.
 * When a user uploads a new reminder it should replace the old one.
-* Anyone should be allowed to query for the total number of reminders that have been stored.
+* Anyone should be allowed to query for the total number of stored reminders.
 * When the contract is first initialized we want the maximum size (in bytes) of a reminder to be set. If a user tries to upload a reminder larger than this size, then they should receive an error message.
 
 Now let's create a skeleton for the message types that will support this functionality in `msg.rs`:
@@ -136,10 +144,9 @@ pub enum HandleAnswer {
 pub enum QueryAnswer {
     // add QueryMsg response types here
 }
-
 ```
 
-Since there is only one type of `InitMsg` we can simply define that as a struct. In contrast, there might be multiple kinds of `HandleMsg` and `QueryMsg` types in our contract, so for clarity we will organize those into enums of structs as shown in the following table. This is not a requirement, however. You can simply define your message and response types individually as differently-named structs in your `msg.rs` code. For the response from `init` we will not define a specific type in this contract, but rather use a default response. However, there is nothing to prevent you from creating your own custom responses to `init` if you want.
+Since there is only one type of `InitMsg` we can define it as a struct. In contrast, there might be multiple kinds of `HandleMsg` and `QueryMsg` types in our contract, so for clarity we will organize those into enums of structs as shown in the following table. This is not a requirement, however, you can simply define your message and response types individually as differently-named structs in your `msg.rs` code. For the response from `init` we will not define a specific type in this contract, but rather use a default response. However, there is nothing to prevent you from creating your own custom responses to `init` if you want.
 
 | Functions | Messages     | Responses                     |
 |-----------|--------------|-------------------------------|
@@ -213,23 +220,29 @@ pub enum QueryAnswer {
 }
 ```
 
-Sometimes an incoming message or a response will have an optional field. Those are defined with Rust `Option` types. The Secret Contract SDK will include those fields as needed in the response to the client automatically. In our `Read` response we define `reminder` and `timestamp` using an `Option` type, because it is possible that there is no reminder for the user.
+Sometimes incoming messages, or a responses, will have an optional field. Those are defined with Rust `Option` types. The Secret Contract SDK will include those fields as needed in the response to the client automatically. In our `Read` response we define `reminder` and `timestamp` using an `Option` type, because it is possible that there is no reminder for the user.
 
 ### A note about data types between the client and contract
 
-A message is, in fact, received by the contract as an encrypted and then Base64-encoded version of the JSON stringify'd version of the original message (i.e., Javascript object) defined in the client code. This transformation is transparent to you as a Secret Contract developer, but awareness of this process is important because of how it affects data types. Your contract will create a schema document for each message type if you add `derive(JsonSchema)` macro to your message definitions. But you might still need to do some additional value checking and type casting in your contract code depending on the context.
+Messages are recieved by contracts as encrypted and then Base64-encoded versions of the JSON stringify'd version of the original messages (i.e., Javascript object) defined in the client code. This transformation is transparent to you as a Secret Contract developer, but awareness of this process is important because of how it affects data types. Your contract will create a schema document for each message type if you add the `derive(JsonSchema)` macro to your message definitions, but you might still need to do some additional value checking and type casting in your contract code depending on the context.
 
-In addition, number values in Javascript are limited in range. The maximum safe integer value in Javascript falls somewhere between maximum `i32` and `i64` values in Rust. Therefore, 128-bit integers, for example, need to be sent from the client as string values. Because 128-bit numbers are commonly used in contracts to represent currency values (e.g. $\mu$SCRT), the Cosmos SDK (which Secret Network is built on) has a pre-defined type `Uint128`. A message type with a `Uint128` field will expect a string from the incoming JSON, which is further validated to be a correct representation of 128-bit unsigned integer value. In order, to use the `Uint128` field value in your contract code, e.g., to put it in contract storage, you will then need to convert it to a Rust `u128` type.
+In addition, number values in Javascript are limited in range. The maximum safe integer value in Javascript falls somewhere between maximum `i32` and `i64` values in Rust. Therefore, 128-bit integers, for example, need to be sent from the client as string values because 128-bit numbers are commonly used in contracts to represent currency values (e.g. $\mu$SCRT), the Cosmos SDK (which Secret Network is built on) has a pre-defined type `Uint128`. 
 
-Likewise, a message type that has a `HumanAddr` or `CanonicalAddr` as a field value will also be sent from the client using string values.
+A message type with a `Uint128` field will expect a string from the incoming JSON, which is validated to be a correct representation of a 128-bit unsigned integer value. In order, to use the `Uint128` field value in your contract code, e.g., to put it in contract storage, you will then need to convert it to a Rust `u128` type.
+
+Likewise, a message type with `HumanAddr` or `CanonicalAddr` as a field values will also be sent from the client using string values.
 
 ## Secret Contract storage
 
-Now we are going to define how we want to model our contract's state in the contract storage. We will put that code in `src/state.rs`. Once we have completed that we will wire everything together in our `init`, `handle`, and `query` functions in `src/contract.rs` and we will have a fully working Secret Contract.
+Now we are going to define how we want to model our contract in the contract storage. We will put that code in `src/state.rs`. Once we have completed that we need to make everything work together in our `init`, `handle`, and `query` functions in `src/contract.rs`, then we will have a fully working Secret Contract!
 
-Conceptually, storage for a Secret Contract is quite simple. It is a key-value store on the chain where each unit of data is identified by a unique key and the value of the data is a serialized representation of some data structure in Rust. Storage is encrypted and only the contract has access to its own storage.
+Conceptually, storage for a Secret Contract is quite simple. It is a key-value store on the chain where each unit of data is identified by a unique key and the value of the data is a serialized representation of some data structure in Rust. Storage is encrypted, and only the contract has access to its own storage.
 
-For our contract we need to store two types of information: 1) general state information for the contract and 2) the reminder messages for each user. Add the following code in `src/state.rs`:
+For our contract we need to store two types of information: 
+    1) General state information for the contract 
+    2) The reminder messages for each user 
+    
+Add the following code in `src/state.rs`:
 
 ```rust
 use std::{any::type_name};
@@ -253,11 +266,11 @@ pub struct Reminder {
 }
 ```
 
-First, we define a `static` unique key to point to our `State` struct and give it the value `b"config"`. Note, we will also need unique key values for each `Reminder`, but we will wait to create those in our `handle` function using the address of the sender. Next, we define our `State` struct, which keeps track of the `max_size` of the reminder messages along with a running count of the number of users and total reminders recorded. A `Reminder` consists of the reminder `content` (as a vector of bytes) and the timestamp when it was recorded.
+First, we define a `static` unique key to point to our `State` struct and give it the value `b"config"`. Note, we will also need unique key values for each `Reminder`, but we will wait to create those in our `handle` function using the address of the sender. Next, we define our `State` struct, which keeps track of the `max_size` of the reminder messages along with a running count of the number of users and total reminders recorded. A `Reminder` consists of the reminder `content` (as a vector of bytes), and the timestamp when it was recorded.
 
-You can serialize your data on storage in any way you want. It is recommended that you use `bincode2` serialization from the [Secret Contract Development Toolkit](https://github.com/scrtlabs/secret-toolkit) if you do not want numbers and `Option` types encoded on the chain at variable lengths. Other types of serialization, such as json encode numbers as strings, so different values can have different byte lengths in storage. That can lead to data leakage if information can be discerned due to that difference (see [here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/WALKTHROUGH.md#staters) and [here](https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html#api-calls-2) for more detailed information).
+You can serialize your data on storage in any way you want. We recommend you use `bincode2` serialization from the [Secret Contract Development Toolkit](https://github.com/scrtlabs/secret-toolkit) if you do not want numbers and `Option` types encoded on the chain at variable lengths. Other types of serialization, such as json encode numbers as strings, so different values can have different byte lengths in storage, which can lead to data leakage if information is discerned due to that difference (see [here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/WALKTHROUGH.md#staters) and [here](https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html#api-calls-2) for more detailed information).
 
-The toolkit is not automatically added in the Secret Contract template, so add the following line to the end of the `Cargo.toml` file in the root directory of your project:
+The toolkit is not automatically added in the Secret Contract template, so add the following line to the end of the `Cargo.toml` (underneath [dev-dependencies] file in the root directory of your project:
 
 ```toml
 secret-toolkit = { git = "https://github.com/scrtlabs/secret-toolkit" }
@@ -266,8 +279,10 @@ secret-toolkit = { git = "https://github.com/scrtlabs/secret-toolkit" }
 We now define three helper functions in `state.rs` to read and write data to storage using bincode2 <sup id="a2">[2](#f2)</sup>:
 
 * `save` will serialize a struct using `bincode2` and write it to storage using the storage `set()` method.
-* `load` will retrieve the data from storage using the `get()` method, deserialize it, and returns a `StdResult` with the data. If the key is not found a "not found" `StdError` is returned. Using the `?` operator in the calling function will cause the error to be sent back up as the response.
-* `may_load` is an alternative implementation of `load` that returns an `Option` form of the result. If the key is not found, `Ok(None)` is returned. This version is more convenient if you want to customize error reporting when the data is not found.
+* `load` will retrieve the data from storage using the `get()` method, deserialize it, and returns a `StdResult` with the data. If the key is not found, a "not found" `StdError` is returned. Using the `?` operator in the calling function will cause the error to be sent back up as the response.
+* `may_load` is an alternative implementation of `load` returning an `Option` form of the result. If the key is not found, `Ok(None)` is returned. This version is more convenient if you want to customize error reporting when the data is not found.
+
+Add the following code to the end of the state.rs file: 
 
 ```rust
 pub fn save<T: Serialize, S: Storage>(storage: &mut S, key: &[u8], value: &T) -> StdResult<()> {
@@ -297,20 +312,7 @@ Now we are ready to fill in our three contract functions in `contract.rs`: `init
 
 ### `init` function
 
-In `state.rs` we have said that `max_size` will be stored as a `u16` type, which means that highest maximum reminder size that we can set is 65535 bytes. If the `i32` value for `max_size` sent in `InitMsg` is outside of those bounds we need to throw an error. We can create a helper function to test that:
-
-```rust
-// limit the max message size to values in 1..65535
-fn valid_max_size(val: i32) -> Option<u16> {
-    if val < 1 {
-        None
-    } else {
-        u16::try_from(val).ok()
-    }
-}
-```
-
-In `init` add the following, which will cause our `init` function to return a `StdError` with an informative error message to the client if `max_size` is out of bounds. (Note, we have changed `env` to `_env` because we will not use it in our `init` function and the Rust compiler will emit a warning otherwise):
+In `state.rs` we have said that `max_size` will be stored as a `u16` type, which means that highest maximum reminder size is 65535 bytes. If the `i32` value for `max_size` sent in `InitMsg` is outside of those bounds we need to throw an error. We can create a helper function to test that by adding the following cose, which will cause our `init` function to return a `StdError` with an informative error message to the client if `max_size` is out of bounds: 
 
 ```rust
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -326,6 +328,8 @@ pub fn init<S: Storage, A: Api, Q: Querier>(
 
     ...
 ```
+
+Note: We changed `env` to `_env` because we will not use it in our `init` function, and the Rust compiler will emit a warning otherwise.
 
 If no error is returned, we create a new instantiation for the `State` struct that initializes `reminder_count` to 0. Then we call the `save` function to send it to storage, and finally return a default `InitResponse` to the client. Add the following to the end of your `init` function:
 
@@ -398,7 +402,7 @@ fn try_record<S: Storage, A: Api, Q: Querier>(
         status = String::from("Reminder recorded!");
     }
 
-    // Return a HandleResponse with the appropriate status message included in the data field
+    // return a HandleResponse with the appropriate status message included in the data field
     Ok(HandleResponse {
         messages: vec![],
         log: vec![],
@@ -413,11 +417,11 @@ First thing we do is define a String that will hold our `status` message and con
 
 If the incoming reminder is an acceptable length, then we need to store the new reminder and its timestamp using a key derived from the current sender's address. Once that is done we increment the `reminder_count`. To get the address we use `deps.api.canonical_address` method and pass it the current sender from `env`. The result is stored in `sender_address`. We construct a `Reminder` struct and set the `content` to a `vec<u8>` representation of the reminder byte slice and the current block time, also from `env`. Keys in storage are byte sequences, so to use `sender_address` as a key we need to call `.as_slice().to_vec()`. We use `save` to write the new `Reminder` at this key. Finally, we update the config by incrementing `reminder_count`, overwrite it in storage, and set the `status` message.
 
-The return value of our function is a `StdResult<HandleResponse>`. The `msg` field in `HandleResponse` is a vector of `CosmosMsg`s which are actions that are taken after execution, and `log` is a vector of logging attributes as key-value pairs. For this contract we do not need those, and can simply return empty vectors for those two fields. We want to send our `HandleAnswer::Record` response back to the client in binary-encoded form so we pass it through the `to_binary` Cosmos SDK function.
+The return value of our function is a `StdResult<HandleResponse>`. The `msg` field in `HandleResponse` is a vector of `CosmosMsg`s which are actions taken after execution, and `log` is a vector of logging attributes as key-value pairs. For this contract we do not need those, and can simply return empty vectors for those two fields. We want to send our `HandleAnswer::Record` response back to the client in binary-encoded form so we pass it through the `to_binary` Cosmos SDK function.
 
 #### `try_read`
 
-The logic for handling a read function uses many of the same components. One difference from previous code is that we use the `may_load` function to read the `Reminder` from storage. This allows us to the handle situation where a sender tries to read a reminder and none exists on storage. We can send a message to that effect in `status` without sending an error message.
+The logic for handling a read function uses many of the same components. One difference from previous code is that we use the `may_load` function to read the `Reminder` from storage. This allows us to handle situations where a sender tries to read a reminder and none exists on storage. We can send a message in `status` without sending an error message.
 
 ```rust
 fn try_read<S: Storage, A: Api, Q: Querier>(
@@ -481,7 +485,7 @@ You now have a working reminder Secret Contract! The completed contract code can
 
 ## Next steps
 
-Unlike a normal web service, there is no mechanism for a Secret Contract to repeatedly push information through an open socket connection in response to a handle or query message. Instead, if you want to support that behavior, then you must develop a pull mechanism where the client makes repeated executions of the contract. However, as our contract currently implements the functionality of reading a reminder as a handle execution that would very quickly cost the user a lot of `SCRT` due to gas fees! The solution is to create a private viewing key that allows a user to see their own reminder using a query instead of a handle message. In the next tutorial we will show how that can be done in the context of a simple React application.
+Unlike a normal web service, there is no mechanism for a Secret Contract to repeatedly push information through an open socket connection in response to a handle or query message. Instead, if you want to support that behavior, then you must develop a pull mechanism where the client makes repeated executions of the contract. However, as our contract currently implements the functionality of reading a reminder as a handle execution that would very quickly cost the user a lot of `SCRT` due to gas fees! The solution is to create a private viewing key allowing a user to see their own reminder using a query instead of a handle message. In the next tutorial we will show how that can be done in the context of a simple React application.
 
 ## Notes
 
