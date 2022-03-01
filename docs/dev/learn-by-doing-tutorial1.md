@@ -30,11 +30,7 @@ cargo build
 
 In addition to everything we need to compile a contract, this template includes sample code for the simple counter contract. We are going to remove that in order to start from scratch. **Go into the `src` directory and empty the contents of the following three files `contract.rs`, `msg.rs`, and `state.rs`.** Do NOT remove or edit `lib.rs`.
 
-You will also need to delete the `Cargo.lock` file, and replace the contents of the `Cargo.toml` file with the contents of the `Cargo.toml` file found [HERE](https://github.com/darwinzer0/secret-contract-tutorials/blob/main/tutorial1/code/Cargo.toml). This will ensure that you are able to successfully compile the project at the end of this tutorial by running:
-
-```bash 
-cargo build
-```  
+You will also need to delete the `Cargo.lock` file, and replace the contents of the `Cargo.toml` file with the contents of the `Cargo.toml` file found [HERE](https://github.com/darwinzer0/secret-contract-tutorials/blob/main/tutorial1/code/Cargo.toml). This will ensure that you are able to successfully compile the project at the end.
 
 ## Secret Contract functions
 
