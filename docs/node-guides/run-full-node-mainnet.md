@@ -28,6 +28,7 @@ This document details how to join the Secret Network `secret-4` mainnet as a ful
 ## Installation
 
 ### 0. Step up SGX on your local machine
+
 See instructions for [setup](setup-sgx.md) and [verification](verify-sgx.md). See [registration](registration.md) if you'd like a more comprehensive overview on what's happening in these steps.
 
 ### 1. Download the Secret Network package installer for Debian/Ubuntu:
@@ -43,11 +44,13 @@ echo "1a51d3d9324979ef9a1f56023e458023488b4583bf4587abeed2d1f389aea947 secretnet
 ### 2. Install the package:
 
 Note: if you are upgrading from v1.2.0, it may say secret-node is downgrading to version 0. Ignore it.
+
 ```bash
 sudo dpkg -i secretnetwork_v1.2.2_mainnet_amd64.deb
 ```
 
 Verify the installation by doing:
+
 ```bash
 secretd version
 ```
@@ -90,11 +93,13 @@ cd ~
 You can choose between two ways, **8a (automatic)** or **8b (manual)**:
 
 **Note:** if this machine has been registered before, and have the following files:
+
 ```bash
 /home/user/.sgx_secrets/
 ├── consensus_seed.sealed
 └── new_node_seed_exchange_keypair.sealed
 ```
+
 you can move them to `/opt/secret/.sgx_secrets` and skip to **[step 16](#16-add-persistent-peers-to-your-configuration-file)** (if not working, try registering anyway).
 
 ### 8a. Initialize secret enclave - Automatic Registration (EXPERIMENTAL)
@@ -133,7 +138,7 @@ mkdir -p /opt/secret/.sgx_secrets/
 Make sure SGX is running or this step might fail.
 
 ```bash
-secretd init-enclave 
+secretd init-enclave
 ```
 
 ### 9. Check that initialization was successful
@@ -180,7 +185,7 @@ This will output your address, a 45 character-string starting with `secret1...`.
 Run this step on the CLI machine. If you're using a different CLI machine than the full node, copy `/opt/secret/.sgx_secrets/attestation_cert.der` from the full node to the CLI machine.
 
 ```bash
-secretcli tx register auth </opt/secret/.sgx_secrets/attestation_cert.der> --from $INSERT_YOUR_KEY_NAME
+secretcli tx register auth /opt/secret/.sgx_secrets/attestation_cert.der --from <key-alias>
 ```
 
 ### 13. Pull & check your node's encrypted seed from the network
@@ -188,7 +193,7 @@ secretcli tx register auth </opt/secret/.sgx_secrets/attestation_cert.der> --fro
 Run this step on the CLI machine.
 
 ```bash
-SEED=$(secretcli query register seed <PUBLIC_KEY> | cut -c 3-)
+SEED=$(secretcli query register seed $PUBLIC_KEY | cut -c 3-)
 echo $SEED
 ```
 
@@ -211,7 +216,7 @@ From here on, run commands on the full node again.
 
 ```bash
 mkdir -p ~/.secretd/.node
-secretd configure-secret node-master-cert.der <SEED>
+secretd configure-secret node-master-cert.der $SEED
 ```
 
 ### 16. Add persistent peers and seeds to your configuration file.
@@ -233,6 +238,7 @@ perl -i -pe 's/laddr = .+?26657"/laddr = "tcp:\/\/0.0.0.0:26657"/' ~/.secretd/co
 ```
 
 ### 18. Enable `secret-node` as a system service:
+
 Note that the `secret-node` system file is created in a previous step.
 
 ```bash
@@ -271,7 +277,7 @@ You are now a full node. :tada:
 
 ### 21. Optimization
 
-In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your 
+In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your
 SGX memory enclave cache:
 
 ```bash
@@ -302,4 +308,4 @@ secretcli config node tcp://<your-public-ip>:26657
 
 ### 23. Optional: make your full node into a validator
 
-To turn your full node into a validator, see [Joining Mainnet as a Validator](join-validator-mainnet.md). 
+To turn your full node into a validator, see [Joining Mainnet as a Validator](join-validator-mainnet.md).
