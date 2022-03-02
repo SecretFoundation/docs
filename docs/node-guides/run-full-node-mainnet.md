@@ -185,7 +185,7 @@ This will output your address, a 45 character-string starting with `secret1...`.
 Run this step on the CLI machine. If you're using a different CLI machine than the full node, copy `/opt/secret/.sgx_secrets/attestation_cert.der` from the full node to the CLI machine.
 
 ```bash
-secretcli tx register auth /opt/secret/.sgx_secrets/attestation_cert.der --from <key-alias>
+secretcli tx register auth /opt/secret/.sgx_secrets/attestation_cert.der -y --from <key-alias>
 ```
 
 ### 13. Pull & check your node's encrypted seed from the network
