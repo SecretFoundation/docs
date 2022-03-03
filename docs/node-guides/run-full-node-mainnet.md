@@ -162,7 +162,7 @@ echo $PUBLIC_KEY
 
 The steps using `secretcli` can be run on any machine, they don't need to be on the full node itself. We'll refer to the machine where you are using `secretcli` as the "CLI machine" below.
 
-To run the steps with `secretcli` on another machine, [set up the CLI](../contract%20developers/cli.md) there.
+To run the steps with `secretcli` on another machine, [set up the CLI](../cli/install-cli.md) there.
 
 Configure `secretcli`. Initially you'll be using the bootstrap node, as you'll need to connect to a running node and your own node is not running yet.
 

@@ -9,7 +9,7 @@
 
 Note - The home directory for the CLI is now `~/.secretd` due to recent changes in the Cosmos SDK. More info can be found [HERE](https://github.com/scrtlabs/SupernovaDocs/blob/master/app%20developers/cli.md)
 
-3) Configure:
+3. Configure:
 
    ```bash
    secretcli config chain-id secret-4
@@ -18,10 +18,11 @@ Note - The home directory for the CLI is now `~/.secretd` due to recent changes 
    ```
 
    There are two options for getting your own secret node:
+
    1. [Rent or use a free-tier node from figment](https://figment.io/datahub/secret-network/)
    2. [Set up your own node](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)
 
-4) Check the installation:
+4. Check the installation:
 
    ```bash
    secretcli status
