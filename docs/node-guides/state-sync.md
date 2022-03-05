@@ -1,4 +1,4 @@
-# Sync with State-Yync
+# Sync with State-Sync
 
 ## Introduction
 
@@ -8,13 +8,13 @@ This greatly reduces the time required for a validator or sentry to sync with th
 
 By syncing to the network with state-sync, a node can avoid having to go through all the upgrade procedures and can sync with the most recent binary only.
 
-:warning: For nodes that are intended to serve data for dapps, explorers or any other RPC requiring full history, state-syncing to the network would not be appropriate.
+:warning: NOTE: For nodes that are intended to serve data for dapps, explorers or any other RPC requiring full history, state-syncing to the network would not be appropriate.
 
 ## Mainnet State Sync
 
 Lavender.Five Nodes and SecretNFT is operating and maintaining the snapshot RPCs.
 
-:note: This documentation assumes you have followed the instructions for [Running a Full Node](run-full-node-mainnet.md). In addition, it requires you to either have a fully sync'd node already, or someone who can provide the ~/.secretd/.compute/ dir.
+**NOTE: This documentation assumes you have followed the instructions for [Running a Full Node](run-full-node-mainnet.md). In addition, it requires you to either have a fully sync'd node already, or someone who can provide the ~/.secretd/.compute/ dir.**
 
 The state-sync configuration is as follows:
 
