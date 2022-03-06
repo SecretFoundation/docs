@@ -52,7 +52,7 @@ systemctl restart secret-node
 1. Set `SNAP_RPC` variable to the Lavender.Five snapshot RPC
 
 ```bash
-SNAP_RPC="http://155.138.198.97:26657/"
+SNAP_RPC="http://155.138.198.97:26657"
 ```
 
 2. Fetch the `LATEST_HEIGHT` from the snapshot RPC, set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by subtracting the snapshot-interval from the `LATEST_HEIGHT`.
@@ -78,7 +78,7 @@ echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://155.138.198.97:26657/,http://45.63.94.236:26657/\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://155.138.198.97:26657,http://45.63.94.236:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.toml
