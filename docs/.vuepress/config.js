@@ -150,6 +150,10 @@ module.exports = {
                 path: "/node-guides/join-validator-mainnet",
               },
               {
+                title: "Sync with State Sync",
+                path: "/node-guides/state-sync",
+              },
+              {
                 title: "Migrate a Validator",
                 path: "/node-guides/migrate-a-validator",
               },
