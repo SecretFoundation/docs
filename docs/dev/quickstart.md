@@ -195,10 +195,9 @@ Auto-generate msg schemas (when changed):
 cargo schema
 ```
 
-
 ### Deploy smart contract to our local testnet
 
-Before deploying or storing the contract on a testnet, you need to run the [Secret Contract optimizer](https://hub.docker.com/r/enigmampc/secret-contract-optimizer).
+Before deploying or storing the contract on a testnet, you need to run the [Secret Contract optimizer](https://hub.docker.com/r/enigmampc/secret-contract-optimizer). The Secret Contract optimizer produces an optimized 'contract.wasm.gz' file that's ready to be stored on the Secret Network. 
 
 #### Optimize compiled wasm
 
@@ -208,7 +207,7 @@ docker run --rm -v "$(pwd)":/contract \
   --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
   enigmampc/secret-contract-optimizer  
 ```
-The contract wasm needs to be optimized to get a smaller footprint. Cosmwasm notes state the contract would be too large for the blockchain unless optimized. This example contract.wasm is 1.8M before optimizing, 90K after.
+The contract wasm needs to be optimized to get a smaller footprint. Cosmwasm notes state the contract would be too large for the blockchain unless optimized. This example contract.wasm is 1.8M before optimizing, and 90K after.
 
 This creates a zip of two files:
 - contract.wasm
@@ -216,8 +215,10 @@ This creates a zip of two files:
 
 #### Store the smart contract
 
+Now that the Secret contract is optimized and ready to deploy to the Secret Netowrk. We need to start up our local development network mounted with our projects contract: 
+
 ```bash
-# First lets start it up again, this time mounting our project's code inside the container.
+# When starting up our local development container we need to mount our project's code inside the container
 docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1337:1337 \
  -v $(pwd):/root/code \
@@ -227,12 +228,16 @@ docker run -it --rm \
 Upload the optimized contract.wasm.gz:
 
 ```bash
+# First enter into the docker container
 docker exec -it secretdev /bin/bash
 
+# Move into the 'code' folder containing the optimized contract.wasm.gz file
 cd code
 
+# Upload the contract.wasm.gz file to the network
 secretd tx compute store contract.wasm.gz --from a --gas 1000000 -y --keyring-backend test
 ```
+After uploading the optimized contract code with the final command, there should be an output containing the txhash associated with the successful upload of the Secret Contract to the network. 
 
 #### Querying the smart contract and code
 
