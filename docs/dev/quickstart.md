@@ -150,15 +150,19 @@ Cargo.toml	Importing.md	NOTICE		README.md	rustfmt.toml	src
 
 ### Compile
 
-Use the following command to compile the smart contract which produces the wasm contract file.
+In order to run unit tests, integration tests, and deploy Secret Contracts the contracts need to be compiled first into wasm contracts. 
+
+Use the following command to compile the smart contract which produces the wasm contract file:
 
 ```bash
 cargo wasm
 ```
 
-### Unit tests 
+### Unit tests
 
 #### Run unit tests
+
+After creating unit tests for each testable operation within a Secret Contract are written, they are run using:
 
 ```bash
 RUST_BACKTRACE=1 cargo unit-test
@@ -166,11 +170,20 @@ RUST_BACKTRACE=1 cargo unit-test
 
 #### Integration tests
 
-The integration tests are under the `tests/` directory and run as:
+Integration testing for Secret Contracts is needed for testing all combined contract modules as a group after unit testing is complete. The integration tests are under the `tests/` directory and run as:
 
 ```bash
 cargo integration-test
 ```
+The output should be: 
+
+```bash 
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+```
+
+***NOTE***: As you learn more about developing Secret Contracts you will discover it's easy to convert unit tests to integration tests. Further instructions about how to convert unit tests to integration tests are within the mysimplecounter/tests/integration.rs file. 
 
 #### Generate msg schemas
 
