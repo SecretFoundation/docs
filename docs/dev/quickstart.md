@@ -259,39 +259,60 @@ secretd query compute list-code
 
 ### Instantiate the smart contract
 
-At this point the contract's been uploaded and stored on the testnet, but there's no "instance."
+At this point the contract's uploaded and stored on the testnet, but there's no "instance".
 
-This is like `discovery migrate` which handles both the deploying and creation of the contract instance, except in Cosmos the deploy-execute process consists of 3 steps rather than 2 in Ethereum. You can read more about the logic behind this decision, and other comparisons to Solidity, in the [cosmwasm documentation](https://www.cosmwasm.com/docs/getting-started/smart-contracts). These steps are:
+This is like `discovery migrate` during the Cosmos deploy-execute process which handles both the deploying and creation of the contract instance. This process consists of 3 steps rather than 2 for Ethereum smart contracts. You can read more about the logic behind this decision, and other comparisons to Solidity, in the [cosmwasm documentation](https://www.cosmwasm.com/docs/getting-started/smart-contracts). 
 
-1. Upload Code - Upload some optimized wasm code, no state nor contract address (example Standard ERC20 contract)
+The 3 steps for deploying Secret Contract are:
+
+1. Upload Code - Upload optimized wasm code, no state nor contract address (example Standard ERC20 contract)
 2. Instantiate Contract - Instantiate a code reference with some initial state, creates new address (example set token name, max issuance, etc for my ERC20 token)
 3. Execute Contract - This may support many different calls, but they are all unprivileged usage of a previously instantiated contract; depends on the contract design (example: send ERC20 token, grant approval to other contract)
 
-To create an instance of this project we must also provide some JSON input data, a starting count.
+To create an instance for our project you must also create a starting count by providing JSON input data. Execute the following code in the same location using to upload the contract.wasm.gz file to the network insid of the docker container (/root/code): 
 
 ```bash
 INIT='{"count": 100000000}'
 CODE_ID=1
 secretd tx compute instantiate $CODE_ID "$INIT" --from a --label "my counter" -y --keyring-backend test
 ```
+After instantiating the contract, it will produce an output that includes the txhash of the instantiation. 
 
-With the contract now initialized, we can find its address
+With the contract now initialized, we can find its address with: 
+
 ```bash
 secretd query compute list-contract-by-code 1
 ```
-Our instance is secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg
+Our instance is secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg, and the code id is 1.
 
-We can query the contract state
+We can query the contract state with: 
+
 ```bash
 CONTRACT=secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg
 
 secretd query compute query $CONTRACT '{"get_count": {}}'
 ```
 
-And we can increment our counter
+This will produce an output with the count data, which will be {"count": 100000000}. 
+
+We can increment our counter by interacting directly with our Secret Contract by: 
+
 ```bash
 secretd tx compute execute $CONTRACT '{"increment": {}}' --from a --keyring-backend test
 ```
+
+After executing this code, you will see some information outputs about the request to increment the counter contract and will be asked to 'confirm transaction before signing and broadcasting [y/N]:'. Type 'y' and hit enter, and you will get the txhash of the increment counter interaction. 
+
+Now query the contract state again to see the incremented count value of the deployed 'my counter' contract: 
+
+```bash
+secretd query compute query $CONTRACT '{"get_count": {}}'
+```
+You should see an output with the count incremented by 1 --> {"count":100000001}.
+
+The increment value of our contract is always going to be equal to 1. 
+
+Try increasing the increment value to increase by 5 (or your number of choice) each time increment is executed by the contract. This will require you to edit the contract.rs 'try_increment' function, and go through the 3 steps required to deploy a Secret Contract to the local development again. 
 
 ### Deploy to the pulsar testnet
 
