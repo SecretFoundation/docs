@@ -46,6 +46,15 @@ docker run -it --rm \
 
 **NOTE**: The _secretdev_ docker container can be stopped by CTRL+C
 
+If the following error occurs "Got permission denied while trying to connect to the Docker daemon", prefix the docker command to start the SecretNetwork Docker container with `sudo` priveledges:
+
+```bash
+sudo docker run -it --rm \
+ -p 26657:26657 -p 26656:26656 -p 1337:1337 \
+ --name secretdev enigmampc/secret-network-sw-dev
+```
+**NOTE**: `sudo docker run` priveledges will only need to be given once to run the SecretNetwork docker container normally i.e without `sudo` privledges. 
+
 ![](../images/images/docker-run.png)
 
 At this point you're running a local SecretNetwork full-node. Let's connect to the container so we can view and manage the secret keys:
