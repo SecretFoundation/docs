@@ -14,7 +14,7 @@ By syncing to the network with state-sync, a node can avoid having to go through
 
 Lavender.Five Nodes and SecretNFT is operating and maintaining the snapshot RPCs.
 
-**NOTE: This documentation assumes you have followed the instructions for [Running a Full Node](run-full-node-mainnet.md). In addition, it requires you to either have a fully sync'd node already, or someone who can provide the ~/.secretd/.compute/ dir.**
+**NOTE: This documentation assumes you have followed the instructions for [Running a Full Node](run-full-node-mainnet.md).**
 
 The state-sync configuration is as follows:
 
@@ -45,7 +45,11 @@ cp -r ~/.secretd/.compute/ .
 systemctl restart secret-node
 ```
 
-4. Copy the .compute directory to the node being state sync'd, and place it in ~/.secretd/
+4. Download the .compute directory to the node being state sync'd, and place it in ~/.secretd/. 
+```
+cd ~/.secretd/
+wget https://github.com/scrtlabs/mainnet-.compute/archive/refs/heads/master.tar.gz
+```
 
 ### On The Node To Be State-Sync'd
 
