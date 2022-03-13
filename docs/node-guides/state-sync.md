@@ -45,10 +45,10 @@ cp -r ~/.secretd/.compute/ .
 systemctl restart secret-node
 ```
 
-4. Download the .compute directory to the node being state sync'd, and place it in ~/.secretd/. 
+4. Download the `.compute` directory to the node being state sync'd, and extract it in `~/.secretd/.compute` 
 ```
 cd ~/.secretd/
-wget https://github.com/scrtlabs/mainnet-.compute/archive/refs/heads/master.tar.gz
+wget -O - https://github.com/scrtlabs/mainnet-.compute/archive/refs/heads/master.tar.gz | tar --strip-components=1 -xz
 ```
 
 ### On The Node To Be State-Sync'd
