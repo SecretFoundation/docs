@@ -318,33 +318,35 @@ Try increasing the increment value to increase by 5 (or your number of choice) e
 
 Pulsar-2 is the testnet you will use to deploy your contract, follow these steps:
 
-1. Install and configure the Secret Network Light Client
-2. Get some SCRT from the faucet
+1. [Install and configure the Secret Network Light Client](https://github.com/scrtlabs/SecretNetwork/releases/tag/v1.2.5)
+2. [Get some SCRT from the faucet](https://faucet.secrettestnet.io/)
 3. Store the Secret Contract on Pulsar-2
 4. Instantiate your Secret Contract
 
 #### Install and configure the Secret Network Light Client
 
-If you don't have the latest `secretd`, using these [steps](https://github.com/scrtlabs/SecretNetwork/blob/master/docs/testnet/install_cli.md) to download the CLI and add its location to your PATH.
+If you don't have the latest `secretd`, using these [steps](https://github.com/scrtlabs/SecretNetwork/blob/master/docs/testnet/install_cli.md) to download the CLI and add its location to your PATH. 
+
+***NOTE***: At this time the Secret Network Light Client is not availible for Macs. 
 
 Before deploying your contract make sure it's configured to point to an existing RPC node. You can also use the testnet bootstrap node. Set the `chain-id` to `pulsar-2`. Below we've also got a config setting to point to the `test` keyring backend which allows you to interact with the testnet and your contract without providing an account password each time.
 
 ```bash
-secretd config node https://rpc.pulsar.griptapejs.com:443
+secretcli config node https://rpc.pulsar.griptapejs.com:443
 
-secretd config chain-id pulsar-2
+secretcli config chain-id pulsar-2
 
-secretd config keyring-backend test
+secretcli config keyring-backend test
 ```
 
-*NOTE*: To reset your `keyring-backend`, use `secretd config keyring-backend os`.
+*NOTE*: To reset your `keyring-backend`, use `secretcli config keyring-backend os`.
 
 #### Get some SCRT from the faucet
 
 Create a key for the Pulsar-2 testnet that you'll use to get SCRT from the faucet, store and instantiate the contract, and other testnet transactions.
 
 ```bash
-secretd keys add <your account alias>
+secretcli keys add <your account alias>
 ```
 
 This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from 
@@ -353,13 +355,13 @@ This will output your address, a 45 character-string starting with `secret1...`.
 To get your Secret address use: 
 
 ```bash
-secretd keys show -a <key-alias>
+secretcli keys show -a <key-alias>
 ```
 
 Continue when you have confirmed your account has some SCRT in it. To confirm the correct Secret address is funded use the following code: 
 
 ```bash
-secretd query bank balances <your account address>
+secretcli query bank balances <your account address>
 ```
 
 Note: The Secret faucet should fund your testnet account with ~100000000 uscrt. If you query for your account balance before the network has sent and synced the funds sent to your Secret address you will see "balances":[] — please wait for faucet tx to complete. 
@@ -370,26 +372,28 @@ Note: The Secret faucet should fund your testnet account with ~100000000 uscrt. 
 Next, upload the compiled, optimized contract to the testnet.
 
 ```bash
-secretd tx compute store contract.wasm.gz --from <key-alias> --gas 10000000 --gas-prices=1.0uscrt
+secretcli tx compute store contract.wasm.gz --from <key-alias> --gas 10000000 --gas-prices=1.0uscrt
 ```
 
-The result is a transaction hash (txhash). Query it to see the `code_id` in the logs, which you'll use to create an instance of the contract.
+You will be prompted to sign the transaction for uploading the optomized contract. The result is a transaction hash (txhash). Query it to see the `code_id` in the logs; which you'll use to create an instance of the contract.
 
 ```bash
-secretd query tx <txhash>
+secretcli query tx <txhash>
 ```
 
 #### Instantiate your Secret Contract
 
-To create an instance of your contract on Pulsar-2 set the `CODE_ID` value below to the `code_id` you got by querying the txhash.
+To create an instance of your contract on Pulsar-2 set the `CODE_ID` value below to the `code_id` you got by querying the txhash. You will find the `code_id` in the logs section under events/attributes in your query.  
 
 ```bash
 INIT='{"count": 100000000}'
 CODE_ID=<code_id>
-secretd tx compute instantiate $CODE_ID "$INIT" --from <your account alias> --label "my simple counter" -y
+secretcli tx compute instantiate $CODE_ID "$INIT" --from <your account alias> --label "my simple counter <unique identifier>" -y
 ```
 
-You can use the testnet explorer [Transactions](https://secretnodes.com/secret/chains/pulsar-2) tab to view the contract instantiation.
+***NOTE***: A unique label for the contract will need to be made for the contract to be instantiated. If the label is not unique you will get the following error: "Error: label already exists. You must choose a unique label for your contract instance".
+
+You can use the testnet explorer [Transactions](https://secretnodes.com/secret/chains/pulsar-2) tab to view the transaction details of the contract instantiation by copy and pasting the tx for the contract instantiation into the exlorer. 
 
 ## Secret Contracts 101
 
