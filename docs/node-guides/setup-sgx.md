@@ -36,7 +36,7 @@ Copy of raw script.
 ```bash
 #! /bin/bash
 
-sudo apt-get update && sudo apt upgrade -y 
+sudo apt-get update && sudo apt upgrade -y
 sudo apt-get install make build-essential gcc git jq chrony -y
 
 UBUNTUVERSION=$(lsb_release -r -s | cut -d '.' -f 1)
@@ -107,7 +107,7 @@ if (($UBUNTUVERSION > 18)); then
    sudo apt install -y gdebi
    # Install all the additional necessary dependencies (besides the driver and the SDK)
    # for building a rust enclave
-   wget -O /tmp/libprotobuf30_3.19.4-1_amd64.deb http://ftp.br.debian.org/debian/pool/main/p/protobuf/libprotobuf30_3.19.4-1_amd64.deb
+   wget -O /tmp/libprotobuf30_3.19.4-1_amd64.deb https://engfilestorage.blob.core.windows.net/filestorage/libprotobuf30_3.19.4-1_amd64.deb
    yes | sudo gdebi /tmp/libprotobuf30_3.19.4-1_amd64.deb
 else
    PSW_PACKAGES+=' libprotobuf-dev'
@@ -158,6 +158,6 @@ sudo apt purge -y libsgx-enclave-common libsgx-enclave-common-dev libsgx-urts sg
 
 ##### Contributers
 
-* [FreshSCRT](https://secretnodes.com/secret/chains/secret-3/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
-* [secretnodes](https://secretnodes.com/secret/chains/secret-3/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
-* [Lavender.Five](https://secretnodes.com/secret/chains/secret-3/validators/84BC2C72491187FAB144F628166E10D592786616)
+- [FreshSCRT](https://secretnodes.com/secret/chains/secret-3/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
+- [secretnodes](https://secretnodes.com/secret/chains/secret-3/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
+- [Lavender.Five](https://secretnodes.com/secret/chains/secret-3/validators/84BC2C72491187FAB144F628166E10D592786616)
