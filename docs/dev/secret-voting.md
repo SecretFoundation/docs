@@ -13,6 +13,18 @@ git clone https://github.com/CosmWasm/cosmwasm-js.git
 cd cosmwasm-js
 ./scripts/wasmd/start.sh
 ```
+Verify the Docker container is working with: 
+
+```sh
+docker stats
+```
+You should see a da container with the name 'wasmd'. 
+
+This will start the wasmd docker container. Run the following command to stop the container within the root of the wasmd directory: 
+
+```sh
+./stop.sh
+```
 
 A faucet to provide initial tokens ([see README](https://github.com/CosmWasm/cosmwasm-js/tree/master/packages/faucet)):
 
@@ -20,6 +32,15 @@ A faucet to provide initial tokens ([see README](https://github.com/CosmWasm/cos
 cd cosmwasm-js
 cd packages/faucet
 yarn dev-start
+```
+
+Note: If you are getting the following error 'The remote archive doesn't match the expected checksum' while attempting to start the faucet, then use the following commands in the root directory of coswasm-js: 
+
+```sh
+yarn cache clean --all
+YARN_CHECKSUM_BEHAVIOR=update yarn
+yarn install
+yarn build
 ```
 
 ## Available Scripts
