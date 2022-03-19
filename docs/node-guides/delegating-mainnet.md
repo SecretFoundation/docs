@@ -3,11 +3,9 @@ title: 'Delegating (CLI)'
 ---
 # Delegating (CLI)
 
-## Delegate to a Validator
-
 On mainnet, you can delegate `uscrt` to a validator. These delegators can receive part of the validator's fee revenue. Read more about the [Cosmos Token Model](https://github.com/cosmos/cosmos/raw/master/Cosmos_Token_Model.pdf).
 
-### Query Validators
+## Query Validators
 
 You can query the list of all validators of a specific chain:
 
@@ -21,7 +19,7 @@ If you want to get the information of a single validator you can check it with:
 secretcli q staking validator <validator-address>
 ```
 
-### Bond Tokens
+## Bond Tokens
 
 On the Secret Network mainnet, we delegate `uscrt`, where `1scrt = 1000000uscrt`. Here's how you can bond tokens to a validator (_i.e._ delegate):
 
@@ -51,7 +49,7 @@ where `<key-alias>` is the name of the key you specified when you initialized `s
 
 While tokens are bonded, they are pooled with all the other bonded tokens in the network. Validators and delegators obtain a percentage of shares that equal their stake in this pool.
 
-### Withdraw Rewards
+## Withdraw Rewards
 
 To withdraw the delegator rewards:
 
@@ -59,7 +57,7 @@ To withdraw the delegator rewards:
 secretcli tx distribution withdraw-rewards <validator-operator-address> --from <key-alias>
 ```
 
-### Query Delegations
+## Query Delegations
 
 Once you've submitted a delegation to a validator, you can see it's information by using the following command:
 
@@ -81,7 +79,7 @@ Or if you want to check all your current delegations with distinct validators:
 secretcli q staking delegations <delegator-address>
 ```
 
-### Unbond Tokens
+## Unbond Tokens
 
 ::: danger Please Note
 There currently is in place a _21_ days unbonding rule, during which no rewards are handed out.
@@ -100,7 +98,7 @@ secretcli tx staking unbond \
 
 The unbonding will be automatically completed when the unbonding period has passed.
 
-### Query Unbonding-Delegations
+## Query Unbonding-Delegations
 
 Once you begin an unbonding-delegation, you can see it's information by using the following command:
 
@@ -120,7 +118,7 @@ Additionally, you can get all the unbonding-delegations from a particular valida
 secretcli q staking unbonding-delegations-from <validator-operator-address>
 ```
 
-### Redelegate Tokens
+## Redelegate Tokens
 
 A redelegation is a type delegation that allows you to bond illiquid tokens from one validator to another:
 
@@ -137,7 +135,7 @@ Here you can also redelegate a specific `shares-amount` or a `shares-fraction` w
 
 The redelegation will be automatically completed when the unbonding period has passed.
 
-### Query Redelegations
+## Query Redelegations
 
 Once you begin an redelegation, you can see it's information by using the following command:
 
@@ -157,7 +155,7 @@ Additionally, you can get all the outgoing redelegations from a particular valid
   secretcli q staking redelegations-from <validator-operator-address>
 ```
 
-### Query Parameters
+## Query Parameters
 
 Parameters define high level settings for staking. You can get the current values by using:
 
@@ -193,7 +191,7 @@ $ secretcli q staking params
 
 All these values will be subject to updates though a `governance` process by `ParameterChange` proposals.
 
-### Query Pool
+## Query Pool
 
 A staking `Pool` defines the dynamic parameters of the current state. You can query them with the following command:
 
@@ -208,7 +206,7 @@ With the `pool` command you will get the values for:
 - Current annual inflation and the block in which the last inflation was processed
 - Last recorded bonded shares
 
-### Query Delegations To Validator
+## Query Delegations To Validator
 
 You can also query all of the delegations to a particular validator:
 
