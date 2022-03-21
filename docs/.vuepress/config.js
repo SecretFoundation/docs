@@ -21,6 +21,10 @@ module.exports = {
         sidebarDepth: 1, // optional, defaults to 1
         children: [
           {
+            title: "Home",
+            path: "/",
+          },
+          {
             title: "Overview",
             path: "/overview",
           },
@@ -77,26 +81,26 @@ module.exports = {
             path: "/dev/privacy-model-of-secret-contracts.md",
           },
           {
-            title: "Development Guide",
+            title: "Developing Secret Contracts",
             path: "/dev/developing-secret-contracts.md",
           },
           {
-            title: "Quickstart",
+            title: "Secret Contracts Quickstart",
             path: "/dev/quickstart.md",
+          },
+          {
+            title: "Secret Tutorials",
+            path: "/dev/tutorials.md",
           },
           {
             title: "SecretJS",
             path: "/dev/secret-js",
           },
-          {
-            title: "Tutorials",
-            path: "/dev/tutorials.md",
-          },
         ],
       },
       {
         title: "Secret CLI", // required
-        path: "/cli/secretcli", // optional, link of the title, which should be an absolute path and must exist
+        // path: "/cli/install-cli", // optional, link of the title, which should be an absolute path and must exist
         collapsable: true, // optional, defaults to true
         sidebarDepth: 1, // optional, defaults to 1
         children: [
@@ -105,7 +109,7 @@ module.exports = {
             path: "/cli/install-cli",
           },
           {
-            title: "Secret CLI",
+            title: "Using Secret CLI",
             path: "/cli/secretcli",
           },
           {
@@ -117,7 +121,7 @@ module.exports = {
       {
         title: "Node Operators", // requireds
         collapsable: true, // optional, defaults to true
-        path: "/node-guides/run-full-node-mainnet", // optional, link of the title, which should be an absolute path and must exist
+        // path: "/node-guides/secret-nodes", // optional, link of the title, which should be an absolute path and must exist
         sidebarDepth: 1, // optional, defaults to 1
         children: [
           {
@@ -125,6 +129,10 @@ module.exports = {
             path: "/node-guides/secret-nodes",
             sidebarDepth: 1,
             children: [
+              {
+                title: "Introduction",
+                path: "/node-guides/secret-nodes",
+              },
               {
                 title: "Hardware Compliance",
                 path: "/node-guides/hardware-compliance",
@@ -140,6 +148,10 @@ module.exports = {
               {
                 title: "Run Full Node",
                 path: "/node-guides/run-full-node-mainnet",
+              },
+              {
+                title: "Run a LCD Server",
+                path: "/node-guides/lcd-server-example",
               },
               {
                 title: "Basic Security",
@@ -184,10 +196,10 @@ module.exports = {
                 title: "Prune Everything Nodes",
                 path: "/node-guides/prune-everything",
               },
-              {
-                title: "Active Node Peers",
-                //path: '/node-guides/active-node-peers'
-              },
+              // {
+              //   title: "Active Node Peers",
+              //   //path: '/node-guides/active-node-peers'
+              // },
               {
                 title: "Quick Sync",
                 path: "/node-guides/quick-sync",
@@ -212,7 +224,7 @@ module.exports = {
           },
           {
             title: "Backup", // required
-            path: "/", // optional, link of the title, which should be an absolute path and must exist
+            path: "/backup/backup-a-validator", // optional, link of the title, which should be an absolute path and must exist
             collapsable: true, // optional, defaults to true
             sidebarDepth: 1, // optional, defaults to 1
             children: [
@@ -235,11 +247,12 @@ module.exports = {
             ],
           },
           {
-            title: "Delegators",
+            title: "Delegating (CLI)",
             path: "/node-guides/delegating-mainnet",
           },
           {
             title: "Testnet",
+            path: "/testnet/install_cli",
             sidebarDepth: 1,
             collapsable: true, // optional, defaults to trues
             children: [
@@ -284,10 +297,11 @@ module.exports = {
       },
       {
         title: "Protocol", // required
-        path: "/protocol/intro", // optional, link of the title, which should be an absolute path and must exist
+        // path: "/protocol/intro", // optional, link of the title, which should be an absolute path and must exist
         collapsable: true, // optional, defaults to true
-        sidebarDepth: 0, // optional, defaults to 1
+        sidebarDepth: 1, // optional, defaults to 1
         children: [
+          "/protocol/intro",
           "/protocol/components",
           "/protocol/encryption-specs",
           "/protocol/transactions",

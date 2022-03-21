@@ -1,4 +1,4 @@
-# Validators
+# Node Operators
 
 Secret Network is secured by a coordinated group of validators (current maximum: 50) using a Byzantine fault tolerant delegated proof-of-stake consensus engine, [Tendermint](https://tendermint.com). These validators stake their own SCRT coins and coins from delegators in order to earn rewards by successfully running the protocol, verifying transactions, and proposing blocks to the chain. If they fail to maintain a consistent and honest node, they will be slashed and coins will be deducted from their account.
 

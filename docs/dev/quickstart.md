@@ -1,8 +1,8 @@
-# Secret contracts quickstart
+# Secret Contracts Quickstart
 
 Get up and running on Secret Network with a local docker environment, as well as testnet (Pulsar-2), to start working with Secret Contracts.
 
-To learn more about Secret Contracts, please visit our [documentation page](https://docs.scrt.network/dev/secret-contracts.html).
+To learn more, please visit [Secret Contracts](./secret-contracts.md).
 
 <details>
   <summary>Topics covered on this page</summary>

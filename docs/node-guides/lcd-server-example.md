@@ -1,3 +1,5 @@
+# How to run an LCD server
+
 1. Put this file in `/etc/systemd/system/secret-lcd.service`
 2. Make sure `/usr/local/bin/secretcli` is the right path for secretcli
 3. Make sure ports 80 and 443 are open
