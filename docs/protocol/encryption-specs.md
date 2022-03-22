@@ -39,11 +39,11 @@
   - [Partial storage rollback during contract runtime](#partial-storage-rollback-during-contract-runtime)
   - [Tx outputs can leak data](#tx-outputs-can-leak-data)
 
-# Bootstrap process
+## Bootstrap process
 
 Before the genesis of a new chain, there must be a bootstrap node to generate network-wide secrets to enable the privacy features of Secret Network.
 
-## `consensus_seed`
+### `consensus_seed`
 
 - Create a remote attestation proof that the node's enclave is genuine
 - Generate inside the Enclave a true random 256 bit seed: `consensus_seed`
@@ -60,7 +60,7 @@ seal({
 });
 ```
 
-## Key derivation
+### Key derivation
 
 TODO reasoning
 
@@ -73,7 +73,7 @@ hkdf_salt = 0x000000000000000000024bead8df69990852c202db0e0097c1a12ea637d7e96d;
 
 - Using HKDF-SHA256, `hkdf_salt` and `consensus_seed`, derive the following keys:
 
-### `consensus_seed_exchange_privkey`
+#### `consensus_seed_exchange_privkey`
 
 - `consensus_seed_exchange_privkey`: A curve25519 private key is used to derive encryption keys in order to securely share `consensus_seed` with new nodes in the network
 - From `consensus_seed_exchange_privkey` calculate `consensus_seed_exchange_pubkey`
@@ -89,7 +89,7 @@ consensus_seed_exchange_pubkey = calculate_curve25519_pubkey(
 );
 ```
 
-### `consensus_io_exchange_privkey`
+#### `consensus_io_exchange_privkey`
 
 - `consensus_io_exchange_privkey`: A curve25519 private key is used to derive encryption keys in order to decrypt transaction inputs and encrypt transaction outputs
 - From `consensus_io_exchange_privkey` calculate `consensus_io_exchange_pubkey`
@@ -105,7 +105,7 @@ consensus_io_exchange_pubkey = calculate_curve25519_pubkey(
 );
 ```
 
-### `consensus_state_ikm`
+#### `consensus_state_ikm`
 
 - `consensus_state_ikm`: An input keyring material (IKM) for HKDF-SHA256 is used to derive encryption keys for contract state
 
@@ -116,7 +116,7 @@ consensus_state_ikm = hkdf({
 }); // 256 bits
 ```
 
-### `consensus_callback_secret`
+#### `consensus_callback_secret`
 
 - `consensus_callback_secret`: A curve25519 private key is used to create callback signatures when contracts call other contracts
 
@@ -127,7 +127,7 @@ consensus_state_ikm = hkdf({
 }); // 256 bits
 ```
 
-## Bootstrap process epilogue
+### Bootstrap process epilogue
 
 TODO reasoning
 
@@ -137,15 +137,15 @@ TODO reasoning
   - `consensus_seed_exchange_pubkey`
   - `consensus_io_exchange_pubkey`
 
-# Node startup
+## Node startup
 
 When a full node resumes network participation, it reads `consensus_seed` from `$HOME/.sgx_secrets/consensus_seed.sealed`, and again does [key derivation](#Key-Derivation) as outlined above.
 
-# New node registration
+## New node registration
 
 New nodes want to join the network as full nodes.
 
-## On the new node
+### On the new node
 
 TODO reasoning
 
@@ -159,14 +159,14 @@ TODO reasoning
   - `registration_pubkey`
   - 256 bits true random `nonce`
 
-## On the consensus layer, inside the enclave of every full node
+### On the consensus layer, inside the enclave of every full node
 
 TODO reasoning
 
 - Receive the `secretcli tx register auth` transaction
 - Verify the remote attestation proof that the new node's Enclave is genuine
 
-### `seed_exchange_key`
+#### `seed_exchange_key`
 
 TODO reasoning
 
@@ -192,7 +192,7 @@ seed_exchange_key = hkdf({
 }); // 256 bits
 ```
 
-### Sharing `consensus_seed` with the new node
+#### Sharing `consensus_seed` with the new node
 
 TODO reasoning
 
@@ -208,11 +208,11 @@ encrypted_consensus_seed = aes_128_siv_encrypt({
 return encrypted_consensus_seed;
 ```
 
-## Back on the new node, inside its enclave
+### Back on the new node, inside its enclave
 
 - Receive the `secretcli tx register auth` transaction output (`encrypted_consensus_seed`)
 
-### `seed_exchange_key`
+#### `seed_exchange_key`
 
 TODO reasoning
 
@@ -233,7 +233,7 @@ seed_exchange_key = hkdf({
 }); // 256 bits
 ```
 
-### Decrypting `encrypted_consensus_seed`
+#### Decrypting `encrypted_consensus_seed`
 
 TODO reasoning
 
@@ -255,14 +255,14 @@ seal({
 });
 ```
 
-## New node registration epilogue
+### New node registration epilogue
 
 TODO reasoning
 
 - The new node can now do [key derivation](#key-derivation) to get all the required network-wide secrets for participating in block execution and validation.
 - After a machine/process reboot, the node can go through the [node startup process](#node-startup) again
 
-# Contracts state encryption
+## Contracts state encryption
 
 TODO reasoning
 
@@ -274,7 +274,7 @@ TODO reasoning
   - `contract_key`
 - `ad` (additional data) is used to prevent leaking information about the same value written to the same key at different times
 
-## `contract_key`
+### `contract_key`
 
 - `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`
 - Its purpose is to make sure each contract has a unique unforgeable encryption key
@@ -320,7 +320,7 @@ calculated_contract_key = hmac_sha256({
 assert(calculated_contract_key == expected_contract_key);
 ```
 
-## write_db(field_name, value)
+### write_db(field_name, value)
 
 ```js
 encryption_key = hkdf({
@@ -362,7 +362,7 @@ new_state = concat(ad, new_state_ciphertext);
 internal_write_db(encrypted_field_name, new_state);
 ```
 
-## read_db(field_name)
+### read_db(field_name)
 
 ```js
 encryption_key = hkdf({
@@ -394,7 +394,7 @@ current_state_plaintext = aes_128_siv_decrypt({
 return current_state_plaintext;
 ```
 
-## remove_db(field_name)
+### remove_db(field_name)
 
 Very similar to `read_db`.
 
@@ -412,7 +412,7 @@ encrypted_field_name = aes_128_siv_encrypt({
 internal_remove_db(encrypted_field_name);
 ```
 
-# Transaction encryption
+## Transaction encryption
 
 TODO reasoning
 
@@ -424,9 +424,9 @@ TODO reasoning
   - This is meant to prevent replaying an encrypted input of a legitimate contract to a malicious contract, and asking the malicious contract to decrypt the input      
    - In this attack example the output will still be encrypted with a `tx_encryption_key` that only the original sender knows, but the malicious contract can be written to save the decrypted input to its state, and then via a getter with no access control retrieve the encrypted input
 
-## Input
+### Input
 
-### On the transaction sender
+#### On the transaction sender
 
 ```js
 tx_encryption_ikm = ecdh({
@@ -454,7 +454,7 @@ encrypted_msg = aes_128_siv_encrypt({
 tx_input = concat(ad, encrypted_msg);
 ```
 
-### On the consensus layer, inside the enclave of every full node
+#### On the consensus layer, inside the enclave of every full node
 
 ```js
 nonce = tx_input.slice(0, 32); // 32 bytes
@@ -482,7 +482,7 @@ assert(codeHash == toHexString(sha256(contract_code)));
 msg = codeHashAndMsg.slice(64);
 ```
 
-## Output
+### Output
 
 - The output must be a valid JSON object, as it is passed to multiple mechanisms for final processing:
   - Logs are treated as Tendermint events
@@ -565,7 +565,7 @@ Here is an example output with an error:
   }
   ```
 
-### On the consensus layer, inside the enclave of every full node
+#### On the consensus layer, inside the enclave of every full node
 
 ```js
 // already have from tx_input:
@@ -631,7 +631,7 @@ if (typeof output["err"] == "string") {
 return output;
 ```
 
-### Back on the transaction sender
+#### Back on the transaction sender
 
 - The transaction output is written to the chain
 - Only the wallet with the right `tx_sender_wallet_privkey` can derive `tx_encryption_key`, so for everyone else it will just be encrypted
@@ -654,29 +654,29 @@ aes_128_siv_decrypt({
 
 - For `output["ok"]["messages"][i]["type"] == "Contract"`, `output["ok"]["messages"][i]["msg"]` will be decrypted in [this](#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1) manner by the consensus layer when it handles the contract callback
 
-# Blockchain upgrades
+## Blockchain upgrades
 
 TODO
 
-# Theoretical attacks
+## Theoretical attacks
 
 TODO add more
 
-## Deanonymizing with ciphertext byte count
+### Deanonymizing with ciphertext byte count
 
 No encryption padding, so a value of e.g. "yes" or "no" can be deanonymized by its byte count.
 
-## Two contracts with the same `contract_key` could deanonymize each other's states
+### Two contracts with the same `contract_key` could deanonymize each other's states
 
 If an attacker creates a contract with the same `contract_key` as another contract, the state of the original contract can potentially be deanonymized.
 
 For example, an original contract with a permissioned getter, such that only whitelisted addresses can query the getter. In the malicious contract, the attacker can set themselves as the owner and decrypt the state of the original contract using a permissioned getter.
 
-## Tx replay attacks
+### Tx replay attacks
 
 After a contract runs on the chain, an attacker can sync up a node up to a specific block in the chain, and then call into the enclave with the same authenticated user inputs given to the enclave on-chain, but out-of-order, or omit selected messages. A contract not anticipating or protecting against this might end up de-anonymizing the information provided by users. For example, in a naive voting contract (or other personal data collection algorithm), we can de-anonymize a voter by re-running the vote without the target's request, and analyze the difference in final results.
 
-## More advanced tx replay attacks -- search to decision for millionaire's problem
+### More advanced tx replay attacks -- search to decision for millionaire's problem
 
 This attack provides a specific example of a tx replay attack extracting the full information of a client based on replaying a tx.
 
@@ -687,10 +687,10 @@ The naive solution to this is requiring the node to successfully broadcast the d
 
 Note: You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX.
 
-## Partial storage rollback during contract runtime
+### Partial storage rollback during contract runtime
 
 Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage. BUT we can not (yet) verify that the value is the most recent value that was stored there. This means a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this causes a contract to expose old secrets with new permissions, or new secrets with old permissions. The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
 
-## Tx outputs can leak data
+### Tx outputs can leak data
 
 For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. Also applies with deposits, callbacks and transfers.

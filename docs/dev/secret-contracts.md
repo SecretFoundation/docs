@@ -67,7 +67,7 @@ apt install build-essential
 cargo install cargo-generate --features vendored-openssl
 ```
 
-### Create Your First Secret Contract
+## Create Your First Secret Contract
 
 1. Generate initial project
 2. Compile Secret Contract
@@ -76,7 +76,7 @@ cargo install cargo-generate --features vendored-openssl
 5. Deploy Secret Contract to local Secret Network
 6. Instantiate it with contract parameters
 
-#### Generate the Simple Counter Project
+Generate the Simple Counter Project:
 
 ```
 cargo generate --git https://github.com/scrtlabs/secret-template --name mysimplecounter
@@ -101,7 +101,7 @@ As an example Secret Contract, `mysimplecounter`, handles a state keeping track 
 
 The `src` folder contains the following files:
 
-##### `contract.rs` 
+### `contract.rs` 
 
 This file contains functions defining available Secret Contract operations. The functions which all Secret Contracts contain will be: `init`, `handle`, and `query`. 
 
@@ -209,7 +209,7 @@ pub fn query<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-##### `state.rs`
+### `state.rs`
 
 The internal state is defined in this file, by the `State` struct. 
 
@@ -236,7 +236,7 @@ pub fn config_read<S: Storage>(storage: &S) -> ReadonlySingleton<S, State> {
 
 In this example, the state contains an integer `count` and the `owner` of the contract. `owner` is an instance of the [`CanonicalAddr`](https://github.com/scrtlabs/SecretNetwork/blob/master/cosmwasm/packages/std/src/addresses.rs#L56-L88) struct. `Storage` and `CanonicalAddr` are imported from [cosmwasm_std](https://github.com/scrtlabs/SecretNetwork/tree/master/cosmwasm/packages/std).
 
-##### `msg.rs`
+### `msg.rs`
 
 Contract computations are defined as messages. The [JsonSchema](https://docs.rs/schemars/0.8.0/schemars/trait.JsonSchema.html) for these messages is defined in `msg.rs`. 
 
@@ -263,11 +263,11 @@ pub struct CountResponse {
 }
 ```
 
-##### `lib.rs`
+### `lib.rs`
 
 This file is essentially boilerplate you **shouldn't need to modify**. It provides the necessary abstraction to interact with the wasmi VM and compile the contract to wasm.
 
-#### Compile the Secret Contract
+## Compile the Secret Contract
 
 Use the following command to compile the Secret Contract, which produces the wasm contract file.
 
@@ -275,7 +275,7 @@ Use the following command to compile the Secret Contract, which produces the was
 cargo wasm
 ```
 
-#### Run Unit Tests
+## Run Unit Tests
 
 *All tests in this template currently fail unless you have SGX enabled!*
 
@@ -283,7 +283,7 @@ cargo wasm
 RUST_BACKTRACE=1 cargo unit-test
 ```
 
-#### Integration Tests
+## Integration Tests
 
 The integration tests are under the `tests/` directory and run as:
 
@@ -291,7 +291,7 @@ The integration tests are under the `tests/` directory and run as:
 cargo integration-test
 ```
 
-#### Generate Msg Schemas
+## Generate Msg Schemas
 
 We can also generate JSON Schemas that serve as a guide for anyone trying to use the contract, to specify which arguments they need.
 

@@ -1,8 +1,8 @@
-# Secret contracts quickstart
+# Secret Contracts Quickstart
 
 Get up and running on Secret Network with a local docker environment, as well as testnet (Pulsar-2), to start working with Secret Contracts.
 
-To learn more about Secret Contracts, please visit our [documentation page](https://docs.scrt.network/dev/secret-contracts.html).
+To learn more, please visit [Secret Contracts](./secret-contracts.md).
 
 <details>
   <summary>Topics covered on this page</summary>
@@ -326,7 +326,7 @@ Pulsar-2 is the testnet you will use to deploy your contract, follow these steps
 
 #### Install and configure the Secret Network Light Client
 
-If you don't have the latest `secretd`, using these [steps](https://github.com/scrtlabs/SecretNetwork/blob/master/docs/testnet/install_cli.md) to download the CLI and add its location to your PATH. 
+If you don't have the latest `secretd`, using these [steps](https://github.com/SecretFoundation/docs/blob/main/docs/cli/install-cli.md) to download the CLI and add its location to your PATH. 
 
 ***NOTE***: At this time the Secret Network Light Client is not availible for Macs. 
 

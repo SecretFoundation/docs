@@ -2,7 +2,7 @@
 
 References to help build Secret Networks dApps and Secret Contracts are found below, beginning with reference tutorials and code repositories.
 
-To learn more about Secret Contracts, please visit our [documentation page](/dev/secret-contracts.html).
+To learn more, please visit [Secret Contracts](./secret-contracts.md).
 
 To follow a guided walk-through on setting up your development environment, developing a first basic Secret Contract (Simple Secret Counter) and deploying it, please visit our [Quickstart](/dev/quickstart.html) documentation page.
 
@@ -23,7 +23,7 @@ To follow a guided walk-through on setting up your development environment, deve
 
 
 ## Tutorial Developing Your First Secret Contract
-Refer to this [tutorial](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1) from `darwinzer0` about developing a Secret Exploding Message app.
+Refer to this [tutorial](./learn-by-doing-tutorial1.md) from `darwinzer0` about developing a Secret Exploding Message app.
 
 A recommended walkthrough, with practical insights on Secret Contract functions, messages & storage.
 
