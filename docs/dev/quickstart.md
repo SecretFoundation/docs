@@ -53,6 +53,7 @@ sudo docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1337:1337 \
  --name secretdev enigmampc/secret-network-sw-dev
 ```
+
 **NOTE**: `sudo docker run` privileges will only need to be given once to run the SecretNetwork docker container normally i.e without `sudo` privileges. 
 
 ![](../images/images/docker-run.png)
