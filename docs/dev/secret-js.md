@@ -8,7 +8,7 @@ A Secret App is a decentralized application with computational and data privacy.
 - A frontend app built with a JavaScript framework (e.g. ReactJS, VueJS, AngularJS, etc.) connected to the Secret Network using SecretJS
 - SecretJS interacting with a REST API exposed by nodes in the Secret Network. The REST API/HTTPS server is commonly referred to as LCD Server (Light Client Daemon). Usually by connecting SecretJS with a wallet, the wallet handles interactions with the LCD server.
 
-You will need to have the Secret Network CLI installed to complete this set of tutorials. If it's not installed yet, follow the instructions found [HERE](https://build.scrt.network/light-client-mainnet.html)
+You will need to have the Secret Network CLI installed to complete this set of tutorials. If it's not installed yet, follow the instructions found [HERE.](https://build.scrt.network/light-client-mainnet.html)
 
 ## SecretJS Tutorial Set Up 
 
@@ -48,8 +48,71 @@ secretcli config keyring-backend test
 
 If you do not have a mnemonic and public address yet create one using:  
 
-```
+```bash
 secretcli keys add <key-alias>
 ```
 
 After creating an account add funds to the accoutn using the [pulsar-2 faucet.](https://faucet.secrettestnet.io/)
+
+## Connecting to a node 
+
+Now it's time to connect to a pulsar-2 testnet node. Run the following command in the root directory of the SecretJS-Templates folder: 
+
+```
+npm run 1
+```
+
+You will see an output similar to the following: 
+
+```
+ChainId: pulsar-2
+Block height: <block height at time of connection> 
+Successfully connected to Secret Network
+```
+
+The code responsible for connecting with pulsar-2 in SecretJS-Templates/1_connecting_to_node/connect.js is: 
+
+```rust 
+const client = new CosmWasmClient(process.env.SECRET_REST_URL)
+```
+
+## Creating an account 
+
+After successsfuly connecting to the Secret Network using SecretJS, we will now create an account using SecretJS. 
+
+```bash 
+npm run 2
+```
+
+***Note***: If you are getting an "Unexpected response data format" error, it is due to secretJS getting an invalid result 'type'. It is not a bug in secretJS itself, but related to the Cosmos SDK providing a compatible LCD API. The error can be resolved by changing 'cosmos-sdk/Account' to 'cosmos-sdk/BaseAccount' on line 106 within the SecretJS-Templates/node_modules/secretjs/build/restclient.js file. 
+
+```javascript
+if (responseData.result.type !== "cosmos-sdk/BaseAccount")
+```
+
+After running 'npm run 2' there will be an output containing a 12 word mnemonic seed phrase and a public account address. Under the 'account' portion of account creation there will be a series of 'undefined' key:value pairs. 
+
+```
+mnemonic:  exist arrow purpose lift adjust guess gate air nest enough long diagram
+address:  secret18r6f87s6l4xzqgj7ukllsxxsacugkq5mx8sdkw
+account:  {
+  address: undefined,
+  balance: undefined,
+  pubkey: undefined,
+  accountNumber: undefined,
+  sequence: undefined
+}
+undefined
+```
+Now add the new account made with secretJS to the Secret Network CLI using the accounts mnemomic seed phrase, and view all availible keys: 
+
+```bash 
+secretcli keys add --recover <key-alias>
+> Enter your bip39 mnemonic 
+<accounts mnemonic> 
+
+secretcli keys list
+```
+You will now see the newly created Secret Network account made with secretJS in your keys list associated with the key-alias you provided it with. 
+
+
