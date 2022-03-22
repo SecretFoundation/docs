@@ -12,7 +12,6 @@ You will need to have the Secret Network CLI installed to complete this set of t
 
 ## SecretJS Tutorial Set Up 
 
-
 Get started by cloning the [SecretJS Templates](https://github.com/scrtlabs/SecretJS-Templates) repo: 
 
 ```sh 
@@ -52,11 +51,11 @@ If you do not have a mnemonic and public address yet create one using:
 secretcli keys add <key-alias>
 ```
 
-After creating an account add funds to the accoutn using the [pulsar-2 faucet.](https://faucet.secrettestnet.io/)
+After creating an account add funds to the account using the [pulsar-2 faucet.](https://faucet.secrettestnet.io/)
 
 ## Connecting to a node 
 
-Now it's time to connect to a pulsar-2 testnet node. Run the following command in the root directory of the SecretJS-Templates folder: 
+Now it's time to connect to a pulsar-2 test net node. Run the following command in the root directory of the SecretJS-Templates folder: 
 
 ```
 npm run 1
@@ -78,13 +77,13 @@ const client = new CosmWasmClient(process.env.SECRET_REST_URL)
 
 ## Creating an account 
 
-After successsfuly connecting to the Secret Network using SecretJS, we will now create an account using SecretJS. 
+After successfully connecting to the Secret Network using SecretJS, we will now create an account using SecretJS. 
 
 ```bash 
 npm run 2
 ```
 
-***Note***: If you are getting an "Unexpected response data format" error, it is due to secretJS getting an invalid result 'type'. It is not a bug in secretJS itself, but related to the Cosmos SDK providing a compatible LCD API. The error can be resolved by changing 'cosmos-sdk/Account' to 'cosmos-sdk/BaseAccount' on line 106 within the SecretJS-Templates/node_modules/secretjs/build/restclient.js file. 
+***Note***: If you are getting an "Unexpected response data format" error, it is due to SecretJS getting an invalid result 'type'. It is not a bug in SecretJS itself, but related to the Cosmos SDK providing a compatible LCD API. The error can be resolved by changing 'cosmos-sdk/Account' to 'cosmos-sdk/BaseAccount' on line 106 within the SecretJS-Templates/node_modules/secretjs/build/restclient.js file. 
 
 ```javascript
 if (responseData.result.type !== "cosmos-sdk/BaseAccount")
@@ -104,7 +103,7 @@ account:  {
 }
 undefined
 ```
-Now add the new account made with secretJS to the Secret Network CLI using the accounts mnemomic seed phrase, and view all availible keys: 
+Now add the new account made with SecretJS to the Secret Network CLI using the accounts mnemonic seed phrase, and view all available keys: 
 
 ```bash 
 secretcli keys add --recover <key-alias>
@@ -113,6 +112,6 @@ secretcli keys add --recover <key-alias>
 
 secretcli keys list
 ```
-You will now see the newly created Secret Network account made with secretJS in your keys list associated with the key-alias you provided it with. 
+You will now see the newly created Secret Network account made with SecretJS in your keys list associated with the key-alias you provided it with. 
 
 
