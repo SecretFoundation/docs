@@ -175,7 +175,7 @@ const tx = await secretjs.tx.bank.send(
     {
       amount: [{ amount: "1", denom: "uscrt" }],
       fromAddress: wallet.address,
-      toAddress: "<receiver address>", // Set recipient to sender for testing
+      toAddress: "<receiver address>", // put new receiver address here
     },
 ```
 Transfer the tokens and confirm balance of receiver address: 
