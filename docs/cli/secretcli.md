@@ -210,7 +210,7 @@ On a testnet, getting tokens is usually done via a faucet. You can get tokens fo
 After receiving tokens to your address, you can view your account's balance by typing:
 
 ```bash
-secretcli q account <secret-address>
+secretcli query bank balances <secret-address>
 ```
 
 Get your `<secret-address>` using:
@@ -224,7 +224,7 @@ secretcli keys show -a <key-alias>
 You can also supply your address with the following command:
 
 ```bash
-secretcli q account $(secretcli keys show -a <key-alias>)
+secretcli query bank balances $(secretcli keys show -a <key-alias>)
 ```
 
 ::: warning Note
@@ -255,14 +255,14 @@ Innacurrate gas estimates may occur inbetween the end of the simulation and the 
 To view updated balances of origin and destination accounts use:
 
 ```bash
-secretcli q account <secret-address>
-secretcli q account <recipient-address>
+secretcli query bank balances <secret-address>
+secretcli query bank balances <recipient-address>
 ```
 
 You can also check balances at any block using the `--block` flag:
 
 ```bash
-secretcli q account <secret-address> --block=<block_height>
+secretcli query bank balances <secret-address> --block=<block_height>
 ```
 
 You can simulate a transaction without actually broadcasting it by appending the
