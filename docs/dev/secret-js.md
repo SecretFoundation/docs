@@ -27,8 +27,7 @@ The project directory will contain the following structure:
 For this tutorial we will be using the pulsar-2 test network to go through each SecretJS example. To do this we need to update the contents of the .env file to contain the following: 
 
 ```
-SECRET_REST_URL='https://api.pulsar.griptapejs.com/'
-SECRET_RPC_URL='https://rpc.pulsar.griptapejs.com:443'
+SECRET_GRPC_WEB_URL='http://rpc.pulsar.griptapejs.com:9091'
 SECRET_WS_URL='wss://rpc.pulsar.griptapejs.com/websocket'
 SECRET_CHAIN_ID='pulsar-2'
 
@@ -38,7 +37,7 @@ ADDRESS='<YOUR ACCOUNT ADDRESS>'
 You will also need to configure the Secret Network CLI to work with the RPC and Secret chain ID of the .env file: 
 
 ```bash
-secretcli config node https://rpc.pulsar.griptapejs.com:443
+secretcli config node https://pulsar-2.api.trivium.network:26657/
 
 secretcli config chain-id pulsar-2
 
@@ -52,6 +51,12 @@ secretcli keys add <key-alias>
 ```
 
 After creating an account add funds to the account using the [pulsar-2 faucet.](https://faucet.secrettestnet.io/)
+
+Query your account balance to confirm faucet funding: 
+
+```bash 
+secretcli query bank balance <account address>
+```
 
 ## Connecting to a node 
 
@@ -83,35 +88,16 @@ After successfully connecting to the Secret Network using SecretJS, we will now 
 npm run 2
 ```
 
-***Note***: If you are getting an "Unexpected response data format" error, it is due to SecretJS getting an invalid result 'type'. It is not a bug in SecretJS itself, but related to the Cosmos SDK providing a compatible LCD API. The error can be resolved by changing 'cosmos-sdk/Account' to 'cosmos-sdk/BaseAccount' on line 106 within the SecretJS-Templates/node_modules/secretjs/build/restclient.js file. 
+After running 'npm run 2' there will be an output containing a 12 word mnemonic seed phrase, an account address, and SCRT balance (balance will be 0).  
 
-```javascript
-if (responseData.result.type !== "cosmos-sdk/BaseAccount")
-```
-
-After running 'npm run 2' there will be an output containing a 12 word mnemonic seed phrase and a public account address. Under the 'account' portion of account creation there will be a series of 'undefined' key:value pairs. 
-
-```
-mnemonic:  exist arrow purpose lift adjust guess gate air nest enough long diagram
-address:  secret18r6f87s6l4xzqgj7ukllsxxsacugkq5mx8sdkw
-account:  {
-  address: undefined,
-  balance: undefined,
-  pubkey: undefined,
-  accountNumber: undefined,
-  sequence: undefined
-}
-undefined
-```
 Now add the new account made with SecretJS to the Secret Network CLI using the accounts mnemonic seed phrase, and view all available keys: 
 
 ```bash 
-secretcli keys add --recover <key-alias>
+secretcli keys add --recover <key-alias> // set key alias to what ever you want
 > Enter your bip39 mnemonic 
 <accounts mnemonic> 
 
 secretcli keys list
 ```
+
 You will now see the newly created Secret Network account made with SecretJS in your keys list associated with the key-alias you provided it with. 
-
-
