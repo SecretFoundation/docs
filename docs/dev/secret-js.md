@@ -146,8 +146,8 @@ Now we will learn how to transfer tokens using secretJS. We will start by making
 
 To transfer tokens from one wallet to another, or back into the same wallet, there are a few things that need to happen: 
 
-1. A connection must be created to a Secret Network node
-2. The wallet must be passed into the connected node to sign transactions (the wallet is imported into the secretJS template using the mnemonic seed phrase from the .env file)
+1. A wallet must be passed into the connected node to sign transactions (the wallet is imported into the secretJS template using the mnemonic seed phrase from the .env file)
+2. A connection must be created to a Secret Network node
 3. An address must be provided to send tokens to (in this case it will be to the same wallet sending the tokens)
 4. An amount of tokens to send must be provided (we will be sending 1usrct)
 5. A gas fee must be paid for the node to process the token transfer transaction 
