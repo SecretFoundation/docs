@@ -34,20 +34,20 @@ SECRET_CHAIN_ID='pulsar-2'
 MNEMONIC='<YOUR SECRET MNEMONIC>'
 ADDRESS='<YOUR ACCOUNT ADDRESS>'
 ```
-You will also need to configure the Secret Network CLI to work with the RPC and Secret chain ID of the .env file: 
+You will also need to configure the Secret Network CLI to work with the pulsar-2 test network: 
 
 ```bash
 secretcli config node https://pulsar-2.api.trivium.network:26657/
 
 secretcli config chain-id pulsar-2
 
-secretcli config keyring-backend test
+secretcli config keyring-backend 
 ```
 
-If you do not have a mnemonic and public address yet create one using:  
+If you do not have a mnemonic and public address for testing purposes yet create one using:  
 
 ```bash
-secretcli keys add <key-alias>
+secretcli keys add <key-alias> // choose your own alias
 ```
 
 After creating an account add funds to the account using the [pulsar-2 faucet.](https://faucet.secrettestnet.io/)
@@ -90,7 +90,7 @@ npm run 2
 
 After running 'npm run 2' there will be an output containing a 12 word mnemonic seed phrase, an account address, and SCRT balance (balance will be 0).  
 
-Now add the new account made with SecretJS to the Secret Network CLI using the accounts mnemonic seed phrase, and view all available keys: 
+Now add the new account made with SecretJS to the Secret Network CLI keys list using the accounts mnemonic seed phrase: 
 
 ```bash 
 secretcli keys add --recover <key-alias> // set key alias to what ever you want
@@ -101,3 +101,40 @@ secretcli keys list
 ```
 
 You will now see the newly created Secret Network account made with SecretJS in your keys list associated with the key-alias you provided it with. 
+
+## How to query a node 
+
+Querying a node produces information about the Secret Network node such as: node information, latest block, block height, and account information.
+
+To query a node use: 
+
+```bash 
+npm run 3
+```
+By running 'npm run 3' the SecretJS-Template creates a readonly connection to a Secret Network node, and returns node information, latest block, block height, and account information from the account making the query. For example, the returned node information will look similar to the following code snippet where you can find default node information, application version information, and more: 
+
+```javascript
+Node Info: {
+  defaultNodeInfo: {
+    protocolVersion: { p2p: '8', block: '11', app: '0' },
+    defaultNodeId: '63b0dc21d557c97a41fc51095d161c7b069d4946',
+    listenAddr: 'tcp://0.0.0.0:26656',
+    network: 'pulsar-2',
+    version: '0.34.14',
+    channels: Uint8Array(10) [
+      64, 32, 33, 34, 35,
+      48, 56, 96, 97,  0
+    ],
+    moniker: 'testordie3',
+    other: { txIndex: 'on', rpcAddress: 'tcp://0.0.0.0:26657' }
+  },
+  applicationVersion: {
+    name: 'SecretNetwork',
+    appName: 'secretd',
+    version: 'v0.0.0',
+    gitCommit: '',
+    buildTags: 'netgo ledger hw develop',
+    goVersion: 'go version go1.15.15 linux/amd64',
+  
+  ...
+```
