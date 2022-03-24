@@ -155,3 +155,33 @@ To transfer tokens from one wallet to another, or back into the same wallet, the
 ```bash 
 npm run 4
 ```
+After running the command you will see an ouput containing information about the token transfer, including the value of the token transfer (1uscrt) and other information related to the token receiver, spender, sender, recipient, action, and gas used to process the token transfer. 
+
+We are now going to edit the 4_transactions/transfer.js file to send tokens to another address on our key list from the account used in our .env file. 
+
+Get the address of another account (not the account used in the .env file), and take note of that accounts amount of uscrt. 
+
+```bash 
+secretcli keys list
+
+# The account alias is the value assoiciated with the 'name' key returned by the previous command
+
+secretcli query bank balances $(secretcli keys show -a <account alias>) 
+```
+You now have an account address with a known balance to use in the 4_transactions/transfer.js file: 
+
+```javascript
+const tx = await secretjs.tx.bank.send(
+    {
+      amount: [{ amount: "1", denom: "uscrt" }],
+      fromAddress: wallet.address,
+      toAddress: "<receiver address>", // Set recipient to sender for testing
+    },
+```
+Transfer the tokens and confirm balance of receiver address: 
+
+```bash 
+npm run 4
+
+secretcli query bank balances <receiver address>
+```
