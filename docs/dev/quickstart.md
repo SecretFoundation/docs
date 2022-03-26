@@ -326,7 +326,8 @@ Pulsar-2 is the testnet you will use to deploy your contract, follow these steps
 
 #### Install and configure the Secret Network Light Client
 
-If you don't have the latest `secretd`, using these [steps](https://github.com/SecretFoundation/docs/blob/main/docs/cli/install-cli.md) to download the CLI and add its location to your PATH. 
+If you don't have the latest `secretcli`, using these [steps](https://github.com/SecretFoundation/docs/blob/main/docs/cli/install-cli.md) to download the CLI and add its location to your PATH. 
+
 
 ***NOTE***: At this time the Secret Network Light Client is not availible for Macs. 
 
