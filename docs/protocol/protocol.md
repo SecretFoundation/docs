@@ -5,8 +5,6 @@ title: Protocol
 # About the Protocol
 The Secret Network is a blockchain protocol giving developers the ability to use private or sensitive data. Secret Network makes it easy for developers to build new types of solutions (Secret Apps) protecting data privacy while greatly increasing usability. These improvements are critical for achieving mass adoption of privacy-first, decentralized applications.
 
-> This is a high-level overview of how the Secret Network functions. For a more in-depth description, check out our full [documentation](https://docs.scrt.network) for developers and node operators.
-
 ## How Secret Works
 Secret Network offers a platform for building censorship-resistant applications using encrypted data. Rather than letting specific organizations manage private data, Secret relies on a decentralized network of secure processors. Every node operator is equipped with specialized hardware for running code in secure enclaves - also known as Trusted Execution Environments, or TEEs. Nobody, including device administrators, can access the raw information being decrypted and processed within enclaves.
 

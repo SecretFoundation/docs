@@ -1,9 +1,5 @@
 # How to backup Wallets
 
-- [Wallet](#wallet)
-  - [Mnemonics](#mnemonics)
-  - [Export](#export)
-
 ## Mnemonics
 
 When you create a new key, you'll receive the mnemonic phrase that can be used to restore that key. Backup the mnemonic phrase:

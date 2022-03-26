@@ -1,4 +1,4 @@
-# Backup a Full Node
+# Full Node Backup
 
 Why you might want to backup your node ID:
 
@@ -12,12 +12,12 @@ To see the associated public key:
 secretd tendermint show-validator
 ```
 
-# Full Node Private key
+## Full Node Private key
 
 1. Backup `~/.secretd/config/node_key.json`.
 
 
-# Full Node Data
+## Full Node Data
 
 1. Gracefully shut down the node:
 

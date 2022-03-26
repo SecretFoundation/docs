@@ -1,8 +1,6 @@
-﻿# Secret Network Light Client
+﻿# Using Secret CLI
 
-## Secret CLI
-
-`secretcli` is the command-line interface tool for interacting with nodes running on the Secret Network.
+`secretcli` is the Secret Network light client, a command-line interface tool for interacting with nodes running on the Secret Network.
 
 [How to install and use `secretcli`](/cli/install-cli.md).
 
@@ -43,9 +41,9 @@
     - [Multisig Transactions](#multisig-transactions)
   - [Shells Completion Scripts](#shells-completion-scripts)
 
-### Keys
+## Keys
 
-#### Key Types
+### Key Types
 
 There are four types of key representations:
 
@@ -68,7 +66,7 @@ There are four types of key representations:
   - Get this value with `secretd tendermint show-validator`
   - e.g. `secretvalconspub1zcjduepq0ms2738680y72v44tfyqm3c9ppduku8fs6sr73fx7m666sjztznqzp2emf`
 
-#### Generate Keys
+### Generate Keys
 
 You'll need a private account and public key pair \(a.k.a. `sk, pk` respectively)\ to be able to receive funds, send txs, bond txs, etc.
 
@@ -136,7 +134,7 @@ Note: this is the Tendermint signing key, _not_ the operator key you will use in
 We strongly recommend _NOT_ using the same passphrase for multiple keys. The Tendermint team and the Interchain Foundation will not be responsible for the loss of funds.
 :::
 
-#### Generate Multisig Public Keys
+### Generate Multisig Public Keys
 
 You can generate and print a multisig public key by typing:
 
@@ -167,7 +165,7 @@ secretcli keys show --multisig-threshold K name1 name2 name3 [...]
 
 For more information on generating, signing and broadcasting transactions using multiple signatures see [Multisig Transactions](#multisig-transactions).
 
-### Tx Broadcasting
+## Tx Broadcasting
 
 When broadcasting transactions, `secretcli` accepts a `--broadcast-mode` flag. This
 flag can have a value of `sync` (default), `async`, or `block`, where `sync` makes
@@ -180,7 +178,7 @@ included in a block. This can result in many undesirable situations. Therefore, 
 is best to use `sync` or `async` and query by tx hash to determine when the tx
 is included in a block.
 
-### Fees & Gas
+## Fees & Gas
 
 Each transaction supplies fees or gas prices, but never both.
 
@@ -201,13 +199,13 @@ or
 secretcli tx send ... --gas-prices=0.0125uscrt
 ```
 
-### Account
+## Account
 
-#### Get Tokens
+### Get Tokens
 
 On a testnet, getting tokens is usually done via a faucet. You can get tokens for testing purposes using the Secret Network faucet [HERE](https://faucet.secrettestnet.io/)
 
-#### Query Account Balance
+### Query Account Balance
 
 After receiving tokens to your address, you can view your account's balance by typing:
 
@@ -232,7 +230,7 @@ secretcli q account $(secretcli keys show -a <key-alias>)
 ::: warning Note
 When querying an account balance with zero tokens, you will get the error: `No account with address <secret-address> was found in the state.` This can also happen if you fund the account before your node is fully synced. These are both normal.
 
-### Send Tokens
+## Send Tokens
 
 Use the following command to send tokens from one account to another:
 
@@ -309,9 +307,9 @@ You can broadcast the signed transaction to a node by providing the JSON file us
 secretcli tx broadcast --node=<node> signedSendTx.json
 ```
 
-### Query Transactions
+## Query Transactions
 
-#### Matching a Set of Events
+### Matching a Set of Events
 
 Use the transaction search command to query for transactions matching a specific set of `events`, which are added on every transaction.
 
@@ -350,7 +348,7 @@ You can find a list of available `events` on each of the SDK modules:
 - [Bank events](https://github.com/cosmos/cosmos-sdk/blob/master/x/bank/spec/04_events.md)
   :::
 
-#### Matching a Transaction Hash
+### Matching a Transaction Hash
 
 You can query a single transaction by its hash using the following command:
 
@@ -358,9 +356,9 @@ You can query a single transaction by its hash using the following command:
 secretcli q tx [hash]
 ```
 
-### Secret Contracts
+## Secret Contracts
 
-#### Uploading a Secret Contract
+### Uploading a Secret Contract
 
 To upload a contract:
 
@@ -377,7 +375,7 @@ To get the contract's code ID:
 secretcli q tx [hash]
 ```
 
-#### Deploying a Secret Contract
+### Deploying a Secret Contract
 
 ```bash
 secretcli tx compute instantiate $CODE_ID "$INIT_INPUT_MSG" --from mykey --label "$UNIQUE_LABEL"
@@ -389,7 +387,7 @@ To get the contract's address:
 secretcli q tx [hash]
 ```
 
-#### Executing a Secret Contract
+### Executing a Secret Contract
 
 ```bash
 secretcli tx compute execute $CONTRACT_ADDRESS "$EXEC_INPUT_MSG"
@@ -401,26 +399,26 @@ Or:
 secretcli tx compute execute --label "$UNIQUE_LABEL" "$EXEC_INPUT_MSG"
 ```
 
-#### Reading the output of a Secret Contract tx
+### Reading the output of a Secret Contract tx
 
 ```bash
 secretcli q compute tx [hash]
 ```
 
-#### Querying a Secret Contract
+### Querying a Secret Contract
 
 ```bash
 secretcli q compute query $CONTRACT_ADDRESS "$QUERY_INPUT_MSG"
 ```
 
-### Slashing
+## Slashing
 
 ::: tip Note
 You can find slashing related CLI commands under
 [Validators/Slashing](join-validator-mainnet.md#Slashing).
 :::
 
-### Minting
+## Minting
 
 You can query for minting/inflation parameters via:
 
@@ -440,14 +438,14 @@ To query for current annual provisions value:
 secretcli q mint annual-provisions
 ```
 
-### Staking
+## Staking
 
 ::: tip Note
 You can find CLI commands related to delegating under
 [Delegate](https://docs.scrt.network/node-guides/delegating-mainnet.html#delegate-to-a-validator).
 :::
 
-### Nodes
+## Nodes
 
 If you are running a full node or a validator node, view the status by typing:
 
@@ -457,18 +455,18 @@ secretcli status
 
 [How to run a full node on mainnet](https://docs.scrt.network/node-guides/run-full-node-mainnet.html).
 
-### Governance
+## Governance
 
 Governance is the process of Secret Network users coming to consensus
 on software upgrades, parameters of the mainnet or signaling mechanisms through
 text proposals. This is done through voting on proposals, which will be submitted
 by `SCRT` holders on the mainnet.
 
-[How to participate in on-chain governance](../protocol/governance.md).
+[How to participate in on-chain governance](../guides/governance.md).
 
-### Fee Distribution
+## Fee Distribution
 
-#### Query Distribution Parameters
+### Query Distribution Parameters
 
 To check current distribution parameters, run:
 
@@ -476,7 +474,7 @@ To check current distribution parameters, run:
 secretcli q distribution params
 ```
 
-#### Query Distribution Community Pool
+### Query Distribution Community Pool
 
 To query all coins in the community pool under Governance control:
 
@@ -484,7 +482,7 @@ To query all coins in the community pool under Governance control:
 secretcli q distribution community-pool
 ```
 
-#### Query Outstanding Validator rewards
+### Query Outstanding Validator rewards
 
 To check current outstanding (un-withdrawn) rewards, run:
 
@@ -492,7 +490,7 @@ To check current outstanding (un-withdrawn) rewards, run:
 secretcli q distribution validator-outstanding-rewards <validator-address>
 ```
 
-#### Query Validator Commission
+### Query Validator Commission
 
 To check current outstanding commission for a validator, run:
 
@@ -500,7 +498,7 @@ To check current outstanding commission for a validator, run:
 secretcli q distribution commission <validator-operator-address>
 ```
 
-#### Query Validator Slashes
+### Query Validator Slashes
 
 To check historical slashes for a validator, run:
 
@@ -508,7 +506,7 @@ To check historical slashes for a validator, run:
 secretcli q distribution slashes <validator-operator-address> <start-height> <end-height>
 ```
 
-#### Query Delegator Rewards
+### Query Delegator Rewards
 
 To check current rewards for a delegation (were they to be withdrawn), run:
 
@@ -516,7 +514,7 @@ To check current rewards for a delegation (were they to be withdrawn), run:
 secretcli q distribution rewards <delegator-address> <validator-address>
 ```
 
-#### Query All Delegator Rewards
+### Query All Delegator Rewards
 
 To check all current rewards for a delegation (were they to be withdrawn), run:
 
@@ -524,7 +522,7 @@ To check all current rewards for a delegation (were they to be withdrawn), run:
 secretcli q distribution rewards <delegator-address>
 ```
 
-### Multisig Transactions
+## Multisig Transactions
 
 Multisig transactions require signatures of multiple private keys. Generating and signing a transaction from a multisig account involves multiple parties. A multisig transaction is initiated by any key holder, and at least one of them would need to import other parties' public keys into their Keybase and generate a multisig public key to finalize and broadcast the multisig transaction.
 
@@ -609,36 +607,3 @@ The transaction can now be sent to the node:
 ```bash
 secretcli tx broadcast signedTx.json
 ```
-
-## Shells Completion Scripts
-
-Completion scripts for popular UNIX shell interpreters such as `Bash` and `Zsh`
-can be generated through the `completion` command, which is available for both the
-`secretd` and `secretcli`.
-
-If you want to generate `Bash` completion scripts run the following command:
-
-```bash
-secretd completion > secretd_completion
-secretcli completion > secretcli_completion
-```
-
-If you want to generate `Zsh` completion scripts run the following command:
-
-```bash
-secretd completion --zsh > secretd_completion
-secretcli completion --zsh > secretcli_completion
-```
-
-::: tip Note
-On most UNIX systems, such scripts may be loaded in `.bashrc` or
-`.bash_profile` to enable Bash autocompletion:
-
-```bash
-echo '. secretd_completion' >> ~/.bashrc
-echo '. secretcli_completion' >> ~/.bashrc
-```
-
-Refer to the user's manual of your interpreter provided by your
-operating system for information on how to enable shell autocompletion.
-:::

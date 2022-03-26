@@ -1,14 +1,14 @@
-## Post Mortem
+# Testnet Halt 95
 
 - **Chain id:** `enigma-testnet`
 - **Date:** 16/03/2020 3am UTC
 - **Related issues:** https://github.com/scrtlabs/SecretNetwork/issues/95
 
-### Description
+## Description
 
 - On the 15 Mar 2020, around 9pm UTC the following param-change proposal was submitted:
 
-  ```
+  ```json
   {
     "title": "Rwd Change",
     "description": "This is tansaction to test a parameter-change for rewards.",
@@ -46,10 +46,10 @@
 - The problem occurred because the sum of `baseproposerreward` and `bonusproposerreward` can't be grater than 1 i.e. `0.999 + 0.04 > 1`. This results in miscalculations of the rewards and fees.
 - The cause is a bug in Cosmos SDK in the parameter value validation, causing the proposal to pass despite being invalid. More on that here: https://github.com/cosmos/cosmos-sdk/issues/5808
 
-### Additional Notes
+## Additional Notes
 
 - Another invalid proposal was on voting period, and by itself would have caused the network to halt as well:
-  ```
+  ```json
   "changes": [
     {
       "subspace": "distribution",
@@ -59,7 +59,7 @@
   ]
   ```
 
-### Action Items:
+## Action Items
 
 - https://github.com/scrtlabs/SecretNetwork/issues/95
 - https://github.com/scrtlabs/SecretNetwork/issues/97
@@ -73,7 +73,7 @@
    enigmad export --for-zero-height --height=170000 > state_export.json
    ```
 3. Removed all references to proposal ids `4` and `5` in:
-   ```
+   ```json
    "gov":{
        "deposits":[...],
        "proposals":[...],
@@ -82,7 +82,7 @@
    }
    ```
 4. Made sure the `distribution` parameters still make sense:
-   ```
+   ```json
    "distribution":{
        "params":{
                "base_proposer_reward":"0.010000000000000000",
@@ -94,7 +94,7 @@
    }
    ```
 5. Erased the `coins` in possesion of the `gov` ModuleAccount:
-   ```
+   ```json
    "auth":{
        "accounts":[
            {
@@ -109,7 +109,7 @@
    }, ...
    ```
 6. "Refund" coins to the account that deposited to these proposals on the first place i.e. added to account's balance in:
-   ```
+   ```json
    "app_state":{
      "auth":{
         "accounts":[
@@ -129,7 +129,7 @@
 7. A problem occured with staking, described at: https://github.com/cosmos/cosmos-sdk/issues/5818
    Changed the following:
 
-   ```
+   ```json
    "distribution":{
      "delegator_starting_infos":[
        {
@@ -148,7 +148,7 @@
 
    To this:
 
-   ```
+   ```json
    "distribution":{
      "delegator_starting_infos":[
        {
