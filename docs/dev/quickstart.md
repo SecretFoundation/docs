@@ -328,7 +328,6 @@ Pulsar-2 is the testnet you will use to deploy your contract, follow these steps
 
 If you don't have the latest `secretcli`, using these [steps](https://github.com/SecretFoundation/docs/blob/main/docs/cli/install-cli.md) to download the CLI and add its location to your PATH. 
 
-
 ***NOTE***: At this time the Secret Network Light Client is not availible for Macs. 
 
 Before deploying your contract make sure it's configured to point to an existing RPC node. You can also use the testnet bootstrap node. Set the `chain-id` to `pulsar-2`. Below we've also got a config setting to point to the `test` keyring backend which allows you to interact with the testnet and your contract without providing an account password each time.
