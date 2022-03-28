@@ -6,19 +6,19 @@
 
 ## Article 1 - Name
 ### Section 1
-The name of this organization is the Secret Network, hereafter referred to as "Secret Network."
+The name of this organization is the "Secret Network".
 ### Section 2
-The members of Secret Network make up the Secret Network community, hereafter referred to as the 'Secret Agents.”
+The members of Secret Network make up the Secret Network community, and are called "Secret Agents”.
 
 ##Article 2 - Purpose
 ### Section 1
-The purpose of this organization is to improve the adoption and usability of privacy-first products, for the benefit of all.
+Our organizations purpose is to improve the adoption and usability of privacy-first products, for the benefit of all.
 ### Section 2
-The Secret Network provides infrastructure that supports private computation abilities for Secret App developers.
+The Secret Network provides infrastructure supporting private computation abilities for Secret dApp developers.
 
 ## Article 3 - Membership
 ### Section 1
-Members of the Secret Network community include anyone who is participating in the overall ecosystem.
+Members of the Secret Network community include all ecosystem participants.
 ### Section 2
 The benefits and responsibilities of membership are...
 
@@ -39,7 +39,7 @@ How committee members will be selected and removed...
 Additional committees may be formed and dissolved by the organization.
 
 ## Article 6 - Amendments
-How amendments are to be proposed and by whom, and what vote is required to adopt an amendment.
+How amendments are proposed and by whom, and what vote is required to adopt amendments.
 
 ## Article 7 - Ratification
-This constitution shall necessarily be officially established by an on-chain vote conducted by the Secret Network community.
+This constitution will be officially established by an on-chain vote conducted by the Secret Network community.
