@@ -7,7 +7,7 @@ For more information check out the CosmWasm docs [HERE](https://docs.cosmwasm.co
 Before proceeding, we recommend learning about differences between SecretWasm and CosWasm [HERE](#differences-from-cosmwasm).
 
 <details>
-  <summary><b>Table of Contents<b></summary>
+  <summary>Topics covered on this page</summary>
 
 - [Developing Secret Contracts](#developing-secret-contracts)
   - [IDEs](#ides)
@@ -280,7 +280,7 @@ A Secret App is usually comprised of the following components:
 
 Still not implemented in wallets. Can implement a local wallet, but this will probably won't be needed anymore after 2020.
 
-# Differences from CosmWasm
+## Differences from CosmWasm
 
 Secret Contacts are based on CosmWasm v0.10, but in order to preserve privacy, they diverge in functionality in some cases.
 

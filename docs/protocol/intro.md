@@ -16,7 +16,7 @@ As requested by SGX technology, the Secret Network Protocol code is partitioned 
 
 Figure: diagram of Core, trusted and untrusted components
 
-### Trusted Core
+## Trusted Core
 
 - Responsible for executing Secret Contracts.
 - Responsible for SGX-specific mechanisms: Remote Attestation and Sealing (see subsections). The core protocol uses [Rust SGX SDK](https://github.com/apache/incubator-teaclave-sgx-sdk) to call Intel® SGX C++ APIs.
@@ -27,13 +27,13 @@ Figure: diagram of Core, trusted and untrusted components
 During contract execution you can only change the state of the contract you're executing. You can query other contracts (i.e. run code that can't change the state of another contract) synchronously, but you can only queue calls to other contracts and requests for transactions. Those operations will happen after the contract has finished running. This is intentional as it prevents a lot of bugs, like the reentrancy bugs plaguing ethereum.
 :::
 
-### Untrusted Core
+## Untrusted Core
 
 - Responsible for running the Cosmos SDK and Tendermint.
 - Contains code for managing the enclave (load and destroy).
 - Can call the CosmWasm module and kick off Secret Contract execution within the enclave.
 
-### Sealing
+## Sealing
 
 Trusted Execution Environments are essentially stateless. To preserve information that’s stored in an enclave, it must be explicitly sent outside the enclave to untrusted memory. SGX provides a capability called [data sealing](https://software.intel.com/en-us/blogs/2016/05/04/introduction-to-intel-sgx-sealing) which encrypts enclave data in the enclave using an encryption key derived from the CPU. This encrypted data block can only be decrypted, or unsealed, on the same system. This SGX-specific method for storing data is not used to store computation input/output data in the Secret Network. It is used to store the enclave’s signing key.
 

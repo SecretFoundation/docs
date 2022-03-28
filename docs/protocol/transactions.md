@@ -11,7 +11,7 @@
     * If present, callbacks to other contracts.
     * If present, send messages to other modules. 
   
-::: tip note 
+::: tip Note 
 Currently, only transfer funds messages are available.
 :::
     
