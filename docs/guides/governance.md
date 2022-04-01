@@ -17,7 +17,7 @@ For more information about the governance process and how it works, please check
 
 ## Setup
 
-- [How to use a light client (Windows, Mac & Linux)](../light-client-mainnet.md)
+- [Install Secret CLI](../cli/install-cli.md)
 - [Ledger Nano S support](../guides/ledger-nano.md)
 
 ## Create a Governance Proposal
@@ -87,45 +87,52 @@ You can see another `param-change` example here: [enigma-1-proposal-3.json](http
 
 #### Subspaces, Keys and Values
 
-| Subspace       | Key                       | Type             | Example                                                                                                   |
-| -------------- | ------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------- |
-| `auth`         | `MaxMemoCharacters`       | string (uint64)  | `"256"`                                                                                                   |
-| `auth`         | `TxSigLimit`              | string (uint64)  | `"7"`                                                                                                     |
-| `auth`         | `TxSizeCostPerByte`       | string (uint64)  | `"10"`                                                                                                    |
-| `auth`         | `SigVerifyCostED25519`    | string (uint64)  | `"590"`                                                                                                   |
-| `auth`         | `SigVerifyCostSecp256k1`  | string (uint64)  | `"1000"`                                                                                                  |
-| `bank`         | `sendenabled`             | bool             | `true`                                                                                                    |
-| `crisis`       | `ConstantFee`             | object (coin)    | `{"denom": "uscrt", "amount": "1000"}`                                                                    |
-| `distribution` | `communitytax`            | string (dec)     | `"0.020000000000000000"`                                                                                  |
-| `distribution` | `secretfoundationtax`     | string (dec)     | `"0.030000000000000000"`                                                                                  |
-| `distribution` | `secretfoundationaddress` | string           | `"secret164z7wwzv84h4hwn6rvjjkns6j4ht43jv8u9k0c"`                                                         |
-| `distribution` | `baseproposerreward`      | string (dec)     | `"0.010000000000000000"`                                                                                  |
-| `distribution` | `bonusproposerreward`     | string (dec)     | `"0.040000000000000000"`                                                                                  |
-| `distribution` | `withdrawaddrenabled`     | bool             | `true`                                                                                                    |
-| `evidence`     | `MaxEvidenceAge`          | string (time ns) | `"120000000000"`                                                                                          |
-| `gov`          | `depositparams`           | object           | `{"min_deposit": [{"denom": "uscrt", "amount": "10000000"}], "max_deposit_period": "172800000000000"}`    |
-| `gov`          | `votingparams`            | object           | `{"voting_period": "172800000000000"}`                                                                    |
-| `gov`          | `tallyparams`             | object           | `{"quorum": "0.334000000000000000", "threshold": "0.500000000000000000", "veto": "0.334000000000000000"}` |
-| `mint`         | `MintDenom`               | string           | `"uscrt"`                                                                                                 |
-| `mint`         | `InflationRateChange`     | string (dec)     | `"0.080000000000000000"`                                                                                  |
-| `mint`         | `InflationMax`            | string (dec)     | `"0.150000000000000000"`                                                                                  |
-| `mint`         | `InflationMin`            | string (dec)     | `"0.070000000000000000"`                                                                                  |
-| `mint`         | `GoalBonded`              | string (dec)     | `"0.670000000000000000"`                                                                                  |
-| `mint`         | `BlocksPerYear`           | string (uint64)  | `"6311520"`                                                                                               |
-| `slashing`     | `SignedBlocksWindow`      | string (int64)   | `"5000"`                                                                                                  |
-| `slashing`     | `MinSignedPerWindow`      | string (dec)     | `"0.500000000000000000"`                                                                                  |
-| `slashing`     | `DowntimeJailDuration`    | string (time ns) | `"600000000000"`                                                                                          |
-| `slashing`     | `SlashFractionDoubleSign` | string (dec)     | `"0.050000000000000000"`                                                                                  |
-| `slashing`     | `SlashFractionDowntime`   | string (dec)     | `"0.010000000000000000"`                                                                                  |
-| `staking`      | `UnbondingTime`           | string (time ns) | `"259200000000000"`                                                                                       |
-| `staking`      | `MaxValidators`           | uint16           | `100`                                                                                                     |
-| `staking`      | `KeyMaxEntries`           | uint16           | `7`                                                                                                       |
-| `staking`      | `HistoricalEntries`       | uint16           | `3`                                                                                                       |
-| `staking`      | `BondDenom`               | string           | `"uscrt"`                                                                                                 |
+| Subspace       | Key                       | Type              | Example                                                                                                   |
+| -------------- | ------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
+| `auth`         | `MaxMemoCharacters`       | string (uint64)   | `"256"`                                                                                                   |
+| `auth`         | `TxSigLimit`              | string (uint64)   | `"7"`                                                                                                     |
+| `auth`         | `TxSizeCostPerByte`       | string (uint64)   | `"10"`                                                                                                    |
+| `auth`         | `SigVerifyCostED25519`    | string (uint64)   | `"590"`                                                                                                   |
+| `auth`         | `SigVerifyCostSecp256k1`  | string (uint64)   | `"1000"`                                                                                                  |
+| `baseapp`      | `BlockParams`             | object            | `{"max_bytes":"10000000","max_gas":"10000000"}`                                                           |
+| `baseapp`      | `EvidenceParams`          | object            | `{"max_age_num_blocks":"100000","max_age_duration":"172800000000000","max_bytes":"50000"}`                |
+| `baseapp`      | `ValidatorParams`         | object            | `{"pub_key_types":["ed25519"]}`                                                                           |
+| `bank`         | `sendenabled`             | bool              | `true`                                                                                                    |
+| `crisis`       | `ConstantFee`             | object (coin)     | `{"denom": "uscrt", "amount": "1000"}`                                                                    |
+| `distribution` | `communitytax`            | string (dec)      | `"0.020000000000000000"`                                                                                  |
+| `distribution` | `secretfoundationtax`     | string (dec)      | `"0.030000000000000000"`                                                                                  |
+| `distribution` | `secretfoundationaddress` | string            | `"secret164z7wwzv84h4hwn6rvjjkns6j4ht43jv8u9k0c"`                                                         |
+| `distribution` | `baseproposerreward`      | string (dec)      | `"0.010000000000000000"`                                                                                  |
+| `distribution` | `bonusproposerreward`     | string (dec)      | `"0.040000000000000000"`                                                                                  |
+| `distribution` | `withdrawaddrenabled`     | bool              | `true`                                                                                                    |
+| `evidence`     | `MaxEvidenceAge`          | string (time ns)  | `"120000000000"`                                                                                          |
+| `gov`          | `depositparams`           | object            | `{"min_deposit": [{"denom": "uscrt", "amount": "10000000"}], "max_deposit_period": "172800000000000"}`    |
+| `gov`          | `votingparams`            | object            | `{"voting_period": "172800000000000"}`                                                                    |
+| `gov`          | `tallyparams`             | object            | `{"quorum": "0.334000000000000000", "threshold": "0.500000000000000000", "veto": "0.334000000000000000"}` |
+| `mint`         | `MintDenom`               | string            | `"uscrt"`                                                                                                 |
+| `mint`         | `InflationRateChange`     | string (dec)      | `"0.080000000000000000"`                                                                                  |
+| `mint`         | `InflationMax`            | string (dec)      | `"0.150000000000000000"`                                                                                  |
+| `mint`         | `InflationMin`            | string (dec)      | `"0.070000000000000000"`                                                                                  |
+| `mint`         | `GoalBonded`              | string (dec)      | `"0.670000000000000000"`                                                                                  |
+| `mint`         | `BlocksPerYear`           | string (uint64)   | `"6311520"`                                                                                               |
+| `slashing`     | `SignedBlocksWindow`      | string (int64)    | `"5000"`                                                                                                  |
+| `slashing`     | `MinSignedPerWindow`      | string (dec)      | `"0.500000000000000000"`                                                                                  |
+| `slashing`     | `DowntimeJailDuration`    | string (time ns)  | `"600000000000"`                                                                                          |
+| `slashing`     | `SlashFractionDoubleSign` | string (dec)      | `"0.050000000000000000"`                                                                                  |
+| `slashing`     | `SlashFractionDowntime`   | string (dec)      | `"0.010000000000000000"`                                                                                  |
+| `staking`      | `UnbondingTime`           | string (time ns)  | `"259200000000000"`                                                                                       |
+| `staking`      | `MaxValidators`           | uint16            | `100`                                                                                                     |
+| `staking`      | `KeyMaxEntries`           | uint16            | `7`                                                                                                       |
+| `staking`      | `HistoricalEntries`       | uint16            | `3`                                                                                                       |
+| `staking`      | `BondDenom`               | string            | `"uscrt"`                                                                                                 |
+| `ibc`          | `AllowedClients`          | object (string[]) | `["07-tendermint"]`                                                                                       |
+| `ibc`          | `MaxExpectedTimePerBlock` | uint64            | `"30000000000"`                                                                                           |
+| `transfer`     | `SendEnabled`             | bool              | `true`                                                                                                    |
+| `transfer`     | `ReceiveEnabled`          | bool              | `true`                                                                                                    |
 
 Please note:
 
-- The `subspace` is always the `ModuleName`: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/keys.go#L11
+- The `subspace` is usually the `ModuleName`: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/keys.go#L11
 - The `key` is usually defined in `x/$MODULE_NAME/types/params.go`: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L19-L22
 - The `value`'s type is usually near the `key` definition: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L26-L31
 - :warning: `subspace` and `key` are case sensitive and `value` must be of the correct type and within the allowed bounds. Proposals with errors on these inputs should not enter voting period (should not get deposits) or be voted on with `NoWithVeto`.
@@ -154,7 +161,7 @@ Where `proposal.json` is:
   "description": "Spend 10 SCRT with line breaks \n and `code formatting`",
   "recipient": "secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "amount": "100000000uscrt",
-  "deposit":"100000000uscrt"
+  "deposit": "100000000uscrt"
 }
 ```
 

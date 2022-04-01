@@ -13,6 +13,18 @@ git clone https://github.com/CosmWasm/cosmwasm-js.git
 cd cosmwasm-js
 ./scripts/wasmd/start.sh
 ```
+Verify the Docker container is working with: 
+
+```sh
+docker stats
+```
+You should see a Docker container with the name 'wasmd'. 
+
+This will start the wasmd docker container. Run the following command to stop the container within the root of the wasmd directory: 
+
+```sh
+./scripts/wasmd/stop.sh
+```
 
 A faucet to provide initial tokens ([see README](https://github.com/CosmWasm/cosmwasm-js/tree/master/packages/faucet)):
 
@@ -21,10 +33,24 @@ cd cosmwasm-js
 cd packages/faucet
 yarn dev-start
 ```
+Check the status of the faucet: 
+
+```sh
+curl -sS http://localhost:8000/status
+```
+
+Note: If you are getting the following error 'The remote archive doesn't match the expected checksum' while attempting to start the faucet, then use the following commands in the root directory of cosmwasm-js: 
+
+```sh
+yarn cache clean --all
+YARN_CHECKSUM_BEHAVIOR=update yarn
+yarn install
+yarn build
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run (with the faucet running):
 
 ### `node scripts/deploy_voting.js`
 Uploads the contract code and instantiates 2 voting contracts
