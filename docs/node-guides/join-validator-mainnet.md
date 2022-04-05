@@ -78,7 +78,7 @@ ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx do
 
 #### 6. Join the network as a new validator: replace `<MONIKER>` with the moniker you configured in step 3 of [creating a full-node](run-full-node-mainnet.md), and adjust the amount you want to stake
 
-(remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 10 SCRT).
+(remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT).
 
 ```bash
 secretcli tx staking create-validator \
