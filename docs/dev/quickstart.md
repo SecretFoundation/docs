@@ -144,7 +144,7 @@ Cargo.toml	Importing.md	NOTICE		README.md	rustfmt.toml	src
 Use the following command to compile the smart contract which produces the wasm contract file.
 
 ```bash
-cargo wasm
+make build
 ```
 
 ### Unit tests 
@@ -152,7 +152,7 @@ cargo wasm
 #### Run unit tests
 
 ```bash
-RUST_BACKTRACE=1 cargo unit-test
+make unit-test
 ```
 
 #### Integration tests
@@ -160,8 +160,9 @@ RUST_BACKTRACE=1 cargo unit-test
 The integration tests are under the `tests/` directory and run as:
 
 ```bash
-cargo integration-test
+npx ts-node integration.ts
 ```
+Note: Should install Typescript (Using npm).
 
 #### Generate msg schemas
 
