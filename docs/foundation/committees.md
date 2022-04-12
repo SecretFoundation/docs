@@ -1,94 +1,91 @@
----
+The Secret Foundation Committees are---
 title: Secret Committees
 ---
 
 # Secret Foundation Committees
 
-We are collectively exploring ways for Secret Network participants **(Secret Agents)** to better coordinate and collaborate.
-
-This document is a work in progress toward defining the purpose, goals, responsibilities, and initiatives of each and every committee.
+The Secret Foundation Committees are exploring better ways for Secret Network participants **(Secret Agents)** to coordinate and collaborate. This is a living document for defining the purpose, goals, responsibilities, and initiatives of each committee.
 
 ## Devs Committee
 
-::: tip Meetings every Monday at 3pm UTC
-Join here: [https://meet.scrt.network/dev](https://meet.scrt.network/dev)
-:::
+#### Meeting time: Monday at 3pm UTC
 
-### Purpose
-* Engineering a secret source of truth
-### Goals
+Join here: https://meet.scrt.network/dev
+
+### Purpose:
+* Engineering a source of truth for Secret Network developers
+### Goals:
 * Onboarding valuable contributors
-* Building useful secret apps together
-### Responsibilities
+* Helping eachother build useful secret apps together
+### Responsibilities:
 * Improving documentation for developers
-### Initiatives
+### Initiatives:
 * Hackathons
 
 ## Infrastructure Committee
 
-::: tip Meetings every Tuesday at 4pm UTC
-Join here: [https://meet.scrt.network/infrastructure](https://meet.scrt.network/infrastructure)
-:::
+#### Meetings time: Tuesday at 4pm UTC
 
-### Purpose
-* Coordinate research into OEMs and cloud service providers that support SGX
-### Goals
+Join here: https://meet.scrt.network/infrastructure
+
+### Purpose:
+* Coordinate research into OEMs and cloud service providers supporting SGX
+### Goals:
 * Staying up-to-date on hardware issues
-### Responsibilities
+### Responsibilities:
 * Improving documentation for validators
-### Initiatives
+### Initiatives:
 * Gathering a list of compatible hardware solutions
 
 ## Governance Committee
 
-::: tip Meetings every Wednesday at 3pm UTC
-Join here: [https://meet.scrt.network/gov](https://meet.scrt.network/gov)
-:::
+#### Meeting time: Wednesday at 3pm UTC
 
-### Purpose
-* Facilitating coordination of Secret Network participants
-### Goals:
+Join here: https://meet.scrt.network/gov
+
+### Purpose:
+* Coordinating Secret Network stake holders
+### Goals: 
 * Promoting transparent collaboration
-* Inviting everyone to join our community
-* Communicating about proposals, voting, etc.
-### Responsibilities
-* Making decisions cooperatively
-### Initiatives
-* Discussing project updates and governance issues
+* Encouraging everyone to participate in our community
+* Discussing proposals, voting, etc.
+### Responsibilities:
+* Cooperative decision making 
+### Initiatives:
+* Discussing updates and governance issues
 
 ## Education Committee
 
+#### Meeting time: Thursday at 4pm UTC
 
-::: tip Meetings every Thursday at 4pm UTC
-Join here: [https://meet.scrt.network/edu](https://meet.scrt.network/edu)
-:::
+Join here: https://meet.scrt.network/edu
 
-### Purpose
-* Helping anyone understand the importance of programmable privacy
-### Goals
+### Purpose:
+* Helping everyone understand the importance of programmable privacy
+### Goals:
 * Producing relevant and accessible content
 * Clarifying Secret Network and our technologies
 * Advancing privacy as a public good
-### Responsibilities
-* Creating effective content efficiently
-### Initiatives
+### Responsibilities:
+* Efficiently creating engaging content 
+### Initiatives:
 * Secret Foundation Wiki
 
 ## Awareness Committee
 
-::: tip Meetings every Friday at 3pm UTC
-Join here: [https://meet.scrt.network/awareness](https://meet.scrt.network/awareness)
-:::
+#### Meeting time: Friday at 3pm UTC
 
-### Purpose
-* Amplifying our network and our materials in order to drive adoption and community growth
-### Goals
+Join here: https://meet.scrt.network/awareness
+
+### Purpose:
+* Amplifying our community assets to drive adoption and growth of programmable privacy
+### Goals:
 * Increasing brand awareness
 * Identifying important channels and communities
 * Connecting with high-leverage individuals and organizations
-### Responsibilities
+### Responsibilities:
 * Disseminating and amplifying relevant content
-### Initiatives
+### Initiatives:
 * Secret branding
 * Community outreach
 * Supporting Sharing Secrets and other content initiatives
