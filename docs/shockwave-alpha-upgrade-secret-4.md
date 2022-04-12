@@ -89,14 +89,14 @@ For validators we recommmend setting
 - `DAEMON_RESTART_AFTER_UPGRADE=true` for unattended upgrades.
 
 ```bash
-echo "# Setup Cosmovisor" >> ~/.profile
-echo "export DAEMON_NAME=secretd" >> ~/.profile
-echo "export DAEMON_HOME=$HOME/.secretd" >> ~/.profile
-echo "export DAEMON_ALLOW_DOWNLOAD_BINARIES=false" >> ~/.profile
-echo "export DAEMON_LOG_BUFFER_SIZE=512" >> ~/.profile
-echo "export DAEMON_RESTART_AFTER_UPGRADE=true" >> ~/.profile
-echo "export DAEMON_DATA_BACKUP_DIR=$HOME" >> ~/.profile
-echo "export UNSAFE_SKIP_BACKUP=true" >> ~/.profile
+echo "# Setup Cosmovisor
+export DAEMON_NAME=secretd
+export DAEMON_HOME=$HOME/.secretd
+export DAEMON_ALLOW_DOWNLOAD_BINARIES=false
+export DAEMON_LOG_BUFFER_SIZE=512
+export DAEMON_RESTART_AFTER_UPGRADE=true
+export DAEMON_DATA_BACKUP_DIR=$HOME
+export UNSAFE_SKIP_BACKUP=true" >> ~/.profile
 source ~/.profile
 ```
 
@@ -136,7 +136,7 @@ Environment=UNSAFE_SKIP_BACKUP=true
 
 [Install]
 WantedBy=multi-user.target
-" > /etc/systemd/system/secret-node.service
+" | sudo tee /etc/systemd/system/secret-node.service > /dev/null
 ```
 
 Apply the changes and restart the v1.2 node:
