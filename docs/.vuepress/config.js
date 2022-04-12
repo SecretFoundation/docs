@@ -208,6 +208,10 @@ module.exports = {
                 title: "Vulcan Network Upgrade (OLD)",
                 path: "/upgrade-secret-1-to-secret-2",
               },
+              {
+                title: "Shockwave Alpha Network Upgrade",
+                path: "/shockwave-alpha-upgrade-secret-4",
+              },
             ],
           },
           {
