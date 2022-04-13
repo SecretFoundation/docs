@@ -156,7 +156,7 @@ In order to run unit tests, integration tests, and deploy Secret Contracts the c
 Use the following command to compile the smart contract which produces the wasm contract file:
 
 ```bash
-cargo wasm
+make build
 ```
 
 ### Unit tests
@@ -166,7 +166,7 @@ cargo wasm
 After creating unit tests for each testable operation within a Secret Contract are written, they are run using:
 
 ```bash
-RUST_BACKTRACE=1 cargo unit-test
+make unit-test
 ```
 
 #### Integration tests
@@ -174,17 +174,14 @@ RUST_BACKTRACE=1 cargo unit-test
 Integration testing for Secret Contracts is needed for testing all combined contract modules as a group after unit testing is complete. The integration tests are under the `tests/` directory and run as:
 
 ```bash
-cargo integration-test
-```
-The output should be: 
-
-```bash 
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+npx ts-node integration.ts
 ```
 
-***NOTE***: As you learn more about developing Secret Contracts you will discover it's easy to convert unit tests to integration tests. Further instructions about how to convert unit tests to integration tests are within the mysimplecounter/tests/integration.rs file. 
+You can also choose to debug your code by using the following steps (Using vscode):
+1. Press `ctrl+shift+p`
+2. Write `JavaScript Debug Terminal` and press `Enter`
+3. In the new terminal you can run `npx ts-node integration.ts`
+4. Your code will be running in debug mode and will stop on every breakpoint placed.
 
 #### Generate msg schemas
 
