@@ -17,13 +17,7 @@
 
 Cosmovisor is a new process manager for cosmos blockchains. It can make low-downtime upgrades smoother, as validators don't have to manually upgrade binaries during the upgrade, and instead can pre-install new binaries, and Cosmovisor will automatically update them based on on-chain SoftwareUpgrade proposals.
 
-:warning: Cosmovisor is still new and best practices for using it are not yet established. If you don't feel adventurous at this time, we recommend [upgrading the manual way](#upgrading-manually).
-
-The Secret Network blockchain will halt when network reaches the halt height. Cosmovisor, if configured properly, will then switch the binary used to v1.3, and the chain will proceed post upgrade.
-
 You should review the docs for Cosmovisor located here: [https://docs.cosmos.network/master/run-node/cosmovisor.html](https://docs.cosmos.network/master/run-node/cosmovisor.html)
-
-Below are instructions to migrate your v1.2 node to use Cosmovisor, and then set it up for the v1.3 upgrade. This migration is a one-time deal, future upgrades will only require you to copy new binaries into their designated directory.
 
 # Install Cosmovisor
 
