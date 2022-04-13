@@ -212,6 +212,10 @@ module.exports = {
                 title: "Shockwave Alpha Network Upgrade",
                 path: "/shockwave-alpha-upgrade-secret-4",
               },
+              {
+                title: "Setting up a node using Cosmovisor",
+                path: "/cosmovisor",
+              },
             ],
           },
           {
