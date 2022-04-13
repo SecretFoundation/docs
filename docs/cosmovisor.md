@@ -39,15 +39,15 @@ mkdir -p ~/.secretd/cosmovisor/genesis/bin
 # This will make sure to setup cosmovisor on you shell in
 # in case you'll want to run the cosmovisor command manually
 echo "# Setup Secret & Cosmovisor
-export SCRT_ENCLAVE_DIR="$HOME/.secretd/cosmovisor/current/bin"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.secretd/cosmovisor/current/bin"
-export PATH="$PATH:$HOME/.secretd/cosmovisor/current/bin"
+export SCRT_ENCLAVE_DIR="${HOME}/.secretd/cosmovisor/current/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${HOME}/.secretd/cosmovisor/current/bin"
+export PATH="${PATH}:${HOME}/.secretd/cosmovisor/current/bin"
 export DAEMON_NAME=secretd
-export DAEMON_HOME="$HOME"
+export DAEMON_HOME="${HOME}"
 export DAEMON_ALLOW_DOWNLOAD_BINARIES=false
 export DAEMON_LOG_BUFFER_SIZE=512
 export DAEMON_RESTART_AFTER_UPGRADE=true
-export DAEMON_DATA_BACKUP_DIR="$HOME"
+export DAEMON_DATA_BACKUP_DIR="${HOME}"
 export UNSAFE_SKIP_BACKUP=true" >> ~/.profile
 source ~/.profile
 
@@ -59,20 +59,20 @@ After=network.target
 [Service]
 Type=simple
 ExecStart=/bin/cosmovisor run
-User=$USER
+User=${USER}
 Restart=on-failure
 StartLimitInterval=0
 RestartSec=3
 LimitNOFILE=65535
 LimitMEMLOCK=209715200
-Environment=SCRT_ENCLAVE_DIR=$HOME/.secretd/cosmovisor/current/bin
-Environment=LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.secretd/cosmovisor/current/bin
+Environment=SCRT_ENCLAVE_DIR=${HOME}/.secretd/cosmovisor/current/bin
+Environment=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.secretd/cosmovisor/current/bin
 Environment=DAEMON_NAME=secretd
-Environment=DAEMON_HOME=$HOME
+Environment=DAEMON_HOME=${HOME}
 Environment=DAEMON_ALLOW_DOWNLOAD_BINARIES=false
 Environment=DAEMON_LOG_BUFFER_SIZE=512
 Environment=DAEMON_RESTART_AFTER_UPGRADE=true
-Environment=DAEMON_DATA_BACKUP_DIR=$HOME
+Environment=DAEMON_DATA_BACKUP_DIR=${HOME}
 Environment=UNSAFE_SKIP_BACKUP=true
 
 [Install]
