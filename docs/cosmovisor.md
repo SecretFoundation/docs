@@ -110,6 +110,8 @@ $ find ~/.secretd/cosmovisor
 /home/ubuntu/.secretd/cosmovisor/genesis/bin/secretd
 ```
 
+Now you might want to checkout the [How To Join Secret Network as a Full Node](./node-guides/run-full-node-mainnet.md) guide for syncing a node from height 0 or [Sync with State-Sync](./node-guides/state-sync.md) for syncing a node from a more recent block height.
+
 After making the proper configurations to your new node, launch it using `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu secret-node`).
 
 # Migrate a running v1.2 node
