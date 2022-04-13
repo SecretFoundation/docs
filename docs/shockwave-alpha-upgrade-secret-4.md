@@ -64,7 +64,7 @@ For instructions on how to setup Cosmovisor, go [here](./cosmovisor.md).
 
 When the network reaches the halt height TODO, the Secret Network blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.3 binary (be it manually or automatically).
 
-The proposal targets the upgrade proposal block to be TODO, anticipated to be on Wednesday April 27th, 2022 at 2:00PM UTC. This uses a 7 day average block time of 6.0505 seconds per block, derived from https://www.mintscan.io/secret/blocks/TODO with #100,000 as a block window. Note that block times have high variance, so keep monitoring the time.
+The proposal targets the upgrade proposal block to be TODO, anticipated to be on Wednesday April 27th, 2022 at 2:00PM UTC. This uses a 7 day average block time, derived from [https://www.mintscan.io/secret/blocks/TODO](https://www.mintscan.io/secret/blocks/TODO) with #100,000 as the block time calculation window. Note that block times have high variance, so keep monitoring the time.
 
 The upgrade is anticipated to take approx 30 minutes, during which time, there will not be any on-chain activity on the network.
 
