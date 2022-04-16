@@ -4,6 +4,8 @@
 
 Please make sure you [backup your validator](backup/backup-a-validator.md) before you migrate it. Do not forget!
 
+The new node must be at a greater block-height than the old node before moving the key, or you will double-sign blocks!
+
 ### 1. [Run a new full node](run-full-node-mainnet.md) on a new machine.
 
 ### 2. Confirm you have the recovery seed phrase information for the active key running on the old machine
@@ -48,9 +50,11 @@ secretcli status | jq .sync_info
 
 (`catching_up` should equal `false`)
 
-### 5. After the new node have caught-up, stop the validator node and then stop the new full node.
+### 5. After the new node has caught-up, stop the validator node.
 
-To prevent double signing, you should stop the validator node and only then stop the new full node.
+To prevent double signing, you should stop the validator node before stopping the new full node to ensure the new node is at a greater block height than the validator node.
+
+If the new node is behind the old validator node, then you may double-sign blocks.
 
 Please read about [the dangers in running a validator](join-validator-mainnet.md#dangers-in-running-a-validator).
 
@@ -59,6 +63,10 @@ On the validator node on the old machine:
 ```bash
 sudo systemctl stop secret-node
 ```
+
+The validator should start missing blocks at this point.
+
+### 6. Stop the new full node. 
 
 On the full node on the new machine:
 
@@ -78,6 +86,14 @@ On the validator node on the old machine:
 scp ~/.secretd/config/priv_validator_key.json ubuntu@new_machine_ip:~/.secretd/config/priv_validator_key.json
 ```
 
+After being copied, the key (`priv_validator_key.json`) should then be removed from the old node's `config` directory to prevent double-signing if the node were to start back up.
+
+On the validator node on the old machine:
+
+```bash
+mv ~/.secretd/config/priv_validator_key.json ~/.secretd/bak_priv_validator_key.json
+```
+
 ### 7. On the new server start the new full node which is now your validator node.
 
 On the new machine:
@@ -85,3 +101,5 @@ On the new machine:
 ```bash
 sudo systemctl start secret-node
 ```
+
+The new node should start signing blocks once caught-up.
