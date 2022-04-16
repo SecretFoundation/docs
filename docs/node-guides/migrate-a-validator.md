@@ -74,7 +74,7 @@ On the full node on the new machine:
 sudo systemctl stop secret-node
 ```
 
-### 6. Move the validator's private key from the old machine to the new machine.
+### 7. Move the validator's private key from the old machine to the new machine.
 
 On the old machine the file is `~/.secretd/config/priv_validator_key.json`.
 
@@ -94,7 +94,7 @@ On the validator node on the old machine:
 mv ~/.secretd/config/priv_validator_key.json ~/.secretd/bak_priv_validator_key.json
 ```
 
-### 7. On the new server start the new full node which is now your validator node.
+### 8. On the new server start the new full node which is now your validator node.
 
 On the new machine:
 
