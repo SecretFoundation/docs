@@ -1,7 +1,7 @@
 ---
-name:'Documentation Issue'
+name: 'Documentation'
 about: 'Request to update or create documentation'
-title: ''
+title: 'Issue Title'
 labels: 'Documentation'
 assignees: 'stoicnorth'
 
