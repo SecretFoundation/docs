@@ -1,8 +1,8 @@
 ---
 name: 'Documentation'
-about: 'Request to update or create documentation'
-title: 'Issue Title'
-labels: 'Documentation'
+about: 'Create an issue to help us make better documentation'
+title: ''
+labels: 'documentation'
 assignees: 'stoicnorth'
 
 ---
