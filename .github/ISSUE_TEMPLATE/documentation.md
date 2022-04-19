@@ -1,0 +1,57 @@
+name: 📖 Documentation Request
+description: File a request to improve Secret Network documentation
+title: "[DOCS] <title>"
+labels: [Documentation]
+assignees:
+  - stoicnorth
+body:
+- type: markdown
+  attributes:
+    value: "## Welcome! 🤓"
+- type: markdown
+  attributes:
+    value: |
+      > **_NOTE:_** Please search to see if an issue already exists for your request
+- type: input
+  id: contact
+  attributes:
+    label: Contact details
+    description: How can we get in touch with you if we need more information about your request?
+    placeholder: email@example.com OR discord#0000
+  validations: 
+    required: false
+- type: dropdown
+  id: request_type
+  attributes:
+    label: What type of request are you making?  
+    options:
+    - New Content
+    - Update Content
+    - Broken Link
+    - Other
+  validations:
+    required: true
+- type: textarea
+  id: request_description
+  attributes:
+    label: Describe your documentation request
+    description: "What needs to happen for your request to be complete"
+    placeholder: |
+      The documentation is missing ...
+      The following content needs to be updated ...
+      There are broken links ...
+  validations:
+    required: true
+- type: textarea
+  id: feedback
+  attributes:
+    label: General feedback
+    description: |
+      Let us know how we are doing / share how we can do better
+    placeholder: A better internet starts with privacy
+  validations:
+    required: false
+- type: markdown
+  attributes:
+    value: |
+      **Thank you for taking the time to help improve the documentation of Secret Network!** 🥳🚀🤫
