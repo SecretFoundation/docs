@@ -184,19 +184,20 @@ Each transaction supplies fees or gas prices, but never both.
 
 Validator's have a minimum gas price (multi-denom) configuration used to determine if they should include a transaction in a block during `CheckTx`, where `gasPrices >= minGasPrices`. 
 
-**Note**: Transactions must supply fees greater than or equal to **any** fees set by validators. Validators may start to prioritize
-txs by `gasPrice` in the mempool, increasing tx priority based on fees or gas prices. 
+**Note**: Transactions must supply fees greater than or equal to **any** fees set by validators. Validators may start to prioritize txs by `gasPrice` in the mempool, increasing tx priority based on fees or gas prices. 
+
 
 e.g.
 
 ```bash
-secretcli tx send ... --fees=50000uscrt
+# secretcli tx bank send [from_key_or_address] [to_address] [amount] [flags]
+secretcli tx bank send ... --fees=50000uscrt
 ```
 
 or
 
 ```bash
-secretcli tx send ... --gas-prices=0.0125uscrt
+secretcli tx bank send ... --gas-prices=0.0125uscrt
 ```
 
 ## Account
@@ -235,7 +236,7 @@ When querying an account balance with zero tokens, you will get the error: `No a
 Use the following command to send tokens from one account to another:
 
 ```bash
-secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
+secretcli tx bank send <sender-key-alias-or-address> <recipient-address> 10uscrt \
 	--memo <tx-memo> \
 	--chain-id=<chain-id>
 ```
@@ -269,7 +270,7 @@ You can simulate a transaction without actually broadcasting it by appending the
 `--dry-run` flag:
 
 ```bash
-secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
+secretcli tx bank send <sender-key-alias-or-address> <recipient-address> 10uscrt \
   --chain-id=<chain-id> \
   --dry-run
 ```
@@ -278,7 +279,7 @@ Furthermore, you can build a transaction and print its JSON format to STDOUT by
 appending `--generate-only` to the list of arguments:
 
 ```bash
-secretcli tx send <sender-key-alias-or-address> <recipient-address> 10uscrt \
+secretcli tx bank send <sender-key-alias-or-address> <recipient-address> 10uscrt \
   --chain-id=<chain-id> \
   --generate-only > unsignedSendTx.json
 ```
@@ -563,7 +564,7 @@ The first step to create a multisig transaction is to initiate it on behalf
 of the multisig address created above using the following command:
 
 ```bash
-secretcli tx send secret1570v2fq3twt0f0x02vhxpuzc9jc4yl30q2qned 1000000uscrt \
+secretcli tx bank send secret1570v2fq3twt0f0x02vhxpuzc9jc4yl30q2qned 1000000uscrt \
   --from=<multisig-address> \
   --generate-only > unsignedTx.json
 ```
