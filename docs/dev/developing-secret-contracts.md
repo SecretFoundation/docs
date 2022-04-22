@@ -231,7 +231,10 @@ This example has a much worse UX than rolling your own randomness, but at least 
 ### With docker
 
 ```console
-$ docker run --rm -it -v /absolute/path/to/contract/project:/contract enigmampc/secret-contract-optimizer
+$ docker run --rm -v "$(pwd)":/contract \
+        --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
+        --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
+        enigmampc/secret-contract-optimizer:1.0.7
 ```
 
 Where `/absolute/path/to/contract/project` is pointing to the directory that contains your Secret Contract's `Cargo.toml`.
@@ -249,6 +252,11 @@ $ sudo apt install binaryen
 $ RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown --locked
 $ wasm-opt -Oz ./target/wasm32-unknown-unknown/release/*.wasm -o ./contract.wasm
 $ cat ./contract.wasm | gzip -9 > ./contract.wasm.gz
+```
+
+```console
+# to simplify, this should also work
+$ make compile-optimized-reproducible
 ```
 
 Breakdown:
