@@ -2,7 +2,7 @@
 
 :warning: :warning: :warning:
 
-Please make sure you [backup your validator](./backup/backup-a-validator.md) before you migrate it. Do not forget!
+Please make sure you [backup your validator](./../backup/backup-a-validator.md) before you migrate it. Do not forget!
 
 The new node must be at a greater block-height than the old node before moving the key, or you will double-sign blocks!
 
