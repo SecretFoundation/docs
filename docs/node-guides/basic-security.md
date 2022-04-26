@@ -8,18 +8,26 @@ To add basic security to your node, we've provided a guide that covers 2 simple 
 
 ## Setup a basic Firewall with UFW
 
-Uncomplicated Firewall is a program for managing a netfilter firewall designed to be easy to use. It uses a command-line interface consisting of a small number of simple commands, and uses iptables for configuration. UFW is available by default in all Ubuntu installations after 18.04 LTS. UFW also includes some features for intrusion prevention, such as the "limit" command for ssh which we will cover in this guide.
+Uncomplicated Firewall (UFW) is a program for managing a netfilter firewall designed for easy use. It uses a command-line interface (CLI) with a small number of simple commands, and is configured with [iptables](https://en.wikipedia.org/wiki/Iptables). UFW is available by default in all Ubuntu installations after 18.04 LTS, and features tools for intrusion prevention which we will cover in this guide.
 
 # Setup
 
-Start by checking the status of ufw.
+Start by checking the status of UFW.
 
 ```bash
 sudo ufw status
 ```
 
-Then proceed to configure your firewall with the following options, preferably in this order.
+Then proceed to configure your firewall with the following options, preferably in this order. 
 
+The order is important because UFW executes the instructions given to it in the order they are given, so putting the most important and specific rules first is a good security practice. You can insert UFW rules at any position you want to by using the following syntax (do not execute the following command when setting up your node security): 
+
+```bash 
+ufw insert 1 <command ex. deny> from <ip> to any // example only
+```
+The example command above would be placed in the first position (instead of the last) of the UFW hierarchy and deny a specific IP address from accessing the server. 
+
+### Set outgoing connections
 
 This sets the default to allow outgoing connections unless specified they should not be allowed.
 
@@ -28,11 +36,15 @@ This sets the default to allow outgoing connections unless specified they should
 sudo ufw default allow outgoing
 ```
 
-This sets the default to deny incomming connections unless specified they should be allowed.
+### Set incoming connections
+
+This sets the default to deny incoming connections unless specified they should be allowed.
 
 ```bash
 sudo ufw default deny incoming
 ```
+
+### Set and limit SSH connections
 
 This allows SSH connections by the firewall.
 
@@ -46,7 +58,9 @@ This limits SSH login attempts on the machine. The default is to limit SSH conne
 sudo ufw limit ssh/tcp
 ```
 
-Allow 26656 for p2p networking port to connect to the tendermint network. Unless you specified a different port for this manually.
+### Set accessible ports
+
+Allow 26656 for a p2p networking port to connect with the tendermint network; unless you manually specified a different port.
 
 ```bash
 sudo ufw allow 26656
@@ -57,6 +71,8 @@ Allow 1317 if you are running a public LCD endpoint from this node. Otherwise yo
 ```bash
 sudo ufw allow 1317
 ```
+
+### Enable UFW firewall
 
 This enables the firewall you just configured.
 
@@ -72,9 +88,11 @@ sudo ufw disable
 
 ## Key based SSH authentication
 
-SSH keys, similarly to crypto currency keys, consist of a public and private key. The machine you store the private key on should be a machine you trust, and the correspending public key is what you add to your server to secure it. **For this reasons be sure to securely store a backup of your private ssh key.**
+SSH keys, similarly to cryptocurrency keys, consist of public and private keys. You should store the private key on a machine you trust. The  corresponding public key is what you will add to your server to secure it. 
 
-From your local machine that you plan to SSH from, generate an SSH key. This is likely going to be your laptop or desktop computer. This is written for OSX or Linux.
+**Be sure to securely store a secrure backup of your private ssh key.**
+
+From your local machine that you plan to SSH from, generate an SSH key. This is likely going to be your laptop or desktop computer. Use the following command if you are using OSX or Linux:
 
 ```bash
 ssh-keygen -t ecdsa
@@ -101,7 +119,9 @@ The key's randomart image is:
 +-----------------+
 ```
 
-Copy the contents of your public key. Note, your file name will differ from the command below based on how you named your key.
+Copy the contents of your public key. 
+
+**Note, your file name will differ from the command below based on how you named your key.**
 
 ```bash
 cat /Users/myname/.ssh/id_rsa.pub
@@ -112,6 +132,7 @@ Give the ssh folder the correct permissions.
 ```bash
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
 ```
+**Note: Chmod 700 (chmod a+rwx,g-rwx,o-rwx) sets permissions so the user or owner can read, write and execute, and the Group or Others cannot read, write or execute.**
 
 Copy the contents of your newly generated public key.
 
@@ -137,7 +158,7 @@ cat key.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 
 Once you've confirmed that you can login via the new key, you can proceed to lock down the server to only allow access via the key.
 
-Edit sshd_config to disallow password based authentication.
+Edit sshd_config to disable password based authentication.
 
 ```bash
 sudo nano /etc/ssh/sshd_config
