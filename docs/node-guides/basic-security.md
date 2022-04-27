@@ -221,4 +221,4 @@ Generate an ed25519-sk key-pair with the following command with your YubiKey con
 ```bash
 ssh-keygen -t ed25519-sk -C "$(hostname)-$(date +'%d-%m-%Y')-yubikey1"
 ```
-You can now use your new ed25519-sk key-pair to secure SSH connections with your servers. Part of the key-pair is from the YubiKey and is used to secure the SHH connection as part of a challenge response from the devices.  
+You can now use your new ed25519-sk key-pair to secure SSH connections with your servers. Part of the key-pair is from the YubiKey, and is used to secure the SHH connection as part of a challenge response from the devices.  
