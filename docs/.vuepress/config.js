@@ -73,6 +73,10 @@ module.exports = {
         sidebarDepth: 1, // optional, defaults to 1
         children: [
           {
+            title: "LocalSecret",
+            path: "/dev/LocalSecret.md",
+          },
+          {
             title: "Secret Contracts",
             path: "/dev/secret-contracts.md",
           },

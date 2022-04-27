@@ -118,7 +118,7 @@ const secretjs = await SecretNetworkClient.create({
 });
 ```
 
-You can read the full secret.js docs at https://github.com/scrtlabs/secret.js
+You can read the full secret.js docs at https://github.com/scrtlabs/secret.js#readme
 
 ## Keplr
 
