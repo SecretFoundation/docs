@@ -28,7 +28,7 @@ Before creating bug reports, please check [this list](#before-submitting-a-bug-r
 
 #### Before Submitting A Bug Report
 
-- **Check [the FAQs](https://docs.scrt.network/questions)** for a list of commonly asked questions and our best answers.
+- **Check [the FAQs](https://forum.scrt.network/c/general-faq/9)** for a list of commonly asked questions and our best answers.
 - **Look through recent posts on [the forum](https://forum.scrt.network)** to see any relevant discussions.
 - **Perform a [search](https://github.com/search?q=+is%3Aissue+user%3Aenigmampc)** to see if the problem has already been reported.
 
