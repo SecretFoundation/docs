@@ -6,7 +6,7 @@
   - [secretcli](#secretcli)
   - [Faucet (AKA getting SCRT)](#faucet-aka-getting-scrt)
     - [1. Using the faucet on port 5000](#1-using-the-faucet-on-port-5000)
-    - [2. Using the genesis account `a`](#2-using-the-genesis-account-a)
+    - [2. Using a genesis account](#2-using-a-genesis-account)
   - [secret.js](#secretjs)
   - [Keplr](#keplr)
 - [Configure LocalSecret](#configure-localsecret)
@@ -92,9 +92,9 @@ curl "http://localhost:5000/faucet?address=${ADDRESS}"
 
 The faucet drips 1000 SCRT at a time.
 
-### 2. Using the genesis account `a`
+### 2. Using a genesis account
 
-Inside the docker container there's the account `a` that's pre-seeded with SCRT.
+Inside the docker container there are accounts `a`, `b`, `c` & `d` that are pre-seeded with SCRT and can be used to send some to your address.
 
 ```bash
 ADDRESS="secret1e6mqxtwgaps7vz3qfa3fcekhh7a02hvfjvtqpt"
@@ -235,7 +235,7 @@ To load the changes, restart LocalSecret.
 
 # Accounts
 
-LocalSecret is pre-configured with one validator and 4 accounts with SCRT balances.
+LocalSecret is pre-configured with one validator and 4 accounts with SCRT balances. You can import them into your own testing environment for easier prototyping.
 
 | Account | Address                                                                                                    | Mnemonic                                                                                                                                                     |
 | ------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
