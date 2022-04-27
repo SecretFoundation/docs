@@ -10,7 +10,7 @@ The Secret Foundation Committees are exploring better ways for Secret Network pa
 
 #### Meeting time: Monday at 3pm UTC
 
-Join here: https://meet.scrt.network/dev
+Join here:  https://chat.scrt.network/
 
 ### Purpose:
 * Engineering a source of truth for Secret Network developers
@@ -26,7 +26,7 @@ Join here: https://meet.scrt.network/dev
 
 #### Meetings time: Tuesday at 4pm UTC
 
-Join here: https://meet.scrt.network/infrastructure
+Join here:  https://chat.scrt.network/
 
 ### Purpose:
 * Coordinate research into OEMs and cloud service providers supporting SGX
@@ -41,7 +41,7 @@ Join here: https://meet.scrt.network/infrastructure
 
 #### Meeting time: Wednesday at 3pm UTC
 
-Join here: https://meet.scrt.network/gov
+Join here:  https://chat.scrt.network/
 
 ### Purpose:
 * Coordinating Secret Network stake holders
@@ -58,7 +58,7 @@ Join here: https://meet.scrt.network/gov
 
 #### Meeting time: Thursday at 4pm UTC
 
-Join here: https://meet.scrt.network/edu
+Join here:  https://chat.scrt.network/
 
 ### Purpose:
 * Helping everyone understand the importance of programmable privacy
@@ -75,7 +75,7 @@ Join here: https://meet.scrt.network/edu
 
 #### Meeting time: Friday at 3pm UTC
 
-Join here: https://meet.scrt.network/awareness
+Join here:  https://chat.scrt.network/
 
 ### Purpose:
 * Amplifying our community assets to drive adoption and growth of programmable privacy
