@@ -1,3 +1,5 @@
+A local, instant, zero-config Secret Network blockchain.
+
 - [What is LocalSecret?](#what-is-localsecret)
 - [Prerequisites](#prerequisites)
 - [Install LocalSecret](#install-localsecret)
