@@ -37,15 +37,11 @@ LocalSecret has the following advantages over a public testnet:
 
 # Install LocalSecret
 
-1. Run the following commands:
-
 ```bash
 docker pull ghcr.io/scrtlabs/localsecret
 ```
 
 # Start LocalSecret
-
-To start LocalSecret:
 
 ```bash
 docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 --name localsecret ghcr.io/scrtlabs/localsecret
@@ -55,14 +51,16 @@ You've now officially created a local Secret Network testnet with chain-id `secr
 
 Your environment now contains:
 
-- RPC running on http://localhost:26657
-- gRPC-web running on http://localhost:9091
-- Faucet for SCRT running on http://localhost:5000
-- LCD running on http://localhost:1317
+| Protocol    | Endpoint               | Usage                                 |
+| ----------- | ---------------------- | ------------------------------------- |
+| RPC         | http://localhost:26657 | `secretcli`, Keplr, `cosmjs`          |
+| gRPC-web    | http://localhost:9091  | `secretjs@beta`                       |
+| SCRT Faucet | http://localhost:5000  | To get SCRT                           |
+| LCD         | http://localhost:1317  | Keplr, `secretjs@0.17.5` (deprecated) |
 
 # Usage
 
-You can use LocalSecret with secretcli, secret.js and Keplr.
+Here are some examples of how to use LocalSecret with secretcli, secret.js and Keplr.
 
 ## secretcli
 
