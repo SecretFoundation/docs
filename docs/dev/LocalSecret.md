@@ -180,7 +180,7 @@ To also connect Keplr with secret.js see https://github.com/scrtlabs/secret.js#k
 
 ## Modifying node configuration
 
-You can modify the node configuration of your validator in the `~/.secretd/config/config.toml` and `~/.secretd/config/app.toml` files.
+You can modify the node configuration of your validator in the `~/.secretd/config/config.toml` and `~/.secretd/config/app.toml` files inside the container.
 
 To enter the docker container to access them, run:
 
@@ -229,7 +229,7 @@ wal_file = "data/cs.wal/wal"
 Additionally, you can use the following single line to configure the timeouts:
 
 ```sh
-sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' ~/.secretd/config/config.toml
+docker exec localsecret sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' .secretd/config/config.toml
 ```
 
 To load the changes, restart LocalSecret.
