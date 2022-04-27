@@ -170,6 +170,7 @@ await window.keplr.experimentalSuggestChain({
     average: 0.25,
     high: 1,
   },
+  features: ["secretwasm", "stargate", "ibc-transfer", "ibc-go"],
 });
 ```
 
