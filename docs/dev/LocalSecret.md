@@ -13,7 +13,6 @@
   - [Modifying node configuration](#modifying-node-configuration)
   - [Applying the changes](#applying-the-changes)
   - [Pro tip: Speed Up Block Time](#pro-tip-speed-up-block-time)
-  - [Modifying genesis](#modifying-genesis)
 - [Accounts](#accounts)
 
 # What is LocalSecret?
@@ -231,12 +230,6 @@ Additionally, you can use the following single line to configure the timeouts:
 ```sh
 sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' ~/.secretd/config/config.toml
 ```
-
-To load the changes, restart LocalSecret.
-
-## Modifying genesis
-
-You can change the `genesis.json` file by editing `~/.secretd/config/genesis.json`.
 
 To load the changes, restart LocalSecret.
 
