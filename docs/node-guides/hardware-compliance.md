@@ -49,10 +49,16 @@ Supermicro builds several boards that are mainnet compliant. Here is a current w
 #### HP Information
 1. Build `HP DL20 G10`
 
+#### ASUS Information
+1. `ASUS RS100-E10-PI2`
+ * [RS100-E10-PI2 Link] (https://servers.asus.com/products/Servers/Rack-Servers/RS100-E10-PI2)
+ * Requires BIOS version 4003 - ASUS Support responds in under 24 hours with a download link
 
-##### Contributers
 
-* [FreshSCRT](https://secretnodes.com/secret/chains/secret-2/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
-* [secretnodes](https://secretnodes.com/secret/chains/secret-2/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
-* [chainofsecrets](https://secretnodes.com/secret/chains/secret-2/validators/1B68882AB7CD6BC4CDDD742FC8F3D1FDE31C1A82)
-* [Mario](https://secretnodes.com/secret/chains/secret-2/validators/2DD098C8ECAF04DFE31BBC59799C786AC09BF53F)
+##### Contributors
+
+* [FreshSCRT](https://secretnodes.com/secret/chains/secret-4/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
+* [secretnodes](https://secretnodes.com/secret/chains/secret-4/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
+* [chainofsecrets](https://secretnodes.com/secret/chains/secret-4/validators/1B68882AB7CD6BC4CDDD742FC8F3D1FDE31C1A82)
+* [Mario](https://secretnodes.com/secret/chains/secret-4/validators/2DD098C8ECAF04DFE31BBC59799C786AC09BF53F)
+* [Consensus One](https://secretnodes.com/secret/chains/secret-4/validators/secretvaloper1sa8av4qw3xerr58kwvnm8wvd87zgp36mv6cnyg)
