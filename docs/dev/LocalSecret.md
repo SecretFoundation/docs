@@ -99,7 +99,7 @@ Inside the docker container there are accounts `a`, `b`, `c` & `d` that are pre-
 ```bash
 ADDRESS="secret1e6mqxtwgaps7vz3qfa3fcekhh7a02hvfjvtqpt"
 
-docker exec -it localsecret secretd tx compute execut send a ${ADDRESS} 1000000000uscrt -y
+docker exec -it localsecret secretd tx bank send a ${ADDRESS} 1000000000uscrt -y
 ```
 
 ## secret.js
