@@ -58,6 +58,8 @@ Your environment now contains:
 | SCRT Faucet | http://localhost:5000  | To get SCRT                           |
 | LCD         | http://localhost:1317  | Keplr, `secretjs@0.17.5` (deprecated) |
 
+Note: You can also use `docker run --rm` to launch LocalSecret. This will delete the container once you exit the terminal, but it also means that you can't edit the node's config as your can't restart the container.
+
 # Usage
 
 Here are some examples of how to use LocalSecret with secretcli, secret.js and Keplr.
