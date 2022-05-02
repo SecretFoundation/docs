@@ -104,6 +104,8 @@ you can move them to `/opt/secret/.sgx_secrets` and skip to **[step 16](#16-add-
 
 ### 8a. Initialize secret enclave - Automatic Registration (EXPERIMENTAL)
 
+- **Note:** Automatic Registration currently does not work - please skip to step 8b.
+
 - **Note:** Make sure SGX is running or this step might fail.
 
 Make sure the directory `/opt/secret/.sgx_secrets` exists:
@@ -222,7 +224,7 @@ secretd configure-secret node-master-cert.der $SEED
 ### 16. Add persistent peers and seeds to your configuration file.
 
 ```bash
-perl -i -pe 's/seeds = ""/seeds = "7649dcfda0eb77b38fde8e817da8071faea3cd13\@bootstrap.scrt.network:26656,ac74aa5908816a54c0da62b6f1cbfa9cc4a8a4ff\@45.77.125.31:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/seeds = ""/seeds = "7649dcfda0eb77b38fde8e817da8071faea3cd13\@bootstrap.scrt.network:26656,6fb7169f7630da9468bf7cc0bcbbed1eb9ed0d7b\@scrt-seed-01.scrtlabs.com:26656,ab6394e953e0b570bb1deeb5a8b387aa0dc6188a\@scrt-seed-02.scrtlabs.com:26656,9cdaa5856e0245ecd73bd464308fb990fbc53b57\@scrt-seed-03.scrtlabs.com:26656"/' ~/.secretd/config/config.toml
 ```
 
 You may use the following peers, or you can choose your own from [this list](https://securesecrets.notion.site/Secret-Network-secret-4-peer-list-54c6cdcc77f040c9a4e877c8d40f953a).
@@ -309,3 +311,7 @@ secretcli config node tcp://<your-public-ip>:26657
 ### 23. Optional: make your full node into a validator
 
 To turn your full node into a validator, see [Joining Mainnet as a Validator](join-validator-mainnet.md).
+
+### 24. Optional: State Sync
+
+You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/node-guides/state-sync.html#mainnet-state-sync) to the current block.
