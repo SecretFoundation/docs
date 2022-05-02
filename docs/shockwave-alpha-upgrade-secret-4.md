@@ -33,18 +33,32 @@ When the network reaches the halt height TODO, you'll see this message in your n
 
 Then, the upgrade steps for v1.3 are:
 
+:warning: Note: uncomment the right binary based on the node type that you're upgrading: validator/query & rocksdb/leveldb
+
 ```bash
 # Stop the v1.2 node, to make sure that your process manager isn't trying to restart your v1.2 node
 sudo systemctl stop secret-node
 
-# Get secretd v1.3
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_v1.3.0_mainnet_amd64.deb"
+# Get & verify secretd v1.3
 
-# Verify v1.3 checksum
-echo "TODO secretnetwork_v1.3.0_mainnet_amd64.deb" | sha256sum --check
+# validator node & goleveldb
+#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0vg_goleveldb_amd64.deb"
+#echo "TODO secretnetwork_1.3.0vg_goleveldb_amd64.deb | sha256sum --check"
+
+# validator node & rocksdb
+#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0vr_rocksdb_amd64.deb"
+#echo "TODO secretnetwork_1.3.0vr_rocksdb_amd64.deb | sha256sum --check"
+
+# query node & goleveldb
+#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0qg_goleveldb_amd64.deb"
+#echo "TODO secretnetwork_1.3.0qg_goleveldb_amd64.deb | sha256sum --check"
+
+# query node & rocksdb
+#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0qr_rocksdb_amd64.deb"
+#echo "TODO secretnetwork_1.3.0qr_rocksdb_amd64.deb | sha256sum --check"
 
 # Install v1.3 binaries
-sudo apt install -y ./secretnetwork_v1.3.0_mainnet_amd64.deb
+sudo apt install -y ./secretnetwork_v1.3.0_*.deb
 
 # Restart the node
 sudo systemctl restart secret-node
@@ -64,7 +78,7 @@ For instructions on how to setup Cosmovisor, go [here](./cosmovisor.md).
 
 When the network reaches the halt height TODO, the Secret Network blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.3 binary (be it manually or automatically).
 
-The proposal targets the upgrade proposal block to be TODO, anticipated to be on Wednesday April 27th, 2022 at 2:00PM UTC. This uses a 7 day average block time, derived from [https://www.mintscan.io/secret/blocks/TODO](https://www.mintscan.io/secret/blocks/TODO) with #100,000 as the block time calculation window. Note that block times have high variance, so keep monitoring the time.
+The proposal targets the upgrade proposal block to be TODO, anticipated to be on Wednesday May 11, 2022 at 2:00PM UTC. This uses a 7 day average block time, derived from [https://www.mintscan.io/secret/blocks/TODO](https://www.mintscan.io/secret/blocks/TODO) with #100,000 as the block time calculation window. Note that block times have high variance, so keep monitoring the time.
 
 The upgrade is anticipated to take approx 30 minutes, during which time, there will not be any on-chain activity on the network.
 
