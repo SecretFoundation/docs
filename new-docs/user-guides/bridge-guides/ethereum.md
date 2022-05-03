@@ -1,1 +1,1 @@
-# Ethereum Bridge Guide 
+# Ethereum (ETH) Bridge Guide 
