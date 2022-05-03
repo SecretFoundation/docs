@@ -1,1 +1,1 @@
-# Guide For Privacy Beyond The Blockchain
+# Guide For Privacy Beyond Blockchain
