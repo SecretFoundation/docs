@@ -1,1 +1,1 @@
-# Guide For Using msg.rs For Secret Contracts 
+# Guide For Using msg.rs In Secret Contracts 
