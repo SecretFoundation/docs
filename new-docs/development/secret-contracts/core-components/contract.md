@@ -1,4 +1,4 @@
-# Guide For Using contract.rs For Secret Contracts 
+# Guide For Using contract.rs In Secret Contracts 
 
 
 ## Init 
