@@ -7,69 +7,80 @@ To learn more, please visit [Secret Contracts](./secret-contracts.md).
 <details>
   <summary>Topics covered on this page</summary>
 
-  - [Setup the local leveloper testnet](#setup-the-local-developer-testnet)
+- [Secret Contracts Quickstart](#secret-contracts-quickstart)
+  - [Setup the Local Developer Testnet](#setup-the-local-developer-testnet)
   - [Setup Secret Contracts](#setup-secret-contracts)
   - [Create initial smart contract](#create-initial-smart-contract)
-  - [Deploy smart contract to local testnet](#deploy-smart-contract-to-our-local-testnet)
-  - [Instantiate the smart contract](#instantiate-the-smart-contract)
-  - Migrating to testnet
-    * [Deploy to the Pulsar testnet](#deploy-to-the-pulsar-testnet)
-    * [Get SCRT from faucet](#get-some-scrt-from-the-faucet)
-    * [Store the Secret Contract](#store-the-secret-contract-on-pulsar)
-  - Secret Contracts
-    * [Secret Contracts 101](#secret-contracts-101)
-    * [Secret Contract code explanation](#secret-contract-code-explanation)
-    * [Secret Contracts - advanced](#secret-contracts---advanced)
-  - [SecretJS](#secretjs)
-  - [Keplr integration](#keplr-integration)
-  - Other resources
-    * [Privacy model of Secret Contracts](#privacy-model-of-secret-contracts)
-    * [Tutorials from Secret Network community](#tutorials-from-secret-network-community)
-    * [CosmWasm resources](#cosmwasm-resources)
-  
+    - [Generate the smart contract project](#generate-the-smart-contract-project)
+    - [Compile](#compile)
+    - [Unit tests](#unit-tests)
+      - [Run unit tests](#run-unit-tests)
+      - [Integration tests](#integration-tests)
+      - [Generate msg schemas](#generate-msg-schemas)
+    - [Deploy smart contract to our local testnet](#deploy-smart-contract-to-our-local-testnet)
+      - [Optimize compiled wasm](#optimize-compiled-wasm)
+      - [Store the smart contract](#store-the-smart-contract)
+      - [Querying the smart contract and code](#querying-the-smart-contract-and-code)
+    - [Instantiate the smart contract](#instantiate-the-smart-contract)
+    - [Deploy to the pulsar testnet](#deploy-to-the-pulsar-testnet)
+      - [Install and configure the Secret Network Light Client](#install-and-configure-the-secret-network-light-client)
+      - [Get some SCRT from the faucet](#get-some-scrt-from-the-faucet)
+      - [Store the Secret Contract on Pulsar](#store-the-secret-contract-on-pulsar)
+      - [Instantiate your Secret Contract](#instantiate-your-secret-contract)
+  - [Secret Contracts 101](#secret-contracts-101)
+    - [Project structure](#project-structure)
+    - [Secret Contract code explanation](#secret-contract-code-explanation)
+    - [Unit tests](#unit-tests-1)
+  - [Secret toolkit](#secret-toolkit)
+      - [Calling other contracts](#calling-other-contracts)
+  - [Secret Contracts - advanced](#secret-contracts---advanced)
+    - [Tutorials from Secret Network community](#tutorials-from-secret-network-community)
+    - [CosmWasm resources](#cosmwasm-resources)
+
 </details>
 
 ## Setup the Local Developer Testnet
 
 The developer blockchain is configured to run inside a docker container. Install [Docker](https://docs.docker.com/install/) for your environment (Mac, Windows, Linux).
 
-**NOTE**:The Docker container will not work if you are using an M1 chip. 
+**NOTE**:The Docker container will not work if you are using an M1 chip.
 
 Open a terminal window and change to your project directory.
-Then start SecretNetwork, labelled _secretdev_ from here on:
+Then start SecretNetwork, labelled _localsecret_ from here on:
 
 ```bash
 docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1337:1337 \
- --name secretdev enigmampc/secret-network-sw-dev
+ --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
-**NOTE**: The _secretdev_ docker container can be stopped by CTRL+C
+**NOTE**: The _localsecret_ docker container can be stopped by CTRL+C
 
 If the following error occurs "Got permission denied while trying to connect to the Docker daemon", prefix the docker command to start the SecretNetwork Docker container with `sudo` privileges:
 
 ```bash
 sudo docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1337:1337 \
- --name secretdev enigmampc/secret-network-sw-dev
+ --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
-**NOTE**: `sudo docker run` privileges will only need to be given once to run the SecretNetwork docker container normally i.e without `sudo` privileges. 
+**NOTE**: `sudo docker run` privileges will only need to be given once to run the SecretNetwork docker container normally i.e without `sudo` privileges.
 
 ![](../images/images/docker-run.png)
 
 At this point you're running a local SecretNetwork full-node. Let's connect to the container so we can view and manage the secret keys:
 
 **NOTE**: In a new terminal
+
 ```bash
-docker exec -it secretdev /bin/bash
+docker exec -it localsecret /bin/bash
 ```
 
 The local blockchain has a couple of keys setup for you (similar to accounts if you're familiar with Truffle Ganache). The keys are stored in the `test` keyring backend, which makes it easier for local development and testing.
 
 ```bash
 secretd keys list --keyring-backend test
-````
+```
 
 ![](../images/images/secretcli_keys_list.png)
 
@@ -78,12 +89,12 @@ secretd keys list --keyring-backend test
 ## Setup Secret Contracts
 
 In order to setup Secret Contracts on your development environment, you will need to:
+
 - Install Rust (you don't need to be a Rust expert to build Secret Contracts and you can check out the Rust book, rustlings course, examples to learn more at https://www.rust-lang.org/learn)
 - Install the Rust dependencies
 - Create your first project
 
 The Rust dependencies include the Rust compiler, cargo (_package manager_), toolchain and a package to generate projects (you can check out the Rust book, rustlings course, examples and more at https://www.rust-lang.org/learn).
-
 
 1. Install Rust
 
@@ -106,6 +117,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 ```
 
 3. If using linux, install the standard build tools:
+
 ```bash
 apt install build-essential
 ```
@@ -121,6 +133,7 @@ cargo install cargo-generate --features vendored-openssl
 ## Create initial smart contract
 
 To create the smart contract you'll:
+
 - Generate the initial project
 - Compile the smart contract
 - Run unit tests
@@ -151,7 +164,7 @@ Cargo.toml	Importing.md	NOTICE		README.md	rustfmt.toml	src
 
 ### Compile
 
-In order to run unit tests, integration tests, and deploy Secret Contracts the contracts need to be compiled first into wasm contracts. 
+In order to run unit tests, integration tests, and deploy Secret Contracts the contracts need to be compiled first into wasm contracts.
 
 Use the following command to compile the smart contract which produces the wasm contract file:
 
@@ -178,6 +191,7 @@ npx ts-node integration.ts
 ```
 
 You can also choose to debug your code by using the following steps (Using vscode):
+
 1. Press `ctrl+shift+p`
 2. Write `JavaScript Debug Terminal` and press `Enter`
 3. In the new terminal you can run `npx ts-node integration.ts`
@@ -195,7 +209,7 @@ cargo schema
 
 ### Deploy smart contract to our local testnet
 
-Before deploying or storing the contract on a testnet, you need to run the [Secret Contract optimizer](https://hub.docker.com/r/enigmampc/secret-contract-optimizer). The Secret Contract optimizer produces an optimized 'contract.wasm.gz' file that's ready to be stored on the Secret Network. 
+Before deploying or storing the contract on a testnet, you need to run the [Secret Contract optimizer](https://hub.docker.com/r/enigmampc/secret-contract-optimizer). The Secret Contract optimizer produces an optimized 'contract.wasm.gz' file that's ready to be stored on the Secret Network.
 
 #### Optimize compiled wasm
 
@@ -203,31 +217,33 @@ Before deploying or storing the contract on a testnet, you need to run the [Secr
 docker run --rm -v "$(pwd)":/contract \
   --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
   --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
-  enigmampc/secret-contract-optimizer  
+  enigmampc/secret-contract-optimizer
 ```
+
 The contract wasm needs to be optimized to get a smaller footprint. Cosmwasm notes state the contract would be too large for the blockchain unless optimized. This example contract.wasm is 1.8M before optimizing, and 90K after.
 
 This creates a zip of two files:
+
 - contract.wasm
 - hash.txt
 
 #### Store the smart contract
 
-Now that the Secret contract is optimized and ready to deploy to the Secret Netowrk. We need to start up our local development network mounted with our projects contract: 
+Now that the Secret contract is optimized and ready to deploy to the Secret Netowrk. We need to start up our local development network mounted with our projects contract:
 
 ```bash
 # When starting up our local development container we need to mount our project's code inside the container
 docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1337:1337 \
  -v $(pwd):/root/code \
- --name secretdev enigmampc/secret-network-sw-dev
- ```
+ --name localsecret ghcr.io/scrtlabs/localsecret
+```
 
 Upload the optimized contract.wasm.gz:
 
 ```bash
 # First enter into the docker container
-docker exec -it secretdev /bin/bash
+docker exec -it localsecret /bin/bash
 
 # Move into the 'code' folder containing the optimized contract.wasm.gz file
 cd code
@@ -235,16 +251,17 @@ cd code
 # Upload the contract.wasm.gz file to the network
 secretd tx compute store contract.wasm.gz --from a --gas 1000000 -y --keyring-backend test
 ```
-After uploading the optimized contract code with the final command, there should be an output containing the txhash associated with the successful upload of the Secret Contract to the network. 
+
+After uploading the optimized contract code with the final command, there should be an output containing the txhash associated with the successful upload of the Secret Contract to the network.
 
 #### Querying the smart contract and code
 
-List the current smart contract code inside of the Docker container using: 
+List the current smart contract code inside of the Docker container using:
 
 ```bash
 secretd query compute list-code
 
-# You will see the output found below after running 'secretd query compute list-code', but with your own "creator" and "data_hash" values. 
+# You will see the output found below after running 'secretd query compute list-code', but with your own "creator" and "data_hash" values.
 
 [
   {
@@ -259,7 +276,7 @@ secretd query compute list-code
 
 At this point the contract's uploaded and stored on the testnet, but there's no "instance".
 
-This is like `discovery migrate` during the Cosmos deploy-execute process which handles both the deploying and creation of the contract instance. This process consists of 3 steps rather than 2 for Ethereum smart contracts. You can read more about the logic behind this decision, and other comparisons to Solidity, in the [cosmwasm documentation](https://www.cosmwasm.com/docs/getting-started/smart-contracts). 
+This is like `discovery migrate` during the Cosmos deploy-execute process which handles both the deploying and creation of the contract instance. This process consists of 3 steps rather than 2 for Ethereum smart contracts. You can read more about the logic behind this decision, and other comparisons to Solidity, in the [cosmwasm documentation](https://www.cosmwasm.com/docs/getting-started/smart-contracts).
 
 The 3 steps for deploying Secret Contract are:
 
@@ -267,23 +284,25 @@ The 3 steps for deploying Secret Contract are:
 2. Instantiate Contract - Instantiate a code reference with some initial state, creates new address (example set token name, max issuance, etc for my ERC20 token)
 3. Execute Contract - This may support many different calls, but they are all unprivileged usage of a previously instantiated contract; depends on the contract design (example: send ERC20 token, grant approval to other contract)
 
-To create an instance for our project you must also create a starting count by providing JSON input data. Execute the following code in the same location using to upload the contract.wasm.gz file to the network insid of the docker container (/root/code): 
+To create an instance for our project you must also create a starting count by providing JSON input data. Execute the following code in the same location using to upload the contract.wasm.gz file to the network insid of the docker container (/root/code):
 
 ```bash
 INIT='{"count": 100000000}'
 CODE_ID=1
 secretd tx compute instantiate $CODE_ID "$INIT" --from a --label "my counter" -y --keyring-backend test
 ```
-After instantiating the contract, it will produce an output that includes the txhash of the instantiation. 
 
-With the contract now initialized, we can find its address with: 
+After instantiating the contract, it will produce an output that includes the txhash of the instantiation.
+
+With the contract now initialized, we can find its address with:
 
 ```bash
 secretd query compute list-contract-by-code 1
 ```
+
 Our instance is secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg, and the code id is 1.
 
-We can query the contract state with: 
+We can query the contract state with:
 
 ```bash
 CONTRACT=secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg
@@ -291,26 +310,27 @@ CONTRACT=secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg
 secretd query compute query $CONTRACT '{"get_count": {}}'
 ```
 
-This will produce an output with the count data, which will be {"count": 100000000}. 
+This will produce an output with the count data, which will be {"count": 100000000}.
 
-We can increment our counter by interacting directly with our Secret Contract by: 
+We can increment our counter by interacting directly with our Secret Contract by:
 
 ```bash
 secretd tx compute execute $CONTRACT '{"increment": {}}' --from a --keyring-backend test
 ```
 
-After executing this code, you will see some information outputs about the request to increment the counter contract and will be asked to 'confirm transaction before signing and broadcasting [y/N]:'. Type 'y' and hit enter, and you will get the txhash of the increment counter interaction. 
+After executing this code, you will see some information outputs about the request to increment the counter contract and will be asked to 'confirm transaction before signing and broadcasting [y/N]:'. Type 'y' and hit enter, and you will get the txhash of the increment counter interaction.
 
-Now query the contract state again to see the incremented count value of the deployed 'my counter' contract: 
+Now query the contract state again to see the incremented count value of the deployed 'my counter' contract:
 
 ```bash
 secretd query compute query $CONTRACT '{"get_count": {}}'
 ```
+
 You should see an output with the count incremented by 1 --> {"count":100000001}.
 
-The increment value of our contract is always going to be equal to 1. 
+The increment value of our contract is always going to be equal to 1.
 
-Try increasing the increment value to increase by 5 (or your number of choice) each time increment is executed by the contract. This will require you to edit the contract.rs 'try_increment' function, and go through the 3 steps required to deploy a Secret Contract to the local development again. 
+Try increasing the increment value to increase by 5 (or your number of choice) each time increment is executed by the contract. This will require you to edit the contract.rs 'try_increment' function, and go through the 3 steps required to deploy a Secret Contract to the local development again.
 
 ### Deploy to the pulsar testnet
 
@@ -323,9 +343,9 @@ Pulsar-2 is the testnet you will use to deploy your contract, follow these steps
 
 #### Install and configure the Secret Network Light Client
 
-If you don't have the latest `secretcli`, using these [steps](https://github.com/SecretFoundation/docs/blob/main/docs/cli/install-cli.md) to download the CLI and add its location to your PATH. 
+If you don't have the latest `secretcli`, using these [steps](https://github.com/SecretFoundation/docs/blob/main/docs/cli/install-cli.md) to download the CLI and add its location to your PATH.
 
-***NOTE***: At this time the Secret Network Light Client is not availible for Macs. 
+**_NOTE_**: At this time the Secret Network Light Client is not availible for Macs.
 
 Before deploying your contract make sure it's configured to point to an existing RPC node. You can also use the testnet bootstrap node. Set the `chain-id` to `pulsar-2`. Below we've also got a config setting to point to the `test` keyring backend which allows you to interact with the testnet and your contract without providing an account password each time.
 
@@ -337,7 +357,7 @@ secretcli config chain-id pulsar-2
 secretcli config keyring-backend test
 ```
 
-*NOTE*: To reset your `keyring-backend`, use `secretcli config keyring-backend os`.
+_NOTE_: To reset your `keyring-backend`, use `secretcli config keyring-backend os`.
 
 #### Get some SCRT from the faucet
 
@@ -347,23 +367,22 @@ Create a key for the Pulsar-2 testnet that you'll use to get SCRT from the fauce
 secretcli keys add <your account alias>
 ```
 
-This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from 
-[the faucet](https://faucet.secrettestnet.io/). 
+This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from
+[the faucet](https://faucet.secrettestnet.io/).
 
-To get your Secret address use: 
+To get your Secret address use:
 
 ```bash
 secretcli keys show -a <key-alias>
 ```
 
-Continue when you have confirmed your account has some SCRT in it. To confirm the correct Secret address is funded use the following code: 
+Continue when you have confirmed your account has some SCRT in it. To confirm the correct Secret address is funded use the following code:
 
 ```bash
 secretcli query bank balances <your account address>
 ```
 
-Note: The Secret faucet should fund your testnet account with ~100000000 uscrt. If you query for your account balance before the network has sent and synced the funds sent to your Secret address you will see "balances":[] — please wait for faucet tx to complete. 
-
+Note: The Secret faucet should fund your testnet account with ~100000000 uscrt. If you query for your account balance before the network has sent and synced the funds sent to your Secret address you will see "balances":[] — please wait for faucet tx to complete.
 
 #### Store the Secret Contract on Pulsar
 
@@ -381,7 +400,7 @@ secretcli query tx <txhash>
 
 #### Instantiate your Secret Contract
 
-To create an instance of your contract on Pulsar-2 set the `CODE_ID` value below to the `code_id` you got by querying the txhash. You will find the `code_id` in the logs section under events/attributes in your query.  
+To create an instance of your contract on Pulsar-2 set the `CODE_ID` value below to the `code_id` you got by querying the txhash. You will find the `code_id` in the logs section under events/attributes in your query.
 
 ```bash
 INIT='{"count": 100000000}'
@@ -389,15 +408,16 @@ CODE_ID=<code_id>
 secretcli tx compute instantiate $CODE_ID "$INIT" --from <your account alias> --label "my simple counter <unique identifier>" -y
 ```
 
-***NOTE***: A unique label for the contract will need to be made for the contract to be instantiated. If the label is not unique you will get the following error: "Error: label already exists. You must choose a unique label for your contract instance".
+**_NOTE_**: A unique label for the contract will need to be made for the contract to be instantiated. If the label is not unique you will get the following error: "Error: label already exists. You must choose a unique label for your contract instance".
 
-You can use the testnet explorer [Transactions](https://secretnodes.com/secret/chains/pulsar-2) tab to view the transaction details of the contract instantiation by copy and pasting the tx for the contract instantiation into the exlorer. 
+You can use the testnet explorer [Transactions](https://secretnodes.com/secret/chains/pulsar-2) tab to view the transaction details of the contract instantiation by copy and pasting the tx for the contract instantiation into the exlorer.
 
 ## Secret Contracts 101
 
 ### Project structure
 
 The source directory (`src/`) has these files:
+
 ```
 contract.rs  lib.rs  msg.rs  state.rs
 ```
@@ -446,10 +466,10 @@ pub struct CountResponse {
 }
 
 ```
+
 ### Secret Contract code explanation
 
 Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to a see a sample voting contract, and a line by line description of everything you need to know.
-
 
 ### Unit tests
 
@@ -483,21 +503,26 @@ mod tests {
 ```
 
 ## Secret toolkit
+
 [Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) is a collection of Rust packages containing common tools used in development of Secret Contracts running on the Secret Network.
 
 #### Calling other contracts
-[Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) contains helpful tools for calling other contracts from your own.  [Here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/CALLING_OTHER_CONTRACTS.md) is a guide on how to call other contracts from your own using the `InitCallback`, `HandleCallback`, and `Query` traits defined in the [utils package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/utils).
 
-If you are specifically wanting to call Handle functions or Queries of [SNIP-20 token contracts](https://github.com/scrtlabs/snip20-reference-impl), there are individually named functions you can use to make it even simpler than using the generic traits.  These are located in the [SNIP-20 package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/snip20).
+[Secret Toolkit](https://github.com/scrtlabs/secret-toolkit) contains helpful tools for calling other contracts from your own. [Here](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/CALLING_OTHER_CONTRACTS.md) is a guide on how to call other contracts from your own using the `InitCallback`, `HandleCallback`, and `Query` traits defined in the [utils package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/utils).
+
+If you are specifically wanting to call Handle functions or Queries of [SNIP-20 token contracts](https://github.com/scrtlabs/snip20-reference-impl), there are individually named functions you can use to make it even simpler than using the generic traits. These are located in the [SNIP-20 package](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/snip20).
 
 ## Secret Contracts - advanced
+
 Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed-bid (secret) auction contract making use of [SNIP-20](https://github.com/scrtlabs/snip20-reference-impl) and a walkthrough of the contract.
 
 ### Tutorials from Secret Network community
+
 Visit [this link](https://learn.figment.io/network-documentation/secret) for all tutorials about Secret Network.
 
 ### CosmWasm resources
+
 Smart Contracts in the Secret Network based based on CosmWasm. Therefore, for troubleshooting and additional context, CosmWasm documentation may be very useful. Here are some of the links we relied on in putting together this guide:
 
 - [cosmwasm repo](https://github.com/CosmWasm/cosmwasm)
-- [cosmwasm docs](https://docs.cosmwasm.com/) 
+- [cosmwasm docs](https://docs.cosmwasm.com/)
