@@ -67,10 +67,10 @@ Here are some examples of how to use LocalSecret with secretcli, secret.js and K
 
 ## secretcli
 
-To access secretcli from inside the docker container:
+To access `secretcli` from inside the docker container:
 
 ```bash
-docker exec -it localsecret secretd [command]
+docker exec -it localsecret secretcli [command]
 ```
 
 To configure your local secretcli binary:
