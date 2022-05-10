@@ -33,32 +33,24 @@ When the network reaches the halt height 3,343,000, you'll see this message in y
 
 Then, the upgrade steps for v1.3 are:
 
-:warning: Note: uncomment the right binary based on the node type that you're upgrading: validator/query & rocksdb/leveldb
+:warning: Note: uncomment the right binary based on the database type on the node that you're upgrading: `rocksdb` vs. `goleveldb`.
 
 ```bash
-# Stop the v1.2 node, to make sure that your process manager isn't trying to restart your v1.2 node
+# Stop the v1.2 node, to make sure that your process manager isn't trying to restart it while you upgrade
 sudo systemctl stop secret-node
 
 # Get & verify secretd v1.3
 
-# validator node & goleveldb
-#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0vg_goleveldb_amd64.deb"
-#echo "TODO secretnetwork_1.3.0vg_goleveldb_amd64.deb | sha256sum --check"
+# goleveldb
+#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0_mainnet_goleveldb_amd64.deb"
+#echo "b5a4387fd3af477f1d7d0c8ab13debc9b9ad9abccb59c82b1a35cc8a90db902b secretnetwork_1.3.0vg_goleveldb_amd64.deb | sha256sum --check"
 
-# validator node & rocksdb
-#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0vr_rocksdb_amd64.deb"
-#echo "TODO secretnetwork_1.3.0vr_rocksdb_amd64.deb | sha256sum --check"
-
-# query node & goleveldb
-#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0qg_goleveldb_amd64.deb"
-#echo "TODO secretnetwork_1.3.0qg_goleveldb_amd64.deb | sha256sum --check"
-
-# query node & rocksdb
-#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0qr_rocksdb_amd64.deb"
-#echo "TODO secretnetwork_1.3.0qr_rocksdb_amd64.deb | sha256sum --check"
+# rocksdb
+#wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0_mainnet_rocksdb_amd64.deb"
+#echo "a1fc48003b3b563aae216901fc5821bb11164746c61b86507bc813cb49bd85cb secretnetwork_1.3.0vr_rocksdb_amd64.deb | sha256sum --check"
 
 # Install v1.3 binaries
-sudo apt install -y ./secretnetwork_v1.3.0_*.deb
+sudo apt install -y ./secretnetwork_1.3.0_mainnet_*_amd64.deb
 
 # Restart the node
 sudo systemctl restart secret-node
