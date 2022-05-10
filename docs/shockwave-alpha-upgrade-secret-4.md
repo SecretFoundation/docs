@@ -1,9 +1,3 @@
-# :warning: DRAFT :warning:
-
-# :warning: THIS DOCUMENT IS NOT FINAL YET :warning:
-
-# :warning: DO NOT MAKE ANY CHANGES TO YOUR NODES BASED ON THIS DOC :warning:
-
 # Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions
 
 ## :warning: IMPORTANT NOTES :warning:
@@ -12,11 +6,11 @@
 - Make sure to [backup your validator](./backup/backup-a-validator.md) before making any chnages.
 - Please read carefully before you begin the upgrade.
 
-- [:warning: DRAFT :warning:](#warning-draft-warning)
-- [:warning: THIS DOCUMENT IS NOT FINAL YET :warning:](#warning-this-document-is-not-final-yet-warning)
-- [:warning: DO NOT MAKE ANY CHANGES TO YOUR NODES BASED ON THIS DOC :warning:](#warning-do-not-make-any-changes-to-your-nodes-based-on-this-doc-warning)
+## Table of Contents
+
 - [Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions](#secret-network-v13-shockwave-alpha-network-upgrade-instructions)
   - [:warning: IMPORTANT NOTES :warning:](#warning-important-notes-warning)
+  - [Table of Contents](#table-of-contents)
 - [Upgrading Manually](#upgrading-manually)
 - [Upgrading Automatically Using Cosmovisor](#upgrading-automatically-using-cosmovisor)
 - [Details of Upgrade Time](#details-of-upgrade-time)

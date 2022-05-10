@@ -1,14 +1,5 @@
-# :warning: DRAFT :warning:
-
-# :warning: THIS DOCUMENT IS NOT FINAL YET :warning:
-
-# :warning: DO NOT MAKE ANY CHANGES TO YOUR NODES BASED ON THIS DOC :warning:
-
 # Setting up a node using Cosmovisor
 
-- [:warning: DRAFT :warning:](#warning-draft-warning)
-- [:warning: THIS DOCUMENT IS NOT FINAL YET :warning:](#warning-this-document-is-not-final-yet-warning)
-- [:warning: DO NOT MAKE ANY CHANGES TO YOUR NODES BASED ON THIS DOC :warning:](#warning-do-not-make-any-changes-to-your-nodes-based-on-this-doc-warning)
 - [Setting up a node using Cosmovisor](#setting-up-a-node-using-cosmovisor)
 - [Install Cosmovisor](#install-cosmovisor)
 - [Set up a new v1.2 node](#set-up-a-new-v12-node)
@@ -112,7 +103,7 @@ $ find ~/.secretd/cosmovisor
 
 Now you might want to checkout the [How To Join Secret Network as a Full Node](./node-guides/run-full-node-mainnet.md) guide for syncing a node from height 0 or [Sync with State-Sync](./node-guides/state-sync.md) for syncing a node from a more recent block height.
 
-After making the proper configurations to your new node, launch it using `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu secret-node`).
+After making the proper configurations to your new node, launch it using `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu cosmovisor`).
 
 # Migrate a running v1.2 node
 
@@ -145,7 +136,7 @@ $ find ~/.secretd/cosmovisor
 /home/ubuntu/.secretd/cosmovisor/genesis/bin/secretd
 ```
 
-To relaunch your node, use `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu secret-node`).
+To relaunch your node, use `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu cosmovisor`).
 
 # Prepare a v1.3 node upgrade (Shockwave Alpha)
 
@@ -155,20 +146,23 @@ The "Shockwave Alpha" upgrade is anticipated to be on Wednesday April 27th, 2022
 # Make the necessary directory structure for v1.3
 mkdir -p ~/.secretd/cosmovisor/upgrades/v1.3/bin
 
-# Get v1.3 binaries
-wget -P /tmp/ "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_v1.3.0_mainnet_amd64.deb"
+# Get & verify v1.3 binaries
 
-# Verify v1.3 binaries checksum
-echo "TODO /tmp/secretnetwork_v1.3.0_mainnet_amd64.deb" | sha256sum --check
+# Uncomment goleveldb or rocksdb:
+
+# wget -P /tmp/ "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0_mainnet_goleveldb_amd64.deb"
+# echo "b5a4387fd3af477f1d7d0c8ab13debc9b9ad9abccb59c82b1a35cc8a90db902b /tmp/secretnetwork_1.3.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
+
+# or rocksdb
+#wget -P /tmp/ "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0_mainnet_rocksdb_amd64.deb"
+#echo "a1fc48003b3b563aae216901fc5821bb11164746c61b86507bc813cb49bd85cb /tmp/secretnetwork_1.3.0_mainnet_rocksdb_amd64.deb" | sha256sum --check
+
 
 # Extract v1.3 from archive
-dpkg-deb -R /tmp/secretnetwork_v1.3.0_mainnet_amd64.deb /tmp/secretnetwork_v1.3.0_mainnet_amd64.deb.extracted
+dpkg-deb -R /tmp/secretnetwork_1.3.0_mainnet_*_amd64.deb /tmp/secretnetwork_1.3.0_mainnet_amd64.deb.extracted
 
 # Move v1.3 binaries to Cosmovisor's directory
-mv /tmp/secretnetwork_v1.3.0_mainnet_amd64.deb.extracted/usr/{local/bin/secretd,lib/librust_cosmwasm_enclave.signed.so,lib/libgo_cosmwasm.so} ~/.secretd/cosmovisor/upgrades/v1.3/bin
-
-# For a query node also move the query enclave
-sudo mv /tmp/secretnetwork_v1.3.0_mainnet_amd64.deb.extracted/usr/lib/librust_cosmwasm_query_enclave.signed.so ~/.secretd/cosmovisor/upgrades/v1.3/bin
+mv /tmp/secretnetwork_1.3.0_mainnet_amd64.deb.extracted/usr/{local/bin/secretd,lib/librust_cosmwasm_enclave.signed.so,librust_cosmwasm_query_enclave.signed.so,lib/libgo_cosmwasm.so} ~/.secretd/cosmovisor/upgrades/v1.3/bin
 ```
 
 Now the Cosmovisor directory structure should look like this:
@@ -183,6 +177,7 @@ $ find ~/.secretd/cosmovisor
 /home/ubuntu/.secretd/cosmovisor/upgrades/v1.3/bin/
 /home/ubuntu/.secretd/cosmovisor/upgrades/v1.3/bin/libgo_cosmwasm.so
 /home/ubuntu/.secretd/cosmovisor/upgrades/v1.3/bin/librust_cosmwasm_enclave.signed.so
+/home/ubuntu/.secretd/cosmovisor/upgrades/v1.3/bin/librust_cosmwasm_query_enclave.signed.so
 /home/ubuntu/.secretd/cosmovisor/upgrades/v1.3/bin/secretd
 ```
 
