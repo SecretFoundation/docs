@@ -52,9 +52,7 @@ echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
 # 1002969 1000969 0B532538F74C946B82D1697704B25F2D8E12D989766B30AF5F8730A7A7A94CDB
 ```
 
-4. If you have not already, [set some persistent peers](https://docs.scrt.network/node-guides/run-full-node-mainnet.html#_16-add-persistent-peers-and-seeds-to-your-configuration-file).
-
-5. Set the required variables in `~/.secretd/config/config.toml`
+4. Set the required variables in `~/.secretd/config/config.toml`
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
@@ -64,7 +62,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.toml
 ```
 
-6. Stop the node and reset the node database
+5. Stop the node and reset the node database
 
 :warning: WARNING: This will erase your node database. If you are already running validator, be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running `unsafe-reset-all`.
 
@@ -74,7 +72,7 @@ It is recommended to copy `data/priv_validator_state.json` to a backup and resto
 systemctl stop secret-node && secretd unsafe-reset-all
 ```
 
-7. Restart node and check logs
+6. Restart node and check logs
 
 This generally takes several minutes to complete.
 

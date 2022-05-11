@@ -221,25 +221,13 @@ mkdir -p ~/.secretd/.node
 secretd configure-secret node-master-cert.der $SEED
 ```
 
-### 16. Add persistent peers and seeds to your configuration file.
-
-```bash
-perl -i -pe 's/seeds = ""/seeds = "7649dcfda0eb77b38fde8e817da8071faea3cd13\@bootstrap.scrt.network:26656,6fb7169f7630da9468bf7cc0bcbbed1eb9ed0d7b\@scrt-seed-01.scrtlabs.com:26656,ab6394e953e0b570bb1deeb5a8b387aa0dc6188a\@scrt-seed-02.scrtlabs.com:26656,9cdaa5856e0245ecd73bd464308fb990fbc53b57\@scrt-seed-03.scrtlabs.com:26656"/' ~/.secretd/config/config.toml
-```
-
-You may use the following peers, or you can choose your own from [this list](https://securesecrets.notion.site/Secret-Network-secret-4-peer-list-54c6cdcc77f040c9a4e877c8d40f953a).
-
-```bash
-perl -i -pe 's/persistent_peers = ""/persistent_peers = "555d083ffc6b4acca46fa0c78a545bb799f72296\@morty.secretnodes.com:26656,7c9f5e1cd79c4d5ee83e2a82b133efe0bd74732d\@secret-ibc.blockngine.io:26656,7ecc77c5d79520cd613488e69bfbb324ac22280c\@node.securesecrets.org:26656,4378c3df119539623d190e6b81e359b57b152675\@135.148.55.229:10656,971911193b09a17c347565d311a3cc4f6004156d\@peer.node.scrtlabs.com:26656"/' ~/.secretd/config/config.toml
-```
-
-### 17. Listen for incoming RPC requests so that light nodes can connect to you:
+### 16. Listen for incoming RPC requests so that light nodes can connect to you:
 
 ```bash
 perl -i -pe 's/laddr = .+?26657"/laddr = "tcp:\/\/0.0.0.0:26657"/' ~/.secretd/config/config.toml
 ```
 
-### 18. Enable `secret-node` as a system service:
+### 17. Enable `secret-node` as a system service:
 
 Note that the `secret-node` system file is created in a previous step.
 
@@ -247,13 +235,13 @@ Note that the `secret-node` system file is created in a previous step.
 sudo systemctl enable secret-node
 ```
 
-### 19. Start `secret-node` as a system service:
+### 18. Start `secret-node` as a system service:
 
 ```bash
 sudo systemctl start secret-node
 ```
 
-### 20. If everything above worked correctly, the following command will show your node streaming blocks (this is for debugging purposes only, kill this command anytime with Ctrl-C):
+### 19. If everything above worked correctly, the following command will show your node streaming blocks (this is for debugging purposes only, kill this command anytime with Ctrl-C):
 
 ```bash
 journalctl -f -u secret-node
@@ -277,7 +265,7 @@ Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF committed state app_ha
 
 You are now a full node. :tada:
 
-### 21. Optimization
+### 20. Optimization
 
 In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your
 SGX memory enclave cache:
@@ -286,7 +274,9 @@ SGX memory enclave cache:
 sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclave-cache-size = \"15\"/" ~/.secretd/config/app.toml
 ```
 
-### 22. Get your node ID with:
+Also checkout this document by `[ block pane ]` for fine tuning your machine for better uptime: https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa
+
+### 21. Get your node ID with:
 
 ```bash
 secretd tendermint show-node-id
@@ -308,10 +298,10 @@ secretcli config output json
 secretcli config node tcp://<your-public-ip>:26657
 ```
 
-### 23. Optional: make your full node into a validator
+### 22. Optional: make your full node into a validator
 
 To turn your full node into a validator, see [Joining Mainnet as a Validator](join-validator-mainnet.md).
 
-### 24. Optional: State Sync
+### 23. Optional: State Sync
 
 You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/node-guides/state-sync.html#mainnet-state-sync) to the current block.
