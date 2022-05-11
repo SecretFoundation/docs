@@ -28,7 +28,7 @@ export SCRT_ENCLAVE_DIR="${HOME}/.secretd/cosmovisor/current/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${HOME}/.secretd/cosmovisor/current/bin"
 export PATH="${PATH}:${HOME}/.secretd/cosmovisor/current/bin"
 export DAEMON_NAME=secretd
-export DAEMON_HOME="${HOME}"
+export DAEMON_HOME="${HOME}/.secretd"
 export DAEMON_ALLOW_DOWNLOAD_BINARIES=false
 export DAEMON_LOG_BUFFER_SIZE=512
 export DAEMON_RESTART_AFTER_UPGRADE=true
@@ -43,7 +43,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/bin/cosmovisor run
+ExecStart=/bin/cosmovisor run start
 User=${USER}
 Restart=on-failure
 StartLimitInterval=0
@@ -53,7 +53,7 @@ LimitMEMLOCK=209715200
 Environment=SCRT_ENCLAVE_DIR=${HOME}/.secretd/cosmovisor/current/bin
 Environment=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.secretd/cosmovisor/current/bin
 Environment=DAEMON_NAME=secretd
-Environment=DAEMON_HOME=${HOME}
+Environment=DAEMON_HOME=${HOME}/.secretd
 Environment=DAEMON_ALLOW_DOWNLOAD_BINARIES=false
 Environment=DAEMON_LOG_BUFFER_SIZE=512
 Environment=DAEMON_RESTART_AFTER_UPGRADE=true
