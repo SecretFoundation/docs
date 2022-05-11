@@ -14,7 +14,7 @@ By syncing to the network with state-sync, a node can avoid having to go through
 
 Lavender.Five Nodes and SecretNFT are operating and maintaining the snapshot RPCs.
 
-**NOTE: This documentation assumes you have followed the instructions for [Running a Full Node](run-full-node-mainnet.md).**
+**NOTE: This documentation assumes you have followed the instructions for [Running a Full Node](./run-full-node-mainnet.md).**
 
 The state-sync configuration is as follows:
 

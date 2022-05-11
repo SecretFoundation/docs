@@ -170,7 +170,7 @@ Configure `secretcli`. Initially you'll be using the bootstrap node, as you'll n
 
 ```bash
 secretcli config chain-id secret-4
-secretcli config node http://api.scrt.network:26657/
+secretcli config node https://lcd-secret.scrtlabs.com:443/rpc
 secretcli config output json
 ```
 
