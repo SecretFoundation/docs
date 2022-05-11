@@ -69,7 +69,7 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.tom
 It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `unsafe-reset-all` to avoid potential double signing.
 
 ```bash
-systemctl stop secret-node && secretd unsafe-reset-all
+systemctl stop secret-node && secretd tendermint reset-state --home ~/.secretd/
 ```
 
 6. Restart node and check logs
