@@ -12,7 +12,7 @@ By syncing to the network with state-sync, a node can avoid having to go through
 
 ## Mainnet State Sync
 
-Lavender.Five Nodes and SecretNFT is operating and maintaining the snapshot RPCs.
+Lavender.Five Nodes and SecretNFT are operating and maintaining the snapshot RPCs.
 
 **NOTE: This documentation assumes you have followed the instructions for [Running a Full Node](run-full-node-mainnet.md).**
 
@@ -25,30 +25,6 @@ snapshot-interval = 2000
 
 # snapshot-keep-recent specifies the number of recent snapshots to keep and serve (0 to keep all).
 snapshot-keep-recent = 10
-```
-
-### On a Fully-Synced Node
-
-1. Stop the node
-```bash
-systemctl stop secret-node
-```
-
-2. Copy the .compute directory
-```bash
-cd ~
-cp -r ~/.secretd/.compute/ .
-```
-
-3. Restart the node
-```bash
-systemctl restart secret-node
-```
-
-4. Download the `.compute` directory to the node being state sync'd, and extract it in `~/.secretd/.compute` 
-```
-cd ~/.secretd/
-wget -O - https://github.com/scrtlabs/mainnet-.compute/archive/refs/heads/master.tar.gz | tar --strip-components=1 -xz
 ```
 
 ### On The Node To Be State-Sync'd
