@@ -64,9 +64,9 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.tom
 
 5. Stop the node and reset the node database
 
-:warning: WARNING: This will erase your node database. If you are already running validator, be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running `unsafe-reset-all`.
+:warning: WARNING: This will erase your node database. If you are already running validator, be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running `reset-state`.
 
-It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `unsafe-reset-all` to avoid potential double signing.
+It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `reset-state` to avoid potential double signing.
 
 ```bash
 systemctl stop secret-node && secretd tendermint reset-state --home ~/.secretd/
