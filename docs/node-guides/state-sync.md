@@ -39,7 +39,7 @@ SNAP_RPC="http://155.138.198.97:26657"
 
 ```bash
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
-BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
+BLOCK_HEIGHT=$((LATEST_HEIGHT - 200)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 ```
 
@@ -64,12 +64,12 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.tom
 
 5. Stop the node and reset the node database
 
-:warning: WARNING: This will erase your node database. If you are already running validator, be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running `reset-state`.
+:warning: WARNING: This will erase your node database. If you are already running validator, be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running `unsafe-reset-all`.
 
-It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `reset-state` to avoid potential double signing.
+It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `unsafe-reset-all` to avoid potential double signing.
 
 ```bash
-systemctl stop secret-node && secretd tendermint reset-state --home ~/.secretd/
+systemctl stop secret-node && secretd tendermint unsafe-reset-all --home ~/.secretd/
 ```
 
 6. Restart node and check logs
