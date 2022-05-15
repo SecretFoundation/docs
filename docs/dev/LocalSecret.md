@@ -237,6 +237,8 @@ docker exec localsecret sed -E -i '/timeout_(propose|prevote|precommit|commit)/s
 
 To load the changes, restart LocalSecret.
 
+Note: it may take some time for the container to setup before you can edit `.secretd/config/config.toml`, so when scripting this you might want to check when this file is present or simply wait for 5-10 seconds.
+
 # Accounts
 
 LocalSecret is pre-configured with one validator and 4 accounts with SCRT balances. You can import them into your own testing environment for easier prototyping.
