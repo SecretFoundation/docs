@@ -102,9 +102,7 @@ You can choose between two ways, **8a (automatic)** or **8b (manual)**:
 
 you can move them to `/opt/secret/.sgx_secrets` and skip to **[step 16](#16-add-persistent-peers-to-your-configuration-file)** (if not working, try registering anyway).
 
-### 8a. Initialize secret enclave - Automatic Registration (EXPERIMENTAL)
-
-- **Note:** Automatic Registration currently does not work - please skip to step 8b.
+### 8a. CURRENTLY BROKEN - SKIP TO 8b. Initialize secret enclave - Automatic Registration (EXPERIMENTAL)
 
 - **Note:** Make sure SGX is running or this step might fail.
 
