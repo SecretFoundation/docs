@@ -31,7 +31,7 @@ Don't forget to go over the [differences between SecretWasm and CosmWasm](#diffe
   - [Debugging](#debugging)
   - [Building secret apps with SecretJS](#building-secret-apps-with-secretjs)
     - [Wallet integration](#wallet-integration)
-  - [Differences from CosmWasm](#differences-from-cosmwasm)
+- [Differences from CosmWasm](#differences-from-cosmwasm)
 
 ## IDEs
 
@@ -47,22 +47,22 @@ These IDEs are known to work very well for developing Secret Contracts:
 The developer blockchain is configured to run inside a docker container. Install [Docker](https://docs.docker.com/install/) for your environment (Mac, Windows, Linux).
 
 Open a terminal window and change to your project directory.
-Then start SecretNetwork, labelled _secretdev_:
+Then start SecretNetwork, labelled _localsecret_:
 
 ```
 $ docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1317:1317 \
- --name secretdev enigmampc/secret-network-bootstrap-sw:latest
+ --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
-**NOTE**: The _secretdev_ docker container can be stopped with Ctrl+C
+**NOTE**: The _localsecret_ docker container can be stopped with Ctrl+C
 
 At this point you're running a local SecretNetwork full-node. Let's connect to the container so we can view and manage the secret keys:
 
 **NOTE**: In a new terminal
 
 ```
-docker exec -it secretdev /bin/bash
+docker exec -it localsecret /bin/bash
 ```
 
 The local blockchain has a couple of keys setup for you (similar to accounts if you're familiar with Truffle Ganache). The keys are stored in the `test` keyring backend, which makes it easier for local development and testing.

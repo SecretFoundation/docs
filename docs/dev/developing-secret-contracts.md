@@ -11,14 +11,15 @@ Before proceeding, we recommend learning about differences between SecretWasm an
 
 - [Developing Secret Contracts](#developing-secret-contracts)
   - [IDEs](#ides)
-  - [Personal Secret Network for Secret Contract development](#personal-secret-network-for-secret-contract-development)
+  - [Personal Secret Network for Secret Contract Development](#personal-secret-network-for-secret-contract-development)
   - [Init](#init)
   - [Handle](#handle)
   - [Query](#query)
   - [Inputs](#inputs)
   - [APIs](#apis)
   - [State](#state)
-  - [Some libraries/crates considerations](#some-libraries-crates-considerations)
+  - [Debug printing](#debug-printing)
+  - [Some libraries/crates considerations](#some-librariescrates-considerations)
   - [Randomness](#randomness)
     - [Roll your own](#roll-your-own)
       - [Poker deck shuffling example](#poker-deck-shuffling-example)
@@ -49,30 +50,30 @@ IDEs working well for developing Secret Contracts are:
 
 ## Personal Secret Network for Secret Contract Development
 
-The developer blockchain is configured to run inside a docker container. Install [Docker](https://docs.docker.com/get-docker/) for your environment (Mac, Windows, Linux). 
+The developer blockchain is configured to run inside a docker container. Install [Docker](https://docs.docker.com/get-docker/) for your environment (Mac, Windows, Linux).
 
 **NOTE**: M1 Macs require additional effort to develop Secret Contracts for. Linux is the recommended platform.
 
 Open a terminal window and change to your project directory.
 
-Then start the developer SecretNetwork blockchain, labeled _secretdev_:
+Then start the developer SecretNetwork blockchain, labeled _localsecret_:
 
 ```
 $ docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1317:1317 \
- --name secretdev enigmampc/secret-network-bootstrap-sw:latest
+ --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
-**NOTE**: The _secretdev_ docker container can be stopped with Ctrl+C
+**NOTE**: The _localsecret_ docker container can be stopped with Ctrl+C
 
-At this point you're running a local SecretNetwork full-node. 
-    
-Now let's connect to the container so we can view and manage the secret keys. 
-    
+At this point you're running a local SecretNetwork full-node.
+
+Now let's connect to the container so we can view and manage the secret keys.
+
 Open a new terminal window and connect to the docker container:
 
 ```
-docker exec -it secretdev /bin/bash
+docker exec -it localsecret /bin/bash
 ```
 
 The local blockchain has a couple of keys setup for you (similar to accounts if you're familiar with Truffle Ganache). The keys are stored in the `test` keyring backend, which makes it easier for local development and testing.
@@ -142,9 +143,10 @@ Example invocation from `SecretJS`:
 
 ## Debug printing
 
-Under normal circumstances, contracts **cannot** be debugged while running 
+Under normal circumstances, contracts **cannot** be debugged while running
 on-chain, inside the enclave.
 In most cases where you need to track down the source of an issue, this is fine:
+
 - If a function is behaving unexpectedly, a unit test can be written to isolate
   and fix the issue
 - If a `Result::Err` is being thrown, it usually has a clear and
@@ -165,13 +167,15 @@ using it does nothing at all, and it's compiled away. To activate the debug
 printing feature, contracts must enable the `debug-print` feature in
 `cosmwasm_std`. This can be done by adding this line under the `[features]`
 section in `Cargo.toml`:
+
 ```
 debug-print = ["cosmwasm_std/debug-print"]
 ```
+
 and then compiling the contract with `--features debug-print`.
 
-Once compiled with this flag, and executed on the local dev image (using
-`enigmampc/secret-network-sw-dev`), the messages passed to `debug_print` will
+Once compiled with this flag, and executed on [LocalSecret](./LocalSecret.md) (using
+`ghcr.io/scrtlabs/localsecret`), the messages passed to `debug_print` will
 be shown as logs in the dev image's logging output.
 
 Now you can print information from within the contract to the console running
@@ -182,8 +186,8 @@ and they will only have an effect when used during development!
 
 Naturally, we don't want node runners to see private debug information in
 production, so the interfaces used by this API are only available in the
-local dev image. 
-    
+local dev image.
+
 **Attempting to store a module compiled with this flag to testnet or mainnet will fail on validation.**
 
 ## Some libraries/crates considerations
@@ -234,7 +238,7 @@ This example has a much worse UX than rolling your own randomness, but at least 
 $ docker run --rm -v "$(pwd)":/contract \
         --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
         --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
-        enigmampc/secret-contract-optimizer:1.0.7
+        enigmampc/secret-contract-optimizer
 ```
 
 Where `/absolute/path/to/contract/project` is pointing to the directory that contains your Secret Contract's `Cargo.toml`.

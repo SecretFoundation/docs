@@ -44,7 +44,8 @@ docker pull ghcr.io/scrtlabs/localsecret
 # Start LocalSecret
 
 ```bash
-docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 --name localsecret ghcr.io/scrtlabs/localsecret
+docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
+  --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
 You've now officially created a local Secret Network testnet with chain-id `secretdev-1`. :tada:
@@ -66,10 +67,10 @@ Here are some examples of how to use LocalSecret with secretcli, secret.js and K
 
 ## secretcli
 
-To access secretcli from inside the docker container:
+To access `secretcli` from inside the docker container:
 
 ```bash
-docker exec -it localsecret secretd [command]
+docker exec -it localsecret secretcli [command]
 ```
 
 To configure your local secretcli binary:
@@ -228,13 +229,15 @@ wal_file = "data/cs.wal/wal"
 + timeout_commit = "200ms"
 ```
 
-Additionally, you can use the following single line to configure the timeouts:
+You can use the following single line to configure the timeouts:
 
 ```sh
 docker exec localsecret sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' .secretd/config/config.toml
 ```
 
 To load the changes, restart LocalSecret.
+
+Note: it may take some time for the container to setup before you can edit `.secretd/config/config.toml`, so when scripting this you might want to check when this file is present or simply wait for 5-10 seconds.
 
 # Accounts
 

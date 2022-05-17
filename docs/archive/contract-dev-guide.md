@@ -1,6 +1,6 @@
 # Secret Contract Dev Guide
 
-This repository can be used to get up and running on a local Secret Network developer testnet (secretdev) to start working with CosmWasm-based smart contracts (soon to be Secret Contracts).
+This repository can be used to get up and running on a local Secret Network developer testnet (LocalSecret) to start working with CosmWasm-based smart contracts (soon to be Secret Contracts).
 
 A few important notes:
 
@@ -13,15 +13,15 @@ A few important notes:
 The developer blockchain is configured to run inside a docker container. Install [Docker](https://docs.docker.com/install/) for your environment (Mac, Windows, Linux).
 
 Open a terminal window and change to your project directory.
-Then start SecretNetwork, labelled _secretdev_ from here on:
+Then start SecretNetwork, labelled _localsecret_ from here on:
 
 ```
 $ docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1317:1317 \
- --name secretdev enigmampc/secret-network-bootstrap-sw:latest
+ --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
-**NOTE**: The _secretdev_ docker container can be stopped by CTRL+C
+**NOTE**: The _localsecret_ docker container can be stopped by CTRL+C
 
 ![](../images/images/docker-run.png)
 
@@ -30,7 +30,7 @@ At this point you're running a local SecretNetwork full-node. Let's connect to t
 **NOTE**: In a new terminal
 
 ```
-docker exec -it secretdev /bin/bash
+docker exec -it localsecret /bin/bash
 ```
 
 The local blockchain has a couple of keys setup for you (similar to accounts if you're familiar with Truffle Ganache). The keys are stored in the `test` keyring backend, which makes it easier for local development and testing.
@@ -186,13 +186,13 @@ The optimization creates two files:
 docker run -it --rm \
  -p 26657:26657 -p 26656:26656 -p 1317:1317 \
  -v $(pwd):/root/code \
- --name secretdev enigmampc/secret-network-bootstrap-sw:latest
+ --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
-Upload the optimized contract.wasm to _secretdev_ :
+Upload the optimized contract.wasm to _localsecret_ :
 
 ```
-docker exec -it secretdev /bin/bash
+docker exec -it localsecret /bin/bash
 
 cd code
 

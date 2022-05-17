@@ -12,9 +12,9 @@ By syncing to the network with state-sync, a node can avoid having to go through
 
 ## Mainnet State Sync
 
-Lavender.Five Nodes and SecretNFT is operating and maintaining the snapshot RPCs.
+Lavender.Five Nodes and SecretNFT are operating and maintaining the snapshot RPCs.
 
-**NOTE: This documentation assumes you have followed the instructions for [Running a Full Node](run-full-node-mainnet.md).**
+**NOTE: This documentation assumes you have followed the instructions for [Running a Full Node](./run-full-node-mainnet.md).**
 
 The state-sync configuration is as follows:
 
@@ -25,30 +25,6 @@ snapshot-interval = 2000
 
 # snapshot-keep-recent specifies the number of recent snapshots to keep and serve (0 to keep all).
 snapshot-keep-recent = 10
-```
-
-### On a Fully-Synced Node
-
-1. Stop the node
-```bash
-systemctl stop secret-node
-```
-
-2. Copy the .compute directory
-```bash
-cd ~
-cp -r ~/.secretd/.compute/ .
-```
-
-3. Restart the node
-```bash
-systemctl restart secret-node
-```
-
-4. Download the `.compute` directory to the node being state sync'd, and extract it in `~/.secretd/.compute` 
-```
-cd ~/.secretd/
-wget -O - https://github.com/scrtlabs/mainnet-.compute/archive/refs/heads/master.tar.gz | tar --strip-components=1 -xz
 ```
 
 ### On The Node To Be State-Sync'd
@@ -63,7 +39,7 @@ SNAP_RPC="http://155.138.198.97:26657"
 
 ```bash
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
-BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
+BLOCK_HEIGHT=$((LATEST_HEIGHT - 200)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 ```
 
@@ -76,9 +52,7 @@ echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
 # 1002969 1000969 0B532538F74C946B82D1697704B25F2D8E12D989766B30AF5F8730A7A7A94CDB
 ```
 
-4. If you have not already, [set some persistent peers](https://docs.scrt.network/node-guides/run-full-node-mainnet.html#_16-add-persistent-peers-and-seeds-to-your-configuration-file).
-
-5. Set the required variables in `~/.secretd/config/config.toml`
+4. Set the required variables in `~/.secretd/config/config.toml`
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
@@ -88,17 +62,17 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.toml
 ```
 
-6. Stop the node and reset the node database
+5. Stop the node and reset the node database
 
 :warning: WARNING: This will erase your node database. If you are already running validator, be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running `unsafe-reset-all`.
 
 It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `unsafe-reset-all` to avoid potential double signing.
 
 ```bash
-systemctl stop secret-node && secretd unsafe-reset-all
+systemctl stop secret-node && secretd tendermint unsafe-reset-all --home ~/.secretd/
 ```
 
-7. Restart node and check logs
+6. Restart node and check logs
 
 This generally takes several minutes to complete.
 

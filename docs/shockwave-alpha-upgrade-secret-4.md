@@ -1,9 +1,3 @@
-# :warning: DRAFT :warning:
-
-# :warning: THIS DOCUMENT IS NOT FINAL YET :warning:
-
-# :warning: DO NOT MAKE ANY CHANGES TO YOUR NODES BASED ON THIS DOC :warning:
-
 # Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions
 
 ## :warning: IMPORTANT NOTES :warning:
@@ -12,11 +6,11 @@
 - Make sure to [backup your validator](./backup/backup-a-validator.md) before making any chnages.
 - Please read carefully before you begin the upgrade.
 
-- [:warning: DRAFT :warning:](#warning-draft-warning)
-- [:warning: THIS DOCUMENT IS NOT FINAL YET :warning:](#warning-this-document-is-not-final-yet-warning)
-- [:warning: DO NOT MAKE ANY CHANGES TO YOUR NODES BASED ON THIS DOC :warning:](#warning-do-not-make-any-changes-to-your-nodes-based-on-this-doc-warning)
+## Table of Contents
+
 - [Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions](#secret-network-v13-shockwave-alpha-network-upgrade-instructions)
   - [:warning: IMPORTANT NOTES :warning:](#warning-important-notes-warning)
+  - [Table of Contents](#table-of-contents)
 - [Upgrading Manually](#upgrading-manually)
 - [Upgrading Automatically Using Cosmovisor](#upgrading-automatically-using-cosmovisor)
 - [Details of Upgrade Time](#details-of-upgrade-time)
@@ -24,33 +18,39 @@
 
 # Upgrading Manually
 
-When the network reaches the halt height TODO, you'll see this message in your node's log (`journalctl -fu secret-node`):
+When the network reaches the halt height 3,343,000, you'll see this message in your node's log (`journalctl -fu secret-node`):
 
 ```
-1:25PM ERR UPGRADE "v1.3" NEEDED at height: TODO:
-1:25PM ERR CONSENSUS FAILURE!!! err="UPGRADE \"v1.3\" NEEDED at height: TODO
+1:25PM ERR UPGRADE "v1.3" NEEDED at height: 3343000:
+1:25PM ERR CONSENSUS FAILURE!!! err="UPGRADE \"v1.3\" NEEDED at height: 3343000
 ```
 
 Then, the upgrade steps for v1.3 are:
 
+:warning: Note: uncomment the right binary based on the database type on the node that you're upgrading: `rocksdb` vs. `goleveldb`.
+
 ```bash
-# Stop the v1.2 node, to make sure that your process manager isn't trying to restart your v1.2 node
+# Stop the v1.2 node, to make sure that your process manager isn't trying to restart it while you upgrade
 sudo systemctl stop secret-node
 
-# Get secretd v1.3
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_v1.3.0_mainnet_amd64.deb"
+# Get & verify secretd v1.3
 
-# Verify v1.3 checksum
-echo "TODO secretnetwork_v1.3.0_mainnet_amd64.deb" | sha256sum --check
+# goleveldb
+# wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0_mainnet_goleveldb_amd64.deb"
+# echo "b5a4387fd3af477f1d7d0c8ab13debc9b9ad9abccb59c82b1a35cc8a90db902b secretnetwork_1.3.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
+
+# rocksdb
+# wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.0/secretnetwork_1.3.0_mainnet_rocksdb_amd64.deb"
+# echo "a1fc48003b3b563aae216901fc5821bb11164746c61b86507bc813cb49bd85cb secretnetwork_1.3.0_mainnet_rocksdb_amd64.deb" | sha256sum --check
 
 # Install v1.3 binaries
-sudo apt install -y ./secretnetwork_v1.3.0_mainnet_amd64.deb
+sudo apt install -y ./secretnetwork_1.3.0_mainnet_*_amd64.deb
 
 # Restart the node
 sudo systemctl restart secret-node
 ```
 
-After restarting the node with v1.3, you should see `INF applying upgrade "v1.3" at height: TODO` in the logs (`journalctl -fu secret-node`). Once 67% of voting power comes online, you'll see blocks executing again.
+After restarting the node with v1.3, you should see `INF applying upgrade "v1.3" at height: 3343000` in the logs (`journalctl -fu secret-node`). Once 67% of voting power comes online, you'll see blocks executing again.
 
 # Upgrading Automatically Using Cosmovisor
 
@@ -62,9 +62,9 @@ For instructions on how to setup Cosmovisor, go [here](./cosmovisor.md).
 
 # Details of Upgrade Time
 
-When the network reaches the halt height TODO, the Secret Network blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.3 binary (be it manually or automatically).
+When the network reaches the halt height 3343000, the Secret Network blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.3 binary (be it manually or automatically).
 
-The proposal targets the upgrade proposal block to be TODO, anticipated to be on Wednesday April 27th, 2022 at 2:00PM UTC. This uses a 7 day average block time, derived from [https://www.mintscan.io/secret/blocks/TODO](https://www.mintscan.io/secret/blocks/TODO) with #100,000 as the block time calculation window. Note that block times have high variance, so keep monitoring the time.
+The proposal targets the upgrade proposal block to be 3343000, anticipated to be on Wednesday May 11, 2022 at 2:00PM UTC. This uses a 7 day average block time, derived from [https://www.mintscan.io/secret/blocks/3343000](https://www.mintscan.io/secret/blocks/3343000) with #100,000 as the block time calculation window. Note that block times have high variance, so keep monitoring the time.
 
 The upgrade is anticipated to take approx 30 minutes, during which time, there will not be any on-chain activity on the network.
 
