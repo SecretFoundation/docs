@@ -167,9 +167,9 @@ To run the steps with `secretcli` on another machine, [set up the CLI](../cli/in
 Configure `secretcli`. Initially you'll be using the bootstrap node, as you'll need to connect to a running node and your own node is not running yet.
 
 ```bash
-secretcli config chain-id secret-4
-secretcli config node https://lcd-secret.scrtlabs.com:443/rpc
-secretcli config output json
+secretd config chain-id secretd config chain-id $(curl https://chains.cosmos.directory/secretnetwork/chain.json | jq '.chain_id' -r)
+secretd config node https://rpc.cosmos.directory:443/secretnetwork
+secretd config output json
 ```
 
 Set up a key. Make sure you back up the mnemonic and the keyring password.
