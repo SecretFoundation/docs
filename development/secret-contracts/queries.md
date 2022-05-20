@@ -1,0 +1,5 @@
+# Queries
+
+## QueryMSG
+
+## QueryAnswer
