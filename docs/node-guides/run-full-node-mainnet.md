@@ -102,9 +102,7 @@ You can choose between two ways, **8a (automatic)** or **8b (manual)**:
 
 you can move them to `/opt/secret/.sgx_secrets` and skip to **[step 16](#16-add-persistent-peers-to-your-configuration-file)** (if not working, try registering anyway).
 
-### 8a. Initialize secret enclave - Automatic Registration (EXPERIMENTAL)
-
-- **Note:** Automatic Registration currently does not work - please skip to step 8b.
+### 8a. CURRENTLY BROKEN - SKIP TO 8b. Initialize secret enclave - Automatic Registration (EXPERIMENTAL)
 
 - **Note:** Make sure SGX is running or this step might fail.
 
@@ -169,9 +167,9 @@ To run the steps with `secretcli` on another machine, [set up the CLI](../cli/in
 Configure `secretcli`. Initially you'll be using the bootstrap node, as you'll need to connect to a running node and your own node is not running yet.
 
 ```bash
-secretcli config chain-id secret-4
-secretcli config node https://lcd-secret.scrtlabs.com:443/rpc
-secretcli config output json
+secretd config chain-id $(curl https://chains.cosmos.directory/secretnetwork/chain.json | jq '.chain_id' -r)
+secretd config node https://rpc.cosmos.directory:443/secretnetwork
+secretd config output json
 ```
 
 Set up a key. Make sure you back up the mnemonic and the keyring password.
