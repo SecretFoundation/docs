@@ -35,21 +35,20 @@ snapshot-keep-recent = 10
 SNAP_RPC="http://155.138.198.97:26657"
 ```
 
-2. Fetch the `LATEST_HEIGHT` from the snapshot RPC, set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by subtracting the snapshot-interval from the `LATEST_HEIGHT`.
+1. Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
 
 ```bash
-LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
-BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000)}'); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 ```
 
 3. Check variables to ensure they have been set
 
 ```bash
-echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
+echo $BLOCK_HEIGHT $TRUST_HASH
 
 # output should be something similar to:
-# 1002969 1000969 0B532538F74C946B82D1697704B25F2D8E12D989766B30AF5F8730A7A7A94CDB
+# 3506000 FCB54D74A4A33F8C1CC18A7240D76D87CB192A89C17837C4DB6C6140612DDFEB
 ```
 
 4. Set the required variables in `~/.secretd/config/config.toml`
