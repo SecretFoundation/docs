@@ -61,7 +61,7 @@ Secret Network uses the SCRT coin (Secret) for fees, staking, governance, and to
 - [How to migrate a validator to a new machine](./docs/node-guides/migrate-a-validator.md)
 - [How to setup SGX on your machine](./docs/node-guides/setup-sgx.md)
 - [How to verify the SGX setup on your machine](./docs/node-guides/verify-sgx.md)
-- [How to use SecretJS to develop Secret dApps](./docs/cli/secretcli.md)
+- [How to use SecretJS to develop Secret dApps](https://docs.scrt.network/dev/secret-js.html)
 
 ## Implementation Discussions
 
