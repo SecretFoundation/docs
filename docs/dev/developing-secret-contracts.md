@@ -59,9 +59,8 @@ Open a terminal window and change to your project directory.
 Then start the developer SecretNetwork blockchain, labeled _localsecret_:
 
 ```
-$ docker run -it --rm \
- -p 26657:26657 -p 26656:26656 -p 1317:1317 \
- --name localsecret ghcr.io/scrtlabs/localsecret
+docker run -it --rm -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
+  --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
 **NOTE**: The _localsecret_ docker container can be stopped with Ctrl+C
