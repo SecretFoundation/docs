@@ -1,6 +1,9 @@
 # Theoretical Attacks
 
-TODO add more
+TODO add more\
+\- Add sidechain attack
+
+
 
 #### [#](https://docs.scrt.network/protocol/encryption-specs.html#deanonymizing-with-ciphertext-byte-count)Deanonymizing with ciphertext byte count <a href="#deanonymizing-with-ciphertext-byte-count" id="deanonymizing-with-ciphertext-byte-count"></a>
 

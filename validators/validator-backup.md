@@ -1,5 +1,11 @@
 # Validator Backup
 
+{% embed url="https://github.com/SecretFoundation/docs/blob/main/docs/backup/backup-a-validator.md" %}
+
+{% embed url="https://github.com/SecretFoundation/docs/blob/main/docs/backup/backup-a-full-node.md" %}
+
+## &#x20;<a href="#validator-backup" id="validator-backup"></a>
+
 ## Validator Backup <a href="#validator-backup" id="validator-backup"></a>
 
 It is **CRUCIAL** to backup your validator's private key. It's the only way to restore your validator in an event of a disaster.

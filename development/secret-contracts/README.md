@@ -4,10 +4,12 @@ description: Overview of Secret Contracts
 
 # Secret Contracts
 
-## [https://docs.scrt.network/dev/secret-contracts.html](https://docs.scrt.network/dev/secret-contracts.html)
+{% embed url="https://docs.scrt.network/dev/secret-contracts.html" %}
+
+{% embed url="https://github.com/SecretFoundation/docs/blob/main/docs/dev/privacy-model-of-secret-contracts.md" %}
+
+{% embed url="https://github.com/SecretFoundation/docs/tree/main/docs/dev/SecretContract" %}
 
 ## A
-
-## S
 
 ## Reference Contracts&#x20;

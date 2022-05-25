@@ -1,3 +1,9 @@
+---
+description: >-
+  use this guide
+  https://github.com/SiennaNetwork/SiennaNetwork/blob/main/docs/Multisig.md
+---
+
 # Multisig Keys
 
 You can generate and print a multisig public key by typing:
