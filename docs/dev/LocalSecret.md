@@ -221,18 +221,23 @@ wal_file = "data/cs.wal/wal"
 - timeout_prevote_delta = "500ms"
 - timeout_precommit_delta = "500ms"
 - timeout_commit = "5s"
-+ timeout_propose = "200ms"
-+ timeout_propose_delta = "200ms"
-+ timeout_prevote = "200ms"
-+ timeout_prevote_delta = "200ms"
-+ timeout_precommit_delta = "200ms"
++ timeout_propose = "120ms"
++ timeout_propose_delta = "20ms"
++ timeout_prevote = "40ms"
++ timeout_prevote_delta = "20ms"
++ timeout_precommit_delta = "20ms"
 + timeout_commit = "200ms"
 ```
 
 You can use the following single line to configure the timeouts:
 
-```sh
-docker exec localsecret sed -E -i '/timeout_(propose|prevote|precommit|commit)/s/[0-9]+m?s/200ms/' .secretd/config/config.toml
+```bash
+docker exec localsecret perl -i -pe 's/^timeout_propose =.*/timeout_propose = "120ms"/' .secretd/config/config.toml
+docker exec localsecret perl -i -pe 's/^timeout_propose_delta =.*/timeout_propose_delta = "20ms"/' .secretd/config/config.toml
+docker exec localsecret perl -i -pe 's/^timeout_prevote =.*/timeout_prevote = "40ms"/' .secretd/config/config.toml
+docker exec localsecret perl -i -pe 's/^timeout_prevote_delta =.*/timeout_prevote_delta = "20ms"/' .secretd/config/config.toml
+docker exec localsecret perl -i -pe 's/^timeout_precommit_delta =.*/timeout_precommit_delta = "20ms"/' .secretd/config/config.toml
+docker exec localsecret perl -i -pe 's/^timeout_commit =.*/timeout_commit = "200ms"/' .secretd/config/config.toml
 ```
 
 To load the changes, restart LocalSecret.
