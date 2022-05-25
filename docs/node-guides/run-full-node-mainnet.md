@@ -102,7 +102,7 @@ You can choose between two ways, **8a (automatic)** or **8b (manual)**:
 
 you can move them to `/opt/secret/.sgx_secrets` and skip to **[step 16](#16-add-persistent-peers-to-your-configuration-file)** (if not working, try registering anyway).
 
-### 8a. CURRENTLY BROKEN - SKIP TO 8b. Initialize secret enclave - Automatic Registration (EXPERIMENTAL)
+### 8a. Automatic Registration (EXPERIMENTAL)
 
 - **Note:** Make sure SGX is running or this step might fail.
 
@@ -122,7 +122,13 @@ export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
 Register:
 
 ```bash
-secretd auto-register --node http://bootstrap.node.scrtlabs.com:1317 --registration-node http://register.mainnet.enigma.co:26667
+secretd auto-register
+```
+
+If you have already registered previously, or you wish to overwrite an existing key you can force registration with the command 
+
+```bash
+secretd auto-register --reset
 ```
 
 **If this step was successful, you can skip straight to [step 16](#16-add-persistent-peers-to-your-configuration-file)**
