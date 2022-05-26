@@ -100,7 +100,7 @@ services:
     tty: true
 
   node:
-    image: ghcr.io/scrtlabs/secret-network-node:1.3.0-docker
+    image: ghcr.io/scrtlabs/secret-network-node:1.3.1
     devices:
       - /dev/sgx/enclave
       - /dev/sgx/provision
