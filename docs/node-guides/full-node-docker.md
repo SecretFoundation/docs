@@ -132,7 +132,11 @@ services:
       - "9091:9091"
 ```
 
-NOTE: If you want to persist the node beyond a reboot, change the paths
+* Note that the device paths (`/dev/sgx/provision` and `/dev/sgx/enclave`) should correspond to the devices that exist on the host. 
+
+* If you wish to run a secret node without the aesmd container it is possible to map the volume `- /tmp/aesmd:/var/run/aesmd` to the host instead (by default this will be in `/var/run/aesmd` on the host)
+
+* If you want to persist the node beyond a reboot, change the paths
 
 ```
       - /tmp/.secretd:/root/.secretd
@@ -154,8 +158,8 @@ Note: If you delete or lose either the .secretd or the .sgx_secrets folder your 
 - [optional] CHAINID - chain-id of the network (for testnet this is `supernova-1`, for mainnet this is `secret-4`)
 - [optional] REGISTRATION_SERVICE - Address of registration service (if you are not using a custom registeration service leave this blank)
 - [optional] STATE_SYNC1/STATE_SYNC2 - If you wish to sync using state sync, you can set these values as the state sync peers that the node will use. You may set only STATE_SYNC1 if you do not wish to use two different endpoints
-- [optional] FORCE_RESYNC - set this flag to force the node to reset the state on startup and resync
-- [optional] FORCE_REGISTER - set this flag to force the node to re-register with the network
+- [optional] FORCE_RESYNC - set this environment variable to force the node to reset the state on startup and resync
+- [optional] FORCE_REGISTER - set this environment variable to force the node to re-register with the network
 
 You can set an environment variable using the `export` syntax
 
@@ -173,7 +177,7 @@ After creating the machine a healthy status of the node will have 2 containers a
 
 ```
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS                    PORTS                                  NAMES
-bf9ba8dd0802        ghcr.io/scrtlabs/secret-network-node:1.3.0-docker   "/bin/bash mainnet_n…"   10 minutes ago   Up 10 minutes (healthy)   0.0.0.0:1317->1317/tcp, :::1317->1317/tcp, 0.0.0.0:9091->9091/tcp, :::9091->9091/tcp, 0.0.0.0:26656-26657->26656-26657/tcp, :::26656-26657->26656-26657/tcp   secret-node_node_1
+bf9ba8dd0802        ghcr.io/scrtlabs/secret-network-node:1.3.1   "/bin/bash mainnet_n…"   10 minutes ago   Up 10 minutes (healthy)   0.0.0.0:1317->1317/tcp, :::1317->1317/tcp, 0.0.0.0:9091->9091/tcp, :::9091->9091/tcp, 0.0.0.0:26656-26657->26656-26657/tcp, :::26656-26657->26656-26657/tcp   secret-node_node_1
 2405b23aa1bd        fortanix/aesm                             "/bin/sh -c './aesm_…"   13 minutes ago      Up 13 minutes                                                    secret-node_aesm_1
 ```
 
