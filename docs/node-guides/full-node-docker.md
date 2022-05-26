@@ -86,34 +86,39 @@ chmod -R -f 777 /tmp/aesmd || sudo chmod -R -f 777 /tmp/aesmd || true
 Edit the path under `devices` to match to your device from step 1
 
 ```yaml
-version: "3.4"
+version: '3.4'
 
 services:
   aesm:
-    image: enigmampc/aesm
+    image: fortanix/aesmd:2.13.103.1-1
     devices:
-      - /dev/isgx
+      - /dev/sgx/enclave
+      - /dev/sgx/provision
     volumes:
       - /tmp/aesmd:/var/run/aesmd
     stdin_open: true
     tty: true
 
   node:
-    image: enigmampc/secret-network-node:v1.2.0-mainnet
+    image: ghcr.io/scrtlabs/secret-network-node:1.3.1
     devices:
-      - /dev/isgx
+      - /dev/sgx/enclave
+      - /dev/sgx/provision
     volumes:
       - /tmp/aesmd:/var/run/aesmd
       - /tmp/.secretd:/root/.secretd
       - /tmp/.secretcli:/root/.secretcli
-      - /tmp/.sgx_secrets:/root/.sgx_secrets
+      - /tmp/.sgx_secrets:/opt/secret/.sgx_secrets
     environment:
       - SGX_MODE=HW
       - MONIKER
-      - RPC_URL
       - CHAINID
-      - PERSISTENT_PEERS
+      - STATE_SYNC1
+      - STATE_SYNC2
       - REGISTRATION_SERVICE
+      - FORCE_RESYNC
+      - FORCE_REGISTER
+      
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:26657"]
       interval: 1m30s
@@ -123,9 +128,15 @@ services:
     ports:
       - "26656:26656"
       - "26657:26657"
+      - "1317:1317"
+      - "9091:9091"
 ```
 
-NOTE: If you want to persist the node beyond a reboot, change the paths
+* Note that the device paths (`/dev/sgx/provision` and `/dev/sgx/enclave`) should correspond to the devices that exist on the host. 
+
+* If you wish to run a secret node without the aesmd container it is possible to map the volume `- /tmp/aesmd:/var/run/aesmd` to the host instead (by default this will be in `/var/run/aesmd` on the host)
+
+* If you want to persist the node beyond a reboot, change the paths
 
 ```
       - /tmp/.secretd:/root/.secretd
@@ -143,15 +154,18 @@ Note: If you delete or lose either the .secretd or the .sgx_secrets folder your 
 
 ### 5. Set up environment variables
 
-- MONIKER - your network name
-- RPC_URL - address of a node with an open RPC service (you can use `bootstrap.node.scrtlabs.com:26657`)
-- CHAINID - chain-id of the network (for testnet this is `supernova-1`, for mainnet this is `secret-4`)
-- PERSISTENT_PEERS - List of peers to connect to initially (for this testnet use `115aa0a629f5d70dd1d464bc7e42799e00f4edae@bootstrap.node.scrtlabs.com:26656`)
-- REGISTRATION_SERVICE - Address of registration service (this will help the node start automatically without going through all the manual steps in the other guide) - `register.mainnet.enigma.co:26667`
+- MONIKER - Name of your node
+- [optional] CHAINID - chain-id of the network (for testnet this is `supernova-1`, for mainnet this is `secret-4`)
+- [optional] REGISTRATION_SERVICE - Address of registration service (if you are not using a custom registeration service leave this blank)
+- [optional] STATE_SYNC1/STATE_SYNC2 - If you wish to sync using state sync, you can set these values as the state sync peers that the node will use. You may set only STATE_SYNC1 if you do not wish to use two different endpoints
+- [optional] FORCE_RESYNC - set this environment variable to force the node to reset the state on startup and resync
+- [optional] FORCE_REGISTER - set this environment variable to force the node to re-register with the network
 
 You can set an environment variable using the `export` syntax
 
-`export RPC_URL=bootstrap.node.scrtlabs.com:26657`
+`export MONIKER=my_node_name`
+
+or using an .env file
 
 ### 6. Start your node
 
@@ -163,8 +177,8 @@ After creating the machine a healthy status of the node will have 2 containers a
 
 ```
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS                    PORTS                                  NAMES
-bf9ba8dd0802        enigmampc/secret-network-node:v1.2.0   "/bin/bash startup.sh"   13 minutes ago      Up 13 minutes (healthy)   0.0.0.0:26656-26657->26656-26657/tcp   secret-node_node_1
-2405b23aa1bd        cashmaney/aesm                             "/bin/sh -c './aesm_…"   13 minutes ago      Up 13 minutes                                                    secret-node_aesm_1
+bf9ba8dd0802        ghcr.io/scrtlabs/secret-network-node:1.3.1   "/bin/bash mainnet_n…"   10 minutes ago   Up 10 minutes (healthy)   0.0.0.0:1317->1317/tcp, :::1317->1317/tcp, 0.0.0.0:9091->9091/tcp, :::9091->9091/tcp, 0.0.0.0:26656-26657->26656-26657/tcp, :::26656-26657->26656-26657/tcp   secret-node_node_1
+2405b23aa1bd        fortanix/aesm                             "/bin/sh -c './aesm_…"   13 minutes ago      Up 13 minutes                                                    secret-node_aesm_1
 ```
 
 ### 7. Helpful aliases
