@@ -1,21 +1,4 @@
----
-description: https://docs.scrt.network/cli/secretcli.html
----
-
-# Secret CLI
-
-The _secretcli_ (Secret Network Light Client) is a command-line interface tool for interacting with nodes running on the Secret Network blockchain. With the _secretcli_ you can perform many important functions related to:&#x20;
-
-* Generating keys&#x20;
-* Creating multisig wallets&#x20;
-* Transactions&#x20;
-* Secret Contracts
-* Governance&#x20;
-* Etc ...&#x20;
-
-Within the documentation you will be able to discover how to use all _secretcli_ functions. __&#x20;
-
-## Installation&#x20;
+# Install
 
 To install the _secretcli_ [download the latest version here. ](https://github.com/scrtlabs/SecretNetwork/releases)Download the appropriate version of the _secretcli_ based on the operating system you are using:
 
@@ -52,15 +35,14 @@ You can now use the secretcli by using the following command inside of the folde
 
 You will see some outputs related to available commands, flags, and usage.&#x20;
 
-It is recommended to rename seretcli-Linux to 'secretd', and move the executable file into the correct location so it is automatically executable by typing 'secretd' anywhere within the command-line.&#x20;
+It is recommended to rename seretcli-Linux to 'secretcli', and move the executable file into the correct location so it is automatically executable by typing 'secretcli' anywhere within the command-line.&#x20;
 
 To achieve this use the following commands in the directory containing secretcli-Linux:&#x20;
 
 ```
-sudo mv secretcli-Linux /usr/local/bin/secretd
+sudo mv secretcli-Linux /usr/local/bin/secretcli
 ```
 
 ### Mac
 
 ### Windows
-

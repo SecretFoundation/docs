@@ -4,18 +4,48 @@ description: Overview
 
 # Validators
 
-Secret Network is secured by a coordinated group of validators (current maximum: 80) using a Byzantine fault tolerant delegated proof-of-stake consensus engine, [Tendermint](https://tendermint.com/). These validators stake their own SCRT coins and coins from delegators in order to earn rewards by successfully running the protocol, verifying transactions, and proposing blocks to the chain. If they fail to maintain a consistent and honest node, they will be slashed and coins will be deducted from their account.&#x20;
+Secret Network is secured by a coordinated group of validators (current maximum: 80) using [Tendermint](https://tendermint.com/), a Byzantine fault tolerant Delegated Proof-of-Stake (DPoS) consensus engine.  Each validator stakes their own SCRT coins, and coins from delegators, in order to earn rewards by successfully running the protocol, verifying transactions, and proposing blocks. If they fail to maintain a consistent (downtime) and honest node (double-signing), they will be slashed resulting in coins being deducted from their account.&#x20;
 
+## **Slashing For Downtime**
 
+Slashing for downtime is based on real block times and NOT theoretical block times, such as `SignedBlocksWindow` and `MinSignedPerWindow` network parameters. Validators signing less than `MinSignedPerWindow` blocks out of every `SignedBlocksWindow` will experience a downtime slash.&#x20;
 
-TODO: What are the slashing rules
+### Slashing Conditions For Downtime
 
-TODO: What are the jailing rules
+Parameters: 11250 blocks out of every 22500-blocks
 
-It is possible for anyone who holds SCRT to become a Secret Network validator or delegator, and thus participate in both staking and governance processes. For information on running a node, delegating, staking, and voting, please see the walkthrough below and visit our [governance documentation](https://docs.scrt.network/protocol/governance.html). Here is a list of [SGX compatible hardware](https://github.com/ayeks/SGX-hardware) that could be considered for running a validator.
+* For a block time of 6.8 seconds, this roughly translates to being up for less then 21.25 hours out of every 42.5-hour window.
+* For a block time of 6.4 seconds, this roughly translates to being up for less then 20 hours out of every 40-hour window.
 
-### Walkthrough <a href="#walkthrough" id="walkthrough"></a>
+### Penalties For Downtime
 
-1. [Install SGX](https://docs.scrt.network/node-guides/setup-sgx.html)
-2. [Run a full node](https://docs.scrt.network/node-guides/run-full-node-mainnet.html) or [in Docker](https://docs.scrt.network/node-guides/full-node-docker.html)
+* Slashing of 0.01% of the validator and its delegators' staked SCRT
+* Jailing for 10 minutes of your validator node. You don't earn block rewards for this period and at the end must manually unjail your node with:
+
+```
+secretcli tx slashing unjail --from <key-alias>
+```
+
+## **Slashing For Double-Signing**
+
+It is possible all SCRT holders to become a Secret Network validator or delegator, and participate in staking and governance processes.&#x20;
+
+_For information on running a node, delegating, staking, and voting, please see the validator guide below and visit our_ [_governance documentation_](https://docs.scrt.network/protocol/governance.html)_. Here is a list of_ [_SGX compatible hardware_](https://github.com/ayeks/SGX-hardware) _that could be considered for running a validator._
+
+### Conditions **F**or Double-Signing
+
+* A validator signs the same block height twice
+
+### Penalties For Double-Signing
+
+* Slashing of 5% of the validator and its delegators' staked SCRT
+* Jailing forever (tombstoned) of your validator node
+  * A tombstoned validator cannot earn block rewards anymore, and its delegators must re-delegate their SCRT to another validator
+
+## What Happens With Slashed SCRT&#x20;
+
+## Validator Guide <a href="#walkthrough" id="walkthrough"></a>
+
+1. [Install SGX](set-up/install-sgx.md)
+2. [Run a full node](testnet/run-a-full-node.md) or [in Docker](testnet/run-a-full-docker-node.md)
 3. [Be a validator](https://docs.scrt.network/node-guides/join-validator-mainnet.html)

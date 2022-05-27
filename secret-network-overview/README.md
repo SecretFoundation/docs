@@ -4,11 +4,7 @@
 
 [https://docs.scrt.network/#what-is-secret-network](https://docs.scrt.network/#what-is-secret-network)
 
-### History / Back Story Of Secret network&#x20;
-
-### Privacy in Web3 Vs. Web 2
-
-#### What Is SCRT / sSCRT?&#x20;
+###
 
 ## License
 
