@@ -44,6 +44,7 @@ Secret Network uses the SCRT coin (Secret) for fees, staking, governance, and to
 - Community API by Secret Infrastructure
   - [https://api.scrt.network](https://api.scrt.network) (LCD - Light Client Daemon)
   - [https://api.scrt.network:26657](https://api.scrt.network:26657) (RPC - Remote Procedure Call)
+  - [https://secret-4.api.trivium.network:26657](https://secret-4.api.trivium.network:26657)(RPC - Remote Procedure Call)
 - [Figment](https://datahub.figment.io/)
 
 ## Docs
