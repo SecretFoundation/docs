@@ -26,9 +26,6 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * Products
 * Games
 * Explorers
-  * Mainnet
-  * Testnet
-  * Staking Calculators
 * Wallets
 * User Guides
 * Developer Guides
@@ -47,7 +44,7 @@ Official Secret Network resources
 
 Community activity
 
-* Community channels: [Forum](https://forum.scrt.network/) ?¡¤ [Discord](https://chat.scrt.network) ?¡¤ [Telegram](https://t.me/scrtCommunity) ?¡¤ [Reddit](https://www.reddit.com/r/SecretNetwork/) ?¡¤ [Twitter](https://twitter.com/SecretNetwork)
+* Community channels: [Forum](https://forum.scrt.network/) - [Discord](https://chat.scrt.network) - [Telegram](https://t.me/scrtCommunity) - [Reddit](https://www.reddit.com/r/SecretNetwork/) - [Twitter](https://twitter.com/SecretNetwork)
 * [Community Calendar](https://www.secretcalendar.org/) - A calendar of upcoming events, curated by several community members
 * [Secret Agent Headquarters](https://scrt.network/agents) - Home for community member collaboration
 * [Grant Applications](https://github.com/SecretFoundation/Grants/issues) - [announcement](https://scrt.network/blog/announcing-secret-network-grant-program) ?¡¤ [ideas](https://scrt.network/grant-application-ideas) ?¡¤ [process](https://scrt.network/grant-application-process)

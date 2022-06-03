@@ -41,6 +41,21 @@ Key deleted forever (uh oh!)
 
 After deleting a key you will no longer have access to the associated key account. You may regenerate the deleted key using the secretcli and the keys seed phrase.&#x20;
 
+Multiple keys may be deleted at once. You will be prompted to confirm each keys deletion:&#x20;
+
+```
+secretcli keys delete pub_addr_2 pub_addr_1 multisig_sorted
+
+# This is the output you should expect to seeb     
+
+Key reference will be deleted. Continue? [y/N]: y
+Public key reference deleted
+Key reference will be deleted. Continue? [y/N]: y
+Public key reference deleted
+Key reference will be deleted. Continue? [y/N]: y
+Key deleted forever (uh oh!)
+```
+
 ## Regenerate Key From Seed Phrase
 
 You can regenerate the key from the seed phrase with the following command:

@@ -44,8 +44,8 @@ _For information on running a node, delegating, staking, and voting, please see 
 
 ## What Happens With Slashed SCRT&#x20;
 
+The Secret Network uses the [same slashing penalties as Cosmos](https://docs.cosmos.network/master/modules/slashing/), meaning slashed SCRT is burned. Burning SCRT through slashing validators for downtime and/or double-signing is done to discourage poor practices and dishonesty by protocol-recognised actors. If slashing occurs frequently, a validator may lose their ability to vote on future blocks for a period of time.&#x20;
+
 ## Validator Guide <a href="#walkthrough" id="walkthrough"></a>
 
-1. [Install SGX](set-up/install-sgx.md)
-2. [Run a full node](testnet/run-a-full-node.md) or [in Docker](testnet/run-a-full-docker-node.md)
-3. [Be a validator](https://docs.scrt.network/node-guides/join-validator-mainnet.html)
+For detailed information on how to setup and run a validator, see the [Validator Set Up](set-up/) section of these docs.&#x20;

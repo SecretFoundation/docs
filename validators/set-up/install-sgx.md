@@ -35,7 +35,7 @@ sudo bash sgx
 
 Copy of raw script.
 
-```
+```shell
 #! /bin/bash
 
 sudo apt-get update && sudo apt upgrade -y

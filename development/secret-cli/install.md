@@ -11,6 +11,8 @@ To install the _secretcli_ [download the latest version here. ](https://github.c
 
 After downloading secretcli-Linux you will need to navigate to the folder you have download it to make secretcli-Linux an executable program using a graphical user interface (GUI) or the command-line.
 
+**Note:** Installing secretcli-Linux will ONLY give you access to the 'secretcli' commands. For 'secretcli' and 'secretd' commands install one of the .deb packages.&#x20;
+
 #### GUI
 
 Right click on the secretcli-Linux file and select 'Properties', then select 'Permissions', and then check the 'Allow executing the file as program' box beside the 'Execute' column.&#x20;

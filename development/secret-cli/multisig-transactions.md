@@ -1,37 +1,44 @@
 # Multisig Transactions
 
-Multisig transactions require signatures of multiple private keys. Generating and signing a transaction from a multisig account involves multiple parties. A multisig transaction is initiated by any key holder, and at least one of them would need to import other parties' public keys into their Keybase and generate a multisig public key to finalize and broadcast the multisig transaction.
+Multisig transactions require signatures of multiple private keys, typically owned by multiple parties. A multisig transaction is initiated by any key holder, and at least one of them would need to import other parties' public keys into their Keybase and generate a multisig public key to finalize and broadcast multisig transactions.
 
-For example, given a multisig key comprising the keys `p1`, `p2`, and `p3`, each of which is held by a distinct party, the user holding `p1` will need to import both `p2` and `p3` to generate the multisig account public key:
 
-```
-secretcli keys add \
-  p2 \
-  --pubkey=secretpub1addwnpepqtd28uwa0yxtwal5223qqr5aqf5y57tc7kk7z8qd4zplrdlk5ez5kdnlrj4
 
-secretcli keys add \
-  p3 \
-  --pubkey=secretpub1addwnpepqgj04jpm9wrdml5qnss9kjxkmxzywuklnkj0g3a3f8l5wx9z4ennz84ym5t
-
-secretcli keys add \
-  p1p2p3 \
-  --multisig-threshold=2 \
-  --multisig=p1,p2,p3
-```
+## Show Multisig Address
 
 When a new multisig public key `p1p2p3` has been stored its address will be used as signer of multisig transactions:
 
 ```
 secretcli keys show p1p2p3 -a
+
+secret1whdl9yjy8c7p3062xjehf2m69evljp8yfcv9zt
 ```
+
+## View Multisig Threshold
 
 You may also view multisig threshold, pubkey constituents and respective weights by viewing the JSON output of the key or passing the `--show-multisig` flag:
 
 ```
-secretcli keys show p1p2p3 -o json
+secretcli keys show p1p2p3
 
-secretcli keys show p1p2p3 --show-multisig
+- name: test_multisig
+  type: multi
+  address: secret1whdl9yjy8c7p3062xjehf2m69evljp8yfcv9zt
+  pubkey: '{"@type":"/cosmos.crypto.multisig.LegacyAminoPubKey","threshold":2,"public_keys":[{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AiXwUPtwTJqxKZq/BjKi+7EFhqR2Aj9QT94lFzb5Ednp"},{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A7QMHOt+yLGddDxey51QLofwsTJWfqyzYmNOB9L1Oz1S"},{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A0QMBqFY4J39i6NrH4qR5uOEnyytpkyeWFg/e0sPd8NJ"}]}'
+  mnemonic: ""
 ```
+
+The `-p` flag can be used interchangeably with the `--pubkey` flag to only show the output of pubkey information.&#x20;
+
+```
+secretcli keys show test_multisig
+```
+
+### Make Viewing Multisig Keys Pretty&#x20;
+
+
+
+## Initiate Multisig Transaction
 
 The first step to create a multisig transaction is to initiate it on behalf of the multisig address created above using the following command:
 
