@@ -54,7 +54,7 @@ Open a terminal window and change to your project directory. Then start SecretNe
 
 ```bash
 docker run -it --rm \
- -p 26657:26657 -p 26656:26656 -p 1337:1337 \
+ -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
  --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
@@ -64,7 +64,7 @@ If the following error occurs "Got permission denied while trying to connect to 
 
 ```bash
 sudo docker run -it --rm \
- -p 26657:26657 -p 26656:26656 -p 1337:1337 \
+ -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
  --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 
@@ -234,7 +234,7 @@ Now that the Secret contract is optimized and ready to deploy to the Secret Neto
 ```bash
 # When starting up our local development container we need to mount our project's code inside the container
 docker run -it --rm \
- -p 26657:26657 -p 26656:26656 -p 1337:1337 \
+ -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
  -v $(pwd):/root/code \
  --name localsecret ghcr.io/scrtlabs/localsecret
 ```
