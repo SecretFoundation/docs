@@ -70,7 +70,7 @@ Where `proposal.json` is:
 
 ```json
 {
-  "title": "Param Change",
+  "title": "Param Change: Update max validators",
   "description": "Update max validators with line breaks \n and `code formatting`",
   "changes": [
     {
@@ -157,7 +157,7 @@ Where `proposal.json` is:
 
 ```json
 {
-  "title": "Community Pool Spend",
+  "title": "Community Pool Spend: Super important committee",
   "description": "Spend 10 SCRT with line breaks \n and `code formatting`",
   "recipient": "secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "amount": "100000000uscrt",
