@@ -272,7 +272,7 @@ This file is essentially boilerplate you **shouldn't need to modify**. It provid
 Use the following command to compile the Secret Contract, which produces the wasm contract file.
 
 ```
-cargo wasm
+make build
 ```
 
 ## Run Unit Tests

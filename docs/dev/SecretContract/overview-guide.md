@@ -83,7 +83,7 @@ Cargo.toml	Importing.md	NOTICE		README.md	rustfmt.toml	src
 Use the following command to compile the smart contract which produces the wasm contract file.
 
 ```
-cargo wasm
+make build
 ```
 
 ### Unit Tests (NB Tests in this template currently fail unless you have SGX enabled)

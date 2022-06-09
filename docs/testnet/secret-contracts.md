@@ -92,7 +92,7 @@ Cargo.toml	Importing.md	NOTICE		README.md	rustfmt.toml	src
 Use the following command to compile the Secret Contract, which produces the wasm contract file.
 
 ```
-cargo wasm
+make build
 ```
 
 #### Run Unit Tests
