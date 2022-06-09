@@ -1,12 +1,10 @@
 # Address Types
 
-There are four types of Address types:
+There are three primary Secret Network address types:
 
 1. Secret
 2. Secretvaloper
 3. Secretpub
-4. `secretvalcons`
-5. Secretvalconspub
 
 ## Secret
 
@@ -72,23 +70,3 @@ The command will generate an output containing the corresponding accounts secret
 {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A0QMBqFY4J39i6NrH4qR5uOEnyytpkyeWFg/e0sPd8NJ"}
 ```
 
-## Secretvalcons
-
-
-
-```
-secretcli keys show test --bech=cons
-
-- name: test
-  type: local
-  address: secretvalcons1knpfllytv22umrlahglwmhjxkgavccjlwjnje4
-  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A0QMBqFY4J39i6NrH4qR5uOEnyytpkyeWFg/e0sPd8NJ"}'
-  mnemonic: ""
-```
-
-## Secretvalconspub
-
-* `secretvalconspub`
-  * Generated when the node is created with `secretd init`.
-  * Get this value with `secretd tendermint show-validator`
-  * e.g. `secretvalconspub1zcjduepq0ms2738680y72v44tfyqm3c9ppduku8fs6sr73fx7m666sjztznqzp2emf`

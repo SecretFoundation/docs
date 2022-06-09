@@ -6,244 +6,120 @@ coverY: 0
 
 # Introduction
 
-### What is Secret Network?
+### Secret Network in a Nutshell — Privacy for Web3
 
-Secret Network is a blockchain-based, open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains. Our&#x20;
+Secret Network offers programmable privacy on public permissionless blockchains — improving the adoption and usability of decentralized technologies. Secret enables individuals to keep private information private and to share this information with whom they trust. The use cases of Secret will undoubtedly touch every domain impacted by blockchain technology including exchanges, finance, governance, banking, media, supply-chain, voting, identity fraud, key-access, gaming, messaging control, entertainment, crowdfunding, and so on.
 
-Mission - to improve the adoption and usability of decentralized technologies for the benefit of all.
+![](https://cdn-images-1.medium.com/max/800/0\*27ro4dbsIA-kz5eB)
 
-Mainnet is out! Get the [latest version](https://github.com/scrtlabs/SecretNetwork/releases/latest).
+Over the past few years, blockchain transparency and privacy have been of great concern in different parts of the world. While traditional Blockchain technologies could provide unprecedented freedoms, they could, in the same vein, be used as tools for surveillance and totalitarian control.
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)
+Public permissionless blockchains, such as bitcoin and Ethereum, have one major “flaw”- an inherent lack of privacy. Vital information including wallet balance, transfers, complete transaction history, and your custom wallet address is publicly available and trackable. This poses a serious risk and limits the ability of certain individuals and institutions to adopt Blockchain technology.
 
-## Ecosystem overview
+Think of these real-world situations: How would you feel if anyone could see your bank account balances, financial transactions you made and with whom, or trace your online orders? Or how would you feel if you are being tracked down and sentenced to 15 years imprisonment after several years for offering humanitarian aid (in crypto) to either Russia or Ukraine? Consequences like these and even more are a very real possibility when using the architectural design of public permissionless blockchains.
 
-This is a list of [Secret Network](https://scrt.network) related projects, tools, games, and more!
+> 💡 Learn more about how Programmable privacy is changing the Web3 landscape in [this article.](https://carter-woetzel.medium.com/computational-and-transactional-privacy-a-deep-dive-commentary-fc3951d0d086)
 
-The ecosystem is always evolving so feel free to suggest changes as discussions, issues, or PRs if something is missing or incomplete via: [https://github.com/SecretFoundation/docs](https://github.com/SecretFoundation/docs)
+### **How Secret Network achieves programmable privacy**
 
-* General Resources
-* Products
-* Games
-* Explorers
-* Wallets
-* User Guides
-* Developer Guides
-* Developer Tools
-* Reference Contracts
+Smart contract-based blockchains are typically public by default. This means that the data contained in the smart contract could be easily accessed by anyone. However, this is not the case with Secret Network. Secret Network is the first blockchain that offers privacy-preserving smart contracts by default. These contracts enable encrypted input, state, and output, providing for a great deal of design and implementation options.
 
-### General Resources
+Secret Network protocol leverages key management, encryption protocols, and Trusted Execution Environments (TEE) that are part of the hardware specification for all validator nodes of the network. TEEs guarantee that nodes are unable to view computations that occur within the trusted environment — preserving the privacy of the underlying data during the computation. Computations are performed by each node on the network for verifiability, security, and consensus purposes.
 
-Official Secret Network resources
+![The flow of data when a user interacts with Secret Network](https://cdn-images-1.medium.com/max/800/0\*YBOwyI7LxdRgJfgP)
 
-* [Main website!](https://scrt.network/) - Official Secret Network website
-* [Blog](https://scrt.network/blog/) - Official Secret Network blog
-* [Wiki](https://docs.scrt.network/) - Official Secret Network wiki
-* Graypaper by Carter Woetzel - [Web](https://scrt.network/graypaper) ?¡¤ [PDF](https://www.securesecrets.org/papers)
-* [Specifications](https://github.com/SecretFoundation/SNIPs/) - SNIPs - Secret Network Improvement Proposals
+Secret Network leverages SGX as a TEE. Intel’s Software Guard Extensions (SGX) is a set of security-related instruction codes that are built into certain Intel CPUs that enable TEEs. The consensus seed is stored inside the TEE of each validator node, allowing for encrypted inputs to be decrypted and computed within a safe and secure hardware environment.
 
-Community activity
+SGX comes in 2 forms; SGX-ME and SGX-SPS. SGX-ME (management engine) uses small extra chips to manage functions related to the enclave such as memory and energy management, both of which have been used in the lab to break into the enclave. SGX-SPS (Server Platform Services) allows the bypassing of the ME chip.&#x20;
 
-* Community channels: [Forum](https://forum.scrt.network/) - [Discord](https://chat.scrt.network) - [Telegram](https://t.me/scrtCommunity) - [Reddit](https://www.reddit.com/r/SecretNetwork/) - [Twitter](https://twitter.com/SecretNetwork)
-* [Community Calendar](https://www.secretcalendar.org/) - A calendar of upcoming events, curated by several community members
-* [Secret Agent Headquarters](https://scrt.network/agents) - Home for community member collaboration
-* [Grant Applications](https://github.com/SecretFoundation/Grants/issues) - [announcement](https://scrt.network/blog/announcing-secret-network-grant-program) ?¡¤ [ideas](https://scrt.network/grant-application-ideas) ?¡¤ [process](https://scrt.network/grant-application-process)
-* [SNACs](https://forum.scrt.network/t/open-discussion-snacs-secret-network-action-campaigns/3150) - Secret Network Action Campaigns
-* [Secret Fellows](https://scrt.network/blog/secret-fellows-developer-program) - Developer mentorship program
-* [Community Code Repositories](https://github.com/zorostang/secret-network-community-code-repositories) - Open source repositories designed to take 1 to 5 days to complete with bounties ranging from $500 to $2,500 USD. Jump in, get involved!
-* [Community Curated Bounty List](https://docs.google.com/document/d/1tlFdagZHAIXDeMFi4HVDIseaw3nXxk\_-3WKp9hhsfFs/edit?usp=sharing) - A list of Developer projects which can be funded by the community pool as signalled in proposal #71
+To further reduce the number of possible attack vectors on the network, Secret Network has opted to only use SGX-SPS. Hence, all attack vectors of the ME chip do not apply to Secret Network. Similarly, each node creates an attestation report that proves the node is using the latest security patches of SGX before it registers. The entire network verifies the attestation report of the new node on-chain, and within the consensus and new node’s enclave to ensure that node operators cannot decrypt anything.
 
-### Products
+> 💡 Do you want to understand the technology stack of Secret Network? You can start by reading the [Whitepaper](https://scrt.network/graypaper) of Secret Network or [this article](https://carter-woetzel.medium.com/secret-network-tees-lets-talk-fud-vulnerability-33ca94b6df38) on the intricacies of SGX.
 
-Large products that launched (or will launch very soon) on the Secret Network
+### **Secret Network as the Privacy hub for the Multichain**
 
-#### bridges
+Secret Network is the leading blockchain that is interoperable with the multichain. Secret being a layer one solution built with the Cosmos SDK, is chain-agnostic and interoperable with a range of networks using the Cosmos InterBlockchain Communication (IBC) Protocol. Secret Network implements programmable privacy, which is defined as arbitrarily complex data privacy controls within an application.
 
-* [Secret Bridges](https://bridge.scrt.network/) - Turn assets from other chains into SNIP-20 privacy tokens
-  * Support for ETH and ERC-20 tokens
-    * Integrated to [keyTango](https://app.keytango.io/invest) easy DeFi investment interface
-  * Support for BNB and BEP-20 tokens
-  * Also supported in [Citadel One](https://citadel.one) wallet
-* [Secret Monero Bridge](https://ipfs.io/ipfs/QmNRrLDhKGZCSXAZcPU1cBTaLouhWnTi5kfWUzJB4nJbzA) - Turn your XMR into the SNIP-20 sXMR
-* [IBC bridges](https://wrap.scrt.network/) - Transfer tokens across IBC networks and wrap them in SNIP-20 tokens
-  * Alternate UI for [IBC bridging](https://app.sienna.network/wrap/ibc) and [SNIP-20 wrapping](https://app.sienna.network/wrap) of IBC tokens, by [Sienna](https://sienna.network/)
-* :soon: [Shinobi Protocol](https://sbtc.ninja) - Trustless bridge to Bitcoin. Turn your BTC into the SNIP-20 sBTC
+Programmable privacy enables tokens denominated in SCRT, BTC, ETH, and many others, to be wrapped into their private and fungible equivalent using the Secret Network SNIP-20 standard via a Secret Contract. Secret Contracts use an adaptation of CosmWasm v0.10 for optimal integration with the Cosmos ecosystem. With CosmWasm, Secret Contracts can run on multiple chains using IBC. Secret Contracts prevent data leakages by enforcing constant length messages via padding.
 
-#### DeFi
+![How Secret Network is bringing scalable private by default smart contracts to the multichain](https://cdn-images-1.medium.com/max/800/0\*RX8gqZIW-hQRPKts)
 
-* [secretSCRT Converter](https://wallet.keplr.app/#/secret/secret-secret) - Convert between SCRT and sSCRT, by [Chainapsis](https://chainapsis.com/)
-  * Also available in [Citadel One](https://citadel.one) wallet
-* [Secret Swap](https://www.secretswap.net/) - Front running resistant AMM
-* [Sienna Network](https://sienna.network/) - Front running resistant AMM, and more products in the future
-* [Button Swap](https://www.btn.group/secret\_network/button\_swap) - AMM/DEX aggregator by [btn.group](https://www.btn.group)
-* [Shade Protocol](https://shadeprotocol.io/) - an array of connected privacy-preserving DeFi applications
-  * **Shade** - Governance token
-  * **Silk** - Algorithmic stablecoin with transactional privacy by default
-  * **Synthetics** - Algorithmic synthetic assets with transactional privacy by default
-  * Many more will be revealed :shushing\_face:
-* [StakeEasy](https://stakeeasy.finance/) - Privacy preserving liquid staking solution for Secret Network.
-* [Secret Invoice](https://secretinvoice.com/) - Request payments via invoices, and pay for ivoices sent to you
-* [Duplex Finance](https://duplex.finance/) - Two-fold cross-chain strategy for gaining yield on stablecoins
-* [Secret Auctions](https://auctions.scrt.network/) - Sealed-bid auctions and OTC market
+With this feature, when a transfer is made after creating a viewing key for wrapped tokens, transactional privacy of both the sender and receiver to the other observers is assured. Say, for example, A transfers a wrapped token to B. The result would be as follows: nobody knows what A exactly did (only an interaction with a token contract is visible), nobody knows B received a token (no interaction visible), B knows he received the token from A yet no observer knows how many tokens were sent and who the recipient is.
 
-#### NFT
+These privacy features provide users with the opportunity to create new wallets that can’t be associated with a wallet that was accidentally doxxed or could be linked to a public-by-default chain that was used to fund the Secret wallet, like Ethereum or Binance Smart Chain. — Learn how [here](https://medium.com/@secretnetwork/private-secret-wallet-how-to-a842776c6531)
 
-[Stashh](https://stashh.io/) - Marketplace for Secret NFTs
+Secret Network’s privacy and interoperability have revolutionized the world of Defi and smart contracts which has resulted in a wide range of use cases including Secret Bridges, secret swap, Secret AMM, sealed-bid OTC marketplace, Secret NFT video games, privacy-preserving email software, privacy-preserving social media, and so on.
 
-* [Anons](https://www.anons.army/) - First NFT project to launch on the network. Only 580 anons. [Twitter](https://twitter.com/AnonsNFT) ?¡¤ [Contract](https://secretnodes.com/secret/chains/secret-3/contracts/secret1xx4fp7qgkyxdk9elrzd8v5p7gj28lvxprwl9lw)
-* [Tarantino NFTs](https://tarantinonfts.com/) - Seven uncut scenes from the original Pulp Fiction manuscript
-* [... More projects listed here](https://secretnft.com/scrt-nft-projects)
+### Access Control — Viewing key and Query Permit
 
-#### Other
+**Viewing keys**
 
-* [Fardels](https://fardels.network/) (beta) - An decentralized social network for selling items of low value
-* [Altermail](https://altermail.live/) - A decentralized messaging service dApp
-* [Whisprs](https://whisprs.co/) - Decentralized, cross-chain, private Messaging, by core-dev [Cashmaney](https://twitter.com/Cashmaney3/)
-* [Secret Garden](https://scrtgarden.com/) - Secret Token and Secret NFT generator, manager, and explorer by [Secret Garden](https://github.com/ScrtGarden)
-* :soon: [JACKAL](https://jackaldao.com/) - A completely decentralized hot storage on-chain that uses the Amazon S3 Standard.
+When a user converts public assets such as ETH, BNB, and SCRT to their private equivalent (sETH, sBNB, sSCRT) using secret network SNIP-20 standard, metadata, such as balances, becomes encrypted by default, including from the user who has these assets. To view all of the encrypted data, Secret Network users must have access to a “viewing key”. This viewing key helps users to privatize their data, allowing them to exclusively access and analyze all the underlying information.
 
-### Games
+Secret Network helps to create an environment where individuals would have control of the level of privacy as opposed to complete transparency or complete privacy. They allow users to maintain control over their data and decide what is shared and with whom. Viewing keys give each secret contract a unique and unforgeable encryption key, hence, making it difficult for malicious validators to locally encrypt transactions with their own encryption key and then decrypt the resulting state with the fake key.
 
-Cool games built on the network
+However, in times of high traffic, the UI/UX built around viewing keys can lead to the creation of many unnecessary transactions which can decrease node performance, resulting in cascading problems for the network. Therefore, to solve these technical and UX challenges, a new method for querying private user data was implemented — query permits.
 
-* :soon: _**Orbem Wars**_ by [Domerium Labs](https://twitter.com/DomeriumLabs) ([Blog](https://medium.com/@domeriumlabs)), is a P2E tower defense game with four game modes, including single-player, multi-player, and PvP. Its combat and NFT-based economy are balanced to continuously challenge players to rethink their setups.
-* [Secret Dreamscape](https://secretdreamscape.com/) by [Secret Dreamscape](https://twitter.com/SCRTDreamscape) ([Blog](https://blog.secretdreamscape.com/posts/introducing-secret-dreamscape/)), is a social multiplayer game that's like a mashup of poker and scrabble. The cards are rich with fantastical images that take the player somewhere between a dream and reality. Players can bring their personal deck of NFT cards and their played words to the cards as they play for chances to win from the community prize pool.
-* [prisnr.games](https://prisnr.games/) - Head-to-head strategy game on testnet invoking the prisoner's dilemma. Implements private entropy pool for random numbers and secretNFTs as rewards and playable in-game power-ups. ([Contract codebase](https://github.com/prisnr-games/secret-dapp/tree/master/contracts), [Front-end webapp code](https://github.com/prisnr-games/webapp))
-* [Secret Heroes](https://secrethero.es/) - Deck building, auto-battler game based on collectible secretNFTs, built in Unity
-* [Secret Holdem](https://holdem.enigma.co/) - Texas Holdem game on testnet ([Codebase](https://github.com/enigmampc/SecretHoldEm/))
-* [Rock Paper Scissors](https://testrps.lindlof.io/) - Rock paper scissors game without commit-reveal on testnet ([Codebase](https://github.com/lindlof/secret\_rock\_paper\_scissors))
+**Query permit**
 
-### Explorers
+Query permit is an alternative querying method introduced in the SNIP-24 design specification. it was found to be a superior querying method when compared to viewing keys. Query permit uses a cryptographic technique known as public-key encryption coupled with digital signatures. A permit is a formatted message. It outlines several arguments such as what tokens the permit applies to and what permissions the permit should allow, (e.g. should the permit allow the querier to view a user’s transaction history, balance, etc.).
 
-Block Explorers and visualization tools
+This message is signed by the user using his account’s private key. When a user submits a query, he sends his signed permit as an argument to a smart contract. Once received, the smart contract, using the user’s public key, can validate his identity based on the signature he provided. If the user’s identity is confirmed, the smart contract returns his data as requested. Query permits are an improvement to Secret Network’s privacy-preserving tokens.
 
-#### Mainnet
+> 💡 Read up on the technology behind Secret network and the difference between viewing keys and permits via [this article.](https://medium.com/@secretnetwork/secret-network-access-control-viewing-keys-vs-permits-97baad539e72)
 
-* [Secretnodes](https://secretnodes.com) - Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
-* [Mintscan](https://www.mintscan.io/secret) - Popular and highly featured explorer for many chains in the Cosmos ecosystem
-* [Ping Explorer](https://ping.pub/secret) - Supports dozens of Cosmos chains and includes a basic web wallet, by [ping.pub](https://ping.pub/)
-* [Secret Contracts](http://secret-contracts.com/) - Contract code verifier and explorer by [3Dgiro](https://3dgiro.com/)
-* [Secret Analytics](https://secretanalytics.xyz/) - Analytics data collected about the Network, Bridges, and SecretSwap
-* [SmartStake Secret Analytics](https://secret.smartstake.io/) - Validator stats by [SmartStake](https://smartstake.io/)
-* [Xiphiar](https://scrthost.xiphiar.com/) - Tools by Xiphiar for better analysis of your SecretSwap LP tokens
-* [Address alias](https://btn.group/secret\_network/address\_alias) - Create and search wallet aliases, by [btn.group](https://www.btn.group)
-* [~~Cashmaney Explorer~~](https://explorer.cashmaney.com) (retired) - One of the first explorers, run by core-dev [Cashmaney](https://twitter.com/Cashmaney3/)
+**Secret Network Privacy Features Versus Group-Oriented Anonymous Signature Schemes**
 
-#### Testnet
+Secret network viewing keys and query permits offers “programmable privacy” on an individual basis. It provides users with the opportunity to transact securely with a preferred level of anonymity. It also ensures that individuals have control over their data and decide what is shared and with whom.
 
-`pulsar-2`, [Docs](https://github.com/scrtlabs/testnet/blob/master/pulsar-2/details.md) - Maintained by the [Stashh](https://stashh.io/) team
+In contrast, the two most prominent group-oriented anonymous signature schemes — group and ring signatures enable user anonymity with group settings. Any member of the group can produce a signature while hiding his identity in a group. Both signature schemes help to protect users’ identities which makes several applications adopt them. However, standard group signatures enable an authority to freely revoke signers’ anonymity while traditional ring signatures maintain permanent user anonymity, allowing space for malicious user activities. Therefore, achieving the requirements of privacy-preserved traceability in group signatures and controlled anonymity in ring signatures has been a drawback for the wide adoption and usability of these schemes.
 
-* [Faucet](https://faucet.secrettestnet.io/) - Run by validator [Chain of Secrets](https://chainofsecrets.org/)
-* [Secretnodes](https://secretnodes.com/secret/chains/pulsar-2) - Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
+### Use cases for web3 privacy
 
-`holodeck-2`, [Docs](https://github.com/scrtlabs/testnet/blob/master/holodeck-2/details.md) - Maintained by validator [Chain of Secrets](https://chainofsecrets.org/)
+Secret network enables novel use cases because of private smart contracts adopted by over 20 different applications. Below we will give a small rundown of two use cases for programmable privacy and give a set of example applications. If you want to learn more about the different use cases you can read [this article](https://medium.com/@secretnetwork/secret-use-cases-588d7fc5f46a) on all of them.
 
-* [~~Faucet~~](https://faucet.secrettestnet.io/) - Run by validator [Chain of Secrets](https://chainofsecrets.org/)
-* [Secretnodes](https://secretnodes.com/secret/chains/holodeck-2) - Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
-* [~~SecretTestnet~~](https://explorer.secrettestnet.io/) (retired) - Explorer run by validator [Chain of Secrets](https://chainofsecrets.org/)
+**Private Finance (PriFi)**
 
-#### Bots
+Private Finance is the general concept for all decentralized financial (DeFi) applications enabled by Secret Network smart contracts. Until now, traditional DeFi applications built on smart contract platforms like Ethereum had one key drawback: by default, all financial data is made public. Anyone who has your wallet address can run a query to see your transaction history, wallet balances, and account activities. Data is exposed when users utilize DeFi applications, putting them in danger of targeted attacks from hackers and front-running MEV bots.
 
-* [Gas Attendant](https://t.me/SCRT\_GasAttendant\_bot) - Time your transactions with notifications for blocks with low or high gas fees, by secretSauce :honey\_pot:
-* [Node Hunter](https://t.me/SCRT\_Node\_Hunter\_bot) - Get notified if a validator has been offline for a long time, by secretSauce :honey\_pot:
+PriFi applications are private by default since smart contracts on Secret Network are securely encrypted, meaning your sensitive financial data will be secure and protected from prying eyes and even front-running bots. PriFi’s goal is to privatize the data, making it accessible only to those with access to the viewing keys. This is done to satisfy regulators and auditors while keeping the information private for all and sundry.
 
-#### Staking Calculators
+An array of PriFi applications have been built on Secret Network all providing novel features. SecretSwap is the first fully front running resistant AMM with a private governance application. Sienna Network has a private AMM accompanied by a Lending solution where the details of the user’s debt positions are unknown leading to protected borrowing. Btn.group has built a dex aggregator and yield optimizer giving users the optimal trading experience. Meanwhile Shade protocol and Hydro finance are building Defi 2.0 Applications with Private auto compounding Staking derivatives, Stable coins and Protocol owned liquidity.&#x20;
 
-* [For stakers](https://www.securesecrets.org/stakingcalculator) ?¡¤ [For validators](https://www.securesecrets.org/validatorcalculator) - By validator [Secure Secrets](https://www.securesecrets.org)
-* [For stakers](https://stakeordie.com/rewards-calculator) - By Validator [Stake or Die](https://stakeordie.com/)
-* [For stakers](https://www.stakingrewards.com/earn/secret-network) - By [Staking Rewards](https://www.stakingrewards.com)
-* [For stakers](https://secret.smartstake.io/calc) - By [SmartStake](https://smartstake.io/)
+> 💡 Visit [scrt.network/ecosystem/dapps](https://scrt.network/ecosystem/dapps) to learn about all the Privacy enabling applications built on Secret Network.
 
-### Wallets
+![](https://cdn-images-1.medium.com/max/800/0\*YanmCsc5mvSGR5oX.jpeg)
 
-Great and popular wallets for managing your Secret Address
+**Secret NFTs**
 
-* [Keplr](https://keplr.app) by [Chainapsis](https://chainapsis.com/)
-  * Highly featured wallet for the entire Cosmos ecosystem
-  * First wallet with full support of SNIP-20 Secret Tokens
-  * **Support for usage from any Secret dApp**
-  * Convert between SCRT and sSCRT ([in web app](https://wallet.keplr.app/#/secret/secret-secret))
-  * Web app + Browser extension + Mobile wallet
-* [Citadel One](https://citadel.one)
-  * Great UI and assortment of supported networks
-  * Second wallet with full support of SNIP-20 Secret Tokens
-  * Built-in support for sending assets across the Ethereum Bridge
-  * Convert between SCRT and sSCRT
-  * Validator on the network
-  * Web app + Mobile wallet
-* :soon: [a?| STARSHELL a?|](https://starshell.net/)
-  * A privacy-preserving, free and open-source Web3 wallet built for the Secret Network and Cosmos ecosystem.
-* [Secret Tipbot](https://twitter.com/secret\_tipbot) by validator [SG-1](https://sg-1.online/) ([Guide](https://medium.com/@Cosmostipbot/the-secret-tipbot-is-now-live-d2bd7ef1be94))
-  * Funded by the community ([Proposal](https://secretnodes.com/secret/chains/secret-2/governance/proposals/26))
-  * Send SCRT to other Twitter users with a tweet
-  * Send SCRT to other Telegram users with a command
-* [Sputnik Exchange](https://sputnik.exchange/) ([Guide](https://www.youtube.com/watch?v=NwiI6xXkMcw))
-  * Send SCRT to other Twitter users with a tweet
-  * Send SCRT to other Telegram users with a command
-  * Buy and sell SCRT from/to other users of Sputnik
-* [Ledger](https://docs.scrt.network/guides/ledger-nano.html) - Guide to using Ledger hardware wallet with Secret Network
+Secret NFTs are non-fungible tokens built on Secret Network with programmable privacy features. Unlike the traditional NFTs, Secret NFTs support both public and private metadata for NFT creators. It also enables private ownership and access controls for NFT owners. Because providing programmable privacy is about choice, you can choose to make ownership or/and private metadata completely public for anyone to see if you so desire! These unique items can be used for a variety of purposes, with impacts on many industries including art, fashion, science, business, entertainment, etc.
 
-### User Guides
+Learn more about what SecretNFTs bring to Web3 by reading [our article](https://medium.com/@secretnetwork/history-will-remember-2021-as-the-year-that-nfts-came-of-age-but-what-comes-next-73e338d1578b) on it.
 
-Guides about using the Secret Network
+![](https://cdn-images-1.medium.com/max/800/0\*5n9PkXRu1jgxVM7e.jpeg)
 
-#### Text Tutorials
+**Example Applications**
 
-* [Secret Network Medium](https://medium.com/@secretnetwork) - Guides for products in the ecosystem,
-* [Secure Secrets Tutorials](https://securesecrets-org.medium.com/secure-secrets-tutorials-meta-thread-df51b84fa35) - Guides on using products in the ecosystem by validator [Secure Secrets](https://www.securesecrets.org)
-* Altcoin Buzz Tutorials - Guides by [Altcoin Buzz](https://altcoinbuzz.io/)
-* More tutorials available on the Secret Network [Blog](https://scrt.network/blog/)
+[DataVault](https://mobile.twitter.com/data\_vault\_) is the world’s first decentralized privacy-preserving content management and data exchange protocol built on blockchain technology — powered by Secret Network.
 
-#### Video Tutorials
+[StarShell](https://starshell.net/) is a privacy-preserving, free, and open-source Web3 wallet built for the Secret Network and Cosmos Ecosystem. It protects your identity by limiting the types of information dApps can collect from your account.
 
-* [Official Secret Network Youtube](https://www.youtube.com/c/SecretNetworkOfficial) - Run by the Secret Foundation
-* [Whisper Node Youtube](https://www.youtube.com/channel/UChAbgpsMHT3ooZfWmjjUtKg/videos) - By validator [Whisper Node](https://www.whispernode.com/)
-* [Secure Secrets Youtube](https://www.youtube.com/c/SecureSecrets/videos) - By validator [Secure Secrets](https://www.securesecrets.org)
-* [Travis Bonfigli Youtube](https://www.youtube.com/playlist?list=PL6Tc4k6dl9kK4gmFDdMXVwTiXuS-COgV8) - Has a series on Secret Network
-* [Secret Code Podcast YouTube - Tutorial Playlist](https://www.youtube.com/watch?v=C0zRTaV8XgI\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4\_Uwwdg) - By validator [Secret Code Podcast Node](http://secretcodepodcast.com)
+[Alter](https://altermail.live/) is a decentralized messaging service providing a secure data integrity sharing model, with the use of a digital signature, a proxy encryption scheme, and Secret Network’s encrypted smart contracts. Users of Alter are owners of their own encryption key providing a new level of security.
 
-#### Podcasts
+[Orbem Wars](https://mobile.twitter.com/domeriumlabs) is a fully on-chain tower defense gaming leveraging the Private metadata in Secret NFTs and the Private blockchain state to offer fair gaming with stunning visuals.
 
-* [Sharing Secrets](https://www.youtube.com/watch?v=-l-c25mhE1M\&list=PLL1JDiTNCUAVq9YeGbxDtqBgaqUZajGIH) - Hosted by [Tor Bair](https://twitter.com/TorBair/)
-* [Secret Code](https://www.secretcodepodcast.com/) - Hosted by [Eric Waisanen](https://twitter.com/EricWaisanen) and [Paul Menexas](https://twitter.com/SecretKnight) ([Twitter](https://twitter.com/secretcodepod))
-* [Agents of the Round Table](https://www.youtube.com/channel/UCLCBgCi6j3tmOM2puGyF33A) - Hosted by the [Secret agent community](https://twitter.com/Secret\_AOTRT) and the [Education committee](https://twitter.com/scrtcommittees)
-* [House of Shade](https://www.youtube.com/channel/UCCK9tPCUf7HNFgg7P1lJd3Q) - Hosted by the [House of shade team](https://twitter.com/House\_of\_Shade)
+Other amazing dApps that are currently being built on Secret include Jackal, Shade protocol, Secret heroes, Sienna Network, Hydro finance, Blackbox, Fardels and much more.
 
-### Developer Guides
+![The Secret Network Ecosystem](https://cdn-images-1.medium.com/max/800/0\*1EnJw32oGDihRO02.jpeg)
 
-Guides about building on the Secret Network
+#### **Conclusion**
 
-* [Official Guides](https://docs.scrt.network/dev/developers.html) - Official Guides written by the community
-  * [Quickstart](https://docs.scrt.network/dev/quickstart.html) - Set up your environment and start writing contracts as fast as possible
-  * [Tutorials](https://docs.scrt.network/dev/tutorials.html) - More specific tutorials for different use cases
-* [Figment Learn](https://learn.figment.io/protocols/secret) - Guides and Tutorials by [Figment](https://figment.io/)
-* [Creating my first secret contract](https://darwinzero.medium.com/creating-my-first-secret-contract-on-secret-network-scrt-db0d04597051) - Tutorial by DarwinZero
-* [Developing your first secret contract](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1) - Tutorial by DarwinZero
-* [How to build a Keplr Staking Web App](https://securesecrets-org.medium.com/secret-network-developer-tutorial-how-to-build-a-keplr-staking-app-49dfeb25abe4) - Tutorial by validator [Secure Secrets](https://www.securesecrets.org)
-* [Band oracle integration docs](https://hackmd.io/@tansawit/secret-network-developer-doc) - by [Band Protocol](https://bandprotocol.com/) ([Announcement](https://scrt.network/blog/band-protocol-live-on-mainnet))
+Blockchains that have all data of every smart contract and transaction publicly visible are limited in their capacity to generate effective use cases where privacy is a fundamental component of the feasibility of the application. There has never been a greater need for easily accessible privacy solutions inside and outside the blockchain space. The intent of the Secret Network is to be an open-source protocol that enables a wide range of privacy-preserving tools and applications through programmable privacy — improving the adoption and usability of decentralized technologies.
 
-### Developer Tools
+Do you want to help bring Secret Network and programmable privacy to the masses? [Become a Secret agent](https://scrt.network/get-involved/become-secret-agent) and spread awareness on the importance of privacy in a Web3 multichain world.&#x20;
 
-Tools for interacting with the secret network and for writing Secret Contracts
+Want to get started with Secret Network? We have [a guide for you](https://medium.com/@secretnetwork/secret-network-starter-guide-8a6231c7c5b4/) :)
 
-* [Local Node](https://hub.docker.com/r/enigmampc/secret-network-sw-dev) - Start a docker container with a standalone network
-* [Secret DataHub](https://figment.io/datahub/secret-network/) by [Figment](https://figment.io/) - Quickly set up a Secret Node on mainnet or testnet for your application
-* [Secret API](https://secretapi.io/) - Web API for using Secret Network by [Chain of Secrets](https://chainofsecrets.org/)
-* [Secret Py](https://pypi.org/project/secret-sdk/) - Python library for interacting with the network
-* [secret.js](https://github.com/scrtlabs/secret.js) - JavaScript library for interacting with the network ([examples](https://github.com/scrtlabs/SecretJS-Templates))
-* [Griptape.js](https://griptapejs.com/) - By Validator [Stake or Die](https://stakeordie.com/), a front-end web framework for developing DApps on the network
-* [Polar](https://www.npmjs.com/package/secret-polar) - Polar is a framework for building secret contracts. It features facilitates for [project templates](https://github.com/arufa-research/polar-templates), compilation, deployment, javascript interaction (based on schemas), and testing ([Docs](https://docs.arufaresearch.com/), [Codebase](https://github.com/arufa-research/polar))
-* [Secret Toolkit](https://github.com/enigmampc/secret-toolkit) - Extra tools for use in Secret Contracts
-* [Smart Contract Interface](https://www.btn.group/secret\_network/smart\_contract\_interface) - Browser interface for smart contracts by [btn.group](https://www.btn.group)
-* [Fadroma](https://github.com/hackbg/fadroma) - Industrial strength components and workflows for smart contract development in Rust by [hack.bg](https://hack.bg/)
-* [Panic](https://github.com/mohammedpatla/panic\_cosmos) monitor your validator on the Secret Network with an active telegram bot, email or phone call through twilio \[Mohammed Patla - SecureSecrets.network]
+You can follow Secret Network on [twitter](https://twitter.com/secretnetwork) to keep up to date or checkout the blog at [https://scrt.network/blog](https://scrt.network/blog)
 
-### Reference Contracts
-
-Examples of reference Secret Contract implementations
-
-* [Secret Template](https://github.com/enigmampc/secret-template) - Quickstart template to start developing Secret Contracts
-* [SNIP-20](https://github.com/enigmampc/snip20-reference-impl) - Reference SNIP-20 contract implementation (Secret Tokens)
-* [SNIP-721](https://github.com/baedrik/snip721-reference-impl) - Reference SNIP-721 contract implementation (Secret NFTs)
-* [Randomized NFT Minting](https://github.com/luminaryphi/secret-random-minting-snip721-impl) - Template for launching NFT projects that need randomized minting
-* [Secret Dice](https://github.com/enigmampc/SecretDice) - Example of on-chain randomness based on encrypted inputs and state + video tutorial
+\

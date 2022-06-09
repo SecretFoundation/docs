@@ -1,7 +1,3 @@
----
-description: Subsections of Storage to ensure viewing keys don't overlap.
----
-
 # Prefixed Storage
 
 ## Why is Prefixed Storage needed?

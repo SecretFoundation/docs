@@ -12,11 +12,9 @@ Intel XEON
 
 Verified compliant processors:
 
-* CPU: `E-2276G`, `E-2278G`, `E-2286G`, `E-2288G`, `E-2176G`, `E-2178G`, `E-2186G`, `E-2188G`
+* CPU: `E-2276G`, `E-2278G`, `E-2286G`, `E-2288G`, `E-2176G`, `E-2178G`, `E-2186G`, `` E-2188G, `E-3xxxG` ``
 
-Verified non-compliant processors:
 
-* CPU: all 3rd generation `E-23xxG` processors are confirmed not working.
 
 IMPORTANT NOTE: **CPU must support SGX via SPS.** CPUs that only support SGX via intelME will not work.
 
