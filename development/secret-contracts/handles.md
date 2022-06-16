@@ -2,7 +2,7 @@
 
 On Secret Network there are two primary ways to interact with a smart contract; handles and queries. In this page you will learn about handles, you can find out more about queries [here](queries/).
 
-Handles are functions that are called based on messages send to the contract. If you’re familiar with RPC or you’re familiar with AJAX you can think of handles as the code that runs when a remote procedure is called. On Secret Network, handles are usually designed to be functions that run as quickly as possible and exit as early as possible when any errors are encountered, as this will help save gas. You can find out more about that on the section on contract optimisation, [here](optimising-contracts.md). If you’re worked with a cosmos chain before, such as terra, you may know them as the methods that get called from the execute function.
+Handles are functions that are called based on messages send to the contract. If you’re familiar with RPC or you’re familiar with AJAX you can think of handles as the code that runs when a remote procedure is called. On Secret Network, handles are usually designed to be functions that run as quickly as possible and exit as early as possible when any errors are encountered, as this will help save gas. You can find out more about that on the section on contract optimisation, [here](best-practices/contract-optimization.md). If you’re worked with a cosmos chain before, such as terra, you may know them as the methods that get called from the execute function.
 
 The standard practice on Secret Network is to have an `enum` with all the valid message types and reject all messages that don’t follow the usage pattern dictated in that enum; this enum is conventionally called HandleMsg and is usually in a file called `msg.rs`
 

@@ -158,7 +158,7 @@ remove(&mut deps.storage, MINTERS_KEY);
 
 ## JSON Storage Wrapper Functions
 
-The wrapper functions we learned above use bincode2 struct (from `secret-toolkit`) to serde the data being saved on the smart contract. However, bincode2 uses floats when serdeing rust enums, thus, bincode2 cannot serde enums in cosmwasm.
+The wrapper functions we learned above use bincode2 struct (from `secret-toolkit`) to serde the data being saved/read on the smart contract. However, bincode2 uses floats when deserializing rust enum variants, thus, bincode2 cannot serde enum variants in cosmwasm. This is why cosmwasm uses Json serde by default, not bincode2.
 
 The following is an example, from the [reference SNIP-721 implementation](https://github.com/baedrik/snip721-reference-impl), of a struct that cannot be saved/loaded by the wrapper functions we saw above because it uses an enum.
 

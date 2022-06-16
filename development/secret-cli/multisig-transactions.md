@@ -2,14 +2,12 @@
 
 Multisig transactions require signatures of multiple private keys, typically owned by multiple parties. A multisig transaction is initiated by any key holder, and at least one of them would need to import other parties' public keys into their Keybase and generate a multisig public key to finalize and broadcast multisig transactions.
 
-
-
 ## Show Multisig Address
 
-When a new multisig public key `p1p2p3` has been stored its address will be used as signer of multisig transactions:
+When a new multisig public key `test_multisig` is stored its address will be the signer of multisig transactions:
 
 ```
-secretcli keys show p1p2p3 -a
+secretcli keys show test_multisig -a
 
 secret1whdl9yjy8c7p3062xjehf2m69evljp8yfcv9zt
 ```

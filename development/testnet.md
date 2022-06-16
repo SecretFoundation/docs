@@ -1,3 +1,7 @@
+---
+description: https://github.com/Raimo33/docs/blob/main/docs/testnet/Testnet_Guide.md
+---
+
 # Testnet
 
 {% embed url="https://github.com/SecretFoundation/docs/search?q=testnet" %}

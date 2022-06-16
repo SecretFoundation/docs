@@ -6,6 +6,10 @@ coverY: 0
 
 # Introduction
 
+Secret Network is the first blockchain that offers private smart contracts on mainnet. The Secret Network blockchain was built
+
+###
+
 ### Secret Network in a Nutshell — Privacy for Web3
 
 Secret Network offers programmable privacy on public permissionless blockchains — improving the adoption and usability of decentralized technologies. Secret enables individuals to keep private information private and to share this information with whom they trust. The use cases of Secret will undoubtedly touch every domain impacted by blockchain technology including exchanges, finance, governance, banking, media, supply-chain, voting, identity fraud, key-access, gaming, messaging control, entertainment, crowdfunding, and so on.

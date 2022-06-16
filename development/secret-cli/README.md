@@ -4,7 +4,7 @@ description: https://docs.scrt.network/cli/secretcli.html
 
 # Secret CLI
 
-The _secretcli_ (Secret Network Light Client) is a command-line interface tool for interacting with nodes running on the Secret Network blockchain. With the _secretcli_ you can perform many important functions related to:&#x20;
+The _secretcli_ (Secret Network Light Client) is a command-line interface tool for interacting with nodes running on the Secret Network blockchain. With the _`secretcli` _ you can perform many important functions related to:&#x20;
 
 * Generating keys&#x20;
 * Creating multisig wallets&#x20;
@@ -12,55 +12,3 @@ The _secretcli_ (Secret Network Light Client) is a command-line interface tool f
 * Secret Contracts
 * Governance&#x20;
 * Etc ...&#x20;
-
-Within the documentation you will be able to discover how to use all _secretcli_ functions. __&#x20;
-
-## Installation&#x20;
-
-To install the _secretcli_ [download the latest version here. ](https://github.com/scrtlabs/SecretNetwork/releases)Download the appropriate version of the _secretcli_ based on the operating system you are using:
-
-* secretcli-Linux
-* secretcli-macOS
-* secretcli-MacOS-arm64&#x20;
-* secretcli-Windows&#x20;
-
-### Linux
-
-After downloading secretcli-Linux you will need to navigate to the folder you have download it to make secretcli-Linux an executable program using a graphical user interface (GUI) or the command-line.
-
-#### GUI
-
-Right click on the secretcli-Linux file and select 'Properties', then select 'Permissions', and then check the 'Allow executing the file as program' box beside the 'Execute' column.&#x20;
-
-![Make secretcli-Linux executable.](../../.gitbook/assets/secretcliguiinstall.png)
-
-#### Command-line
-
-To make secretcli-Linux executable using the command-line navigate to where the file is located and use the following command:
-
-```
-chmod +x secretcli-Linux
-```
-
-#### Next Steps
-
-You can now use the secretcli by using the following command inside of the folder it is located in with:&#x20;
-
-```
-./secretcli-Linux
-```
-
-You will see some outputs related to available commands, flags, and usage.&#x20;
-
-It is recommended to rename seretcli-Linux to 'secretd', and move the executable file into the correct location so it is automatically executable by typing 'secretd' anywhere within the command-line.&#x20;
-
-To achieve this use the following commands in the directory containing secretcli-Linux:&#x20;
-
-```
-sudo mv secretcli-Linux /usr/local/bin/secretd
-```
-
-### Mac
-
-### Windows
-

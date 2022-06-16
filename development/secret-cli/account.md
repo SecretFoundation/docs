@@ -1,12 +1,10 @@
 # Account
 
-
-
-#### Get Tokens <a href="#get-tokens" id="get-tokens"></a>
+## Testnet Faucet <a href="#get-tokens" id="get-tokens"></a>
 
 On a testnet, getting tokens is usually done via a faucet. You can get tokens for testing purposes using the Secret Network faucet [HERE](https://faucet.secrettestnet.io/)
 
-#### [#](https://docs.scrt.network/cli/secretcli.html#query-account-balance)Query Account Balance <a href="#query-account-balance" id="query-account-balance"></a>
+## Query Account Balance <a href="#query-account-balance" id="query-account-balance"></a>
 
 After receiving tokens to your address, you can view your account's balance by typing:
 
@@ -28,11 +26,9 @@ You can also supply your address with the following command:
 secretcli query bank balances $(secretcli keys show -a <key-alias>)
 ```
 
-Note
+<mark style="color:red;">Note: When querying an account balance with zero tokens, you will get the error:</mark> <mark style="color:red;"></mark><mark style="color:red;">`No account with address <secret-address> was found in the state.`</mark> <mark style="color:red;"></mark><mark style="color:red;">This can also happen if you fund the account before your node is fully synced. These are both normal.</mark>
 
-When querying an account balance with zero tokens, you will get the error: `No account with address <secret-address> was found in the state.` This can also happen if you fund the account before your node is fully synced. These are both normal.
-
-### [#](https://docs.scrt.network/cli/secretcli.html#send-tokens)Send Tokens <a href="#send-tokens" id="send-tokens"></a>
+### Send Tokens <a href="#send-tokens" id="send-tokens"></a>
 
 Use the following command to send tokens from one account to another:
 
@@ -42,13 +38,7 @@ secretcli tx bank send <sender-key-alias-or-address> <recipient-address> 10uscrt
 	--chain-id=<chain-id>
 ```
 
-Note
-
-The `amount` argument accepts the format `<value|coin_name>`.
-
-Note
-
-You may want to cap the maximum gas consumed by transactions via the `--gas` flag.
+<mark style="color:red;">Note: The</mark> <mark style="color:red;"></mark><mark style="color:red;">`amount`</mark> <mark style="color:red;"></mark><mark style="color:red;">argument accepts the format</mark> <mark style="color:red;"></mark><mark style="color:red;">`<value|coin_name>`</mark><mark style="color:red;">. You may want to cap the maximum gas consumed by transactions via the</mark> <mark style="color:red;"></mark><mark style="color:red;">`--gas`</mark> <mark style="color:red;"></mark><mark style="color:red;">flag.</mark>
 
 If you pass `--gas=auto`, the gas supply is automatically estimated before transaction execution.
 
@@ -90,9 +80,7 @@ secretcli tx sign \
   unsignedSendTx.json > signedSendTx.json
 ```
 
-Note
-
-The `--generate-only` flag prevents `secretcli` from accessing the local keybase. When the flag is supplied `<sender-key-alias-or-address>` must be an address.
+<mark style="color:red;">Note: The</mark> <mark style="color:red;"></mark><mark style="color:red;">`--generate-only`</mark> <mark style="color:red;"></mark><mark style="color:red;">flag prevents</mark> <mark style="color:red;"></mark><mark style="color:red;">`secretcli`</mark> <mark style="color:red;"></mark><mark style="color:red;">from accessing the local keybase. When the flag is supplied</mark> <mark style="color:red;"></mark><mark style="color:red;">`<sender-key-alias-or-address>`</mark> <mark style="color:red;"></mark><mark style="color:red;">must be an address.</mark>
 
 You can validate transaction signatures by typing the following:
 
