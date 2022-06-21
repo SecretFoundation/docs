@@ -6,7 +6,7 @@ Note - Please remember through the duration of this guide that the secretcli cou
 
 Various modules outside of governance may implement their own proposal types and handlers (eg. parameter changes), where the governance module itself supports `Text` proposals. Any module outside of governance has it's command mounted on top of `submit-proposal`.
 
-#### [#](https://docs.scrt.network/guides/governance.html#text)Text <a href="#text" id="text"></a>
+## Text <a href="#text" id="text"></a>
 
 To submit a `Text` proposal:
 
@@ -36,7 +36,7 @@ Where `proposal.json` is:
 }
 ```
 
-#### [#](https://docs.scrt.network/guides/governance.html#param-change)Param Change <a href="#param-change" id="param-change"></a>
+## Param Change <a href="#param-change" id="param-change"></a>
 
 To submit a parameter change proposal, you must provide a proposal file as its contents are less friendly to CLI input:
 
@@ -63,7 +63,7 @@ Where `proposal.json` is:
 
 You can see another `param-change` example here: [enigma-1-proposal-3.json](https://github.com/scrtlabs/SecretNetwork/blob/4561c0904c7b7659f019b96147cde13ac8db0933/enigma-1-proposal-3.json)
 
-[**#**](https://docs.scrt.network/guides/governance.html#subspaces-keys-and-values)**Subspaces, Keys and Values**
+## **Subspaces, Keys and Values**
 
 | Subspace       | Key                       | Type               | Example                                                                                                   |
 | -------------- | ------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------- |
@@ -117,13 +117,13 @@ Please note:
 * ⚠️ Currently parameter changes are _evaluated_ but not _validated_, so it is very important that any `value` change is valid (i.e. correct type and within bounds) for its respective parameter, eg. `MaxValidators` should be an integer and not a decimal.
 * ⚠️ Proper vetting of a parameter change proposal should prevent this from happening (no deposits should occur during the governance process), but it should be noted regardless.
 
-[**#**](https://docs.scrt.network/guides/governance.html#known-constraints)**Known Constraints**
+## **Known Constraints**
 
 * `distribution.baseproposerreward + distribution.bonusproposerreward < 1`. See [this](https://github.com/scrtlabs/SecretNetwork/issues/95) and [this](https://github.com/cosmos/cosmos-sdk/issues/5808) for more info.
 
 To read more go to https://github.com/gavinly/CosmosParametersWiki.
 
-#### [#](https://docs.scrt.network/guides/governance.html#community-pool-spend)Community Pool Spend <a href="#community-pool-spend" id="community-pool-spend"></a>
+## Community Pool Spend <a href="#community-pool-spend" id="community-pool-spend"></a>
 
 To submit a community pool spend proposal, you also must provide a proposal file as its contents are less friendly to CLI input:
 
@@ -143,6 +143,6 @@ Where `proposal.json` is:
 }
 ```
 
-#### [#](https://docs.scrt.network/guides/governance.html#software-upgrade)Software Upgrade <a href="#software-upgrade" id="software-upgrade"></a>
+## Software Upgrade <a href="#software-upgrade" id="software-upgrade"></a>
 
 The `SoftwareUpgrade` is currently not supported as it's not implemented and currently does not differ from the semantics of a `Text` proposal.

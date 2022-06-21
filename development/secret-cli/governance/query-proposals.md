@@ -20,9 +20,7 @@ To query for the proposer of a given governance proposal:
 secretcli query gov proposer <proposal_id>
 ```
 
-
-
-### Query proposal tally results <a href="#query-proposal-tally-results" id="query-proposal-tally-results"></a>
+## Query Proposal Tally Results <a href="#query-proposal-tally-results" id="query-proposal-tally-results"></a>
 
 To check the current tally of a given proposal you can use the `tally` command:
 

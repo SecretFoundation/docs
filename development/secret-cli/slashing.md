@@ -6,13 +6,13 @@ A user can query and interact with the `slashing` module using the CLI.
 
 [Norfmenn](https://app.gitbook.com/u/eDRsA9E9i6eX2gnIzh49LPEHA1v2 "mention") please take a look at this and rewrite it if necessary. The example outputs are from running the commands on secret, so they should be fine&#x20;
 
-### [#](https://docs.cosmos.network/master/modules/slashing/09\_client.html#query)Query <a href="#query" id="query"></a>
+## Query <a href="#query" id="query"></a>
 
 The `query` commands allow users to query `slashing` state.
 
 `secretcli query slashing --help`
 
-#### params <a href="#params" id="params"></a>
+### Params <a href="#params" id="params"></a>
 
 The `params` command allows users to query genesis parameters for the slashing module.
 
@@ -30,7 +30,7 @@ example output:
 }
 ```
 
-#### signing-info <a href="#signing-info" id="signing-info"></a>
+### Signing-info <a href="#signing-info" id="signing-info"></a>
 
 The `signing-info` command allows users to query signing-info of the validator using consensus public key.
 
@@ -55,7 +55,7 @@ example output:
 }
 ```
 
-#### signing-infos <a href="#signing-infos" id="signing-infos"></a>
+### Signing-infos <a href="#signing-infos" id="signing-infos"></a>
 
 The `signing-infos` command allows users to query signing infos of all validators.
 
@@ -78,13 +78,13 @@ The `signing-infos` command allows users to query signing infos of all validator
 }
 ```
 
-### Transactions <a href="#transactions" id="transactions"></a>
+## Transactions <a href="#transactions" id="transactions"></a>
 
 The `tx` commands allow users to interact with the `slashing` module.
 
 `secretd tx slashing --help`
 
-#### [#](https://docs.cosmos.network/master/modules/slashing/09\_client.html#unjail)unjail <a href="#unjail" id="unjail"></a>
+## Unjail <a href="#unjail" id="unjail"></a>
 
 The `unjail` command allows users to unjail a validator previously jailed for downtime.
 

@@ -15,6 +15,4 @@ The only ways deposits won't be returned to their owners is:
 
 Anyone can deposit for a proposal, even if you have 0 `SCRT` tokens staked/delegated/bonded.
 
-### [#](https://docs.scrt.network/guides/governance.html#query-deposits) <a href="#query-deposits" id="query-deposits"></a>
-
 \

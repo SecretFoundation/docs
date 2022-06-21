@@ -4,14 +4,14 @@
 
 You can generate a multisig wallet using keys you own using the secretcli by:
 
-```
-secretcli keys add --multisig=name1,name2,name3[...] \
+```bash
+secretcli keys add --multisig=acc1,acc2,acc3[...] \
     --multisig-threshold=K <new-key-alias>
 ```
 
 The command above will generate an output similar to the following:&#x20;
 
-```
+```bash
 - name: test_multisig
   type: multi
   address: secret1whdl9yjy8c7p3062xjehf2m69evljp8yfcv9zt
@@ -23,7 +23,7 @@ The command above will generate an output similar to the following:&#x20;
 
 You can generate multisig wallets with your own keys, and using other public keys you do not own using the secretcli:&#x20;
 
-```
+```bash
 # Add public keys of address you want to have on the multisig wallet to the 
 # secretcli keyring 
 
@@ -41,7 +41,7 @@ secretcli keys list
 
 Now that all the keys are present in your local secretcli keyring, create a multisig wallet as you normally would with keys that you own:&#x20;
 
-```
+```bash
 secretcli keys add \
     test_multisig
     --multisig=test,pub_addr_1,pub_addr_2 
@@ -50,7 +50,7 @@ secretcli keys add \
 
 To confirm the multisig wallet was made with the correct addresses use:&#x20;
 
-```
+```bash
 secretcli keys show MULTISIG_NAME -a 
 
 # You should see the multisig addresses as an output 
@@ -62,7 +62,7 @@ secretcli keys show MULTISIG_NAME -a
 
 #### Best Practices
 
-For example, if there are 6 controlling addresses associated with a multisig wallet it would be poor practice for set the K value to 1, 2, 5, or 6. If the K value is too low (i.e 1 or 2) a minority of multisig memebers will be always in control of the multisig wallet; if any one or two members agree on making a transaction they will be able to even if the remaining 4-5 members do not agree with the transactions. If the K value is too high, and one or two of the members wallets on the multisig are lost or compromised no transactions with the multisig will be possible, and all associated assets held by the multisig wallet will be lost.&#x20;
+For example, if there are 6 controlling addresses associated with a multisig wallet it would be poor practice for set the K value to 1, 2, 5, or 6. If the K value is too low (i.e 1 or 2) a minority of multisig members will be always in control of the multisig wallet; if any one or two members agree on making a transaction they will be able to even if the remaining 4-5 members do not agree with the transactions. If the K value is too high, and one or two of the members wallets on the multisig are lost or compromised no transactions with the multisig will be possible, and all associated assets held by the multisig wallet will be lost.&#x20;
 
 ### Multisig Flags
 
@@ -70,23 +70,23 @@ The `--multisig` flag must contain the name of public keys to be combined into a
 
 All names supplied through `--multisig` must already exist in the local database. is set. The order of the supplied keys on the command line does not matter, i.e. the following commands generate two identical keys:
 
-```
+```bash
 secretcli keys add --multisig=foo,bar,baz --multisig-threshold=2 <multisig-address>
 secretcli keys add --multisig=baz,foo,bar --multisig-threshold=2 <multisig-address>
 ```
 
 To make the multisig wallet keys get passed into the multisig wallet in a specific order (i.e the order they are given) the `--nosort` flag must be used:&#x20;
 
-```
+```bash
 secretcli keys add multisig_sorted \
     --multisig=pub_addr_2,test,pub_addr_1 \ 
     --multisig-threshold=2 \ 
     --nosort 
 ```
 
-For demonstration purposes, the above command will produce a multisig wallet where each key is added in the exact order they are given to the public keys accociated with the multisig wallet:&#x20;
+For demonstration purposes, the above command will produce a multisig wallet where each key is added in the exact order they are given to the public keys associated with the multisig wallet:&#x20;
 
-```
+```bash
 secretcli keys show multisig_sorted --pubkey | jq
 {
   "@type": "/cosmos.crypto.multisig.LegacyAminoPubKey",

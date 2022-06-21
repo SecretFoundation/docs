@@ -53,7 +53,7 @@ View the validator pubkey for your node by typing:
 secretd tendermint show-validator
 ```
 
-<mark style="color:red;">Note: This is the Tendermint signing key,</mark> <mark style="color:red;"></mark>_<mark style="color:red;">not</mark>_ <mark style="color:red;"></mark><mark style="color:red;">the operator key you will use in delegation transactions.</mark>&#x20;
+**Note:** This is the Tendermint signing key, _not_ the operator key you will use in delegation transactions.&#x20;
 
 ## Warning
 

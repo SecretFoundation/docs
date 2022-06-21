@@ -1,6 +1,6 @@
 # Secret Contracts
 
-#### Uploading a Secret Contract <a href="#uploading-a-secret-contract" id="uploading-a-secret-contract"></a>
+## Uploading a Secret Contract <a href="#uploading-a-secret-contract" id="uploading-a-secret-contract"></a>
 
 To upload a contract:
 
@@ -17,7 +17,7 @@ To get the contract's code ID:
 secretcli q tx [hash]
 ```
 
-#### [#](https://docs.scrt.network/cli/secretcli.html#deploying-a-secret-contract)Deploying a Secret Contract <a href="#deploying-a-secret-contract" id="deploying-a-secret-contract"></a>
+## Deploying a Secret Contract <a href="#deploying-a-secret-contract" id="deploying-a-secret-contract"></a>
 
 ```
 secretcli tx compute instantiate $CODE_ID "$INIT_INPUT_MSG" --from mykey --label "$UNIQUE_LABEL"
@@ -41,13 +41,13 @@ Or:
 secretcli tx compute execute --label "$UNIQUE_LABEL" "$EXEC_INPUT_MSG"
 ```
 
-#### [#](https://docs.scrt.network/cli/secretcli.html#reading-the-output-of-a-secret-contract-tx)Reading the output of a Secret Contract tx <a href="#reading-the-output-of-a-secret-contract-tx" id="reading-the-output-of-a-secret-contract-tx"></a>
+### Reading the output of a Secret Contract tx <a href="#reading-the-output-of-a-secret-contract-tx" id="reading-the-output-of-a-secret-contract-tx"></a>
 
 ```
 secretcli q compute tx [hash]
 ```
 
-#### [#](https://docs.scrt.network/cli/secretcli.html#querying-a-secret-contract)Querying a Secret Contract <a href="#querying-a-secret-contract" id="querying-a-secret-contract"></a>
+### Querying a Secret Contract <a href="#querying-a-secret-contract" id="querying-a-secret-contract"></a>
 
 ```
 secretcli q compute query $CONTRACT_ADDRESS "$QUERY_INPUT_MSG"

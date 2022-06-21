@@ -221,6 +221,7 @@ Tools for interacting with the secret network and for writing Secret Contracts
 * [Smart Contract Interface](https://www.btn.group/secret\_network/smart\_contract\_interface) - Browser interface for smart contracts by [btn.group](https://www.btn.group)
 * [Fadroma](https://github.com/hackbg/fadroma) - Industrial strength components and workflows for smart contract development in Rust by [hack.bg](https://hack.bg/)
 * [Panic](https://github.com/mohammedpatla/panic\_cosmos) monitor your validator on the Secret Network with an active telegram bot, email or phone call through twilio \[Mohammed Patla - SecureSecrets.network]
+* [Secret IDE](https://github.com/digiline-io/Secret-IDE-Plugin) - IDE to make contract development easier&#x20;
 
 ### Reference Contracts
 
