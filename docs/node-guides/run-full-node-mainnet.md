@@ -34,10 +34,12 @@ See instructions for [setup](setup-sgx.md) and [verification](verify-sgx.md). Se
 ### 1. Download the Secret Network package installer for Debian/Ubuntu:
 
 ```bash
-wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.2/secretnetwork_v1.2.2_mainnet_amd64.deb
+wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb
 # check the hash of the downloaded binary
-echo "1a51d3d9324979ef9a1f56023e458023488b4583bf4587abeed2d1f389aea947 secretnetwork_v1.2.2_mainnet_amd64.deb" | sha256sum --check
+echo "3b501e572ab6021df3371d5fae73952cd6fc5a85b726310cf32a000f4c093207 secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb" | sha256sum --check
 ```
+
+Note: A rocksdb release is available as well - https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_mainnet_rocksdb_amd64.deb
 
 ([How to verify releases](../verify-releases.md))
 
@@ -46,7 +48,7 @@ echo "1a51d3d9324979ef9a1f56023e458023488b4583bf4587abeed2d1f389aea947 secretnet
 Note: if you are upgrading from v1.2.0, it may say secret-node is downgrading to version 0. Ignore it.
 
 ```bash
-sudo dpkg -i secretnetwork_v1.2.2_mainnet_amd64.deb
+sudo dpkg -i secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb
 ```
 
 Verify the installation by doing:
