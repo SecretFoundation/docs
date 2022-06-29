@@ -1,6 +1,6 @@
 ---
 cover: .gitbook/assets/sn-logo.png
-coverY: 16.780772032046613
+coverY: 0
 ---
 
 # Introduction
