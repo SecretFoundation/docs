@@ -1,3 +1,0 @@
-# Terra
-
-## Coming Soon!
