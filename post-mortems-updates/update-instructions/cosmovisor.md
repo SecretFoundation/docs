@@ -70,7 +70,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable cosmovisor
 ```
 
-## [#](https://docs.scrt.network/cosmovisor.html#set-up-a-new-v1-2-node)Set up a new v1.2 node <a href="#set-up-a-new-v1-2-node" id="set-up-a-new-v1-2-node"></a>
+## Set up a new v1.2 node <a href="#set-up-a-new-v1-2-node" id="set-up-a-new-v1-2-node"></a>
 
 ```
 # Make the necessary directory structure for v1.2
@@ -107,7 +107,7 @@ Now you might want to checkout the [How To Join Secret Network as a Full Node](h
 
 After making the proper configurations to your new node, launch it using `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu cosmovisor`).
 
-## [#](https://docs.scrt.network/cosmovisor.html#migrate-a-running-v1-2-node)Migrate a running v1.2 node <a href="#migrate-a-running-v1-2-node" id="migrate-a-running-v1-2-node"></a>
+## Migrate a running v1.2 node <a href="#migrate-a-running-v1-2-node" id="migrate-a-running-v1-2-node"></a>
 
 ```
 # Make the necessary directory structure for v1.2
@@ -140,7 +140,7 @@ $ find ~/.secretd/cosmovisor
 
 To relaunch your node, use `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu cosmovisor`).
 
-## [#](https://docs.scrt.network/cosmovisor.html#prepare-a-v1-3-node-upgrade-shockwave-alpha)Prepare a v1.3 node upgrade (Shockwave Alpha) <a href="#prepare-a-v1-3-node-upgrade-shockwave-alpha" id="prepare-a-v1-3-node-upgrade-shockwave-alpha"></a>
+## Prepare a v1.3 node upgrade (Shockwave Alpha) <a href="#prepare-a-v1-3-node-upgrade-shockwave-alpha" id="prepare-a-v1-3-node-upgrade-shockwave-alpha"></a>
 
 The "Shockwave Alpha" upgrade is anticipated to be on Wednesday April 27th, 2022 at 2:00PM UTC. Below are instructions to prepare Cosmovisor for automatically upgrading your node to v1.3.
 

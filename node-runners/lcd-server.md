@@ -62,7 +62,7 @@ sudo systemctl enable  caddy.service
 sudo systemctl restart caddy.service
 ```
 
-### [#](https://docs.scrt.network/node-guides/lcd-server-example.html#scripted)Scripted <a href="#scripted" id="scripted"></a>
+### Scripted <a href="#scripted" id="scripted"></a>
 
 First Set `DOMAIN_NAME="$DOMAIN_NAME_OF_THIS_MACHINE"`.
 

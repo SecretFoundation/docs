@@ -4,11 +4,11 @@
 
 When a full node resumes network participation, it reads `consensus_seed` from `$HOME/.sgx_secrets/consensus_seed.sealed`, and again does [key derivation](https://docs.scrt.network/protocol/encryption-specs.html#Key-Derivation) as outlined above.
 
-### [#](https://docs.scrt.network/protocol/encryption-specs.html#new-node-registration)New node registration <a href="#new-node-registration" id="new-node-registration"></a>
+### New node registration <a href="#new-node-registration" id="new-node-registration"></a>
 
 New nodes want to join the network as full nodes.
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#on-the-new-node)On the new node <a href="#on-the-new-node" id="on-the-new-node"></a>
+#### On the new node <a href="#on-the-new-node" id="on-the-new-node"></a>
 
 TODO reasoning
 
@@ -21,14 +21,14 @@ TODO reasoning
   * `registration_pubkey`
   * 256 bits true random `nonce`
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#on-the-consensus-layer-inside-the-enclave-of-every-full-node)On the consensus layer, inside the enclave of every full node <a href="#on-the-consensus-layer-inside-the-enclave-of-every-full-node" id="on-the-consensus-layer-inside-the-enclave-of-every-full-node"></a>
+#### On the consensus layer, inside the enclave of every full node <a href="#on-the-consensus-layer-inside-the-enclave-of-every-full-node" id="on-the-consensus-layer-inside-the-enclave-of-every-full-node"></a>
 
 TODO reasoning
 
 * Receive the `secretcli tx register auth` transaction
 * Verify the remote attestation proof that the new node's Enclave is genuine
 
-[**#**](https://docs.scrt.network/protocol/encryption-specs.html#seed-exchange-key)**`seed_exchange_key`**
+**`seed_exchange_key`**
 
 TODO reasoning
 
@@ -54,7 +54,7 @@ seed_exchange_key = hkdf({
 }); // 256 bits
 ```
 
-[**#**](https://docs.scrt.network/protocol/encryption-specs.html#sharing-consensus-seed-with-the-new-node)**Sharing `consensus_seed` with the new node**
+**Sharing `consensus_seed` with the new node**
 
 TODO reasoning
 
@@ -70,11 +70,11 @@ encrypted_consensus_seed = aes_128_siv_encrypt({
 return encrypted_consensus_seed;
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#back-on-the-new-node-inside-its-enclave)Back on the new node, inside its enclave <a href="#back-on-the-new-node-inside-its-enclave" id="back-on-the-new-node-inside-its-enclave"></a>
+#### Back on the new node, inside its enclave <a href="#back-on-the-new-node-inside-its-enclave" id="back-on-the-new-node-inside-its-enclave"></a>
 
 * Receive the `secretcli tx register auth` transaction output (`encrypted_consensus_seed`)
 
-[**#**](https://docs.scrt.network/protocol/encryption-specs.html#seed-exchange-key-2)**`seed_exchange_key`**
+**`seed_exchange_key`**
 
 TODO reasoning
 
@@ -95,7 +95,7 @@ seed_exchange_key = hkdf({
 }); // 256 bits
 ```
 
-[**#**](https://docs.scrt.network/protocol/encryption-specs.html#decrypting-encrypted-consensus-seed)**Decrypting `encrypted_consensus_seed`**
+**Decrypting `encrypted_consensus_seed`**
 
 TODO reasoning
 
@@ -117,7 +117,7 @@ seal({
 });
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#new-node-registration-epilogue)New node registration epilogue <a href="#new-node-registration-epilogue" id="new-node-registration-epilogue"></a>
+#### New node registration epilogue <a href="#new-node-registration-epilogue" id="new-node-registration-epilogue"></a>
 
 TODO reasoning
 

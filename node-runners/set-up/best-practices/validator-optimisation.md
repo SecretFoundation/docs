@@ -40,7 +40,7 @@ snapshot-interval = 0
 # ...
 ```
 
-### system tuning:
+### System tuning:
 
 _apologies to non-ubuntu admins, but you are already used to this shit so figure it out, you are used to it_
 

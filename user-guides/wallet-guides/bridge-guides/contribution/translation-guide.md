@@ -1,2 +1,3 @@
 # Translation Guide
 
+## Coming Soon!

@@ -13,7 +13,7 @@
   * [5. Set up your SGX machine and become a `secret-2` validator](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#5-set-up-your-sgx-machine-and-become-a-secret-2-validator)
 * [In case of an upgrade failure](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#in-case-of-an-upgrade-failure)
 
-## [#](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#validators)Validators <a href="#validators" id="validators"></a>
+## Validators <a href="#validators" id="validators"></a>
 
 All coordination efforts will be done in the [#mainnet-validators](https://chat.scrt.network/channel/mainnet-validators) channel in the Secret Network Rocket.Chat.
 
@@ -38,7 +38,7 @@ You're probably familiar with SGX by now:
 * [Setup SGX](https://docs.scrt.network/node-guides/setup-sgx.html)
 * [Verify SGX](https://docs.scrt.network/node-guides/verify-sgx.html)
 
-### [#](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#\_1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400)1. Prepare your `secret-1` validator to halt after block #1,246,400 <a href="#_1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400" id="_1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400"></a>
+### 1. Prepare your `secret-1` validator to halt after block #1,246,400 <a href="#_1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400" id="_1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400"></a>
 
 On the old machine (`secret-1`):
 
@@ -48,7 +48,7 @@ perl -i -pe 's/^halt-height =.*/halt-height = 1246400/' ~/.secretd/config/app.to
 sudo systemctl restart secret-node
 ```
 
-### [#](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#\_2-install-the-new-binaries-on-your-sgx-machine)2. Install the new binaries on your SGX machine <a href="#_2-install-the-new-binaries-on-your-sgx-machine" id="_2-install-the-new-binaries-on-your-sgx-machine"></a>
+### 2. Install the new binaries on your SGX machine <a href="#_2-install-the-new-binaries-on-your-sgx-machine" id="_2-install-the-new-binaries-on-your-sgx-machine"></a>
 
 On the new SGX machine (`secret-2`):
 
@@ -64,11 +64,11 @@ sudo apt install -y ./secretnetwork_1.0.0_amd64.deb
 secretd init "$MONIKER" --chain-id secret-2
 ```
 
-### [#](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#\_3-migrate-your-validator-s-signing-key)3. Migrate your validator's signing key <a href="#_3-migrate-your-validator-s-signing-key" id="_3-migrate-your-validator-s-signing-key"></a>
+### 3. Migrate your validator's signing key <a href="#_3-migrate-your-validator-s-signing-key" id="_3-migrate-your-validator-s-signing-key"></a>
 
 Copy your `~/.secretd/config/priv_validator_key.json` from the old machine (`secret-1`) to the new SGX machine (`secret-2`) at the same location.
 
-### [#](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#\_4-migrate-your-validator-s-wallet)4. Migrate your validator's wallet <a href="#_4-migrate-your-validator-s-wallet" id="_4-migrate-your-validator-s-wallet"></a>
+### 4. Migrate your validator's wallet <a href="#_4-migrate-your-validator-s-wallet" id="_4-migrate-your-validator-s-wallet"></a>
 
 Export the self-delegator wallet from the old machine (`secret-1`) and import to the new SGX machine (`secret-2`).
 
@@ -80,7 +80,7 @@ Notes:
 1. If you're recovering the wallet using `secretcli keys add "$YOUR_KEY_NAME" --recover` you should also use `--hd-path "44'/118'/0'/0/0"`.
 2. If the wallet is stored on a Ledger device, use `--legacy-hd-path` when importing it with `secretcli keys add`.
 
-### [#](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#\_5-set-up-your-sgx-machine-and-become-a-secret-2-validator)5. Set up your SGX machine and become a `secret-2` validator <a href="#_5-set-up-your-sgx-machine-and-become-a-secret-2-validator" id="_5-set-up-your-sgx-machine-and-become-a-secret-2-validator"></a>
+### 5. Set up your SGX machine and become a `secret-2` validator <a href="#_5-set-up-your-sgx-machine-and-become-a-secret-2-validator" id="_5-set-up-your-sgx-machine-and-become-a-secret-2-validator"></a>
 
 On the new SGX machine (`secret-2`):
 
@@ -149,7 +149,7 @@ secretcli q staking validators | jq -r '.[] | select(.status == 2) | .descriptio
 
 ([Ref for testnet instructions](https://docs.scrt.network/testnet/run-full-node-testnet.html))
 
-## [#](https://docs.scrt.network/upgrade-secret-1-to-secret-2.html#in-case-of-an-upgrade-failure)In case of an upgrade failure <a href="#in-case-of-an-upgrade-failure" id="in-case-of-an-upgrade-failure"></a>
+## In case of an upgrade failure <a href="#in-case-of-an-upgrade-failure" id="in-case-of-an-upgrade-failure"></a>
 
 If after a few hours the Enigma team announces on the chat that the upgrade failed, we will relaunch `secret-1`.
 

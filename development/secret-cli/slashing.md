@@ -1,24 +1,31 @@
 # Slashing
 
-You can find slashing related CLI commands under [Validators/Slashing](https://docs.scrt.network/cli/join-validator-mainnet.html#Slashing).
-
-A user can query and interact with the `slashing` module using the CLI.
-
-[Norfmenn](https://app.gitbook.com/u/eDRsA9E9i6eX2gnIzh49LPEHA1v2 "mention") please take a look at this and rewrite it if necessary. The example outputs are from running the commands on secret, so they should be fine&#x20;
+A user can query and interact with the `slashing` module using the CLI. For more information about how slashing works on the Secret Network go to the [Node Runners](../../node-runners/) page and look for the '[Slashing For Downtime](../../node-runners/#slashing-for-downtime)' section.
 
 ## Query <a href="#query" id="query"></a>
 
-The `query` commands allow users to query `slashing` state.
+The `query` commands allow users to query `slashing` state:/
 
-`secretcli query slashing --help`
+```bash
+secretcli query slashing --help
+```
+
+```bash
+Available Commands:
+  params        Query the current slashing parameters
+  signing-info  Query a validator's signing information
+  signing-infos Query signing information of all validators
+```
 
 ### Params <a href="#params" id="params"></a>
 
 The `params` command allows users to query genesis parameters for the slashing module.
 
-`secretcli query slashing params`
+```
+secretcli query slashing params
+```
 
-example output:
+#### Example Output&#x20;
 
 ```json
 {
@@ -30,19 +37,32 @@ example output:
 }
 ```
 
+#### Signed Blocks Window  <a href="#signing-info" id="signing-info"></a>
+
+#### Min Signed Per Window&#x20;
+
+#### Downtime Jail Duration&#x20;
+
+#### Slash Fraction Double Sign&#x20;
+
+#### Slash Fraction Downtime&#x20;
+
 ### Signing-info <a href="#signing-info" id="signing-info"></a>
 
 The `signing-info` command allows users to query signing-info of the validator using consensus public key.
 
-`secretcli query slashing signing-infos`
-
-example:
-
-```
-secretcli query slashing signing-info '{ "@type": "/cosmos.crypto.ed25519.PubKey", "key": "iKZCEP93nVojf2UhQh72yT+d3XEgRlrX1NZBtJJCL2o=" }' 
+```bash
+secretcli query slashing signing-info [public-key]
 ```
 
-example output:
+#### Example
+
+```bash
+secretcli query slashing signing-info \
+    '{ "@type": "/cosmos.crypto.ed25519.PubKey","key": "iKZCEP93nVojf2UhQh72yT+d3XEgRlrX1NZBtJJCL2o=" }' 
+```
+
+#### Example Output:
 
 ```json
 {
@@ -59,7 +79,11 @@ example output:
 
 The `signing-infos` command allows users to query signing infos of all validators.
 
-`secretcli query slashing signing-infos`
+```bash
+secretcli query slashing signing-infos
+```
+
+#### Example Output&#x20;
 
 ```json
 {
@@ -82,14 +106,26 @@ The `signing-infos` command allows users to query signing infos of all validator
 
 The `tx` commands allow users to interact with the `slashing` module.
 
-`secretd tx slashing --help`
+```
+secretcli tx slashing --help
+```
 
-## Unjail <a href="#unjail" id="unjail"></a>
+### Unjail <a href="#unjail" id="unjail"></a>
 
 The `unjail` command allows users to unjail a validator previously jailed for downtime.
 
-`secretd tx slashing unjail --from mykey [flags]`
+```
+secretcli tx slashing unjail --from mykey [flags]
+```
 
-Example:
+#### Example
 
-`secretd tx slashing unjail --from mykey`
+```
+secretd tx slashing unjail --from mykey
+```
+
+#### Example Output&#x20;
+
+```
+// Some code
+```

@@ -1,8 +1,12 @@
 # Creating Governance Proposals
 
+## Introduction
+
 In order to create a governance proposal, you must submit an initial deposit along with a title and description. Currently, in order to enter the voting period, a proposal must accumulate within a week deposits of at least [100 `SCRT`](https://secretnodes.com/secret/chains/secret-4/governance/proposals/32).
 
-Note - Please remember through the duration of this guide that the secretcli counts SCRT in USCRT. 1 SCRT = 1,000,000 USCRT.
+_**Note:** Please remember through the duration of this guide that the `secretcli` counts SCRT in uscrt. 1 SCRT = 1,000,000 uscrt._
+
+### Modules
 
 Various modules outside of governance may implement their own proposal types and handlers (eg. parameter changes), where the governance module itself supports `Text` proposals. Any module outside of governance has it's command mounted on top of `submit-proposal`.
 
@@ -21,13 +25,16 @@ secretcli tx gov submit-proposal \
 
 You may also provide the proposal directly through the `--proposal` flag which points to a JSON file containing the proposal:
 
-```
-secretcli tx gov submit-proposal --proposal <path/to/proposal.json> --from <key_alias>
+```bash
+secretcli tx gov \
+    submit-proposal \
+    --proposal <path/to/proposal.json> \
+    --from <key_alias>
 ```
 
 Where `proposal.json` is:
 
-```
+```json
 {
   "type": "Text",
   "title": "My Cool Proposal",
@@ -38,7 +45,7 @@ Where `proposal.json` is:
 
 ## Param Change <a href="#param-change" id="param-change"></a>
 
-To submit a parameter change proposal, you must provide a proposal file as its contents are less friendly to CLI input:
+To submit a parameter change proposal, you must provide a proposal file as its contents are less friendly to `secretcli` input:
 
 ```
 secretcli tx gov submit-proposal param-change <path/to/proposal.json> --from <key_alias>
@@ -108,12 +115,16 @@ You can see another `param-change` example here: [enigma-1-proposal-3.json](http
 | `transfer`     | `SendEnabled`             | bool               | `true`                                                                                                    |
 | `transfer`     | `ReceiveEnabled`          | bool               | `true`                                                                                                    |
 
-Please note:
+### Further Proposal Details
 
-* The `subspace` is usually the `ModuleName`: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/keys.go#L11
-* The `key` is usually defined in `x/$MODULE_NAME/types/params.go`: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L19-L22
-* The `value`'s type is usually near the `key` definition: E.g. https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L26-L31
-* ⚠️ `subspace` and `key` are case sensitive and `value` must be of the correct type and within the allowed bounds. Proposals with errors on these inputs should not enter voting period (should not get deposits) or be voted on with `NoWithVeto`.
+* The `subspace` is usually the `ModuleName`
+  * [See an example here](https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/keys.go#L11)
+* The `key` is usually defined in `x/$MODULE_NAME/types/params.go`
+  * [See an example here](https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L19-L22)
+* The `value`'s type is usually near the `key` definition
+  * [See an example here](https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L26-L31)
+* ⚠️ `subspace` and `key` are case sensitive and `value` must be of the correct type and within the allowed bounds.&#x20;
+  * Proposals with errors on these inputs should not enter voting period (should not get deposits) or be voted on with `NoWithVeto`.
 * ⚠️ Currently parameter changes are _evaluated_ but not _validated_, so it is very important that any `value` change is valid (i.e. correct type and within bounds) for its respective parameter, eg. `MaxValidators` should be an integer and not a decimal.
 * ⚠️ Proper vetting of a parameter change proposal should prevent this from happening (no deposits should occur during the governance process), but it should be noted regardless.
 
@@ -121,19 +132,19 @@ Please note:
 
 * `distribution.baseproposerreward + distribution.bonusproposerreward < 1`. See [this](https://github.com/scrtlabs/SecretNetwork/issues/95) and [this](https://github.com/cosmos/cosmos-sdk/issues/5808) for more info.
 
-To read more go to https://github.com/gavinly/CosmosParametersWiki.
+To read more go to the [Cosmos Parameters Wiki](https://github.com/gavinly/CosmosParametersWiki).&#x20;
 
 ## Community Pool Spend <a href="#community-pool-spend" id="community-pool-spend"></a>
 
-To submit a community pool spend proposal, you also must provide a proposal file as its contents are less friendly to CLI input:
+To submit a community pool spend proposal, you also must provide a proposal file as its contents are less friendly to `secretcli` input:
 
 ```
 secretcli tx gov submit-proposal community-pool-spend <path/to/proposal.json> --from <key_alias>
 ```
 
-Where `proposal.json` is:
+Where `proposal.json` is (make sure to change the recipient address to a real address when testing):
 
-```
+```json
 {
   "title": "Community Pool Spend",
   "description": "Spend 10 SCRT with line breaks \n and `code formatting`",

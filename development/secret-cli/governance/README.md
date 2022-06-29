@@ -1,8 +1,10 @@
 # Governance
 
-Governance is the process from which users in the Secret Blockchain can come to consensus on software upgrades, parameters of the mainnet or signaling mechanisms through text proposals. This is done through voting on proposals, which will be submitted by `SCRT` holders on the mainnet.
+## Introduction
 
-Some considerations about the voting process:
+Governance is the process of Secret Network users coming to consensus on software upgrades, parameters of the mainnet, or signaling mechanisms through text proposals. This is done through voting on proposals, which will be submitted by `SCRT` holders on the mainnet.
+
+## The Voting Process
 
 * Voting is done by bonded `SCRT` holders on a 1 bonded `SCRT` 1 vote basis.
 * Delegators inherit the vote of their validator if they don't vote.
@@ -15,7 +17,6 @@ Some considerations about the voting process:
 
 For more information about the governance process and how it works, please check out the Governance module [specification](https://github.com/cosmos/cosmos-sdk/tree/master/x/gov/spec).
 
+## Setup
 
-
-[How to participate in on-chain governance](https://docs.scrt.network/guides/governance.html).
-
+To setup governance the `secretcli` must be installed. You can get a detailed description of how to install the [secretcli here](../install.md).&#x20;

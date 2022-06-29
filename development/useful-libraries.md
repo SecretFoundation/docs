@@ -1,30 +1,44 @@
 # Useful Libraries
 
+## Template Contracts
+
+{% embed url="https://github.com/baedrik/snip721-reference-impl/tree/master/src" %}
+Basic template for NFTs
+{% endembed %}
+
+{% embed url="https://github.com/luminaryphi/secret-random-minting-snip721-impl" %}
+NFT template that uses randomized minting
+{% endembed %}
+
+{% embed url="https://github.com/TriviumNode/secret-contract-template" %}
+Generalized skeleton template for smart contracts
+{% endembed %}
+
 ## Developer tools
 
+{% embed url="http://polarframework.com/" %}
+Boilerplate system for rapid project deployment
+{% endembed %}
 
+## CCRs
 
-## CCR
+{% embed url="https://github.com/SecretNetwork/secret-network-community-code-repositories" %}
+Library of example contract accomplishing specific functions (Community Code Repositories)
+{% endembed %}
 
+## Open Source Contracts
 
+{% embed url="https://github.com/baedrik/mystic-skulls" %}
+Upgradable NFT project
+{% endembed %}
 
-## Community Contracts
+{% embed url="https://github.com/TriviumNode/cloak" %}
+Private wallet gas seeding from BlackBox
+{% endembed %}
 
-Community contracts Random minting mystic skulls etc ​
-
-## Reference Contracts
-
-snips and more
-
-
-
-## Application Codebase
-
-* sienna network codebase
-* Secret dreamscape codebase
-*
-
-
+{% embed url="https://github.com/Secret-Dreamscape/contract" %}
+Secret DreamScape game contract
+{% endembed %}
 
 ## Secret-Toolkit
 

@@ -1,6 +1,6 @@
-# Privacy comparison
+# Privacy Comparison
 
-## Privacy for blockchain
+## Privacy For Blockchain
 
 Cryptocurrency in its original vision was always meant to provide a private way of p2p interaction but lately this vision has only gone further and further from the truth. Although blockchain still has a pseudonymous structure it has become harder and harder for users to keep their real life identity locked away from their cryptocurrency wallet. Know Your Customer (KYC) regulations for Centralized Exchanges (CEX), Profile picture NFTs, Chain analysis by large players and data harvesting on public APIs, wallet providers and Cryptocurrency social accounts all form risks for the privacy of single users. Personal finances have never been part of the public information but with growing blockchain adoption this has become somewhat of a reality for a lot of people.&#x20;
 
@@ -8,7 +8,7 @@ Transactional and computational privacy projects in blockchain try to solve this
 
 &#x20;We specifically focus on the differences of these projects with Secret Network and try to be as honest as possible about both advantages and disadvantages of the technology stack and network architecture. If anywhere during below article you think something is incorrect or missing then feel free to contact us using the details at the bottom.
 
-## Transactional vs computational privacy
+## Transactional Vs. Computational Privacy
 
 First and foremost it is important we distinguish between 2 goals of privacy networks which might or might not be mutually exclusive. Transactional privacy describes how a user can transact with another user using the decentralized network while preserving full privacy. full privacy can be denoted as not giving away your public key, balance and metadata of the trade to either an observer of the chain or the counterparty in the transaction. Examples for networks with full transactional privacy are Monero, DERO, Zcash and Anoma. A blockchain focused on transactional privacy often does not have the ability to also do private smart contract computation, much like Bitcoin does not have smart contracts while Ethereum does. Computational privacy is the label given to smart contract operations which are either fully private or have private metadata which make it so a user can perform P2P or contract interactions which are more than transactions. Forms of smart contract computations are using a Dececentralized Exchange (DEX), Minting an Non-Fungible-Token (NFT) or attacking a player in a Blockchain game. Examples of projects that acheive or are developing computational privacy include Secret Network, DUSK and Oasis.
 

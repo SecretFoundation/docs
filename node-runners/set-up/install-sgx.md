@@ -116,6 +116,20 @@ sudo apt install -y $PSW_PACKAGES
 ```
 {% endcode %}
 
+If the script fails with an error similar to the following:
+
+```
+Failed to fetch https://download.01.org/intel-sgx/sgx_repo/ubuntu/dists/focal/InRelease 503 Service Unavailable [IP: 2a02:26f0:9100:b9e::4b21 443]
+```
+
+it might mean that the SGX apt repo went down, some validators have setup a mirror you can use instead, please modify line 63 of the script above with:
+
+```shell
+echo "deb [arch=amd64] https://scrt-validator.digiline.io/sgx-mirror/ubuntu $DISTRO main"
+```
+
+and run it again.
+
 ## Testing your SGX setup <a href="#testing-your-sgx-setup" id="testing-your-sgx-setup"></a>
 
 #### Run `secretd init-enclave` <a href="#run-secretd-init-enclave" id="run-secretd-init-enclave"></a>

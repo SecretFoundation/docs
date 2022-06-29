@@ -10,6 +10,4 @@ $ docker-compose --profile monitor up -d
 
 The containers will restart automatically after rebooting unless they are stopped manually.
 
-### [#](https://docs.scrt.network/node-guides/monitoring-docker.html#using-the-cosmos-sdk-grafana-dashboard) <a href="#using-the-cosmos-sdk-grafana-dashboard" id="using-the-cosmos-sdk-grafana-dashboard"></a>
-
 \

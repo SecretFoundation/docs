@@ -211,6 +211,7 @@ Guides about building on the Secret Network
 Tools for interacting with the secret network and for writing Secret Contracts
 
 * [Local Node](https://hub.docker.com/r/enigmampc/secret-network-sw-dev) - Start a docker container with a standalone network
+* [Secret IDE](https://github.com/digiline-io/Secret-IDE-Plugin) - IDE to make contract development easier&#x20;
 * [Secret DataHub](https://figment.io/datahub/secret-network/) by [Figment](https://figment.io/) - Quickly set up a Secret Node on mainnet or testnet for your application
 * [Secret API](https://secretapi.io/) - Web API for using Secret Network by [Chain of Secrets](https://chainofsecrets.org/)
 * [Secret Py](https://pypi.org/project/secret-sdk/) - Python library for interacting with the network
@@ -221,7 +222,6 @@ Tools for interacting with the secret network and for writing Secret Contracts
 * [Smart Contract Interface](https://www.btn.group/secret\_network/smart\_contract\_interface) - Browser interface for smart contracts by [btn.group](https://www.btn.group)
 * [Fadroma](https://github.com/hackbg/fadroma) - Industrial strength components and workflows for smart contract development in Rust by [hack.bg](https://hack.bg/)
 * [Panic](https://github.com/mohammedpatla/panic\_cosmos) monitor your validator on the Secret Network with an active telegram bot, email or phone call through twilio \[Mohammed Patla - SecureSecrets.network]
-* [Secret IDE](https://github.com/digiline-io/Secret-IDE-Plugin) - IDE to make contract development easier&#x20;
 
 ### Reference Contracts
 

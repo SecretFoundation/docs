@@ -21,6 +21,4 @@ $ docker-compose --profile monitor up -d
 1. Login to grafana and open the Cosmos Dashboard from the [Manage Dashboards](http://localhost:3000/dashboards) page.
 2. Set the chain-id to `secret-3`
 
-### [#](https://docs.scrt.network/node-guides/monitoring-docker.html#application-ports) <a href="#application-ports" id="application-ports"></a>
-
 \

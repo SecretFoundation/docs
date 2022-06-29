@@ -1,5 +1,7 @@
 # How To Contribute
 
+## Coming Soon!
+
 {% embed url="https://github.com/SecretFoundation/docs/blob/main/docs/CONTRIBUTING.md" %}
 
 {% embed url="https://github.com/SecretFoundation/docs/blob/main/docs/PULL_REQUEST_TEMPLATES/bug_fix.md" %}

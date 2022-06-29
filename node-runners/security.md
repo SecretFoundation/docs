@@ -226,3 +226,285 @@ ssh-keygen -t ed25519-sk -C "$(hostname)-$(date +'%d-%m-%Y')-yubikey1"
 ```
 
 You can now use your new ed25519-sk key-pair to secure SSH connections with your servers. Part of the key-pair is from the YubiKey, and is used to secure the SHH connection as part of a challenge response from the devices.
+
+
+
+***
+
+#### Raising the Security Floor of the Cosmos
+
+Within the #Cosmos, conversations around node security tend to start with whether or not you use backup servers, sentries, and a remote-signing key management solution. This does not see the forest for the trees. While those steps are certainly important, they are \*final\* security steps. We should instead be discussing the first steps you make when setting up a new Tendermint node; raise the floor of security, rather than the ceiling, if you will.
+
+NOTE: **This is intended to be a very basic guide on Linux security practices. If you want to more in-depth information,** [**you can read about it here.**](https://github.com/imthenachoman/How-To-Secure-A-Linux-Server)
+
+The following topics will be covered:\
+1\. **SSH Key Setup**
+
+2\. **Server Configuration**
+
+3\. **Setting up a Basic Firewall**
+
+**4. Using Local CLI Machines**
+
+***
+
+When you receive your server, you will be provided a root user login, and a password. You’ll be inclined to log in with that login and password, but we have steps before we do that! We first want to create out ssh key as we’ll be disabling password login shortly.
+
+#### SSH Key Setup
+
+**Create SSH Key**
+
+An SSH (Secure Shell) key is a way to identify yourself as a user without using a password. It has 2 parts: the pubkey and private key. When you create the SSH key, you give your pubkey to a computer you wish to log into. You can then “show” the server your private key and it will admit you automatically. This makes it far more secure than a password, as then only you will have access to the server via your key.
+
+This document assumes you’re using a Mac. If you need instructions for Linux or Windows, see the [Github instruction for generating an SSH key.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+1. Open Terminal
+2. Generate the SSH key:
+
+```
+$ ssh-keygen -t ed25519 -C “your_email@example.com”
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*o9AlJ9J0bCCGokhQ3se5QQ.png)Generate SSH key
+
+3\. When you’re prompted to “Enter a file in which to save the key,” press Enter. This accepts the default file location.
+
+4\. At the prompt, type a secure passphrase. For more information, see [“Working with SSH key passphrases](https://docs.github.com/en/articles/working-with-ssh-key-passphrases).”
+
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]> Enter same passphrase again: [Type passphrase again]
+```
+
+Your SSH key is now created, but we have to add it to the agent for it to be usable.
+
+**Adding your SSH key to the ssh-agent**
+
+1. Start the ssh-agent in the background
+
+```
+$ eval "$(ssh-agent -s)"> Agent pid 59566
+```
+
+2\. Open your SSH config file
+
+```
+$ open ~/.ssh/config
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*lzrlsw-n64g9u-yLRxw6gg.png)Open \~/.ssh/config
+
+3\. Add the following text block to your file
+
+```
+Host *  AddKeysToAgent yes  UseKeychain yes  IdentityFile ~/.ssh/id_ed25519
+```
+
+4\. Add your SSH key to the ssh-agent
+
+```
+$ ssh-add -K ~/.ssh/id_ed25519
+```
+
+Your SSH key is now set up! This only has to happen once, so you can skip this if you need to refer back to this document.
+
+***
+
+#### Server Configuration
+
+In this section we will cover:
+
+1. **Logging In**
+2. **Creating a new user**
+3. **Disable root login**
+4. **Disable password login**
+
+**Logging in**
+
+When you provision a new server, you will be provided a username, password, and ip address. Generally that username will be **root**. Let’s log in with them now in the form of `ssh username@ip` .
+
+1. Initiate login to server
+
+![](https://cdn-images-1.medium.com/max/1600/1\*A63\_z3J2PhKBCTBwqMQklQ.png)SSH into the server
+
+2\. Type `Yes`
+
+![](https://cdn-images-1.medium.com/max/1600/1\*GgHBO4c6NrLurfepJAu9-A.png)
+
+3\. Enter password
+
+![](https://cdn-images-1.medium.com/max/1600/1\*sVRGmmsEhrfKhjsorOalsw.png)Logged into root
+
+You are now logged into root. However, we do **NOT** want this as an option, so let’s fix it.
+
+**Create New User**
+
+Since we no longer want to be able to log in as root, we’ll first need to create a new user to log into.
+
+1. Create a new user
+
+You’re going to want to choose a unique username here, as the more unique, the harder it’ll be for a bad actor to guess. We’re going to use `mellamo` .
+
+```
+$ adduser mellamo
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*mSdweTS6WSZjtQLmmWJPsg.png)Create user mellamo
+
+You will then be prompted to create a password and fill in information. Don’t worry about the information, but make sure your password is complicated!
+
+2\. Give them sudo privileges
+
+sudo is the name for “master” privileges, so we need to modify the user to add them to that group.
+
+```
+$ usermod mellamo -aG sudo
+```
+
+3\. Verify user has sudo access
+
+```
+$ su - mellamo$ sudo ls /root
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*sRoT2ecQugMrvX8iA3Q\_OA.png)Testing sudo privileges
+
+**Disable Root Login**
+
+Disabling root login takes away an easy method for hackers to get in. The easiest way of accessing remote servers or VPSs is via SSH and to block root user login under it, you need to edit the **/etc/ssh/sshd\_config** file.
+
+1. From the remote server, open /etc/ssh/sshd\_config
+
+```
+$ sudo nano /etc/ssh/sshd_config
+```
+
+![](https://cdn-images-1.medium.com/max/1600/0\*esAbd\_PEd0Y0T4QY.png)Set PermitRootLogin to “no”
+
+2\. Save and exit sshd\_config, then restart the service.
+
+```
+$ sudo systemctl restart sshd
+```
+
+**Copy SSH key**
+
+1. Return to you local machine.
+
+```
+$ exit
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*6VYxLX8A3qRTN7HXdAn2ew.png)Log out of server
+
+2\. Copy your ssh key to the server
+
+```
+$ ssh-copy-id mellamo@{ip address}
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*-Xh5exfIRi0EakScu\_KNcA.png)Copy keys
+
+3\. Confirm you can login with just your SSH key
+
+```
+$ ssh mellamo@104.149.129.250
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*k8NnrH0mXhX\_E5OImuSyIg.png)Log in with SSH key
+
+Done! You can now log in exclusively with your SSH key.
+
+**Disable Password Login**
+
+Now that you can log in with just your ssh key, you should now disable password login.
+
+1. Return to your remote server, and open /etc/ssh/sshd\_config again
+
+```
+$ sudo nano /etc/ssh/sshd_config
+```
+
+2\. Find ChallengeResponseAuthentication and set to no:
+
+```
+ChallengeResponseAuthentication no
+```
+
+3\. Next, find PasswordAuthentication set to no too:
+
+```
+PasswordAuthentication no
+```
+
+4\. Search for UsePAM and set to no, too:
+
+```
+UsePAM no
+```
+
+5\. Save and exit sshd\_config, then restart the service.
+
+```
+$ sudo systemctl restart sshd
+```
+
+Congratulations! You can only login with your ssh key now. **Be sure to back it up in case something happens to your machine!**
+
+***
+
+#### Setting Up a Basic Firewall
+
+Uncomplicated Firewall (UFW) is a program for managing a netfilter firewall designed for easy use. It uses a command-line interface (CLI) with a small number of simple commands, and is configured with [iptables](https://en.wikipedia.org/wiki/Iptables). UFW is available by default in all Ubuntu installations after 18.04 LTS, and features tools for intrusion prevention which we will cover in this guide.
+
+1. Start by checking the status of UFW.
+
+```
+$ sudo ufw status
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*RwlFFEpe\_nEB8365W8n17Q.png)Check UFW status
+
+2\. Enable SSH
+
+```
+$ sudo ufw allow ssh/tcp
+```
+
+3\. Enable p2p
+
+This is the default p2p port for Tendermint systems, but if you’ve changed the port, you’ll need to update the ufw setting.
+
+```
+$ sudo ufw allow 26656
+```
+
+4\. Enable UFW
+
+```
+$ sudo ufw enable
+```
+
+5\. Confirm UFW is enabled
+
+```
+$ sudo ufw status
+```
+
+![](https://cdn-images-1.medium.com/max/1600/1\*goWe3WgqWXX831OwfZIhRw.png)Confirm UFW is enabled
+
+Note that at any time you can disable ufw by doing:
+
+```
+$ sudo ufw disable
+```
+
+#### Using Local CLI Machines
+
+Never save your validator’s keys on the remote server. You should be using your local machine and saving your keys on there to broadcast to the remote server.
+
+In order to use a local CLI, you must:
+
+1. Install the daemon on your local machine by going through the normal installation process
+2. Set the daemon’s `config` to the remote server
+
+\

@@ -1,5 +1,7 @@
 # Secretswap
 
+## Coming Soon!
+
 {% embed url="https://github.com/scrtlabs/SecretSwap" %}
 
 {% embed url="https://secretswap.net/" %}

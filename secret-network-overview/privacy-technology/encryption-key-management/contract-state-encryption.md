@@ -12,7 +12,7 @@ TODO reasoning
   * `contract_key`
 * `ad` (additional data) is used to prevent leaking information about the same value written to the same key at different times
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#contract-key)`contract_key` <a href="#contract-key" id="contract-key"></a>
+#### `contract_key` <a href="#contract-key" id="contract-key"></a>
 
 * `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`
 * Its purpose is to make sure each contract has a unique unforgeable encryption key
@@ -58,7 +58,7 @@ calculated_contract_key = hmac_sha256({
 assert(calculated_contract_key == expected_contract_key);
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#write-db-field-name-value)write\_db(field\_name, value) <a href="#write-db-field-name-value" id="write-db-field-name-value"></a>
+#### write\_db(field\_name, value) <a href="#write-db-field-name-value" id="write-db-field-name-value"></a>
 
 ```
 encryption_key = hkdf({
@@ -100,7 +100,7 @@ new_state = concat(ad, new_state_ciphertext);
 internal_write_db(encrypted_field_name, new_state);
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#read-db-field-name)read\_db(field\_name) <a href="#read-db-field-name" id="read-db-field-name"></a>
+#### read\_db(field\_name) <a href="#read-db-field-name" id="read-db-field-name"></a>
 
 ```
 encryption_key = hkdf({
@@ -132,7 +132,7 @@ current_state_plaintext = aes_128_siv_decrypt({
 return current_state_plaintext;
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#remove-db-field-name)remove\_db(field\_name) <a href="#remove-db-field-name" id="remove-db-field-name"></a>
+#### remove\_db(field\_name) <a href="#remove-db-field-name" id="remove-db-field-name"></a>
 
 Very similar to `read_db`.
 

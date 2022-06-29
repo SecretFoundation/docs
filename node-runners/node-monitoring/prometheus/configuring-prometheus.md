@@ -67,7 +67,7 @@ sudo chown prometheus:prometheus /etc/prometheus/prometheus.yml
 
 Our Prometheus server is ready to run for the first time.
 
-### [#](https://docs.scrt.network/node-guides/monitoring-manual-install.html#running-prometheus)Running Prometheus <a href="#running-prometheus" id="running-prometheus"></a>
+### Running Prometheus <a href="#running-prometheus" id="running-prometheus"></a>
 
 1. Start Prometheus directly from the command line with the following command, which executes the binary file as our `Prometheus` user:
 

@@ -8,7 +8,7 @@
 * **Date:** 16/03/2020 3am UTC
 * **Related issues:** https://github.com/scrtlabs/SecretNetwork/issues/95
 
-### [#](https://docs.scrt.network/post-mortems/testnet-halt-95.html#description)Description <a href="#description" id="description"></a>
+### Description <a href="#description" id="description"></a>
 
 *   On the 15 Mar 2020, around 9pm UTC the following param-change proposal was submitted:
 
@@ -51,7 +51,7 @@
 * The problem occurred because the sum of `baseproposerreward` and `bonusproposerreward` can't be grater than 1 i.e. `0.999 + 0.04 > 1`. This results in miscalculations of the rewards and fees.
 * The cause is a bug in Cosmos SDK in the parameter value validation, causing the proposal to pass despite being invalid. More on that here: https://github.com/cosmos/cosmos-sdk/issues/5808
 
-### [#](https://docs.scrt.network/post-mortems/testnet-halt-95.html#additional-notes)Additional Notes <a href="#additional-notes" id="additional-notes"></a>
+### Additional Notes <a href="#additional-notes" id="additional-notes"></a>
 
 *   Another invalid proposal was on voting period, and by itself would have caused the network to halt as well:
 
@@ -65,13 +65,13 @@
     ]
     ```
 
-### [#](https://docs.scrt.network/post-mortems/testnet-halt-95.html#action-items)Action Items <a href="#action-items" id="action-items"></a>
+### Action Items <a href="#action-items" id="action-items"></a>
 
 * https://github.com/scrtlabs/SecretNetwork/issues/95
 * https://github.com/scrtlabs/SecretNetwork/issues/97
 * https://github.com/scrtlabs/SecretNetwork/issues/104
 
-### [#](https://docs.scrt.network/post-mortems/testnet-halt-95.html#recovery-process)Recovery Process <a href="#recovery-process" id="recovery-process"></a>
+### Recovery Process <a href="#recovery-process" id="recovery-process"></a>
 
 1. Logged in to the testnet bootstrap machine.
 2.  Exported state from the last "rounded" block height:

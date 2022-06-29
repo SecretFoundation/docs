@@ -4,7 +4,7 @@
 
 Before the genesis of a new chain, there must be a bootstrap node to generate network-wide secrets to enable the privacy features of Secret Network.
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#consensus-seed)`consensus_seed` <a href="#consensus-seed" id="consensus-seed"></a>
+#### `consensus_seed` <a href="#consensus-seed" id="consensus-seed"></a>
 
 * Create a remote attestation proof that the node's enclave is genuine
 * Generate inside the Enclave a true random 256 bit seed: `consensus_seed`

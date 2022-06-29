@@ -2,13 +2,13 @@
 
 ## Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions <a href="#secret-network-v1-3-shockwave-alpha-network-upgrade-instructions" id="secret-network-v1-3-shockwave-alpha-network-upgrade-instructions"></a>
 
-### [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#important-notes)⚠️ IMPORTANT NOTES ⚠️ <a href="#important-notes" id="important-notes"></a>
+### ⚠️ IMPORTANT NOTES ⚠️ <a href="#important-notes" id="important-notes"></a>
 
 * All coordination efforts will be done in the "SN Validators" Telegram group.
 * Make sure to [backup your validator](https://docs.scrt.network/backup/backup-a-validator.html) before making any chnages.
 * Please read carefully before you begin the upgrade.
 
-### [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#table-of-contents)Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
+### Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
 * [Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#secret-network-v13-shockwave-alpha-network-upgrade-instructions)
   * [⚠️ IMPORTANT NOTES ⚠️](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#warning-important-notes-warning)
@@ -18,7 +18,7 @@
 * [Details of Upgrade Time](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#details-of-upgrade-time)
 * [In Case of an Upgrade Failure](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#in-case-of-an-upgrade-failure)
 
-## [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#upgrading-manually)Upgrading Manually <a href="#upgrading-manually" id="upgrading-manually"></a>
+## Upgrading Manually <a href="#upgrading-manually" id="upgrading-manually"></a>
 
 When the network reaches the halt height 3,343,000, you'll see this message in your node's log (`journalctl -fu secret-node`):
 
@@ -54,7 +54,7 @@ sudo systemctl restart secret-node
 
 After restarting the node with v1.3, you should see `INF applying upgrade "v1.3" at height: 3343000` in the logs (`journalctl -fu secret-node`). Once 67% of voting power comes online, you'll see blocks executing again.
 
-## [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#upgrading-automatically-using-cosmovisor)Upgrading Automatically Using Cosmovisor <a href="#upgrading-automatically-using-cosmovisor" id="upgrading-automatically-using-cosmovisor"></a>
+## Upgrading Automatically Using Cosmovisor <a href="#upgrading-automatically-using-cosmovisor" id="upgrading-automatically-using-cosmovisor"></a>
 
 Cosmovisor is a new process manager for cosmos blockchains. It can make low-downtime upgrades smoother, as validators don't have to manually upgrade binaries during the upgrade, and instead can pre-install new binaries, and Cosmovisor will automatically update them based on on-chain SoftwareUpgrade proposals.
 
@@ -62,7 +62,7 @@ Cosmovisor is a new process manager for cosmos blockchains. It can make low-down
 
 For instructions on how to setup Cosmovisor, go [here](https://docs.scrt.network/cosmovisor.html).
 
-## [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#details-of-upgrade-time)Details of Upgrade Time <a href="#details-of-upgrade-time" id="details-of-upgrade-time"></a>
+## Details of Upgrade Time <a href="#details-of-upgrade-time" id="details-of-upgrade-time"></a>
 
 When the network reaches the halt height 3343000, the Secret Network blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.3 binary (be it manually or automatically).
 
@@ -70,10 +70,8 @@ The proposal targets the upgrade proposal block to be 3343000, anticipated to be
 
 The upgrade is anticipated to take approx 30 minutes, during which time, there will not be any on-chain activity on the network.
 
-## [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#in-case-of-an-upgrade-failure)In Case of an Upgrade Failure <a href="#in-case-of-an-upgrade-failure" id="in-case-of-an-upgrade-failure"></a>
+## In Case of an Upgrade Failure <a href="#in-case-of-an-upgrade-failure" id="in-case-of-an-upgrade-failure"></a>
 
 In the event of an issue at upgrade time, we should coordinate via the "SN Validators" Telegram group.
 
 If as a result of a software bug the network fails to produce new blocks with the v1.3 binaries, the SCRT Labs team will distribute a v1.2 binary with an empty v1.3 upgrade handler, which will essentially allow the chain to revert to v1.2 while continuing to produce new blocks.
-
-\

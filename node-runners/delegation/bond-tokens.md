@@ -28,6 +28,4 @@ where `<key-alias>` is the name of the key you specified when you initialized `s
 
 While tokens are bonded, they are pooled with all the other bonded tokens in the network. Validators and delegators obtain a percentage of shares that equal their stake in this pool.
 
-### [#](https://docs.scrt.network/node-guides/delegating-mainnet.html#withdraw-rewards) <a href="#withdraw-rewards" id="withdraw-rewards"></a>
-
 \

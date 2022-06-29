@@ -1,6 +1,6 @@
 # Delegating
 
-On mainnet, you can delegate `uscrt` to a validator. These delegators can receive part of the validator's fee revenue. Read more about the [Cosmos Token Model](https://github.com/cosmos/cosmos/raw/master/Cosmos\_Token\_Model.pdf).
+On mainnet, you can delegate `uscrt` to a validator. These delegators can receive part of the validator's fee revenue. To learn more read about the [Cosmos Token Model](https://github.com/cosmos/cosmos/raw/master/Cosmos\_Token\_Model.pdf).
 
 ## Query Validators <a href="#query-validators" id="query-validators"></a>
 
@@ -16,7 +16,9 @@ If you want to get the information of a single validator you can check it with:
 secretcli q staking validator <validator-address>
 ```
 
-## Bond Tokens <a href="#bond-tokens" id="bond-tokens"></a>
+_**Note:** _ [_A list of validators on the pulsar-2 Secret Network testnet can be found here_](https://secretnodes.com/secret/chains/pulsar-2/validators)_._&#x20;
+
+## Bond Tokensw <a href="#bond-tokens" id="bond-tokens"></a>
 
 On the Secret Network mainnet, we delegate `uscrt`, where `1scrt = 1000000uscrt`. Here's how you can bond tokens to a validator (_i.e._ delegate):
 
@@ -42,7 +44,7 @@ secretcli tx staking delegate \
 secretcli keys show <key-alias> --bech val
 ```
 
-where `<key-alias>` is the name of the key you specified when you initialized `secretd`.
+Where `<key-alias>` is the name of the key you specified when you initialized `secretd`.
 
 While tokens are bonded, they are pooled with all the other bonded tokens in the network. Validators and delegators obtain a percentage of shares that equal their stake in this pool.
 
@@ -78,11 +80,9 @@ secretcli q staking delegations <delegator-address>
 
 ## Unbond Tokens <a href="#unbond-tokens" id="unbond-tokens"></a>
 
-Please Note
-
 There currently is in place a _21_ days unbonding rule, during which no rewards are handed out.
 
-If for any reason the validator misbehaves, or you just want to unbond a certain amount of tokens, use this following command.
+If for any reason the validator misbehaves, or you just want to unbond a certain amount of tokens, use this following command:
 
 ```
 secretcli tx staking unbond \
@@ -92,7 +92,7 @@ secretcli tx staking unbond \
   --chain-id=<chain-id>
 ```
 
-The unbonding will be automatically completed when the unbonding period has passed.
+The unbonding will be automatically completed when the unbonding period passes.
 
 ## Query Unbonding-Delegations <a href="#query-unbonding-delegations" id="query-unbonding-delegations"></a>
 

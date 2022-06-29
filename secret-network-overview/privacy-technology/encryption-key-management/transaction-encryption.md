@@ -10,7 +10,7 @@ TODO reasoning
   * `contract_key`
 * `ad` (additional data) is used to prevent leaking information about the same value written to the same key at different times
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#contract-key)`contract_key` <a href="#contract-key" id="contract-key"></a>
+#### `contract_key` <a href="#contract-key" id="contract-key"></a>
 
 * `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`
 * Its purpose is to make sure each contract has a unique unforgeable encryption key
@@ -56,7 +56,7 @@ calculated_contract_key = hmac_sha256({
 assert(calculated_contract_key == expected_contract_key);
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#write-db-field-name-value)write\_db(field\_name, value) <a href="#write-db-field-name-value" id="write-db-field-name-value"></a>
+#### write\_db(field\_name, value) <a href="#write-db-field-name-value" id="write-db-field-name-value"></a>
 
 ```
 encryption_key = hkdf({
@@ -98,7 +98,7 @@ new_state = concat(ad, new_state_ciphertext);
 internal_write_db(encrypted_field_name, new_state);
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#read-db-field-name)read\_db(field\_name) <a href="#read-db-field-name" id="read-db-field-name"></a>
+#### read\_db(field\_name) <a href="#read-db-field-name" id="read-db-field-name"></a>
 
 ```
 encryption_key = hkdf({
@@ -130,7 +130,7 @@ current_state_plaintext = aes_128_siv_decrypt({
 return current_state_plaintext;
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#remove-db-field-name)remove\_db(field\_name) <a href="#remove-db-field-name" id="remove-db-field-name"></a>
+#### remove\_db(field\_name) <a href="#remove-db-field-name" id="remove-db-field-name"></a>
 
 Very similar to `read_db`.
 
@@ -148,7 +148,7 @@ encrypted_field_name = aes_128_siv_encrypt({
 internal_remove_db(encrypted_field_name);
 ```
 
-### [#](https://docs.scrt.network/protocol/encryption-specs.html#transaction-encryption)Transaction encryption <a href="#transaction-encryption" id="transaction-encryption"></a>
+### Transaction encryption <a href="#transaction-encryption" id="transaction-encryption"></a>
 
 TODO reasoning
 
@@ -160,9 +160,9 @@ TODO reasoning
   * This is meant to prevent replaying an encrypted input of a legitimate contract to a malicious contract, and asking the malicious contract to decrypt the input
   * In this attack example the output will still be encrypted with a `tx_encryption_key` that only the original sender knows, but the malicious contract can be written to save the decrypted input to its state, and then via a getter with no access control retrieve the encrypted input
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#input)Input <a href="#input" id="input"></a>
+#### Input <a href="#input" id="input"></a>
 
-[**#**](https://docs.scrt.network/protocol/encryption-specs.html#on-the-transaction-sender)**On the transaction sender**
+**On the transaction sender**
 
 ```
 tx_encryption_ikm = ecdh({
@@ -190,7 +190,7 @@ encrypted_msg = aes_128_siv_encrypt({
 tx_input = concat(ad, encrypted_msg);
 ```
 
-[**#**](https://docs.scrt.network/protocol/encryption-specs.html#on-the-consensus-layer-inside-the-enclave-of-every-full-node-2)**On the consensus layer, inside the enclave of every full node**
+**On the consensus layer, inside the enclave of every full node**
 
 ```
 nonce = tx_input.slice(0, 32); // 32 bytes
@@ -218,7 +218,7 @@ assert(codeHash == toHexString(sha256(contract_code)));
 msg = codeHashAndMsg.slice(64);
 ```
 
-#### [#](https://docs.scrt.network/protocol/encryption-specs.html#output)Output <a href="#output" id="output"></a>
+#### Output <a href="#output" id="output"></a>
 
 * The output must be a valid JSON object, as it is passed to multiple mechanisms for final processing:
   * Logs are treated as Tendermint events
@@ -306,7 +306,7 @@ Here is an example output with an error:
     }
     ```
 
-[**#**](https://docs.scrt.network/protocol/encryption-specs.html#on-the-consensus-layer-inside-the-enclave-of-every-full-node-3)**On the consensus layer, inside the enclave of every full node**
+**On the consensus layer, inside the enclave of every full node**
 
 ```
 // already have from tx_input:
@@ -372,7 +372,7 @@ if (typeof output["err"] == "string") {
 return output;
 ```
 
-[**#**](https://docs.scrt.network/protocol/encryption-specs.html#back-on-the-transaction-sender)**Back on the transaction sender**
+**Back on the transaction sender**
 
 * The transaction output is written to the chain
 * Only the wallet with the right `tx_sender_wallet_privkey` can derive `tx_encryption_key`, so for everyone else it will just be encrypted
@@ -394,7 +394,5 @@ aes_128_siv_decrypt({
 ```
 
 * For `output["ok"]["messages"][i]["type"] == "Contract"`, `output["ok"]["messages"][i]["msg"]` will be decrypted in [this](https://docs.scrt.network/protocol/encryption-specs.html#on-the-consensus-layer-inside-the-enclave-of-every-full-node-1) manner by the consensus layer when it handles the contract callback
-
-### [#](https://docs.scrt.network/protocol/encryption-specs.html#blockchain-upgrades) <a href="#blockchain-upgrades" id="blockchain-upgrades"></a>
 
 \

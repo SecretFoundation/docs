@@ -34,7 +34,7 @@ Secret Network has strict [Hardware Requirements](../hardware-compliance.md). If
 #### 0. Install SGX and `secretd` <a href="#_0-step-up-sgx-on-your-local-machine" id="_0-step-up-sgx-on-your-local-machine"></a>
 
 {% hint style="danger" %}
-This guide assumes you've already installed [the latest version of secretd](secretd-installation-and-setup.md) and [SGX](install-sgx.md). To setup an archive node, you must follow the [Archive Nodes](../archive-nodes.md) instructions
+This guide assumes you've already installed [the latest version of secretd](installation-and-setup.md) and [SGX](install-sgx.md). To setup an archive node, you must follow the [Archive Nodes](../archive-nodes.md) instructions
 {% endhint %}
 
 For more information on SGX, see instructions for [setup](https://docs.scrt.network/node-guides/setup-sgx.html) and [verification](https://docs.scrt.network/node-guides/verify-sgx.html). See [registration](https://docs.scrt.network/node-guides/registration.html) if you'd like a more comprehensive overview on what's happening in these steps.

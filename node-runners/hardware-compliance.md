@@ -26,7 +26,8 @@ The following are confirmed compliant Intel CPUs:
 |       |                   | `E-2278G`         |
 |       |                   | `E-2286G`         |
 |       |                   | `E-2288G`         |
-|       |                   | `E-3388G`         |
+|       | ``                | `E-2386G`         |
+|       |                   | `E-2388G`         |
 |       | XEON Gold-Series  | \*NOT SUPPORTED\* |
 | AMD   | \*NOT SUPPORTED\* |                   |
 

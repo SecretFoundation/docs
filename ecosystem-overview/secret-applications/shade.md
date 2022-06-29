@@ -1,5 +1,7 @@
 # Shade
 
+## Coming Soon!
+
 ## Project Overview&#x20;
 
 ## Team

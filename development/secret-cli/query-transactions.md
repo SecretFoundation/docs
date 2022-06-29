@@ -4,7 +4,12 @@
 
 Querying transaction commands use the following format:&#x20;
 
-`secretcli query tx --type=[hash|acc_seq|signature] [hash|acc_seq|signature] [flags]`
+```bash
+secretcli query tx \
+    --type=[hash|acc_seq|signature] \
+    [hash|acc_seq|signature] \
+    [flags]
+```
 
 Use the transaction search command to query for transactions matching a specific set of `events`, which are added on every transaction.
 
