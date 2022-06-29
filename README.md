@@ -1,6 +1,6 @@
 ---
-cover: .gitbook/assets/header_shockwave.png
-coverY: 0
+cover: .gitbook/assets/sn-logo.png
+coverY: 16.780772032046613
 ---
 
 # Introduction
