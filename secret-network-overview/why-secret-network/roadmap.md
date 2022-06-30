@@ -2,7 +2,7 @@
 
 In this section we will be sketching out the roadmap as it pertains to the Secret Network layer 1 and its development. For an overview of the entire Secret Network ecosystem you can refer to the Secret Network monthly roadmap blog.
 
-{% embed url="https://staging.scrt.network/blog/secret-network-ecosystem-roadmap-june-update" %}
+{% embed url="https://scrt.network/ecosystem/ecosystem-roadmap" %}
 
 ### CosmWasm V1.0
 
