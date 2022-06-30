@@ -92,7 +92,7 @@ To get the contract's address:
 secretcli q tx [hash]
 ```
 
-You will find the contract adress under logs.events.array on the object with key contract\_address.
+You will find the contract address under logs.events.array on the object with key contract\_address.
 
 #### [#](https://docs.scrt.network/cli/secretcli.html#executing-a-secret-contract)Executing a Secret Contract <a href="#executing-a-secret-contract" id="executing-a-secret-contract"></a>
 
