@@ -1,14 +1,10 @@
----
-description: https://docs.scrt.network/protocol/protocol.html#how-secret-works
----
-
-# Secret Network Use Cases
+# Use Cases
 
 Secret’s tech is the ultimate blank canvas for innovative applications. You might already know of Secret as the Web3 privacy hub. And with programmable privacy enabled by default, Secret is enhancing existing concepts created on blockchain (DeFi, NFT, Gaming). But more crucial than that, Secret offers developers an edge to innovate on real world use cases.
 
 We’ll cover some examples of use cases through this article.&#x20;
 
-## 1. DeFi
+## 1. Decentralized Finance (DeFi)
 
 The blockchain space has seen a lot of innovation since DeFi summer in 2020. However, public blockchain are still struggling with MEV (Miner Extractable Value) and de facto anyone swapping through AMMs are subject to front-running or sandwich attack. More than $611million were collected in MEV since January 2020 (https://explore.flashbots.net/).
 
@@ -70,13 +66,11 @@ Secret gaming is also taking advantage of its private on-chain randomness number
 
 Here is some of the function made possible in gaming through Secret’s technology:
 
-```
-- Fully or partially hide your card deck in a PvP card game,
-- Private equipment and skills set for PvP session in your favorite action RPG
-- Unlock special skills based on your NFT private metadata (only known by you)
-- Fair randomness for online Casino or Poker (with Secret RNG)
-- Private betting markets
-```
+1. Fully or partially hide your card deck in a PvP card game
+2. Private equipment and skills set for PvP session in your favorite action RPG&#x20;
+3. Unlock special skills based on your NFT private metadata (only known by you)&#x20;
+4. Fair randomness for online Casino or Poker (with Secret RNG)&#x20;
+5. Private betting markets
 
 If you want to to go deeper on Secret gaming differentiators, read this article:
 
@@ -100,12 +94,10 @@ For example, you could have a private vault for digital evidence in a justice ca
 
 Web3 developers could use Jackal to build:
 
-```
-- Password Managing Service
-- Website Hosting
-- NFT Storage Solution
-- Google Docs and Dropbox similar applications
-```
+1. Password Managing Service&#x20;
+2. Website Hosting&#x20;
+3. NFT Storage Solution&#x20;
+4. Google Docs and Dropbox similar applications
 
 #### Content Marketplaces
 
@@ -167,7 +159,7 @@ This could also apply to decentralized music and video streaming. It’s better 
 
 If you want to learn more about Alter - [Website](https://altermail.live/) - [Blog](https://blog.altermail.live/alter-2022-roadmap-chat-channels-and-beyond-8a78002c8f4a)
 
-#### What will Web3 become?…
+### What will Web3 become?…
 
 Your privacy was an afterthought in Web2 and we are repeating the same mistake in the early days of Web3. We have seen massive privacy and data breaches in the last few years (Cambridge Analytica to name one).
 
@@ -177,4 +169,4 @@ Secret is providing the solution to take back control, preserve your right to ma
 
 Secret is not only bringing privacy to existing blockchain application but also providing the base layer for a better Web3. This is where we are seeing a lot of real use case applications putting back the user at the center of it all, preserving your right to privacy.
 
-Want to learn more? join the community: Website - [Twitter](https://twitter.com/SecretNetwork) - Discord
+Want to learn more? join the community: Website - [Twitter](https://twitter.com/SecretNetwork) - [Discord](https://chat.scrt.network/)

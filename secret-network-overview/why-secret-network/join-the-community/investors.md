@@ -1,3 +1,0 @@
-# Investors
-
-## Coming Soon!

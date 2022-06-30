@@ -2,7 +2,7 @@
 description: https://docs.scrt.network/network.html#validators-secret-nodes
 ---
 
-# What Is SCRT / sSCRT?
+# SCRT and sSCRT
 
 #### SCRT - The native coin of Secret Network
 

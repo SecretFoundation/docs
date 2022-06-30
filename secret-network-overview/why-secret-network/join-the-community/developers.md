@@ -1,3 +1,0 @@
-# Developers
-
-## Coming Soon!
