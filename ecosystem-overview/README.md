@@ -23,7 +23,7 @@ Official Secret Network resources
 * [Main website!](https://scrt.network/) - Official Secret Network website
 * [Blog](https://scrt.network/blog/) - Official Secret Network blog
 * [Wiki](https://docs.scrt.network/) - Official Secret Network wiki
-* Graypaper by Carter Woetzel - [Web](https://scrt.network/graypaper) ?¡¤ [PDF](https://www.securesecrets.org/papers)
+* Graypaper by Carter Woetzel - [Web](https://scrt.network/graypaper) - [PDF](https://www.securesecrets.org/papers)
 * [Specifications](https://github.com/SecretFoundation/SNIPs/) - SNIPs - Secret Network Improvement Proposals
 
 Community activity

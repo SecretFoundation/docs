@@ -1,23 +1,52 @@
 # Tendermint
 
-## Introduction
+In distributed systems, replication of information on all machines is fundamental. In our case, Tendermint is responsible for replicating securely and consistently the state-machine amongst the nodes of the system.
 
-Tendermint is a consensus algorithm capable of high scalability, low latency, and a fault-tolerant approach to building blockchain networks. It is the underlying technology powering the Cosmos Network and its hub of interconnected blockchains, including Secret Network.&#x20;
+It is composed of a Byzantine-Fault-Tolerance (BFT) Proof-of-Stake (PoS) consensus algorithm and a peer-to-peer networking protocol. It communicates to the application layer through the ABCI protocol.
 
-## Tendermint Vs. Proof-of-Work Vs. Proof-of-Stake
+Tendermint allows developers to focus on the application level and not take care of peer discovery, block propagation, consensus, etc …
 
-Tendermint offers an alternative to traditional Proof of Work (PoW) and Proof of Stake (PoS) algorithms with a Byzantine Fault Tolerant (BFT) approach that allows for instant finality. This means block confirmations are finalized within seconds as opposed to minutes or even hours like other consensus mechanisms.&#x20;
+### Byzantine-Fault-Tolerance (BFT)
 
-## Advantages&#x20;
+In short, BFT represents the ability of a system to continue operating even if some of its nodes fail or act maliciously. In the Tendermint case, it can only tolerate up to a 1/3 of failures, meaning that the blockchain will halt momentarily until a 2/3 of the validator set comes to consensus.
 
-With faster speeds comes more transactions per second (TPS), which improves the overall user experience by reducing wait times in network congestion periods. However, these improved speeds come at the risk of greater centralization if there are not enough validators participating in a network.
+Unlike Nakamoto consensus where it’s subject to 51% attack (meaning that 51% of the actors acting maliciously could attack and alter the blockchain), Tendermint is more resistant as it is subject to a 66% attack.
 
-## Challenges
+> 💡 If you want to understand in more details how this concept works, check this link: [Delegated Byzantine Fault Tolerance (dBFT) - CryptoGraphics](https://cryptographics.info/cryptographics/blockchain/consensus-mechanisms/delegated-byzantine-fault-tolerance-dbft/)&#x20;
 
-One of the biggest challenges facing blockchains is scalability. In order to solve this problem, Tendermint has built a framework that allows you to build blockchains using any consensus algorithm you want.
+### Consensus
 
-## How It Works
+Tendermint consensus module relies on Proof-of-stake and BFT.
 
-Tendermint is a consensus engine that can be used to build a blockchain. It’s a PBFT consensus engine that uses Byzantine Fault Tolerant (BFT) protocols and allows for high throughput, low latency transactions.&#x20;
+Let’s take a look at the consensus process from a high-level standpoint:
 
-Tendermint consensus is based on the PBFT algorithm, which stands for "Practical Byzantine Fault Tolerance". This kind of BFT algorithm is asynchronous, meaning it does not rely on every node reaching a consensus at the same time. Instead, each node keeps track of its current view of the blockchain and updates this view whenever it receives new information from other nodes.
+1. Transactions are received by the node and goes into a local cache mempool
+2. Before going into the node mempool, Tendermint ask the application if the transaction is valid through “CheckTx” ABCI message
+3. If it’s valid, transaction is added to the mempool and broadcasted to the peer nodes
+4. A new consensus round is initiated with a Proposer Node
+5. The Proposer selects transactions in the mempool to be included in a new block
+6. This proposed block is broadcasted to all nodes (Pre-vote phase) and nodes verify that the block is valid, simultaneously verifying that the Proposer is also valid and sign the pre-vote message
+7. If >2/3 of nodes pre-vote for this block, block is valid (but not committed) and we enter the pre-commit phase
+8. Same as pre-vote, Tendermint will wait for >2/3 of nodes to sign the pre-commit message&#x20;
+   * There are two stages of voting to tolerate Byzantine faults, meaning that the pre-commit ensures that enough validators witnessed the result of pre-vote stage
+9. The block is then committed, broadcasted to all nodes and transactions in this block executed by the application to update its state (for example account balance update etc)
+   * Once a block is committed, there is no way to revert it and that gives an instant finality&#x20;
+   * All nodes are processing the transactions of every block even if they are not the block proposer
+10. A new round is proposed and a new proposer is designated
+
+> 💡 For a graphic view of this consensus process check: [What is Tendermint?](https://github.com/tendermint/tendermint/blob/master/docs/introduction/what-is-tendermint.md)&#x20;
+
+This consensus ensures that all nodes maintain the same blockchain, i.e. the same list of blocks containing the past transactions and that all nodes could propose a block through Proposer rotation.
+
+#### Validator voting power - important for DPOS
+
+Users, known as delegators here, can choose which validator they want to delegate based on their reputation, stability, security and infrastructure. The amount of the native chain token owned and delegated to a validator represents its voting power, giving them the opportunity to be a new block proposer more often. Decentralization here is “measured” by the voting power distribution amongst the validators and not the number of validators.
+
+### ABCI
+
+ABCI layer is the communication protocol for Tendermint to make requests to the Application, like CheckTx (as we saw in the consensus explanation), indicate a Begin or End of a block, Deliver transactions to the application through DeliverTx, Query the application for account balance for example.
+
+Finally, below a figure representing the Tendermint stack and all elements we went through in this paragraph:
+
+![Source : Tendermint in a Nutshell ](https://lh6.googleusercontent.com/6aHXgmxDz7RYqPX\_nyEFm1gyqrlaWl18O9Vd4F9YfRV7cc2UYZdv8yDtUzePXlscHKxpGKzqlbROOs-S0iA-AiZOsvwDz5yV5I0mjVfBic2po8J91rFiU2QHVbFrPUaqI1ndrInGlFMKfiN3EQ)
+
