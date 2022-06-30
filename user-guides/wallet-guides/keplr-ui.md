@@ -1,3 +1,0 @@
-# Keplr UI
-
-## Coming Soon!

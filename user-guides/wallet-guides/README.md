@@ -1,3 +1,0 @@
-# Wallet Guides
-
-## Coming Soon

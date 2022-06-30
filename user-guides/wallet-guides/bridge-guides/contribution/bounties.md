@@ -1,3 +1,0 @@
-# Bounties
-
-## Coming Soon!

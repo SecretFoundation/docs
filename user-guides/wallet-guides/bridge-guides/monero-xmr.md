@@ -1,3 +1,0 @@
-# Monero (XMR)
-
-## Coming Soon!

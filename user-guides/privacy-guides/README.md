@@ -1,3 +1,0 @@
-# Privacy Guides
-
-## Coming Soon!

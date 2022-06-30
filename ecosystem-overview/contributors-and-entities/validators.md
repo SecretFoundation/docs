@@ -1,14 +1,14 @@
 # Validators
 
-The Secret Network runs the Tenderming delegated proof of stake mechanism and currently has an active set of 80 validators all contributing in their own way.
+The Secret Network runs the Tendermint delegated proof of stake mechanism and currently has an active set of 80 validators all contributing in their own way.
 
 #### Infrastructure
 
-* [ChainofSecrets.org](https://chainofsecrets.org/) has been a core infrastucture provider since the very start of the network, providing public APIs for applications to use and several testnets + tooling.
+* [ChainofSecrets.org](https://chainofsecrets.org/) has been a core infrastructure provider since the very start of the network, providing public APIs for applications to use and several testnets + tooling.
 * [Secretnode](https://secretnodes.com/)s is a Genesis Secret Network validator and the development organization behind the SecretNodes block explorer. SecretNodes runs API nodes for various application and is a core code contributor to various parts of the network including their own library called SecretDAO, a toolset for DAO creation.
 * [Secure Secrets](https://www.securesecrets.org/) is the development organization behind Shade protocol and a host of API nodes for Dapps to use. The founders have been long standing supporters of Secret Network and are core contributors to the Secret Network codebase, documentation and content libraries.
 * [Cashmaney](https://github.com/Cashmaney) AKA Itzik is a SCRT labs developer and the creator of Cashmaps. He runs nodes for the Keplr API cluster and several other applications.
-* F[igment](https://www.figment.io/) used to run the Datahub Secret API service where applications could buy query node services for their applications. Figment is a partner in the ecosystem fund and is also 1 of the 5 ethereum bridge multisig participants.
+* F[igment](https://www.figment.io/) used to run the Datahub Secret API service where applications could buy query node services for their applications. Figment is a partner in the ecosystem fund and is also 1 of the 5 Ethereum bridge multisig participants.
 * 🛹 [Stake or Die](https://stakeordie.com/)! and their founder Sandy have been developers and infrastructure providers for a long time. Besides being active with the Testnet and the public API structure the team also helps the Secret foundation with website development.
 
 #### Wallets/bridge
@@ -31,7 +31,7 @@ The Secret Network runs the Tenderming delegated proof of stake mechanism and cu
 
 #### Relayers
 
-* [Cryptocrew](https://ccvalidators.com/) is a validator organization validating on an array of cosmos chains running relayers for all of them. Based out of Austria cryptocrew has ran relayers for Secret from the first moment of IBC compatabillity, setting up most of the channels and giving advice to others willing to help.
+* [Cryptocrew](https://ccvalidators.com/) is a validator organization validating on an array of cosmos chains running relayers for all of them. Based out of Austria cryptocrew has ran relayers for Secret from the first moment of IBC compatibility setting up a big part of the initial infrastructure or helping others to do so.
 * [Lavender.Five Nodes](https://www.lavenderfive.com/) 🐝 is a team of 2 and has been a core player in the Secret network ecosystem for a long time. Developing various tools, Developing relations with other IBC chains, helping other validators and relayers and being a large contributor to the developer documentation.
 * [BlockNgine](https://blockngine.io/) is a validator organization that runs validators for several Cosmos chains and relays IBC transactions for several Secret Network channels. The team provides soft-slash protection for your staked funds.
 * [StakeLab](https://www.stakelab.fr/) is a french organization providing validators and development work for many different chains in the IBC ecosystem. The stakelab team runs relayers for several channels on the Secret Network.
@@ -47,25 +47,25 @@ The Secret Network runs the Tenderming delegated proof of stake mechanism and cu
 * [hydro.finance](https://twitter.com/secretchaingirl) is a DEX application which is coming to Secret Network. The team previously worked on SecretSwap.net and revealed.network.
 * [Chilly Waifu Validation](https://look.chillvalidation.com/) are active developers in the Cosmos ecosystem and have contributed in various ways to the common Cosmos codebase. The team is active on twitter for the community and has written several articles on Secret Network explaining some of the technology.
 * [Alter](https://altermail.live/) is a user-side encrypted communication application built on Secret Network. Alter was one of the first live applications on Secret Network and their team are great contributors to the network. The most recent Stake-to-access model grants every single staker of 10SCRT access to the ALTER messaging and video app.
-* [Jamama](https://twitter.com/jamama2354) is a longstanding community member. He is a moderator and developer for the Redacted club community and is the co-founder of the V-IRL Real life NFT utillity platform and NFT collection. Jamama is an active contributor in the validator chat to further optimize performance.
-* [Artemis.red](https://twitter.com/Artemis\_js) is a canadian based developer for several Secret Network applications including V-IRL, a metaverse project and an Infrastrucrure as a service platform. Artemis also runs a validator for the bitcanna chain.
+* [Jamama](https://twitter.com/jamama2354) is a longstanding community member. He is a moderator and developer for the Redacted club community and is the co-founder of the V-IRL Real life NFT utility platform and NFT collection. Jamama is an active contributor in the validator chat to help further optimize the performance of the chain.
+* [Artemis.red](https://twitter.com/Artemis\_js) is a canadian based developer for several Secret Network applications including V-IRL, a metaverse project and an Infrastructure as a service platform. Artemis also runs a validator for the Bitcanna blockchain.
 * [Notional DAO](https://linktr.ee/notionaldao) and the founder Jacob are well known Cosmos native developers building for every chain they validate on. The team runs bare metal hardware in their SEA office. Notional is an active governance participant, you can follow their opinions via twitter.
 
 #### Community
 
 * [WhisperNode🤐](https://www.whispernode.com/) and their founder Brendan have been contributors to the Secret Network from genesis, helping with the puzzle explorer and being a genesis validator. Brendan now runs the Agents program and helps various entities with Bizdev activities while the developer Gh0st focuses on developing for the chains they validate on.
 * [𝕊hadowRealm🥷](https://twitter.com/ScrtValidator) Jay is one of the Business development committee leads and a longstanding community member that is always active in Secret network Governance.
-* [Mario](https://secretnodes.com/secret/chains/secret-4/validators/secretvaloper16p9uqwcq2gvz75y5p9zvhn7vek9ra9zfunwyf0) AKA Luigi runs the mario validator and is one of the most trusted community members. Luigi runs the Anon DAO validator and is an Admin/Escrow for various community channels.
-* [secretSauce](https://mobile.twitter.com/scrtsauce) 🍯 validator is run by the community member Pmuecke who leads the governance committee, hosts all information bots over TG and Discord, runs the validator chat and helps various projects with on-chain data collection.
+* [Mario](https://secretnodes.com/secret/chains/secret-4/validators/secretvaloper16p9uqwcq2gvz75y5p9zvhn7vek9ra9zfunwyf0) AKA Luigi runs the Mario validator and is one of the most trusted community members. Luigi runs the Anon DAO validator and is an Admin/Escrow for various community channels.
+* [secretSauce](https://mobile.twitter.com/scrtsauce) 🍯 validator is run by the community member Pmuecke who leads the governance committee, hosts all information bots over Telegram and Discord, runs the validator chat and helps various projects with on-chain data collection.
 * [AnonDAO](https://www.anons.army/) This is the validator for the Anons NFT project, the commission of this validator accrues back to the Anon DAO. The validator is managed by Luigi from the Mario validator
-* [Secret Code Podcast](https://www.secretcodepodcast.com/) as a team of 2 was once funded via a SNAC and went for sustainability using the proceeds from a validator. The team still produces regular episodes and use the validator comissions to fund that effort.
+* [Secret Code Podcast](https://www.secretcodepodcast.com/) as a team of 2 was once funded via a SNAC and went for sustainability using the proceeds from a validator. The team still produces regular episodes and use the validator commissions to fund that effort.
 * [Secret Keeper](https://scrtkeeper.com/) is an active twitter personality for Secret Network validating on the network for over 1.5 years. Secret Keeper also hosts a price tracker chrome extension for all Secret native tokens.
-* [REDACTED CLUB DAO](https://www.redactedclub.com/) - This is the validator for the Redeacted Club NFT project. The commissions accrued from this validator stream back into the projects DAO. The validator is run by Jamama.
+* [REDACTED CLUB DAO](https://www.redactedclub.com/) - This is the validator for the Redacted Club NFT project. The commissions accrued from this validator stream back into the projects DAO. The validator is run by Jamama.
 * [Clandestina](https://clandestina.xyz/) X Lavender.Five - This is the validator for the Clandestina NFT project. The commissions accrued from this validator stream back into the projects DAO. The validator is run by the lavender.five team.
-* [MTC DAO](https://www.midnightteddyclub.art/) - This is the validator for the Midnight Teddy Club NFT project. The commissions accrued from this validator stream back into the projects DAO. The validator is run by the Tivium.network team.
+* [MTC DAO](https://www.midnightteddyclub.art/) - This is the validator for the Midnight Teddy Club NFT project. The commissions accrued from this validator stream back into the projects DAO. The validator is run by the Trivium.network team.
 
 #### Ecosystem partners
 
 * **Kraken** is the main exchange for SCRT available to US persons. If you stake via the Kraken platform you will stake to this validator.
-* **Huobi** is a crypto exchange offering the SCRT coin to their customers. staked SCRT via their platform will go to this validator
+* **Huobi** is a cryptocurrency exchange offering the SCRT coin to their customers. Staked SCRT via their platform will go to this validator.
 * **Forbole** is a cosmos development organization hosting the Forbole wallet and the Desmos chain.
