@@ -121,7 +121,7 @@ You can also execute a function on a contract by using the contract's label over
 secretcli tx compute execute --label "$UNIQUE_LABEL" "$EXEC_INPUT_MSG"
 ```
 
-Please note that this is not recommended
+Please note that this is not recommended as its easy for someone to deploy a contract with a similar enough label where you could possibly execute the wrong contract by typoing, but it's much harder for the same thing to happen with an address.
 
 ## Reading the Output of a Secret Contract Tx <a href="#reading-the-output-of-a-secret-contract-tx" id="reading-the-output-of-a-secret-contract-tx"></a>
 
