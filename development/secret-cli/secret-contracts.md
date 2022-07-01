@@ -4,7 +4,7 @@
 
 To upload a contract:
 
-```
+```bash
 secretcli tx compute store ./contract.wasm.gz --from mykey --source "https://github.com/<username>/<repo>/tarball/<version>" --builder "enigmampc/secret-contract-optimizer:1.0.2"
 ```
 
@@ -13,7 +13,7 @@ secretcli tx compute store ./contract.wasm.gz --from mykey --source "https://git
 
 To get the contract's code ID:
 
-```
+```bash
 secretcli q tx [hash]
 ```
 
@@ -90,13 +90,13 @@ Where `$CODE_ID` is the code id that you got from the command above and `$INIT_I
 
 To get the contract's address:
 
-```
+```bash
 secretcli q tx [hash]
 ```
 
 You will find the contract address under logs.events.array on the object with key contract\_address.
 
-## [#](https://docs.scrt.network/cli/secretcli.html#executing-a-secret-contract)Executing a Secret Contract <a href="#executing-a-secret-contract" id="executing-a-secret-contract"></a>
+## Executing a Secret Contract <a href="#executing-a-secret-contract" id="executing-a-secret-contract"></a>
 
 Executing a contract is just as simple, simply use
 
@@ -123,22 +123,22 @@ secretcli tx compute execute --label "$UNIQUE_LABEL" "$EXEC_INPUT_MSG"
 
 Please note that this is not recommended
 
-## Reading the output of a Secret Contract tx <a href="#reading-the-output-of-a-secret-contract-tx" id="reading-the-output-of-a-secret-contract-tx"></a>
+## Reading the Output of a Secret Contract Tx <a href="#reading-the-output-of-a-secret-contract-tx" id="reading-the-output-of-a-secret-contract-tx"></a>
 
 In order to read the output of a transaction, such as the output of a handle function called by compute execute or a contract that has just been instantiated you would run the following
 
-```
+```bash
 secretcli q compute tx $HASH
 ```
 
-where $HASH is your transaction hash.
+Where $HASH is your transaction hash.
 
 ## Querying a Secret Contract <a href="#querying-a-secret-contract" id="querying-a-secret-contract"></a>
 
 Querying a smart contract is just as easy, you just execute the following:
 
-```
+```bash
 secretcli q compute query $CONTRACT_ADDRESS "$QUERY_INPUT_MSG"
 ```
 
-where`$CONTRACT_ADDRESS` is the address of your contract and `$QUERY_INPUT_MSG` is the query you're trying to run. The output will depend on your contract.
+Where`$CONTRACT_ADDRESS` is the address of your contract and `$QUERY_INPUT_MSG` is the query you're trying to run. The output will depend on your contract.
