@@ -12,7 +12,7 @@ The next update for Secret Network will bring an updated version of the Secret C
 
 When initially developing secret contracts a decision was made to go with WebAssembly (WASM) engine _wasmi_ - a slower, older engine that was made for SGX (the core technology that enables privacy) - rather than undertaking long development to adapt a more performant engine. This allowed the network to launch faster, and now it is catching up with the newer more performant engines. The intention is to replace the current WASM engine with the vanilla CosmWasm’s WASM engine, Wasmer. This is going to be a difficult task, as the engine that runs the Secret contracts is tightly integrated with many system components. The team is confident they can pull this off and is aiming for a Q4 release for this feature.
 
-### More Snformation
+### More Information
 
 {% embed url="https://scrt.network/blog/scrt-labs-update-scaling-secrets" %}
 
