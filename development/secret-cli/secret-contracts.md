@@ -80,11 +80,13 @@ You will then find the code id under the logs.events array on the object with ke
 
 ## Instantiating a Secret Contract <a href="#deploying-a-secret-contract" id="deploying-a-secret-contract"></a>
 
+In order to instantiate a contract, simply run the following command:
+
 ```shell
 secretcli tx compute instantiate $CODE_ID "$INIT_INPUT_MSG" --from mykey --label "$UNIQUE_LABEL"
 ```
 
-Where `$CODE_ID` is the code id that you got from the command above and `$INIT_INPUT_MSG` is a JSON encoded version of the init message required in your contract.
+Where `$CODE_ID` is the code id that you got from the command above and `$INIT_INPUT_MSG` is a JSON encoded version of the init message required in your contract. This message will depend on your contract.
 
 To get the contract's address:
 
@@ -94,26 +96,49 @@ secretcli q tx [hash]
 
 You will find the contract address under logs.events.array on the object with key contract\_address.
 
-#### [#](https://docs.scrt.network/cli/secretcli.html#executing-a-secret-contract)Executing a Secret Contract <a href="#executing-a-secret-contract" id="executing-a-secret-contract"></a>
+## [#](https://docs.scrt.network/cli/secretcli.html#executing-a-secret-contract)Executing a Secret Contract <a href="#executing-a-secret-contract" id="executing-a-secret-contract"></a>
+
+Executing a contract is just as simple, simply use
 
 ```
 secretcli tx compute execute $CONTRACT_ADDRESS "$EXEC_INPUT_MSG"
 ```
 
-Or:
+Where`$CONTRACT_ADDRESS` is the address you found above, and `$EXEC_INPUT_MSG` is the message containing the handle function you're trying to execute. This message will heavily depend on your contract, but generally the format follows the following pattern:
+
+```json
+{
+    "handler_name_as_snake_case": {
+        "argumentA": "value for argument A",
+        "argumentB": "value for argument B"
+    }
+}
+```
+
+You can also execute a function on a contract by using the contract's label over the address, like so:
 
 ```
 secretcli tx compute execute --label "$UNIQUE_LABEL" "$EXEC_INPUT_MSG"
 ```
 
-### Reading the output of a Secret Contract tx <a href="#reading-the-output-of-a-secret-contract-tx" id="reading-the-output-of-a-secret-contract-tx"></a>
+Please note that this is not recommended
+
+## Reading the output of a Secret Contract tx <a href="#reading-the-output-of-a-secret-contract-tx" id="reading-the-output-of-a-secret-contract-tx"></a>
+
+In order to read the output of a transaction, such as the output of a handle function called by compute execute or a contract that has just been instantiated you would run the following
 
 ```
-secretcli q compute tx [hash]
+secretcli q compute tx $HASH
 ```
 
-### Querying a Secret Contract <a href="#querying-a-secret-contract" id="querying-a-secret-contract"></a>
+where $HASH is your transaction hash.
+
+## Querying a Secret Contract <a href="#querying-a-secret-contract" id="querying-a-secret-contract"></a>
+
+Querying a smart contract is just as easy, you just execute the following:
 
 ```
 secretcli q compute query $CONTRACT_ADDRESS "$QUERY_INPUT_MSG"
 ```
+
+where`$CONTRACT_ADDRESS` is the address of your contract and `$QUERY_INPUT_MSG` is the query you're trying to run. The output will depend on your contract.
