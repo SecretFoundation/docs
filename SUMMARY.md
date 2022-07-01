@@ -9,7 +9,7 @@
     * [Roadmap](secret-network-overview/why-secret-network/roadmap.md)
     * [Use Cases](secret-network-overview/why-secret-network/use-cases.md)
   * [Blockchain Technology](secret-network-overview/blockchain-technology/README.md)
-    * [Cosmos basics](secret-network-overview/blockchain-technology/cosmos-basics.md)
+    * [Cosmos Basics](secret-network-overview/blockchain-technology/cosmos-basics.md)
     * [Tendermint](secret-network-overview/blockchain-technology/tendermint.md)
     * [Cosmos SDK](secret-network-overview/blockchain-technology/cosmos-sdk.md)
     * [IBC](secret-network-overview/blockchain-technology/ibc.md)

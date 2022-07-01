@@ -1,8 +1,8 @@
-# Cosmos basics
+# Cosmos Basics
 
-A simple way to describe a blockchain is that it’s a distributed ledger on a peer-to-peer network where each node of that network has a copy of the blockchain state. The state of the blockchain is updated by an application and broadcasted to each node, agreeing on this new state through consensus.
+A simple way to describe a blockchain is that it’s a distributed ledger on a peer-to-peer (P2P) network where each node of that network contains a copy of the blockchain state. The state of the blockchain is updated by an application and broadcast to each node, agreeing on this new state through consensus.
 
-#### Horizontal scaling - Application specific blockchains
+## Horizontal Scaling - Application Specific Blockchains
 
 Cosmos is an ecosystem of independent, interconnected and application specific blockchains commonly referred to as the internet of blockchains. By having all these application specific interconnected blockchains, the ecosystem can easily scale horizontally which avoids most of the bottlenecks and scalability issues we know today on other heterogenous blockchains.
 
@@ -16,7 +16,7 @@ We will cover in this article the following three layers for an ease of understa
 * Consensus layer: Enables the nodes to agree on the current state of the system.
 * Application layer: Responsible for updating the state given a set of transactions, i.e. processing transactions
 
-#### Tendermint and Cosmos SDK as a quickstart
+## Tendermint and Cosmos SDK
 
 To reach adoption and grow the internet of blockchain, developers should focus on their application specific development. They should not spend time on building from scratch the consensus and networking layers. That’s what Tendermint core is taking care of by providing Networking and Consensus layers saving a lot of time and headaches for the developers.
 
@@ -26,7 +26,7 @@ The following figure shows the Networking and Consensus layers as “Tendermint 
 
 On top of Tendermint Core, Cosmos introduced the Cosmos SDK, an open-source framework for building application specific blockchains with composable modules (plugins) to help developers build their blockchain faster and easier. Developers could build their application directly on Tendermint core using ABCI to interact with Tendermint but Cosmos SDK allows a faster and battle tested path to bootstrap an application.
 
-#### &#x20;Interoperabillity at the base layer
+## &#x20;Interoperabillity at the Base Layer
 
 In order to scale horizontally and fulfill the vision of an internet of interoperable blockchains, blockchains can support the Inter-Blockchain Communication Protocol (IBC), which enables value transfers, token transfers, and other communication between chains, all without the need to involve exchanges or make compromises regarding the chains' sovereignties. Following figures shows blockchains interconnected with IBC ([IBC Networks](https://hub.mintscan.io/ibc-network))\
 
