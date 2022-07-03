@@ -34,14 +34,14 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 ### **0. Install SGX and `secretd`**
 
 {% hint style="danger" %}
-This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the Archive Nodes instructions
+This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the [Archive Nodes](../archive-nodes.md) instructions
 {% endhint %}
 
-For more information on SGX, see instructions for [setup](https://docs.scrt.network/node-guides/setup-sgx.html) and [verification](https://docs.scrt.network/node-guides/verify-sgx.html). See [registration](https://docs.scrt.network/node-guides/registration.html) if you'd like a more comprehensive overview on what's happening in these steps.
+For more information on SGX, see instructions for [SGX Installation](install-sgx.md) and [Verifying SGX](../misc/verify-sgx.md). See [Node Registration Information](../misc/registration-information.md) if you'd like a more comprehensive overview on what's happening in these steps.
 
 ****
 
-### **1. Initialize Secret Network**
+### **1. Initialize Secret Network Configs**
 
 Choose a **moniker** for yourself, and replace `<MONIKER>` with your moniker below. This moniker will serve as your public nickname in the network.
 
@@ -59,6 +59,8 @@ This will generate the following files in `~/.secretd/config/`
 
 ### **2. Download `genesis.json`**
 
+The genesis file is how other nodes on the network know what network you should be on.&#x20;
+
 ```bash
 wget -O ~/.secretd/config/genesis.json "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
 # verify genesis.json checksum
@@ -70,7 +72,7 @@ echo "759e1b6761c14fb448bf4b515ca297ab382855b20bae2af88a7bdd82eb1f44b9 $HOME/.se
 ### **3. Initialize Secret Enclave**
 
 {% hint style="danger" %}
-Ensure you've already Setup SGX or this and the following steps will fail.
+Ensure you've already [Setup SGX](install-sgx.md) or this and the following steps _will_ fail.
 {% endhint %}
 
 Initialize `/opt/secret/.sgx_secrets` exists:

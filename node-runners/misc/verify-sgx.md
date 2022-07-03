@@ -1,7 +1,5 @@
 # Verify SGX
 
-## Verify your SGX setup
-
 ## Background
 
 To ensure the entire network runs on SGX nodes, we use a process called _registration_. This process, performed by each node runner, involves authenticating the local enclave with Intel Attestation Services and on-chain.

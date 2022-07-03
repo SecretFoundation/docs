@@ -134,7 +134,7 @@ and run it again.
 
 #### Run `secretd init-enclave` <a href="#run-secretd-init-enclave" id="run-secretd-init-enclave"></a>
 
-See [Verify SGX](install-sgx/verify-sgx.md) for a guide how to test your setup.
+See [Verify SGX](../misc/verify-sgx.md) for a guide how to test your setup.
 
 ## Uninstall <a href="#uninstall" id="uninstall"></a>
 
