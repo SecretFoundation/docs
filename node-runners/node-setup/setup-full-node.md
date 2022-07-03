@@ -93,7 +93,7 @@ export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
 secretd auto-register
 ```
 
-If this step was successful, you can skip straight to step 8.
+If this step was successful, you can skip straight to [step 9](setup-full-node.md#9.-optimization).
 
 #### **3b. Initialize Secret Enclave - Manual Registration**
 
