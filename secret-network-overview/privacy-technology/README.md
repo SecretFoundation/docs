@@ -24,7 +24,7 @@ Secret Network uses a combination of techniques to achieve programmable privacy:
 
 Data flows through the Secret Network through multiple client and on-chain interactions to reach consensus over an encrypted state (see diagram below for more detail).&#x20;
 
-![The flow of a Secret Network transaction](<../../.gitbook/assets/image (1).png>)
+![The flow of a Secret Network transaction](<../../.gitbook/assets/image (1) (1).png>)
 
 #### Software Guard Extensions (SGX)
 
