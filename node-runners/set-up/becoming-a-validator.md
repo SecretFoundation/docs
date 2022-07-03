@@ -26,18 +26,9 @@ When the value of `catching_up` is _false_, your node is fully sync'd with the n
   },
 ```
 
-**2. Set your `minimum-gas-price` parameter**
+****
 
-We recommend starting with `0.00125uscrt` per gas unit:
-
-```bash
-perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.00125uscrt"/' ~/.secretd/config/app.toml
-sudo systemctl restart secret-node
-```
-
-Your validator will not accept transactions that specify `--fees` lower than the `minimun-gas-price` you set here.
-
-**3. Confirm Wallet is Funded:**
+**2. Confirm Wallet is Funded:**
 
 This is the `secret` wallet which you used **** to create your full node, and will use to delegate your funds to you own validator. You must delegate at least 1 SCRT (1000000uscrt) from this wallet to your validator.
 
@@ -51,7 +42,7 @@ If you get the following message, it means that you have no tokens, or your node
 ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx does not exist
 ```
 
-**4. Create Validator**
+**3. Create Validator**
 
 (remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT).
 
@@ -69,7 +60,7 @@ secretd tx staking create-validator \
   --from=<key-alias>
 ```
 
-**5. Confirm Validator is Created**
+**4. Confirm Validator is Created**
 
 ```bash
 secretd q staking validators | jq '.[] | select(.description.moniker == "<MONIKER>")'

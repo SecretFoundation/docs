@@ -90,7 +90,7 @@ export SCRT_ENCLAVE_DIR=/usr/lib
 export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
 ```
 
-1. Auto-Register:
+2\. Auto-Register:
 
 ```bash
 secretd auto-register --node http://bootstrap.node.scrtlabs.com:1317 --registration-node http://register.mainnet.enigma.co:26667
@@ -184,7 +184,27 @@ mkdir -p ~/.secretd/.node
 secretd configure-secret node-master-cert.der $SEED
 ```
 
-**9. Enable `secret-node`:**
+**9. Optimization**
+
+In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your SGX memory enclave cache:
+
+```bash
+sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclave-cache-size = \"15\"/" ~/.secretd/config/app.toml
+```
+
+Also checkout[ this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.
+
+#### 10. **Set your `minimum-gas-price` parameter**
+
+We recommend starting with `0.00125uscrt` per gas unit:
+
+```bash
+perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.00125uscrt"/' ~/.secretd/config/app.toml
+```
+
+Your node will not accept transactions that specify `--fees` lower than the `minimun-gas-price` you set here.
+
+**11. Enable `secret-node`:**
 
 {% hint style="info" %}
 Note that the `secret-node` system file is created in a previous step.
@@ -217,16 +237,6 @@ Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF committed state app_ha
 ```
 
 You are now a full node. 🎉
-
-**10. Optimization**
-
-In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your SGX memory enclave cache:
-
-```bash
-sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclave-cache-size = \"15\"/" ~/.secretd/config/app.toml
-```
-
-Also checkout[ this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.
 
 **11. State Sync**
 
