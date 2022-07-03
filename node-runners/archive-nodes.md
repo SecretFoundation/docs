@@ -43,7 +43,7 @@ Setup [SGX](node-setup/install-sgx.md). For more information on SGX, see instruc
 
 ### 3. Setup the Node
 
-Execute steps 2 through 8 of [Running a Full Node](node-setup/full-node.md#\_4-download-a-copy-of-the-genesis-block-file-genesis-json).
+Execute steps 2 through 8 of [Running a Full Node](node-setup/setup-full-node.md#\_4-download-a-copy-of-the-genesis-block-file-genesis-json).
 
 {% hint style="danger" %}
 Do NOT begin syncing yet!

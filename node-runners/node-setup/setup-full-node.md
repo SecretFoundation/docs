@@ -1,4 +1,4 @@
-# Full Node
+# Setup Full Node
 
 This document details how to join the Secret Network `secret-4` mainnet as a full node. Once your full node is running and state synced to the current block, you can turn it into a validator in the optional last step.
 
@@ -34,7 +34,7 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 ### **0. Install SGX and `secretd`**
 
 {% hint style="danger" %}
-This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the [Archive Nodes](../archive-nodes.md) instructions
+This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the [Archive Nodes](../archive-nodes.md) instructions.&#x20;
 {% endhint %}
 
 For more information on SGX, see instructions for [SGX Installation](install-sgx.md) and [Verifying SGX](../misc/verify-sgx.md). See [Node Registration Information](../misc/registration-information.md) if you'd like a more comprehensive overview on what's happening in these steps.
@@ -71,17 +71,13 @@ echo "759e1b6761c14fb448bf4b515ca297ab382855b20bae2af88a7bdd82eb1f44b9 $HOME/.se
 
 ### **3. Initialize Secret Enclave**
 
-{% hint style="danger" %}
-Ensure you've already [Setup SGX](install-sgx.md) or this and the following steps _will_ fail.
-{% endhint %}
-
-Initialize `/opt/secret/.sgx_secrets` exists:
+Initialize `/opt/secret/.sgx_secrets`:
 
 ```bash
 mkdir -p /opt/secret/.sgx_secrets
 ```
 
-You can choose between two ways, **3a (automatic) or 3b (manual)**:
+You can choose between two methods, **3a (automatic) or 3b (manual)**:
 
 #### **3a. Initialize Secret Enclave - Automatic Registration (EXPERIMENTAL)**
 
@@ -89,22 +85,17 @@ You can choose between two ways, **3a (automatic) or 3b (manual)**:
 WARNING: This method is experimental, and may not work. If it doesn't work, skip to step 3b.
 {% endhint %}
 
-1. Create the necessary environment variables:
+The following commands will create the necessary environment variables and attempt to automatically register the node.
 
 ```bash
 export SCRT_ENCLAVE_DIR=/usr/lib
 export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
-```
-
-2\. Auto-Register:
-
-```bash
-secretd auto-register --node http://bootstrap.node.scrtlabs.com:1317 --registration-node http://register.mainnet.enigma.co:26667
+secretd auto-register
 ```
 
 If this step was successful, you can skip straight to step 8.
 
-#### **3b. Initialize secret enclave - Manual Registration (legacy)**
+#### **3b. Initialize Secret Enclave - Manual Registration**
 
 ```bash
 secretd init-enclave
