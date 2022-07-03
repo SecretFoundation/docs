@@ -188,6 +188,7 @@
     * [Installing CLI & Creating A New Address](node-runners/testnet/installing-cli-and-creating-a-new-address.md)
     * [Run A Full Node](node-runners/testnet/run-a-full-node.md)
     * [Join As A Validator](node-runners/testnet/join-as-a-validator.md)
+    * [Testnet State Sync](node-runners/testnet/testnet-state-sync.md)
 * [Post Mortems/updates](post-mortems-updates/README.md)
   * [Network updates](post-mortems-updates/network-updates/README.md)
     * [Overview](post-mortems-updates/network-updates/overview.md)
