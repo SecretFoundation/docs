@@ -1,10 +1,10 @@
 # Becoming A Validator
 
+## Creating a Validator
+
 In order to become an **active** validator, you must have more stake than the [bottom validator](https://www.mintscan.io/secret/validators). You may still execute the following steps, but you will not be active and therefore won't receive staking rewards.
 
-****
-
-**1.** [**Run a Full Node**](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)****
+### **1.** [**Run a Full Node**](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)****
 
 In order to become a validator, you node must be fully synced with the network. You can check this by doing:
 
@@ -30,7 +30,7 @@ When the value of `catching_up` is _false_, your node is fully sync'd with the n
 
 ****
 
-**2. Confirm Wallet is Funded:**
+### **2. Confirm Wallet is Funded:**
 
 This is the `secret` wallet which you used **** to create your full node, and will use to delegate your funds to you own validator. You must delegate at least 1 SCRT (1000000uscrt) from this wallet to your validator.
 
@@ -46,7 +46,7 @@ ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx do
 
 ****
 
-**3. Create Validator**
+### **3. Create Validator**
 
 (remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT).
 
@@ -64,7 +64,9 @@ secretd tx staking create-validator \
   --from=<key-alias>
 ```
 
-**4. Confirm Validator is Created**
+****
+
+### **4. Confirm Validator is Created**
 
 You should see your moniker listed.
 
