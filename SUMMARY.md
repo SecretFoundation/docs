@@ -148,7 +148,6 @@
     * [State-Sync](node-runners/node-set-up/state-sync.md)
     * [Troubleshooting](node-runners/node-set-up/troubleshooting.md)
     * [Best Practices](node-runners/node-set-up/best-practices/README.md)
-      * [Peers](node-runners/node-set-up/best-practices/peers.md)
       * [Validator Optimisation](node-runners/node-set-up/best-practices/validator-optimisation.md)
   * [Node Monitoring](node-runners/node-monitoring/README.md)
     * [Prometheus](node-runners/node-monitoring/prometheus/README.md)
