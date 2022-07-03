@@ -2,12 +2,14 @@
 
 In order to become an **active** validator, you must have more stake than the [bottom validator](https://www.mintscan.io/secret/validators). You may still execute the following steps, but you will not be active and therefore won't receive staking rewards.
 
+****
+
 **1.** [**Run a Full Node**](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)****
 
 In order to become a validator, you node must be fully synced with the network. You can check this by doing:
 
 ```bash
-secretd status
+secretd status | jq .SyncInfo.catching_up
 ```
 
 When the value of `catching_up` is _false_, your node is fully sync'd with the network. You can speed up syncing time by [State Syncing](state-sync.md) to the current block.
@@ -42,6 +44,8 @@ If you get the following message, it means that you have no tokens, or your node
 ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx does not exist
 ```
 
+****
+
 **3. Create Validator**
 
 (remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT).
@@ -62,11 +66,11 @@ secretd tx staking create-validator \
 
 **4. Confirm Validator is Created**
 
-```bash
-secretd q staking validators | jq '.[] | select(.description.moniker == "<MONIKER>")'
-```
+You should see your moniker listed.
 
-Or run: `secretd q staking validators | grep moniker`. You should see your moniker listed.
+```bash
+secretd q staking validators | grep moniker
+```
 
 ## Important CLI Commands for Validators <a href="#dangers-in-running-a-validator" id="dangers-in-running-a-validator"></a>
 
