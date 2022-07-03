@@ -1,7 +1,5 @@
 # Full Node
 
-## Full Node
-
 This document details how to join the Secret Network `secret-4` mainnet as a full node. Once your full node is running and state synced to the current block, you can turn it into a validator in the optional last step.
 
 #### Requirements <a href="#requirements" id="requirements"></a>
@@ -31,9 +29,9 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 * 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
 * Motherboard with support for SGX in the BIOS
 
-#### Installation <a href="#installation" id="installation"></a>
+## Installation <a href="#installation" id="installation"></a>
 
-**0. Install SGX and `secretd`**
+### **0. Install SGX and `secretd`**
 
 {% hint style="danger" %}
 This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the Archive Nodes instructions
@@ -41,7 +39,9 @@ This guide assumes you've already installed the latest version of secretd and SG
 
 For more information on SGX, see instructions for [setup](https://docs.scrt.network/node-guides/setup-sgx.html) and [verification](https://docs.scrt.network/node-guides/verify-sgx.html). See [registration](https://docs.scrt.network/node-guides/registration.html) if you'd like a more comprehensive overview on what's happening in these steps.
 
-**1. Initialize Secret Network**
+****
+
+### **1. Initialize Secret Network**
 
 Choose a **moniker** for yourself, and replace `<MONIKER>` with your moniker below. This moniker will serve as your public nickname in the network.
 
@@ -55,7 +55,9 @@ This will generate the following files in `~/.secretd/config/`
 * `node_key.json`
 * `priv_validator_key.json`
 
-**2. Download `genesis.json`**
+****
+
+### **2. Download `genesis.json`**
 
 ```bash
 wget -O ~/.secretd/config/genesis.json "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
@@ -63,21 +65,23 @@ wget -O ~/.secretd/config/genesis.json "https://github.com/scrtlabs/SecretNetwor
 echo "759e1b6761c14fb448bf4b515ca297ab382855b20bae2af88a7bdd82eb1f44b9 $HOME/.secretd/config/genesis.json" | sha256sum --check
 ```
 
-**3. Initialize Secret Enclave**
+****
+
+### **3. Initialize Secret Enclave**
 
 {% hint style="danger" %}
 Ensure you've already Setup SGX or this and the following steps will fail.
 {% endhint %}
 
-You can choose between two ways, **3a (automatic) or 3b (manual)**:
-
-Make sure the directory `/opt/secret/.sgx_secrets` exists:
+Initialize `/opt/secret/.sgx_secrets` exists:
 
 ```bash
 mkdir -p /opt/secret/.sgx_secrets
 ```
 
-**3a. Initialize Secret Enclave - Automatic Registration (EXPERIMENTAL)**
+You can choose between two ways, **3a (automatic) or 3b (manual)**:
+
+#### **3a. Initialize Secret Enclave - Automatic Registration (EXPERIMENTAL)**
 
 {% hint style="danger" %}
 WARNING: This method is experimental, and may not work. If it doesn't work, skip to step 3b.
@@ -96,15 +100,17 @@ export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
 secretd auto-register --node http://bootstrap.node.scrtlabs.com:1317 --registration-node http://register.mainnet.enigma.co:26667
 ```
 
-**If this step was successful, you can skip straight to** **step 8.**
+If this step was successful, you can skip straight to step 8.
 
-**3b. Initialize secret enclave - Manual Registration (legacy)**
+#### **3b. Initialize secret enclave - Manual Registration (legacy)**
 
 ```bash
 secretd init-enclave
 ```
 
-**4. Verify Enclave Initialization**
+****
+
+### 4. Verify Enclave Initialization
 
 Attestation certificate should have been created by the previous step
 
@@ -119,7 +125,9 @@ PUBLIC_KEY=$(secretd parse /opt/secret/.sgx_secrets/attestation_cert.der  2> /de
 echo $PUBLIC_KEY
 ```
 
-**5. Configure `secretd`**
+****
+
+### **5. Configure `secretd`**
 
 {% hint style="info" %}
 The following steps should use `secretd` be ran on the full node itself. To run the steps with `secretd` on a local machine, [set up the CLI](https://docs.scrt.network/cli/install-cli.html) there.
@@ -133,7 +141,9 @@ secretd config node https://lcd-secret.scrtlabs.com:443/rpc
 secretd config output json
 ```
 
-**6. Fund Secret Wallet**
+****
+
+### **6. Fund Secret Wallet**
 
 If you already have a wallet funded with `SCRT`, you can import the wallet by doing the following:
 
@@ -149,7 +159,9 @@ secretd keys add <key-alias>
 
 This will output your address, a 45 character-string starting with `secret1...`.
 
-**7. Configure Node Attestation**
+****
+
+### **7. Configure Node Attestation**
 
 1. Register your node on-chain
 
@@ -173,7 +185,9 @@ secretd query register secret-network-params
 ls -lh ./io-master-cert.der ./node-master-cert.der
 ```
 
-**8. Configure Your Secret Node**
+****
+
+### **8. Configure Your Secret Node**
 
 {% hint style="info" %}
 From here on, commands must be ran on the full node.
@@ -184,7 +198,9 @@ mkdir -p ~/.secretd/.node
 secretd configure-secret node-master-cert.der $SEED
 ```
 
-**9. Optimization**
+****
+
+### **9. Optimization**
 
 In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your SGX memory enclave cache:
 
@@ -194,9 +210,11 @@ sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclav
 
 Also checkout[ this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.
 
-#### 10. **Set your `minimum-gas-price` parameter**
 
-We recommend starting with `0.00125uscrt` per gas unit:
+
+### 10. **Set  `minimum-gas-price` Parameter**
+
+We recommend `0.00125uscrt` per gas unit:
 
 ```bash
 perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.00125uscrt"/' ~/.secretd/config/app.toml
@@ -204,10 +222,12 @@ perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.00125uscrt"/' 
 
 Your node will not accept transactions that specify `--fees` lower than the `minimun-gas-price` you set here.
 
-**11. Enable `secret-node`:**
+
+
+### **11. Enable `secret-node`:**
 
 {% hint style="info" %}
-Note that the `secret-node` system file is created in a previous step.
+Note that the `secret-node` system file is created when installing sgx.
 {% endhint %}
 
 ```bash
@@ -238,10 +258,14 @@ Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF committed state app_ha
 
 You are now a full node. 🎉
 
-**11. State Sync**
+****
+
+### **11. State Sync**
 
 You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/node-guides/state-sync.html#mainnet-state-sync) to the current block.
 
-**12. Optional: make your full node into a validator**
+****
+
+### **Optional: Become a Validator**
 
 To turn your full node into a validator, see [Joining Mainnet as a Validator](https://docs.scrt.network/node-guides/join-validator-mainnet.html).

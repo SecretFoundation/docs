@@ -4,7 +4,7 @@
 
 If you get this, generally your server has restarted erroneously. In order to fix it and get secret-node running again, you must reinstall sgx and reload the aesm.service. [Source Discord conversation](https://discord.com/channels/360051864110235648/507935210902650890/790944933547606027).
 
-1.  [Re-install sgx](install-sgx/)
+1.  [Re-install sgx](install-sgx.md)
 
     ```bash
     sudo bash sgx

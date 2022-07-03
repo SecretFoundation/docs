@@ -1,6 +1,6 @@
 # Install SGX
 
-Ensure your hardware is [Secret Node Compliant](../../hardware-compliance.md).
+Ensure your hardware is [Secret Node Compliant](../hardware-compliance.md).
 
 If you're running a local machine and not a cloud-based VM -
 
@@ -134,7 +134,7 @@ and run it again.
 
 #### Run `secretd init-enclave` <a href="#run-secretd-init-enclave" id="run-secretd-init-enclave"></a>
 
-See [Verify SGX](verify-sgx.md) for a guide how to test your setup.
+See [Verify SGX](install-sgx/verify-sgx.md) for a guide how to test your setup.
 
 ## Uninstall <a href="#uninstall" id="uninstall"></a>
 
