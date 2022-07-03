@@ -45,15 +45,16 @@ The distinguishing factor of these motherboards is that they support Intel SGX.&
 This is not an exhaustive list of supported motherboards. These are simply motherboards proven supported by community members.
 {% endhint %}
 
-| Brand      | Tag                  | Versions                       | Link                                                                         |
-| ---------- | -------------------- | ------------------------------ | ---------------------------------------------------------------------------- |
-| Supermicro | `X11SCM-F`           | `SYS-5019C-M`,  `SYS-5019C-MR` | [link](https://www.supermicro.com/products/motherboard/X11/X11SCM-F.cfm)     |
-|            | `X11SCW-F`           | `SYS-5019C-WR`                 | [link](https://www.supermicro.com/products/motherboard/X11/X11SCW-F.cfm)     |
-|            | `X11SCZ-F`           |                                |                                                                              |
-|            | `X11SSL-F`           |                                |                                                                              |
-| Dell       | `Dell R240`          |                                |                                                                              |
-| HP         | `HP DL20 G10`        |                                |                                                                              |
-| ASUS       | `ASUS RS100-E10-PI2` | BIOS version 4003              | [link](https://servers.asus.com/products/Servers/Rack-Servers/RS100-E10-PI2) |
+| Brand      | Tag                  | Versions                       | Link                                                                                            |
+| ---------- | -------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------- |
+| Supermicro | `X11SCM-F`           | `SYS-5019C-M`,  `SYS-5019C-MR` | [link](https://www.supermicro.com/products/motherboard/X11/X11SCM-F.cfm)                        |
+|            | `X11SCW-F`           | `SYS-5019C-WR`                 | [link](https://www.supermicro.com/products/motherboard/X11/X11SCW-F.cfm)                        |
+|            | `X11SCZ-F`           |                                |                                                                                                 |
+|            | `X11SSL-F`           |                                |                                                                                                 |
+| Dell       | `Dell R240`          |                                |                                                                                                 |
+| HP         | `HP DL20 G10`        |                                |                                                                                                 |
+| ASUS       | `ASUS RS100-E10-PI2` | BIOS version 4003              | [link](https://servers.asus.com/products/Servers/Rack-Servers/RS100-E10-PI2)                    |
+| Asrock     | `E3C246D4U2-2T`      |                                | [link](https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications) |
 
 ### **Contributors**
 

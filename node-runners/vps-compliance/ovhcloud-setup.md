@@ -9,6 +9,10 @@ The following are examples of server that are [Hardware Compliant](../hardware-c
 * Example in the US: [https://us.ovhcloud.com/bare-metal/infra/infra-2-le/](https://us.ovhcloud.com/bare-metal/infra/infra-2-le/)
 * Global example: [https://www.ovhcloud.com/en/bare-metal/rise/rise-3/](https://www.ovhcloud.com/en/bare-metal/rise/rise-3/)
 
+{% hint style="danger" %}
+NOTE: OVHCloud servers can come with either an ASUS or Asrock motherboard. The Asus motherboard does **NOT** support Intel SPS. If you receive the Asus motherboard, you'll need to create a ticket to have the motherboard replaced with the Asrock motherboard:  [Asrock E3C246D4U2-2T](https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications)
+{% endhint %}
+
 ### Enabling SGX
 
 1. Navigate to the server's management page
@@ -34,10 +38,10 @@ The following are examples of server that are [Hardware Compliant](../hardware-c
 
 ![Intel SpeedStep](<../../.gitbook/assets/image (1).png>)
 
-8\. Under Chipset configuration > Primary Dispaly='PCI Express', IGPU Multi-Monitor=Disabled and Onboard VGA=Disabled
+8\. Under Chipset configuration > Primary Display='PCI Express', IGPU Multi-Monitor=Disabled and Onboard VGA=Disabled
 
 9\. Save and Exit the bios
 
 10\. Reset the server again
 
-11\. Continue from [Setting Up a Node](../set-up/)
+11\. Continue from [Setting Up a Node](../node-set-up/)
