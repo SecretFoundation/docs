@@ -25,4 +25,4 @@ The SSC portal is only enabled once you finish the payment. Go to your dedicated
 
 #### 4. Install SGX utilities from the Secret Network Documentation
 
-Login with your credentials and proceed with [SGX installation](../node-set-up/install-sgx.md).
+Login with your credentials and proceed with [SGX installation](../node-set-up/install-sgx/).

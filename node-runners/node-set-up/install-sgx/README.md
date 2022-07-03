@@ -1,6 +1,6 @@
 # Install SGX
 
-Ensure your hardware is [Secret Node Compliant](../hardware-compliance.md).
+Ensure your hardware is [Secret Node Compliant](../../hardware-compliance.md).
 
 If you're running a local machine and not a cloud-based VM -
 
@@ -134,7 +134,7 @@ and run it again.
 
 #### Run `secretd init-enclave` <a href="#run-secretd-init-enclave" id="run-secretd-init-enclave"></a>
 
-See [Verify SGX](https://docs.scrt.network/node-guides/verify-sgx.html) for a guide how to test your setup.
+See [Verify SGX](verify-sgx.md) for a guide how to test your setup.
 
 ## Uninstall <a href="#uninstall" id="uninstall"></a>
 
@@ -170,7 +170,7 @@ sudo apt purge -y libsgx-enclave-common libsgx-enclave-common-dev libsgx-urts sg
 3. https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly
 4. https://edp.fortanix.com/docs/installation/guide/
 
-### **Contributers**
+### **Contributors**
 
 * [FreshSCRT](https://secretnodes.com/secret/chains/secret-3/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
 * [secretnodes](https://secretnodes.com/secret/chains/secret-3/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)

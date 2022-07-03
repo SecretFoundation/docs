@@ -11,7 +11,7 @@ This document details how to join the Secret Network `testnet` as a full node. O
 * Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 * Reading https://docs.tendermint.com/master/tendermint-core/running-in-production.html
 * RPC address of an already active node. You can use `bootstrap.secrettestnet.io:26657`, or any other node that exposes RPC services. Alternate RPC nodes available in the [API Registry](https://github.com/scrtlabs/api-registry).
-* [Install SGX](../node-set-up/install-sgx.md)
+* [Install SGX](../node-set-up/install-sgx/)
 
 #### Minimum requirements <a href="#minimum-requirements" id="minimum-requirements"></a>
 
