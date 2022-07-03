@@ -5,7 +5,7 @@
 This is intended to guide you in selecting SGX compliant VPS options for the Secret Network.
 
 {% hint style="info" %}
-When renting a compliant bare metal machine from a VPS provider, ensure you do not accept any chassis or CPU substitutes they propose, unless those substitutes are on the [Hardware Compliance list](hardware-compliance.md).
+When renting a compliant bare metal machine from a VPS provider, ensure you do not accept any chassis or CPU substitutes they propose, unless those substitutes are on the [Hardware Compliance list](../hardware-compliance.md).
 {% endhint %}
 
 ```
