@@ -1,10 +1,14 @@
 # Full Node
 
-## How To Join Secret Network as a Full Node
+## Full Node
 
-This document details how to join the Secret Network `secret-4` mainnet as a full node. Once your full node is running, you can turn it into a validator in the optional last step.
+This document details how to join the Secret Network `secret-4` mainnet as a full node. Once your full node is running and state synced to the current block, you can turn it into a validator in the optional last step.
 
-### Requirements
+#### Requirements <a href="#requirements" id="requirements"></a>
+
+{% hint style="danger" %}
+Secret Network has strict Hardware Requirements. If your machine does not meet them, it will \*NOT\* work as a node.
+{% endhint %}
 
 * Ubuntu/Debian host (with ZFS or LVM to be able to add more storage easily)
 * A public IP address
@@ -13,53 +17,31 @@ This document details how to join the Secret Network `secret-4` mainnet as a ful
 * RPC address of an already active node. You can use any node that exposes RPC services.
 * Refer to [Intel Processor Specifications](https://ark.intel.com/content/www/us/en/ark.html#@Processors) if you're unsure if your processor supports SGX
 
-#### Minimum requirements
+**Minimum requirements**
 
-* 16GB RAM
-* 256GB SDD
+* 32GB RAM
+* 512GB SDD
 * 1 dedicated core of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
 * Motherboard with support for SGX in the BIOS
 
-#### Recommended requirements
+**Recommended requirements**
 
 * 32GB RAM
-* 512GB SSD
+* 1TB NVMe SSD
 * 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
 * Motherboard with support for SGX in the BIOS
 
-### Installation
+#### Installation <a href="#installation" id="installation"></a>
 
-#### 0. Step up SGX on your local machine
+**0. Install SGX and `secretd`**
 
-See instructions for setup and verification. See registration if you'd like a more comprehensive overview on what's happening in these steps.
+{% hint style="danger" %}
+This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the Archive Nodes instructions
+{% endhint %}
 
-#### 1. Download the Secret Network package installer for Debian/Ubuntu:
+For more information on SGX, see instructions for [setup](https://docs.scrt.network/node-guides/setup-sgx.html) and [verification](https://docs.scrt.network/node-guides/verify-sgx.html). See [registration](https://docs.scrt.network/node-guides/registration.html) if you'd like a more comprehensive overview on what's happening in these steps.
 
-```bash
-wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb
-# check the hash of the downloaded binary
-echo "3b501e572ab6021df3371d5fae73952cd6fc5a85b726310cf32a000f4c093207 secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb" | sha256sum --check
-```
-
-Note: A rocksdb release is available as well - https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork\_1.3.1\_mainnet\_rocksdb\_amd64.deb
-
-(How to verify releases)
-
-#### 2. Install the package:
-
-Note: if you are upgrading from v1.2.0, it may say secret-node is downgrading to version 0. Ignore it.
-
-```bash
-sudo dpkg -i secretnetwork_1.3.1_mainnet_goleveldb_amd64.deb
-```
-
-Verify the installation by doing:
-
-```bash
-secretd version
-```
-
-#### 3. Initialize your installation of the Secret Network.
+**1. Initialize Secret Network**
 
 Choose a **moniker** for yourself, and replace `<MONIKER>` with your moniker below. This moniker will serve as your public nickname in the network.
 
@@ -67,47 +49,27 @@ Choose a **moniker** for yourself, and replace `<MONIKER>` with your moniker bel
 secretd init <MONIKER> --chain-id secret-4
 ```
 
-#### 4. Download a copy of the Genesis Block file: `genesis.json`
+This will generate the following files in `~/.secretd/config/`
+
+* `genesis.json`
+* `node_key.json`
+* `priv_validator_key.json`
+
+**2. Download `genesis.json`**
 
 ```bash
 wget -O ~/.secretd/config/genesis.json "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
-```
-
-#### 5. Validate the checksum for the `genesis.json` file you have just downloaded in the previous step:
-
-```bash
+# verify genesis.json checksum
 echo "759e1b6761c14fb448bf4b515ca297ab382855b20bae2af88a7bdd82eb1f44b9 $HOME/.secretd/config/genesis.json" | sha256sum --check
 ```
 
-#### 6. Validate that the `genesis.json` is a valid genesis file:
+**3. Initialize Secret Enclave**
 
-```bash
-secretd validate-genesis
-```
+{% hint style="danger" %}
+Ensure you've already Setup SGX or this and the following steps will fail.
+{% endhint %}
 
-#### 7. The rest of the commands should be run from the home folder (`/home/<your_username>`)
-
-```bash
-cd ~
-```
-
-#### 8. Initialize secret enclave
-
-You can choose between two ways, **8a (automatic)** or **8b (manual)**:
-
-**Note:** if this machine has been registered before, and have the following files:
-
-```bash
-/home/user/.sgx_secrets/
-├── consensus_seed.sealed
-└── new_node_seed_exchange_keypair.sealed
-```
-
-you can move them to `/opt/secret/.sgx_secrets` and skip to **step 16** (if not working, try registering anyway).
-
-#### 8a. Automatic Registration (EXPERIMENTAL)
-
-* **Note:** Make sure SGX is running or this step might fail.
+You can choose between two ways, **3a (automatic) or 3b (manual)**:
 
 Make sure the directory `/opt/secret/.sgx_secrets` exists:
 
@@ -115,42 +77,34 @@ Make sure the directory `/opt/secret/.sgx_secrets` exists:
 mkdir -p /opt/secret/.sgx_secrets
 ```
 
-Create env variables:
+**3a. Initialize Secret Enclave - Automatic Registration (EXPERIMENTAL)**
+
+{% hint style="danger" %}
+WARNING: This method is experimental, and may not work. If it doesn't work, skip to step 3b.
+{% endhint %}
+
+1. Create the necessary environment variables:
 
 ```bash
 export SCRT_ENCLAVE_DIR=/usr/lib
 export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
 ```
 
-Register:
+1. Auto-Register:
 
 ```bash
-secretd auto-register
+secretd auto-register --node http://bootstrap.node.scrtlabs.com:1317 --registration-node http://register.mainnet.enigma.co:26667
 ```
 
-If you have already registered previously, or you wish to overwrite an existing key you can force registration with the command
+**If this step was successful, you can skip straight to** **step 8.**
 
-```bash
-secretd auto-register --reset
-```
-
-**If this step was successful, you can skip straight to step 16**
-
-#### 8b. Initialize secret enclave - Manual Registration (legacy)
-
-Make sure the directory `/opt/secret/.sgx_secrets/` exists:
-
-```bash
-mkdir -p /opt/secret/.sgx_secrets/
-```
-
-Make sure SGX is running or this step might fail.
+**3b. Initialize secret enclave - Manual Registration (legacy)**
 
 ```bash
 secretd init-enclave
 ```
 
-#### 9. Check that initialization was successful
+**4. Verify Enclave Initialization**
 
 Attestation certificate should have been created by the previous step
 
@@ -158,103 +112,95 @@ Attestation certificate should have been created by the previous step
 ls -lh /opt/secret/.sgx_secrets/attestation_cert.der
 ```
 
-#### 10. Check your certificate is valid
-
-Should print your 64 character registration key if it was successful.
+Verify the certificate is valid. A 64 character registration key will be printed if it was successful.
 
 ```bash
 PUBLIC_KEY=$(secretd parse /opt/secret/.sgx_secrets/attestation_cert.der  2> /dev/null | cut -c 3-)
 echo $PUBLIC_KEY
 ```
 
-#### 11. Config `secretcli`, to point to a working node and import a key with some SCRT
+**5. Configure `secretd`**
 
-The steps using `secretcli` can be run on any machine, they don't need to be on the full node itself. We'll refer to the machine where you are using `secretcli` as the "CLI machine" below.
+{% hint style="info" %}
+The following steps should use `secretd` be ran on the full node itself. To run the steps with `secretd` on a local machine, [set up the CLI](https://docs.scrt.network/cli/install-cli.html) there.
+{% endhint %}
 
-To run the steps with `secretcli` on another machine, set up the CLI there.
-
-Configure `secretcli`. Initially you'll be using the bootstrap node, as you'll need to connect to a running node and your own node is not running yet.
+Configure `secretd`. Initially you'll be using the bootstrap node, as you'll need to connect to a running node and your own node is not running yet.
 
 ```bash
-secretd config chain-id $(curl https://chains.cosmos.directory/secretnetwork/chain.json | jq '.chain_id' -r)
-secretd config node https://rpc.cosmos.directory:443/secretnetwork
+secretd config chain-id secret-4
+secretd config node https://lcd-secret.scrtlabs.com:443/rpc
 secretd config output json
 ```
 
-Set up a key. Make sure you back up the mnemonic and the keyring password.
+**6. Fund Secret Wallet**
+
+If you already have a wallet funded with `SCRT`, you can import the wallet by doing the following:
 
 ```bash
-secretcli keys add <key-alias>
+secretd keys add <key-alias> --recover
 ```
 
-This will output your address, a 45 character-string starting with `secret1...`. Then you can fund it with some SCRT.
-
-#### 12. Register your node on-chain
-
-Run this step on the CLI machine. If you're using a different CLI machine than the full node, copy `/opt/secret/.sgx_secrets/attestation_cert.der` from the full node to the CLI machine.
+Otherwise, you will need to set up a key. Make sure you back up the mnemonic and the keyring password.
 
 ```bash
-secretcli tx register auth /opt/secret/.sgx_secrets/attestation_cert.der -y --from <key-alias>
+secretd keys add <key-alias>
 ```
 
-#### 13. Pull & check your node's encrypted seed from the network
+This will output your address, a 45 character-string starting with `secret1...`.
 
-Run this step on the CLI machine.
+**7. Configure Node Attestation**
+
+1. Register your node on-chain
 
 ```bash
-SEED=$(secretcli query register seed $PUBLIC_KEY | cut -c 3-)
+secretd tx register auth /opt/secret/.sgx_secrets/attestation_cert.der -y --from <key-alias>
+```
+
+2\. Pull & check your node's encrypted seed from the network
+
+```bash
+SEED=$(secretd query register seed $PUBLIC_KEY | cut -c 3-)
 echo $SEED
 ```
 
-#### 14. Get additional network parameters
-
-Run this step on the CLI machine.
+3\. Get additional network parameters
 
 These are necessary to configure the node before it starts.
 
 ```bash
-secretcli query register secret-network-params
+secretd query register secret-network-params
 ls -lh ./io-master-cert.der ./node-master-cert.der
 ```
 
-If you're using a different CLI machine than the validator node, copy `node-master-cert.der` from the CLI machine to the validator node.
+**8. Configure Your Secret Node**
 
-#### 15. Configure your secret node
-
-From here on, run commands on the full node again.
+{% hint style="info" %}
+From here on, commands must be ran on the full node.
+{% endhint %}
 
 ```bash
 mkdir -p ~/.secretd/.node
 secretd configure-secret node-master-cert.der $SEED
 ```
 
-#### 16. Listen for incoming RPC requests so that light nodes can connect to you:
+**9. Enable `secret-node`:**
 
-```bash
-perl -i -pe 's/laddr = .+?26657"/laddr = "tcp:\/\/0.0.0.0:26657"/' ~/.secretd/config/config.toml
-```
-
-#### 17. Enable `secret-node` as a system service:
-
+{% hint style="info" %}
 Note that the `secret-node` system file is created in a previous step.
+{% endhint %}
 
 ```bash
-sudo systemctl enable secret-node
+sudo systemctl enable secret-node && sudo systemctl start secret-node
 ```
 
-#### 18. Start `secret-node` as a system service:
-
-```bash
-sudo systemctl start secret-node
-```
-
-#### 19. If everything above worked correctly, the following command will show your node streaming blocks (this is for debugging purposes only, kill this command anytime with Ctrl-C):
+If everything above worked correctly, the following command will show your node streaming blocks (this is for debugging purposes only, kill this command anytime with Ctrl-C).
 
 ```bash
 journalctl -f -u secret-node
 ```
 
-```
+```bash
 -- Logs begin at Mon 2020-02-10 16:41:59 UTC. --
 Nov 09 11:16:31 scrt-node-01 secretd[619529]: 11:16AM INF indexed block height=12 module=txindex
 Nov 09 11:16:35 scrt-node-01 secretd[619529]: 11:16AM INF Ensure peers module=pex numDialing=0 numInPeers=0 numOutPeers=0 numToDial=10
@@ -270,9 +216,9 @@ Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF committed state app_ha
 ^C
 ```
 
-You are now a full node. :tada:
+You are now a full node. 🎉
 
-#### 20. Optimization
+**10. Optimization**
 
 In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your SGX memory enclave cache:
 
@@ -280,34 +226,12 @@ In order to be able to handle NFT minting and other Secret Contract-heavy operat
 sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclave-cache-size = \"15\"/" ~/.secretd/config/app.toml
 ```
 
-Also checkout this document by `[ block pane ]` for fine tuning your machine for better uptime: https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa
+Also checkout[ this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.
 
-#### 21. Get your node ID with:
-
-```bash
-secretd tendermint show-node-id
-```
-
-Be sure to point your CLI to your running node instead of the bootstrap node
-
-```
-secretcli config node tcp://localhost:26657
-```
-
-If someone wants to add you as a peer, have them add the above address to their `persistent_peers` in their `~/.secretd/config/config.toml`.
-
-And if someone wants to use your node from their `secretcli` then have them run:
-
-```bash
-secretcli config chain-id secret-4
-secretcli config output json
-secretcli config node tcp://<your-public-ip>:26657
-```
-
-#### 22. Optional: make your full node into a validator
-
-To turn your full node into a validator, see Joining Mainnet as a Validator.
-
-#### 23. Optional: State Sync
+**11. State Sync**
 
 You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/node-guides/state-sync.html#mainnet-state-sync) to the current block.
+
+**12. Optional: make your full node into a validator**
+
+To turn your full node into a validator, see [Joining Mainnet as a Validator](https://docs.scrt.network/node-guides/join-validator-mainnet.html).
