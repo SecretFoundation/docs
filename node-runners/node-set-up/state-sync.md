@@ -31,49 +31,57 @@ snapshot-interval = 2000
 snapshot-keep-recent = 10
 ```
 
-#### On The Node To Be State-Sync'd <a href="#on-the-node-to-be-state-sync-d" id="on-the-node-to-be-state-sync-d"></a>
+### 1. Assign and Verify Variables
 
-1. Set `SNAP_RPC` variable to Lavender.Five's snapshot RPC\
-   `SNAP_RPC="http://155.138.198.97:26657"`
-2.  Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
+```bash
+SNAP_RPC="http://155.138.198.97:26657"
+```
 
-    ```
-    BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000)}'); \
-    TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
-    ```
-3.  Check variables to ensure they have been set
+Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
 
-    ```
-    echo $BLOCK_HEIGHT $TRUST_HASH
+```bash
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000)}'); \
+TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
-    # output should be something similar to:
-    # 3506000 FCB54D74A4A33F8C1CC18A7240D76D87CB192A89C17837C4DB6C6140612DDFEB
-    ```
-4.  Set the required variables in \~/.secretd/config/config.toml
+echo $BLOCK_HEIGHT $TRUST_HASH
 
-    ```
-    sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-    s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://155.138.198.97:26657,http://45.63.94.236:26657\"| ; \
-    s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-    s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
-    s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.toml
-    ```
-5.  Stop the node and reset the node database
-
-    ⚠️ WARNING: This will erase your node database. If you are already running validator, be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running `unsafe-reset-all`.
-
-    It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `unsafe-reset-all` to avoid potential double signing.\
+# output should be similar to:
+# 3506000 FCB54D74A4A33F8C1CC18A7240D76D87CB192A89C17837C4DB6C6140612DDFEB74A4A33F8C1CC18A7240D76D87CB192A89C17837C4DB6C6140612DDFEB
+```
 
 
-    ```
-    sudo systemctl stop secret-node && secretd tendermint unsafe-reset-all --home ~/.secretd/
-    ```
-6.  Restart node and check logs\
-    This generally takes several minutes to complete.\
+
+### 2. Set Variables in \~/.secretd/config/config.toml
+
+```bash
+sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://155.138.198.97:26657,http://45.63.94.236:26657\"| ; \
+s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
+s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
+s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.toml
+```
 
 
-    ```
-    sudo systemctl restart secret-node && journalctl -fu secret-node
-    ```
 
-    \
+### 3. Reset Database and Stop Node
+
+{% hint style="danger" %}
+WARNING: This will erase your node database. If you are already running validator, be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running `unsafe-reset-all`.
+{% endhint %}
+
+It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `unsafe-reset-all` to avoid potential double signing.
+
+```bash
+sudo systemctl stop secret-node && secretd tendermint unsafe-reset-all --home ~/.secretd/
+```
+
+
+
+### 4. Restart Node and Check Logs
+
+This generally takes several minutes to complete, but has been known to take up to 24 hours. To better help the process along, add [seeds](troubleshooting.md#undefined).
+
+```bash
+sudo systemctl restart secret-node && journalctl -fu secret-node
+
+```
