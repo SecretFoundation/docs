@@ -11,29 +11,26 @@ Secret Network offers scalable permissionless smart contracts with a private by 
 
 In this documentation we will go over the basics behind the Secret Network technology, explain why privacy is important in Web3 and give an example of some use cases specific to private smart contracts. There are also sections dedicated to (smart contract) development, funding opportunities, the ecosystems partners and help with the running of infrastructure.
 
-* Secret Network overview
-  * History
-  * Why privacy for blockchain
-  * Secret Network Use cases
-  * The blockchain components behind Secret Network
-  * How Secret Network achieves computational privacy
-* Ecosystem overview
-  * Applications
-  * Funding
-  * Community contributors & Team
-* User guides
-  * Wallets
-  * Bridges
-* Development
-  * Testnet
-  * Secret Contracts
-  * Useful Libraries
-  * SecretCLI
-* Validators
-  * Set up
-  * monitoring
-  * IBC Relayers
-  * Testnet
+* [Secret Network Overview](secret-network-overview/)
+  * [History](secret-network-overview/why-secret-network/history.md)
+  * [Why privacy for blockchain](secret-network-overview/why-secret-network/privacy-for-blockchain.md)
+  * [Secret Network use cases](secret-network-overview/why-secret-network/use-cases.md)
+  * [The blockchain components behind Secret Network](development/secret-contracts/core-components/)
+  * [How Secret Network achieves computational privacy](secret-network-overview/privacy-technology/)
+* [Ecosystem Overview](ecosystem-overview/)
+  * [Applications](ecosystem-overview/secret-applications/)
+  * [Funding](ecosystem-overview/funding/)
+  * [Community contributors & team](ecosystem-overview/contributors-and-entities/)
+* [Development](development/)
+  * [Testnet](development/testnet.md)
+  * [Secret Contracts](development/secret-cli/secret-contracts.md)
+  * [Useful Libraries](development/useful-libraries.md)
+  * [SecretCLI](development/secret-cli/)
+* [Validators/Node Runners](node-runners/)
+  * [Node setup](node-runners/node-setup/)
+  * [Monitoring](node-runners/node-monitoring/)
+  * [IBC relayers](node-runners/ibc-relayers.md)
+  * [Testnet](node-runners/testnet/)
 
 #### Join the community
 

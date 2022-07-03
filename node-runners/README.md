@@ -50,4 +50,4 @@ The Secret Network uses the [same slashing penalties as Cosmos](https://docs.cos
 
 ## Validator Guide <a href="#walkthrough" id="walkthrough"></a>
 
-For detailed information on how to setup and run a validator, see the [Validator Set Up](node-set-up/) section of these docs.&#x20;
+For detailed information on how to setup and run a validator, see the [Validator Set Up](node-setup/) section of these docs.&#x20;

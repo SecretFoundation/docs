@@ -39,11 +39,11 @@ secretd version
 
 ### 2. Setup SGX
 
-Setup [SGX](node-set-up/install-sgx.md). For more information on SGX, see instructions for [setup](https://docs.scrt.network/node-guides/setup-sgx.html) and [verification](https://docs.scrt.network/node-guides/verify-sgx.html). See [registration](https://docs.scrt.network/node-guides/registration.html) if you'd like a more comprehensive overview on what's happening in these steps.
+Setup [SGX](node-setup/install-sgx.md). For more information on SGX, see instructions for [setup](https://docs.scrt.network/node-guides/setup-sgx.html) and [verification](https://docs.scrt.network/node-guides/verify-sgx.html). See [registration](https://docs.scrt.network/node-guides/registration.html) if you'd like a more comprehensive overview on what's happening in these steps.
 
 ### 3. Setup the Node
 
-Execute steps 2 through 8 of [Running a Full Node](node-set-up/full-node.md#\_4-download-a-copy-of-the-genesis-block-file-genesis-json).
+Execute steps 2 through 8 of [Running a Full Node](node-setup/full-node.md#\_4-download-a-copy-of-the-genesis-block-file-genesis-json).
 
 {% hint style="danger" %}
 Do NOT begin syncing yet!

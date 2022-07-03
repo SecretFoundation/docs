@@ -44,4 +44,4 @@ NOTE: OVHCloud servers can come with either an ASUS or Asrock motherboard. The A
 
 10\. Reset the server again
 
-11\. Continue from [Setting Up a Node](../node-set-up/)
+11\. Continue from [Setting Up a Node](../node-setup/)
