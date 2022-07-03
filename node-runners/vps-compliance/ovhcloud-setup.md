@@ -38,7 +38,9 @@ NOTE: OVHCloud servers can come with either an ASUS or Asrock motherboard. The A
 
 ![Intel SpeedStep](<../../.gitbook/assets/image (1).png>)
 
-8\. Under Chipset configuration > Primary Display='PCI Express', IGPU Multi-Monitor=Disabled and Onboard VGA=Disabled
+8\. Under Chipset Configuration:
+
+![BIOS Settings](<../../.gitbook/assets/Screen Shot 2022-07-03 at 7.20.33 PM.png>)
 
 9\. Save and Exit the bios
 

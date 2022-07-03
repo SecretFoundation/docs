@@ -85,3 +85,5 @@ This generally takes several minutes to complete, but has been known to take up 
 sudo systemctl restart secret-node && journalctl -fu secret-node
 
 ```
+
+![Expected State Sync Output](<../../.gitbook/assets/Screen Shot 2022-07-03 at 7.56.31 PM.png>)
