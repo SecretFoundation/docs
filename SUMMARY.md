@@ -193,6 +193,7 @@
   * [Misc](node-runners/misc/README.md)
     * [Registration Information](node-runners/misc/registration-information.md)
     * [Verify SGX](node-runners/misc/verify-sgx.md)
+    * [Running Multiple Nodes on the Same Server](node-runners/misc/running-multiple-nodes-on-the-same-server.md)
 * [Post Mortems/updates](post-mortems-updates/README.md)
   * [Network updates](post-mortems-updates/network-updates/README.md)
     * [Overview](post-mortems-updates/network-updates/overview.md)
