@@ -8,8 +8,8 @@ This section will walk you through the Secret technology stack to get a better u
 
 The following topics will be covered:
 
-* Blockchain technology layers
-* Tendermint Core (Consensus BFT, Networking, PoS, ABCI)
-* Cosmos SDK
-* Inter-Blockchain Communication protocol (IBC)
-* CosmWasm
+* [Blockchain technology layers](cosmos-basics.md)
+* [Tendermint Core (Consensus BFT, Networking, PoS, ABCI)](tendermint.md)
+* [Cosmos SDK](cosmos-sdk.md)
+* [Inter-Blockchain Communication protocol (IBC)](ibc.md)
+* [CosmWasm](cosmwasm.md)

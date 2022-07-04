@@ -1,18 +1,18 @@
 # Privacy for Blockchain
 
-## Crypto's Privacy Problem
+### From Web2 to Web3
 
-When the average person thinks of cryptocurrency, they think of anonymity, privacy, and anonymity. Unfortunately the reality of blockchain couldn't be farther from these three aspects. Blockchains are public ledgers with no semblance of data privacy in which every transaction and interaction you've made or will make is public information. Everything you do is not only being watched by government actors (to which the familiar adage is stated "if I have nothing to hide I have nothing to fear"), but also to criminals who can and will use your data when targeting you.
+The Web2 revolution brought applications and services to users never seen before including: Social media, cloud storage, web-hosting, fast video and text communication, secure instant payments and a plethora of other solutions. Blockchain, first initiated for solely P2P transactions, removed middlemen from the Web2 equation bringing even better possible solutions to users; but only for financial applications. Ethereum and other smart contract platform are now establishing these same P2P blockchain transactions but then for web2 applications - Web3 is here. In Web2 users had a guaranteed type of privacy, your neighbor doesn't know which photo you stored on Dropbox or how much money you have in your bank account. This same privacy however, is not guaranteed in Web3.
 
-As a thought exercise, try thinking of transactions you've made (or haven't made) that might be valuable to someone targeting you. The first things that may come to mind are whether you've purchased an alarm system for your house or dog food for your personal fluffy home defense system. You may even notice that plane tickets were purchased, signalling your house is ripe for an unopposed break-in.
+### Synonymous ≠ Private
 
-All of this info and more becomes available to the entire world on traditional blockchain infrastructure, creating a very real threat to everyone that uses it.
+Privacy on pubblic blockchains is fragile as once someone knows your wallet address they can see every single move you make. KYC regulations and off-chain data analysis makes it so this synonymous nature of blockchain technology is almost never reached. Once your identity is linked to your wallet address everything is visible, not only your balance and all past & future transactions. But with the rise of Dapps your on-chain insurance, debt positions, social media presence, art collection, digital identity and everything else might be public as well. Using public blockchains removes your right of expression as you can no longer willingly share private details - this hampers innovation and can be a danger to anyone's professional career and personal life.
 
+### Privacy enables
 
+Secret Network offers users and developers privacy by default allowing everyone to share only the data they want to. This is the case for data of every application you use on the Secret Network blockchain, not only financial applications. Privacy for blockchain brings encrypted messaging, private data-storage, Secret voting, encrypted art, collectibles and digital identity, private auctions, Secret lending applications and way more to the decentralized web - the true Web3 experience. There is no front-running/MEV on Secret Network due to an encrypted state and mempool and the Tendermint instant finality consensus. The privacy enabling Dapps are open to any type of user, company, institution or large player as they can interact without the ramifications of having their assets publicly exposed. With viewing keys and permits any user can share their verifiable data with governments so that they comply with financial and other regulation.
 
-## Secret Network's Solution
+### Conclusion
 
-Secret Network is the only main-net blockchain providing private encrypted smart contracts. That means that everything that happens inside, and all data stored is yours alone until you make the choice to reveal it, and the choice of who specifically you reveal it to. You, the user, are given total control over your own data, an immensely powerful and important capability in today's world.
-
-Want to hide private images in NFTs? Easy. Want to send private messages to your friends and family over the blockchain? There's a dapp for that. With privacy added to the equation anything is possible on blockchain, and Secret Network is your doorway to those countless possibilities.
+In Web2 middleman can take advantage of users data and by eliminating the middlemen public blockchain technology might have created an even worse situation. Secret Network enables users to take back ownership of their data and presents novel use-cases for builders on its private by default blockchain. Charging the true decentralized web.
 
