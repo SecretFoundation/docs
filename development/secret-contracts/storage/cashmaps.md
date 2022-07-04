@@ -42,7 +42,7 @@ The example above initializes a Cashmap with the key `ACTIVE_KEY` and saves a st
 Do not create a Prefixed Storage object with the same key used to create a Cashmap to prevent future collisions.
 {% endhint %}
 
-Now I will show how you could attach a Cashmap sturcture on top of any Storage object without any prefix.
+Now I will show how you could attach a Cashmap structure on top of any Storage object without any prefix.
 
 ```rust
 let mut info_store: CashMap<StoreOffspringInfo, _> =
@@ -166,3 +166,7 @@ Initializing a ReadOnlyCashmap is done similarly.
 let mut info_store: ReadOnlyCashMap<StoreOffspringInfo, _, Json> = 
     ReadOnlyCashMap::attach_with_serialization(&deps.storage, Json, Some(ACTIVE_KEY.to_vec()));
 ```
+
+### Iteration over Keys
+
+There is currently no support for iteration over the keys of the Cashmap, as only the hashes of the keys are saved internally. You could save the keys as part of the data as a workaround.&#x20;
