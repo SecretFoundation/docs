@@ -1,15 +1,17 @@
-# Intel SGX
+# Trusted Execution Environments  (TEE) —  Intel SGX
 
-The Secret Network uses a type of Trusted Execution Environment based on Intel’s Software Guard Extensions (SGX). SGX chips are found in most Intel hardware products. By using SGX chips, the chip owners, system operators, and observers have strong cryptographic guarantees that no party can view what's happening inside of the Secret Networks memory space.
+Secret Network uses Intel's Software Guard Extensions (SGX) implementation of TEE technology. TEE refers to a secure area of a processor where data is inaccessible to any other component in the system. A TEE acts as a blackbox for computation, input and output can be known, but the state inside the TEE is never revealed.&#x20;
 
-Enclaves generate and contain their private signing/attestation keys, preventing access from any entity outside of each enclave. All data can only be signed using keys associated with specific instruction sets running in each enclave. For more details on key generation and management within enclaves, see our section about [encryption](https://docs.scrt.network/protocol/encryption-specs.html).
+Intel’s Software Guard Extensions (SGX) is a set of security-related instructions built into certain Intel CPUs enabling TEEs. By using SGX chips, the chip owners, system operators, and observers have strong cryptographic guarantees that no party can view what's happening inside of the Secret memory space.&#x20;
 
-For our purposes, the attestation key is only used once upon registration. After registration new keys are provisioned to the enclave and used to communicate with the network. This process is described in more detail below.
+This part of the documentation will discuss all aspects of TEE technology and the way that Secret Network implements it for a secure private computation environment.
 
-Enclaves also go through a detailed registration and attestation process. Specifically, the attestation process which each validator running an SGX enclave must go through ensures the following assertions regarding privacy and correctness:
+#### Overview
 
-* The application’s identity
-* Its intactness (that it has not been tampered with)
-* That it is running securely within an enclave on an Intel SGX enabled platform
+* Why SGX and security of SGX-SPS CPUs
+* Trusted & untrusted core
+* Remote attestation
+* Sealing
 
-For more detailed information on the Intel SGX remote attestation process, see the below section on the attestation process.
+
+

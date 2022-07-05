@@ -1,7 +1,5 @@
 # Transaction Encryption
 
-TODO reasoning
-
 * While executing a function call inside the Enclave as part of a transaction, the contract code can call `write_db(field_name, value)`, `read_db(field_name)`, and `remove_db(field_name)`
 * Contract state is stored on-chain inside a key-value store; the `field_name` must remain constant between calls
 * `encryption_key` is derived using HKDF-SHA256 from:

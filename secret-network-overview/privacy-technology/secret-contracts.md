@@ -1,3 +1,0 @@
-# Secret Contracts
-
-COMING SOON

@@ -1,3 +1,0 @@
-# Blockchain Upgrade
-
-## Coming Soon!

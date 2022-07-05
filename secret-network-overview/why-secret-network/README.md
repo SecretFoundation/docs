@@ -1,11 +1,11 @@
 # Why Secret Network?
 
-**Overview**
+## **Overview**
 
-This section of the documentation will give a clear overview of the importance of private smart-contracts for several Web3 use cases and the rich history of Secret network and the SCRT token.&#x20;
+This section of the documentation will give a clear overview of the importance of private smart-contracts on the Secret Network for Web3 use cases, and a rich history of the Secret Network + SCRT token.&#x20;
 
-* [Why privacy is important for Web3](privacy-for-blockchain.md)
-* [Secret network use-cases](use-cases.md)
+* [Privacy For Web3](privacy-for-blockchain.md)
+* [Use-cases](use-cases.md)
 * [The SCRT coin and Secret Tokens](network-architecture/scrt-and-sscrt.md)
-* S[ecret Network History](history.md)
-* [Secret Network Roadmap](roadmap.md)
+* [Secret Network History](history.md)
+* [Roadmap](roadmap.md)
