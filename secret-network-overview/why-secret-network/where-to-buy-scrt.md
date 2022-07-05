@@ -1,3 +1,27 @@
+---
+description: Places to buy, sell, and store SCRT.
+---
+
 # Where To Buy SCRT?
 
-You can buy SCRT from Centralized exchanges (Binance, Kraken, Bitmart, Gate.io) and Decentralized exchanges(SecretSwap, Sienna, Osmosis), store it in your wallet (Keplr, Citadel.One, Ledger, Cosmostation), and use it anytime you want to interact with secret network.
+You can buy SCRT from Centralized exchanges and decentralized exchanges. Once you own SCRT you may store it on the centralized exchange you purchased it from, or store it in your personal cryptocurrency wallet.
+
+### Centralized Exchanges&#x20;
+
+* [Binance ](https://www.binance.com/)
+* [Kraken](https://www.kraken.com/)
+* [Bitmart](https://www.bitmart.com/)
+* [Gate.io](https://www.gate.io/)
+
+### Decentralized Exchanges&#x20;
+
+* [SecretSwap](https://secretswap.net/)
+* [Sienna ](https://sienna.network/)
+* [Osmosis](https://osmosis.zone/)&#x20;
+
+### Cryptocurrency Wallets&#x20;
+
+* [Keplr](https://wallet.keplr.app/)
+* [Citadel.One](https://citadel.one/)
+* [Ledger ](https://www.ledger.com/)
+* [Cosmostation](https://www.cosmostation.io/)
