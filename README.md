@@ -18,7 +18,6 @@ In this documentation we will go over the basics behind the Secret Network techn
   * [The blockchain components behind Secret Network](development/secret-contracts/core-components/)
   * [How Secret Network achieves computational privacy](secret-network-overview/privacy-technology/)
 * [Ecosystem Overview](ecosystem-overview/)
-  * [Applications](ecosystem-overview/secret-applications/)
   * [Funding](ecosystem-overview/funding/)
   * [Community contributors & team](ecosystem-overview/contributors-and-entities/)
 * [Development](development/)
