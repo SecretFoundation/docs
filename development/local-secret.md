@@ -216,7 +216,7 @@ wal_file = "data/cs.wal/wal"
 + timeout_commit = "200ms"
 ```
 
-You can use the following single line to configure the timeouts:
+You can use the following commands to configure the above timeouts:
 
 ```bash
 docker exec localsecret perl -i -pe 's/^timeout_propose =.*/timeout_propose = "120ms"/' .secretd/config/config.toml
