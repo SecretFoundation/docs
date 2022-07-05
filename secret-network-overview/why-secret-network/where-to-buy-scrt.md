@@ -6,6 +6,8 @@ description: Places to buy, sell, and store SCRT.
 
 You can buy SCRT from Centralized exchanges and decentralized exchanges. Once you own SCRT you may store it on the centralized exchange you purchased it from, or store it in your personal cryptocurrency wallet.
 
+[For more detailed information about buying, selling, and storing SCRT click here. ](https://scrt.network/about/get-scrt)
+
 ### Centralized Exchanges&#x20;
 
 * [Binance ](https://www.binance.com/)
