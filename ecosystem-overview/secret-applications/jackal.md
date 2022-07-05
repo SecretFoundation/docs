@@ -1,3 +1,0 @@
-# Jackal
-
-## Coming Soon!

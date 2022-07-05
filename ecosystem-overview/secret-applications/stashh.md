@@ -1,3 +1,0 @@
-# Stashh
-
-## Coming Soon!

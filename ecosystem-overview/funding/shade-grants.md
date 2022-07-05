@@ -1,3 +1,0 @@
-# Shade Grants
-
-## Coming Soon!

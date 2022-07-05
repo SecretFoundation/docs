@@ -1,3 +1,0 @@
-# SNAC
-
-## Coming Soon!

@@ -1,3 +1,0 @@
-# Ecosystem Fund
-
-## Coming Soon!
