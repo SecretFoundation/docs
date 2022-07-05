@@ -19,8 +19,8 @@ LocalSecret comes preconfigured with opinionated, sensible defaults for standard
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-* [Docker](https://www.docker.com/)
-* Supported known architectures: x86\_64, amd64
+- [Docker](https://www.docker.com/)
+- Supported known architectures: x86_64, amd64
 
 ## Install LocalSecret <a href="#install-localsecret" id="install-localsecret"></a>
 
@@ -46,7 +46,7 @@ Your environment now contains:
 | SCRT Faucet | http://localhost:5000  | To get SCRT                           |
 | LCD         | http://localhost:1317  | Keplr, `secretjs@0.17.5` (deprecated) |
 
-_**Note:** You can also use `docker run --rm` to launch LocalSecret. This will delete the container once you exit the terminal, but it also means that you can't edit the node's config as your can't restart the container._
+_**Note:** You can also use `docker run --rm` to launch LocalSecret. This will delete the container once you exit the terminal, but it also means that you can't edit the node's config as stopping the container automatically deletes it._
 
 ## Usage <a href="#usage" id="usage"></a>
 
@@ -195,7 +195,7 @@ LocalSecret is often used alongside a script written with the secret.js as a con
 
 To decrease block times, edit the `[consensus]` parameters in `~/.secretd/config/config.toml`, and specify your own values.
 
-The following example configures all timeouts to `200ms`:
+The following example configures block time to be roughly `200ms`:
 
 ```toml
 ##### consensus configuration options #####
