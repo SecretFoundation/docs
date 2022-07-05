@@ -1,6 +1,6 @@
 # Theoretical Attacks
 
-## Two Contracts With The Same `contract_key` Could deanonymize Their States <a href="#two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states" id="two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states"></a>
+## Two Contracts With The Same `contract_key` Could Deanonymize Their States <a href="#two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states" id="two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states"></a>
 
 If an attacker creates a contract with the same `contract_key` as another contract, the state of the original contract can potentially be deanonymized.
 
