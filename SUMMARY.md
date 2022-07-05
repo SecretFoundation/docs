@@ -5,7 +5,7 @@
   * [Why Secret Network?](secret-network-overview/why-secret-network/README.md)
     * [Privacy For Web3](secret-network-overview/why-secret-network/privacy-for-blockchain.md)
     * [Use Cases](secret-network-overview/why-secret-network/use-cases.md)
-    * [SCRT and sSCRT](secret-network-overview/why-secret-network/network-architecture/scrt-and-sscrt.md)
+    * [SCRT](secret-network-overview/why-secret-network/network-architecture/scrt-and-sscrt.md)
     * [Private Tokens](secret-network-overview/why-secret-network/private-tokens.md)
     * [History](secret-network-overview/why-secret-network/history.md)
     * [Roadmap](secret-network-overview/why-secret-network/roadmap.md)
