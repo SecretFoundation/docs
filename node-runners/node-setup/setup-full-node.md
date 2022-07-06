@@ -255,10 +255,10 @@ You are now a full node. 🎉
 
 ### **11. State Sync**
 
-You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/node-guides/state-sync.html#mainnet-state-sync) to the current block.
+You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/docs/node-runners/node-setup/state-sync) to the current block.
 
 ****
 
 ### **Optional: Become a Validator**
 
-To turn your full node into a validator, see [Joining Mainnet as a Validator](https://docs.scrt.network/node-guides/join-validator-mainnet.html).
+To turn your full node into a validator, see [Joining Mainnet as a Validator](https://docs.scrt.network/docs/node-runners/node-setup/becoming-a-validator).
