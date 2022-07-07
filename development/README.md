@@ -4,28 +4,15 @@ description: Overview of Developing on Secret Network
 
 # Development
 
-[https://github.com/SecretFoundation/docs/blob/main/docs/dev/developers.md](https://github.com/SecretFoundation/docs/blob/main/docs/dev/developers.md)
+The following section of documentation covers materials related to building on Secret Network. You can find information on:&#x20;
 
-
-
-## Contract Development&#x20;
-
-### Polar&#x20;
-
-### Toolkit
-
-## Front End Development
-
-### SecretJS
-
-### Keplr
-
-### Griptape
-
-## Backend Development
-
-### SecretJS
-
-### Secret Py&#x20;
-
-### SecretCLI
+* [Local Secret ](local-secret.md)
+* [API End Points](api-endpoints.md)
+* [Intro To Secret Contracts ](intro-to-secret-contracts.md)
+* [Secret Contracts ](secret-contracts/)
+* [Useful Libraries](useful-libraries.md)&#x20;
+* [Building A Back-End ](building-a-back-end/)
+* [SecretJs](secretjs/)
+* [Secret CLI](secret-cli/)&#x20;
+* [Secret IDE ](secret-ide.md)
+* [Testnet](testnet.md)

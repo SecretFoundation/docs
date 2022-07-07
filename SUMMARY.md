@@ -56,7 +56,7 @@
 * [Development](development/README.md)
   * [Local Secret](development/local-secret.md)
   * [API Endpoints](development/api-endpoints.md)
-  * [Intro to Secret Contracts](development/intro-to-secret-contracts.md)
+  * [Intro To Secret Contracts](development/intro-to-secret-contracts.md)
   * [Secret Contracts](development/secret-contracts/README.md)
     * [Core Components](development/secret-contracts/core-components/README.md)
       * [Contract.rs](development/secret-contracts/core-components/contract.rs.md)
