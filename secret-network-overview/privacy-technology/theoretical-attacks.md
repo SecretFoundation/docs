@@ -1,5 +1,7 @@
 # Theoretical Attacks
 
+There are several theoretical attacks identified as potentially being problematic for the Secret Network. This page seeks to identify and explain each theoretical attack to educate the community of developers building on the Secret Network.&#x20;
+
 ## Two Contracts With The Same `contract_key` Could Deanonymize Their States <a href="#two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states" id="two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states"></a>
 
 If an attacker creates a contract with the same `contract_key` as another contract, the state of the original contract can potentially be deanonymized.
@@ -55,3 +57,7 @@ Although `query` cannot change the contract's state and the attacker cannot decr
 ## Tx Outputs Can Leak Data <a href="#tx-outputs-can-leak-data" id="tx-outputs-can-leak-data"></a>
 
 For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. Also applies with deposits, callbacks and transfers.
+
+## Side Chain Attack
+
+Coming soon!
