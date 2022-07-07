@@ -24,7 +24,7 @@ Specifically, assume for millionaire's that you have a contract where one person
 
 The naive solution to this is requiring the node to successfully broadcast the data of person 1 and person 2 to the network before revealing an answer (which is an implicit heartbeat test, that also ensures the transaction isn't replay-able), but even that's imperfect since you can reload the contract and replay the network state up to that broadcast, restoring the original state of the contract, then perform the attack with repeated rollbacks.
 
-_**Note:** You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX._
+> _**Note:** You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX._
 
 ### Data Leakage Attacks By Analyzing Metadata Of Contract Usage
 
@@ -32,7 +32,7 @@ Depending on the contract's implementation, an attacker might be able to de-anon
 
 In all the following scenarios, assume that attackers have local control of a full node. They cannot break into SGX, but they can tightly monitor and debug every other aspect of the node, including trying to feed old transactions directly to the contract inside SGX (replay). Also, though it's encrypted, they can also monitor memory (size), CPU (load) and disk usage (read/write timings and sizes) of the SGX chip.
 
-For encryption, the Secret Network is using [AES-SIV](https://tools.ietf.org/html/rfc5297), which does not pad the ciphertext. This means it leaks information about the plaintext data, specifically about its size, though in most cases it's more secure than other padded encryption schemes. Read more about the encryption specs [HERE](encryption-key-management/transaction-encryption.md).
+For encryption, the Secret Network is using [AES-SIV](https://tools.ietf.org/html/rfc5297), which does not pad the ciphertext. This means it leaks information about the plain text data, specifically about its size, though in most cases it's more secure than other padded encryption schemes. Read more about the encryption specs [HERE](encryption-key-management/transaction-encryption.md).
 
 Most of the below examples talk about an attacker revealing which function was executed on the contract, but this is not the only type of data leakage attackers may target.
 
@@ -40,7 +40,11 @@ Secret Contract developers must analyze the privacy model of their contract - Wh
 
 ## Partial Storage Rollback During Contract Runtime <a href="#partial-storage-rollback-during-contract-runtime" id="partial-storage-rollback-during-contract-runtime"></a>
 
-Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage. BUT we can not (yet) verify that the value is the most recent value that was stored there. This means a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this causes a contract to expose old secrets with new permissions, or new secrets with old permissions. The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
+Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage.&#x20;
+
+BUT we can not (yet) verify that the value is the most recent value that was stored there. This means a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this causes a contract to expose old secrets with new permissions, or new secrets with old permissions.&#x20;
+
+The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
 
 ## Inputs
 
@@ -52,11 +56,155 @@ Encrypted inputs are known by the query sender and the contract. In `query` we d
 
 `Trusted = No` means this data can easily be forged. An attacker can take its node offline and replay old inputs. This data that is `Trusted = No` by itself cannot be trusted in order to reveal secrets. This is more applicable to `init` and `handle`, but know that an attacker can replay the input `msg` to its offline node.&#x20;
 
-Although `query` cannot change the contract's state and the attacker cannot decrypt the query output, the attacker might be able to deduce private information by monitoring output sizes at different times. See [differences in output return values size](https://github.com/SecretFoundation/docs/blob/main/docs/dev/privacy-model-of-secret-contracts.md#differences-in-output-return-values-size) to learn more about this kind of attack and how to mitigate it.
+Although `query` cannot change the contract's state and the attacker cannot decrypt the query output, the attacker might be able to deduce private information by monitoring output sizes at different times. See [differences in output return values size ](theoretical-attacks.md#differences-in-output-messages-callbacks)to learn more about this kind of attack and how to mitigate it.
+
+## Differences In Output Messages / Callbacks
+
+Secret Contracts can output messages to be executed immediately following the current execution, in the same transaction as the current execution. Secret Contracts have decryptable outputs only by the contract and the transaction sender.
+
+Very similar to previous cases, if contract output messages are different, or contain different structures, an attacker might be able to identify information about contract execution.
+
+Let's see an example for a contract with 2 `handle` functions:
+
+```rust
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum HandleMsg {
+    Send { amount: u8, to: HumanAddr },
+    Tsfr { amount: u8, to: HumanAddr },
+}
+
+pub fn handle<S: Storage, A: Api, Q: Querier>(
+    deps: &mut Extern<S, A, Q>,
+    env: Env,
+    msg: HandleMsg,
+) -> HandleResult {
+    match msg {
+        HandleMsg::Send { amount, to } => Ok(HandleResponse {
+            messages: vec![CosmosMsg::Bank(BankMsg::Send {
+                from_address: deps.api.human_address(&env.contract.address).unwrap(),
+                to_address: to,
+                amount: vec![Coin {
+                    denom: "uscrt".into(),
+                    amount: Uint128(amount.into()),
+                }],
+            })],
+            log: vec![],
+            data: None,
+        }),
+        HandleMsg::Tsfr { amount, to } => Ok(HandleResponse {
+            messages: vec![CosmosMsg::Staking(StakingMsg::Delegate {
+                validator: to,
+                amount: Coin {
+                    denom: "uscrt".into(),
+                    amount: Uint128(amount.into()),
+                },
+            })],
+            log: vec![],
+            data: None,
+        }),
+    }
+}
+```
+
+Those outputs are plain text as they are forwarded to the Secret Network for processing. By looking at these two outputs, an attacker will know which function was called based on the type of messages - `BankMsg::Send` vs. `StakingMsg::Delegate`.
+
+Some messages are partially encrypted, like `Wasm::Instantiate` and `Wasm::Execute`, but only the `msg` field is encrypted, so differences in `contract_addr`, `callback_code_hash`, `send` can reveal unintended data, as well as the size of `msg` which is encrypted but can reveal data the same way as previous examples.
+
+```rust
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum HandleMsg {
+    Send { amount: u8 },
+    Tsfr { amount: u8 },
+}
+
+pub fn handle<S: Storage, A: Api, Q: Querier>(
+    _deps: &mut Extern<S, A, Q>,
+    _env: Env,
+    msg: HandleMsg,
+) -> HandleResult {
+    match msg {
+        HandleMsg::Send { amount } => Ok(HandleResponse {
+            messages: vec![CosmosMsg::Wasm(WasmMsg::Execute {
+/*plaintext->*/ contract_addr: "secret108j9v845gxdtfeu95qgg42ch4rwlj6vlkkaety".into(),
+/*plaintext->*/ callback_code_hash:
+                     "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6".into(),
+/*encrypted->*/ msg: Binary(
+                     format!(r#"{{\"aaa\":{}}}"#, amount)
+                         .to_string()
+                         .as_bytes()
+                         .to_vec(),
+                 ),
+/*plaintext->*/ send: Vec::default(),
+            })],
+            log: vec![],
+            data: None,
+        }),
+        HandleMsg::Tsfr { amount } => Ok(HandleResponse {
+            messages: vec![CosmosMsg::Wasm(WasmMsg::Execute {
+/*plaintext->*/ contract_addr: "secret1suct80ctmt6m9kqmyafjl7ysyenavkmm0z9ca8".into(),
+/*plaintext->*/ callback_code_hash:
+                    "e67e72111b363d80c8124d28193926000980e1211c7986cacbd26aacc5528d48".into(),
+/*encrypted->*/ msg: Binary(
+                    format!(r#"{{\"bbb\":{}}}"#, amount)
+                        .to_string()
+                        .as_bytes()
+                        .to_vec(),
+                ),
+/*plaintext->*/ send: Vec::default(),
+            })],
+            log: vec![],
+            data: None,
+        }),
+    }
+}
+```
+
+#### More Scenarios To Be Mindful Of
+
+* Ordering of messages (E.g. `Bank` and then `Staking` vs. `Staking` and `Bank`)
+* Size of the encrypted `msg` field
+* Number of messages (E.g. 3 `Execute` vs. 2 `Execute`)
+
+Again, be creative if that's affecting your secrets. ![rainbow](https://github.githubassets.com/images/icons/emoji/unicode/1f308.png)
+
+### Differences In Output Events
+
+#### Output events
+
+* "Push notifications" for GUIs with SecretJS
+* To make the tx searchable on-chain
+
+#### Examples
+
+* Number of logs
+* Size of logs
+* Ordering of logs (short,long vs. long,short)
+
+### Differences In Output Types - Success Vs. Error
+
+If a contract returns a `StdError`, the output looks like this:
+
+```rust
+{
+  "Error": "<encrypted>"
+}
+```
+
+Otherwise the output looks like this:
+
+```rust
+{
+  "Ok": "<encrypted>"
+}
+```
+
+Therefore similar to previous examples, an attacker might guess what happened in an execution. E.g. If a contract has only a `send` function, if an error was returned an attacker can know that the `msg.sender` tried to send funds to someone unknown and the `send` didn't execute.
 
 ## Tx Outputs Can Leak Data <a href="#tx-outputs-can-leak-data" id="tx-outputs-can-leak-data"></a>
 
-For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. Also applies with deposits, callbacks and transfers.
+For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. This also applies with deposits, callbacks and transfers.
 
 ## Side Chain Attack
 
