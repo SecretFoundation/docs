@@ -231,6 +231,8 @@ To load the changes, restart LocalSecret.
 
 _**Note:** it may take some time for the container to setup before you can edit `.secretd/config/config.toml`, so when scripting this you might want to check when this file is present or simply wait for 5-10 seconds._
 
+To complement this, when testing with secret.js you can lower `broadcastCheckIntervalMs` to `100` from the default of `6000` ([example](https://github.com/scrtlabs/secret.js/blob/70f1852/test/test.ts#L357-L360)).
+
 ## Accounts <a href="#accounts" id="accounts"></a>
 
 LocalSecret is pre-configured with one validator and 4 accounts with SCRT balances. You can import them into your own testing environment for easier prototyping.
