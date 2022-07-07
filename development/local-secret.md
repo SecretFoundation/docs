@@ -4,7 +4,7 @@ description: A local, instant, zero-config Secret Network blockchain.
 
 # Local Secret
 
-## What Is LocalSecret? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
+## What is LocalSecret? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
 
 LocalSecret is a complete Secret Network testnet and ecosystem containerized with Docker. It simplifies the way secret contract developers test their contracts in a sandbox before they deploy them on a testnet or mainnet.
 
@@ -19,8 +19,8 @@ LocalSecret comes preconfigured with opinionated, sensible defaults for standard
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-* [Docker](https://www.docker.com/)
-* Supported known architectures: x86\_64, amd64
+- [Docker](https://www.docker.com/)
+- Supported known architectures: x86_64, amd64
 
 ## Install LocalSecret <a href="#install-localsecret" id="install-localsecret"></a>
 
@@ -46,7 +46,7 @@ Your environment now contains:
 | SCRT Faucet | http://localhost:5000  | To get SCRT                           |
 | LCD         | http://localhost:1317  | Keplr, `secretjs@0.17.5` (deprecated) |
 
-> _**Note:** You can also use `docker run --rm` to launch LocalSecret. This will delete the container once you exit the terminal, but it also means that you can't edit the node's config as stopping the container automatically deletes it._
+_**Note:** You can also use `docker run --rm` to launch LocalSecret. This will delete the container once you exit the terminal, but it also means that you can't edit the node's config as stopping the container automatically deletes it._
 
 ## Usage <a href="#usage" id="usage"></a>
 
@@ -162,7 +162,7 @@ await window.keplr.experimentalSuggestChain({
 });
 ```
 
-> _**Note:** Different instances of LocalSecret need to be re-added to Keplr, so you need to first delete the old LocalSecret from Keplr and then re-run this^ code to add the current LocalSecret._
+_**Note:** Different instances of LocalSecret need to be re-added to Keplr, so you need to first delete the old LocalSecret from Keplr and then re-run this^ code to add the current LocalSecret._
 
 [Learn how to connect Keplr with secret.js.](https://github.com/scrtlabs/secret.js#keplr-wallet)
 
@@ -229,7 +229,7 @@ docker exec localsecret perl -i -pe 's/^timeout_commit =.*/timeout_commit = "200
 
 To load the changes, restart LocalSecret.
 
-> _**Note:** it may take some time for the container to setup before you can edit `.secretd/config/config.toml`, so when scripting this you might want to check when this file is present or simply wait for 5-10 seconds._
+_**Note:** it may take some time for the container to setup before you can edit `.secretd/config/config.toml`, so when scripting this you might want to check when this file is present or simply wait for 5-10 seconds._
 
 ## Accounts <a href="#accounts" id="accounts"></a>
 
