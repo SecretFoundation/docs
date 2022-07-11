@@ -44,6 +44,7 @@
 * [Ecosystem Overview](ecosystem-overview/README.md)
   * [Funding](ecosystem-overview/funding/README.md)
     * [Secret Labs Grants](ecosystem-overview/funding/secret-labs-grants.md)
+    * [Secret Accelerator Pool](ecosystem-overview/funding/secret-accelerator-pool.md)
     * [Ecosystem Fund](ecosystem-overview/funding/ecosystem-fund.md)
     * [Community Pool](ecosystem-overview/funding/community-pool.md)
     * [Shade Grants](ecosystem-overview/funding/shade-grants.md)
