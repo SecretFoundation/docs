@@ -4,15 +4,15 @@ This is a list of [Secret Network](https://scrt.network) related projects, tools
 
 The ecosystem is always evolving so feel free to suggest changes as discussions, issues, or PRs if something is missing or incomplete via: [https://github.com/SecretFoundation/docs](https://github.com/SecretFoundation/docs)
 
-* [General Resources](./#general-resources)
-* [Products](./#products)
-* [Games](./#games)
-* [Explorers](./#explorers)
-* [Wallets](./#wallets)
-* [User Guides](./#user-guides)
-* [Developer Guides](./#developer-guides)
-* [Developer Tools](./#developer-tools)
-* [Reference Contracts](./#reference-contracts)
+* General Resources
+* Products
+* Games
+* Explorers
+* Wallets
+* User Guides
+* Developer Guides
+* Developer Tools
+* Reference Contracts
 
 ![](<../.gitbook/assets/image (3).png>)
 
@@ -26,9 +26,9 @@ Official Secret Network resources
 * Graypaper by Carter Woetzel - [Web](https://scrt.network/graypaper) - [PDF](https://www.securesecrets.org/papers)
 * [Specifications](https://github.com/SecretFoundation/SNIPs/) - SNIPs - Secret Network Improvement Proposals
 
-Community Activity
+Community activity
 
-* Community Channels: [Forum](https://forum.scrt.network/) - [Discord](https://chat.scrt.network) - [Telegram](https://t.me/scrtCommunity) - [Reddit](https://www.reddit.com/r/SecretNetwork/) - [Twitter](https://twitter.com/SecretNetwork)
+* Community channels: [Forum](https://forum.scrt.network/) - [Discord](https://chat.scrt.network) - [Telegram](https://t.me/scrtCommunity) - [Reddit](https://www.reddit.com/r/SecretNetwork/) - [Twitter](https://twitter.com/SecretNetwork)
 * [Community Calendar](https://www.secretcalendar.org/) - A calendar of upcoming events, curated by several community members
 * [Secret Agent Headquarters](https://scrt.network/agents) - Home for community member collaboration
 * [Grant Applications](https://github.com/SecretFoundation/Grants/issues) - [announcement](https://scrt.network/blog/announcing-secret-network-grant-program) ?¡¤ [ideas](https://scrt.network/grant-application-ideas) ?¡¤ [process](https://scrt.network/grant-application-process)
@@ -39,9 +39,9 @@ Community Activity
 
 ### Products
 
-Notable products launched on the Secret Network include:
+Large products that launched (or will launch very soon) on the Secret Network
 
-#### Bridges
+#### bridges
 
 * [Secret Bridges](https://bridge.scrt.network/) - Turn assets from other chains into SNIP-20 privacy tokens
   * Support for ETH and ERC-20 tokens
@@ -88,7 +88,7 @@ Notable products launched on the Secret Network include:
 
 ### Games
 
-Notable games built on the network include:
+Cool games built on the network
 
 * :soon: _**Orbem Wars**_ by [Domerium Labs](https://twitter.com/DomeriumLabs) ([Blog](https://medium.com/@domeriumlabs)), is a P2E tower defense game with four game modes, including single-player, multi-player, and PvP. Its combat and NFT-based economy are balanced to continuously challenge players to rethink their setups.
 * [Secret Dreamscape](https://secretdreamscape.com/) by [Secret Dreamscape](https://twitter.com/SCRTDreamscape) ([Blog](https://blog.secretdreamscape.com/posts/introducing-secret-dreamscape/)), is a social multiplayer game that's like a mashup of poker and scrabble. The cards are rich with fantastical images that take the player somewhere between a dream and reality. Players can bring their personal deck of NFT cards and their played words to the cards as they play for chances to win from the community prize pool.
@@ -99,7 +99,7 @@ Notable games built on the network include:
 
 ### Explorers
 
-Notable Block Explorers and visualization tools include:
+Block Explorers and visualization tools
 
 #### Mainnet
 
