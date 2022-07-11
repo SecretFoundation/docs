@@ -63,9 +63,9 @@ docker exec -it localsecret secretcli [command]
 To configure your local secretcli binary:
 
 ```bash
-secretcli config chain-id secretdev-1
-secretcli config node http://localhost:26657
-secretcli config output json
+docker exec -it localsecret secretcli config chain-id secretdev-1
+docker exec -it localsecret secretcli config node http://localhost:26657
+docker exec -it localsecret secretcli config output json
 ```
 
 ### Faucet (AKA Getting SCRT) <a href="#faucet-aka-getting-scrt" id="faucet-aka-getting-scrt"></a>
