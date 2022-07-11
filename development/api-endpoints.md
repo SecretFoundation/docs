@@ -2,20 +2,20 @@
 
 ## Secret Network Community API Endpoints
 
-* [secret-4 mainnet](https://github.com/scrtlabs/api-registry#secret-4-mainnet)
+* [Secret-4 Mainnet](https://github.com/scrtlabs/api-registry#secret-4-mainnet)
   * [Binaries](https://github.com/scrtlabs/api-registry#binaries)
   * [Explorers](https://github.com/scrtlabs/api-registry#explorers)
-  * [API endpoints](https://github.com/scrtlabs/api-registry#api-endpoints)
-  * [Seed nodes](https://github.com/scrtlabs/api-registry#seed-nodes)
-* [pulsar-2 testnet](https://github.com/scrtlabs/api-registry#pulsar-2-testnet)
+  * [API Endpoints](https://github.com/scrtlabs/api-registry#api-endpoints)
+  * [Seed Nodes](https://github.com/scrtlabs/api-registry#seed-nodes)
+* [Pulsar-2 Testnet](https://github.com/scrtlabs/api-registry#pulsar-2-testnet)
   * [Binaries](https://github.com/scrtlabs/api-registry#binaries-1)
   * [Explorers](https://github.com/scrtlabs/api-registry#explorers-1)
   * [Faucet](https://github.com/scrtlabs/api-registry#faucet)
-  * [API endpoints](https://github.com/scrtlabs/api-registry#api-endpoints-1)
-  * [Peer nodes](https://github.com/scrtlabs/api-registry#peer-nodes)
-* [Usage examples](https://github.com/scrtlabs/api-registry#usage-examples)
+  * [API Endpoints](https://github.com/scrtlabs/api-registry#api-endpoints-1)
+  * [Peer Nodes](https://github.com/scrtlabs/api-registry#peer-nodes)
+* [Usage Examples](https://github.com/scrtlabs/api-registry#usage-examples)
   * [RPC](https://github.com/scrtlabs/api-registry#rpc)
-  * [gRPC-web](https://github.com/scrtlabs/api-registry#grpc-web)
+  * [gRPC-Web](https://github.com/scrtlabs/api-registry#grpc-web)
   * [LCD](https://github.com/scrtlabs/api-registry#lcd)
   * [Seeds](https://github.com/scrtlabs/api-registry#seeds)
   * [Peers](https://github.com/scrtlabs/api-registry#peers)
@@ -33,7 +33,7 @@
 
 ### API Endpoints
 
-These endpoints are offered to the community for free, please be mindful and don't spam them.
+The API endpoints are offered to the community for free, please be mindful and don't spam them.
 
 > _**Note:** Public APIs. Do not use in production apps!_&#x20;
 
@@ -172,7 +172,7 @@ Usage example:
 $ perl -i -pe 's/^seeds =.*/seeds = "${URL_1},${URL_2},${URL_3}"/' ~/.secretd/config/config.toml
 ```
 
-> _**Note:** When you initialize a node with `secretd init --chain-id secret-4` these seeds are automatically populated into `~/.secretd/config/config.toml`._
+> _**Note:** When initializing a node with `secretd init --chain-id secret-4` these seeds are automatically populated into `~/.secretd/config/config.toml`._
 
 ### Peers
 
