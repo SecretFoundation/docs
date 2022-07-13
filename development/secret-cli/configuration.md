@@ -7,7 +7,7 @@ SCRT Labs regularly updates a [Secret Network API Registry](https://github.com/s
 To check the status of a node use:&#x20;
 
 ```bash
-$ secretcli status --node "$URL" --chain-id secret-4 # or --chain-id pulsar-2
+$ secretcli status --node "$URL"
 ```
 
 ## Mainnet&#x20;
