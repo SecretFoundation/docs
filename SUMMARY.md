@@ -59,7 +59,7 @@
         * [Awareness](ecosystem-overview/contributors-and-entities/core/secret-committees/awareness.md)
         * [Education](ecosystem-overview/contributors-and-entities/core/secret-committees/education.md)
         * [International Growth (IGC)](ecosystem-overview/contributors-and-entities/core/secret-committees/international-growth-igc.md)
-        * [BizDev & Growth](ecosystem-overview/contributors-and-entities/core/secret-committees/bizdev-and-growth.md)
+        * [BizDev & Growth](ecosystem-overview/contributors-and-entities/core/secret-committees/bizdev-and-growth-committee.md)
         * [Development](ecosystem-overview/contributors-and-entities/core/secret-committees/development.md)
         * [Support](ecosystem-overview/contributors-and-entities/core/secret-committees/support.md)
         * [Governance](ecosystem-overview/contributors-and-entities/core/secret-committees/governance.md)
