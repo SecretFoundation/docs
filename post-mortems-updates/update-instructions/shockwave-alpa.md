@@ -22,7 +22,7 @@
 
 When the network reaches the halt height 3,343,000, you'll see this message in your node's log (`journalctl -fu secret-node`):
 
-```
+```bash
 1:25PM ERR UPGRADE "v1.3" NEEDED at height: 3343000:
 1:25PM ERR CONSENSUS FAILURE!!! err="UPGRADE \"v1.3\" NEEDED at height: 3343000
 ```
@@ -31,7 +31,7 @@ Then, the upgrade steps for v1.3 are:
 
 ⚠️ Note: uncomment the right binary based on the database type on the node that you're upgrading: `rocksdb` vs. `goleveldb`.
 
-```
+```bash
 # Stop the v1.2 node, to make sure that your process manager isn't trying to restart it while you upgrade
 sudo systemctl stop secret-node
 

@@ -1,5 +1,3 @@
-# Past updates - Overview
+# Network Updates
 
 ## Coming Soon!
-
-{% embed url="https://github.com/scrtlabs/SecretNetwork/blob/master/CHANGELOG.md" %}

@@ -1,6 +1,6 @@
 # Vulcan Network Upgrade (OLD)
 
-## Network Upgrade Instructions from `secret-1` to `secret-2` <a href="#network-upgrade-instructions-from-secret-1-to-secret-2" id="network-upgrade-instructions-from-secret-1-to-secret-2"></a>
+## Network Upgrade Instructions From `secret-1` To `secret-2` <a href="#network-upgrade-instructions-from-secret-1-to-secret-2" id="network-upgrade-instructions-from-secret-1-to-secret-2"></a>
 
 ⚠️ Please read carefully before you begin the upgrade.
 
@@ -21,7 +21,7 @@ All coordination efforts will be done in the [#mainnet-validators](https://chat.
 
 ⚠️ If your SGX machine has a previous `secretnetwork` installation on it (e.g. from the testnet), you will need to remove it before you continue:
 
-```
+```bash
 cd ~
 sudo systemctl stop secret-node
 secretd unsafe-reset-all
@@ -42,7 +42,7 @@ You're probably familiar with SGX by now:
 
 On the old machine (`secret-1`):
 
-```
+```bash
 perl -i -pe 's/^halt-height =.*/halt-height = 1246400/' ~/.secretd/config/app.toml
 
 sudo systemctl restart secret-node
@@ -52,7 +52,7 @@ sudo systemctl restart secret-node
 
 On the new SGX machine (`secret-2`):
 
-```
+```bash
 cd ~
 
 wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.0.0/secretnetwork_1.0.0_amd64.deb"
@@ -84,7 +84,7 @@ Notes:
 
 On the new SGX machine (`secret-2`):
 
-```
+```bash
 cd ~
 
 secretd init $MONIKER --chain-id secret-2
@@ -129,13 +129,13 @@ secretcli config node tcp://localhost:26657
 Now wait until you're done catching up. This is fast.\
 Once the following command outputs `true` you can continue:
 
-```
+```bash
 watch 'secretcli status | jq ".sync_info.catching_up == false"'
 ```
 
 Once your node is done catching up, you can unjail your validator:
 
-```
+```bash
 secretcli tx slashing unjail --from "$YOUR_KEY_NAME" --gas-prices 0.0125uscrt
 ```
 
@@ -143,7 +143,7 @@ You’re now a validator in `secret-2`! 🎉
 
 To make sure your validator is unjailed, look for it in here:
 
-```
+```bash
 secretcli q staking validators | jq -r '.[] | select(.status == 2) | .description.moniker'
 ```
 
@@ -157,7 +157,7 @@ If after a few hours the Enigma team announces on the chat that the upgrade fail
 
     ```
     perl -i -pe 's/^halt-height =.*/halt-height = 0/' ~/.secretd/config/app.toml
-
+    as
     sudo systemctl restart secret-node
     ```
 2. Wait for 67% of voting power to come back online.

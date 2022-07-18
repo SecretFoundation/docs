@@ -1,6 +1,6 @@
 # Cosmovisor
 
-## Setting up a node using Cosmovisor <a href="#setting-up-a-node-using-cosmovisor" id="setting-up-a-node-using-cosmovisor"></a>
+## Setting Up A Node Using Cosmovisor <a href="#setting-up-a-node-using-cosmovisor" id="setting-up-a-node-using-cosmovisor"></a>
 
 * [Setting up a node using Cosmovisor](https://docs.scrt.network/cosmovisor.html#setting-up-a-node-using-cosmovisor)
 * [Install Cosmovisor](https://docs.scrt.network/cosmovisor.html#install-cosmovisor)
@@ -12,9 +12,9 @@ Cosmovisor is a new process manager for cosmos blockchains. It can make low-down
 
 You should review the docs for Cosmovisor located here: [https://docs.cosmos.network/master/run-node/cosmovisor.html](https://docs.cosmos.network/master/run-node/cosmovisor.html)
 
-## [#](https://docs.scrt.network/cosmovisor.html#install-cosmovisor)Install Cosmovisor <a href="#install-cosmovisor" id="install-cosmovisor"></a>
+## Install Cosmovisor <a href="#install-cosmovisor" id="install-cosmovisor"></a>
 
-```
+```bash
 # Get the Cosmovisor binary
 wget -O - "https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.1.0/cosmovisor-v1.1.0-linux-amd64.tar.gz" | sudo tar -xz -C /bin cosmovisor
 sudo chmod +x /bin/cosmovisor
@@ -70,9 +70,9 @@ sudo systemctl daemon-reload
 sudo systemctl enable cosmovisor
 ```
 
-## Set up a new v1.2 node <a href="#set-up-a-new-v1-2-node" id="set-up-a-new-v1-2-node"></a>
+## Set Up A New v1.2 Node <a href="#set-up-a-new-v1-2-node" id="set-up-a-new-v1-2-node"></a>
 
-```
+```bash
 # Make the necessary directory structure for v1.2
 mkdir -p ~/.secretd/cosmovisor/genesis/bin
 
@@ -107,9 +107,9 @@ Now you might want to checkout the [How To Join Secret Network as a Full Node](h
 
 After making the proper configurations to your new node, launch it using `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu cosmovisor`).
 
-## Migrate a running v1.2 node <a href="#migrate-a-running-v1-2-node" id="migrate-a-running-v1-2-node"></a>
+## Migrate A Running v1.2 Node <a href="#migrate-a-running-v1-2-node" id="migrate-a-running-v1-2-node"></a>
 
-```
+```bash
 # Make the necessary directory structure for v1.2
 mkdir -p ~/.secretd/cosmovisor/genesis/bin
 
@@ -129,7 +129,7 @@ sudo systemctl start cosmovisor
 
 Now the Cosmovisor directory structure should look like this:
 
-```
+```bash
 $ find ~/.secretd/cosmovisor
 /home/ubuntu/.secretd/cosmovisor/
 /home/ubuntu/.secretd/cosmovisor/genesis/bin/
@@ -140,11 +140,11 @@ $ find ~/.secretd/cosmovisor
 
 To relaunch your node, use `sudo systemctl start cosmovisor`. You should now see blocks executing in the logs (`journalctl -fu cosmovisor`).
 
-## Prepare a v1.3 node upgrade (Shockwave Alpha) <a href="#prepare-a-v1-3-node-upgrade-shockwave-alpha" id="prepare-a-v1-3-node-upgrade-shockwave-alpha"></a>
+## Prepare A v1.3 Node Upgrade (Shockwave Alpha) <a href="#prepare-a-v1-3-node-upgrade-shockwave-alpha" id="prepare-a-v1-3-node-upgrade-shockwave-alpha"></a>
 
 The "Shockwave Alpha" upgrade is anticipated to be on Wednesday April 27th, 2022 at 2:00PM UTC. Below are instructions to prepare Cosmovisor for automatically upgrading your node to v1.3.
 
-```
+```bash
 # Make the necessary directory structure for v1.3
 mkdir -p ~/.secretd/cosmovisor/upgrades/v1.3/bin
 
@@ -169,7 +169,7 @@ mv /tmp/secretnetwork_1.3.0_mainnet_amd64.deb.extracted/usr/{local/bin/secretd,l
 
 Now the Cosmovisor directory structure should look like this:
 
-```
+```bash
 $ find ~/.secretd/cosmovisor
 /home/ubuntu/.secretd/cosmovisor/
 /home/ubuntu/.secretd/cosmovisor/genesis/bin/
