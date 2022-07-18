@@ -30,8 +30,8 @@ The project directory will contain the following structure:
 For this tutorial we will be using the pulsar-2 test network to go through each SecretJS example. To do this we need to update the contents of the .env file to contain the following:
 
 ```
-SECRET_GRPC_WEB_URL='http://rpc.pulsar.griptapejs.com:9091'
-SECRET_WS_URL='wss://rpc.pulsar.griptapejs.com/websocket'
+SECRET_GRPC_WEB_URL='https://grpc.pulsar.scrttestnet.com'
+SECRET_WS_URL='wss://rpc.pulsar.scrttestnet.com/websocket'
 SECRET_CHAIN_ID='pulsar-2'
 
 MNEMONIC='<YOUR SECRET MNEMONIC>'
@@ -41,7 +41,7 @@ ADDRESS='<YOUR ACCOUNT ADDRESS>'
 You will also need to configure the Secret Network CLI to work with the pulsar-2 test network:
 
 ```bash
-secretcli config node https://pulsar-2.api.trivium.network:26657/
+secretcli config node https://rpc.pulsar.scrttestnet.com
 
 secretcli config chain-id pulsar-2
 
