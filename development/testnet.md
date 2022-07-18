@@ -45,7 +45,7 @@ To have access to all the testnet functionalities and to develop you can connect
 *   Open your terminal and run the following commands to connect to pulsar-2 and add your wallet:
 
     ````
-    secretcli config node http://rpc.pulsar.griptapejs.com:26657
+    secretcli config node https://rpc.pulsar.scrttestnet.com
     secretcli config output json
     secretcli config chain-id pulsar-2
     secretcli keys add <a-name> --recover ```
