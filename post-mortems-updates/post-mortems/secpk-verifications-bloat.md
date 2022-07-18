@@ -1,3 +1,2 @@
-# Secpk-Verifications Bloat
+# Secpk-verifications bloat
 
-## Coming Soon!

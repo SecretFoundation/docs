@@ -17,7 +17,7 @@ The process described here has several goals:
 
 Please follow these steps to have your contribution considered by the maintainers:
 
-1. Choose from the list of [templates](https://github.com/SecretFoundation/docs/blob/main/docs/PULL\_REQUEST\_TEMPLATES/PULL\_REQUEST\_TEMPLATE.md) and follow all instructions.
+1. Choose from the list of [templates](pull-request-templates/) and follow all instructions.
 2. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks) are passing.
 
 Keep in mind, that the reviewer(s) may ask you to complete additional changes before your pull request can be accepted.

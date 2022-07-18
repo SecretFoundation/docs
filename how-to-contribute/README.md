@@ -19,5 +19,3 @@ We have a list of issues tagged for [community contributions](https://github.com
 We have a [forum](https://forum.scrt.network/), plus a [Discord](https://discord.gg/sPfC5Jx) where members of the community might offer helpful advice if you have ideas or questions. There's a development committee focusing on improving the developer experience and adoption in Secret Network. You can see the projects the development committee is working on [here](https://github.com/SecretFoundation/dev\_committee/projects/1).
 
 ##
-
-##

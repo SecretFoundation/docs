@@ -2,7 +2,7 @@
 
 This section guides you through submitting an enhancement suggestion for Secret Network, including entirely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your request and find related suggestions.
 
-When creating your enhancement suggestion, please [include as many details as possible](https://github.com/SecretFoundation/docs/blob/main/docs/CONTRIBUTING.md#how-do-i-submit-a-good-enhancement-suggestion). Please use [this template](https://github.com/SecretFoundation/docs/blob/main/docs/ISSUE\_TEMPLATES/feature\_request.md), including the steps you would take if the feature existed.
+When creating your enhancement suggestion, please include as many details as possible. Please use this template, including the steps you would take if the feature existed.
 
 ## **How Do I Submit A (Good) Enhancement Suggestion?**
 
