@@ -2,9 +2,9 @@
 
 This section of documentation is for keeping a record of Secret Network updates, instructions for updating Secret Network infrastructure, and an overview / analyses of issues occurring on the network since its inception:
 
-* [Network Updates](network-updates/)&#x20;
-  * [Overview](network-updates/overview.md)&#x20;
-  * [Changelog ](network-updates/changelog.md)
+* [Network Updates](broken-reference)&#x20;
+  * [Overview](broken-reference)&#x20;
+  * [Changelog ](changelog.md)
 * [Update Instructions ](update-instructions/)
   * [Shockwave Alpha](update-instructions/shockwave-alpa.md)&#x20;
   * [Cosmovisor](update-instructions/cosmovisor.md)&#x20;

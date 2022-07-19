@@ -17,7 +17,6 @@ secretcli config node https://secret-4.api.trivium.network:26657
 
 secretcli config chain-id secret-4
 
-secretcli config keyring-backend test
 ```
 
 ## Testnet&#x20;
