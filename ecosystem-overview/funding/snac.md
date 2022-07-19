@@ -1,11 +1,6 @@
 # SNAC
 
-
-
 Secret Network Action Campaigns (SNACs) support community members by helping solve problems and support the Secret Network ecosystem. SNACS aim to help community members looking to gather resources for solving specific issues faced by the Secret Network. The Secret Foundation oversees all SNACs.&#x20;
-
-\
-
 
 For more details on SNACs, check out: [Announcing SNACs: Secret Network Action Campaigns!](https://scrt.network/blog/announcing-snacs-secret-network-action-campaigns) and [SNAC Process - How, Who, What](https://forum.scrt.network/t/snac-process-how-who-what/3343).&#x20;
 
