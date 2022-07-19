@@ -17,10 +17,10 @@ Once you have saved your mnemonic phrase you can connect to the **pulsar-2** cha
 * Go to connect.pulsar.griptapejs.com and click on the "**pulsar-2**" button
 * Click “**approve**” once the Keplr window pops&#x20;
 
-![](<../.gitbook/assets/testnetguide\_1 (1) (1).png>)
+![](<../.gitbook/assets/testnetguide\_1 (1) (1) (1).png>)
 
 * Now you should be able to see the pulsar-2 network on Keplr wallet by selecting it from the drop down menu. (verify that your Secret mainnet and testnet addresses coincide and start with “secret”)
-* ![](../.gitbook/assets/testnetguide\_2.png)\
+* ![](<../.gitbook/assets/testnetguide\_2 (1).png>)\
 
 
 You have now successfully added the Secret Testnet to your wallet and you’re ready to get your first tokens and experiment!
@@ -33,7 +33,7 @@ Remember that all tokens on the Secret Testnet have **no real value** as they’
 
 * Go to [faucet.secrettestnet.io](https://faucet.secrettestnet.io/)
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
-  ****![](<../.gitbook/assets/testnetguide\_3 (1).png>)****
+  ****![](../.gitbook/assets/testnetguide\_3.png)****
 
 In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
 
@@ -63,9 +63,9 @@ On top of that 100 SCRT, the faucet sends you a basket of Secret Tokens that you
 * Open your Keplr extension and click on the hamburger menu on the top left
 * Select “**Add Token**”
 * Paste the address and click “**Submit**” and approve the transaction (you can set high fees as it’s paid in test SCRT)\
-  ****![](<../.gitbook/assets/testnetguide\_4 (1).png>)****
+  ****![](../.gitbook/assets/testnetguide\_4.png)****
 * You should now be able to see the Secret Token balance on your Keplr extension under the section “**Tokens**”\
-  ![](<../.gitbook/assets/testnetguide\_5 (1).png>)
+  ![](../.gitbook/assets/testnetguide\_5.png)
 
 ## **Interact With Dapps**
 
