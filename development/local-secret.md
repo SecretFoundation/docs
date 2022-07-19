@@ -60,13 +60,17 @@ To access `secretcli` from inside the docker container:
 docker exec -it localsecret secretcli [command]
 ```
 
-To configure your local secretcli binary:
+To configure & test your local secretcli binary:
 
 ```bash
 secretcli config chain-id secretdev-1
 secretcli config node http://localhost:26657
 secretcli config output json
+
+SGX_MODE=SW secretcli status
 ```
+
+Note: The environment variable `SGX_MODE=SW` must be applied when using a local secretcli binary.
 
 ### Faucet (AKA Getting SCRT) <a href="#faucet-aka-getting-scrt" id="faucet-aka-getting-scrt"></a>
 
