@@ -123,6 +123,7 @@
       * [Contract Calls](development/secretjs/building-a-front-end/contract-calls.md)
       * [Griptape](development/secretjs/building-a-front-end/griptape.md)
   * [Secret CLI](development/secret-cli/README.md)
+    * [Secretcli Vs. Secretd](development/secret-cli/secretcli-vs.-secretd.md)
     * [Install](development/secret-cli/install.md)
     * [Configuration](development/secret-cli/configuration.md)
     * [Address Types](development/secret-cli/address-types.md)

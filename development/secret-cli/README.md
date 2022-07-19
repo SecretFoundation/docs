@@ -4,7 +4,7 @@ description: https://docs.scrt.network/cli/secretcli.html
 
 # Secret CLI
 
-The _secretcli_ (Secret Network Light Client) is a command-line interface tool for interacting with nodes running on the Secret Network blockchain. With the _`secretcli` _ you can perform many important functions related to:&#x20;
+The _`secretcli`_` ``` (Secret Network Light Client) is a command-line interface tool for interacting with nodes running on the Secret Network blockchain. With the _`secretcli` _ you can perform many important functions related to:&#x20;
 
 * Generating keys&#x20;
 * Creating multisig wallets&#x20;
