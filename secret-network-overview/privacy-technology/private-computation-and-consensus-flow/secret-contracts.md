@@ -1,8 +1,4 @@
-# Secret Contracts - verification
-
-### Coming Soon!
-
-
+# Secret Contracts - Verification
 
 Secret Contract developers must always consider the trade-off between privacy, user experience, performance and gas usage. Secret Contracts are able to provide privacy by default functionalities through verifying values during Secret Contract execution and verification of transaction parameters.&#x20;
 
@@ -29,12 +25,8 @@ The parameter verification method depends on the contract caller:
   * Receiver contract verifies the signature it created matches the signature it got from the caller
   * For the specifics, visit the [encryption specs](../encryption-key-management/)
 
-
-
 For more detailed explanations of Secret Contracts see the [Secret Contracts section under Development](../../../development/secret-contracts/).
 
+## Verification - public binary WASM
 
-
-### Verification - public binary WASM
-
-Coming Soon
+#### Coming Soon!

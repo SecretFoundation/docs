@@ -15,13 +15,12 @@ The easy way to use a testnet is via the Keplr wallet browser extension, you can
 Once you have saved your mnemonic phrase you can connect to the **pulsar-2** chain. The pulsar chain is hosted by the griptape team which updates it periodically to make sure it’s in parallel with the current mainnet version.
 
 * Go to https://connect.pulsar.griptapejs.com and click on the "**pulsar-2**" button
-* Click “**approve**” once the Keplr window pops&#x20;
+* Click “**approve**” once the Keplr window pops
 
-![](<../.gitbook/assets/testnetguide\_1 (1) (1) (1).png>)
+![](<../.gitbook/assets/testnetguide\_1 (1).png>)
 
 * Now you should be able to see the pulsar-2 network on Keplr wallet by selecting it from the drop down menu. (verify that your Secret mainnet and testnet addresses coincide and start with “secret”)
-* ![](<../.gitbook/assets/testnetguide\_2 (1).png>)\
-
+* ![](<../.gitbook/assets/testnetguide\_2 (1).png>)\\
 
 You have now successfully added the Secret Testnet to your wallet and you’re ready to get your first tokens and experiment!
 
@@ -33,7 +32,7 @@ Remember that all tokens on the Secret Testnet have **no real value** as they’
 
 * Go to https://faucet.secrettestnet.io
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
-  ****![](../.gitbook/assets/testnetguide\_3.png)****
+  ![](../.gitbook/assets/testnetguide\_3.png)
 
 In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
 
@@ -59,17 +58,17 @@ You can always change the parameters to connect to alternative APIs and testnets
 On top of that 100 SCRT, the faucet sends you a basket of Secret Tokens that you can only view by generating a new viewing key.
 
 * Search for a token that you want to view the amount of on [this list](https://docs.griptapejs.com/hackathon/glossary#tokens)
-* Copy the **contract address**&#x20;
+* Copy the **contract address**
 * Open your Keplr extension and click on the hamburger menu on the top left
 * Select “**Add Token**”
 * Paste the address and click “**Submit**” and approve the transaction (you can set high fees as it’s paid in test SCRT)\
-  ****![](../.gitbook/assets/testnetguide\_4.png)****
+  ![](../.gitbook/assets/testnetguide\_4.png)
 * You should now be able to see the Secret Token balance on your Keplr extension under the section “**Tokens**”\
   ![](../.gitbook/assets/testnetguide\_5.png)
 
 ## **Interact With Dapps**
 
-Once you have everything set up you can connect to protocols that have a public testnet URL available.&#x20;
+Once you have everything set up you can connect to protocols that have a public testnet URL available.
 
 Here’s a table of the main ones:
 
@@ -86,7 +85,7 @@ Alternatively you can directly interact with their testnet secret contracts. Bel
 | Jackal         | secret1epm82uygswvgzy32es2nu4fnjsztfln8mud84ksecret1epm82uygswvgzy32es2nu4fnjsztfln8mud84k |    Pulsar-2   |
 | Sienna AMM     | secret1203futsqmxjjjk6rv8lvxmxlgwyje8jkf7ndxf                                              |    Pulsar-2   |
 | Sienna Lend    | secret13jw078vweqgr4v0q9u0l8a44525nlqxju29xkq                                              |    Pulsar-2   |
-| Sienna Rewards | [Rewards Address List ](https://ethereumbridgebackendtestnet.azurewebsites.net/rewards)    |    Pulsar-2   |
+| Sienna Rewards | [Rewards Address List](https://ethereumbridgebackendtestnet.azurewebsites.net/rewards)     |    Pulsar-2   |
 | StakeEasy      | secret1qrhv2lwjaawevskdz5v5mn4t4d65c2ndtltf8p                                              |    Pulsar-2   |
 | Time Capsule   | secret1hznvj7amwq5dqnl0snyhzpyrwufdcjll6my6casecret1hznvj7amwq5dqnl0snyhzpyrwufdcjll6my6ca |    Pulsar-2   |
 
@@ -97,4 +96,3 @@ _**Note:** If you’re using `secretcli` view a full list of commands for_ [_Sec
 ## Viewing Testnet Transactions
 
 To view testnet transactions and contract interactions on the testnets you can use the [SecretNodes block explorer](https://secretnodes.com/chains) — the chain configured for this page's demonstration purposes is [pulsar-2](https://secretnodes.com/secret/chains/pulsar-2).
-
