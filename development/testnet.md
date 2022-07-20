@@ -14,7 +14,7 @@ The easy way to use a testnet is via the Keplr wallet browser extension, you can
 
 Once you have saved your mnemonic phrase you can connect to the **pulsar-2** chain. The pulsar chain is hosted by the griptape team which updates it periodically to make sure it’s in parallel with the current mainnet version.
 
-* Go to connect.pulsar.griptapejs.com and click on the "**pulsar-2**" button
+* Go to https://connect.pulsar.griptapejs.com and click on the "**pulsar-2**" button
 * Click “**approve**” once the Keplr window pops&#x20;
 
 ![](<../.gitbook/assets/testnetguide\_1 (1) (1) (1).png>)
@@ -31,7 +31,7 @@ The fastest and easiest way to get some test SCRT into your wallet is to use **f
 
 Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.
 
-* Go to [faucet.secrettestnet.io](https://faucet.secrettestnet.io/)
+* Go to https://faucet.secrettestnet.io
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
   ****![](../.gitbook/assets/testnetguide\_3.png)****
 
