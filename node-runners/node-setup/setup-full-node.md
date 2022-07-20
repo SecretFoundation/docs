@@ -34,12 +34,12 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 ### **0. Install SGX and `secretd`**
 
 {% hint style="danger" %}
-This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the [Archive Nodes](../archive-nodes.md) instructions.&#x20;
+This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the [Archive Nodes](../archive-nodes.md) instructions.
 {% endhint %}
 
 For more information on SGX, see instructions for [SGX Installation](install-sgx.md) and [Verifying SGX](../misc/verify-sgx.md). See [Node Registration Information](../misc/registration-information.md) if you'd like a more comprehensive overview on what's happening in these steps.
 
-****
+***
 
 ### **1. Initialize Secret Network Configs**
 
@@ -55,11 +55,11 @@ This will generate the following files in `~/.secretd/config/`
 * `node_key.json`
 * `priv_validator_key.json`
 
-****
+***
 
 ### **2. Download `genesis.json`**
 
-The genesis file is how other nodes on the network know what network you should be on.&#x20;
+The genesis file is how other nodes on the network know what network you should be on.
 
 ```bash
 wget -O ~/.secretd/config/genesis.json "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
@@ -67,7 +67,7 @@ wget -O ~/.secretd/config/genesis.json "https://github.com/scrtlabs/SecretNetwor
 echo "759e1b6761c14fb448bf4b515ca297ab382855b20bae2af88a7bdd82eb1f44b9 $HOME/.secretd/config/genesis.json" | sha256sum --check
 ```
 
-****
+***
 
 ### **3. Initialize Secret Enclave**
 
@@ -101,7 +101,7 @@ If this step was successful, you can skip straight to [step 9](setup-full-node.m
 secretd init-enclave
 ```
 
-****
+***
 
 ### 4. Verify Enclave Initialization
 
@@ -118,7 +118,7 @@ PUBLIC_KEY=$(secretd parse /opt/secret/.sgx_secrets/attestation_cert.der  2> /de
 echo $PUBLIC_KEY
 ```
 
-****
+***
 
 ### **5. Configure `secretd`**
 
@@ -134,7 +134,7 @@ secretd config node https://lcd-secret.scrtlabs.com:443/rpc
 secretd config output json
 ```
 
-****
+***
 
 ### **6. Fund Secret Wallet**
 
@@ -152,7 +152,7 @@ secretd keys add <key-alias>
 
 This will output your address, a 45 character-string starting with `secret1...`.
 
-****
+***
 
 ### **7. Configure Node Attestation**
 
@@ -178,7 +178,7 @@ secretd query register secret-network-params
 ls -lh ./io-master-cert.der ./node-master-cert.der
 ```
 
-****
+***
 
 ### **8. Configure Your Secret Node**
 
@@ -191,7 +191,7 @@ mkdir -p ~/.secretd/.node
 secretd configure-secret node-master-cert.der $SEED
 ```
 
-****
+***
 
 ### **9. Optimization**
 
@@ -203,9 +203,7 @@ sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclav
 
 Also checkout[ this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.
 
-
-
-### 10. **Set  `minimum-gas-price` Parameter**
+### 10. **Set `minimum-gas-price` Parameter**
 
 We recommend `0.00125uscrt` per gas unit:
 
@@ -214,8 +212,6 @@ perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.00125uscrt"/' 
 ```
 
 Your node will not accept transactions that specify `--fees` lower than the `minimun-gas-price` you set here.
-
-
 
 ### **11. Enable `secret-node`:**
 
@@ -251,14 +247,35 @@ Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF committed state app_ha
 
 You are now a full node. 🎉
 
-****
+### 12. Get your node ID with: <a href="#_21-get-your-node-id-with" id="_21-get-your-node-id-with"></a>
 
-### **11. State Sync**
+`secretd tendermint show-node-id`
+
+And publish yourself as a node with this ID:
+
+```
+<your-node-id>@<your-public-ip>:26656
+```
+
+Be sure to point your CLI to your running node instead of the bootstrap node
+
+`secretcli config node tcp://localhost:26657`
+
+If someone wants to add you as a peer, have them add the above address to their persistent\_peers in their \~/.secretd/config/config.toml.
+
+And if someone wants to use your node from their secretcli then have them run:
+
+```
+secretcli config chain-id secret-4
+secretcli config output json
+secretcli config indent true
+secretcli config node tcp://<your-public-ip>:26657
+```
+
+### **13. State Sync**
 
 You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/docs/node-runners/node-setup/state-sync) to the current block.
 
-****
-
-### **Optional: Become a Validator**
+### **14. Optional: Become a Validator**
 
 To turn your full node into a validator, see [Joining Mainnet as a Validator](https://docs.scrt.network/docs/node-runners/node-setup/becoming-a-validator).
