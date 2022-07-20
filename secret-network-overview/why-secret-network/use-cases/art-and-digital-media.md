@@ -16,4 +16,4 @@ Fractionalized Secret NFTs (currently in development) allows you to own a share 
 
 What about owning a share of a luxury real estate that had been fractionalized and owning that token could generate a yield from vacation rent? Or do you prefer owning a share of a private island?
 
-More about [NFTs on Secret](https://scrt.network/about/secret-nfts) - Marketplace (Stashh) - [Fractionalized NFTs](https://scrt.network/blog/secret-feature-fractionalized-secret-nfts)
+> More about [NFTs on Secret](https://scrt.network/about/secret-nfts) - [Marketplace (Stashh)](https://stashh.io/) - [Fractionalized NFTs](https://scrt.network/blog/secret-feature-fractionalized-secret-nfts)

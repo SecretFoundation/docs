@@ -6,13 +6,12 @@ Intel’s Software Guard Extensions (SGX) is a set of security-related instructi
 
 This part of the documentation will discuss all aspects of TEE technology and the way that Secret Network implements it for a secure private computation environment.
 
-## Overview
+#### Overview
 
-* [How Secret Network Uses SGX](overview.md)
-* [SGX-SPS Security & Reliability](why-sgx.md)
-* [Trusted & Untrusted Core](trusted-core.md)
-* [Remote Attestation](remote-attestation.md)
-* [Sealing](sealing.md)
+* Why SGX and security of SGX-SPS CPUs
+* Trusted & untrusted core
+* Remote attestation
+* Sealing
 
 
 

@@ -4,7 +4,7 @@ One of the issues with blockchain gaming is having your NFT and assets public, g
 
 Secret gaming is also taking advantage of its private on-chain randomness number generation with Secret RNG which provides fair and private outcomes for gaming.
 
-[Secret Feature: Secret Oracles | Used in Gaming, NFTs & More!](https://scrt.network/blog/secret-feature-secret-oracles)
+> [Secret Feature: Secret Oracles | Used in Gaming, NFTs & More!](https://scrt.network/blog/secret-feature-secret-oracles)
 
 Here is some of the function made possible in gaming through Secret’s technology:
 
@@ -14,8 +14,6 @@ Here is some of the function made possible in gaming through Secret’s technolo
 4. Fair randomness for online Casino or Poker (with Secret RNG)&#x20;
 5. Private betting markets
 
-If you want to to go deeper on Secret gaming differentiators, read this article:
+> If you want to go deeper on Secret gaming differentiators, read this article: [Blockchain games](https://medium.com/@secretnetwork/secret-is-the-privacy-hub-for-web3-3fca9866b62).
 
-Secret’s tech offers critical utility to anyone building or playing [Blockchain games](https://medium.com/@secretnetwork/secret-is-the-privacy-hub-for-web3-3fca9866b62)
-
-Now, let’s take a look at what Secret is bringing for your day to day applications.&#x20;
+Now, let’s take a look at what Secret is bringing for your day-to-day applications.&#x20;

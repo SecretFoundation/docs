@@ -18,12 +18,14 @@ Borrowing stablecoins against your assets and providing liquidity on an AMM on S
 
 Secret could also enable DAOs treasury assets and farming positions to only be visible to the DAO community.
 
-Shade Protocol is launching an algorithmic stablecoin (SILK) pegged to a basket of currencies and commodities for maximum volatility shock absorption. Learn more --> [What Is Shade Protocol?](https://medium.com/@shadeprotocoldevs/what-is-shade-protocol-efc1ef7aeabf)
+Shade Protocol is launching an algorithmic stablecoin (SILK) pegged to a basket of currencies and commodities for maximum volatility shock absorption.&#x20;
+
+> Learn more --> [What Is Shade Protocol?](https://medium.com/@shadeprotocoldevs/what-is-shade-protocol-efc1ef7aeabf)
 
 ### Dark Pools
 
 Large investors are using dark pools in traditional finance for huge transactions. They are then subject to front-running from High-Frequency Trading firms. Private dark pools on Secret could lead to a massive amount of liquidity exchanged and finally provide foundations for the institutions and big players to enter the DeFi space with Secret.
 
-Source: [Pros and Cons of Dark Pools of Liquidity](https://www.investopedia.com/articles/investing/060915/pros-and-cons-dark-pools-liquidity.asp)
+> Source: [Pros and Cons of Dark Pools of Liquidity](https://www.investopedia.com/articles/investing/060915/pros-and-cons-dark-pools-liquidity.asp)
 
-More about DeFi dApp on Secret? [SecretSwap](https://secretswap.net/) - [Sienna Network](https://app.sienna.network/) - [Button Group](https://btn.group/secret\_network/button\_swap) - [Hydro Finance](https://medium.com/@secret\_swap/introducing-hydro-finance-d93299b967da) - [Shade Protocol](https://shadeprotocol.io/)
+> More about DeFi dApp on Secret? [SecretSwap](https://secretswap.net/) - [Sienna Network](https://app.sienna.network/) - [Button Group](https://btn.group/secret\_network/button\_swap) - [Hydro Finance](https://medium.com/@secret\_swap/introducing-hydro-finance-d93299b967da) - [Shade Protocol](https://shadeprotocol.io/)

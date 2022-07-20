@@ -23,7 +23,7 @@ Web3 developers could use Jackal to build:
 
 By controlling the viewability and ownership of your data, you should be able to decide to sell, if you choose to, your data in marketplaces.
 
-DataVault is being developed on Secret, introducing a decentralized privacy-preserving content management and data exchange. You will be able to download an encrypted dataset containing any type of content (video, music, software, picture, data proofs, …) and by purchasing the viewing key you will unlock its full content. Marketplaces plugged to DataVault would generate revenue from sales for the governance stakers. They could vote to approve or delist dataset providers and provide dataset scoring. This economic model benefits the creators and users and not one centralized company.
+DataVault is being developed on Secret, introducing a decentralized privacy-preserving content management and data exchange. You will be able to download an encrypted dataset containing any type of content (video, music, software, picture, data proofs, …) and by purchasing the viewing key you will unlock its full content. Marketplaces plugged into DataVault would generate revenue from sales for the governance stakers. They could vote to approve or delist dataset providers and provide dataset scoring. This economic model benefits the creators and users and not one centralized company.
 
 ### Only Share What Is Needed
 
@@ -33,4 +33,4 @@ StarShell is a privacy-preserving, free, and open-source Web3 wallet built for t
 
 With Secret as a base layer, you can see the impressive diversity of use cases that become possible.
 
-Learn more about [Jackal](https://jackaldao.com/), [DataVault](https://scrt.network/blog/secret-feature-datavault-secret-bazaar), and [StarShell](https://starshell.net/).
+> Learn more about [Jackal](https://jackaldao.com/), [DataVault](https://scrt.network/blog/secret-feature-datavault-secret-bazaar), and [StarShell](https://starshell.net/).
