@@ -14,7 +14,7 @@ In this documentation we will go over the basics behind the Secret Network techn
 * [Secret Network Overview](secret-network-overview/)
   * [History](secret-network-overview/why-secret-network/history.md)
   * [Why privacy for blockchain](secret-network-overview/why-secret-network/privacy-for-blockchain.md)
-  * [Secret Network use cases](secret-network-overview/why-secret-network/use-cases/)
+  * [Secret Network use cases](secret-network-overview/why-secret-network/use-cases.md)
   * [The blockchain components behind Secret Network](development/secret-contracts/core-components/)
   * [How Secret Network achieves computational privacy](secret-network-overview/privacy-technology/)
 * [Ecosystem Overview](ecosystem-overview/)

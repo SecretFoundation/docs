@@ -1,3 +1,7 @@
+---
+description: How to setup your contracts to accept snip-20 payments
+---
+
 # Snip-20s
 
 ## Implementing Snip Payments&#x20;
