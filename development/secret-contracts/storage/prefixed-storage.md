@@ -1,6 +1,6 @@
 # Prefixed Storage
 
-## Why is Prefixed Storage needed?
+## Why Is Prefixed Storage Needed?
 
 Before we understand what the PrefixedStorage struct is, we should first understand the problem they attempt to solve. We may be tempted to think that the key-value model as described in [Storage](./) solves all our storage needs. And we'd technically be correct in thinking that. It is possible to efficiently store vast amounts of user data by just using the methods described in that page. However, we will see that doing this would be cumbersome for the developer in many cases. That's why there are many additional storage structures built on top of the methods described in [Storage](./). Prefixed storage is an additional structure built on top of these methods for the convenience of the developer.
 
@@ -39,7 +39,7 @@ save(&mut deps.storage, key, &msg.password)?;
 
 This works but can be cumbersome and ugly, especially if you need to build more functionalities around this idea. **This is exactly what prefixed storage does in the background!** Prefixed Storage is built to solve this problem while hiding away all the ugliness.
 
-## What is Prefixed Storage?
+## What Is Prefixed Storage?
 
 PrefixedStorage is a struct that keeps track of all the storage keys that are used to store various data under a shared namespace similar to described [above](prefixed-storage.md#the-reasonable-approach). Prefixed storage is often used to keep track of storage keys of `deps.storage`, but it can in fact be used to store the keys of other storage structures.
 
@@ -57,7 +57,7 @@ pub const PREFIX_PASSWORDS: &[u8] = b"passwords";
 
 The idea then is that all the wrapper functions that we've learnt in [Storage](./) also work on prefixed storage. We will only demonstrate `save` and `may_load` by example.
 
-#### Saving to Prefixed Storage
+#### Saving To Prefixed Storage
 
 We would instantiate a mutable PrefixedStorage object using the following lines of code to save a new password &#x20;
 
@@ -73,7 +73,7 @@ Notice that we are using the same storage wrapper functions from [Storage](./) o
 
 The reason why we can use the same wrapper functions is because Prefixed Storage implements the Storage trait, even though most of what it's doing is to add a prefix on top of the keys we provide to it.
 
-#### Loading from Prefixed Storage
+#### Loading From Prefixed Storage
 
 We may use both `load` and `may_load` We may load data from a mutable Prefixed Storage instance with the following lines of code
 
@@ -96,7 +96,7 @@ let may_password: Option<String> = may_load(&password_store, key)?;
 You can have as many ReadonlyPrefixedStorage objects as you want at the same time, unlike PrefixedStorage.
 {% endhint %}
 
-#### Removing from Prefixed Storage
+#### Removing From Prefixed Storage
 
 We can use the `remove` wrapper function for this.
 

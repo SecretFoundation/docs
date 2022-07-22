@@ -1,6 +1,8 @@
 # Secret Labs Grants
 
-> _**Note:** Please review the following details before applying for grants._&#x20;
+{% hint style="info" %}
+_Please review the following details before applying for grants._
+{% endhint %}
 
 ## Funding Amounts
 

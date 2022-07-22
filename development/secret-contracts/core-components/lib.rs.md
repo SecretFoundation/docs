@@ -1,3 +1,3 @@
 # Lib.rs
 
-Holds name of all components&#x20;
+Holds name of all components .&#x20;

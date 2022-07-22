@@ -1,6 +1,10 @@
 # How Secret Network Uses SGX
 
-Secret Network leverages TEE technology to do computation with encrypted input, output, and state. The consensus and computation layer of the Secret Network is combined; every validator uses an Intel SGX CPU and processes every transaction. Private metadata used in Secret Contracts is encrypted before sent to validators for computation. Data is only decrypted inside the TEE of any specific validator, which is inaccessible to them. Computations following the smart contract are done over the decrypted data and the output is encrypted and written to state. The consensus encryption seed of the network is only stored inside the TEE of each validator node; no entity has access to the encryption keys.
+Secret Network leverages TEE technology to do computation with encrypted input, output, and state. The consensus and computation layer of the Secret Network is combined; every validator uses an Intel SGX CPU and processes every transaction.&#x20;
+
+Private metadata used in Secret Contracts is encrypted before sent to validators for computation. Data is only decrypted inside the TEE of any specific validator, which is inaccessible to them. Computations following the smart contract are done over the decrypted data and the output is encrypted and written to state.&#x20;
+
+The consensus encryption seed of the network is only stored inside the TEE of each validator node; no entity has access to the encryption keys.
 
 ### Remote Attestation
 
@@ -10,7 +14,7 @@ Enclaves also go through a detailed registration and attestation process. Specif
 * Its intactness (that it has not been tampered with)
 * That it is running securely within an enclave on an Intel SGX enabled platform
 
-For more detailed information on the Intel SGX remote attestation process, see the below section on the attestation process.
+> For more detailed information on the Intel SGX remote attestation process you can check out this page: [Remote attestation](remote-attestation.md)
 
 ### Key Usage Inside SGX
 

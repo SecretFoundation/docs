@@ -67,7 +67,7 @@ let config = Config {
 save(&mut deps.storage, CONFIG_KEY, &config)?;
 ```
 
-### Loading from Storage&#x20;
+### Loading From Storage&#x20;
 
 A commonly used wrapper function to load data from storage is the following:
 
@@ -98,7 +98,7 @@ When loading data, rust must be told what Struct to expect after deserializing.
 let config: Config = load(&deps.storage, CONFIG_KEY)?;
 ```
 
-### Loading with May Load
+### Loading With May Load
 
 In some instances you may be unsure whether there is any data stored with a particular key. In this case you want to use `may_load()` which wraps any data inside within an option. Returning `None` if there is no value saved with that key, and returning `Some(value)` if there is some value saved. An example function for this is:
 
@@ -132,7 +132,7 @@ let minters: Vec<CanonicalAddr> =
 
 This line of code returns the list of minters if it is saved to MINTERS\_KEY, otherwise, it returns an empty list.
 
-### Removing from Storage&#x20;
+### Removing From Storage&#x20;
 
 A commonly used wrapper function to remove saved data from storage is the following. This might be the only wrapper function that does not make anything more convenient, because there is no serialize/deserialize implemented.
 
@@ -187,7 +187,7 @@ pub enum Expiration {
 
 In these cases, we can use the Json struct from `secret-toolkit` to serde structs that use enums. This also creates the need for for new wrapper functions
 
-### Saving to Storage
+### Saving To Storage
 
 ```rust
 /// Returns StdResult<()> resulting from saving an item to storage using Json (de)serialization

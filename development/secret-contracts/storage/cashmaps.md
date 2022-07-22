@@ -8,7 +8,7 @@ You would add this dependency to your contract by adding the following line to t
 secret-toolkit-incubator = { version = "0.3.1", default-features = false, features = ["cashmap"] }
 ```
 
-## What are Cashmaps?
+## What Are Cashmaps?
 
 Cashmap is another additional structure built on top of standard storage and prefixed storage that adds paging and iteration features to them. Because of these features, whenever Cashmaps are initialized, they must be provided with the type of object they store.
 
@@ -26,7 +26,7 @@ Cashmap uses more gas than standard storage because it stores and operates on ad
 
 In this section, we show examples of how to initialize, save, read, iterate, paginate data to/from Cashmaps. Most of the examples below are from the [factory contract template](https://github.com/srdtrk/secret-factory-contract).
 
-### Saving to Cashmaps
+### Saving To Cashmaps
 
 We must first initialize the cashmap to save into it. Cashmaps can be initialized with or without prefixes. I'll give examples of both methods below. We use the `.insert(key: &[u8], item: T)` method to save an object into a `Cashmap<T, _>`.
 
@@ -54,7 +54,7 @@ This is not recommended if you are using the underlying storage (in this case `d
 
 In the examples above, we don't actually need to specify the generic type into `StoreOffspringInfo` because the compiler can use the insert function's arguments to guess this type.
 
-### Reading from Cashmaps
+### Reading From Cashmaps
 
 Reading from ReadOnlyCashmaps is identical to reading from Cashmaps. This is why we will only illustrate how to initialize a ReadOnlyCashmap and reading from it. We use the `.get(key: &[u8])` function which returns an `Option<T>` somewhat similar to the wrapper function `may_load` from [Storage](./).
 
@@ -64,7 +64,7 @@ let info_store: ReadOnlyCashMap<StoreOffspringInfo, _, _> =
 let info = info_store.get(offspring.as_slice());
 ```
 
-### Removing from Cashmaps
+### Removing From Cashmaps
 
 We remove using the function `.remove(key: &[u8])` that returns a `StdResult<()>`.
 
@@ -74,7 +74,7 @@ let mut info_store: CashMap<StoreOffspringInfo, _, _> =
 info_store.remove(offspring_addr.as_slice())?;
 ```
 
-### Pagination with Cashmaps
+### Pagination With Cashmaps
 
 One of the main features of Cashmaps is pagination. We use the function `.paging(start_page: u32, size: u32)` which returns `StdResult<Vec<T>>`. The returned vector corresponds to the `start_page`'th page of the full list where the number of elements on each page is `size`.
 
@@ -111,7 +111,7 @@ The following is an example object printed when `page_number: 0` and `size: 5` f
 ]
 ```
 
-### Iteration with Cashmaps
+### Iteration With Cashmaps
 
 Cashmaps use the method `.iter()` to return an Iterator. This iterator iterates over the values that were saved into the Cashmap in no particular order. We can use `.next()` method to get the next item, and use `.nth(n: usize)` to get the nth element of the iterator, this will consume the returned element and all its preceding elements. The following is an example from [secret-toolkit's unit tests](https://github.com/scrtlabs/secret-toolkit/blob/master/packages/incubator/src/cashmap.rs#L958-L984).
 
@@ -145,7 +145,7 @@ fn test_hashmap_iter() -> StdResult<()> {
 }
 ```
 
-### Using Custom Serde for Storage
+### Using Custom Serde For Storage
 
 Cashmaps do the serde for the user, they use bincode2 by default. But the problem of using floats in the deserialization of enum variants that was discussed in a [previous page](./#json-storage-wrapper-functions) also exists here. Cashmaps solve this problem by allowing the user to specify what serde format to use. Any serde format that implements `secret_toolkit_serialization::Serde` can be used by Cashmaps. The two formats implemented by secret toolkit are bincode2 and json. Since bincode2 is used in the above examples, I will show how you would use json in this case. You'd first import json with
 
@@ -167,6 +167,6 @@ let mut info_store: ReadOnlyCashMap<StoreOffspringInfo, _, Json> =
     ReadOnlyCashMap::attach_with_serialization(&deps.storage, Json, Some(ACTIVE_KEY.to_vec()));
 ```
 
-### Iteration over Keys
+### Iteration Over Keys
 
 There is currently no support for iteration over the keys of the Cashmap, as only the hashes of the keys are saved internally. You could save the keys as part of the data as a workaround.&#x20;

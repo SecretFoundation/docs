@@ -35,7 +35,9 @@
 
 The API endpoints are offered to the community for free, please be mindful and don't spam them.
 
-> _**Note:** Public APIs. Do not use in production apps!_&#x20;
+{% hint style="info" %}
+&#x20;_Public APIs. Do not use in production apps!_&#x20;
+{% endhint %}
 
 | Type     | API                                                 | Courtesy of                                                                                                                                        |
 | -------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -173,7 +175,9 @@ Usage example:
 $ perl -i -pe 's/^seeds =.*/seeds = "${URL_1},${URL_2},${URL_3}"/' ~/.secretd/config/config.toml
 ```
 
-> _**Note:** When initializing a node with `secretd init --chain-id secret-4` these seeds are automatically populated into `~/.secretd/config/config.toml`._
+{% hint style="info" %}
+_When initializing a node with `secretd init --chain-id secret-4` these seeds are automatically populated into `~/.secretd/config/config.toml`._
+{% endhint %}
 
 ### Peers
 

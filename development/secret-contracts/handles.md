@@ -30,15 +30,15 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-In this simple example the code looks at the message passed, if the passage is the `Increment` message, it calls the function `try_increment`, otherwise if the message is the `Reset` message, it calls the function `try_reset` with the count.
+In this simple example, the code looks at the message passed, if the passage is the `Increment` message, it calls the function `try_increment`, otherwise, if the message is the `Reset` message, it calls the function `try_reset` with the count.
 
 {% hint style="info" %}
-Remember, rust has implicit returns for lines that don’t end in a semicolon, so the result of the two functions above is returned as the result of the handle function.
+Remember, Rust has implicit returns for lines that don’t end in a semicolon, so the result of the two functions above is returned as the result of the handle function.
 {% endhint %}
 
 You may have noticed that the handle method takes two arguments in addition to the msg, `deps` and `env`. Let’s look at those more closely.
 
-#### `deps`
+## `deps`
 
 `deps` holds all external dependencies of the contract, and it’s designed to allow easy dependency injection at runtime. Those external dependencies are as follows:
 
@@ -75,7 +75,7 @@ Reading one byte of data “uses” 3 gas and writing one byte of data “uses�
 
     As the name suggests, this is responsible for querying data from the network, be it another contract, the user’s balance or something else. There’s an entire page about all the possible things that can be done with the querier. You can find that [here](queries/querier.md).
 
-#### `env`
+## `env`
 
 As the name perhaps implies,`env` contains all the information about the environment the contract is running in, but what does that mean exactly? On Secret Network the properties available in the Env struct are as follows:
 
@@ -94,7 +94,7 @@ As the name perhaps implies,`env` contains all the information about the environ
 
 Now that you have an overview on what all those properties are, let’s take a look at a simple handle function.
 
-#### Example Handle
+### Example Handle
 
 ```rust
 pub fn try_increment<S: Storage, A: Api, Q: Querier>(
@@ -131,9 +131,9 @@ pub fn config<S: Storage>(storage: &mut S) -> Singleton<S, State> {
 }
 ```
 
-The config function returns a singleton over the config key using the `State` struct as its type, this means that when reading and writing data from the storage, the singleton automatically serialises or deserialises the State struct. The update method is a shorthand that will load the data, perform the specified action, and store the result in the storage, which makes for a very intuitive experience.
+The config function returns a singleton over the config key using the `State` struct as its type, this means that when reading and writing data from the storage, the singleton automatically serializes or deserializes the State struct. The update method is a shorthand that will load the data, perform the specified action, and store the result in the storage, which makes for a very intuitive experience.
 
-### HandleResponse
+## HandleResponse
 
 You may have noticed that the return type for a handle message is HandleResponse. Let's take a look at how HandleResponse is defined:&#x20;
 
@@ -146,16 +146,16 @@ where T: Clone + fmt::Debug + PartialEq + JsonSchema, {
 }
 ```
 
-It contains a vector of CosmosMsg (messages), an optional vector of type LogAttribute (log) and an optional Binary field (data).
+It contains a vector of CosmosMsg (messages), an optional vector of type LogAttribute (log), and an optional Binary field (data).
 
-LogAttribute is defined as a simple struct with two String fields, key and value. Binary is just a Vec\<u8>.&#x20;
+LogAttribute is defined as a simple struct with two String fields, key, and value. Binary is just a Vec\<u8>.&#x20;
 
 CosmosMsg is an enum with a transaction that will be executed once the handle function returns.&#x20;
 
-There are three types of messages, you can read more about it [here](cosmosmsg.md):&#x20;
+There are three types of messages, you can read more about them [here](cosmosmsg.md):&#x20;
 
 * BankMsg::Send which sends SCRT from one place to another (such as from the contract's wallet to the caller's wallet)
-* StakingMsg which includes messages for Delegating, Redelegating, Undelegating and withdrawing rewards to/from a delegator.
+* StakingMsg which includes messages for Delegating, Redelegating, Undelegating, and withdrawing rewards to/from a delegator.
 * WasmMsg which includes two messages: Execute to execute another contract and Instantiate to instantiate a contract.
 
 You can find more information about those in the coming pages.

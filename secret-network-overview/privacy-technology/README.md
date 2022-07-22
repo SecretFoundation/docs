@@ -1,33 +1,31 @@
----
-description: https://docs.scrt.network/protocol/protocol.html#how-secret-works
----
-
 # Privacy Technology
 
-## Privacy-preserving smart contract introduction
+## Privacy-Preserving Smart Contract Introduction
 
-Smart contract blockchains are typically public by default. This means that the ledger, the transactions and the data contained in the smart contract are accessible to anyone. However, this is not the case with Secret Network as it’s the first blockchain that offers programmable privacy through privacy-preserving smart contracts (“Secret Contracts”). “Secret Contracts” have both public and private metadata. Private data on Secret Network is encrypted at input, state and output and therefore never accessible to any nodes, developers, users, or everyone else.&#x20;
+Smart contract blockchains are typically public by default. This means that the ledger, the transactions, and the data contained in the smart contract are accessible to anyone. However, this is not the case with Secret Network as it’s the first blockchain that offers programmable privacy through privacy-preserving smart contracts (“Secret Contracts”). “Secret Contracts” have both public and private metadata. Private data on Secret Network is encrypted at input, state, and output and therefore never accessible to any nodes, developers, users, or everyone else.&#x20;
 
-#### Programmable privacy
+#### Programmable Privacy
 
-Programmable privacy, is the ability to compute with private data while allowing for not only transfers (transactional privacy) but arbitrarily private complex computations. This allows developers to include sensitive data in their smart contracts without moving off-chain to centralized (and less secure) systems; allowing for truly private and scalable decentralized applications — The true vision of the decentralized web.
+Programmable privacy is the ability to compute with private data while allowing for not only transfers (transactional privacy) but arbitrarily private complex computations. This allows developers to include sensitive data in their smart contracts without moving off-chain to centralized (and less secure) systems; allowing for truly private and scalable decentralized applications— the true vision of the decentralized web.
 
 To achieve such programmable privacy, Secret Network uses a combination of techniques which will be explained in the further sections of this documentation.
 
-#### Overview
+<details>
 
-* Detailed steps for private transactions on Secret Network
-* Trusted Execution Environments (TEE) - Intel SGX
-  * Security
-  * Trusted and untrusted core
-  * Remote attestation
-* Encryption protocols / Key management
-  * Encryption schemes and Key derivation functions
-  * Bootstrapping of the network
-  * Generating shareable keys
-  * Transaction encryption
-* Access control&#x20;
-  * Viewing keys
-  * Permits
-* Theoretical attacks
-* Comparison of Secret Network to other privacy projects.
+<summary>Topics Covered</summary>
+
+[Steps Of A Private Transactions](detailed-steps-of-a-private-transaction.md)
+
+[Private Computation & Consensus Flow](private-computation-and-consensus-flow/)
+
+[Encryption - Key Management](encryption-key-management/)&#x20;
+
+[Trusted Execution Environments (TEE) - Intel SGX](intel-sgx/)
+
+[Access Control](access-control/)&#x20;
+
+[Plans Beyond SGX](plans-beyond-sgx.md)
+
+[Theoretical Attacks](theoretical-attacks.md)
+
+</details>

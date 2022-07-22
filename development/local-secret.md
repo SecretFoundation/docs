@@ -4,13 +4,13 @@ description: A local, instant, zero-config Secret Network blockchain.
 
 # Local Secret
 
-## What is LocalSecret? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
+## What Is LocalSecret? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
 
 LocalSecret is a complete Secret Network testnet and ecosystem containerized with Docker. It simplifies the way secret contract developers test their contracts in a sandbox before they deploy them on a testnet or mainnet.
 
 LocalSecret comes preconfigured with opinionated, sensible defaults for standard testing environments. If other projects mention testing on LocalSecret, they are referring to the settings defined in this repo.
 
-### Advantages of LocalSecret Vs. A Public Testnet
+### Advantages Of LocalSecret Vs. A Public Testnet
 
 1. Easily modifiable world states
 2. Quick to reset for rapid iterations
@@ -19,8 +19,8 @@ LocalSecret comes preconfigured with opinionated, sensible defaults for standard
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-- [Docker](https://www.docker.com/)
-- Supported known architectures: x86_64, amd64
+* [Docker](https://www.docker.com/)
+* Supported known architectures: x86\_64, amd64
 
 ## Install LocalSecret <a href="#install-localsecret" id="install-localsecret"></a>
 
@@ -46,13 +46,15 @@ Your environment now contains:
 | SCRT Faucet | http://localhost:5000  | To get SCRT                           |
 | LCD         | http://localhost:1317  | Keplr, `secretjs@0.17.5` (deprecated) |
 
-_**Note:** You can also use `docker run --rm` to launch LocalSecret. This will delete the container once you exit the terminal, but it also means that you can't edit the node's config as stopping the container automatically deletes it._
+{% hint style="info" %}
+_You can also use `docker run --rm` to launch LocalSecret. This will delete the container once you exit the terminal, but it also means that you can't edit the node's config as stopping the container automatically deletes it._
+{% endhint %}
 
 ## Usage <a href="#usage" id="usage"></a>
 
-Here are some examples of how to use LocalSecret with secretcli, secret.js and Keplr.
+Here are some examples of how to use LocalSecret with `secretcli`, `secret.js`_,_ and `Keplr`.
 
-### Access And Configure secretcli <a href="#secretcli" id="secretcli"></a>
+### Access And Configure Secretcli <a href="#secretcli" id="secretcli"></a>
 
 To access `secretcli` from inside the docker container:
 
@@ -70,11 +72,13 @@ secretcli config output json
 SGX_MODE=SW secretcli status
 ```
 
-Note: The environment variable `SGX_MODE=SW` must be applied when using a local secretcli binary.
+{% hint style="info" %}
+The environment variable `SGX_MODE=SW` must be applied when using a local `secretcli` binary.
+{% endhint %}
 
 ### Faucet (AKA Getting SCRT) <a href="#faucet-aka-getting-scrt" id="faucet-aka-getting-scrt"></a>
 
-To send some SCRT to the an example secret address `secret1e6mqxtwgaps7vz3qfa3fcekhh7a02hvfjvtqpt` we have to options:
+To send some SCRT to the example secret address `secret1e6mqxtwgaps7vz3qfa3fcekhh7a02hvfjvtqpt` we have to options:
 
 #### Using The Faucet On Port 5000 <a href="#_1-using-the-faucet-on-port-5000" id="_1-using-the-faucet-on-port-5000"></a>
 
@@ -111,7 +115,9 @@ const secretjs = await SecretNetworkClient.create({
 });
 ```
 
+{% hint style="info" %}
 [Read the full secret.js docs here.](https://github.com/scrtlabs/secret.js#readme)
+{% endhint %}
 
 ### Keplr <a href="#keplr" id="keplr"></a>
 
@@ -166,9 +172,13 @@ await window.keplr.experimentalSuggestChain({
 });
 ```
 
-_**Note:** Different instances of LocalSecret need to be re-added to Keplr, so you need to first delete the old LocalSecret from Keplr and then re-run this^ code to add the current LocalSecret._
+{% hint style="info" %}
+_Different instances of LocalSecret need to be re-added to Keplr, so you need to first delete the old LocalSecret from Keplr and then re-run this^ code to add the current LocalSecret._
+{% endhint %}
 
+{% hint style="info" %}
 [Learn how to connect Keplr with secret.js.](https://github.com/scrtlabs/secret.js#keplr-wallet)
+{% endhint %}
 
 ## Configure LocalSecret <a href="#configure-localsecret" id="configure-localsecret"></a>
 
@@ -233,7 +243,9 @@ docker exec localsecret perl -i -pe 's/^timeout_commit =.*/timeout_commit = "200
 
 To load the changes, restart LocalSecret.
 
-_**Note:** it may take some time for the container to setup before you can edit `.secretd/config/config.toml`, so when scripting this you might want to check when this file is present or simply wait for 5-10 seconds._
+{% hint style="info" %}
+_It may take some time for the container to setup before you can edit `.secretd/config/config.toml`, so when scripting this you might want to check when this file is present or simply wait for 5-10 seconds._
+{% endhint %}
 
 To complement this, when testing with secret.js you can lower `broadcastCheckIntervalMs` to `100` from the default of `6000` ([example](https://github.com/scrtlabs/secret.js/blob/70f1852/test/test.ts#L357-L360)).
 

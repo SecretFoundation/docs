@@ -4,12 +4,28 @@ description: Overview of Developing on Secret Network
 
 # Development
 
-The following section of documentation covers materials related to building on Secret Network. You can find information on:&#x20;
+The following section of the documentation covers materials related to building on Secret Network.&#x20;
 
-* [Local Secret ](local-secret.md)
-* [API End Points](api-endpoints.md)
-* [Intro To Secret Contracts ](intro-to-secret-contracts.md)
-* [Secret Contracts ](secret-contracts/)
+<details>
+
+<summary>Topics Covered</summary>
+
+[Local Secret ](local-secret.md)
+
+[API End Points](api-endpoints.md)
+
+[Intro To Secret Contracts ](intro-to-secret-contracts.md)
+
+[Secret Contracts ](secret-contracts/)
+
+</details>
+
+
+
+*
+*
+*
+*
   * [Core Components](secret-contracts/core-components/)
   * [Init](secret-contracts/init.md)
   * [Handles](secret-contracts/handles.md)

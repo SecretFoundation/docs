@@ -2,7 +2,7 @@
 
 ## Uint128
 
-### When to use them instead of u128
+### When To Use Them Instead Of u128
 
 ### Data Hygiene&#x20;
 

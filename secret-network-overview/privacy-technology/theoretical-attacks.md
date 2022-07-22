@@ -24,7 +24,9 @@ Specifically, assume for millionaire's that you have a contract where one person
 
 The naive solution to this is requiring the node to successfully broadcast the data of person 1 and person 2 to the network before revealing an answer (which is an implicit heartbeat test, that also ensures the transaction isn't replay-able), but even that's imperfect since you can reload the contract and replay the network state up to that broadcast, restoring the original state of the contract, then perform the attack with repeated rollbacks.
 
-> _**Note:** You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX._
+{% hint style="info" %}
+_You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX._
+{% endhint %}
 
 ### Data Leakage Attacks By Analyzing Metadata Of Contract Usage
 

@@ -1,3 +1,3 @@
 # Secret Contracts Vs. CosmWasm
 
-#### Coming Soon!
+Coming Soon!

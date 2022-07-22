@@ -1,3 +1,7 @@
+---
+description: The one-page overview of Secret Network, the tech and its ecosystem.
+---
+
 # Secret Network Overview
 
 Secret Network is the first blockchain with customizable privacy. You get to choose what you share, who you share with, and how long you share it for. This protects users and empowers developers to build a better Web3.&#x20;
@@ -6,7 +10,7 @@ The Network's privacy by default nature is essential to the security and adoptio
 
 Built with the robust Tendermint SDK, Secret Network provides a platform for scalable, private permissionless smart contracts which can connect to the interchain.&#x20;
 
-## **Privacy Technology**
+### **Privacy Technology**
 
 Secret Network leverages novel key management techniques, encryption schemes, and Trusted Execution Environment (TEE) technology to bring encrypted input, output, and state to the blockchain.
 
@@ -20,7 +24,7 @@ Secret Contracts have a number of real-life applications including user-side enc
 
 The nature of Secret Network also means that all of the Dapps benefit from being resistant to MEV attacks due to the encrypted mempool and state of the chain, protecting users from getting front-run on their transactions.&#x20;
 
-## **The SCRT Coin And Secret Tokens**
+### **The SCRT Coin And Secret Tokens**
 
 Secret Network's native coin is called “SCRT”. It is used for gas fees, governance, and staking towards network security.&#x20;
 
@@ -28,7 +32,7 @@ By wrapping SCRT or any bridged token (from various ecosystems such as Ethereum,
 
 Secret Tokens can be used to buy/sell NFTs, participate in DeFi, pay in private, escrow for data/content and even get a credit score all while maintaining your financial privacy.
 
-## **Ecosystem**
+### **Ecosystem**
 
 Secret Network and its applications are built by a community of over 100 dedicated developers and business leads from all over the world. The Network and its builders are supported by the community pool, SCRT Labs, the Secret Foundation, 80 validators, and a multitude of infrastructure and investment partners.&#x20;
 
@@ -36,7 +40,7 @@ The Secret Network community, known as “Secret Agents,” are the core of the 
 
 ![](https://cdn-images-1.medium.com/max/800/0\*1EnJw32oGDihRO02.jpeg)
 
-## **History And Roadmap**
+### **History And Roadmap**
 
 Secret Network has come a long way, with the core development group starting out in 2017 and the Mainnet launching in early 2020.&#x20;
 
@@ -44,7 +48,7 @@ The most recent string of updates dubbed “Supernova” and “Shockwave” hav
 
 On the core development roadmap is the replacement of the smart contract engine for a more performant version which will bring a massive overall transaction throughput upgrade in Q3 2022.
 
-## **Transactional Vs. Computational Privacy**
+### **Transactional Vs. Computational Privacy**
 
 Secret Network differs greatly from protocols like Monero and Zcash as it does not aim to provide complete transactional privacy but focuses on programmable privacy, a different use case entirely.
 
@@ -52,15 +56,13 @@ Unlike other protocols aiming to provide programmable privacy, Secret Network do
 
 The core development group and founder Guy Zyskind strive to deploy the best software-based cryptographic solution possible much like the original [paper from MIT](http://homepage.cs.uiowa.edu/\~ghosh/blockchain.pdf) when the technology is ready for that.
 
-## Conclusion
+### Conclusion
 
 There has never been a greater need for easily accessible privacy solutions inside and outside the blockchain space. Blockchains that are entirely public are limited in their capacity to generate effective use cases where privacy is a fundamental component of the feasibility of the application.&#x20;
 
 The intent of the Secret Network is to be an open-source protocol that enables a wide range of privacy-preserving tools and applications through programmable privacy — improving the adoption and usability of decentralized technologies.
 
 Follow Secret Network on [Twitter](https://twitter.com/secretnetwork) to keep up to date or find more information on the [website](https://scrt.network/).
-
-##
 
 
 

@@ -61,9 +61,10 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * [Secret Bridges](https://bridge.scrt.network/)&#x20;
   * Turn assets from other chains into SNIP-20 privacy tokens
     * Support for ETH and ERC-20 tokens
-      * Integrated to [keyTango](https://app.keytango.io/invest) easy DeFi investment interface
     * Support for BNB and BEP-20 tokens
     * Also supported in [Citadel One](https://citadel.one) wallet
+  * The current implementation will be merging to Axelar, all tokens will be renewed to the most recent SNIP-24 design so that Permits can be used.\
+    [https://scrt.network/blog/secret-partners-with-axelar-network](https://scrt.network/blog/secret-partners-with-axelar-network)
 * [Secret Monero Bridge](https://ipfs.io/ipfs/QmNRrLDhKGZCSXAZcPU1cBTaLouhWnTi5kfWUzJB4nJbzA)
   * Turn  XMR into the SNIP-20 sXMR
 * [IBC Bridges](https://wrap.scrt.network/)
@@ -71,24 +72,34 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
     * Alternate UI for [IBC bridging](https://app.sienna.network/wrap/ibc) and [SNIP-20 wrapping](https://app.sienna.network/wrap) of IBC tokens, by [Sienna](https://sienna.network/)
 * :soon: [Shinobi Protocol](https://sbtc.ninja)&#x20;
   * Trustless bridge to Bitcoin. Turn your BTC into the SNIP-20 sBTC
+  * [Try the BETA now](https://medium.com/@ShinobiProtocol/how-to-participate-2nd-public-beta-test-e46f0db2c7d8)!
 
 ### DeFi
 
-* [SecretSCRT Converter](https://wallet.keplr.app/#/secret/secret-secret) -&#x20;
+* [SecretSCRT Converter](https://wallet.keplr.app/#/secret/secret-secret)&#x20;
   * Convert between SCRT and sSCRT, by [Chainapsis](https://chainapsis.com/)
-    * Also available in [Citadel One](https://citadel.one) wallet
+    * Also available in [Citadel One](https://citadel.one) wallet or [https://wrap.scrt.network/](https://wrap.scrt.network/)
 * [Secret Swap](https://www.secretswap.net/)&#x20;
   * Front running resistant AMM
+  * The first project with on-chain private governance
 * [Sienna Network](https://sienna.network/)
-  * Front running resistant AMM, and more products in the future
+  * Front running resistant AMM
+  * Private lending application
+  * :soon: Sienna launchpad
 * [Button Swap](https://www.btn.group/secret\_network/button\_swap)
   * AMM/DEX aggregator by [btn.group](https://www.btn.group)
+    * :soon: Limit orders coming soon
+  * password manager, Viewing key wizard and more
 * [Shade Protocol](https://shadeprotocol.io/)
   * An array of connected privacy-preserving DeFi applications
-    * **Shade**&#x20;
-      * Governance token
-    * **Silk**&#x20;
-      * Algorithmic stablecoin with transactional privacy by default
+    * **Shade** (launched)
+      * Governance token and staking for protocol revenue
+    * **Silk** (:soon: fall 2022)&#x20;
+      * Overcollataralized stable coin backed to a basket of assets with transactional privacy by default
+    * **ShadeSwap** (:soon: fall 2022)
+      * AMM with protocol owned liquidity in mind
+    * **SHD bonds**
+      * Purchase discounted SHD by providing LP shares
     * **Synthetics**&#x20;
       * Algorithmic synthetic assets with transactional privacy by default
 * [StakeEasy](https://stakeeasy.finance/)

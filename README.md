@@ -12,9 +12,9 @@ Secret Network offers scalable permissionless smart contracts with a private by 
 In this documentation we will go over the basics behind the Secret Network technology, explain why privacy is important in Web3 and give an example of some use cases specific to private smart contracts. There are also sections dedicated to (smart contract) development, funding opportunities, the ecosystems partners and help with the running of infrastructure.
 
 * [Secret Network Overview](secret-network-overview/)
-  * [History](secret-network-overview/why-secret-network/history.md)
-  * [Why privacy for blockchain](secret-network-overview/why-secret-network/privacy-for-blockchain.md)
-  * [Secret Network use cases](secret-network-overview/why-secret-network/use-cases/)
+  * [History](secret-network-overview/history.md)
+  * [Why privacy for blockchain](secret-network-overview/privacy-for-blockchain.md)
+  * [Secret Network use cases](secret-network-overview/use-cases/)
   * [The blockchain components behind Secret Network](development/secret-contracts/core-components/)
   * [How Secret Network achieves computational privacy](secret-network-overview/privacy-technology/)
 * [Ecosystem Overview](ecosystem-overview/)
