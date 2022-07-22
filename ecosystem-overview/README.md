@@ -18,41 +18,46 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 
 ## General Resources
 
-### Official Secret Network Resources
+### Information resources
 
-* [Main Website](https://scrt.network/)
-  * Official Secret Network website
-* [Blog](https://scrt.network/blog/)
-  * Official Secret Network blog
-* [Wiki](https://docs.scrt.network/)&#x20;
-  * Official Secret Network Wiki
-* [Secret Network Graypaper ](https://scrt.network/graypaper)
-  * By Carter Woetzel
-* [SNIP Specifications  ](https://github.com/SecretFoundation/SNIPs/)
-  * Secret Network Improvement Proposals
+* [Main Website](https://scrt.network/) - Official Secret Network website
+* [Blog](https://scrt.network/blog/) - Official Secret Network blog
+* [Wiki](https://docs.scrt.network/) - Official Secret Network Wiki
+* [Secret Network Graypaper ](https://scrt.network/graypaper) - By Carter Woetzel
+* [Medium](https://medium.com/@secretnetwork) - Official host for guides and tutorials
+* [Youtube ](https://www.youtube.com/c/SecretNetworkOfficial)- Official video platform for Secret Network
 
-### Community Activity
+### Community Channels
 
-* Community Channels:
-  * &#x20;[Forum](https://forum.scrt.network/)
-  * &#x20;[Discord](https://chat.scrt.network)&#x20;
-  * [Telegram](https://t.me/scrtCommunity)
-  * &#x20;[Reddit](https://www.reddit.com/r/SecretNetwork/)&#x20;
-  * [Twitter](https://twitter.com/SecretNetwork)
-* [Community Calendar](https://www.secretcalendar.org/) -&#x20;
-  * A calendar of upcoming events, curated by several community members
-* [Secret Agent Headquarters](https://scrt.network/agents)&#x20;
-  * Home for community member collaboration
-* [Grant Applications](https://github.com/SecretFoundation/Grants/issues)&#x20;
-  * [Announcement](https://scrt.network/blog/announcing-secret-network-grant-program) / [ideas](https://scrt.network/grant-application-ideas) / [process](https://scrt.network/grant-application-process)
-* [SNACs](https://forum.scrt.network/t/open-discussion-snacs-secret-network-action-campaigns/3150)&#x20;
-  * Secret Network Action Campaigns
-* [Secret Fellows](https://scrt.network/blog/secret-fellows-developer-program)
-  * Developer mentorship program
+* &#x20;[Forum](https://forum.scrt.network/)
+* &#x20;[Discord](https://chat.scrt.network)&#x20;
+* [Telegram](https://t.me/scrtCommunity)
+* &#x20;[Reddit](https://www.reddit.com/r/SecretNetwork/)&#x20;
+* [Twitter](https://twitter.com/SecretNetwork)
+
+### Community resources
+
+* [Community Calendar](https://www.secretcalendar.org/) -  A calendar of upcoming events, meetings and launches on the network
+* [The Secret Agency - ](https://scrt.network/agents)Become a Secret Agent and start participating
+
+### Funding
+
+* SCRT Labs [Grant Applications](https://github.com/SecretFoundation/Grants/issues) - [Announcement](https://scrt.network/blog/announcing-secret-network-grant-program) / [ideas](https://scrt.network/grant-application-ideas) / [process](https://scrt.network/grant-application-process)
+  * Best for pre-seed developer funding and tooling creation
+* Secret Foundation [SNACs](https://forum.scrt.network/t/open-discussion-snacs-secret-network-action-campaigns/3150)  - Secret Network Action Campaigns
+  * Best for marketing, content and event funding
+* [The Secret Agency funding ](https://chat.scrt.network/)
+  * Get budget for events with merch or educational content.&#x20;
+* [Development committee](https://chat.scrt.network/) - mentorship program&#x20;
+  * Learn to work with Secret Contracts and get a personal mentor
 * [Community Code Repositories](https://github.com/zorostang/secret-network-community-code-repositories)
   * Open source repositories designed to take 1 to 5 days to complete with bounties ranging from $500 to $2,500 USD. Jump in, get involved!
 * [Community Curated Bounty List](https://docs.google.com/document/d/1tlFdagZHAIXDeMFi4HVDIseaw3nXxk\_-3WKp9hhsfFs/edit?usp=sharing)
-  * A list of Developer projects which can be funded by the community pool as signalled in proposal #71
+  * A list of Developer projects which can be funded by the community pool as signaled in proposal #71 and updated in #101
+* [Shade grants](https://github.com/securesecrets/ShadeGrants)&#x20;
+  * Work on a novel project for shade protocol and get funding
+* [Open job board](https://secretjobs.niceboard.co/)&#x20;
+  * Find a job at applications and organisations in the Secret Network ecosystem
 
 ## Products
 
@@ -110,29 +115,50 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
   * Two-fold cross-chain strategy for gaining yield on stablecoins
 * [Secret Auctions](https://auctions.scrt.network/)&#x20;
   * Sealed-bid auctions and OTC market
+* [Blackbox](https://blackbox.cash/)
+  * A 2 legged application for transactional privacy on Secret Network
+* :soon:``[Polymer finance](https://polymer.fi/)
+  * A Balancer-like AMM build on Secret Network
+* :soon: [Cover](https://forum.scrt.network/t/community-pool-proposal-cover-a-generalized-peer-to-peer-lending-platform/5832)
+  * a P2P private lending solution for Tokens and NFTs on Secret Network
+* :soon: [Selenian Network](https://twitter.com/SelenianNetwork/)
+  * Digital asset management with an integrated defi stack
+* [AmberDAO](https://twitter.com/AmberDAO\_) &#x20;
+  * Private store of Value token
 
 ### NFT
 
 * [Stashh](https://stashh.io/)&#x20;
   * Marketplace for Secret NFTs
+* [Legendao](https://legendao.io/)
+  * Mint to earn NFT launch platform with a native collection and Token
 * [Anons](https://www.anons.army/)&#x20;
   * First NFT project to launch on the network. Only 580 anons. [Twitter](https://twitter.com/AnonsNFT) and [Contract](https://secretnodes.com/secret/chains/secret-3/contracts/secret1xx4fp7qgkyxdk9elrzd8v5p7gj28lvxprwl9lw)
 * [Tarantino NFTs](https://tarantinonfts.com/)&#x20;
   * Seven uncut scenes from the original Pulp Fiction manuscript
+* [Killroy was Here](https://legendao.io/)
+  * The first feature film launched as an NFT by Kevin Smith
+* [V-IRL](https://www.v-irl.com/)
+  * A platform and tooling to bridge real-life assets to SecretNFTs while maintaining user privacy
 * [... More projects listed here](https://secretnft.com/scrt-nft-projects)
 
 ### Other
 
 * [Fardels](https://fardels.network/)&#x20;
-  * An decentralized social network for selling items of low value
+  * An decentralized social network for access-control to content with a paywall
 * [Altermail](https://altermail.live/)&#x20;
-  * A decentralized messaging service dApp
+  * A decentralized user-side encrypted Communication platform with e-mail, (group) messaging and video calls + in-game communication coming soon.
 * [Whisprs](https://whisprs.co/)&#x20;
   * Decentralized, cross-chain, private Messaging, by core-dev [Cashmaney](https://twitter.com/Cashmaney3/)
 * [Secret Garden](https://scrtgarden.com/)
   * Secret Token and Secret NFT generator, manager, and explorer by [Secret Garden](https://github.com/ScrtGarden)
 * :soon: [JACKAL](https://jackaldao.com/)
-  * A completely decentralized hot storage on-chain that uses the Amazon S3 Standard.
+  * A completely decentralized hot storage solution on-chain with user side encrypted storage. Jackal runs a separate infrastructure layer of incentivized nodes which leverage IPFS for quick P2P file gathering.
+  * [Try the Beta now](https://mobile.twitter.com/SecretNetwork/status/1549470268006989824?cxt=HHwWgICwqfq\_6YArAAAA)!
+* [Secret time capsule](https://secrettimecapsule.net/)
+  * a blockain-based dApp to send cache of information and/or SCRT coins to the future
+* [Whispr](https://whisprs.co/)
+  * A small application that lets you send private messages to any Secret Network wallet address
 
 ## Games
 
@@ -142,6 +168,8 @@ Notable games built on the network include:
   * A P2E tower defense game with four game modes, including single-player, multi-player, and PvP. Its combat and NFT-based economy are balanced to continuously challenge players to rethink their setups.
 * [Secret Dreamscape](https://secretdreamscape.com/) by [Secret Dreamscape](https://twitter.com/SCRTDreamscape) ([Blog](https://blog.secretdreamscape.com/posts/introducing-secret-dreamscape/))
   * &#x20;A social multiplayer game that's like a mashup of poker and scrabble. The cards are rich with fantastical images that take the player somewhere between a dream and reality. Players can bring their personal deck of NFT cards and their played words to the cards as they play for chances to win from the community prize pool.
+* :soon: [Onenet (Bushi)](https://twitter.com/launchonenet)
+  * Gaming platform building an on chain FPS (first person shooter) called Bushi
 * [Prisnr.games](https://prisnr.games/)&#x20;
   * Head-to-head strategy game on testnet invoking the prisoner's dilemma. Implements private entropy pool for random numbers and secretNFTs as rewards and playable in-game power-ups. ([Contract codebase](https://github.com/prisnr-games/secret-dapp/tree/master/contracts), [Front-end webapp code](https://github.com/prisnr-games/webapp))
 * [Secret Heroes](https://secrethero.es/)&#x20;
@@ -151,7 +179,7 @@ Notable games built on the network include:
 * [Rock Paper Scissors](https://testrps.lindlof.io/)&#x20;
   * Rock paper scissors game without commit-reveal on testnet ([Codebase](https://github.com/lindlof/secret\_rock\_paper\_scissors))
 
-## Explorers
+## Explorers & tools
 
 ### Mainnet
 
@@ -174,14 +202,13 @@ Notable games built on the network include:
 * [Cashmaney Explorer](https://explorer.cashmaney.com) **(retired)**&#x20;
   * One of the first explorers, run by core-dev [Cashmaney](https://twitter.com/Cashmaney3/)
 
-### Testnet
-
-`pulsar-2`, [Docs](https://github.com/scrtlabs/testnet/blob/master/pulsar-2/details.md) (maintained by the [Stashh](https://stashh.io/) team)
+### Testnet - Pulsar-2
 
 * [Faucet](https://faucet.secrettestnet.io/)&#x20;
   * Run by validator [Chain of Secrets](https://chainofsecrets.org/)
 * [Secretnodes](https://secretnodes.com/secret/chains/pulsar-2)&#x20;
   * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
+* [Documentation](../node-runners/testnet/)
 
 `holodeck-2`, [Docs](https://github.com/scrtlabs/testnet/blob/master/holodeck-2/details.md) (maintained by validator [Chain of Secrets](https://chainofsecrets.org/))
 
@@ -212,7 +239,7 @@ Notable games built on the network include:
 
 ## Wallets
 
-Great and popular wallets for managing your Secret Address
+![Great and popular wallets for managing your Secret Address](../.gitbook/assets/5a1eea14289a08747d258d0ffb7d06add1ff2735.jpeg)
 
 * [Keplr](https://keplr.app) by [Chainapsis](https://chainapsis.com/)
   * Highly featured wallet for the entire Cosmos ecosystem
@@ -220,6 +247,8 @@ Great and popular wallets for managing your Secret Address
   * **Support for usage from any Secret dApp**
   * Convert between SCRT and sSCRT ([in web app](https://wallet.keplr.app/#/secret/secret-secret))
   * Web app + Browser extension + Mobile wallet
+* [Cosmostation](https://www.cosmostation.io/)
+  * Mobile wallet with support for SCRT
 * [Citadel One](https://citadel.one)
   * Great UI and assortment of supported networks
   * Second wallet with full support of SNIP-20 Secret Tokens
@@ -227,17 +256,16 @@ Great and popular wallets for managing your Secret Address
   * Convert between SCRT and sSCRT
   * Validator on the network
   * Web app + Mobile wallet
-* :soon: [a?| STARSHELL a?|](https://starshell.net/)
+* :soon: [STARSHELL](https://starshell.net/)
+  * Desktop and mobile wallet with SCRT and Secret contract support
   * A privacy-preserving, free and open-source Web3 wallet built for the Secret Network and Cosmos ecosystem.
-* [Secret Tipbot](https://twitter.com/secret\_tipbot) by validator [SG-1](https://sg-1.online/) ([Guide](https://medium.com/@Cosmostipbot/the-secret-tipbot-is-now-live-d2bd7ef1be94))
-  * Funded by the community ([Proposal](https://secretnodes.com/secret/chains/secret-2/governance/proposals/26))
-  * Send SCRT to other Twitter users with a tweet
-  * Send SCRT to other Telegram users with a command
+* &#x20;:soon: Kryptik wallet - built by Ronin ventures&#x20;
+  * Desktop and mobile wallet with SCRT and Secret contract support
 * [Sputnik Exchange](https://sputnik.exchange/) ([Guide](https://www.youtube.com/watch?v=NwiI6xXkMcw))
   * Send SCRT to other Twitter users with a tweet
   * Send SCRT to other Telegram users with a command
   * Buy and sell SCRT from/to other users of Sputnik
-* [Ledger](https://docs.scrt.network/guides/ledger-nano.html)&#x20;
+* [Ledger ](../development/secret-cli/ledger-cosmos.md)
   * Guide to using Ledger hardware wallet with Secret Network
 
 ## User Guides
@@ -248,8 +276,9 @@ Great and popular wallets for managing your Secret Address
   * Guides for products in the ecosystem,
 * [Secure Secrets Tutorials](https://securesecrets-org.medium.com/secure-secrets-tutorials-meta-thread-df51b84fa35)&#x20;
   * Guides on using products in the ecosystem by validator [Secure Secrets](https://www.securesecrets.org)
-* Altcoin Buzz Tutorials -&#x20;
-  * Guides by [Altcoin Buzz](https://altcoinbuzz.io/)
+* [Secret Network Learn environment](https://scrt.network/learn)
+  * guides and features for everything Secret Network
+  * [Infographic library](https://forum.scrt.network/t/education-infographic-library/5837)
 * More tutorials available on the Secret Network [Blog](https://scrt.network/blog/)
 
 ### Video Tutorials
@@ -264,6 +293,10 @@ Great and popular wallets for managing your Secret Address
   * Has a series on Secret Network
 * [Secret Code Podcast YouTube - Tutorial Playlist](https://www.youtube.com/watch?v=C0zRTaV8XgI\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4\_Uwwdg)&#x20;
   * &#x20;By validator [Secret Code Podcast Node](http://secretcodepodcast.com)
+* [Rebel Defi](https://www.youtube.com/c/RebelDefi)
+  * Videos on Defi and NFTs in the Cosmos ecosystem
+* [Wise beyond bitcoin](https://www.youtube.com/c/wisebeyondbitcoin)
+  * Videos on DeFi and Privacy for Secret Network and Crypto in general
 
 ### Podcasts
 
@@ -271,8 +304,8 @@ Great and popular wallets for managing your Secret Address
   * Hosted by [Tor Bair](https://twitter.com/TorBair/)
 * [Secret Code](https://www.secretcodepodcast.com/)&#x20;
   * Hosted by [Eric Waisanen](https://twitter.com/EricWaisanen) and [Paul Menexas](https://twitter.com/SecretKnight) ([Twitter](https://twitter.com/secretcodepod))
-* [Agents of the Round Table](https://www.youtube.com/channel/UCLCBgCi6j3tmOM2puGyF33A)&#x20;
-  * Hosted by the [Secret agent community](https://twitter.com/Secret\_AOTRT) and the [Education committee](https://twitter.com/scrtcommittees)
+* [Agents of the Round Table](https://linktr.ee/scrt\_aotrt)&#x20;
+  * Hosted by the [Secret agent community](https://twitter.com/Secret\_AOTRT) and the [Secret Agency](https://mobile.twitter.com/SCRT\_Agency)
 * [House of Shade](https://www.youtube.com/channel/UCCK9tPCUf7HNFgg7P1lJd3Q)&#x20;
   * Hosted by the [House of shade team](https://twitter.com/House\_of\_Shade)
 
