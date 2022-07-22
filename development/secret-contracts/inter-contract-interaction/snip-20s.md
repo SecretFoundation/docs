@@ -66,3 +66,27 @@ pub enum HandleReceiveMsg {
 ```
 
 ## Send Vs Transfer&#x20;
+
+`Send` and `Transfer` are two similar functions you can call in the Snip-20 contract to send funds, with one notable difference. `Send` is used for sending tokens to contracts, while `Transfer` is used to send tokens to a wallet. This is because `Send` will attempt to call the `Receive` function in another contract before sending it tokens, while `Transfer` only moves the tokens from one address to another.
+
+Below are the HandleMsg enum variants for the two functions in the Snip-20 contract:
+
+```rust
+Send {
+        recipient: HumanAddr,
+        recipient_code_hash: Option<String>,
+        amount: Uint128,
+        msg: Option<Binary>,
+        memo: Option<String>,
+        padding: Option<String>,
+    },
+```
+
+```rust
+Transfer {
+        recipient: HumanAddr,
+        amount: Uint128,
+        memo: Option<String>,
+        padding: Option<String>,
+    },
+```
