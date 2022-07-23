@@ -46,8 +46,7 @@ You will also need to configure the Secret Network CLI to work with the pulsar-2
 secretcli config node https://rpc.pulsar.scrttestnet.com
 
 secretcli config chain-id pulsar-2
-
-secretcli config keyring-backend 
+ 
 ```
 
 If you do not have a mnemonic and public address for testing purposes yet create one using:
