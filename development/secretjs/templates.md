@@ -65,9 +65,11 @@ secretcli query bank balances <account address>
 
 ### Connecting to a node
 
-Now it's time to connect to a pulsar-2 test net node. Run the following command in the root directory of the SecretJS-Templates folder:
+Now it's time to connect to a pulsar-2 test net node. Run the following commands in the root directory of the SecretJS-Templates folder:
 
 ```
+npm install
+
 npm run 1
 ```
 
