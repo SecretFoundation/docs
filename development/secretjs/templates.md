@@ -23,14 +23,16 @@ git clone https://github.com/scrtlabs/SecretJS-Templates.git
 The project directory will contain the following structure:
 
 ```
-.   1_connecting_to_node  3_query_node    5_contracts  7_snip20_token  .env          .env.local.example    .git        node_modules  package-lock.json
+.   1_connecting_to_node  3_query_node    5_contracts  7_snip20_token   .env.local.example    .git        node_modules  package-lock.json
 ..  2_creating_account    4_transactions  6_wallets    8_websocket     .env.example  .env.testnet.example  .gitignore  package.json  README.md
 ```
 
-For this tutorial we will be using the pulsar-2 test network to go through each SecretJS example. To do this we need to update the contents of the .env file to contain the following:
+For this tutorial we will be using the pulsar-2 test network to go through each SecretJS example. To do this we need to copy one of the example environment files, eg .env.testnet.example, to a new file name .env\
+Update the contents of .env file to contain the following:
 
 ```
 SECRET_GRPC_WEB_URL='https://grpc.pulsar.scrttestnet.com'
+SECRET_REST_URL='https://api.pulsar.scrttestnet.com'
 SECRET_WS_URL='wss://rpc.pulsar.scrttestnet.com/websocket'
 SECRET_CHAIN_ID='pulsar-2'
 
@@ -59,7 +61,7 @@ After creating an account add funds to the account using the [pulsar-2 faucet.](
 Query your account balance to confirm faucet funding:
 
 ```bash
-secretcli query bank balance <account address>
+secretcli query bank balances <account address>
 ```
 
 ### Connecting to a node
