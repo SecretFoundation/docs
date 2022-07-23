@@ -1,44 +1,58 @@
 # Contract State Encryption
 
+## Encryption at deployment of contract
 
+When a contract is executed on chain the state of the contracts needs to be encrypted so that observers can not see the computation that is initialized. The contract should be able to call certain functions inside the enclave and store the contract state on-chain.&#x20;
 
-TODO reasoning
+A contract can call 3 different functions: `write_db(field_name, value)`, `read_db(field_name)`, and `remove_db(field_name)` . It is important that the `field_name` remains constant between contract calls.
 
-* While executing a function call inside the Enclave as part of a transaction, the contract code can call `write_db(field_name, value)`, `read_db(field_name)`, and `remove_db(field_name)`
-* Contract state is stored on-chain inside a key-value store; the `field_name` must remain constant between calls
-* `encryption_key` is derived using HKDF-SHA256 from:
-  * `consensus_state_ikm`
-  * `field_name`
-  * `contract_key`
-* `ad` (additional data) is used to prevent leaking information about the same value written to the same key at different times
+We will go over the different steps associated with the encryption of the contract state.
 
-#### `contract_key` <a href="#contract-key" id="contract-key"></a>
+### 1. Create `contract_key`&#x20;
 
-* `contract_key` is a concatenation of two values: `signer_id || authenticated_contract_key`
-* Its purpose is to make sure each contract has a unique unforgeable encryption key
-  * Unique: Make sure the state of two contracts with the same code is different
-  * Unforgeable: Make sure a malicious node runner won't be able to locally encrypt transactions with it's own encryption key, and then decrypt the resulting state with the fake key
-* When a contract is deployed (i.e., on contract init), `contract_key` is generated inside the Enclave as follows:
+The `contract_key` is the encryption key for the contract state and is a combination of two values: `signer_id || authenticated_contract_key`. Every contract has its own unforgeable encryption key. The concatenation of the values is what makes every unique and this is important for several reasons
+
+1. Make sure the state of two contracts with the same code is different
+2. Make sure a malicious node runner won't be able to locally encrypt transactions with it's own encryption key, and then decrypt the resulting state with the fake key
+
+so to reiterate, every contract on Secret Network has its own unique and unforgeable encryption key `contract_key`
+
+This process of creating `contract_key` is started when the Secret contract is deployed on-chain. First `authentication_key` is generated using HDKF-SHA256 inside the enclave from the following values:
+
+* `consensus_state_ikm`
+* `HDK-salt`
+* `signer_id`
 
 ```
 signer_id = sha256(concat(msg_sender, block_height));
 
 authentication_key = hkdf({
-  salt: hkdf_salt,
-  info: "contract_key",
-  ikm: concat(consensus_state_ikm, signer_id),
+ salt: hkdf_salt,
+ info: "contract_key",
+ ikm: concat(consensus_state_ikm, signer_id),
 });
+```
 
+From the `authentication_key` create `authenticated_contract_key` by calling the hmac-SHA256 hash function with the contract `code_hash` as hashing data.&#x20;
+
+This step makes sure the key is unique for every contracts with different code.
+
+```
 authenticated_contract_key = hmac_sha256({
   key: authentication_key,
   data: code_hash,
 });
+```
 
+Lastly concat the `signer_id` and `authenticated_contract_key` to create `contract_key`. This step makes it so the key is unforgeable as the key can only be recreated with the current `signer_id`
+
+```
 contract_key = concat(signer_id, authenticated_contract_key);
 ```
 
-* Every time a contract execution is called, `contract_key` should be sent to the enclave
-* In the enclave, the following verification needs to happen:
+### 2.  At execution share `contract_key` with enclave
+
+Every time a contract execution is called, `contract_key` should be sent to the enclave. In the enclave, the following verification needs to happen to proof a genuine `contract_key`
 
 ```
 signer_id = contract_key.slice(0, 32);
@@ -58,7 +72,9 @@ calculated_contract_key = hmac_sha256({
 assert(calculated_contract_key == expected_contract_key);
 ```
 
-#### write\_db(field\_name, value) <a href="#write-db-field-name-value" id="write-db-field-name-value"></a>
+### 3. Callback function logic
+
+**write\_db(field\_name, value)**
 
 ```
 encryption_key = hkdf({
@@ -100,9 +116,9 @@ new_state = concat(ad, new_state_ciphertext);
 internal_write_db(encrypted_field_name, new_state);
 ```
 
-#### read\_db(field\_name) <a href="#read-db-field-name" id="read-db-field-name"></a>
+**read\_db(field\_name)**
 
-```
+```js
 encryption_key = hkdf({
   salt: hkdf_salt,
   ikm: concat(consensus_state_ikm, field_name, contract_key),
@@ -132,11 +148,11 @@ current_state_plaintext = aes_128_siv_decrypt({
 return current_state_plaintext;
 ```
 
-#### remove\_db(field\_name) <a href="#remove-db-field-name" id="remove-db-field-name"></a>
+**remove\_db(field\_name)**
 
 Very similar to `read_db`.
 
-```
+```js
 encryption_key = hkdf({
   salt: hkdf_salt,
   ikm: concat(consensus_state_ikm, field_name, contract_key),
