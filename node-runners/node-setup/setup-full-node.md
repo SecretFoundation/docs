@@ -205,10 +205,10 @@ Also checkout[ this document](https://gist.github.com/blockpane/40bc6b64caa48fda
 
 ### 10. **Set `minimum-gas-price` Parameter**
 
-We recommend `0.00125uscrt` per gas unit:
+We recommend `0.0125uscrt` per gas unit:
 
 ```bash
-perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.00125uscrt"/' ~/.secretd/config/app.toml
+perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125uscrt"/' ~/.secretd/config/app.toml
 ```
 
 Your node will not accept transactions that specify `--fees` lower than the `minimun-gas-price` you set here.

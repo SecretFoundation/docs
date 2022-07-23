@@ -1,14 +1,12 @@
 # Join As A Validator
 
+## How to become a validator on Secret Network <a href="#how-to-become-a-validator-on-secret-network" id="how-to-become-a-validator-on-secret-network"></a>
 
+#### **1.** [**Run a new full node**](run-a-full-node.md) **on a new machine.**
 
-#### How to become a validator on Secret Network <a href="#how-to-become-a-validator-on-secret-network" id="how-to-become-a-validator-on-secret-network"></a>
+#### **2. Set your `minimum-gas-price` parameter**
 
-**1.** [**Run a new full node**](run-a-full-node.md) **on a new machine.**
-
-**2. Set your `minimum-gas-price` parameter**
-
-We recommend starting with `0.1uscrt` per gas unit:
+We recommend starting with `0.0125uscrt` per gas unit:
 
 ```
 perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125uscrt"/' ~/.secretd/config/app.toml
@@ -17,7 +15,7 @@ sudo systemctl restart secret-node
 
 Your validator will not accept transactions that specify `--gas-price` lower than the `minimun-gas-price` you set here.
 
-**3. Generate a new key pair for yourself (change `<key-alias>` with any word of your choice, this is just for your internal/personal reference):**
+#### **3. Generate a new key pair for yourself (change `<key-alias>` with any word of your choice, this is just for your internal/personal reference):**
 
 ```
 secretcli keys add <key-alias>
