@@ -14,4 +14,4 @@ The following process is based on how Tendermint works to reach consensus in a s
 6. At least 2/3 of participating validators achieve consensus on the encrypted output and state
 7. The encrypted output and state is committed on-chain
 
-![Flow of data for a Secret transaction.](https://lh6.googleusercontent.com/GT0MHgEuqXwK0izznoYnuaAGCeT41diI2j7mdkLvUf2s\_BLBYBJRvXQO4eGf5w-XoeC2uAbt-zyI\_qnv28smr3WroTPXDsttrClOyizfkf32Ll-bHfQzQZeMGFsvwqopYWCgQ2doGa1yfUCULg)
+![](<../../../.gitbook/assets/image (3).png>)

@@ -14,7 +14,7 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * [Developer Tools](./#developer-tools)
 * [Reference Contracts](./#reference-contracts)
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (1).png>)
 
 ## General Resources
 
