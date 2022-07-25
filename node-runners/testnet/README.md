@@ -6,8 +6,10 @@ description: >-
 
 # Testnet
 
-The general steps are as follows:
+This section will take you through the process of taking a node from fresh machine to full validator. The general steps are as follows:
 
-* [Install CLI](installing-cli-and-creating-a-new-address.md) and&#x20;
-* [Setup the Full Node](run-a-full-node.md)
-* [Convert Full Node into Validator](join-as-a-validator.md)
+1. [Install secretd](install-secretd.md)
+2. [Install SGX](install-sgx.md)
+3. [Setup the Full Node](run-a-full-node.md)
+4. [Convert Full Node into Validator](../node-setup/becoming-a-validator.md)
+
