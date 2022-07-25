@@ -1,6 +1,6 @@
 # Data Privacy
 
-Privacy is a human right and Secret is setting the landscape to take back the full control and ownership of our data. Privacy is fundamentally for a better Web3.
+Privacy is a human right and Secret is setting the landscape to take back the full control and ownership of our data. Privacy is fundamental to a better decentralized web.
 
 Why are you not receiving any incentives when your data is monetized and exchanged on marketplaces you’re not aware of?
 
@@ -17,7 +17,7 @@ Web3 developers could use Jackal to build:
 1. Password Managing Service&#x20;
 2. Website Hosting&#x20;
 3. NFT Storage Solution&#x20;
-4. Google Docs and Dropbox are similar applications
+4. Google Docs and Dropbox or similar applications
 
 ### Content Marketplaces
 
