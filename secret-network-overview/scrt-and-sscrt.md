@@ -22,7 +22,7 @@ This means interactions on the network that require SCRT gas like: Viewing key g
 
 Voting on Secret Network is powered by the SCRT token, every staked SCRT equals to 1 vote. Secret Network uses the delegated-Proof-of-Stake (dPOS) system coming with the Cosmos SDK and the Tendermint Consensus engine. This means validators vote with the power of the combined total staked SCRT of all their delegators. A delegator overrides the vote of their validator by voting themselves.\
 \
-If Quorum on a proposal is reached a simple majority of staked SCRT is needed to pass a governance proposal. Proposals have a 7-day voting period and a delegator can switch their vote up till the last block. Staking SCRT gives any network participant a vote in the ecosystem which is a very important utility of the SCRT token.
+If Quorum on a proposal is reached a simple majority of staked SCRT is needed to pass a governance proposal. Proposals have a 7-day voting period and a delegator can switch their vote up till the last block. Staking SCRT giver any network participant a vote in the ecosystem which is a very important utility of the SCRT token.
 
 #### Staking/inflation
 
