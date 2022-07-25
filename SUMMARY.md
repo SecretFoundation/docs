@@ -208,6 +208,7 @@
   * [Validator Backup](node-runners/validator-backup.md)
   * [Testnet](node-runners/testnet/README.md)
     * [Installing CLI & Creating A New Address](node-runners/testnet/installing-cli-and-creating-a-new-address.md)
+    * [Install SGX](node-runners/testnet/install-sgx.md)
     * [Run A Full Node](node-runners/testnet/run-a-full-node.md)
     * [Join As A Validator](node-runners/testnet/join-as-a-validator.md)
     * [Testnet State Sync](node-runners/testnet/testnet-state-sync.md)
