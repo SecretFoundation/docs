@@ -42,8 +42,6 @@ snapshot-interval = 0
 
 ### System tuning:
 
-_apologies to non-ubuntu admins, but you are already used to this shit so figure it out, you are used to it_
-
 * Set CPU governor to performance
 
 ```shell
