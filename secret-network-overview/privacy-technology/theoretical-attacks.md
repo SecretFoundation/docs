@@ -28,7 +28,7 @@ The naive solution to this is requiring the node to successfully broadcast the d
 _You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX._
 {% endhint %}
 
-### Data Leakage Attacks By Analyzing Metadata Of Contract Usage
+## Data Leakage Attacks By Analyzing Metadata Of Contract Usage
 
 Depending on the contract's implementation, an attacker might be able to de-anonymization information about the contract and its clients. Contract developers must consider all the following scenarios and more, and implement mitigations in case some of these attack vectors can compromise privacy aspects of their application.
 
@@ -163,7 +163,7 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-#### More Scenarios To Be Mindful Of
+### More Scenarios To Be Mindful Of
 
 * Ordering of messages (E.g. `Bank` and then `Staking` vs. `Staking` and `Bank`)
 * Size of the encrypted `msg` field
@@ -171,14 +171,14 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 
 Again, be creative if that's affecting your secrets. ![rainbow](https://github.githubassets.com/images/icons/emoji/unicode/1f308.png)
 
-### Differences In Output Events
+## Differences In Output Events
 
-#### Output events
+### Output events
 
 * "Push notifications" for GUIs with SecretJS
 * To make the tx searchable on-chain
 
-#### Examples
+### Examples
 
 * Number of logs
 * Size of logs
@@ -204,10 +204,10 @@ Otherwise the output looks like this:
 
 Therefore similar to previous examples, an attacker might guess what happened in an execution. E.g. If a contract has only a `send` function, if an error was returned an attacker can know that the `msg.sender` tried to send funds to someone unknown and the `send` didn't execute.
 
-## Tx Outputs Can Leak Data <a href="#tx-outputs-can-leak-data" id="tx-outputs-can-leak-data"></a>
+### Tx Outputs Can Leak Data <a href="#tx-outputs-can-leak-data" id="tx-outputs-can-leak-data"></a>
 
 For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. This also applies with deposits, callbacks and transfers.
 
 ## Side Chain Attack
 
-Coming soon!
+**Coming soon!**
