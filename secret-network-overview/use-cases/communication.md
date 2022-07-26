@@ -18,4 +18,4 @@ You could also imagine any of today's social media platforms or dating apps usin
 
 This could also apply to decentralized music and video streaming. It’s better to be the only one knowing that you spent hours on cat videos and not your video streaming provider, no?
 
-If you want to learn more about Alter --> [Website](https://altermail.live/) / [Blog](https://blog.altermail.live/alter-2022-roadmap-chat-channels-and-beyond-8a78002c8f4a)
+> If you want to learn more about Alter --> [Website](https://altermail.live/) / [Blog](https://blog.altermail.live/alter-2022-roadmap-chat-channels-and-beyond-8a78002c8f4a)

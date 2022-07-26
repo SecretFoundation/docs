@@ -8,6 +8,10 @@ In this section we will be sketching out the roadmap as it pertains to the Secre
 
 The next update for Secret Network will bring an updated version of the Secret Contract library to CosmWasm V1.0. This will bring IBC smart contract compatibility and Interchain accounts to Secret Network, enabling the cross-chain privacy hub vision. The upgrade will be tested in phases with the first test being a local testnet planned for early July and deployment to the main testnet a few weeks later. The CosmWasm V1 upgrade is expected to launch in august.
 
+> Learn more about this upcoming update from this Agents of the Roundtable podcast with Addaf and Lior from SCRT Labs.
+
+{% embed url="https://www.youtube.com/watch?t=14s&v=9tyVMu5c4JY" %}
+
 ### WASM Engine Replacement
 
 When initially developing secret contracts a decision was made to go with WebAssembly (WASM) engine _wasmi_ - a slower, older engine that was made for SGX (the core technology that enables privacy) - rather than undertaking long development to adapt a more performant engine. This allowed the network to launch faster, and now it is catching up with the newer more performant engines.&#x20;
@@ -46,4 +50,4 @@ An active idea amongst the SCRT labs developers is to use the Secret Network det
 \
 When heavy computations come in the network could immediately agree that only one validator would run that given computation. Any other validator can still validate this transaction. The same can be done when a Secret Oracle is requested from the chain. The separation of these transactions is different from the standard Tendermint implementation where every validator does the compute for all transactions. This structure would significantly further scale Secret Network as it acts as an L2 rollup inside the native layer 1.\
 \
-The same logic as proposed above can be used for one validator doing non-deterministic actions like issueing a TLS connection to the outside world. The result of any interactions (eg. interim bridge) over this connection can than be signed by the validator and submitted by any user on-chain. This authenticates the Oracle.
+The same logic as proposed above can be used for one validator doing non-deterministic actions like issuing a TLS connection to the outside world. The result of any interactions (eg. interim bridge) over this connection can than be signed by the validator and submitted by any user on-chain. This authenticates the Oracle.
