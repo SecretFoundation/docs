@@ -12,15 +12,23 @@ In this step-by-step guide I’ll show you how to connect to a testnet with Kepl
 
 The easy way to use a testnet is via the Keplr wallet browser extension, you can install it and set it up by following [this guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet) or [this video](https://www.youtube.com/watch?v=HgFWNJdD7-U\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4\_Uwwdg\&index=3). For safety reasons we recommend using a separate secondary wallet for testing purposes (read [this article](https://medium.com/@secretnetwork/how-to-avoid-scams-and-stay-safe-in-defi-b7309e123a7b) to learn about the best practices to stay safe in Secret Defi).
 
-Once you have saved your mnemonic phrase you can connect to the **pulsar-2** chain. The pulsar chain is hosted by the griptape team which updates it periodically to make sure it’s in parallel with the current mainnet version.
+Once you have saved your mnemonic phrase you can connect to the **pulsar-2** chain. The pulsar chain is hosted by the Secret Network testnet team which updates it periodically to make sure it’s in parallel with the current mainnet version.
 
-* Go to https://connect.pulsar.griptapejs.com and click on the "**pulsar-2**" button
-* Click “**approve**” once the Keplr window pops
+* Go to [https://connect.pulsar.scrttestnet.com](https://connect.pulsar.scrttestnet.com) and click on the Keplr button
+* Click “**approve**” once the Keplr window pops up to add the chain config
 
-![](<../.gitbook/assets/testnetguide\_1 (2).png>)
+![
+](<../.gitbook/assets/add\_keplr (1).png>)
 
-* Now you should be able to see the pulsar-2 network on Keplr wallet by selecting it from the drop down menu. (verify that your Secret mainnet and testnet addresses coincide and start with “secret”)
-* ![](<../.gitbook/assets/testnetguide\_2 (1).png>)\\
+And again to connect the website, and allow it to view your balances etc
+
+![](../.gitbook/assets/connect\_keplr.png)
+
+
+
+* Now you should be able to see the Secret Testnet network on Keplr wallet by selecting it from the drop down menu. (verify that your Secret mainnet and testnet addresses coincide and start with “secret”)
+
+![](../.gitbook/assets/keplr\_testnet.png)
 
 You have now successfully added the Secret Testnet to your wallet and you’re ready to get your first tokens and experiment!
 
@@ -30,7 +38,7 @@ The fastest and easiest way to get some test SCRT into your wallet is to use **f
 
 Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.
 
-* Go to https://faucet.secrettestnet.io
+* Go to [https://faucet.secrettestnet.io](https://faucet.secrettestnet.io)
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
   ![](../.gitbook/assets/testnetguide\_3.png)
 
