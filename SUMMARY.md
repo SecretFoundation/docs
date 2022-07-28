@@ -117,6 +117,7 @@
       * [Hidden Private Keys](development/secret-contracts/use-cases-of-secret-contracts/hidden-private-keys.md)
       * [Hidden NFT Evolution](development/secret-contracts/use-cases-of-secret-contracts/hidden-nft-evolution.md)
     * [Best Practices](development/secret-contracts/best-practices/README.md)
+      * [Upgradability](development/secret-contracts/best-practices/upgradability.md)
       * [Padding/Datatype](development/secret-contracts/best-practices/padding-datatype.md)
       * [Admin Keys](development/secret-contracts/best-practices/admin-keys.md)
       * [Contract Optimization](development/secret-contracts/best-practices/contract-optimization.md)
