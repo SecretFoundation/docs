@@ -8,7 +8,13 @@ A coordinated group of validators (maximum: 80) secure the Secret Network. Each 
 
 All SCRT holders can become a Secret Network validator or delegator and participate in staking and governance processes.&#x20;
 
-_For information on running a node, delegating, staking, and voting, please see the validator guide below and visit our_ [_governance documentation_](https://docs.scrt.network/protocol/governance.html)_. Here is a list of_ [_SGX-compatible hardware_](https://github.com/ayeks/SGX-hardware) _for running a validator._
+{% hint style="info" %}
+_For information on running a node, delegating, staking, and voting, please see the validator guide below and visit our_ [_governance documentation_](https://docs.scrt.network/protocol/governance.html)_._&#x20;
+
+_Here is a list of_ [_SGX-compatible hardware_](https://github.com/ayeks/SGX-hardware) _for running a validator._
+
+For detailed information on how to set up and run a validator, see the [Validator Set Up](node-setup/) section.&#x20;
+{% endhint %}
 
 ## **Slashing For Downtime**
 
@@ -47,7 +53,3 @@ Slashing for double-signing is when the validator signs the same block twice. Th
 ## What Happens With Slashed SCRT&#x20;
 
 The Secret Network uses the [same slashing penalties as Cosmos](https://docs.cosmos.network/master/modules/slashing/). Burning SCRT through slashing validators for downtime and/or double-signing discourages poor practices and dishonesty by protocol-recognized actors. If slashing occurs frequently, a validator may lose their ability to vote on future blocks for some time.&#x20;
-
-## Validator Guide <a href="#walkthrough" id="walkthrough"></a>
-
-For detailed information on how to set up and run a validator, see the [Validator Set Up](node-setup/) section.&#x20;
