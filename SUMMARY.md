@@ -56,7 +56,7 @@
     * [SNAC](ecosystem-overview/funding/snac.md)
   * [Contributors & Entities](ecosystem-overview/contributors-and-entities/README.md)
     * [Core Contributors & Entities](ecosystem-overview/contributors-and-entities/core/README.md)
-      * [Secret Labs](ecosystem-overview/contributors-and-entities/core/secret-labs.md)
+      * [SCRT Labs](ecosystem-overview/contributors-and-entities/core/secret-labs.md)
       * [Secret Foundation](ecosystem-overview/contributors-and-entities/core/secret-foundation.md)
       * [Secret Agency](ecosystem-overview/contributors-and-entities/core/secret-committees/secret-agency.md)
       * [Secret Committees](ecosystem-overview/contributors-and-entities/core/secret-committees/README.md)
