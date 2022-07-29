@@ -155,7 +155,7 @@
     * [Minting](development/secret-cli/minting.md)
     * [Delegating](development/secret-cli/delegating.md)
     * [Nodes](development/secret-cli/nodes.md)
-    * [Ledger Cosmos](development/secret-cli/ledger-cosmos.md)
+    * [Ledger](development/secret-cli/ledger.md)
     * [Governance](development/secret-cli/governance/README.md)
       * [Creating Governance Proposals](development/secret-cli/governance/creating-governance-proposals.md)
       * [Query Proposals](development/secret-cli/governance/query-proposals.md)

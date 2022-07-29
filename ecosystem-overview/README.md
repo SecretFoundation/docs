@@ -247,6 +247,8 @@ Notable games built on the network include:
   * **Support for usage from any Secret dApp**
   * Convert between SCRT and sSCRT ([in web app](https://wallet.keplr.app/#/secret/secret-secret))
   * Web app + Browser extension + Mobile wallet
+* [Ledger ](../development/secret-cli/ledger.md)
+  * Guide to using Ledger hardware wallet with Secret Network
 * [Cosmostation](https://www.cosmostation.io/)
   * Mobile wallet with support for SCRT
 * [Citadel One](https://citadel.one)
@@ -265,8 +267,8 @@ Notable games built on the network include:
   * Send SCRT to other Twitter users with a tweet
   * Send SCRT to other Telegram users with a command
   * Buy and sell SCRT from/to other users of Sputnik
-* [Ledger ](../development/secret-cli/ledger-cosmos.md)
-  * Guide to using Ledger hardware wallet with Secret Network
+
+
 
 ## User Guides
 

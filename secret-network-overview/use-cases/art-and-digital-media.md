@@ -8,7 +8,7 @@ NFT 3D galleries are starting to pop-up in the ecosystem. We could have a privat
 
 This protects the artist’s content and allows them to generate fair revenue streams by building a fan base. The artist could also release exclusive private content which is only to be seen by his NFT collections owners.
 
-(Another great feature is private bid auctions.)
+> Quentin Tarantino and Kevin Smith both launched unique pieces on the Secret Network. You can follow [LegenDao.io](https://legendao.io/) for more upcoming famous creators.
 
 ### Fractionalized NFTs
 
