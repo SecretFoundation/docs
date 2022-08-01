@@ -163,6 +163,7 @@
       * [Voting](development/secret-cli/governance/voting.md)
   * [Secret IDE](development/secret-ide.md)
   * [Testnet](development/testnet.md)
+  * [Migration from CW 0.10 to 1.0](development/migration-from-cw-0.10-to-1.0.md)
 * [Node Runners](node-runners/README.md)
   * [Hardware Compliance](node-runners/hardware-compliance.md)
   * [VPS Compliance](node-runners/vps-compliance/README.md)
