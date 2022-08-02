@@ -51,12 +51,12 @@ To have access to all the testnet functionalities and to develop you can connect
 * Install and configure SecretCLI by following [this tutorial](https://docs.scrt.network/)
 *   Open your terminal and run the following commands to connect to pulsar-2 and add your wallet:
 
-    ````
+    ```
     secretcli config node https://rpc.pulsar.scrttestnet.com
     secretcli config output json
     secretcli config chain-id pulsar-2
-    secretcli keys add <a-name> --recover ```
-    ````
+    secretcli keys add <a-name> --recover
+    ```
 * Paste your wallet’s mnemonic phrase when asked to do so
 
 You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](https://github.com/scrtlabs/testnet).
