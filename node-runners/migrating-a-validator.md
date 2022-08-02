@@ -4,9 +4,9 @@
 Ensure you [backup your validator](https://docs.scrt.network/backup/backup-a-validator.html) before you migrate it. Do not forget!
 {% endhint %}
 
-#### 1. [Run a Full Node](https://docs.scrt.network/node-guides/run-full-node-mainnet.html) on a New Machine <a href="#_1-run-a-new-full-node-on-a-new-machine" id="_1-run-a-new-full-node-on-a-new-machine"></a>
+### [Run A Full Node](https://docs.scrt.network/node-guides/run-full-node-mainnet.html) On A New Machine <a href="#_1-run-a-new-full-node-on-a-new-machine" id="_1-run-a-new-full-node-on-a-new-machine"></a>
 
-#### 2. Verify the Mnemonics Are Backed Up <a href="#_2-confirm-you-have-the-recovery-seed-phrase-information-for-the-active-key-running-on-the-old-machi" id="_2-confirm-you-have-the-recovery-seed-phrase-information-for-the-active-key-running-on-the-old-machi"></a>
+### Verify Mnemonics Are Backed Up <a href="#_2-confirm-you-have-the-recovery-seed-phrase-information-for-the-active-key-running-on-the-old-machi" id="_2-confirm-you-have-the-recovery-seed-phrase-information-for-the-active-key-running-on-the-old-machi"></a>
 
 If you don't have the mnemonics saved, you can back it up with:
 
@@ -17,7 +17,7 @@ secretd keys export mykey
 
 This prints the private key to `stderr`, you can then paste in into the file `mykey.backup`.
 
-#### 3. Sync Full Node <a href="#_4-wait-for-the-new-full-node-on-the-new-machine-to-finish-catching-up" id="_4-wait-for-the-new-full-node-on-the-new-machine-to-finish-catching-up"></a>
+### Sync Full Node <a href="#_4-wait-for-the-new-full-node-on-the-new-machine-to-finish-catching-up" id="_4-wait-for-the-new-full-node-on-the-new-machine-to-finish-catching-up"></a>
 
 To check on the new full node if it finished catching-up:
 
@@ -43,7 +43,7 @@ secretd status | jq .SyncInfo
 Only continue if `catching_up` is `false`
 {% endhint %}
 
-#### 4. Stop the Validator Node <a href="#_5-after-the-new-node-has-caught-up-stop-the-validator-node" id="_5-after-the-new-node-has-caught-up-stop-the-validator-node"></a>
+### Stop Validator Node <a href="#_5-after-the-new-node-has-caught-up-stop-the-validator-node" id="_5-after-the-new-node-has-caught-up-stop-the-validator-node"></a>
 
 {% hint style="danger" %}
 To prevent double signing, you should stop the validator node before stopping the new full node to ensure the new node is at a greater block height than the validator node.
@@ -58,7 +58,7 @@ sudo systemctl stop secret-node
 
 The validator should start missing blocks at this point. This is the desired behavior!
 
-#### 5. Migrate the priv\_validator\_key.json <a href="#_7-move-the-validator-s-private-key-from-the-old-machine-to-the-new-machine" id="_7-move-the-validator-s-private-key-from-the-old-machine-to-the-new-machine"></a>
+### Migrate priv\_validator\_key.json <a href="#_7-move-the-validator-s-private-key-from-the-old-machine-to-the-new-machine" id="_7-move-the-validator-s-private-key-from-the-old-machine-to-the-new-machine"></a>
 
 On the validator node, the file is `~/.secretd/config/priv_validator_key.json`.
 
@@ -76,11 +76,11 @@ After being copied, the key (`priv_validator_key.json`) should then be removed f
 mv ~/.secretd/config/priv_validator_key.json ~/.secretd/bak_priv_validator_key.json
 ```
 
-#### 6. Restart Your Migrated Validator <a href="#_8-on-the-new-server-start-the-new-full-node-which-is-now-your-validator-node" id="_8-on-the-new-server-start-the-new-full-node-which-is-now-your-validator-node"></a>
+#### Restart Your Migrated Validator <a href="#_8-on-the-new-server-start-the-new-full-node-which-is-now-your-validator-node" id="_8-on-the-new-server-start-the-new-full-node-which-is-now-your-validator-node"></a>
 
 ```bash
 # on the new machine/new validator
 sudo systemctl restart secret-node
 ```
 
-The new node should start signing blocks once caught-up.
+The new node should start signing blocks once caught up.

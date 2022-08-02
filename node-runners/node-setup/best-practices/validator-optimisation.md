@@ -4,11 +4,11 @@ Put the content from here and explain it better: [https://gist.github.com/blockp
 
 Original Content:
 
-### Super-secret tuning tips for secret networks
+## Super-Secret Tuning Tips For Secret Networks
 
 I'll make a few assumptions here mostly that the reader can find the settings in the .toml files without help; validating on secret isn't exactly a good "my-first-validator" choice.
 
-config:
+### Config
 
 * Expose validator p2p via firewall, enable pex, make frens.
 * Set inbound peers to 200 outbound to 100.
@@ -17,14 +17,14 @@ config:
 * disable mempool broadcasting on validator -- less traffic is more cycles, we already have what we need.
 * don't retry previously failed transactions: `keep-invalid-txs-in-cache = true`
 
-app:
+### App
 
 * Set num states to retain to a different prime on each node around 100 (ie 109, 107, 103 etc.)
 * Set prune interval to different primes on each node (ie 17, 43, 61)
 * Use cosmprund to trim state to match retention
 * disable state snapshots (please run them on at least one node, network needs snapshots to state-sync.)
 
-example ...
+### Example
 
 ```toml
 pruning = "custom"
@@ -40,7 +40,7 @@ snapshot-interval = 0
 # ...
 ```
 
-### System tuning:
+### System Tuning
 
 * Set CPU governor to performance
 
@@ -89,7 +89,7 @@ add the following to root's crontab:
 
 * Bump up network buffer sizes in kernel, a bunch of other misc tuning for faster TCP
 
-_you should research each of these settings on your own, not gonna explain here. You are responsible, not me._
+_You should research each of these settings on your own, not gonna explain here. You are responsible, not me._
 
 ```bash
 cat >> /etc/sysctl.conf << EOF
@@ -125,5 +125,3 @@ echo 'options zfs zfs_prefetch_disable=1' >> /etc/modprobe.d/zfs.conf
 
 zfs create -o mountpoint=/opt/secret data/secret
 ```
-
-\

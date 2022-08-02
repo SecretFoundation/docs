@@ -19,7 +19,7 @@ These instructions are based on installation on Debian 10, but should work the s
 
 You will need **rust**, **build-essential** and **git** installed to follow these instructions:
 
-```
+```bash
 # rust:
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
@@ -34,13 +34,13 @@ sudo apt install git-all -y
 
 For preparation, we will create a dedicated user to run Hermes. Following command will also create home directory for the new user.
 
-```
+```bash
 sudo useradd -m -d /ibc/hermes hermes
 ```
 
 We will next switch to the hermes user and create a directory where we will compile the relayer software.
 
-```
+```bash
 sudo sudo -u hermes -s
 mkdir /ibc/hermes/source
 mkdir /ibc/hermes/bin
@@ -49,7 +49,7 @@ cd /ibc/hermes/source
 
 Now is time to clone the source repository and build it. Note that we need to checkout the latest release.
 
-```
+```bash
 git clone https://github.com/informalsystems/ibc-rs.git hermes
 cd hermes
 git checkout v0.9.0
@@ -60,7 +60,7 @@ cd
 
 Next we will check that the newly built hermes version is the correct one:
 
-```
+```bash
 hermes@demo:~$ bin/hermes version
 Nov 04 15:52:48.299  INFO ThreadId(01) using default configuration from '/ibc/hermes/.hermes/config.toml'
 hermes 0.9.0
@@ -70,7 +70,7 @@ hermes 0.9.0
 
 Choose your favourite editor and edit the following configuration template to mach your setup. There are features like telemetry and rest API that you can enable, but they are not necessary, so they are left out from this tutorial.
 
-```
+```toml
 # The global section has parameters that apply globally to the relayer operation.
 [global]
 
@@ -303,16 +303,16 @@ list = [
 
 You can validate the configuration with following:
 
-```
+```bash
 hermes@Demo:~$ bin/hermes -c .hermes/config.toml config validate
 Success: "validation passed successfully"
 ```
 
-### Setting up wallets <a href="#setting-up-wallets" id="setting-up-wallets"></a>
+### Setting Up Wallets <a href="#setting-up-wallets" id="setting-up-wallets"></a>
 
 We will need to create a new wallet, import it, and ultimately fund it. Note the unique derivation paths for terra and secret.
 
-```
+```bash
 hermes -c .hermes/config.toml keys restore secret-4 -m "mnemonics" -n "secret-relayer" -p "m/44'/529'/0'/0/0"
 
 hermes -c .hermes/config.toml keys restore cosmoshub-4 -m "mnemonics" -n "cosmos-relayer"
@@ -324,7 +324,7 @@ hermes -c .hermes/config.toml keys restore columbus-5 -m "mnemonics" -n "terra-r
 
 If you want to make sure the keys got imported, you can check them with following command:
 
-```
+```bash
 bin/hermes keys list secret-4
 ```
 
@@ -332,7 +332,7 @@ bin/hermes keys list secret-4
 
 Let's do a quick test to see things work properly.
 
-```
+```bash
 bin/hermes start
 ```
 
@@ -344,7 +344,7 @@ Now we will setup hermes to be run by systemd, and to start automatically on reb
 
 Create the following configuration to **/etc/systemd/system/hermes.service**
 
-```
+```systemd
 [Unit]
 Description=Hermes IBC relayer
 ConditionPathExists=/ibc/hermes/hermes
@@ -364,7 +364,7 @@ WantedBy=multi-user.target
 
 Then we will start hermes with the newly created service and enable it. Note that this step is done from your normal user account that has sudo privileges, so no longer as hermes.
 
-```
+```bash
 sudo systemctl start hermes.service
 sudo systemctl enable hermes.service
 ```

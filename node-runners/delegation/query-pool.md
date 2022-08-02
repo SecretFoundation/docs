@@ -2,7 +2,7 @@
 
 A staking `Pool` defines the dynamic parameters of the current state. You can query them with the following command:
 
-```
+```bash
 secretcli q staking pool
 ```
 

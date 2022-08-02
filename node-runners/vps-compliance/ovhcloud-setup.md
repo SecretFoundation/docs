@@ -4,13 +4,13 @@ Websites: [Global](https://www.ovhcloud.com/en/) or [United States](https://us.o
 
 ### Selecting a Server
 
-The following are examples of server that are [Hardware Compliant](../hardware-compliance.md).
+The following are examples of [Hardware Compliant](../hardware-compliance.md) servers:
 
 * Example in the US: [https://us.ovhcloud.com/bare-metal/infra/infra-2-le/](https://us.ovhcloud.com/bare-metal/infra/infra-2-le/)
 * Global example: [https://www.ovhcloud.com/en/bare-metal/rise/rise-3/](https://www.ovhcloud.com/en/bare-metal/rise/rise-3/)
 
 {% hint style="danger" %}
-NOTE: OVHCloud servers can come with either an ASUS or Asrock motherboard. The Asus motherboard does **NOT** support Intel SPS. If you receive the Asus motherboard, you'll need to create a ticket to have the motherboard replaced with the Asrock motherboard:  [Asrock E3C246D4U2-2T](https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications)
+OVHCloud servers can come with either an ASUS or Asrock motherboard. The Asus motherboard does **NOT** support Intel SPS. If you receive the Asus motherboard, you'll need to create a ticket to have the motherboard replaced with the Asrock motherboard:  [Asrock E3C246D4U2-2T](https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications)
 {% endhint %}
 
 ### Enabling SGX

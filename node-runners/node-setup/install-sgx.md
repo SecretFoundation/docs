@@ -13,7 +13,9 @@ If you're running a local machine and not a cloud-based VM -
 
 #### Install SGX <a href="#install-sgx" id="install-sgx"></a>
 
-Note: `sgx_linux_x64_driver_2.11.0_2d2b795.bin` is the latest driver as of August 24th, 2021. Please check under https://download.01.org/intel-sgx/sgx-linux/ that this is still the case. If not, please send us a PR or notify us.
+{% hint style="info" %}
+`sgx_linux_x64_driver_2.11.0_2d2b795.bin` is the latest driver as of August 24th, 2021. Please check under [https://download.01.org/intel-sgx/sgx-linux/](https://download.01.org/intel-sgx/sgx-linux/) that this is still the case. If not, please send us a PR or notify us.
+{% endhint %}
 
 If you are a node runner all you must do to install SGX is to save this as a script and run it.
 
@@ -165,10 +167,10 @@ sudo apt purge -y libsgx-enclave-common libsgx-enclave-common-dev libsgx-urts sg
 
 ## Refs <a href="#refs" id="refs"></a>
 
-1. https://github.com/apache/incubator-teaclave-sgx-sdk/wiki/Environment-Setup
-2. https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install\_oe\_sdk-Ubuntu\_18.04.md
-3. https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly
-4. https://edp.fortanix.com/docs/installation/guide/
+1. [https://github.com/apache/incubator-teaclave-sgx-sdk/wiki/Environment-Setup](https://github.com/apache/incubator-teaclave-sgx-sdk/wiki/Environment-Setup)
+2. [https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install\_oe\_sdk-Ubuntu\_18.04.md](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install\_oe\_sdk-Ubuntu\_18.04.md)
+3. [https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly](https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly)
+4. [https://edp.fortanix.com/docs/installation/guide/](https://edp.fortanix.com/docs/installation/guide/)
 
 ### **Contributors**
 

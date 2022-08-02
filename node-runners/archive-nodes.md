@@ -1,10 +1,10 @@
 # Archive Nodes
 
-#### Archive all blockchain data. <a href="#archive-all-blockchain-data" id="archive-all-blockchain-data"></a>
+## Archive All Blockchain Data. <a href="#archive-all-blockchain-data" id="archive-all-blockchain-data"></a>
 
 An archive node keeps all the past blocks. An archive node makes it convenient to query the past state of the chain at any point in time. Finding out what an account's balance, stake size, etc at a certain block was, or which extrinsics resulted in a certain state change are fast operations when using an archive node. However, an archive node takes up a lot of disk space - nearly 1.2TB for `secret-4` as of May 31, 2022.
 
-#### Recommended Requirements <a href="#recommended-requirements" id="recommended-requirements"></a>
+### Recommended Requirements <a href="#recommended-requirements" id="recommended-requirements"></a>
 
 * 32GB RAM
 * 2TB NVMe SSD
@@ -17,19 +17,19 @@ Note that syncing from scratch/following these instructions takes several weeks.
 
 To setup your archive node you can follow the instructions below:
 
-### 1. Install `secretd` 1.2.2
+### Install `secretd` 1.2.2
 
 Download the secretd .deb
 
-```
+```bash
 wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.2/secretnetwork_v1.2.2_mainnet_amd64.deb
 # check the hash of the downloaded binary
 echo "1a51d3d9324979ef9a1f56023e458023488b4583bf4587abeed2d1f389aea947 secretnetwork_v1.2.2_mainnet_amd64.deb" | sha256sum --check
 ```
 
-Install \`secretd\`
+#### Install \`secretd\`
 
-```
+```bash
 sudo dpkg -i secretnetwork_v1.2.2_mainnet_amd64.deb
 
 # verify installation
@@ -37,11 +37,11 @@ secretd version
 # 1.2.2
 ```
 
-### 2. Setup SGX
+### Setup SGX
 
 Setup [SGX](node-setup/install-sgx.md). For more information on SGX, see instructions for [setup](https://docs.scrt.network/node-guides/setup-sgx.html) and [verification](https://docs.scrt.network/node-guides/verify-sgx.html). See [registration](https://docs.scrt.network/node-guides/registration.html) if you'd like a more comprehensive overview on what's happening in these steps.
 
-### 3. Setup the Node
+### Setup the Node
 
 Execute steps 2 through 8 of [Running a Full Node](node-setup/setup-full-node.md#\_4-download-a-copy-of-the-genesis-block-file-genesis-json).
 
@@ -49,38 +49,38 @@ Execute steps 2 through 8 of [Running a Full Node](node-setup/setup-full-node.md
 Do NOT begin syncing yet!
 {% endhint %}
 
-### 4. Set Pruning Parameter
+### &#x20;Set Pruning Parameter
 
-```
+```bash
 pruning="nothing"
 sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.secretd/config/app.toml
 ```
 
-### 5. Optimizations <a href="#_20-optimization" id="_20-optimization"></a>
+### Optimizations <a href="#_20-optimization" id="_20-optimization"></a>
 
 In order to be able to handle NFT minting and other Secret Contract-heavy operations, it's recommended to update your SGX memory enclave cache:
 
-```
+```bash
 sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclave-cache-size = \"15\"/" ~/.secretd/config/app.toml
 ```
 
-Also checkout[ this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.&#x20;
+Also check out[ this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine-tuning your machine for better uptime.&#x20;
 
-### 6. Begin Syncing
+### Begin Syncing
 
 Note that the `secret-node` system file is created in a previous step.
 
-```
+```bash
 sudo systemctl enable secret-node && sudo systemctl start secret-node
 ```
 
 If everything above worked correctly, the following command will show your node streaming blocks (this is for debugging purposes only, kill this command anytime with Ctrl-C).
 
-```
+```bash
 journalctl -f -u secret-node
 ```
 
-```
+```json
 -- Logs begin at Mon 2020-02-10 16:41:59 UTC. --
 Nov 09 11:16:31 scrt-node-01 secretd[619529]: 11:16AM INF indexed block height=12 module=txindex
 Nov 09 11:16:35 scrt-node-01 secretd[619529]: 11:16AM INF Ensure peers module=pex numDialing=0 numInPeers=0 numOutPeers=0 numToDial=10
@@ -98,7 +98,7 @@ Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF committed state app_ha
 
 You now have an Archive node running!
 
-### 7. Execute Shockwave Upgrade at Block 3,343,000
+### Execute Shockwave Upgrade at Block 3,343,000
 
 At block 3,343,000 the node will halt and must be upgraded. You can upgrade the node by following the [upgrade instructions](https://github.com/SecretFoundation/docs/blob/main/docs/shockwave-alpha-upgrade-secret-4.md).&#x20;
 
@@ -106,6 +106,6 @@ At block 3,343,000 the node will halt and must be upgraded. You can upgrade the 
 Ensure you restarted your node after executing the upgrade.
 {% endhint %}
 
-### 8. Continue Syncing
+### Continue Syncing
 
 At this point you should be on `secretd` version 1.3.1, and syncing to the current block.

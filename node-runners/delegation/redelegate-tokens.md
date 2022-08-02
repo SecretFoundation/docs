@@ -1,8 +1,8 @@
-# Redelegate tokens
+# Redelegate Tokens
 
 A redelegation is a type delegation that allows you to bond illiquid tokens from one validator to another:
 
-```
+```bash
 secretcli tx staking redelegate \
   <src-validator-operator-address> \
   <dst-validator-operator-address> \

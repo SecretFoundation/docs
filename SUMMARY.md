@@ -207,7 +207,7 @@
     * [Query Delegations](node-runners/delegation/query-delegations.md)
     * [Unbond Tokens](node-runners/delegation/unbond-tokens.md)
     * [Query Unbonding-Delegations](node-runners/delegation/query-unbonding-delegations.md)
-    * [Redelegate tokens](node-runners/delegation/redelegate-tokens.md)
+    * [Redelegate Tokens](node-runners/delegation/redelegate-tokens.md)
     * [Query Redelegations](node-runners/delegation/query-redelegations.md)
     * [Query Parameters](node-runners/delegation/query-parameters.md)
     * [Query Pool](node-runners/delegation/query-pool.md)

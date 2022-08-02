@@ -4,7 +4,7 @@
 
 In order to become an **active** validator, you must have more stake than the [bottom validator](https://www.mintscan.io/secret/validators). You may still execute the following steps, but you will not be active and therefore won't receive staking rewards.
 
-### **1.** [**Run a Full Node**](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)****
+### [**Run a Full Node**](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)****
 
 In order to become a validator, you node must be fully synced with the network. You can check this by doing:
 
@@ -28,9 +28,7 @@ When the value of `catching_up` is _false_, your node is fully sync'd with the n
   },
 ```
 
-****
-
-### **2. Confirm Wallet is Funded:**
+### **Confirm Wallet is Funded:**
 
 This is the `secret` wallet which you used **** to create your full node, and will use to delegate your funds to you own validator. You must delegate at least 1 SCRT (1000000uscrt) from this wallet to your validator.
 
@@ -44,11 +42,11 @@ If you get the following message, it means that you have no tokens, or your node
 ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx does not exist
 ```
 
-****
+### **Create Validator**
 
-### **3. Create Validator**
-
-(remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT).
+{% hint style="info" %}
+**R**emember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT
+{% endhint %}
 
 ```bash
 secretd tx staking create-validator \
@@ -64,9 +62,7 @@ secretd tx staking create-validator \
   --from=<key-alias>
 ```
 
-****
-
-### **4. Confirm Validator is Created**
+### **Confirm Validator is Created**
 
 You should see your moniker listed.
 
@@ -76,7 +72,7 @@ secretd q staking validators | grep moniker
 
 ## Important CLI Commands for Validators <a href="#dangers-in-running-a-validator" id="dangers-in-running-a-validator"></a>
 
-#### Staking more tokens <a href="#staking-more-tokens" id="staking-more-tokens"></a>
+### Staking More Tokens <a href="#staking-more-tokens" id="staking-more-tokens"></a>
 
 (remember 1 SCRT = 1,000,000 uSCRT)
 
@@ -86,7 +82,7 @@ In order to stake more tokens beyond those in the initial transaction, run:
 secretd tx staking delegate $(secretcli keys show <key-alias> --bech=val -a) <amount>uscrt --from <key-alias>
 ```
 
-#### Editing your Validator <a href="#editing-your-validator" id="editing-your-validator"></a>
+### Editing Your Validator <a href="#editing-your-validator" id="editing-your-validator"></a>
 
 ```
 secretd tx staking edit-validator \
@@ -99,35 +95,35 @@ secretd tx staking edit-validator \
   --commission-rate "0.10"
 ```
 
-#### Seeing your rewards from being a validator <a href="#seeing-your-rewards-from-being-a-validator" id="seeing-your-rewards-from-being-a-validator"></a>
+### Seeing Your Rewards From Being A Validator <a href="#seeing-your-rewards-from-being-a-validator" id="seeing-your-rewards-from-being-a-validator"></a>
 
 ```
 secretd q distribution rewards $(secretcli keys show -a <key-alias>)
 ```
 
-#### Seeing your commissions from your delegators <a href="#seeing-your-commissions-from-your-delegators" id="seeing-your-commissions-from-your-delegators"></a>
+### Seeing Your Commissions From Your Delegators <a href="#seeing-your-commissions-from-your-delegators" id="seeing-your-commissions-from-your-delegators"></a>
 
 ```
 secretd q distribution commission $(secretcli keys show -a <key-alias> --bech=val)
 ```
 
-#### Withdrawing rewards <a href="#withdrawing-rewards" id="withdrawing-rewards"></a>
+### Withdrawing Rewards <a href="#withdrawing-rewards" id="withdrawing-rewards"></a>
 
 ```
 secretd tx distribution withdraw-rewards $(secretcli keys show --bech=val -a <key-alias>) --from <key-alias>
 ```
 
-#### Withdrawing rewards+commissions <a href="#withdrawing-rewards-commissions" id="withdrawing-rewards-commissions"></a>
+### Withdrawing Rewards+Commissions <a href="#withdrawing-rewards-commissions" id="withdrawing-rewards-commissions"></a>
 
 ```
 secretd tx distribution withdraw-rewards $(secretcli keys show --bech=val -a <key-alias>) --from <key-alias> --commission
 ```
 
-#### Removing your validator <a href="#removing-your-validator" id="removing-your-validator"></a>
+### Removing Your Validator <a href="#removing-your-validator" id="removing-your-validator"></a>
 
 Currently deleting a validator is not possible. If you redelegate or unbond your self-delegations then your validator will become offline and all your delegators will start to unbond.
 
-#### Changing your validator's commission-rate <a href="#changing-your-validator-s-commission-rate" id="changing-your-validator-s-commission-rate"></a>
+### Changing Your Validator's Commission-Rate <a href="#changing-your-validator-s-commission-rate" id="changing-your-validator-s-commission-rate"></a>
 
 You are currently unable to modify the `--commission-max-rate` and `--commission-max-change-rate"` parameters.
 
@@ -137,9 +133,9 @@ Modifying the commision-rate can be done using this:
 secretd tx staking edit-validator --commission-rate="0.05" --from <key-alias>
 ```
 
-#### Slashing <a href="#slashing" id="slashing"></a>
+## Slashing <a href="#slashing" id="slashing"></a>
 
-**Unjailing**
+### **Unjailing**
 
 To unjail your jailed validator
 
@@ -147,7 +143,7 @@ To unjail your jailed validator
 secretd tx slashing unjail --from <key-alias>
 ```
 
-**Signing Info**
+## **Signing Info**
 
 To retrieve a validator's signing info:
 
@@ -155,15 +151,7 @@ To retrieve a validator's signing info:
 secretd q slashing signing-info <validator-conspub-key>
 ```
 
-**Query Parameters**
-
-You can get the current slashing parameters via:
-
-```
-secretd q slashing params
-```
-
-**Query Parameters**
+## **Query Parameters**
 
 You can get the current slashing parameters via:
 

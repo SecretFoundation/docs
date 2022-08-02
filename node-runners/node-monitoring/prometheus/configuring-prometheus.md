@@ -2,9 +2,11 @@
 
 Prior to using Prometheus, it needs basic configuring. Thus, we need to create a configuration file named `prometheus.yml`
 
-**Note:** The configuration file of Prometheus is written in [YAML](http://www.yaml.org/start.html) which strictly forbids to use tabs. If your file is incorrectly formatted, Prometheus will not start. Be careful when you edit it.
+{% hint style="info" %}
+The configuration file of Prometheus is written in [YAML](http://www.yaml.org/start.html) which strictly forbids to use tabs. If your file is incorrectly formatted, Prometheus will not start. Be careful when you edit it.
+{% endhint %}
 
-1. Open the file `prometheus.yml` in a text editor:
+Open the file `prometheus.yml` in a text editor:
 
 ```
 sudo nano /etc/prometheus/prometheus.yml
@@ -59,7 +61,7 @@ If you want to scrape data from a remote host, you have to replace `localhost` w
 
 **Tip:** For all information about the configuration of Prometheus, you may check the [configuration documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
-1. Set the ownership of the file to our `Prometheus` user:
+Set the ownership of the file to our `Prometheus` user:
 
 ```
 sudo chown prometheus:prometheus /etc/prometheus/prometheus.yml
@@ -67,7 +69,7 @@ sudo chown prometheus:prometheus /etc/prometheus/prometheus.yml
 
 Our Prometheus server is ready to run for the first time.
 
-### Running Prometheus <a href="#running-prometheus" id="running-prometheus"></a>
+## Running Prometheus <a href="#running-prometheus" id="running-prometheus"></a>
 
 1. Start Prometheus directly from the command line with the following command, which executes the binary file as our `Prometheus` user:
 
@@ -89,10 +91,13 @@ level=info ts=2018-04-12T11:56:53.103343144Z caller=main.go:588 msg="Loading con
 level=info ts=2018-04-12T11:56:53.104047346Z caller=main.go:491 msg="Server is ready to receive web requests."
 ```
 
-1.  Open your browser and type `http://IP.OF.YOUR.SERVER:9090` to access the Prometheus interface. If everything is working, we end the task by pressing on `CTRL + C` on our keyboard.
+Open your browser and type `http://IP.OF.YOUR.SERVER:9090` to access the Prometheus interface. If everything is working, we end the task by pressing on `CTRL + C` on our keyboard.
 
-    **Note:** If you get an error message when you start the server, double check your configuration file for possible YAML syntax errors. The error message will tell you what to check.
-2. The server is working now, but it cannot yet be launched automatically at boot. To achieve this, we have to create a new `systemd` configuration file that will tell your OS which services should it launch automatically during the boot process.
+{% hint style="info" %}
+If you get an error message when you start the server, double`-`check your configuration file for possible YAML syntax errors. The error message will tell you what to check.
+{% endhint %}
+
+The server is working now, but it cannot yet be launched automatically at boot. To achieve this, we have to create a new `systemd` configuration file that will tell your OS which services should it launch automatically during the boot process.
 
 ```
 sudo nano /etc/systemd/system/prometheus.service
@@ -100,7 +105,7 @@ sudo nano /etc/systemd/system/prometheus.service
 
 The service file tells `systemd` to run Prometheus as `prometheus` and specifies the path of the configuration files.
 
-1. Copy the following information in the file and save it, then exit the editor:
+Copy the following information in the file and save it, then exit the editor:
 
 ```
 [Unit]
@@ -123,7 +128,7 @@ ExecReload=/bin/kill -HUP $MAINPID
 WantedBy=multi-user.target
 ```
 
-1. To use the new service, reload `systemd`:
+To use the new service, reload `systemd`:
 
 ```
 sudo systemctl daemon-reload
@@ -135,7 +140,7 @@ We enable the service so that it will be loaded automatically during boot:
 sudo systemctl enable prometheus
 ```
 
-1. Start Prometheus:
+Start Prometheus:
 
 ```
 sudo systemctl start prometheus

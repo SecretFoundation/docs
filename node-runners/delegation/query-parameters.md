@@ -2,7 +2,7 @@
 
 Parameters define high level settings for staking. You can get the current values by using:
 
-```
+```bash
 secretcli q staking params
 ```
 
@@ -14,7 +14,7 @@ With the above command you will get the values for:
 
 Example:
 
-```
+```bash
 $ secretcli q staking params
 
 {
@@ -33,7 +33,3 @@ $ secretcli q staking params
 ```
 
 All these values will be subject to updates though a `governance` process by `ParameterChange` proposals.
-
-### [#](https://docs.scrt.network/node-guides/delegating-mainnet.html#query-pool) <a href="#query-pool" id="query-pool"></a>
-
-\
