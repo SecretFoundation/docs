@@ -1,4 +1,4 @@
-# Ledger Cosmos
+# Ledger Secret
 
 ## Using SCRT with Ledger
 
@@ -6,7 +6,7 @@ This guide is for Ledger Nano S, S+, and X.
 
 ### Introduction
 
-A Ledger device is a hardware wallet that is considered one of the most secure ways to store your digital assets. Ledger uses an offline, or "cold storage," method of generating private keys, making it a preferred method for many crypto users. This guide will help you to connect your Ledger device to the Secret Network's CLI and GUI wallets. The wallets enable you to send and receive SCRT as well as stake/delegate SCRT with the Ledger device.
+A Ledger device is a hardware wallet that is considered one of the most secure ways to store your digital assets. A Ledger device uses an offline, or "cold storage," method of generating private keys, making it a preferred method for many crypto users. This guide will help you to connect your Ledger device to the Secret Network's CLI and GUI wallets. The wallets enable you to send and receive SCRT as well as stake/delegate SCRT with the Ledger device.
 
 ### Prerequisites
 
@@ -14,7 +14,7 @@ A Ledger device is a hardware wallet that is considered one of the most secure w
 
 **2.** If you don't, or you using your Ledger device for the first time, you should check Ledger's [Getting Started](https://support.ledger.com/hc/en-us/articles/4404389503889-Getting-started-with-Ledger-Live?docs=true) guide.
 
-**3.** We also advise you to check your Ledger's genuineness and upgrade your firmware to the newest one available.
+**3.** We also advise you to check your Ledger device's genuineness and upgrade your firmware to the newest one available.
 
 **4.** Have a machine with [Ledger Live](https://www.ledger.com/ledger-live) installed.
 
@@ -33,7 +33,7 @@ A Ledger device is a hardware wallet that is considered one of the most secure w
 **3.** Hit "Install" and wait for the process to complete.
 
 {% hint style="info" %}
-Note: **To run the commands in Secret CLI or the GUI wallets below, or any command that requires signing with your Ledger device, you need your Ledger to be opened on the Secret App:**\
+Note: **To run the commands in Secret CLI or the GUI wallets below, or any command that requires signing with your Ledger device, you need your Ledger device to be opened on the Secret App:**\
 ![](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/SecretReady.png)
 {% endhint %}
 
@@ -41,7 +41,7 @@ Note: **To run the commands in Secret CLI or the GUI wallets below, or any comma
 
 * Prepare your Linux host to work with Ledger
 
-Some users may not have their Ledger recognized by their Linux host. To fix this issue implement the fix for connection issues on Linux from the [Ledger support page](https://support.ledger.com/hc/en-us/articles/115005165269-Connection-issues-with-Windows-or-Linux)
+Some users may not have their Ledger device recognized by their Linux host. To fix this issue implement the fix for connection issues on Linux from the [Ledger support page](https://support.ledger.com/hc/en-us/articles/115005165269-Connection-issues-with-Windows-or-Linux)
 
 ```bash
 wget -q -O - https://raw.githubusercontent.com/LedgerHQ/udev-rules/master/add_udev_rules.sh | sudo bash
@@ -69,7 +69,7 @@ The ping.pub GUI wallet provides basic capabilities for Secret such as creating 
 
 ![Account Coordination](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/PingPubWalletImport3.png)
 
-**4.** Lastly, check the displayed address in Ping.pub against the one displayed on your Ledger, before confirming it on your Ledger. Only then confirm with "Save" on the website.
+**4.** Lastly, check the displayed address in Ping.pub against the one displayed on your Ledger device, before confirming it on your Ledger device. Only then confirm with "Save" on the website.
 
 ![Save Account](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/PingPubWalletImport4.png)
 
@@ -87,7 +87,7 @@ The ping.pub GUI wallet provides basic capabilities for Secret such as creating 
 
 ![Wallet Address](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/PingPubAccountDetail.png)
 
-Copy the displayed account address in the Ping.pub wallet to receive SCRT. Please make sure that you verified your receiving address on the Ledger to prevent loss of funds.
+Copy the displayed account address in the Ping.pub wallet to receive SCRT. Please make sure that you verified your receiving address on the Ledger device to prevent loss of funds.
 
 #### Send SCRT
 
@@ -95,11 +95,11 @@ To send SCRT, display your account balance. By selecting "Transfer", a window wi
 
 ![Transfer Tokens](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/PingPubWalletTransfer.png)
 
-Lastly, hit "Send" to send the transaction to the Ledger. On your Ledger, verify the transaction details on the device display, before confirming and signing it.
+Lastly, hit "Send" to send the transaction to the Ledger device. On your Ledger device, verify the transaction details on the device display, before confirming and signing it.
 
 ### SecretCLI
 
-For a more advanced user, it is possible to interface with the CLI utility, SecretCLI with a Ledger device. You can get it [here](https://github.com/scrtlabs/SecretNetwork/releases/latest). These are some basic examples of commands you can use with your Ledger. You may notice that most commands stay the same, you just need to add the `--ledger` flag.
+For a more advanced user, it is possible to interface with the CLI utility, SecretCLI with a Ledger device. You can get it [here](https://github.com/scrtlabs/SecretNetwork/releases/latest). These are some basic examples of commands you can use with your Ledger device. You may notice that most commands stay the same, you just need to add the `--ledger` flag.
 
 #### Import an account
 
@@ -115,19 +115,19 @@ secretcli keys add <account name> --ledger --account <account number>
 secretcli keys show -a <account name>
 ```
 
-#### Add an account to `secretcli` that already exists on your Ledger
+#### Add an account to `secretcli` that already exists on your Ledger device
 
 _You'll use this when you, say, using a different machine._
 
 ```bash
-secretcli keys add <account name> --ledger --account <account number on your Ledger> --recover 
+secretcli keys add <account name> --ledger --account <account number on your Ledger device> --recover 
 ```
 
 {% hint style="danger" %}
-**Warning: if you run the above command without the `--ledger` flag, the CLI will prompt you to enter your BIP39 mnemonic, which is your Ledger recovery phrase. YOU DO NOT WANT TO DO THIS. This will essentially save your private key locally, which defeats the purpose of using a Ledger.**
+**Warning: if you run the above command without the `--ledger` flag, the CLI will prompt you to enter your BIP39 mnemonic, which is your Ledger device recovery phrase. YOU DO NOT WANT TO DO THIS. This will essentially save your private key locally, which defeats the purpose of using a Ledger device.**
 {% endhint %}
 
-_The commands below assume that you run them on the same machine where you have a Secret Network node running. If you wish to connect to a remote Secret Network node while you interact with your Ledger wallet locally, the following command will use SCRT Lab's public node:_
+_The commands below assume that you run them on the same machine where you have a Secret Network node running. If you wish to connect to a remote Secret Network node while you interact with your Ledger device locally, the following command will use SCRT Lab's public node:_
 
 ```bash
 secretd config node https://lcd-secret.scrtlabs.com:443/rpc
