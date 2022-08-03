@@ -2,7 +2,7 @@
 
 ## Configuration
 
-SCRT Labs regularly updates a [Secret Network API Registry](https://github.com/scrtlabs/api-registry) containing information required to configure the _secretcil._&#x20;
+SCRT Labs regularly updates a [Secret Network API Registry](https://github.com/scrtlabs/api-registry) containing information required to configure the _secretcli._&#x20;
 
 To check the status of a node use:&#x20;
 
