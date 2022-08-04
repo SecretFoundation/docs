@@ -42,10 +42,18 @@ If you get the following message, it means that you have no tokens, or your node
 ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx does not exist
 ```
 
+### **Backup Validator Key**
+
+Before **** creating your validator, [backup your validator key.](best-practices/validator-backup.md)&#x20;
+
+{% hint style="danger" %}
+WARNING: if you don't backup your key and your node goes down, you will lose your validator and have to start a new one.&#x20;
+{% endhint %}
+
 ### **Create Validator**
 
 {% hint style="info" %}
-**R**emember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT
+Remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT
 {% endhint %}
 
 ```bash
