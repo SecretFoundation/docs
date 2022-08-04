@@ -158,7 +158,6 @@
   * [Secret IDE](development/secret-ide.md)
   * [Testnet](development/testnet.md)
   * [SNIPs](development/snips.md)
-    * [Contributing](development/snips/contributing.md)
     * [SNIP-0](development/snips/snip-0.md)
     * [SNIP-1155: Private Multitokens](development/snips/snip-1155-private-multitokens.md)
     * [SNIP-20 Spec: Private, Fungible Tokens](development/snips/snip-20-spec-private-fungible-tokens.md)
