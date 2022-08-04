@@ -1,22 +1,24 @@
 # Getting Started
 
-This section has been created to allow anyone who isn't familiar with development on Secret Network to get a taste of the tools used during contract development. The goal is to provide an easy guide to follow, with step-by-step instructions. We will also be going over some of the unique characteristics of contracts on Secret Network, though we will keep things at a very high level.
+The "Getting Started" section is to help new community members start developing on Secret Network using standard tools for Secret Contract development. The goal is to provide an easy guide to follow with step-by-step instructions. We will also review some of the unique characteristics of contracts on Secret Network, though we will keep things at a very high level.
 
-We will be covering:
+Topics covered:
 
 * Setting up a development Environment
 * Compiling and Deploying a Secret Contract
 * Interacting with Contracts on the Secret Network
-* (optional) Basic breakdown of a Secret Contract
+* Breakdown of a Secret Contract (optional)
 
-What we **won't** be covering:
+What **won't** be covered:
 
-* In-depth guide to developing Secret Contracts
+* An in-depth guide to developing Secret Contracts
 * Secret Network architecture
-* How to create a web UI for your Secret Contract
+* How to create a web UI for Secret Contracts
 
-Though this guide is Secret Network specific, most of what is being covered can be applied to other Cosmos-based blockchains as well.
+Most of the topics covered focus directly on Secret Network but are also relevant to other cosmos-based blockchains.&#x20;
 
+{% hint style="info" %}
 If at any point you have any trouble understanding or following along, [join us on discord](https://chat.scrt.network) to get help from the community!
+{% endhint %}
 
-If you have any suggestions, improvements or corrections for this tutorial [let us know on GitHub](https://github.com/SecretFoundation/docs/issues)!
+If you have suggestions, improvements, or corrections, [let us know on GitHub](https://github.com/SecretFoundation/docs/issues)!

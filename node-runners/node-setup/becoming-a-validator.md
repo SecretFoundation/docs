@@ -44,7 +44,7 @@ ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx do
 
 ### **Backup Validator Key**
 
-Before **** creating your validator, [backup your validator key.](best-practices/validator-backup.md)&#x20;
+Before **** creating your validator, [backup your validator key.](../validator-backup.md)&#x20;
 
 {% hint style="danger" %}
 WARNING: if you don't backup your key and your node goes down, you will lose your validator and have to start a new one.&#x20;
