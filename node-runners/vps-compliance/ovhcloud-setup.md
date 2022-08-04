@@ -22,11 +22,11 @@ OVHCloud servers can come with either an ASUS or Asrock motherboard. The Asus mo
 
 3\. Navigate to the IPMI tab. This will be used to disable overclocking and other necessary settings.
 
-![IPMI Console Selection](../../.gitbook/assets/image.png)
+![IPMI Console Selection](<../../.gitbook/assets/image (5).png>)
 
 4\. Enable Remote KVM
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 5\. Create a DEL hotkey
 
@@ -36,7 +36,7 @@ OVHCloud servers can come with either an ASUS or Asrock motherboard. The Asus mo
 
 7\. Disable Intel Speedstep Technology
 
-![Intel SpeedStep](<../../.gitbook/assets/image (1).png>)
+![Intel SpeedStep](<../../.gitbook/assets/image (1) (1).png>)
 
 8\. Under Chipset Configuration:
 
