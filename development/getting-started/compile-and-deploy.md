@@ -87,7 +87,7 @@ Now, we can request funds to the wallet, so it has enough currency to send trans
 
 Visit [https://faucet.secrettestnet.io/](https://faucet.secrettestnet.io/) and paste your wallet address to receive testnet tokens
 
-
+Finally, we can deploy our contract -
 
 ```
 secretcli tx compute store ./contract.wasm --gas 5000000 --from <name> --chain-id pulsar-2
