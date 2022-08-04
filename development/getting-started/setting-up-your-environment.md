@@ -180,7 +180,7 @@ The installation methods differ based on the processor architecture. This is bec
 {% tab title="x86 (Intel/AMD)" %}
 ```bash
 docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
-  --name localsecret ghcr.io/scrtlabs/localsecret
+  --name localsecret ghcr.io/scrtlabs/localsecret:v1.4.0-cw-v1-beta.2
 ```
 
 You'll need to configure SecretCLI to work with LocalSecret

@@ -270,7 +270,7 @@ pub fn try_reset(
 }
 ```
 
-At this point I don't even have to explain to you what's going on here. We'll just note that the `Response` object in this case returns something called an _attribute._ An _attribute_ is a key-value pair that gets returned after a successful message that can help summarizing what happened. _Attributes_ can even be indexed, queries and used as event triggers via WebSocket.
+At this point I don't even have to explain to you what's going on here. We'll just note that the `Response` object in this case returns something called an _attribute._ An _attribute_ is a key-value pair that gets returned after a successful message that can help summarizing what happened. _Attributes_ can even be indexed, queried and used as event triggers via WebSocket.
 
 Now we have all the pieces in place. All that remains to be done is to look at how the result is queried by the user.   &#x20;
 
@@ -289,7 +289,7 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<QueryResponse> {
 
 At a glance, we see the same basic structure that we've seen in the _Execute_ entry point. We can also guess that `msg` and the `QueryMsg` data type are functionally similar to the `ExecuteMsg` type we've seen earlier. By now you'll know where this data type is defined, so you can go take a look at the definition and verify this assumption.
 
-Looking a bit deeper, the `to_binary` method sticks out as odd. We haven't seen this in our executes or the instantiate function. The reason for this is that queries are returned as binary data. Executes and the instantiate function return complex objects that are saved to the blockchain state, queries are simple and only need to return the specific data the user cares about.
+Looking a bit deeper, the `to_binary` method sticks out as odd. We haven't seen this in our executes or the instantiate function. The reason for this is that queries are returned as binary data. Executes and the instantiate function return complex objects that are saved to the blockchain state, whereas queries are simple and only need to return the specific data the user cares about.
 
 The last piece of the puzzle is the **`query_who_is_richer`** function
 
@@ -321,7 +321,7 @@ fn query_who_is_richer(deps: Deps) -> StdResult<RicherResponse> {
 
 ```
 
-Logically, this super simple. Read the state, check which player has the most money, and return the result.
+Logically, this is super simple. Read the state, check which player has the most money, and return the result.
 
 {% hint style="info" %}
 **Do you even Rust?** The astute reader will remember that _player_ in this context is actually a complex data structure. How is it possible to call _max(player1, player2)_ or to check if _player1 == player2_? It turns out you can actually implement the logic for equality and ordering yourself for structs. Head over to **state.rs** to see an example of that in action
