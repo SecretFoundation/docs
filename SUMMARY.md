@@ -54,6 +54,7 @@
     * [CCR and CCBL](ecosystem-overview/funding/ccr-and-ccbl.md)
     * [Shade Grants](ecosystem-overview/funding/shade-grants.md)
     * [SNAC](ecosystem-overview/funding/snac.md)
+    * [Documentation Bounties](ecosystem-overview/funding/documentation-bounties.md)
   * [Contributors & Entities](ecosystem-overview/contributors-and-entities/README.md)
     * [Core Contributors & Entities](ecosystem-overview/contributors-and-entities/core/README.md)
       * [SCRT Labs](ecosystem-overview/contributors-and-entities/core/secret-labs.md)
