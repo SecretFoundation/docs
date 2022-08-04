@@ -18,15 +18,16 @@ All cost estimates are based on the following recommendations as of September 20
 Just because a VPS is cheaper it does not make it better.&#x20;
 {% endhint %}
 
-| VPS Provider                                                                                                                                                    | Cost/month | Setup Instructions               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------------------------------- |
-| ****[**Microsoft Azure**](https://azure.microsoft.com/en-us/solutions/confidential-compute/#overview)****                                                       | TBD        | [Here](microsoft-azure-setup.md) |
-| ****[**Psychz**](https://www.psychz.net/dashboard/client/web/order/dedicated-server?processor=\&processorBaseFreq=\&numberOfCpu=7391\&cpuCores=\&location=)**** | 144        | [Here](psychz-setup.md)          |
-| ****[**nForce**](https://www.nforce.com/customserver)****                                                                                                       | 95         | [Here](nforce-setup.md)          |
-| ****[**Leaseweb**](https://www.leaseweb.com/dedicated-servers/build-your-own)****                                                                               | 89         | [Here](leaseweb-setup.md)        |
-| ****[**Vultr**](https://www.vultr.com/products/bare-metal/)****                                                                                                 | 185        | [Here](vultr-setup.md)           |
-| ****[**PhoenixNap**](https://admin.phoenixnap.com/wap-pncpadmin-shell/orderForm?bmbPath=/order-management/order-form?currencyCode=usd)****                      | 210        | [Here](phoenixnap-setup.md)      |
-| ****[**OVHCloud**](https://www.ovhcloud.com/en/bare-metal/rise/rise-3/)****                                                                                     | 144        | [Here](ovhcloud-setup.md)        |
+| VPS Provider                                                                                                                                                    | Cost/month        | Setup Instructions               |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------------- |
+| ****[**Microsoft Azure**](https://azure.microsoft.com/en-us/solutions/confidential-compute/#overview)****                                                       | TBD               | [Here](microsoft-azure-setup.md) |
+| ****[**Psychz**](https://www.psychz.net/dashboard/client/web/order/dedicated-server?processor=\&processorBaseFreq=\&numberOfCpu=7391\&cpuCores=\&location=)**** | 144               | [Here](psychz-setup.md)          |
+| ****[**nForce**](https://www.nforce.com/customserver)****                                                                                                       | 95                | [Here](nforce-setup.md)          |
+| ****[**Leaseweb**](https://www.leaseweb.com/dedicated-servers/build-your-own)****                                                                               | 89                | [Here](leaseweb-setup.md)        |
+| ****[**Vultr**](https://www.vultr.com/products/bare-metal/)****                                                                                                 | 185               | [Here](vultr-setup.md)           |
+| ****[**PhoenixNap**](https://admin.phoenixnap.com/wap-pncpadmin-shell/orderForm?bmbPath=/order-management/order-form?currencyCode=usd)****                      | 210               | [Here](phoenixnap-setup.md)      |
+| ****[**OVHCloud**](https://www.ovhcloud.com/en/bare-metal/rise/rise-3/)****                                                                                     | 144               | [Here](ovhcloud-setup.md)        |
+| Hetzner                                                                                                                                                         | \*NOT SUPPORTED\* |                                  |
 
 ## **Contributors**
 
