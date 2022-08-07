@@ -8,7 +8,7 @@ In this section we will be sketching out the roadmap as it pertains to the Secre
 
 The next update for Secret Network will bring an updated version of the Secret Contract library to CosmWasm V1.0. This will bring IBC smart contract compatibility and Interchain accounts to Secret Network, enabling the cross-chain privacy hub vision. The upgrade will be tested in phases with the first test being a local testnet planned for early July and deployment to the main testnet a few weeks later. The CosmWasm V1 upgrade is expected to launch in august.
 
-> Learn more about this upcoming update from this Agents of the Roundtable podcast with Addaf and Lior from SCRT Labs.
+> Learn more about this upcoming update from this Agents of the Roundtable podcast with Assaf and Lior from SCRT Labs.
 
 {% embed url="https://www.youtube.com/watch?t=14s&v=9tyVMu5c4JY" %}
 

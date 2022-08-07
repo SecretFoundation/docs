@@ -8,7 +8,7 @@ Guy Zyskind publishes the first two papers about secure and private decentralize
 
 #### **September 2017**
 
-Enigma does an ICO and raises $45m to buil**d** the decentralized privacy solution proposed in 2015.
+Enigma does an ICO and raises $45m to build the decentralized privacy solution proposed in 2015.
 
 **January 2020**
 
