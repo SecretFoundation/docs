@@ -111,8 +111,6 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
   * Privacy preserving liquid staking solution for Secret Network.
 * [Secret Invoice](https://secretinvoice.com/)
   * Request payments via invoices, and pay for ivoices sent to you
-* [Duplex Finance](https://duplex.finance/)&#x20;
-  * Two-fold cross-chain strategy for gaining yield on stablecoins
 * [Secret Auctions](https://auctions.scrt.network/)&#x20;
   * Sealed-bid auctions and OTC market
 * [Blackbox](https://blackbox.cash/)
@@ -150,15 +148,13 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
   * A decentralized user-side encrypted Communication platform with e-mail, (group) messaging and video calls + in-game communication coming soon.
 * [Whisprs](https://whisprs.co/)&#x20;
   * Decentralized, cross-chain, private Messaging, by core-dev [Cashmaney](https://twitter.com/Cashmaney3/)
-* [Secret Garden](https://scrtgarden.com/)
-  * Secret Token and Secret NFT generator, manager, and explorer by [Secret Garden](https://github.com/ScrtGarden)
 * :soon: [JACKAL](https://jackaldao.com/)
   * A completely decentralized hot storage solution on-chain with user side encrypted storage. Jackal runs a separate infrastructure layer of incentivized nodes which leverage IPFS for quick P2P file gathering.
   * [Try the Beta now](https://mobile.twitter.com/SecretNetwork/status/1549470268006989824?cxt=HHwWgICwqfq\_6YArAAAA)!
 * [Secret time capsule](https://secrettimecapsule.net/)
   * a blockain-based dApp to send cache of information and/or SCRT coins to the future
-* [Whispr](https://whisprs.co/)
-  * A small application that lets you send private messages to any Secret Network wallet address
+* :soon: [DataVault](https://mobile.twitter.com/data\_vault\_)
+  * A data marketplace and paywall application for any online content built leveraging Secret Network for encrypted escrow contracts
 
 ## Games
 
@@ -166,7 +162,7 @@ Notable games built on the network include:
 
 * :soon: _**Orbem Wars**_ by [Domerium Labs](https://twitter.com/DomeriumLabs) ([Blog](https://medium.com/@domeriumlabs)),&#x20;
   * A P2E tower defense game with four game modes, including single-player, multi-player, and PvP. Its combat and NFT-based economy are balanced to continuously challenge players to rethink their setups.
-* [Secret Dreamscape](https://secretdreamscape.com/) by [Secret Dreamscape](https://twitter.com/SCRTDreamscape) ([Blog](https://blog.secretdreamscape.com/posts/introducing-secret-dreamscape/))
+* [Secret Dreamscape](https://secretdreamscape.com/) by Digiline ([Blog](https://blog.secretdreamscape.com/posts/introducing-secret-dreamscape/))
   * &#x20;A social multiplayer game that's like a mashup of poker and scrabble. The cards are rich with fantastical images that take the player somewhere between a dream and reality. Players can bring their personal deck of NFT cards and their played words to the cards as they play for chances to win from the community prize pool.
 * :soon: [Onenet (Bushi)](https://twitter.com/launchonenet)
   * Gaming platform building an on chain FPS (first person shooter) called Bushi
