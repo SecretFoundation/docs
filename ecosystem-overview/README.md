@@ -356,6 +356,9 @@ Tools for interacting with the secret network and for writing Secret Contracts
   * &#x20;Industrial strength components and workflows for smart contract development in Rust by [hack.bg](https://hack.bg/)
 * [Panic](https://github.com/mohammedpatla/panic\_cosmos)&#x20;
   * Monitor a validator on the Secret Network with an active telegram bot, email or phone call through Twilio
+* [Secret Contract code verifier](https://github.com/digiline-io/secret-contract-verifier)
+  * Tool to verify the WASM public binary of any contract against its source code. Make sure live contracts do what the Git repo says they do.
+* [Token vesting contract](https://github.com/digiline-io/secret-token-vesting)
 
 ## Reference Contracts
 
