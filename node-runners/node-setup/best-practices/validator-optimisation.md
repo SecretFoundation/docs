@@ -1,9 +1,5 @@
 # Validator Optimisation
 
-Put the content from here and explain it better: [https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa)
-
-Original Content:
-
 ## Super-Secret Tuning Tips For Secret Networks
 
 I'll make a few assumptions here mostly that the reader can find the settings in the .toml files without help; validating on secret isn't exactly a good "my-first-validator" choice.
