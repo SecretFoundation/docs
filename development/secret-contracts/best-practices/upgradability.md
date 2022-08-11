@@ -4,7 +4,7 @@ description: Allowing your contract to be swapped out smoothly
 
 # Upgradability
 
-In some cases you may want to write a new updated smart contract. This can be for multiple reasons, such as fixing bugs or adding new features. However, because you cannot just change the code of a contract already uploaded on the chain, the upgrade process becomes significantly more complex than web2 and there are many things you will need to consider.
+In some cases, you may want to write a new updated smart contract. This can be for multiple reasons, such as fixing bugs or adding new features. However, because you cannot just change the code of a contract already uploaded on the chain, the upgrade process becomes significantly more complex than web2 and there are many things you will need to consider.
 
 #### Block size limitations
 
@@ -12,7 +12,7 @@ Due to the expense of sending large amounts of data, it would be unreasonable or
 
 #### Decentralization and security
 
-If a single admin call a function that would transfer over all user data to a new contract, in many cases that would also mean they could simply read the data themselves by transferring it to a contract they have total read access to. To prevent this risk to user privacy, it is wise to only give your users permission to transfer over their own data. Using the example of a token contract once again, allow only the users permission to transfer their token balance to the upgraded token contract. Otherwise there is a risk of an admin reading their balance without their permission.
+If a single admin calls a function that would transfer over all user data to a new contract, in many cases that would also mean they could simply read the data themselves by transferring it to a contract they have total read access to. To prevent this risk to user privacy, it is wise to only give your users permission to transfer over their own data. Using the example of a token contract once again, allow only the users permission to transfer their token balance to the upgraded token contract. Otherwise there is a risk of an admin reading their balance without their permission.
 
 #### Data removal
 

@@ -4,7 +4,7 @@ The Millionaire's problem (or [**Yao's Millionaires' problem**](https://en.wikip
 
 In this example, we will solve a complex problem with little effort using the power of private smart contracts on Secret Network.
 
-We will assume you completed the previous steps and at this point have a copy of the Millionaire's problem code repository. If you did not complete setting up your environment, now would be a good time to do so.
+We will assume you completed the previous steps and at this point have a copy of the Millionaire's problem code repository. If you did not complete [setting up your environment](setting-up-your-environment.md), now would be a good time to do so.
 
 ### Clone the Repository (manual or Secret IDE only)
 
@@ -66,12 +66,6 @@ Now that we have a working contract, we can upload it to the blockchain and see 
 ```
 secretcli tx compute store ./contract.wasm --gas 5000000 --from a -y
 ```
-
-{% hint style="info" %}
-**--from a** refers to which account (or wallet) is sending the transaction. To see a list of the available wallets, you can use the command `secretcli keys list`
-
-**--gas 5000000** refers to the cost of the transaction we are sending. Gas is the unit of cost which we measure how expensive a transaction is. &#x20;
-{% endhint %}
 {% endtab %}
 
 {% tab title="Secret IDE" %}
@@ -138,6 +132,12 @@ secretcli tx compute store ./contract.wasm --gas 5000000 --from <name>
 ```
 {% endtab %}
 {% endtabs %}
+
+{% hint style="info" %}
+**--from a** refers to which account (or wallet) is sending the transaction. To see a list of the available wallets, you can use the command `secretcli keys list`
+
+**--gas 5000000** refers to the cost of the transaction we are sending. Gas is the unit of cost which we measure how expensive a transaction is. &#x20;
+{% endhint %}
 
 To verify whether storing the code has been successful, we can use SecretCLI to query the chain
 

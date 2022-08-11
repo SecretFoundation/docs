@@ -1,4 +1,4 @@
-# Testnet
+# Using the Testnet
 
 ## **Introduction**
 
@@ -17,14 +17,11 @@ Once you have saved your mnemonic phrase you can connect to the **pulsar-2** cha
 * Go to [https://connect.pulsar.scrttestnet.com](https://connect.pulsar.scrttestnet.com) and click on the Keplr button
 * Click “**approve**” once the Keplr window pops up to add the chain config
 
-![
-](<../.gitbook/assets/add\_keplr (1).png>)
+![](<../.gitbook/assets/add\_keplr (1).png>)
 
 And again to connect the website, and allow it to view your balances etc
 
 ![](../.gitbook/assets/connect\_keplr.png)
-
-
 
 * Now you should be able to see the Secret Testnet network on Keplr wallet by selecting it from the drop down menu. (verify that your Secret mainnet and testnet addresses coincide and start with “secret”)
 
@@ -99,7 +96,7 @@ Alternatively you can directly interact with their testnet secret contracts. Bel
 
 With Keplr you’ll need to approve a connection request for each protocol that you want to connect to. You can easily manage active website connections under “**Manage Connections**” in the Keplr settings.
 
-_**Note:** If you’re using `secretcli` view a full list of commands for_ [_Secret Contracts here_](secret-cli/secret-contracts.md)_._
+_**Note:** If you’re using `secretcli` view a full list of commands for_ [_Secret Contracts here_](tools-and-libraries/secret-cli/secret-contracts.md)_._
 
 ## Viewing Testnet Transactions
 

@@ -243,7 +243,7 @@ Notable games built on the network include:
   * **Support for usage from any Secret dApp**
   * Convert between SCRT and sSCRT ([in web app](https://wallet.keplr.app/#/secret/secret-secret))
   * Web app + Browser extension + Mobile wallet
-* [Ledger ](../development/secret-cli/ledger.md)
+* [Ledger ](../development/tools-and-libraries/secret-cli/ledger.md)
   * Guide to using Ledger hardware wallet with Secret Network
 * [Cosmostation](https://www.cosmostation.io/)
   * Mobile wallet with support for SCRT

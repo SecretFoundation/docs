@@ -1,4 +1,4 @@
-# API Endpoints
+# Connecting to the Network
 
 ## Secret Network Community API Endpoints
 
@@ -19,6 +19,10 @@
   * [LCD](https://github.com/scrtlabs/api-registry#lcd)
   * [Seeds](https://github.com/scrtlabs/api-registry#seeds)
   * [Peers](https://github.com/scrtlabs/api-registry#peers)
+
+{% hint style="info" %}
+**Are we missing your endpoint or tool?** Submit a Pull Request at [https://github.com/scrtlabs/api-registry](https://github.com/scrtlabs/api-registry)
+{% endhint %}
 
 ## Secret-4 Mainnet
 

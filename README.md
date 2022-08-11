@@ -5,7 +5,7 @@ coverY: 0
 
 # Introduction
 
-Secret Network offers scalable permissionless smart contracts with a private by default design— bringing novel use cases to blockchain not feasible on public systems. Secret Network enables users to take back ownership over their private (financial) information and for them to share this information with whom they trust. Secret Network was the first protocol to provide private smart contracts on mainnet, live since September 2020. Secret Network is Built with the Cosmos Software Development Kit (SDK) bringing Interoperable privacy to the entire Cosmos ecosystem. Secret Network uses a combination of the Intel SGX (Software Guard Extension) Trusted Execution Environment technology, several encryption schemes and key management to bring privacy by default to blockchain users. Secret Contracts are an implementation of the Rust based smart contract compiling toolkit CosmWasm, adding private metadata possibilities. Secret Network is powered by the Native public coin SCRT which is used for fees, Proof Of Stake security and Governance. With more than 20+ Dapps, 100+ full time builders and a strong grassroots community Secret Network aims to bring privacy to the masses.
+Secret Network offers scalable permission-less smart contracts with a private by default design— bringing novel use cases to blockchain not feasible on public systems. Secret Network enables users to take back ownership over their private (financial) information and for them to share this information with whom they trust. Secret Network was the first protocol to provide private smart contracts on mainnet, live since September 2020. Secret Network is Built with the Cosmos Software Development Kit (SDK) bringing Interoperable privacy to the entire Cosmos ecosystem. Secret Network uses a combination of the Intel SGX (Software Guard Extension) Trusted Execution Environment technology, several encryption schemes and key management to bring privacy by default to blockchain users. Secret Contracts are an implementation of the Rust based smart contract compiling toolkit CosmWasm, adding private metadata possibilities. Secret Network is powered by the Native public coin SCRT which is used for fees, Proof-of-Stake security and Governance. With more than 20+ Dapps, 100+ full time builders and a strong grassroots community Secret Network aims to bring privacy to the masses.
 
 **Overview**
 
@@ -15,16 +15,16 @@ In this documentation we will go over the basics behind the Secret Network techn
   * [History](secret-network-overview/history.md)
   * [Why privacy for blockchain](secret-network-overview/privacy-for-blockchain.md)
   * [Secret Network use cases](secret-network-overview/use-cases/)
-  * [The blockchain components behind Secret Network](development/secret-contracts/core-components/)
+  * [The blockchain components behind Secret Network](broken-reference)
   * [How Secret Network achieves computational privacy](secret-network-overview/privacy-technology/)
 * [Ecosystem Overview](ecosystem-overview/)
   * [Funding](ecosystem-overview/funding/)
   * [Community contributors & team](ecosystem-overview/contributors-and-entities/)
 * [Development](development/)
   * [Testnet](development/testnet.md)
-  * [Secret Contracts](development/secret-cli/secret-contracts.md)
-  * [Useful Libraries](development/useful-libraries.md)
-  * [SecretCLI](development/secret-cli/)
+  * [Secret Contracts](development/tools-and-libraries/secret-cli/secret-contracts.md)
+  * [Useful Libraries](broken-reference)
+  * [SecretCLI](development/tools-and-libraries/secret-cli/)
 * [Validators/Node Runners](node-runners/)
   * [Node setup](node-runners/node-setup/)
   * [Monitoring](node-runners/node-monitoring/)

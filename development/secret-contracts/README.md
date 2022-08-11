@@ -7,10 +7,6 @@ description: Overview of Secret Contracts
 There are a number of important things to know about Secret Contracts. This section of documentation will cover:&#x20;
 
 * Core Components
-  * Contract.rs
-  * State.rs
-  * Lib.rs
-  * Msg.rs
 * Init&#x20;
 * Handles
 * Queries&#x20;
