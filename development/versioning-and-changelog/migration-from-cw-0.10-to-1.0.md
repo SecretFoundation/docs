@@ -5,7 +5,7 @@
 ### Address API Changes
 
 * `HumanAddr` has been deprecated in favour of simply `String`. It never added any significant safety bonus over `String` and was just a marker type. The new type `Addr` was created to hold validated addresses. Those can be created via `Addr::unchecked`, `Api::addr_validate`, `Api::addr_humanize` and JSON deserialization. In order to maintain type safety, deserialization into `Addr` must only be done from trusted sources like a contract's state or a query response. User inputs must be deserialized into `String`.
-* `deps.api.human_address(&CanonicalAddr)` => `deps.api.addr_humanize(&str)`
+* `deps.api.human_address(&CanonicalAddr)` => `deps.api.addr_humanize(&CanonicalAddr)`
 * `deps.api.canonical_address(&HumanAddr)` => `deps.api.addr_canonicalize(&str)`
 
 ### Extern Method Interface Changes
