@@ -233,6 +233,7 @@
     * [Query Delegations To Validator](node-runners/delegation/query-delegations-to-validator.md)
   * [Sentry Nodes](node-runners/sentry-nodes.md)
   * [Migrating a Validator](node-runners/migrating-a-validator.md)
+  * [Mantlemint](node-runners/mantlemint.md)
   * [Archive Nodes](node-runners/archive-nodes.md)
   * [IBC Relayers](node-runners/ibc-relayers.md)
   * [Testnet](node-runners/testnet/README.md)
