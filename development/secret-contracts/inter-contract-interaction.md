@@ -63,3 +63,7 @@ Ok(InitResponse {
     messages,
     log: vec![],
 })</code></pre>
+
+{% hint style="info" %}
+This snippet is from [SecretJack ](https://github.com/scrtlabs/SecretJack/blob/5ed8efb89cbb4ec35cd6254deff5f05f71b5e9d0/contract/game/src/contract.rs#L55)- a Proof-of-Concept on-chain Blackjack game
+{% endhint %}
