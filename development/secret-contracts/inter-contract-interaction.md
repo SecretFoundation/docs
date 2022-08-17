@@ -39,3 +39,27 @@ Lastly, if you are developing using SecretJS (or any other sdk) you can programm
 ```
 const contractCodeHash = await secretjs.query.compute.codeHash(codeId);
 ```
+
+## Calling a Contract
+
+Having said all that, calling a contract from another contract is not too different from what you would expect from a CosmWasm contract. The following is an example of calling a contract when you don't care about getting a response (or you are using manual callbacks, and not sub-messages):
+
+<pre class="language-rust"><code class="lang-rust"><strong>// initialize an empty vector
+</strong><strong>let mut messages = vec![];
+</strong>
+// push the new contract execute message
+messages.extend(vec![CosmosMsg::Wasm(WasmMsg::Execute {
+    contract_addr: msg.bank_address,
+    // note this is where we include the target contract's code hash
+    callback_code_hash: msg.bank_code_hash,
+    // optional data to pass to the target contract
+    msg: to_binary(&#x26;bank_msg::HandleMsg::UpdateGameAddress {
+        address: env.contract.address.clone(),
+    })?,
+    send: vec![],
+})]);
+ 
+Ok(InitResponse {
+    messages,
+    log: vec![],
+})</code></pre>
