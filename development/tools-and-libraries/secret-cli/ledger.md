@@ -51,6 +51,43 @@ wget -q -O - https://raw.githubusercontent.com/LedgerHQ/udev-rules/master/add_ud
 
 You will need at least MacOS 10.14 Mojave, which introduced the Security feature of allowing Full Disk Access, which Ledger Live needs in order to enable the `--ledger` flag in `secretcli`. Refer to the MacOS section in the [Ledger support page](https://support.ledger.com/hc/en-us/articles/115005165269-Connection-issues-with-Windows-or-Linux).
 
+
+### SecretNodes GUI Wallet
+
+The SecretNodes GUI Wallet provides basic capabilities for Secret such as staking and transferring SCRT tokens. Visit the SecretNodes GUI Wallet site for Secret [here](secretnodes.com). You do not need to import an account for the usage. 
+
+
+#### Display your account / Receive SCRT
+
+**1.** To display your account, first head to the SSCRT page [here](https://secretnodes.com/secret/accounts/secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek) and press "Send"
+
+![SecretNodes Address Screen](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/SecretNodesAddress.png)
+
+**2.** Next, select "Manual Ledger" as the Wallet Type
+
+![Select Wallet Type](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/SecretNodesWalletType.png)
+
+**3.** Then select "Secret" as the Wallet App
+
+![Select Wallet App](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/SecretNodesWalletApp.png)
+
+**4.** Now you can see your "Account balance" on the top left of the window.
+
+![Account prompt](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/SecretNodesReceiveAccount.png)
+
+Lastly, copy the displayed account address ("From Address") in the SecretNodes wallet to receive SCRT. 
+
+#### Send SCRT
+
+Head to the display your account again.
+
+![Send SCRT](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/SecretNodesSendSCRT.png)
+
+From there, insert the Account you want to send the funds to ("To address") and the amount you want to send ("Amount to Send").
+
+Hit "Send" to send the transaction to the Ledger device. On your Ledger device, verify the transaction details on the device display, before confirming and signing it.
+
+
 ### Ping.pub GUI wallet
 
 The ping.pub GUI wallet provides basic capabilities for Secret such as creating an account, staking and transferring SCRT tokens. Visit the ping.pub site for Secret [here](https://ping.pub/secret).
