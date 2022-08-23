@@ -54,7 +54,7 @@ You will need at least MacOS 10.14 Mojave, which introduced the Security feature
 
 ### SecretNodes GUI Wallet
 
-The SecretNodes GUI Wallet provides basic capabilities for Secret such as staking and transferring SCRT tokens. Visit the SecretNodes GUI Wallet site for Secret [here](secretnodes.com). You do not need to import an account for the usage. 
+The SecretNodes GUI Wallet provides basic capabilities for Secret such as staking and transferring SCRT tokens. Visit the SecretNodes GUI Wallet site for Secret [here](https://secretnodes.com). You do not need to import an account for the usage. 
 
 
 #### Display your account / Receive SCRT
