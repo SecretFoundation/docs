@@ -55,6 +55,7 @@ This is not an exhaustive list of supported motherboards. These are simply mothe
 | HP         | `HP DL20 G10`        |                                |                                                                                                 |
 | ASUS       | `ASUS RS100-E10-PI2` | BIOS version 4003              | [link](https://servers.asus.com/products/Servers/Rack-Servers/RS100-E10-PI2)                    |
 | Asrock     | `E3C246D4U2-2T`      |                                | [link](https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications) |
+| GIGABYTE   | MX33-BS1-V1          | BIOS version F06               | [link](https://www.gigabyte.com/Enterprise/Server-Motherboard/MX33-BS0-rev-1x)                  |
 
 ### **Contributors**
 
