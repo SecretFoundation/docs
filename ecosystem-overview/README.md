@@ -202,6 +202,7 @@ Notable games built on the network include:
 
 * [Faucet](https://faucet.secrettestnet.io/)&#x20;
   * Run by validator [Chain of Secrets](https://chainofsecrets.org/)
+* [Faucet backup](https://faucet.pulsar.scrttestnet.com)
 * [Secretnodes](https://secretnodes.com/secret/chains/pulsar-2)&#x20;
   * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
 * [Documentation](../node-runners/testnet/)
