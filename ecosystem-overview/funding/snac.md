@@ -22,3 +22,23 @@ There is an official process for [applying for SNACS on the Secret Network forum
 3. The Secret Foundation acts as an escrow to release funds.
 4. SNAC funding is released based on the delivery of milestones or a timeline (depends on the nature of each SNAC)
 5. Costs for hiring freelancers/contracts can be paid upfront.&#x20;
+
+## SNAC Template&#x20;
+
+When submitting a SNAC proposal, please include:
+
+• Descriptive Title
+
+• Project Leader & Team Members
+
+• Executive Summary (5 sentences or less)
+
+• Strategic Goals (i.e. Describe how this will benefit the network)
+
+• KPIs or measures of success
+
+• Timeline for implementation & completion
+
+• Details on implementation, such as approach, structure, or methods
+
+• Required resources, including funds, assistance, time, and a funding schedule based on time, milestones or KPIs

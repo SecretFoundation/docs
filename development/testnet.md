@@ -17,7 +17,7 @@ Once you have saved your mnemonic phrase you can connect to the **pulsar-2** cha
 * Go to [https://connect.pulsar.scrttestnet.com](https://connect.pulsar.scrttestnet.com) and click on the Keplr button
 * Click “**approve**” once the Keplr window pops up to add the chain config
 
-![](../.gitbook/assets/add\_keplr.png)
+![](<../.gitbook/assets/add\_keplr (1).png>)
 
 And again to connect the website, and allow it to view your balances etc
 
@@ -37,7 +37,7 @@ Remember that all tokens on the Secret Testnet have **no real value** as they’
 
 * Go to [https://faucet.secrettestnet.io](https://faucet.secrettestnet.io)
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
-  ![](<../.gitbook/assets/testnetguide\_3 (1).png>)
+  ![](../.gitbook/assets/testnetguide\_3.png)
 
 In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can use the [backup faucet](https://faucet.pulsar.scrttestnet.com), or let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
 
@@ -67,9 +67,9 @@ On top of that 100 SCRT, the faucet sends you a basket of Secret Tokens that you
 * Open your Keplr extension and click on the hamburger menu on the top left
 * Select “**Add Token**”
 * Paste the address and click “**Submit**” and approve the transaction (you can set high fees as it’s paid in test SCRT)\
-  ![](<../.gitbook/assets/testnetguide\_4 (1).png>)
+  ![](../.gitbook/assets/testnetguide\_4.png)
 * You should now be able to see the Secret Token balance on your Keplr extension under the section “**Tokens**”\
-  ![](<../.gitbook/assets/testnetguide\_5 (1).png>)
+  ![](../.gitbook/assets/testnetguide\_5.png)
 
 ## **Interact With Dapps**
 
