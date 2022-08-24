@@ -10,7 +10,7 @@
 * [Pulsar-2 Testnet](https://github.com/scrtlabs/api-registry#pulsar-2-testnet)
   * [Binaries](https://github.com/scrtlabs/api-registry#binaries-1)
   * [Explorers](https://github.com/scrtlabs/api-registry#explorers-1)
-  * [Faucets](api-endpoints.md#faucet)
+  * [Faucets](https://github.com/scrtlabs/api-registry#faucets)
   * [API Endpoints](https://github.com/scrtlabs/api-registry#api-endpoints-1)
   * [Peer Nodes](https://github.com/scrtlabs/api-registry#peer-nodes)
 * [Usage Examples](https://github.com/scrtlabs/api-registry#usage-examples)
