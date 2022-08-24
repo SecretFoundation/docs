@@ -39,7 +39,7 @@ Remember that all tokens on the Secret Testnet have **no real value** as they’
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
   ![](<../.gitbook/assets/testnetguide\_3 (1).png>)
 
-In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
+In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can use the [backup faucet](https://faucet.pulsar.scrttestnet.com), or let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
 
 ## **Set Up SecretCLI**
 

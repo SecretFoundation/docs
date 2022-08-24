@@ -10,7 +10,7 @@
 * [Pulsar-2 Testnet](https://github.com/scrtlabs/api-registry#pulsar-2-testnet)
   * [Binaries](https://github.com/scrtlabs/api-registry#binaries-1)
   * [Explorers](https://github.com/scrtlabs/api-registry#explorers-1)
-  * [Faucet](https://github.com/scrtlabs/api-registry#faucet)
+  * [Faucets](api-endpoints.md#faucet)
   * [API Endpoints](https://github.com/scrtlabs/api-registry#api-endpoints-1)
   * [Peer Nodes](https://github.com/scrtlabs/api-registry#peer-nodes)
 * [Usage Examples](https://github.com/scrtlabs/api-registry#usage-examples)
@@ -70,10 +70,12 @@ The API endpoints are offered to the community for free, please be mindful and d
 ### Explorers
 
 * [https://secretnodes.com/secret/chains/pulsar-2](https://secretnodes.com/secret/chains/pulsar-2)
+* [https://testnet.ping.pub/secret](https://testnet.ping.pub/secret)
 
-### Faucet
+### Faucets
 
 * [https://faucet.secrettestnet.io](https://faucet.secrettestnet.io/)
+* [https://faucet.pulsar.scrttestnet.com](https://faucet.pulsar.scrttestnet.com/)
 
 ### API Endpoints
 

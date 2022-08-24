@@ -352,7 +352,7 @@ Before deploying the contract make sure it's configured to point to an existing 
 Set the `chain-id` to `pulsar-2`. Below there is also a config setting to point to the `test` keyring backend which allows interaction with the testnet and the contract without providing an account password each time.
 
 ```bash
-secretcli config node https://rpc.pulsar.griptapejs.com:443
+secretcli config node https://rpc.pulsar.scrttestnet.com
 
 secretcli config chain-id pulsar-2
 
