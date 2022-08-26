@@ -144,7 +144,7 @@ TODO: Add \`secretcli-Windows.exe\` to the PATH
 {% endtab %}
 
 {% tab title="MacOS (Intel)" %}
-Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-MacOS-arm64)
+Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-macOS)
 
 Set the file name to `secretcli` and set it as executable
 
@@ -155,7 +155,7 @@ chmod 755 secretcli
 {% endtab %}
 
 {% tab title="MacOS (M1)" %}
-Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-macOS)
+Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-MacOS-arm64)
 
 Set the file name to `secretcli` and set it as executable
 
@@ -186,7 +186,7 @@ docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
 You'll need to configure SecretCLI to work with LocalSecret
 
 ```bash
-secertcli config node http://localhost:26657
+secretcli config node http://localhost:26657
 secretcli config chain-id secretdev-1
 secretcli config keyring-backend test
 secretcli config output json
@@ -205,7 +205,7 @@ To connect, prepend the port number with the Gitpod URL. e.g., if my workspace i
 To set up SecretCLI to connect to this environment, use the following commands
 
 ```bash
-secertcli config node https://26657-<your-gitpod-workspace>.gitpod.io
+secretcli config node https://26657-<your-gitpod-workspace>.gitpod.io
 secretcli config chain-id secret-testnet-1
 secretcli config keyring-backend test
 secretcli config output json
