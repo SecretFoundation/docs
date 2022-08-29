@@ -264,6 +264,9 @@ Notable games built on the network include:
   * Send SCRT to other Twitter users with a tweet
   * Send SCRT to other Telegram users with a command
   * Buy and sell SCRT from/to other users of Sputnik
+* [Fina](https://fina.cash/)&#x20;
+  * First mobile wallet with Secret dApp integration
+  * Available on Android and iOS
 
 
 
