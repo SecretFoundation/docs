@@ -201,7 +201,6 @@
     * [Best Practices](node-runners/node-setup/best-practices/README.md)
       * [Validator Backup](node-runners/validator-backup.md)
       * [Security](node-runners/security.md)
-      * [Validator Optimisation](node-runners/node-setup/best-practices/validator-optimisation.md)
   * [Node Monitoring](node-runners/node-monitoring/README.md)
     * [Prometheus](node-runners/node-monitoring/prometheus/README.md)
       * [Environment Preperation](node-runners/node-monitoring/prometheus/environment-preperation.md)
