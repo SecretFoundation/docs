@@ -51,10 +51,9 @@ echo $BLOCK_HEIGHT $TRUST_HASH
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://135.148.123.8:26657,http://135.148.123.8:11657,http://51.81.185.224:10657\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://135.148.123.8:26657,http://135.148.123.8:11657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
-s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.toml
+s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml
 ```
 
 ### Reset Database And Stop Node
@@ -66,7 +65,7 @@ This will erase your node database. If you are already running validator, be sur
 It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after `unsafe-reset-all` to avoid potential double signing.
 
 ```bash
-sudo systemctl stop secret-node && secretd tendermint unsafe-reset-all --home ~/.secretd/
+sudo systemctl stop secret-node && secretd tendermint unsafe-reset-all --home ~/.secretd/ --keep-addr-book
 ```
 
 ### Restart Node And Check Logs
