@@ -1,22 +1,22 @@
-# Shockwave Alpa
+# Shockwave Alpah
 
 ## Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions <a href="#secret-network-v1-3-shockwave-alpha-network-upgrade-instructions" id="secret-network-v1-3-shockwave-alpha-network-upgrade-instructions"></a>
 
 ### [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#important-notes)⚠️ IMPORTANT NOTES ⚠️ <a href="#important-notes" id="important-notes"></a>
 
-* All coordination efforts will be done in the "SN Validators" Telegram group.
-* Make sure to [backup your validator](https://docs.scrt.network/backup/backup-a-validator.html) before making any chnages.
-* Please read carefully before you begin the upgrade.
+- All coordination efforts will be done in the "SN Validators" Telegram group.
+- Make sure to [backup your validator](https://docs.scrt.network/backup/backup-a-validator.html) before making any chnages.
+- Please read carefully before you begin the upgrade.
 
 ### [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#table-of-contents)Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#secret-network-v13-shockwave-alpha-network-upgrade-instructions)
-  * [⚠️ IMPORTANT NOTES ⚠️](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#warning-important-notes-warning)
-  * [Table of Contents](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#table-of-contents)
-* [Upgrading Manually](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#upgrading-manually)
-* [Upgrading Automatically Using Cosmovisor](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#upgrading-automatically-using-cosmovisor)
-* [Details of Upgrade Time](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#details-of-upgrade-time)
-* [In Case of an Upgrade Failure](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#in-case-of-an-upgrade-failure)
+- [Secret Network v1.3 "Shockwave Alpha" Network Upgrade Instructions](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#secret-network-v13-shockwave-alpha-network-upgrade-instructions)
+  - [⚠️ IMPORTANT NOTES ⚠️](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#warning-important-notes-warning)
+  - [Table of Contents](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#table-of-contents)
+- [Upgrading Manually](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#upgrading-manually)
+- [Upgrading Automatically Using Cosmovisor](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#upgrading-automatically-using-cosmovisor)
+- [Details of Upgrade Time](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#details-of-upgrade-time)
+- [In Case of an Upgrade Failure](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#in-case-of-an-upgrade-failure)
 
 ## [#](https://docs.scrt.network/shockwave-alpha-upgrade-secret-4.html#upgrading-manually)Upgrading Manually <a href="#upgrading-manually" id="upgrading-manually"></a>
 
