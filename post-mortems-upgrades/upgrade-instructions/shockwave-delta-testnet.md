@@ -44,7 +44,7 @@ Cosmovisor is a new process manager for cosmos blockchains. It can make low-down
 
 ⚠️ Cosmovisor is still new and best practices for using it are not yet established. If you don't feel adventurous at this time, we recommend [upgrading the manual way](#upgrading-manually).
 
-For instructions on how to setup Cosmovisor, go [here](https://docs.scrt.network/cosmovisor.html).
+For instructions on how to setup Cosmovisor, go [here](/validators/migration/cosmovisor.md).
 
 ## Details of Upgrade Time <a href="#details-of-upgrade-time" id="details-of-upgrade-time"></a>
 

@@ -2,15 +2,7 @@
 
 ## Setting up a node using Cosmovisor <a href="#setting-up-a-node-using-cosmovisor" id="setting-up-a-node-using-cosmovisor"></a>
 
-* [Setting up a node using Cosmovisor](https://docs.scrt.network/cosmovisor.html#setting-up-a-node-using-cosmovisor)
-* [Install Cosmovisor](https://docs.scrt.network/cosmovisor.html#install-cosmovisor)
-* [Set up a new v1.2 node](https://docs.scrt.network/cosmovisor.html#set-up-a-new-v12-node)
-* [Migrate a running v1.2 node](https://docs.scrt.network/cosmovisor.html#migrate-a-running-v12-node)
-* [Prepare a v1.3 node upgrade (Shockwave Alpha)](https://docs.scrt.network/cosmovisor.html#prepare-a-v13-node-upgrade-shockwave-alpha)
-
 Cosmovisor is a new process manager for cosmos blockchains. It can make low-downtime upgrades smoother, as validators don't have to manually upgrade binaries during the upgrade, and instead can pre-install new binaries, and Cosmovisor will automatically update them based on on-chain SoftwareUpgrade proposals.
-
-You should review the docs for Cosmovisor located here: [https://docs.cosmos.network/master/run-node/cosmovisor.html](https://docs.cosmos.network/master/run-node/cosmovisor.html)
 
 ## [#](https://docs.scrt.network/cosmovisor.html#install-cosmovisor)Install Cosmovisor <a href="#install-cosmovisor" id="install-cosmovisor"></a>
 
