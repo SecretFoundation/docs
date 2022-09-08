@@ -22,15 +22,15 @@ sudo systemctl stop secret-node
 # Get & verify secretd v1.4
 
 ## goleveldb
-# wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0-beta.4/secretnetwork_1.4.0-beta.4_testnet_goleveldb_amd64.deb"
-# echo "bee2d1e45d98dd3e3475b78435d4c12d4283fcbbab5b7441a07117454515429a secretnetwork_1.4.0-beta.4_testnet_goleveldb_amd64.deb" | sha256sum --check
+# wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0-beta.5/secretnetwork_1.4.0-beta.5_testnet_goleveldb_amd64.deb"
+# echo "TODO secretnetwork_1.4.0-beta.5_testnet_goleveldb_amd64.deb" | sha256sum --check
 
 ## rocksdb
-# wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0-beta.4/secretnetwork_1.4.0-beta.4_testnet_rocksdb_amd64.deb"
-# echo "18f1ee69af50e810785137ba39ee54b4456d741cf71fc9dd4d29acd7b9f6c2ad secretnetwork_1.4.0-beta.4_testnet_rocksdb_amd64.deb" | sha256sum --check
+# wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0-beta.5/secretnetwork_1.4.0-beta.5_testnet_rocksdb_amd64.deb"
+# echo "TODO secretnetwork_1.4.0-beta.5_testnet_rocksdb_amd64.deb" | sha256sum --check
 
 # Install v1.4 binaries
-sudo apt install -y ./secretnetwork_1.4.0-beta.4_testnet_*_amd64.deb
+sudo apt install -y ./secretnetwork_1.4.0-beta.5_testnet_*_amd64.deb
 
 # Restart the node
 sudo systemctl restart secret-node
