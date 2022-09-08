@@ -4,11 +4,11 @@
 
 ## Upgrading Manually <a href="#upgrading-manually" id="upgrading-manually"></a>
 
-When the network reaches the halt height TODO, you'll see this message in your node's log (`journalctl -fu secret-node`):
+When the network reaches the halt height 4,665,050, you'll see this message in your node's log (`journalctl -fu secret-node`):
 
 ```bash
-1:25PM ERR UPGRADE "v1.4" NEEDED at height: TODO:
-1:25PM ERR CONSENSUS FAILURE!!! err="UPGRADE \"v1.4\" NEEDED at height: TODO
+1:25PM ERR UPGRADE "v1.4" NEEDED at height: 4,665,050:
+1:25PM ERR CONSENSUS FAILURE!!! err="UPGRADE \"v1.4\" NEEDED at height: 4,665,050
 ```
 
 Then, the upgrade steps for v1.4 are:
@@ -23,11 +23,11 @@ sudo systemctl stop secret-node
 
 ## goleveldb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0-beta.5/secretnetwork_1.4.0-beta.5_testnet_goleveldb_amd64.deb"
-# echo "TODO secretnetwork_1.4.0-beta.5_testnet_goleveldb_amd64.deb" | sha256sum --check
+# echo "21ec06dc2d80790efd1cfb7ae1346a5d1cf7e549adb5bdb92028b6ffbf2209ce secretnetwork_1.4.0-beta.5_testnet_goleveldb_amd64.deb" | sha256sum --check
 
 ## rocksdb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0-beta.5/secretnetwork_1.4.0-beta.5_testnet_rocksdb_amd64.deb"
-# echo "TODO secretnetwork_1.4.0-beta.5_testnet_rocksdb_amd64.deb" | sha256sum --check
+# echo "03ffd2199a0d0a87ac5b554d5e3c497e0eda4251cce93ad382f9d6455fe4dc4e secretnetwork_1.4.0-beta.5_testnet_rocksdb_amd64.deb" | sha256sum --check
 
 # Install v1.4 binaries
 sudo apt install -y ./secretnetwork_1.4.0-beta.5_testnet_*_amd64.deb
@@ -36,7 +36,7 @@ sudo apt install -y ./secretnetwork_1.4.0-beta.5_testnet_*_amd64.deb
 sudo systemctl restart secret-node
 ```
 
-After restarting the node with v1.4, you should see `INF applying upgrade "v1.4" at height: TODO` in the logs (`journalctl -fu secret-node`). Once 67% of voting power comes online, you'll see blocks executing again.
+After restarting the node with v1.4, you should see `INF applying upgrade "v1.4" at height: 4665050` in the logs (`journalctl -fu secret-node`). Once 67% of voting power comes online, you'll see blocks executing again.
 
 ## Upgrading Automatically Using Cosmovisor <a href="#upgrading-automatically-using-cosmovisor" id="upgrading-automatically-using-cosmovisor"></a>
 
@@ -48,9 +48,9 @@ For instructions on how to setup Cosmovisor, go [here](/validators/migration/cos
 
 ## Details of Upgrade Time <a href="#details-of-upgrade-time" id="details-of-upgrade-time"></a>
 
-When the network reaches the halt height TODO, the Secret Network blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.4 binary (be it manually or automatically).
+When the network reaches the halt height 4,665,050, the Secret Network blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.4 binary (be it manually or automatically).
 
-The proposal targets the upgrade proposal block to be TODO, anticipated to be on Thursday Septmber 8, 2022 at 2:00PM UTC.
+The proposal targets the upgrade proposal block to be 4,665,050, anticipated to be on Thursday Septmber 8, 2022 at 2:00PM UTC.
 
 The upgrade is anticipated to take approx 30 minutes, during which time, there will not be any on-chain activity on the network.
 
