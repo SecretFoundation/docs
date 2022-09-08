@@ -15,6 +15,8 @@ Then, the upgrade steps for v1.4 are:
 
 ⚠️ Note: uncomment the right binary based on the database type on the node that you're upgrading: `rocksdb` vs. `goleveldb`.
 
+⚠️ Note: if you have modified your unit file you will need to re-apply those changes post installation and pre service restart.
+
 ```bash
 # Stop the v1.3 node, to make sure that your process manager isn't trying to restart it while you upgrade
 sudo systemctl stop secret-node
@@ -31,6 +33,8 @@ sudo systemctl stop secret-node
 
 # Install v1.4 binaries
 sudo apt install -y ./secretnetwork_1.4.0-beta.5_testnet_*_amd64.deb
+
+# re-apply any unit file customizations
 
 # Restart the node
 sudo systemctl restart secret-node
