@@ -32,7 +32,7 @@ snapshot-keep-recent = 5
 ### Assign And Verify Variables
 
 ```bash
-SNAP_RPC="http://135.148.123.8:26657"
+SNAP_RPC="https://rpc.cosmos.directory:443/secretnetwork"
 ```
 
 Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
@@ -51,7 +51,7 @@ echo $BLOCK_HEIGHT $TRUST_HASH
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://135.148.123.8:26657,http://135.148.123.8:11657\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"https://rpc.cosmos.directory:443/secretnetwork,https://rpc.cosmos.directory:443/secretnetwork\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml
 ```
