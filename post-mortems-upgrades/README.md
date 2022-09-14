@@ -6,6 +6,7 @@ This section of documentation is for keeping a record of Secret Network updates,
   - [Changelog ](changelog.md)
 - [Upgrade Instructions](upgrade-instructions/)
   - [Shockwave Alpha](upgrade-instructions/shockwave-alpha.md)&#x20;
+  - [Shockwave Delta](upgrade-instructions/shockwave-delta.md)&#x20;
   - [Shockwave Delta (Testnet)](upgrade-instructions/shockwave-delta-testnet.md)&#x20;
   - [Cosmovisor](upgrade-instructions/cosmovisor.md)&#x20;
   - [Vulcan Network Upgrade (OLD)](upgrade-instructions/vulcan-network-upgrade-old.md)

@@ -58,7 +58,7 @@ sudo systemctl stop secret-node
 
 The validator should start missing blocks at this point. This is the desired behavior!
 
-### Migrate priv\_validator\_key.json <a href="#_7-move-the-validator-s-private-key-from-the-old-machine-to-the-new-machine" id="_7-move-the-validator-s-private-key-from-the-old-machine-to-the-new-machine"></a>
+### Migrate priv_validator_key.json <a href="#_7-move-the-validator-s-private-key-from-the-old-machine-to-the-new-machine" id="_7-move-the-validator-s-private-key-from-the-old-machine-to-the-new-machine"></a>
 
 On the validator node, the file is `~/.secretd/config/priv_validator_key.json`.
 

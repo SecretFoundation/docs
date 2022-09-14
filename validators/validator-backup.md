@@ -17,21 +17,22 @@ To backup everything you need to restore your validator, simply do the following
 If you are using the software sign (which is the default signing method of tendermint), your Tendermint Key is located in `~/.secretd/config/priv_validator_key.json`.
 
 1. Backup `~/.secretd/config/priv_validator_key.json`.
-2. Backup the self-delegator wallet. See the [wallet section](https://docs.scrt.network/backup/backup/wallets).
+1. Backup `~/.secretd/data/priv_validator_state.json`.
+1. Backup the self-delegator wallet. See the [wallet section](https://docs.scrt.network/backup/backup/wallets).
 
 The easiest way is to backup the whole config folder.
 
-Also see [Backup a Validator](https://docs.scrt.network/backup/backup/backup-a-validator.html) and [Migrate a Validator](https://docs.scrt.network/backup/node-guides/migrate-a-validator.html).
+Also see [Backup a Validator](../node-runners/validator-backup.md) and [Migrate a Validator](../node-runners/migrating-a-validator.md).
 
 To see the associated public key:
 
-```
+```bash
 secretd tendermint show-validator
 ```
 
-To see the associated bech32 address:
+To see the associated consensus address:
 
-```
+```bash
 secretd tendermint show-address
 ```
 
