@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/sn-logo (1).png
+cover: .gitbook/assets/testheader.png
 coverY: 0
 ---
 
