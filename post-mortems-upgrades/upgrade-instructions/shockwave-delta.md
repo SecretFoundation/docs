@@ -21,13 +21,16 @@ Then, the upgrade steps for v1.4 are:
 
 ⚠️ Note: if you have modified your unit file you will need to re-apply those changes post installation and pre service restart.
 
-⚠️ Note: uncomment the right binary based on the database type you're using: `rocksdb` vs `goleveldb`. To check what database type you're currently using: `awk -F \" '/^db_backend =/{print $2}' ~/.secretd/config/config.toml`.
-
 ```bash
 # Stop the v1.3 node, to make sure that your process manager isn't trying to restart it while you upgrade
 sudo systemctl stop secret-node
 
 # Get & verify secretd v1.4
+
+# Check what database type you're currently using:
+awk -F \" '/^db_backend =/{print $2}' ~/.secretd/config/config.toml
+
+# Uncomment the right binary based on the database type you're using: `rocksdb` vs `goleveldb`
 
 ## goleveldb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0/secretnetwork_1.4.0_mainnet_goleveldb_amd64.deb"
