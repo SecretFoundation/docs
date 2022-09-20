@@ -31,11 +31,11 @@ sudo systemctl stop secret-node
 
 ## goleveldb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0/secretnetwork_1.4.0_mainnet_goleveldb_amd64.deb"
-# echo "TODO secretnetwork_1.4.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
+# echo "f96ec8e04d6c7ad919d307435045c2bf538965d7786236a4ca7655f63caee77a secretnetwork_1.4.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
 
 ## rocksdb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0/secretnetwork_1.4.0_mainnet_rocksdb_amd64.deb"
-# echo "TODO secretnetwork_1.4.0_mainnet_rocksdb_amd64.deb" | sha256sum --check
+# echo "42d203d1eec2d4d0720d3a9d206888bd7c1385c589fcc21a11514c95fcdbc169 secretnetwork_1.4.0_mainnet_rocksdb_amd64.deb" | sha256sum --check
 
 # Install v1.4 binaries
 sudo apt install -y ./secretnetwork_1.4.0_mainnet_*_amd64.deb
