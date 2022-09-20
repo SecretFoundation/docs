@@ -30,7 +30,7 @@ sudo systemctl stop secret-node
 # Check what database type you're currently using:
 awk -F \" '/^db_backend =/{print $2}' ~/.secretd/config/config.toml
 
-# Uncomment the right binary based on the database type you're using: `rocksdb` vs `goleveldb`
+# Uncomment the right binary based on the database type: `rocksdb` vs `goleveldb`
 
 ## goleveldb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.4.0/secretnetwork_1.4.0_mainnet_goleveldb_amd64.deb"
