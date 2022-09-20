@@ -58,9 +58,9 @@ For instructions on how to setup Cosmovisor, go [here](/validators/migration/cos
 
 ## Details of Upgrade Time <a href="#details-of-upgrade-time" id="details-of-upgrade-time"></a>
 
-When the network reaches the halt height 5309200, the Secret Network testnet blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.4 binary (be it manually or automatically).
+When the network reaches the halt height 5,309,200, the Secret Network testnet blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.4 binary (be it manually or automatically).
 
-The proposal targets the upgrade proposal block to be 5309200, anticipated to be on Wednsday Septmber 21, 2022 at 2:00PM UTC.
+The proposal targets the upgrade proposal block to be 5,309,200, anticipated to be on Wednsday Septmber 21, 2022 at 2:00PM UTC.
 
 The upgrade is anticipated to take approx 30 minutes, during which time, there will not be any on-chain activity on the network.
 
