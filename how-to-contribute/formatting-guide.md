@@ -47,13 +47,38 @@ Contractions are made when letters are intentionally omitted from the middle of 
 Acronyms are made from the initial letter of a sequence of words and should be written with a single string of upper-case letters.&#x20;
 
 * Software Guard Extensions --> SGX
-* Central processing units --> CPUs
+* Central Processing Units --> CPUs
 * Software Development Kit --> SDK
 * Trusted Execution Environment --> TEE
 
 ## Capitalization&#x20;
 
+In general, capital letters should **not** be used unless absolutely required.&#x20;
+
+### Specific words
+
+### Titles
+
 ## Numbers
+
+Whole numbers should be written/spelled out between one to ten, and figures should be used for numbers above 10. For example, the number five should be spelled out and the number 55 should be number symbols.&#x20;
+
+* [x] There are five new Secret Agents.&#x20;
+* [x] Ten Secret Agents have started today's tasks.&#x20;
+* [x] Secret Agents can earn 55 SCRT for today's tasks. &#x20;
+* [x] There were 100 Secret Agents who completed today's tasks.&#x20;
+
+For large round numbers, a combination of figures and words can be used with abbreviations.&#x20;
+
+* [x] There are 1 billion privacy violations every day.&#x20;
+* [x] There are 1bn privacy violations every day.&#x20;
+* [x] The Secret Agent budget is $1 million.&#x20;
+* [x] The Secret Agent budget is $1m.&#x20;
+
+Words like first, second, and so on up to tenth should be spelled out. Any numbers above the tenth should use st/nd/rd/th.&#x20;
+
+* [x] The first to fourth Secret Agents to complete the task today will earn 10 extra SCRT.&#x20;
+* [x] The 11th to 23rd Secret Agents to complete the task today will earn 5 extra SCRT.&#x20;
 
 ## Punctuation&#x20;
 
