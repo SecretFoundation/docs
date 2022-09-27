@@ -18,7 +18,7 @@ If you chose this environment, you may skip ahead to [Compile and Deploy](compil
 
 ### JetBrains Dev Environment (Secret IDE)
 
-The amazing folks at Digiline created a prebuilt containerized environment containing an IDE (IntelliJ IDEA) that contains everything you need to get started. If you're comfortable with JetBrains IDEs, this may be a good choice for you.&#x20;
+The amazing folks at [Digiline](https://www.digiline.io) created a prebuilt containerized environment containing an IDE (IntelliJ IDEA) that contains everything you need to get started. If you're comfortable with JetBrains IDEs, this may be a good choice for you.&#x20;
 
 To complement Secret IDE, we will set up another docker container with LocalSecret, where we will deploy our contracts to test and play around with.&#x20;
 
