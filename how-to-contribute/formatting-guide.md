@@ -2,7 +2,7 @@
 
 ## Introduction&#x20;
 
-The Secret Network Style Guide aims to provide guidance related to writing and formatting contributions of the Secret Network community. The Style Guide serves to contribute to the creation of consistent technical communication across all Secret Network documentation.&#x20;
+The Secret Network style guide aims to provide guidance related to the writing and formatting of contributions to the network's documentation by any stakeholder. The style guide serves to contribute to the creation of consistent technical communication across all Secret Network documentation.&#x20;
 
 ### Objectives
 
@@ -17,6 +17,39 @@ There are three primary objectives of the Style Guide:&#x20;
 The guide does not describe exactly how to write. It aims to help community members write correctly, and encourage consistency across all parts of the Secret Network documentation.&#x20;
 
 ## Abbreviations, contractions, and acronyms
+
+### General Rule
+
+Full stops and spaces between letters should not be used after all abbreviations, contractions, and acronyms.&#x20;
+
+### Abbreviations
+
+Abbreviations are made when letters are intentionally omitted from the end of words.&#x20;
+
+* Decentralized applications --> Dapps
+* Ethereum --> ETH
+* Address --> Addy
+* Multi-signature --> Multi-sig
+* Market capitalization --> MCAP
+* Lamborghini --> Lambo
+
+### Contractions
+
+Contractions are made when letters are intentionally omitted from the middle of words.&#x20;
+
+* Transaction -> Tx
+* Unspent transaction --> UTXO
+* Wrecked --> Rekt
+* [Satoshis](https://www.investopedia.com/terms/s/satoshi.asp) --> Sats
+
+### Acronyms
+
+Acronyms are made from the initial letter of a sequence of words and should be written with a single string of upper-case letters.&#x20;
+
+* Software Guard Extensions --> SGX
+* Central processing units --> CPUs
+* Software Development Kit --> SDK
+* Trusted Execution Environment --> TEE
 
 ## Capitalization&#x20;
 
