@@ -18,7 +18,7 @@ The guide does not describe exactly how to write. It aims to help community memb
 
 ## Abbreviations, contractions, and acronyms
 
-### General Rule
+### General rule
 
 Full stops and spaces between letters should not be used after all abbreviations, contractions, and acronyms.&#x20;
 
@@ -27,10 +27,10 @@ Full stops and spaces between letters should not be used after all abbreviations
 Abbreviations are made when letters are intentionally omitted from the end of words.&#x20;
 
 * Decentralized applications --> Dapps
-* Ethereum --> ETH
+* Ethereum --> Eth
 * Address --> Addy
 * Multi-signature --> Multi-sig
-* Market capitalization --> MCAP
+* Market capitalization --> Mcap
 * Lamborghini --> Lambo
 
 ### Contractions
@@ -38,7 +38,7 @@ Abbreviations are made when letters are intentionally omitted from the end of wo
 Contractions are made when letters are intentionally omitted from the middle of words.&#x20;
 
 * Transaction -> Tx
-* Unspent transaction --> UTXO
+* Unspent transaction --> Utxo
 * Wrecked --> Rekt
 * [Satoshis](https://www.investopedia.com/terms/s/satoshi.asp) --> Sats
 
