@@ -100,7 +100,7 @@ You now have an Archive node running!
 
 ### Execute Shockwave Upgrade at Block 3,343,000
 
-At block 3,343,000 the node will halt and must be upgraded. You can upgrade the node by following the [upgrade instructions](https://github.com/SecretFoundation/docs/blob/main/docs/shockwave-alpha-upgrade-secret-4.md).&#x20;
+At block **3,343,000** the node will halt and must be upgraded. You can upgrade the node by following the [upgrade instructions](https://github.com/SecretFoundation/docs/blob/main/docs/shockwave-alpha-upgrade-secret-4.md).&#x20;
 
 {% hint style="info" %}
 Ensure you restarted your node after executing the upgrade.
@@ -109,3 +109,11 @@ Ensure you restarted your node after executing the upgrade.
 ### Continue Syncing
 
 At this point you should be on `secretd` version 1.3.1, and syncing to the current block.
+
+### Execute Shockwave Delta Upgrade at Block **5,309,200**
+
+At block **5,309,200** the node will halt and must be upgraded. You can upgrade the node by following the [upgrade instructions](https://docs.scrt.network/secret-network-documentation/post-mortems-upgrades/upgrade-instructions/shockwave-delta).&#x20;
+
+### Continue Syncing
+
+At this point you should be on `secretd` version 1.4.0, and syncing to the current block.
