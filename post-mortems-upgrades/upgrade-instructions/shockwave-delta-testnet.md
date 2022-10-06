@@ -13,7 +13,7 @@ When the network reaches the halt height 4,711,950, you'll see this message in y
 
 Then, the upgrade steps for v1.4 are:
 
-⚠️ Note: if you have modified your unit file you will need to re-apply those changes post installation and pre service restart.
+⚠️ Note: if you have modified your systemd unit file (`/etc/systemd/system/secret-node.service`) you will need to re-apply those changes post installation and pre service restart.
 
 ⚠️ Note: uncomment the right binary based on the database type you're using: `rocksdb` vs `goleveldb`. To check what database type you're currently using: `awk -F \" '/^db_backend =/{print $2}' ~/.secretd/config/config.toml`.
 
@@ -34,7 +34,7 @@ sudo systemctl stop secret-node
 # Install v1.4 binaries
 sudo apt install -y ./secretnetwork_1.4.0-beta.6_testnet_*_amd64.deb
 
-# re-apply any unit file customizations
+# re-apply any systemd unit file customizations
 
 # Restart the node
 sudo systemctl restart secret-node

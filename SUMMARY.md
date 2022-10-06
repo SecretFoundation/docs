@@ -252,6 +252,7 @@
     - [Shockwave Alpah](post-mortems-upgrades/upgrade-instructions/shockwave-alpha.md)
     - [Shockwave Delta](post-mortems-upgrades/upgrade-instructions/shockwave-delta.md)
     - [Shockwave Delta (Testnet)](post-mortems-upgrades/upgrade-instructions/shockwave-delta-testnet.md)
+    - [v1.5 (Testnet)](post-mortems-upgrades/upgrade-instructions/v1.5-testnet.md)
     - [Cosmovisor](post-mortems-upgrades/upgrade-instructions/cosmovisor.md)
     - [Vulcan Network Upgrade (OLD)](post-mortems-upgrades/upgrade-instructions/vulcan-network-upgrade-old.md)
   - [Postmortems / Issues](post-mortems-upgrades/post-mortems/README.md)
