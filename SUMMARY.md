@@ -268,4 +268,4 @@
     - [Bug Fix](how-to-contribute/pull-request-templates/bug-fix.md)
     - [Improve Performance](how-to-contribute/pull-request-templates/improve-performance.md)
     - [Change Functionality](how-to-contribute/pull-request-templates/change-functionality.md)
-  - [Formatting Guide](how-to-contribute/formatting-guide.md)
+  - [Style Guide](how-to-contribute/formatting-guide.md)
