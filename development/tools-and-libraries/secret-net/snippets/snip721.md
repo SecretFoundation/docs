@@ -1,4 +1,6 @@
-# SNIP721 via SecretNET.NFT package
+# SNIP721 via SecretNET.NFT package 
+[**SecretNET.NFT**](https://github.com/0xxCodemonkey/SecretNET.NFT) is a layer on top of the Secret.NET which supports all methods of the [reference implementation](https://github.com/baedrik/snip721-reference-impl) of the [**SNIP721 contract**](https://docs.scrt.network/secret-network-documentation/development/snips/snip-721-private-non-fungible-tokens-nfts).
+
 `nuget install SecretNET.NFT`
 
 ### Add Minter
