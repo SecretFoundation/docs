@@ -1,4 +1,5 @@
 # SNIP20 via SecretNET.Token package 
+ 
 [**SecretNET.Token**](https://github.com/0xxCodemonkey/SecretNET.Token) is a layer on top of the Secret.NET which supports all methods of the [reference implementation](https://github.com/scrtlabs/snip20-reference-impl) of the [**SNIP20 contract**](https://docs.scrt.network/secret-network-documentation/development/snips/snip-20-spec-private-fungible-tokens). 
 
 `nuget install SecretNET.Token`
