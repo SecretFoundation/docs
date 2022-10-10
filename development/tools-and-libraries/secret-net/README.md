@@ -12,15 +12,17 @@
 
 ![](../../../.gitbook/assets/SecretNET.png)
 
-You can find the full version of the docs at [https://github.com/0xxCodemonkey/SecretNET/](https://github.com/0xxCodemonkey/SecretNET/)
+You can find the source code and full version of the docs at [https://github.com/0xxCodemonkey/SecretNET/](https://github.com/0xxCodemonkey/SecretNET/)
+
+## Additional packages
+In addition the following complementary packages are available, which act as a layer on top of the Secret.NET:
+- [**SecretNET.Token**](https://github.com/0xxCodemonkey/SecretNET.Token) supports all methods of the [reference implementation](https://github.com/scrtlabs/snip20-reference-impl) of the [**SNIP20 contract**](https://docs.scrt.network/secret-network-documentation/development/snips/snip-20-spec-private-fungible-tokens).
+
+- [**SecretNET.NFT**](https://github.com/0xxCodemonkey/SecretNET.NFT) supports all methods of the [reference implementation](https://github.com/baedrik/snip721-reference-impl) of the [**SNIP721 contract**](https://docs.scrt.network/secret-network-documentation/development/snips/snip-721-private-non-fungible-tokens-nfts).
+
 
 ## Install / Add Secret.NET to a project
-The following packages are available via NuGet:
-- **SecretNET**
-- **SecretNET.Token** (Token client providing all methods of SNIP-20 reference implementation.)
-- **SecretNET.NFT** (NFT client providing all methods of SNIP-721 / 722 reference implementation.)
-
-And can be easily installed
+All packages are available via NuGet and can be easily installed
 ``` nuget.exe ``` -CLI:
 ``` bash 
 nuget install SecretNET
