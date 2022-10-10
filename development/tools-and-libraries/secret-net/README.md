@@ -1,5 +1,6 @@
 # Secret.NET 
-**Secret.NET** (full port of the secret.js Client) is a .NET SDK for writing applications that interact with the Secret Network blockchain.
+ 
+**Secret.NET** (full port of the [secret.js Client](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/secretjs)) is a .NET SDK for writing applications that interact with the Secret Network blockchain.
 
 * Written in C# / .NET 6 including MAUI Support.
 * Can be used in MAUI Apps on Android, iOS, Windows and Mac.
@@ -8,7 +9,7 @@
 * Exposes every possible query type.
 * Handles input/output encryption/decryption for Secret Contracts.
 * The SDK has a wallet built in and does not currently require / support external wallets.
-* Custom APIs / clients for specific smart contracts can be easily created (see packages for tokens / SNIP20 or NFT / SNIP721).
+* Custom APIs / clients for specific smart contracts can be easily created and the additional packages for tokens / SNIP20 or NFT / SNIP721 (see below) can serve as an example for this.
 
 ![](../../../.gitbook/assets/SecretNET.png)
 
@@ -40,9 +41,11 @@ Install-Package SecretNET.NFT
 
 **.NET Multi-platform App UI (.NET MAUI)** is a cross-platform framework for creating native mobile and desktop apps with C# and XAML.
 
-Using .NET MAUI, you can develop apps that can run on Android, iOS, macOS, and Windows from a single shared code-base.
+Using .NET MAUI, you can **develop apps that can run on Android, iOS, macOS, and Windows from a single shared code-base**.
 
-.NET MAUI is open-source and is the evolution of Xamarin.Forms, extended from mobile to desktop scenarios, with UI controls rebuilt from the ground up for performance and extensibility. Using .NET MAUI, you can create multi-platform apps using a single project, but you can add platform-specific source code and resources if necessary. One of the key aims of .NET MAUI is to enable you to implement as much of your app logic and UI layout as possible in a single code-base.
+.NET MAUI is open-source and is the evolution of Xamarin.Forms, extended from mobile to desktop scenarios, with UI controls rebuilt from the ground up for performance and extensibility. 
+
+Using .NET MAUI, you can create multi-platform apps using a single project, but **you can add platform-specific source code and resources if necessary**. One of the key aims of .NET MAUI is to enable you to implement as much of your app logic and UI layout as possible in a single code-base.
 
 ## Who .NET MAUI is for
 
