@@ -17,7 +17,6 @@ You can buy SCRT from Centralized exchanges and decentralized exchanges. Once yo
 
 ### Decentralized Exchanges&#x20;
 
-* [SecretSwap](https://secretswap.net/)
 * [Sienna ](https://sienna.network/)
 * [Osmosis](https://osmosis.zone/)&#x20;
 

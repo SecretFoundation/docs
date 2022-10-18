@@ -84,9 +84,6 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * [SecretSCRT Converter](https://wallet.keplr.app/#/secret/secret-secret)&#x20;
   * Convert between SCRT and sSCRT, by [Chainapsis](https://chainapsis.com/)
     * Also available in [Citadel One](https://citadel.one) wallet or [https://wrap.scrt.network/](https://wrap.scrt.network/)
-* [Secret Swap](https://www.secretswap.net/)&#x20;
-  * Front running resistant AMM
-  * The first project with on-chain private governance
 * [Sienna Network](https://sienna.network/)
   * Front running resistant AMM
   * Private lending application
@@ -183,16 +180,18 @@ Notable games built on the network include:
   * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
 * [Mintscan](https://www.mintscan.io/secret)&#x20;
   * Popular and highly featured explorer for many chains in the Cosmos ecosystem
+* [Cryptoclerk](https://www.cryptoclerk.xyz/introduction)
+  * Asset management platform with SNIP-20 TX history
 * [Ping Explorer](https://ping.pub/secret)&#x20;
   * Supports dozens of Cosmos chains and includes a basic web wallet, by [ping.pub](https://ping.pub/)
-* [Secret Contracts](http://secret-contracts.com/)&#x20;
-  * Contract code verifier and explorer by [3Dgiro](https://3dgiro.com/)
+* [Contract verifier](https://github.com/digiline-io/secret-contract-verifier)
+  * Contract code verifier and explorer by Diggiline
 * [Secret Analytics](https://secretanalytics.xyz/)&#x20;
-  * Analytics data collected about the Network, Bridges, and SecretSwap
+  * Analytics data collected about the Network, Bridges, and Sienna Network
 * [SmartStake Secret Analytics](https://secret.smartstake.io/)&#x20;
   * Validator stats by [SmartStake](https://smartstake.io/)
 * [Xiphiar](https://scrthost.xiphiar.com/)&#x20;
-  * Tools by Xiphiar for better analysis of your SecretSwap LP tokens
+  * Tools by Xiphiar for tracking of your SNIP-20 history
 * [Address Alias](https://btn.group/secret\_network/address\_alias) &#x20;
   * Create and search wallet aliases, by [btn.group](https://www.btn.group)
 * [Cashmaney Explorer](https://explorer.cashmaney.com) **(retired)**&#x20;
@@ -200,9 +199,8 @@ Notable games built on the network include:
 
 ### Testnet - Pulsar-2
 
-* [Faucet](https://faucet.secrettestnet.io/)&#x20;
-  * Run by validator [Chain of Secrets](https://chainofsecrets.org/)
-* [Faucet backup](https://faucet.pulsar.scrttestnet.com)
+* [Faucet](https://faucet.pulsar.scrttestnet.com/)
+  * Run by the testnet committee
 * [Secretnodes](https://secretnodes.com/secret/chains/pulsar-2)&#x20;
   * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
 * [Documentation](../node-runners/testnet/)
@@ -236,7 +234,7 @@ Notable games built on the network include:
 
 ## Wallets
 
-![Great and popular wallets for managing your Secret Address](../.gitbook/assets/5a1eea14289a08747d258d0ffb7d06add1ff2735.jpeg)
+![Great and popular wallets for managing your Secret Address](<../.gitbook/assets/5a1eea14289a08747d258d0ffb7d06add1ff2735 (1).jpeg>)
 
 * [Keplr](https://keplr.app) by [Chainapsis](https://chainapsis.com/)
   * Highly featured wallet for the entire Cosmos ecosystem
