@@ -125,6 +125,11 @@ The sub-messages feature can be used to get the response data or events from the
 
 Then the reply is only executed when the instantiate is successful with the instantiate response data. [https://github.com/terraswap/terraswap/blob/7cf47f5e811fe0c4643a7cd09500702c1e7f3a6b/contracts/terraswap\_factory/src/contract.rs#L148-L170](https://github.com/terraswap/terraswap/blob/7cf47f5e811fe0c4643a7cd09500702c1e7f3a6b/contracts/terraswap\_factory/src/contract.rs#L148-L170).
 
+Note differences from standard CosmWasm:
+* Obtaining contract data instantiated w/ sub-messages: 
+    * `msg.result.events` from `msg: Reply` passed into `#entry_point pub fn reply(deps: DepsMut, _env: Env, msg: Reply) -> StdResult<Response>` should be used to obtain data, such as `contract_address`, after instantiating a contract. Standard CosmWasm will return `MsgInstantiateContractResponse` data as protobuf binary inside `msg.result.data`. However `msg.result.data` currently returns no binary data on Secret Network v1.4. Thus, utilies such as [`parse_instantiate_response_data`](https://github.com/scrtlabs/cw-plus/blob/14a9db7e8b93039fa856cbe126ffdb230a00734a/packages/utils/src/parse_reply.rs#L106) from `cw-utils` will not work.
+
+
 ### Storage Migration
 
 Rename the type `Extern` to `Deps`, and radically simplify the `init/handle/migrate/query` entrypoints. Rather than `&mut Extern<S, A, Q>`, use `DepsMut`. And instead of `&Extern<S, A, Q>`, use `Deps`. If you ever pass eg. `foo<A: Api>(api: A)` around, you must now use dynamic trait pointers: `foo(api: &dyn Api)`. Here is the quick search-replace guide on how to fix contract.rs:
