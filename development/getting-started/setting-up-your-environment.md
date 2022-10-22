@@ -173,6 +173,10 @@ For a more detailed and in-depth guide on SecretCLI installation and usage, chec
 We recommend using a local chain for development purposes. LocalSecret is a complete Secret Network testnet and ecosystem containerized with Docker. It simplifies the way secret contract developers test their contracts in a sandbox before they deploy them on a testnet or mainnet. If, however, you wish to use a public testnet you can skip this section.
 
 {% hint style="warning" %}
+An instance of LocalSecret requires approximately 2.5 GB of RAM to run. You may need to increase the resources available in your Docker settings.
+{% endhint %}
+
+{% hint style="warning" %}
 The installation methods differ based on the processor architecture. This is because Secret Network makes use of Intel SGX to protect private data.
 {% endhint %}
 
