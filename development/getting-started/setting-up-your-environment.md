@@ -1,6 +1,6 @@
 # Setting Up Your Environment
 
-Secret Contracts are written using the CosmWasm framework. CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a development environment with all the tools required.&#x20;
+Secret Contracts are written using the CosmWasm framework. CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a development environment with all the tools required.
 
 There are 3 main tools we will use -
 
@@ -12,15 +12,15 @@ Luckily for us, there are a few ways that can help us hit the ground running wit
 
 ### Gitpod Environment (Recommended)
 
-This Gitpod environment contains everything you need to write and interact with your first Secret Network application. To get started, make sure you have a registered GitHub account, and [click here](https://gitpod.io/#https://github.com/scrtlabs/GitpodDevEnv), or visit the repo [https://github.com/scrtlabs/MillionaireProblemTutorial](https://github.com/scrtlabs/MillionaireProblemTutorial)&#x20;
+This Gitpod environment contains everything you need to write and interact with your first Secret Network application. To get started, make sure you have a registered GitHub account, and [click here](https://gitpod.io/#https://github.com/scrtlabs/GitpodDevEnv), or visit the repo [https://github.com/scrtlabs/MillionaireProblemTutorial](https://github.com/scrtlabs/MillionaireProblemTutorial)
 
 If you chose this environment, you may skip ahead to [Compile and Deploy](compile-and-deploy.md), as SecretCLI and LocalSecret are already running and set up for you, and the example contract is included as well.
 
 ### JetBrains Dev Environment (Secret IDE)
 
-The amazing folks at [Digiline](https://www.digiline.io) created a prebuilt containerized environment containing an IDE (IntelliJ IDEA) that contains everything you need to get started. If you're comfortable with JetBrains IDEs, this may be a good choice for you.&#x20;
+The amazing folks at [Digiline](https://www.digiline.io) created a prebuilt containerized environment containing an IDE (IntelliJ IDEA) that contains everything you need to get started. If you're comfortable with JetBrains IDEs, this may be a good choice for you.
 
-To complement Secret IDE, we will set up another docker container with LocalSecret, where we will deploy our contracts to test and play around with.&#x20;
+To complement Secret IDE, we will set up another docker container with LocalSecret, where we will deploy our contracts to test and play around with.
 
 To get started, visit [https://github.com/digiline-io/Secret-IDE-Plugin](https://github.com/digiline-io/Secret-IDE-Plugin), or just go for it and run the IDE from docker:
 
@@ -30,7 +30,7 @@ Then after a few seconds you will be able to access your in-browser IDE at [http
 
 Once the environment loads, clone our repository ("Get from VCS") from [https://github.com/scrtlabs/MillionaireProblemTutorial](https://github.com/scrtlabs/MillionaireProblemTutorial).
 
-Secret IDE has built-in support for both the Pulsar testnet and mainnet, but for the purposes of this guide we will be using the SecretCLI via terminal. To go the graphical route, during the compile and deploy stages you can refer to the GitHub Repository above for instructions on how to work with the IDE. &#x20;
+Secret IDE has built-in support for both the Pulsar testnet and mainnet, but for the purposes of this guide we will be using the SecretCLI via terminal. To go the graphical route, during the compile and deploy stages you can refer to the GitHub Repository above for instructions on how to work with the IDE.
 
 {% hint style="info" %}
 Secret-IDE is also available as a plugin for IDEA, so you can just install it from the marketplace.
@@ -62,19 +62,17 @@ Install `git`:
 
 Install `make`:
 
-
-
 ```bash
 brew install make
 ```
 {% endtab %}
 
 {% tab title="Windows" %}
-Install `git` (for Windows):&#x20;
+Install `git` (for Windows):
 
 1. Go to [https://git-scm.com/download/win](https://git-scm.com/download/win) and the download will start automatically. Note that this is a project called Git for Windows, which is separate from Git itself; for more information on it, go to [https://gitforwindows.org](https://gitforwindows.org/).
 
-**Note:** support for **** `make` on Windows is pretty shit, so we'll provide separate commands for Windows where necessary
+**Note:** support for \*\*\*\* `make` on Windows is pretty shit, so we'll provide separate commands for Windows where necessary
 {% endtab %}
 {% endtabs %}
 
@@ -98,7 +96,7 @@ Download and run [`rustup-init.exe`](https://static.rust-lang.org/rustup/dist/i6
 {% endtab %}
 
 {% tab title="Windows (GUI)" %}
-Download and run [the Rust .msi installer ](https://static.rust-lang.org/dist/rust-1.62.1-aarch64-pc-windows-msvc.msi)
+Download and run [the Rust .msi installer](https://static.rust-lang.org/dist/rust-1.62.1-aarch64-pc-windows-msvc.msi)
 {% endtab %}
 {% endtabs %}
 
@@ -109,7 +107,7 @@ rustup target add wasm32-unknown-unknown
 ```
 
 {% hint style="warning" %}
-**Having Trouble?** You might need to restart your terminal, or run a command like:&#x20;
+**Having Trouble?** You might need to restart your terminal, or run a command like:
 
 _`source "$HOME/.cargo/env"`_
 
@@ -129,7 +127,7 @@ SecretCLI is a command-line tool that helps us interact with the Secret Network 
 {% tabs %}
 {% tab title="Linux" %}
 ```bash
-curl https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-Linux
+wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-Linux
 chmod +x secretcli-Linux
 sudo mv secretcli-Linux /usr/local/bin/secretcli
 ```
