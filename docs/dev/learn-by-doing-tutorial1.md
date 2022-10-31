@@ -20,16 +20,16 @@ To generate a new project we follow the directions from the [Secret Contracts](h
 cargo generate --git https://github.com/scrtlabs/secret-template --name reminder
 ```
 
-Go into the project folder, and you should see the following contents: cargo.toml, Developing.md, Importing.md, LICENSE, Makefile, NOTICE, Publishing.md, README.md, examples, rustfmt.toml, schema, src, and tests.     
+Go into the project folder, and you should see the following contents: cargo.toml, Developing.md, Importing.md, LICENSE, Makefile, NOTICE, Publishing.md, README.md, examples, rustfmt.toml, schema, src, and tests.
 
 In addition to everything we need to compile a contract, this template includes sample code for the simple counter contract. We are going to remove that in order to start from scratch. **Go into the `src` directory and empty the contents of the following three files `contract.rs`, `msg.rs`, and `state.rs`.** Do NOT remove or edit `lib.rs`.
 
 You will also need to replace the contents of the `Cargo.toml` file with the contents of the `Cargo.toml` file found [HERE](https://github.com/darwinzer0/secret-contract-tutorials/blob/main/tutorial1/code/Cargo.toml). This will ensure that you are able to successfully compile the project after completing this tutorial.
 
-Note: When building Secret Contracts using the [Secret Contract Template](https://github.com/scrtlabs/secret-template), the secret-toolkit is not found within the [dev-dependencies] of the `Cargo.toml` file in the root directory of your project. When using the Secret Contract Template you will need to manually add it to the projects Cargo.toml file: 
+Note: When building Secret Contracts using the [Secret Contract Template](https://github.com/scrtlabs/secret-template), the secret-toolkit is not found within the [dev-dependencies] of the `Cargo.toml` file in the root directory of your project. When using the Secret Contract Template you will need to manually add it to the projects Cargo.toml file:
 
 ```toml
-secret-toolkit = { git = "https://github.com/scrtlabs/secret-toolkit" }
+secret-toolkit = "0.6.0"
 ```
 
 ## Secret Contract functions
@@ -228,7 +228,7 @@ Sometimes incoming messages, or responses, will have an optional field. Those ar
 
 Messages are received by contracts as encrypted and then Base64-encoded versions of the JSON stringified version of the original messages (i.e., Javascript object) defined in the client code. This transformation is transparent to you as a Secret Contract developer, but awareness of this process is important because of how it affects data types. Your contract will create a schema document for each message type if you add the `derive(JsonSchema)` macro to your message definitions, but you might still need to do some additional value checking and type casting in your contract code depending on the context.
 
-In addition, number values in Javascript are limited in range. The maximum safe integer value in Javascript falls somewhere between maximum `i32` and `i64` values in Rust. Therefore, 128-bit integers, for example, need to be sent from the client as string values because 128-bit numbers are commonly used in contracts to represent currency values (e.g. $\mu$SCRT), the Cosmos SDK (which Secret Network is built on) has a pre-defined type `Uint128`. 
+In addition, number values in Javascript are limited in range. The maximum safe integer value in Javascript falls somewhere between maximum `i32` and `i64` values in Rust. Therefore, 128-bit integers, for example, need to be sent from the client as string values because 128-bit numbers are commonly used in contracts to represent currency values (e.g. $\mu$SCRT), the Cosmos SDK (which Secret Network is built on) has a pre-defined type `Uint128`.
 
 A message type with a `Uint128` field will expect a string from the incoming JSON, which is validated to be a correct representation of a 128-bit unsigned integer value. In order to use the `Uint128` field value in your contract code, e.g., to put it in contract storage, you will then need to convert it to a Rust `u128` type.
 
@@ -240,10 +240,10 @@ Now we are going to define how we want to model our contract in the contract sto
 
 Conceptually, storage for a Secret Contract is quite simple. It is a key-value store on the chain where each unit of data is identified by a unique key and the value of the data is a serialized representation of some data structure in Rust. Storage is encrypted, and only the contract has access to its own storage.
 
-For our contract we need to store two types of information: 
-    1) General state information for the contract 
-    2) The reminder messages for each user 
-    
+For our contract we need to store two types of information:
+    1) General state information for the contract
+    2) The reminder messages for each user
+
 Add the following code in `src/state.rs`:
 
 ```rust
@@ -278,7 +278,7 @@ We now define three helper functions in `state.rs` to read and write data to sto
 * `load` will retrieve the data from storage using the `get()` method, deserialize it, and return a `StdResult` with the data. If the key is not found, a "not found" `StdError` is returned. Using the `?` operator in the calling function will cause the error to be sent back up as the response.
 * `may_load` is an alternative implementation of `load` returning an `Option` form of the result. If the key is not found, `Ok(None)` is returned. This version is more convenient if you want to customize error reporting when the data is not found.
 
-Add the following code to the end of the state.rs file: 
+Add the following code to the end of the state.rs file:
 
 ```rust
 pub fn save<T: Serialize, S: Storage>(storage: &mut S, key: &[u8], value: &T) -> StdResult<()> {
@@ -308,7 +308,7 @@ Now we are ready to fill in our three contract functions in `contract.rs`: `init
 
 ### `init` function
 
-In `state.rs` we have said that `max_size` will be stored as a `u16` type, which means that the highest maximum reminder size is 65535 bytes. If the `i32` value for `max_size` sent in `InitMsg` is outside of those bounds we need to throw an error. We can create a helper function to test that by adding the following cose, which will cause our `init` function to return a `StdError` with an informative error message to the client if `max_size` is out of bounds: 
+In `state.rs` we have said that `max_size` will be stored as a `u16` type, which means that the highest maximum reminder size is 65535 bytes. If the `i32` value for `max_size` sent in `InitMsg` is outside of those bounds we need to throw an error. We can create a helper function to test that by adding the following cose, which will cause our `init` function to return a `StdError` with an informative error message to the client if `max_size` is out of bounds:
 
 ```rust
 pub fn init<S: Storage, A: Api, Q: Querier>(
@@ -477,13 +477,13 @@ fn query_stats<S: Storage, A: Api, Q: Querier>(deps: &Extern<S, A, Q>) -> StdRes
 }
 ```
 
-If you have completed this tutorial ssuccessfully, you will be able to compile the contract code without any errors using: 
+If you have completed this tutorial ssuccessfully, you will be able to compile the contract code without any errors using:
 
-```bash 
+```bash
 cargo build
 ```
 
-You now have a working Secret Contract! 
+You now have a working Secret Contract!
 
 If you are experiencing errors when compiling, or want to view the full contract code, see the completed version [HERE](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1/code).
 
@@ -504,5 +504,3 @@ This tutorial was written by Ben Adams, a senior lecturer in computer science an
 <div class="cc">
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 </div>
-
-
