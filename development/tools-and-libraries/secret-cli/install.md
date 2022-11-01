@@ -84,7 +84,7 @@ Now you should be able to use the `secretcli` when inside of the folder it is fo
 
 You will see the following warning popup, click 'open'.
 
-![](../../../.gitbook/assets/cliwarning.png)
+![](<../../../.gitbook/assets/cliwarning (1).png>)
 
 **After clicking open you should see the following output in your terminal application:**&#x20;
 
