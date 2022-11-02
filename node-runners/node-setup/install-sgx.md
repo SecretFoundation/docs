@@ -41,7 +41,7 @@ sudo apt-get update && sudo apt upgrade -y
 sudo apt-get install make build-essential gcc git jq chrony -y
 
 UBUNTUVERSION=$(lsb_release -r -s | cut -d '.' -f 1)
-PSW_PACKAGES='libsgx-enclave-common libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
+PSW_PACKAGES='libsgx-enclave-common libsgx-aesm-launch-plugin libsgx-aesm-quote-ex-plugin libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
 
 if (($UBUNTUVERSION < 16)); then
 	echo "Your version of Ubuntu is not supported. Must have Ubuntu 16.04 and up. Aborting installation script..."
