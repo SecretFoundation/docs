@@ -9,20 +9,25 @@ Unlike other Tendermint/Cosmos based daemons, `secretd` cannot be built from sou
 The most common method for install `secretd` is the Secret Network package installer for Debian/Ubuntu:
 
 ```bash
-# download secretd v1.3.1
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretnetwork_1.3.1_testnet_goleveldb_amd64.deb"
+# download secretd v1.5.0-beta.4
 
-# verify download
-echo "9a2c72ba61b00abfa2a6652ff8b5006fa9ae84d9175d2328949d1496884933dd secretnetwork_1.3.1_testnet_goleveldb_amd64.deb" | sha256sum --check
-# secretnetwork_1.3.1_testnet_goleveldb_amd64.deb: OK
+## goleveldb
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.5.0-beta.4/secretnetwork_1.5.0-beta.4_testnet_goleveldb_amd64.deb"
+echo "2807c176955e29ff219b0cf60aac51d922785800a4bdac887ae8bc6721f8e4fe secretnetwork_1.5.0-beta.4_testnet_goleveldb_amd64.deb" | sha256sum --check
+
+## rocksdb
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.5.0-beta.4/secretnetwork_1.5.0-beta.4_testnet_rocksdb_amd64.deb"
+echo "b00d09df145ec98414c75f6a69ac4a94de4f1f2b66b705f0e5a3492d1a0937f9 secretnetwork_1.5.0-beta.4_testnet_rocksdb_amd64.deb" | sha256sum --check
+
 ```
 
 ### Install `secretd` <a href="#_2-install-the-package" id="_2-install-the-package"></a>
 
 ```bash
-sudo dpkg -i secretnetwork_1.3.1_testnet_*_amd64.deb
+# Install v1.5 binaries
+sudo apt install -y ./secretnetwork_1.5.0-beta.4_testnet_*_amd64.deb
 
 # verify installation
 secretd version
-# 1.3.1
+# 1.5.0-beta.4
 ```
