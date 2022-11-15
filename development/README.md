@@ -11,7 +11,7 @@ The following section of the documentation covers materials related to building 
 <summary>Topics Covered</summary>
 
 1. [Local Secret ](tools-and-libraries/local-secret.md)
-2. [API End Points](api-endpoints.md)
+2. [API End Points](broken-reference)
 3. [Intro To Secret Contracts ](secret-by-example/intro-to-secret-contracts.md)
 4. [Secret Contracts ](secret-contracts/)
    1. [Core Components](broken-reference)
