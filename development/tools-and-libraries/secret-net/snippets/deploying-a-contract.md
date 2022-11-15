@@ -22,7 +22,7 @@ if (await storageProvider.HasPrivateKey())
     Console.WriteLine("wallet.Address: " + wallet.Address);
 }
 
-// get infos from https://github.com/scrtlabs/api-registry
+// get infos from https://docs.scrt.network/secret-network-documentation/development/connecting-to-the-network
 var gprcUrl = "https://grpc.testnet.secretsaturn.net";
 var chainId = "pulsar-2";
 
@@ -68,5 +68,4 @@ var msgExecuteContract = new MsgExecuteContract(
                             codeHash: contractCodeHash);
 
 var tx = await secretClient.Tx.Compute.ExecuteContract(msgExecuteContract, new TxOptions() { GasLimit = 200_000 });
-
 ```

@@ -14,7 +14,7 @@ var createWalletOptions = new CreateWalletOptions(storageProvider);
 // Create a new account
 var wallet = await Wallet.Create(options: createWalletOptions);
 
-// get infos from https://github.com/scrtlabs/api-registry
+// get infos from https://docs.scrt.network/secret-network-documentation/development/connecting-to-the-network
 var gprcUrl = "https://grpc.testnet.secretsaturn.net"; 
 var chainId = "pulsar-2";
 
@@ -26,5 +26,4 @@ var response = await secretClient.Query.Bank.Balance(wallet.Address);
 Console.WriteLine("Mnemonic: " + (await storageProvider.GetMnemonic(wallet.Address)));
 Console.WriteLine("Address: " + wallet.Address);
 Console.WriteLine($"Balance: {(float.Parse(response.Amount) / 1000000f)} SCRT"); // 1,000,00 uscrt = 1 SCRT
-
 ```
