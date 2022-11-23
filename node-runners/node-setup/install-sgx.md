@@ -14,7 +14,7 @@ If you're running a local machine and not a cloud-based VM -
 #### Install SGX <a href="#install-sgx" id="install-sgx"></a>
 
 {% hint style="info" %}
-`sgx_linux_x64_driver_2.11.0_2d2b795.bin` is the latest driver as of August 24th, 2021. Please check under [https://download.01.org/intel-sgx/sgx-linux/](https://download.01.org/intel-sgx/sgx-linux/) that this is still the case. If not, please send us a PR or notify us.
+`sgx_linux_x64_driver_2.11.054c9c4c.bin` is the latest driver as of Jun 7th, 2022. Please check under [https://download.01.org/intel-sgx/sgx-linux/](https://download.01.org/intel-sgx/sgx-linux/) that this is still the case. If not, please send us a PR or notify us.
 {% endhint %}
 
 If you are a node runner all you must do to install SGX is to save this as a script and run it.
@@ -66,7 +66,7 @@ if (($UBUNTUVERSION == 16)); then
    # Ubuntu 16 was deprecated by the latest Intel SGX drivers
    wget "https://download.01.org/intel-sgx/sgx-linux/2.13/distro/${OS}/sgx_linux_x64_driver_2.11.0_0373e2e.bin"
 else
-   wget "https://download.01.org/intel-sgx/sgx-linux/2.14/distro/${OS}/sgx_linux_x64_driver_2.11.0_2d2b795.bin"
+   wget "https://download.01.org/intel-sgx/sgx-linux/2.17/distro/${OS}/sgx_linux_x64_driver_2.11.054c9c4c.bin"
 fi
 
 # Make the driver installer executable
