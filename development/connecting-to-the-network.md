@@ -34,6 +34,7 @@
 
 * [https://secretnodes.com/secret](https://secretnodes.com/secret)
 * [https://www.mintscan.io/secret](https://www.mintscan.io/secret)
+* [https://ping.pub/secret](https://ping.pub/secret)
 
 ### API endpoints
 
@@ -72,11 +73,17 @@ These endpoints are offered to the community for free, please be mindful and don
 | LCD      | `https://scrt-lcd.agoranodes.com`                   | [AgoraNodes](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1xmu8meef8ynlsev3a9hpl5wdxhpzzj0efmzpcj)                 |
 | LCD      | `https://secret-api.lavenderfive.com:443`           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive)                                                                                          |
 
+{% hint style="info" %}
+Additional API nodes may be found in the Cosmos chain registry&#x20;
+{% endhint %}
+
 ### Seed nodes
 
 * `6fb7169f7630da9468bf7cc0bcbbed1eb9ed0d7b@scrt-seed-01.scrtlabs.com:26656`
 * `ab6394e953e0b570bb1deeb5a8b387aa0dc6188a@scrt-seed-02.scrtlabs.com:26656`
 * `9cdaa5856e0245ecd73bd464308fb990fbc53b57@scrt-seed-03.scrtlabs.com:26656`
+* `20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:17156`
+* `ebc272824924ea1a27ea3183dd0b9ba713494f83@secret.mainnet.seed.autostake.net:26656`
 
 ### pulsar-2 testnet
 
