@@ -54,6 +54,7 @@ These endpoints are offered to the community for free, please be mindful and don
 | RPC      | `https://secret.rpc.consensus.one`                  | [Consensus One](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1sa8av4qw3xerr58kwvnm8wvd87zgp36mv6cnyg)              |
 | RPC      | `https://secretnetwork-rpc.stakely.io`              | [Stakely.io](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1vzkdmu0sa8gaj686jh5all7hpmmsp8x87vyz8z)                 |
 | RPC      | `https://scrt-rpc.agoranodes.com`                   | [AgoraNodes.com](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1xmu8meef8ynlsev3a9hpl5wdxhpzzj0efmzpcj)             |
+| RPC      | `https://secret-rpc.lavenderfive.com:443`           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive)                                                                                          |
 | gRPC-web | `https://secret-4.api.trivium.network:9091`         | [Trivium \| Trivium.Network](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1ahawe276d250zpxt0xgpfg63ymmu63a0svuvgw) |
 | gRPC-web | `https://wgrpc.spartanapi.dev`                      | [secretnodes.com ❄️☄️](https://secretnodes.com/secret/validators/secretvaloper1hjd20hjvkx06y8p42xl0uzr3gr3ue3nkvd79jj)                             |
 | gRPC-web | `http://scrt-rpc.blockpane.com:9091` (archive node) | [\[block pane\]](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1tmtcu980raqvypdf0dd6hsgh6qcm7ex7l29u58)             |
@@ -61,6 +62,7 @@ These endpoints are offered to the community for free, please be mindful and don
 | gRPC-web | `https://scrt-grpc.agoranodes.com`                  | [AgoraNodes](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1xmu8meef8ynlsev3a9hpl5wdxhpzzj0efmzpcj)                 |
 | gRPC     | `https://grpc.spartanapi.dev`                       | [secretnodes.com ❄️☄️](https://secretnodes.com/secret/validators/secretvaloper1hjd20hjvkx06y8p42xl0uzr3gr3ue3nkvd79jj)                             |
 | gRPC     | `https://grpc.secret.forbole.com/`                  | [Forbole](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1kvp570cd6zvzh8ffrhz7lmytt6v6u2gxz8tl0g)                    |
+| gRPC     | `https://secret-grpc.lavenderfive.com:443`          | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive)                                                                                          |
 | LCD      | `https://secret-4.api.trivium.network:1317`         | [Trivium \| Trivium.Network](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1ahawe276d250zpxt0xgpfg63ymmu63a0svuvgw) |
 | LCD      | `https://scrt-lcd.blockpane.com` (archive node)     | [\[block pane\]](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1tmtcu980raqvypdf0dd6hsgh6qcm7ex7l29u58)             |
 | LCD      | `https://api.secret.forbole.com/`                   | [Forbole](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1kvp570cd6zvzh8ffrhz7lmytt6v6u2gxz8tl0g)                    |
@@ -68,6 +70,7 @@ These endpoints are offered to the community for free, please be mindful and don
 | LCD      | `https://secret.api.consensus.one`                  | [Consensus One](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1sa8av4qw3xerr58kwvnm8wvd87zgp36mv6cnyg)              |
 | LCD      | `https://secretnetwork-lcd.stakely.io`              | [Stakely.io](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1vzkdmu0sa8gaj686jh5all7hpmmsp8x87vyz8z)                 |
 | LCD      | `https://scrt-lcd.agoranodes.com`                   | [AgoraNodes](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1xmu8meef8ynlsev3a9hpl5wdxhpzzj0efmzpcj)                 |
+| LCD      | `https://secret-api.lavenderfive.com:443`           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive)                                                                                          |
 
 ### Seed nodes
 
