@@ -74,7 +74,7 @@ These endpoints are offered to the community for free, please be mindful and don
 | LCD      | `https://secret-api.lavenderfive.com:443`           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive)                                                                                          |
 
 {% hint style="info" %}
-Additional API nodes may be found in the Cosmos chain registry&#x20;
+Additional API nodes may be found in the [Cosmos chain registry](https://github.com/cosmos/chain-registry/blob/master/secretnetwork/chain.json)&#x20;
 {% endhint %}
 
 ### Seed nodes

@@ -1,5 +1,5 @@
-# SNIP721 via SecretNET.NFT package 
- 
+# SNIP721
+
 [**SecretNET.NFT**](https://github.com/0xxCodemonkey/SecretNET.NFT) is a layer on top of the Secret.NET which supports all methods of the [reference implementation](https://github.com/baedrik/snip721-reference-impl) of the [**SNIP721 contract**](https://docs.scrt.network/secret-network-documentation/development/snips/snip-721-private-non-fungible-tokens-nfts).
 
 `nuget install SecretNET.NFT`
@@ -13,7 +13,7 @@ var addMinterMsg = new SecretNET.NFT.AddMinterRequest(minters: new[] { "" });
 var addMinter = await snip721Client.Tx.AddMinter(
                 msg: new SecretNET.NFT.MsgAddMinter(addMinterMsg, contractAddress, codeHash), 
                 txOptions: new TxOptions() { GasLimit = 100_000 });
-```    
+```
 
 ### Mint SNIP721 Token
 
@@ -22,7 +22,7 @@ var mintNftMsg = SecretNET.NFT.MintNftRequest.Create(tokenId: "1");
 var mintNft = await snip721Client.Tx.MintNft(
                 msg: new SecretNET.NFT.MsgMintNft(mintNftMsg, contractAddress, codeHash), 
                 txOptions: new TxOptions() { GasLimit = 200_000 }); 
-``` 
+```
 
 ### Transfer SNIP721 Token
 
@@ -31,9 +31,7 @@ var transferNftMsg = new SecretNET.NFT.TransferNftRequest(recipient, tokenId);
 var transferNft = await snip721Client.Tx.TransferNft(
                 msg: new SecretNET.NFT.MsgTransferNft(transferNftMsg, contractAddress, codeHash), 
                 txOptions: new TxOptions() { GasLimit = 50_000 }); 
-
 ```
-
 
 ### Query Tokens with Permit
 
@@ -48,7 +46,6 @@ var permit = await secretClient.Permit.Sign(
     });
 
 var tokens = await snip721Client.Query.GetTokens(contractAddress, wallet.Address, permit: permit, codeHash: codeHash);
-
 ```
 
 ### Query Tokens with Viewing Key
@@ -60,5 +57,4 @@ var txExec = await snip20Client.Tx.SetViewingKey(
                     txOptions: new TxOptions() { GasLimit = 100_000 });
 
 var tokens = await snip721Client.Query.GetTokens(contractAddress, wallet.Address, viewingKey: "hello", codeHash: codeHash);
-
 ```
