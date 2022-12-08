@@ -411,7 +411,7 @@ secretcli tx compute instantiate $CODE_ID "$INIT" --from <your account alias> --
 
 > _**Note**: A unique label for the contract will need to be made for the contract to be instantiated. If the label is not unique you will get the following error: "Error: label already exists. You must choose a unique label for your contract instance"._
 
-The testnet explorer [Transactions](https://secretnodes.com/secret/chains/pulsar-2) tab can be used to view the transaction details of the contract instantiation by copy and pasting the tx for the contract instantiation into the explorer.
+The testnet explorer [Transactions](https://secretnodes.com/pulsar) tab can be used to view the transaction details of the contract instantiation by copy and pasting the tx for the contract instantiation into the explorer.
 
 ### Secret Contracts 101
 
