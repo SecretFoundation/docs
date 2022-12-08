@@ -276,7 +276,7 @@ secretd query compute list-code
 
 At this point the contract's uploaded and stored on the testnet, but there's no "instance".
 
-This is like `discovery migrate` during the Cosmos deploy-execute process which handles both the deploying and creation of the contract instance. This process consists of 3 steps rather than 2 for Ethereum smart contracts. You can read more about the logic behind this decision, and other comparisons to Solidity, in the [cosmwasm documentation](https://www.cosmwasm.com/docs/getting-started/smart-contracts).
+This is like `discovery migrate` during the Cosmos deploy-execute process which handles both the deploying and creation of the contract instance. This process consists of 3 steps rather than 2 for Ethereum smart contracts. You can read more about the logic behind this decision, and other comparisons to Solidity, in the [cosmwasm documentation](https://docs.cosmwasm.com/docs/1.0/getting-started/intro).
 
 The 3 steps for deploying Secret Contract are:
 
