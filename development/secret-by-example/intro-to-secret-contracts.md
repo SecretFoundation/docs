@@ -369,7 +369,7 @@ Create a key for the Pulsar-2 testnet that you'll use to get SCRT from the fauce
 secretcli keys add <your account alias>
 ```
 
-This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from [the faucet](https://faucet.secrettestnet.io/).
+This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from [the faucet](https://faucet.pulsar.scrttestnet.com/).
 
 To get your Secret address use:
 
