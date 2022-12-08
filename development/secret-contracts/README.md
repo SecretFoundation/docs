@@ -13,7 +13,7 @@ There are a number of important things to know about Secret Contracts. This sect
   * Querier
 * Storage
   * Prefixed Storage&#x20;
-  * Cashmaps
+  * Keymap
   * Append Store
 * Data Handling&#x20;
 * Permissioned Viewing
