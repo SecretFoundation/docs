@@ -72,13 +72,13 @@ secretcli tx bank send <from-account> <contract-address> 1000uscrt
 You can always see decrypted error messages from the contract like so:
 
 ```
-scli q compute tx <tx_hash>
+secretcli q compute tx <tx_hash>
 ```
 {% endhint %}
 
 #### Transaction logs
 
-You can see the spent coins when you query for the transaction:
+You can see the spent coins as events when you query for the transaction:
 
 ```bash
 > tx_hash=$(secretcli tx compute execute <contract-address> '{}' --output json | jq '.txhash')
@@ -97,5 +97,6 @@ logs:
       value: secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg
     - key: amount
       value: 33uscrt
+    type: coin_spent
 # ...
 ```
