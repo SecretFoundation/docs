@@ -6,7 +6,7 @@
 const txExec = await secretjs.tx.snip20.transfer(
       {
         sender: secretjs.address,
-        contractAddress,
+        contract_address,
         msg: { transfer: { recipient: accounts[1].address, amount: "2" } },
       },
       {
@@ -21,7 +21,7 @@ const txExec = await secretjs.tx.snip20.transfer(
 const txExec = await secretjs.tx.snip20.send(
       {
         sender: secretjs.address,
-        contractAddress,
+        contract_address,
         msg: { send: { recipient: accounts[1].address, amount: "2" } },
       },
       {
@@ -35,7 +35,7 @@ const txExec = await secretjs.tx.snip20.send(
 ```typescript
 const txExec = await secretjs.tx.snip20.setViewingKey({
   sender: secretjs.address,
-  contractAddress,
+  contract_address: contractAddress,
   msg: { set_viewing_key: { key: "hello" } },
 });
 
