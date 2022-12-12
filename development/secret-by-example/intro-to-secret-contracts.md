@@ -276,7 +276,7 @@ secretd query compute list-code
 
 At this point the contract's uploaded and stored on the testnet, but there's no "instance".
 
-This is like `discovery migrate` during the Cosmos deploy-execute process which handles both the deploying and creation of the contract instance. This process consists of 3 steps rather than 2 for Ethereum smart contracts. You can read more about the logic behind this decision, and other comparisons to Solidity, in the [cosmwasm documentation](https://www.cosmwasm.com/docs/getting-started/smart-contracts).
+This is like `discovery migrate` during the Cosmos deploy-execute process which handles both the deploying and creation of the contract instance. This process consists of 3 steps rather than 2 for Ethereum smart contracts. You can read more about the logic behind this decision, and other comparisons to Solidity, in the [cosmwasm documentation](https://docs.cosmwasm.com/docs/1.0/getting-started/intro).
 
 The 3 steps for deploying Secret Contract are:
 
@@ -369,7 +369,7 @@ Create a key for the Pulsar-2 testnet that you'll use to get SCRT from the fauce
 secretcli keys add <your account alias>
 ```
 
-This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from [the faucet](https://faucet.secrettestnet.io/).
+This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some testnet SCRT from [the faucet](https://faucet.pulsar.scrttestnet.com/).
 
 To get your Secret address use:
 
@@ -411,7 +411,7 @@ secretcli tx compute instantiate $CODE_ID "$INIT" --from <your account alias> --
 
 > _**Note**: A unique label for the contract will need to be made for the contract to be instantiated. If the label is not unique you will get the following error: "Error: label already exists. You must choose a unique label for your contract instance"._
 
-The testnet explorer [Transactions](https://secretnodes.com/secret/chains/pulsar-2) tab can be used to view the transaction details of the contract instantiation by copy and pasting the tx for the contract instantiation into the explorer.
+The testnet explorer [Transactions](https://secretnodes.com/pulsar) tab can be used to view the transaction details of the contract instantiation by copy and pasting the tx for the contract instantiation into the explorer.
 
 ### Secret Contracts 101
 
