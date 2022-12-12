@@ -4,24 +4,30 @@
 
 `Uint128` is a data structure designed to work with usigned 128-bit integers.
 
-If you are familiar with Rust, you might know that it has it's own native primitive - `u128`. `Uint128` differs from `u128` in that it is a string encoded number, rather than the traditional little/big-endian.
+If you are familiar with Rust, you might know that it has it's own native primitive - `u128`. `Uint128` differs from `u128` in that it is a string encoded integer, rather than the traditional little/big-endian.
 
-### When To Use Them Instead Of u128
+Simliarly, `cosmwasm-std` also has `Uint64` and `Uint256` and all of the following applies there as well.
 
-`Uint128` is a thin wrapper around `u128` that is using strings for JSON encoding/decoding, such that the full `u128` range can be used for clients that convert JSON numbers to floats, like JavaScript and jq.
+### When To Use Uint128 Instead Of u128
+
+`Uint128` is a thin wrapper around `u128` that is using strings for JSON encoding/decoding, such that the full `u128` range can be used for clients that convert JSON numbers to floats, like JavaScript and jq ([source](https://docs.cosmwasm.com/docs/1.0/smart-contracts/math/#uint128)).
 
 ### Entrypoint Messages
 
-You are already familiar with the [contract entrypoints](TODO) and the concept of [Messages](TODO). Most of the time we will use [serde](TODO) to serialize them.
+If you are familiar with Messages, you already know that most of the time we will use [serde](https://serde.rs/) to deserialize them from JSON (if not, you should read on [contract entrypoints](https://docs.cosmwasm.com/docs/1.0/actor-model/actor-in-blokchain/#entry-points) and the concept of [Messages](https://docs.cosmwasm.com/docs/1.0/smart-contracts/message/message)). Output will often be serizlized in the same way.
 
 In general, JSON implementations usually accept `[-(2^53)+1,(2^53)-1]` as an acceptable range for numbers. That's why we'll prefer to use `Uint128` in entrypoint messages, for example:
 
 ```rust
-// TODO
+pub enum ExecuteMsg {
+    SubmitNetWorth { name: String, worth: Uint128 },
+}
 
-// Instead of:
+// Rather than:
 
-// TODO
+pub enum ExecuteMsg {
+    SubmitNetWorth { name: String, worth: u128 },
+}
 ```
 
 ### Storage
@@ -32,12 +38,46 @@ Depends on the needs of your contract, you can choose to use either `Uint128` or
 
 More specifically, since `Uint128` is a string encoded number the storage space it'll consume will depend on the number of digits of the number you are storing. `u128` on the other hand will always take a constant amount of storage space. That's why `Uint128` will be more efficient for very small numbers (and then, why use 128-bit integer to begin with?), while `u128` will be more efficient for most use cases.
 
-### Data Hygiene
+Example:
 
-### How Uint128s Can Become A Security Risk
+```rust
+let n1: Uint128 = Uint128::new(10); // 2 bytes
+let n2: u128 = 10;                  // 4 bytes
+
+let n3: Uint128 = Uint128::new(12345678); // 8 bytes
+let n4: u128 = 10;                        // 4 bytes
+```
 
 ## Floats
 
-### Never Use Floats
+Floating points are a big no-no in blockchain. The reason being, and without diving into too much detail, that floating point operations might be non-deterministic, so different nodes in the blockchain might get different results and not reach consensus.
+
+That being said, there are different ways to overcome this.
+
+### Integer division
+
+Sometimes you can absorb some lack of precision, and you can use integer division. For example, if you want to divide 1 million tokens between three addresses:
+
+```rust
+let to_divide: u128 = 1_000_000;
+
+let addr_a: u128 = to_divide / 3; // 333,333
+let addr_b: u128 = to_divide / 3; // 333,333
+let addr_c: u128 = to_divide / 3 + 1; // 333,334
+```
+
+**Note - integer division in Rust will always round down towards zero** ([source](https://doc.rust-lang.org/std/ops/trait.Div.html#impl-Div%3Cu128%3E-for-u128)).
+
+### Fixed point decimals
+
+If you still need decimals in your code, a fixed-point decimals library can assist you.
+
+There are several Rust libraries that implement fixed-point decimals, but you'd probably be best to use Cosmwasm's own [`Decimal` library](https://docs.rs/secret-cosmwasm-std/latest/secret_cosmwasm_std/struct.Decimal.html).
+
+Keep in mind that using fixed-point decimals comes with an overhead (both efficiency and ease of use), so you would prefer to avoid it if possible.
 
 ### Detecting Floating Point Operations
+
+Sometimes even when you don't use floats directly, one of your contract's dependencies do. In that case you'd want to turn off the feature that using the floats or just replace the library altogether.
+
+But the hard part is to identify what causes the problem to begin with. It might get pretty complicated, and probably a bit too involved for this doc, but there's this [greate article](https://medium.com/cosmwasm/debugging-floating-point-generation-in-rust-wasm-smart-contract-f47d833b5fba) that was published in the Cosmwasm blog that is very helpful for this.
