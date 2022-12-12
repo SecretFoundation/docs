@@ -92,7 +92,7 @@
       * [Deps/DepsMut](development/secret-contracts/contract-components/deps-depsmut.md)
       * [Storage](development/secret-contracts/contract-components/storage/README.md)
         * [Prefixed Storage](development/secret-contracts/contract-components/storage/prefixed-storage.md)
-        * [Cashmaps](development/secret-contracts/contract-components/storage/cashmaps.md)
+        * [Keymap](development/secret-contracts/contract-components/storage/Keymap.md)
         * [Append Store](development/secret-contracts/contract-components/storage/append-store.md)
     * [Differences from Vanilla CW](development/secret-contracts/differences-from-vanilla-cw.md)
     * [Contract Interactions](development/secret-contracts/inter-contract-interaction.md)
