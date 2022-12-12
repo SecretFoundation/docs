@@ -8,6 +8,24 @@
 - Make sure to [backup your validator](../../node-runners/validator-backup.md) before making any chnages.
 - **Please read carefully before you begin the upgrade.**
 
+## Check your hardware compatiblity before the upgrade
+
+To check whether your hardware will be compatible with the new release, you can run the `check-hw` tool of the new release (or the latest RC version, if not available). You can find it in the [Releases page](https://github.com/scrtlabs/SecretNetwork/releases).
+
+Download the `check-hw` tar, extract and run:
+
+```bash
+tar -xzf chec_hw_<version>.tar.gz
+cd check-hw
+LOG_LEVEL=WARN ./check-hw
+```
+
+You should see some logs and if your hardware is compatible, you should receive at the end:
+
+```bash
+Platform Okay!
+```
+
 ## Upgrading Manually <a href="#upgrading-manually" id="upgrading-manually"></a>
 
 When the network reaches the halt height 6,537,300, you'll see this message in your node's log (`journalctl -fu secret-node`):
