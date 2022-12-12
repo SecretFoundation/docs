@@ -79,7 +79,7 @@ After adding this key, note the _address_ of the wallet. The address starts with
 
 Now, we can request funds to the wallet, so it has enough currency to send transactions.&#x20;
 
-Visit [https://faucet.secrettestnet.io/](https://faucet.secrettestnet.io/) and paste your wallet address to receive testnet tokens
+Visit [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/) and paste your wallet address to receive testnet tokens
 
 Finally, we can deploy our contract -
 
@@ -123,7 +123,7 @@ After adding this key, note the _address_ of the wallet. The address starts with
 
 Now, we can request funds to the wallet, so it has enough currency to send transactions. For that we use the faucet from the public testnet:
 
-{% embed url="https://faucet.secrettestnet.io/" %}
+{% embed url="https://faucet.pulsar.scrttestnet.com/" %}
 
 Once the tokens have been delivered, we can now **store** the contract code on chain
 
