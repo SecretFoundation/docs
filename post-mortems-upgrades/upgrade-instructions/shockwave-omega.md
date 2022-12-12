@@ -63,7 +63,7 @@ For instructions on how to setup Cosmovisor, go [here](/validators/migration/cos
 
 When the network reaches the halt height 6,537,300, the Secret Network blockchain will be halted and validators will need to take action to upgrade the chain to the secretd v1.6 binary (be it manually or automatically).
 
-The proposal targets the upgrade proposal block to be 6,537,300, anticipated to be on Tuesday December 13, 2022 at 2:00PM UTC.
+The proposal targets the upgrade proposal block to be 6,537,300, anticipated to be on Tuesday December 13, 2022 at 12:00PM UTC.
 
 The upgrade is anticipated to take approx 30 minutes, during which time, there will not be any on-chain activity on the network.
 
