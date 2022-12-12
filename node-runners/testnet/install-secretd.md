@@ -12,22 +12,22 @@ The most common method for install `secretd` is the Secret Network package insta
 # download secretd v1.5.0-beta.4
 
 ## goleveldb
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.5.0-beta.4/secretnetwork_1.5.0-beta.4_testnet_goleveldb_amd64.deb"
-echo "2807c176955e29ff219b0cf60aac51d922785800a4bdac887ae8bc6721f8e4fe secretnetwork_1.5.0-beta.4_testnet_goleveldb_amd64.deb" | sha256sum --check
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0-rc.2/secretnetwork_1.6.0-rc.2_testnet_goleveldb_amd64.deb"
+echo "568dcc85feccffe22091f4258eb32754f60b7563e7dba4b817c1fd5d2afb3036  secretnetwork_1.6.0-rc.2_testnet_goleveldb_amd64.deb" | sha256sum --check
 
 ## rocksdb
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.5.0-beta.4/secretnetwork_1.5.0-beta.4_testnet_rocksdb_amd64.deb"
-echo "b00d09df145ec98414c75f6a69ac4a94de4f1f2b66b705f0e5a3492d1a0937f9 secretnetwork_1.5.0-beta.4_testnet_rocksdb_amd64.deb" | sha256sum --check
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0-rc.2/secretnetwork_1.6.0-rc.2_testnet_rocksdb_amd64.deb"
+echo "8f02ab1b77338b5461521f70ed5b3f1806402a7fab48195dc77bd7f632ccbda3  secretnetwork_1.6.0-rc.2_testnet_rocksdb_amd64.deb" | sha256sum --check
 
 ```
 
 ### Install `secretd` <a href="#_2-install-the-package" id="_2-install-the-package"></a>
 
 ```bash
-# Install v1.5 binaries
-sudo apt install -y ./secretnetwork_1.5.0-beta.4_testnet_*_amd64.deb
+# Install v1.6 binaries
+sudo apt install -y ./secretnetwork_1.6.0-rc.2_testnet_*_amd64.deb
 
 # verify installation
 secretd version
-# 1.5.0-beta.4
+# 1.6.0-rc.2
 ```
