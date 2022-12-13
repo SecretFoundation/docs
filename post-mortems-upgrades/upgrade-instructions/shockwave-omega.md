@@ -8,6 +8,24 @@
 - Make sure to [backup your validator](../../node-runners/validator-backup.md) before making any chnages.
 - **Please read carefully before you begin the upgrade.**
 
+## Check your hardware compatiblity before the upgrade
+
+To check whether your hardware will be able to register on the network, you can run the `check-hw` tool of the new release (or the latest RC version, if not available). You can find it in the [Releases page](https://github.com/scrtlabs/SecretNetwork/releases).
+
+Download the `check-hw` tar, extract and run:
+
+```bash
+tar -xzf chec_hw_<version>.tar.gz
+cd check-hw
+LOG_LEVEL=WARN ./check-hw
+```
+
+You should see some logs and if your hardware is compatible, you should receive at the end:
+
+```bash
+Platform Okay!
+```
+
 ## Upgrading Manually <a href="#upgrading-manually" id="upgrading-manually"></a>
 
 When the network reaches the halt height 6,537,300, you'll see this message in your node's log (`journalctl -fu secret-node`):
@@ -34,11 +52,11 @@ awk -F \" '/^db_backend =/{print $2}' ~/.secretd/config/config.toml
 
 ## goleveldb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0/secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb"
-# echo "TODO secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
+# echo "ce9ba85d346fa460ed3fc98871f2a254b269fafa835fc555c9184f6405d8c80a secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
 
 ## rocksdb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0/secretnetwork_1.6.0_mainnet_rocksdb_amd64.deb"
-# echo "TODO secretnetwork_1.6.0_mainnet_rocksdb_amd64.deb" | sha256sum --check
+# echo "65f795069fc3f703ef3bc1e856cb7499f5474e7b7889ca7d83e085be8b5488f1 secretnetwork_1.6.0_mainnet_rocksdb_amd64.deb" | sha256sum --check
 
 # Install v1.6 binaries
 sudo apt install -y ./secretnetwork_1.6.0_mainnet_*_amd64.deb
