@@ -10,7 +10,7 @@
 
 ## Check your hardware compatiblity before the upgrade
 
-To check whether your hardware will be compatible with the new release, you can run the `check-hw` tool of the new release (or the latest RC version, if not available). You can find it in the [Releases page](https://github.com/scrtlabs/SecretNetwork/releases).
+To check whether your hardware will be able to register on the network, you can run the `check-hw` tool of the new release (or the latest RC version, if not available). You can find it in the [Releases page](https://github.com/scrtlabs/SecretNetwork/releases).
 
 Download the `check-hw` tar, extract and run:
 
