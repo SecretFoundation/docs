@@ -1,13 +1,4 @@
----
-description: >-
-  Note: This page is outdated. While the information may still be useful, expect
-  that some of the commands will not work, or may not conform to current best
-  practices
----
-
-# Getting Started with SecretJS (outdated)
-
-[https://github.com/scrtlabs/SecretJS-Templates/tree/update-secretjs](https://github.com/scrtlabs/SecretJS-Templates/tree/update-secretjs)
+# Getting Started with SecretJS
 
 ## SecretJS
 
@@ -39,7 +30,7 @@ Update the contents of .env file to contain the following:
 
 ```
 SECRET_GRPC_WEB_URL='https://grpc.pulsar.scrttestnet.com'
-SECRET_REST_URL='https://api.pulsar.scrttestnet.com'
+SECRET_LCD_URL='https://api.pulsar.scrttestnet.com'
 SECRET_WS_URL='wss://rpc.pulsar.scrttestnet.com/websocket'
 SECRET_CHAIN_ID='pulsar-2'
 
@@ -91,7 +82,7 @@ Successfully connected to Secret Network
 The code responsible for connecting with pulsar-2 in SecretJS-Templates/1\_connecting\_to\_node/connect.js is:
 
 ```rust
-const client = new CosmWasmClient(process.env.SECRET_REST_URL)
+const secretjs = new SecretNetworkClient({url: process.env.SECRET_LCD_URL});
 ```
 
 ### Creating an account
@@ -192,8 +183,8 @@ You now have an account address with a known balance to use in the 4\_transactio
 const tx = await secretjs.tx.bank.send(
     {
       amount: [{ amount: "1", denom: "uscrt" }],
-      fromAddress: wallet.address,
-      toAddress: "<receiver address>", // put new receiver address here
+      from_address: wallet.address,
+      to_address: "<receiver address>", // put new receiver address here
     },
 ```
 

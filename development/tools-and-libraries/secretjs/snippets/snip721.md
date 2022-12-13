@@ -5,7 +5,7 @@
 ```
 const addMinterMsg = await secretjs.tx.snip721.addMinter(
   {
-    contractAddress,
+    contract_address: contractAddress,
     msg: { add_minters: { minters: [accounts[0].address] } },
     sender: accounts[0].address,
   },
@@ -19,7 +19,7 @@ const addMinterMsg = await secretjs.tx.snip721.addMinter(
 
 <pre class="language-typescript"><code class="lang-typescript"><strong>const mintMsg = await secretjs.tx.snip721.mint(
 </strong>  {
-    contractAddress,
+    contract_address :contractAddress,
     sender: accounts[0].address,
     msg: {
       mint_nft: {
@@ -38,7 +38,7 @@ const addMinterMsg = await secretjs.tx.snip721.addMinter(
 const txExec = await secretjs.tx.snip721.send(
   {
     sender: secretjs.address,
-    contractAddress,
+    contract_address: contractAddress,
     msg: {
       send_nft: {
         contract: accounts[1].address,
@@ -57,7 +57,7 @@ const txExec = await secretjs.tx.snip721.send(
 ```typescript
 const addMinterMsg = new MsgExecuteContract({
   sender: accounts[0].address,
-  contractAddress,
+  contract_address: contractAddress,
   // codeHash, // Test MsgExecuteContract without codeHash
   msg: { add_minters: { minters: [accounts[0].address] } },
   sentFunds: [],
@@ -65,8 +65,8 @@ const addMinterMsg = new MsgExecuteContract({
 
 const mintMsg = new MsgExecuteContract({
   sender: accounts[0].address,
-  contractAddress,
-  codeHash,
+  contract_address: contractAddress,
+  code_hash: codeHash,
   msg: {
     mint_nft: {
       token_id: "1",
@@ -113,7 +113,7 @@ let tokens2 = await secretjs.query.snip721.GetOwnedTokens({
 ```typescript
 await secretjs.tx.snip721.setViewingKey(
   {
-    contractAddress,
+    contract_address: contractAddress,
     sender: accounts[0].address,
     msg: {
       set_viewing_key: {

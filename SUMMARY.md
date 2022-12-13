@@ -141,7 +141,7 @@
         * [Deposits](development/tools-and-libraries/secret-cli/governance/deposits.md)
         * [Voting](development/tools-and-libraries/secret-cli/governance/voting.md)
     * [SecretJS](development/tools-and-libraries/secretjs/README.md)
-      * [Getting Started with SecretJS (outdated)](development/tools-and-libraries/secretjs/templates.md)
+      * [Getting Started with SecretJS](development/tools-and-libraries/secretjs/templates.md)
       * [Snippets](development/tools-and-libraries/secretjs/snippets/README.md)
         * [Deploying a Contract](development/tools-and-libraries/secretjs/snippets/deploying-a-contract.md)
         * [Send Native Coin](development/tools-and-libraries/secretjs/snippets/send-native-coin.md)
