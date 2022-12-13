@@ -52,11 +52,11 @@ awk -F \" '/^db_backend =/{print $2}' ~/.secretd/config/config.toml
 
 ## goleveldb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0/secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb"
-# echo "TODO secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
+# echo "ce9ba85d346fa460ed3fc98871f2a254b269fafa835fc555c9184f6405d8c80a secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
 
 ## rocksdb
 # wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0/secretnetwork_1.6.0_mainnet_rocksdb_amd64.deb"
-# echo "TODO secretnetwork_1.6.0_mainnet_rocksdb_amd64.deb" | sha256sum --check
+# echo "65f795069fc3f703ef3bc1e856cb7499f5474e7b7889ca7d83e085be8b5488f1 secretnetwork_1.6.0_mainnet_rocksdb_amd64.deb" | sha256sum --check
 
 # Install v1.6 binaries
 sudo apt install -y ./secretnetwork_1.6.0_mainnet_*_amd64.deb
