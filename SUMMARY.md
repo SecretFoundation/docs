@@ -104,7 +104,7 @@
       * [Upgradability](development/secret-contracts/best-practices/upgradability.md)
       * [Padding/Datatype](development/secret-contracts/best-practices/padding-datatype.md)
       * [Admin Keys](development/secret-contracts/best-practices/admin-keys.md)
-      * [Data Handling (incomplete)](development/secret-contracts/best-practices/data-handling.md)
+      * [Data Handling](development/secret-contracts/best-practices/data-handling.md)
       * [Continuous Integration](development/secret-contracts/best-practices/continuous-integration.md)
       * [Contract Optimization](development/secret-contracts/best-practices/contract-optimization.md)
     * [Reference Contracts](development/secret-contracts/reference-contracts.md)
