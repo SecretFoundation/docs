@@ -10,13 +10,13 @@ Simliarly, `cosmwasm-std` also has `Uint64` and `Uint256` and all of the followi
 
 ### When To Use Uint128 Instead Of u128
 
-`Uint128` is a thin wrapper around `u128` that is using strings for JSON encoding/decoding, such that the full `u128` range can be used for clients that convert JSON numbers to floats, like JavaScript and jq ([source](https://docs.cosmwasm.com/docs/1.0/smart-contracts/math/#uint128)).
+`Uint128` is a thin wrapper around `u128` that uses strings for JSON encoding/decoding, such that the full `u128` range can be used for clients that convert JSON numbers to floats, like JavaScript and jq ([source](https://docs.cosmwasm.com/docs/1.0/smart-contracts/math/#uint128)).
 
 ### Entrypoint Messages
 
-If you are familiar with Messages, you already know that most of the time we will use [serde](https://serde.rs/) to deserialize them from JSON (if not, you should read on [contract entrypoints](https://docs.cosmwasm.com/docs/1.0/actor-model/actor-in-blokchain/#entry-points) and the concept of [Messages](https://docs.cosmwasm.com/docs/1.0/smart-contracts/message/message)). Output will often be serizlized in the same way.
+If you are familiar with Messages, you already know that most of the time we will use [serde](https://serde.rs/) to deserialize them from JSON (if not, you should read on [contract entrypoints](https://docs.cosmwasm.com/docs/1.0/actor-model/actor-in-blokchain/#entry-points) and the concept of [Messages](https://docs.cosmwasm.com/docs/1.0/smart-contracts/message/message)). Output will often be serialized in the same way.
 
-In general, JSON implementations usually accept `[-(2^53)+1,(2^53)-1]` as an acceptable range for numbers. That's why we'll prefer to use `Uint128` in entrypoint messages, for example:
+In general, JSON implementations usually accept `[-(2^53)+1,(2^53)-1]` as an acceptable range for numbers. So if we need more than that (for example for 64(unsigned), 128 and 256 numbers) we'll want to use a string-encoded numbers. That's why we'll prefer to use `Uint128` in entrypoint messages, for example:
 
 ```rust
 pub enum ExecuteMsg {
@@ -45,7 +45,7 @@ let n1: Uint128 = Uint128::new(10); // 2 bytes
 let n2: u128 = 10;                  // 4 bytes
 
 let n3: Uint128 = Uint128::new(12345678); // 8 bytes
-let n4: u128 = 10;                        // 4 bytes
+let n4: u128 = 12345678;                  // 4 bytes
 ```
 
 ## Floats
@@ -61,8 +61,8 @@ Sometimes you can absorb some lack of precision, and you can use integer divisio
 ```rust
 let to_divide: u128 = 1_000_000;
 
-let addr_a: u128 = to_divide / 3; // 333,333
-let addr_b: u128 = to_divide / 3; // 333,333
+let addr_a: u128 = to_divide / 3;     // 333,333
+let addr_b: u128 = to_divide / 3;     // 333,333
 let addr_c: u128 = to_divide / 3 + 1; // 333,334
 ```
 
