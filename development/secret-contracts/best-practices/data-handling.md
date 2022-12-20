@@ -68,11 +68,42 @@ let addr_c: u128 = to_divide / 3 + 1; // 333,334
 
 **Note - integer division in Rust will always round down towards zero** ([source](https://doc.rust-lang.org/std/ops/trait.Div.html#impl-Div%3Cu128%3E-for-u128)).
 
+### Scale factor pattern
+
+You can often increase **integer division**'s precision by enlarging your inputs by some factor. When you are done with the calculations, you can shrink the number to the original scale.
+
+Let's look at an example calculation with the following inputs:
+
+```rust
+let prize = 100;
+let total_stake = 1000;
+let my_stake = 333;
+```
+
+Not scaling up before the calculation causes loss of precision:&#x20;
+
+<pre class="language-rust"><code class="lang-rust">let reward_per_share = total_prize / total_stake;
+<strong>let my_rewards = reward_per_share * my_stake;
+</strong><strong>// This gives 0 rewards, as the total stake is bigger than the prize,
+</strong><strong>// which causes the first integer division to floor to 0
+</strong></code></pre>
+
+Instead, we can first scale up the inputs by a constant `SCALE_FACTOR`, and shrink them back down at the end:
+
+```rust
+const SCALE_FACTOR: i32 = 10_000;
+let reward_per_share = total_prize * SCALE_FACTOR / total_stake;
+let my_rewards = reward_per_share * my_stake / SCALE_FACTOR;
+// Here, we correctly receive 33 coins as rewards
+```
+
+Scale factors can be as big as possible, provided they don't cause overflows.&#x20;
+
 ### Fixed point decimals
 
 If you still need decimals in your code, a fixed-point decimals library can assist you.
 
-There are several Rust libraries that implement fixed-point decimals, but you'd probably be best to use Cosmwasm's own [`Decimal` library](https://docs.rs/secret-cosmwasm-std/latest/secret_cosmwasm_std/struct.Decimal.html).
+There are several Rust libraries that implement fixed-point decimals, but you'd probably be best to use Cosmwasm's own [`Decimal` library](https://docs.rs/secret-cosmwasm-std/latest/secret\_cosmwasm\_std/struct.Decimal.html).
 
 Keep in mind that using fixed-point decimals comes with an overhead (both efficiency and ease of use), so you would prefer to avoid it if possible.
 
