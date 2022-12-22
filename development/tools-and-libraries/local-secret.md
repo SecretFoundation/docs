@@ -19,8 +19,8 @@ LocalSecret comes preconfigured with opinionated, sensible defaults for standard
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-* [Docker](https://www.docker.com/)
-* Supported known architectures: x86\_64, amd64
+- [Docker](https://www.docker.com/)
+- Supported known architectures: x86_64, amd64
 
 ## Install LocalSecret <a href="#install-localsecret" id="install-localsecret"></a>
 
@@ -32,10 +32,12 @@ docker pull ghcr.io/scrtlabs/localsecret
 
 {% tabs %}
 {% tab title="x86 (Intel/AMD)" %}
+
 ```
 docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
   --name localsecret ghcr.io/scrtlabs/localsecret
 ```
+
 {% endtab %}
 
 {% tab title="ARM (Mac M1)" %}
@@ -59,12 +61,12 @@ You've now officially created a local Secret Network testnet with chain-id `secr
 
 Your environment now contains:
 
-| Protocol    | Endpoint               | Usage                                 |
-| ----------- | ---------------------- | ------------------------------------- |
-| RPC         | http://localhost:26657 | `secretcli`, Keplr, `cosmjs`          |
-| gRPC-web    | http://localhost:9091  | `secretjs@beta`                       |
-| SCRT Faucet | http://localhost:5000  | To get SCRT                           |
-| LCD         | http://localhost:1317  | Keplr, `secretjs@0.17.5` (deprecated) |
+| Protocol    | Endpoint               | Usage                                              |
+| ----------- | ---------------------- | -------------------------------------------------- |
+| RPC         | http://localhost:26657 | `secretcli`, Keplr, `cosmjs`                       |
+| gRPC-web    | http://localhost:9091  | `secretjs@v1.4` (deprecated)                       |
+| SCRT Faucet | http://localhost:5000  | To get SCRT                                        |
+| LCD         | http://localhost:1317  | `secretjs`, Keplr, `secretjs@v0.17.5` (deprecated) |
 
 {% hint style="info" %}
 _You can also use `docker run --rm` to launch LocalSecret. This will delete the container once you exit the terminal, but it also means that you can't edit the node's config as stopping the container automatically deletes it._
@@ -122,16 +124,16 @@ docker exec -it localsecret secretd tx bank send a ${ADDRESS} 1000000000uscrt -y
 
 ### Connect To LocalSecret With secret.js <a href="#secret-js" id="secret-js"></a>
 
-Connect to the chain through LocalSecret's gRPC-web endpoint.
+Connect to the chain through LocalSecret's LCD endpoint.
 
-`npm i secretjs@beta` or `yarn add secretjs@beta`, then:
+`npm i secretjs` or `yarn add secretjs`, then:
 
 ```javascript
 import { SecretNetworkClient } from "secretjs";
 
-const secretjs = await SecretNetworkClient.create({
+const secretjs = new SecretNetworkClient({
   chainId: "secretdev-1",
-  grpcWebUrl: "http://localhost:9091",
+  url: "http://localhost:1317",
 });
 ```
 
