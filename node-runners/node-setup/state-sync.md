@@ -15,7 +15,7 @@ NOTE: For nodes that are intended to serve data for dapps, explorers, or any oth
 Lavender.Five Nodes and SecretNFT are operating and maintaining the snapshot RPCs.
 
 {% hint style="info" %}
-**This documentation assumes you have followed the instructions for** [**Running a Full Node**](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)**.**
+**This documentation assumes you have followed the instructions for** [**Running a Full Node**](../setup-full-node.md)**.**
 {% endhint %}
 
 The state-sync configuration is as follows:
