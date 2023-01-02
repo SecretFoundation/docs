@@ -208,6 +208,7 @@
     * [Becoming A Validator](node-runners/node-setup/becoming-a-validator.md)
     * [State-Sync](node-runners/node-setup/state-sync.md)
     * [Troubleshooting](node-runners/node-setup/troubleshooting.md)
+    * [Patching your Node](node-runners/node-setup/patching-your-node.md)
     * [Best Practices](node-runners/node-setup/best-practices/README.md)
       * [Validator Backup](node-runners/validator-backup.md)
       * [Security](node-runners/security.md)
