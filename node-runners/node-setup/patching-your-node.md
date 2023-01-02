@@ -13,17 +13,15 @@ Let's start with the different components that need to be updated -
 
 The PSW packages can be updated using your standard operating system install methods. For example, in Linux do this:
 
-```bash
-PSW_PACKAGES='libsgx-enclave-common libsgx-aesm-launch-plugin libsgx-aesm-quote-ex-plugin libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
-# Add Intels's SGX PPA
-echo "deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu $DISTRO main" |
+<pre class="language-bash"><code class="lang-bash"><strong># Add Intels's SGX PPA
+</strong>echo "deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu $DISTRO main" |
    sudo tee /etc/apt/sources.list.d/intel-sgx.list
 wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key |
    sudo apt-key add -
 sudo apt update
 
-sudo apt install -y $PSW_PACKAGES
-```
+sudo apt install -y libsgx-enclave-common libsgx-aesm-launch-plugin libsgx-aesm-quote-ex-plugin libsgx-urts sgx-aesm-service libsgx-uae-service
+</code></pre>
 
 ### Updating the Microcode
 
@@ -46,7 +44,7 @@ lscpu
 Here is an example of the output you might see:
 
 ```less
-Copy codeArchitecture:          x86_64
+Architecture:          x86_64
 CPU op-mode(s):        32-bit, 64-bit
 Byte Order:            Little Endian
 CPU(s):                4
