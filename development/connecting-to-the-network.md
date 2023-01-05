@@ -39,11 +39,14 @@
 ### API endpoints
 
 {% hint style="warning" %}
-⚠️ These endpoints are offered to the public for free, please be mindful and don't spam them.
+⚠️ These endpoints are offered to the public for free, please be mindful and don't spam them. The recommended endpoint for high traffic applications is [https://secret.express](https://secret.express), a combined endpoint maintained by multiple Secret validator teams and funded via governance.
 {% endhint %}
+
+
 
 | Type     | API                                                 | Courtesy of                                                                                                                                        |
 | -------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RPC      | `https://rpc.secret.express`                        | [secret.express](https://secret.express)                                                                                                           |
 | RPC      | `https://secret-4.api.trivium.network:26657`        | [Trivium \| Trivium.Network](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1ahawe276d250zpxt0xgpfg63ymmu63a0svuvgw) |
 | RPC      | `https://rpc.spartanapi.dev`                        | [secretnodes.com ❄️☄️](https://secretnodes.com/secret/validators/secretvaloper1hjd20hjvkx06y8p42xl0uzr3gr3ue3nkvd79jj)                             |
 | RPC      | `https://scrt-rpc.blockpane.com` (archive node)     | [\[block pane\]](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1tmtcu980raqvypdf0dd6hsgh6qcm7ex7l29u58)             |
@@ -52,6 +55,7 @@
 | RPC      | `https://secretnetwork-rpc.stakely.io`              | [Stakely.io](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1vzkdmu0sa8gaj686jh5all7hpmmsp8x87vyz8z)                 |
 | RPC      | `https://scrt-rpc.agoranodes.com`                   | [AgoraNodes.com](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1xmu8meef8ynlsev3a9hpl5wdxhpzzj0efmzpcj)             |
 | RPC      | `https://secret-rpc.lavenderfive.com:443`           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive)                                                                                          |
+| gRPC-web | `https://wgrpc.secret.express`                      | [secret.express](https://secret.express)                                                                                                           |
 | gRPC-web | `https://secret-4.api.trivium.network:9091`         | [Trivium \| Trivium.Network](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1ahawe276d250zpxt0xgpfg63ymmu63a0svuvgw) |
 | gRPC-web | `https://wgrpc.spartanapi.dev`                      | [secretnodes.com ❄️☄️](https://secretnodes.com/secret/validators/secretvaloper1hjd20hjvkx06y8p42xl0uzr3gr3ue3nkvd79jj)                             |
 | gRPC-web | `http://scrt-rpc.blockpane.com:9091` (archive node) | [\[block pane\]](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1tmtcu980raqvypdf0dd6hsgh6qcm7ex7l29u58)             |
@@ -60,6 +64,7 @@
 | gRPC     | `https://grpc.spartanapi.dev`                       | [secretnodes.com ❄️☄️](https://secretnodes.com/secret/validators/secretvaloper1hjd20hjvkx06y8p42xl0uzr3gr3ue3nkvd79jj)                             |
 | gRPC     | `https://grpc.secret.forbole.com/`                  | [Forbole](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1kvp570cd6zvzh8ffrhz7lmytt6v6u2gxz8tl0g)                    |
 | gRPC     | `https://secret-grpc.lavenderfive.com:443`          | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive)                                                                                          |
+| LCD      | `https://lcd.secret.express`                        | [secret.express](https://secret.express)                                                                                                           |
 | LCD      | `https://secret-4.api.trivium.network:1317`         | [Trivium \| Trivium.Network](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1ahawe276d250zpxt0xgpfg63ymmu63a0svuvgw) |
 | LCD      | `https://scrt-lcd.blockpane.com` (archive node)     | [\[block pane\]](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1tmtcu980raqvypdf0dd6hsgh6qcm7ex7l29u58)             |
 | LCD      | `https://api.secret.forbole.com/`                   | [Forbole](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1kvp570cd6zvzh8ffrhz7lmytt6v6u2gxz8tl0g)                    |
