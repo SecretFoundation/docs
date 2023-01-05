@@ -16,7 +16,7 @@ The next update for Secret Network will bring an updated version of the Secret C
 
 When initially developing secret contracts a decision was made to go with WebAssembly (WASM) engine _wasmi_ - a slower, older engine that was made for SGX (the core technology that enables privacy) - rather than undertaking long development to adapt a more performant engine. This allowed the network to launch faster, and now it is catching up with the newer more performant engines.&#x20;
 
-The team is aiming to do the WASM engine replacement in phases and start with a replacement to WASM3. The implementation of WASM3 can be done faster and will bring a \~25x TPS increase for smart contract executions. This feature is expected to launch in Q4 2022\
+The team is aiming to do the WASM engine replacement in phases and start with a replacement to WASM3. The implementation of WASM3 can be done faster and will bring a \~3.5x TPS increase for smart contract executions. This feature is expected to launch in Q4 2022\
 \
 Over the long term the intention is to replace the current WASM engine with the vanilla CosmWasm’s WASM engine, Wasmer. This is going to be a difficult task, as the engine that runs the Secret contracts is tightly integrated with many system components. This new engine would bring a smart contract TPS increase of \~200x. The team is confident they can pull this off for a release in 2023.
 

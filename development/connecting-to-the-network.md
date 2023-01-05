@@ -39,11 +39,7 @@
 ### API endpoints
 
 {% hint style="warning" %}
-⚠️ **Public APIs**. Do not use in production apps!&#x20;
-
-
-
-These endpoints are offered to the community for free, please be mindful and don't spam them.
+⚠️ These endpoints are offered to the public for free, please be mindful and don't spam them.
 {% endhint %}
 
 | Type     | API                                                 | Courtesy of                                                                                                                                        |
