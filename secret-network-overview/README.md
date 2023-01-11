@@ -36,7 +36,7 @@ Secret Tokens can be used to buy/sell NFTs, participate in DeFi, pay in private,
 
 Secret Network and its applications are built by a community of over 100 dedicated developers and business leads from all over the world. The Network and its builders are supported by the community pool, SCRT Labs, the Secret Foundation, 80 validators, and a multitude of infrastructure and investment partners.&#x20;
 
-The Secret Network community, known as “Secret Agents,” are the core of the Network, helping to test and enjoy new applications while spreading the importance of web3 privacy online and at in-person events.
+The Secret Network community, known as “Secret Agents”, are the core of the Network, helping to test and enjoy new applications while spreading the importance of web3 privacy online and at in-person events.
 
 ![](https://cdn-images-1.medium.com/max/800/0\*1EnJw32oGDihRO02.jpeg)
 
