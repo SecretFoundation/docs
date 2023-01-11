@@ -35,7 +35,7 @@ The major difference of IBC compared to existing bridge solutions is that there 
 
 An analogy of IBC could be seen as an internet application on a computer. A channel is an IP connection, with the IBC portID being an IP port and the IBC channelID being an IP address.
 
-IBC security does not depend on third parties to verify the validity of transactions between blockchain. IBC security is mostly done by the light clients who verify proofs of commitments and the state of the two interconnected blockchain. In short terms, IBC security is based on::
+IBC security does not depend on third parties to verify the validity of transactions between blockchain. IBC security is mostly done by the light clients who verify proofs of commitments and the state of the two interconnected blockchain. In short terms, IBC security is based on:
 
 * Trust in the chains you connect with
 * Fault isolation mechanisms, to limit damage done if a chain is acting maliciously
