@@ -7,8 +7,8 @@ Secret Network is set up to perform computation while having encrypted state, in
 The bootstrap node first does a remote attestation to prove they are running a genuine SGX enclave with updated software. After registering the bootstrap node handled the initialization of following variables:
 
 * `Consensus_seed` a true random 256 bit seed used as entropy for generating shareable keypairs between the nodes of the network.
-* `consensus_seed_exchange_pubkey` - `consensus_seed_exchange_pubkey` an HDKF private key and a matching curve25519 public key for encryption of the random seed and sharing this with other full nodes in the network.
-* `consensus_io_exchange_pubkey` - `consensus_io_exchange_pubkey` an HDKF private key and a matching curve25519 public key for encrypting transactions IO in the network. Also referenced as the "Secret Network keypair".
+* `consensus_seed_exchange_privkey` - `consensus_seed_exchange_pubkey` an HDKF private key and a matching curve25519 public key for encryption of the random seed and sharing this with other full nodes in the network.
+* `consensus_io_exchange_privkey` - `consensus_io_exchange_pubkey` an HDKF private key and a matching curve25519 public key for encrypting transactions IO in the network. Also referenced as the "Secret Network keypair".
 * `consensus_state_ikm` An input keyring material (IKM) for HKDF-SHA256 is used to derive encryption keys for contract state.
 * `consensus_callback_secret` A curve25519 private key is used to create callback signatures when contracts call other contracts
 
