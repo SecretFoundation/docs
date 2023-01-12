@@ -171,6 +171,16 @@ In the previous step we stored the contract _code_ on the blockchain. To actuall
 secretcli tx compute instantiate 1 '{}' --from a --label milproblem -y
 ```
 
+{% hint style="danger" %}
+**Something not working?** If you get this error: 
+
+```Failed to get IO key. Make sure the CLI and the node you are targeting are operating in the same SGX mode``` 
+
+you should try to prepend the command with `SGX_MODE=SW`, like 
+
+`SGX_MODE=SW secretcli tx compute instantiate 1 '{}' --from a --label milproblem -y`
+{% endhint %}
+
 {% hint style="warning" %}
 * **--label** is a mandatory field that gives the contract a unique meaningful identifier
 * If you are using a public testnet, replace **1** with the id that you saw in the previous section, and replace the **label** with a unique name of your choosing
