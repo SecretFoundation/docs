@@ -127,7 +127,7 @@ SecretCLI is a command-line tool that helps us interact with the Secret Network 
 {% tabs %}
 {% tab title="Linux" %}
 ```bash
-wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-Linux
+wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0/secretcli-Linux
 chmod +x secretcli-Linux
 sudo mv secretcli-Linux /usr/local/bin/secretcli
 ```
@@ -182,7 +182,7 @@ The installation methods differ based on the processor architecture. This is bec
 {% tab title="x86 (Intel/AMD)" %}
 ```bash
 docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
-  --name localsecret ghcr.io/scrtlabs/localsecret:v1.4.0-cw-v1-beta.2
+  --name localsecret ghcr.io/scrtlabs/localsecret:v1.6.0
 ```
 
 You'll need to configure SecretCLI to work with LocalSecret
