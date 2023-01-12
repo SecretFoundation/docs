@@ -77,7 +77,7 @@ After adding this key, note the _address_ of the wallet. The address starts with
 
 
 
-Now, we can request funds to the wallet, so it has enough currency to send transactions.&#x20;
+Now, we can request funds to the wallet, so it has enough currency to send transactions.
 
 Visit [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/) and paste your wallet address to receive testnet tokens
 
@@ -121,9 +121,7 @@ To interact with the blockchain, we first need to initialize a wallet
 
 After adding this key, note the _address_ of the wallet. The address starts with the prefix `secret1...`
 
-Now, we can request funds to the wallet, so it has enough currency to send transactions. For that we use the faucet from the public testnet:
-
-{% embed url="https://faucet.pulsar.scrttestnet.com/" %}
+Now, we can request funds to the wallet, so it has enough currency to send transactions. For that we use the faucet from the public testnet at [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/).
 
 Once the tokens have been delivered, we can now **store** the contract code on chain
 
