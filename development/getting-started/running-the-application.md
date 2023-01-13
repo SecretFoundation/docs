@@ -8,7 +8,7 @@ The way you interact with applications (= contracts) on a blockchain is by sendi
 **Did you know?** Transactions aren't free! Each transaction costs a small fee, which represent how many resources were required to complete it. This cost is measured in _**gas**_ units.
 {% endhint %}
 
-Let's think back to our problem now. We have two millionaires: Alice and Bob. They want to know who is richer, without revealing their own net worth to each other. To do this, we will ask each of them to submit a transaction to the contract we deployed in the earlier stage. On Secret Network all contract transactions are encrypted and private by default. This means that Alice cannot see Bob's data, and vise-versa.&#x20;
+Let's think back to our problem now. We have two millionaires: Alice and Bob. They want to know who is richer, without revealing their own net worth to each other. To do this, we will ask each of them to submit a transaction to the contract we deployed in the earlier stage. On Secret Network all contract transactions are encrypted and private by default. This means that Alice cannot see Bob's data, and vice-versa.&#x20;
 
 For Alice:&#x20;
 
