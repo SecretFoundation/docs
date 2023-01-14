@@ -39,8 +39,6 @@ Remember, Rust has implicit returns for lines that don’t end in a semicolon, s
 
 You may have noticed that the handle method takes two arguments in addition to the msg, `deps` and `env`. Let’s look at those more closely.
 
-## ``
-
 ## `env`
 
 As the name perhaps implies,`env` contains all the information about the environment the contract is running in, but what does that mean exactly? On Secret Network the properties available in the Env struct are as follows:
