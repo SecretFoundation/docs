@@ -75,7 +75,7 @@ The reason why we can use the same wrapper functions is because Prefixed Storage
 
 #### Loading From Prefixed Storage
 
-We may use both `load` and `may_load` We may load data from a mutable Prefixed Storage instance with the following lines of code
+We may use both `load` and `may_load`. We may load data from a mutable Prefixed Storage instance with the following lines of code
 
 ```rust
 let mut password_store = PrefixedStorage::new(PREFIX_PASSWORDS, &mut deps.storage);
