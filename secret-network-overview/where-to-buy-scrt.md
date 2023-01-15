@@ -1,5 +1,5 @@
 ---
-description: Places to buy, sell, and store SCRT.
+description: Places to buy, sell, and store SCRT
 ---
 
 # Where To Buy SCRT?
