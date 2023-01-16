@@ -111,4 +111,4 @@ Keep in mind that using fixed-point decimals comes with an overhead (both effici
 
 Sometimes even when you don't use floats directly, one of your contract's dependencies do. In that case you'd want to turn off the feature that using the floats or just replace the library altogether.
 
-But the hard part is to identify what causes the problem to begin with. It might get pretty complicated, and probably a bit too involved for this doc, but there's this [greate article](https://medium.com/cosmwasm/debugging-floating-point-generation-in-rust-wasm-smart-contract-f47d833b5fba) that was published in the Cosmwasm blog that is very helpful for this.
+But the hard part is to identify what causes the problem to begin with. It might get pretty complicated, and probably a bit too involved for this doc, but there's this [great article](https://medium.com/cosmwasm/debugging-floating-point-generation-in-rust-wasm-smart-contract-f47d833b5fba) that was published in the Cosmwasm blog that is very helpful for this.
