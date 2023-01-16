@@ -75,7 +75,7 @@ You can often increase **integer division**'s precision by enlarging your inputs
 Let's look at an example calculation with the following inputs:
 
 ```rust
-let prize = 100;
+let total_prize = 100;
 let total_stake = 1000;
 let my_stake = 333;
 ```
