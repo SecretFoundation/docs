@@ -24,7 +24,7 @@ In theory, one could write a contract that only forwards messages to another con
 
 Unfortunately, this is currently not feasible, at least not in a pretty way, because of limitations of the available json parsing libraries. The only one i'm aware of that can run on an environment that forbids floats is `serde-json-wasm`, but it doesn't support parsing unstructured messages (like e.g., `serde_json::Value`). A workaround then, is to include the message to the "backend" contract as a serialized JSON in a string field of the message to the facade. It's not as pretty but can be implemented without having to start rewriting ecosystem packages.
 
-Another, less flexible alternative, is to define the full API that you will commit to for the rest of the application's lifetime. Then. you can just parse-reserialize messages that aren't meant for the facade itself.
+Another, less flexible alternative, is to define the full API that you will commit to for the rest of the application's lifetime. Then, you can just parse-reserialize messages that aren't meant for the facade itself.
 
 ### Configurable Factory
 
