@@ -61,7 +61,7 @@ docker run -it --rm \
 If the following error occurs "Got permission denied while trying to connect to the Docker daemon", prefix the docker command to start the SecretNetwork Docker container with `sudo` privileges:
 
 ```bash
-docker run -it --rm \
+sudo docker run -it --rm \
  -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
  --name localsecret ghcr.io/scrtlabs/localsecret
 ```
