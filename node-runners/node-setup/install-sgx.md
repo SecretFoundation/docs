@@ -55,6 +55,9 @@ elif (($UBUNTUVERSION == 18)); then
 elif (($UBUNTUVERSION == 20)); then
 	DISTRO='focal'
 	OS='ubuntu20.04-server'
+elif (($UBUNTUVERSION == 22)); then
+	DISTRO='jammy'
+	OS='ubuntu22.04-server'
 fi
 
 echo "\n\n###############################################"
