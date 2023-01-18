@@ -47,6 +47,7 @@
 | Type     | API                                                 | Courtesy of                                                                                                                                        |
 | -------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | RPC      | `https://rpc.secret.express`                        | [secret.express](https://secret.express)                                                                                                           |
+| RPC      | `https://scrt.public-rpc.com`                       | [Ankr](https://scrt.public-rpc.com/)                                                                                                               |
 | RPC      | `https://secret-4.api.trivium.network:26657`        | [Trivium \| Trivium.Network](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1ahawe276d250zpxt0xgpfg63ymmu63a0svuvgw) |
 | RPC      | `https://rpc.spartanapi.dev`                        | [secretnodes.com ❄️☄️](https://secretnodes.com/secret/validators/secretvaloper1hjd20hjvkx06y8p42xl0uzr3gr3ue3nkvd79jj)                             |
 | RPC      | `https://scrt-rpc.blockpane.com` (archive node)     | [\[block pane\]](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1tmtcu980raqvypdf0dd6hsgh6qcm7ex7l29u58)             |
