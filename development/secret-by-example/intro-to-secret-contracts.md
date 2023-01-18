@@ -522,7 +522,7 @@ Visit [this link](https://learn.figment.io/network-documentation/secret) for all
 
 #### CosmWasm Resources
 
-Smart Contracts in the Secret Network based based on CosmWasm. Therefore, for troubleshooting and additional context, CosmWasm documentation may be very useful. Here are some of the links we relied on in putting together this guide:
+Smart Contracts in the Secret Network are based on CosmWasm. Therefore, for troubleshooting and additional context, CosmWasm documentation may be very useful. Here are some of the links we relied on in putting together this guide:
 
 * [cosmwasm repo](https://github.com/CosmWasm/cosmwasm)
 * [cosmwasm docs](https://docs.cosmwasm.com/)
