@@ -268,7 +268,7 @@ secretcli config node tcp://<your-public-ip>:26657
 
 ### **State Sync**
 
-You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/node-guides/state-sync.html#mainnet-state-sync) to the current block.
+You can skip syncing from scratch or download a snapshot by [State Syncing](testnet-state-sync.md) to the current block.
 
 ### **Optional: Become a Validator**
 
