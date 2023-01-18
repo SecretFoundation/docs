@@ -86,7 +86,7 @@ The following commands will create the necessary environment variables and attem
 ```bash
 export SCRT_ENCLAVE_DIR=/usr/lib
 export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
-secretd auto-register --pulsar-2
+secretd auto-register --pulsar
 ```
 
 If this step was successful, you can skip straight to [step 9](run-a-full-node.md#9.-optimization).
