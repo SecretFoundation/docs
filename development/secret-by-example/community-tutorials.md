@@ -8,14 +8,6 @@ To learn more, please visit [Secret Contracts](https://github.com/SecretFoundati
 
 To follow a guided walk-through on setting up your development environment, developing a first basic Secret Contract (Simple Secret Counter) and deploying it, please visit our [Quickstart](https://github.com/SecretFoundation/docs/blob/main/dev/quickstart.html) documentation page.
 
-<details>
-
-<summary>Topics covered on this page</summary>
-
-
-
-</details>
-
 ### Tutorial Developing Your First Secret Contract
 
 Refer to this [tutorial](https://github.com/SecretFoundation/docs/blob/main/docs/dev/learn-by-doing-tutorial1.md) from `darwinzer0` about developing a Secret Exploding Message app.
