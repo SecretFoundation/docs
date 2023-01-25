@@ -15,7 +15,7 @@ NOTE: For nodes that are intended to serve data for dapps, explorers, or any oth
 Lavender.Five Nodes and SecretNFT are operating and maintaining the snapshot RPCs.
 
 {% hint style="info" %}
-**This documentation assumes you have followed the instructions for** [**Running a Full Node**](./setup-full-node.md)**.**
+**This documentation assumes you have followed the instructions for** [**Running a Full Node**](setup-full-node.md)**.**
 {% endhint %}
 
 The state-sync configuration is as follows:
@@ -51,7 +51,7 @@ echo $BLOCK_HEIGHT $TRUST_HASH
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"https://rpc.cosmos.directory:443/secretnetwork,https://rpc.cosmos.directory:443/secretnetwork\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"https://rpc.cosmos.directory:443/secretnetwork,https://secret-rpc.lavenderfive.com:443\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml
 ```
