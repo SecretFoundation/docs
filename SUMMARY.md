@@ -172,7 +172,7 @@
   * [Common Patterns](development/common-patterns/README.md)
     * [SNIP20 Payments](development/common-patterns/snip-20s.md)
     * [How To Send Native SCRT](development/common-patterns/how-to-send-native-scrt.md)
-    * [Factory Contracts (incomplete)](development/common-patterns/factory-contracts.md)
+    * [Factory Contracts](development/common-patterns/factory-contracts.md)
   * [Use Cases Of Secret Contracts](development/use-cases-of-secret-contracts/README.md)
     * [Private Liquidations](development/use-cases-of-secret-contracts/private-liquidations.md)
     * [Hidden Private Keys](development/use-cases-of-secret-contracts/hidden-private-keys.md)
