@@ -17,7 +17,7 @@ Here are some examples of active projects that use factory contracts:
 
 ### How to create Factory contracts
 
-After the child contract is stored on chain, you can initialize child contracts from the factory in the following manner:
+After the child contract is stored on chain, you can instantiate child contracts from the factory in the following manner:
 
 {% tabs %}
 {% tab title="Cosmwasm v1" %}
@@ -33,7 +33,7 @@ pub struct OffspringInstantiateMsg {
 
 
 
-To initialize the child contract, you can send a [**submessage**](https://book.cosmwasm.com/actor-model/contract-as-actor.html?highlight=submess#sending-submessages) from the parent with the child's init message:
+To instantiate the child contract, you can send a [**submessage**](https://book.cosmwasm.com/actor-model/contract-as-actor.html?highlight=submess#sending-submessages) from the parent with the child's instantiate message:
 
 ```rust
 use cosmwasm_std::{SubMsg, Response};
@@ -96,7 +96,7 @@ pub struct OffspringInstantiateMsg {
 }
 ```
 
-To initialize the child contract, send a message on the parent's response:
+To instantiate the child contract, send a message on the parent's response:
 
 ```rust
 use cosmwasm_std::{CosmosMsg, WasmMsg};
