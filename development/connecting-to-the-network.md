@@ -28,7 +28,7 @@
 
 ### Binaries
 
-* [https://github.com/scrtlabs/SecretNetwork/releases/v1.3.1](https://github.com/scrtlabs/SecretNetwork/releases/v1.3.1)
+* [https://github.com/scrtlabs/SecretNetwork/releases/](https://github.com/scrtlabs/SecretNetwork/releases/)
 
 ### Explorers
 
