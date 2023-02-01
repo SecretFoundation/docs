@@ -1,6 +1,16 @@
+---
+description: >-
+  Environment configuration instructions to get started developing on Secret
+  Network.
+---
+
 # Setting Up Your Environment
 
-Secret Contracts are written using the [CosmWasm framework](https://book.cosmwasm.com/). CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a development environment with all the tools required.
+Secret Contracts are written using the [CosmWasm framework](https://book.cosmwasm.com/). CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a LocalSecret development environment with all the tools required so that you can upload, instantiate, and execute your smart contracts.&#x20;
+
+## What Is LocalSecret? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
+
+LocalSecret is a complete Secret Network testnet and ecosystem containerized with Docker. It simplifies the way secret contract developers test their contracts in a sandbox before they deploy them on a public testnet or mainnet (You can think of it like a local testnet that only you have access to).&#x20;
 
 There are 3 main tools we will use -
 
@@ -8,43 +18,11 @@ There are 3 main tools we will use -
 * SecretCLI - a command-line tool to interact with the blockchain
 * LocalSecret - a local Secret Network chain set up for development purposes
 
-Luckily for us, there are a few ways that can help us hit the ground running without working too hard.
+We're going to install our environment manually so that you can code in a text editor of your choosing, but if you would prefer to work with JetBrains you can also configure your environment that way using the resources at the bottom of this page.&#x20;
 
-### Gitpod Environment (Recommended)
+### Install Requirements
 
-This Gitpod environment contains everything you need to write and interact with your first Secret Network application. To get started, make sure you have a registered GitHub account, and [click here](https://gitpod.io/#https://github.com/scrtlabs/GitpodDevEnv), or visit the repo [https://github.com/scrtlabs/MillionaireProblemTutorial](https://github.com/scrtlabs/MillionaireProblemTutorial)
-
-If you chose this environment, you may skip ahead to [Compile and Deploy](compile-and-deploy.md), as SecretCLI and LocalSecret are already running and set up for you, and the example contract is included as well.
-
-### JetBrains Dev Environment (Secret IDE)
-
-The amazing folks at [Digiline](https://www.digiline.io) created a prebuilt containerized environment containing an IDE (IntelliJ IDEA) that contains everything you need to get started. If you're comfortable with JetBrains IDEs, this may be a good choice for you.
-
-To complement Secret IDE, we will set up another docker container with LocalSecret, where we will deploy our contracts to test and play around with.
-
-To get started, visit [https://github.com/digiline-io/Secret-IDE-Plugin](https://github.com/digiline-io/Secret-IDE-Plugin), or just go for it and run the IDE from docker:
-
-`docker run -p 8888:8888 -it ghcr.io/digiline-io/secret-ide:0.0.8`
-
-Then after a few seconds you will be able to access your in-browser IDE at [https://localhost:8888](https://localhost:8888).
-
-Once the environment loads, clone our repository ("Get from VCS") from [https://github.com/scrtlabs/MillionaireProblemTutorial](https://github.com/scrtlabs/MillionaireProblemTutorial).
-
-Secret IDE has built-in support for both the Pulsar testnet and mainnet, but for the purposes of this guide we will be using the SecretCLI via terminal. To go the graphical route, during the compile and deploy stages you can refer to the GitHub Repository above for instructions on how to work with the IDE.
-
-{% hint style="info" %}
-Secret-IDE is also available as a plugin for IDEA, so you can just install it from the marketplace.
-{% endhint %}
-
-Lastly, it will be helpful to configure SecretCLI by using the included "Configure secretcli" command which will set up SecretCLI to target the public testnet
-
-![](<../../.gitbook/assets/image (3).png>)
-
-### Manual Install
-
-#### Install Requirements
-
-To follow along with the guide, we will be using `git` and `make`
+To follow along with the guide, we will be using `git,` `make,` `rust,` and `docker`.
 
 {% tabs %}
 {% tab title="Linux/WSL" %}
@@ -114,11 +92,17 @@ _`source "$HOME/.cargo/env"`_
 After installing Rust to configure the current shell
 {% endhint %}
 
-#### Clone the Getting Started Repo
+#### Install Cargo Generate
+
+Cargo generate is the tool you'll use to create a smart contract project. [Learn more about `cargo-generate` here.](https://doc.rust-lang.org/cargo)
 
 ```
-git clone https://github.com/scrtlabs/MillionaireProblemTutorial.git
+cargo install cargo-generate --features vendored-openssl
 ```
+
+#### Install Docker
+
+[Docker](https://docs.docker.com/get-docker/) is an open platform for developing, shipping, and running applications.
 
 #### Install SecretCLI
 
@@ -166,9 +150,7 @@ chmod 755 secretcli
 
 For a more detailed and in-depth guide on SecretCLI installation and usage, check out the [documentation](https://docs.scrt.network/secret-network-documentation/development/secret-cli)
 
-### Install LocalSecret
-
-We recommend using a local chain for development purposes. LocalSecret is a complete Secret Network testnet and ecosystem containerized with Docker. It simplifies the way secret contract developers test their contracts in a sandbox before they deploy them on a testnet or mainnet. If, however, you wish to use a public testnet you can skip this section.
+#### Install LocalSecret
 
 {% hint style="warning" %}
 An instance of LocalSecret requires approximately 2.5 GB of RAM to run. You may need to increase the resources available in your Docker settings.
@@ -216,3 +198,29 @@ secretcli config output json
 For more information, check the main repo at [https://github.com/scrtlabs/GitpodLocalSecret](https://github.com/scrtlabs/GitpodLocalSecret)
 {% endtab %}
 {% endtabs %}
+
+<details>
+
+<summary>JetBrains Dev Environment (Secret IDE)</summary>
+
+The amazing folks at [Digiline](https://www.digiline.io) created a prebuilt containerized environment containing an IDE (IntelliJ IDEA) that contains everything you need to get started. If you're comfortable with JetBrains IDEs, this may be a good choice for you.
+
+To complement Secret IDE, we will set up another docker container with LocalSecret, where we will deploy our contracts to test and play around with.
+
+To get started, visit [https://github.com/digiline-io/Secret-IDE-Plugin](https://github.com/digiline-io/Secret-IDE-Plugin), or just go for it and run the IDE from docker:
+
+`docker run -p 8888:8888 -it ghcr.io/digiline-io/secret-ide:0.0.8`
+
+Then after a few seconds you will be able to access your in-browser IDE at [https://localhost:8888](https://localhost:8888).
+
+Once the environment loads, clone the repository from [https://github.com/scrtlabs/secret-template](https://github.com/scrtlabs/secret-template)
+
+Secret IDE has built-in support for both the Pulsar testnet and mainnet, but for the purposes of this guide we will be using the SecretCLI via terminal.&#x20;
+
+Secret-IDE is also available as a plugin for IDEA, so you can just install it from the marketplace.
+
+Lastly, it will be helpful to configure SecretCLI by using the included "Configure secretcli" command which will set up SecretCLI to target the public testnet
+
+</details>
+
+##
