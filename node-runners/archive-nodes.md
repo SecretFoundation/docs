@@ -11,7 +11,7 @@ An archive node keeps all the past blocks. An archive node makes it convenient t
 * 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
 * Motherboard with support for SGX in the BIOS
 
-More on hardware support [here](./hardware-compliance).
+More on hardware support [here](hardware-compliance.md).
 
 {% hint style="info" %}
 Note that syncing from scratch/following these instructions takes several weeks, since state-sync is not available for Archive Nodes.
@@ -47,7 +47,7 @@ secretd version
 
 ### Setup the Node
 
-Setup the node using the [Running a Full Node](node-setup/setup-full-node.md#\_4-download-a-copy-of-the-genesis-block-file-genesis-json) guide. You should stop at the [Set minimum-gas-price Parameter](node-setup/setup-full-node.md#set-minimum-gas-price-parameter) step.
+Setup the node using the [Running a Full Node](node-setup/setup-full-node.md#initialize-secret-network-configs) guide. You should stop at the [Set minimum-gas-price Parameter](node-setup/setup-full-node.md#set-minimum-gas-price-parameter) step.
 
 {% hint style="danger" %}
 Do NOT begin syncing yet!
