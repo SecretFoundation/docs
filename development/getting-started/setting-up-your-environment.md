@@ -1,6 +1,6 @@
 # Setting Up Your Environment
 
-Secret Contracts are written using the CosmWasm framework. CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a development environment with all the tools required.
+Secret Contracts are written using the [CosmWasm framework](https://book.cosmwasm.com/). CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a development environment with all the tools required.
 
 There are 3 main tools we will use -
 
