@@ -71,12 +71,12 @@ Initialize `/opt/secret/.sgx_secrets`:
 mkdir -p /opt/secret/.sgx_secrets
 ```
 
-You can choose between two methods, **3a (automatic) or 3b (manual)**:
+You can choose between two methods, **[automatic](setup-full-node.md#initialize-secret-enclave---automatic-registration-experimental) or [manual](setup-full-node.md#initialize-secret-enclave---manual-registration)**:
 
 #### **Initialize Secret Enclave - Automatic Registration (EXPERIMENTAL)**
 
 {% hint style="danger" %}
-WARNING: This method is experimental, and may not work. If it doesn't work, skip to step 3b.
+WARNING: This method is experimental, and may not work. If it doesn't work, skip to [manual registration](setup-full-node.md#initialize-secret-enclave---manual-registration).
 {% endhint %}
 
 The following commands will create the necessary environment variables and attempt to automatically register the node.
@@ -87,7 +87,7 @@ export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
 secretd auto-register
 ```
 
-If this step was successful, you can skip straight to [step 9](setup-full-node.md#9.-optimization).
+If this step was successful, you can skip straight to [Optimization](setup-full-node.md#optimization).
 
 #### **Initialize Secret Enclave - Manual Registration**
 
@@ -183,7 +183,7 @@ In order to be able to handle NFT minting and other Secret Contract-heavy operat
 sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclave-cache-size = \"15\"/" ~/.secretd/config/app.toml
 ```
 
-Also checkout[ this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.
+Also checkout[this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.
 
 ### **Set `minimum-gas-price` Parameter**
 
