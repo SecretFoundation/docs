@@ -86,7 +86,7 @@ The following commands will create the necessary environment variables and attem
 ```bash
 export SCRT_ENCLAVE_DIR=/usr/lib
 export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
-secretd auto-register --pulsar-2
+secretd auto-register --pulsar
 ```
 
 If this step was successful, you can skip straight to [step 9](run-a-full-node.md#9.-optimization).
@@ -268,7 +268,7 @@ secretcli config node tcp://<your-public-ip>:26657
 
 ### **State Sync**
 
-You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/node-guides/state-sync.html#mainnet-state-sync) to the current block.
+You can skip syncing from scratch or download a snapshot by [State Syncing](testnet-state-sync.md) to the current block.
 
 ### **Optional: Become a Validator**
 

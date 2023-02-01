@@ -20,7 +20,7 @@ snapshot-keep-recent = 10
 ### 1. Set `SNAP_RPC` variable to a snapshot RPC
 
 ```
-SNAP_RPC="http://144.202.126.98:26657"
+SNAP_RPC="http://217.20.113.211:26657"
 ```
 
 Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
@@ -47,7 +47,7 @@ echo $BLOCK_HEIGHT $TRUST_HASH
 
 ```
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://108.62.104.102:26657,http://144.202.126.98:26657,http://45.35.77.30:26657\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://37.58.59.45:26657,http://217.20.113.211:26657,http://46.165.245.170:26657,ttp://81.171.3.86:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.toml
