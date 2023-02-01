@@ -23,26 +23,26 @@ To setup your archive node you can follow the instructions below:
 
 Download the secretd .deb from the [latest release](https://github.com/scrtlabs/SecretNetwork/releases/latest).
 
-**Note**: As of writing these lines the latest release is `v1.6.1` will be referenced as so for the rest of this document.
+**Note**: As of writing these lines the latest release is `v1.6.0` will be referenced as so for the rest of this document.
 
 **Node**: Archive nodes are only available with `goleveldb`. If this doesn't mean anything to you, just proceed with this guide as usual.
 
 ```bash
-# Get the v1.6.1 binaries
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.1/secretnetwork_1.6.1_mainnet_goleveldb_amd64.deb"
+# Get the v1.6.0 binaries
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0/secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb"
 
-# Verify the v1.6.1 binaries
-echo '2c043fb25f2b4f97eeda52a4033aff0ceb86f5dbb4738791f00eacdb8e065dfe secretnetwork_1.6.1_mainnet_goleveldb_amd64.deb' | sha256sum --check
+# Verify the v1.6.0 binaries
+echo 'ce9ba85d346fa460ed3fc98871f2a254b269fafa835fc555c9184f6405d8c80a  secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb' | sha256sum --check
 ```
 
 #### Install `secretd`
 
 ```bash
-sudo dpkg -i secretnetwork_1.6.1_mainnet_goleveldb_amd64.deb
+sudo dpkg -i secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb
 
 # verify installation
 secretd version
-# 1.6.1
+# 1.6.0
 ```
 
 ### Setup the Node
