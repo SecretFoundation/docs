@@ -11,6 +11,8 @@ An archive node keeps all the past blocks. An archive node makes it convenient t
 * 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
 * Motherboard with support for SGX in the BIOS
 
+More on hardware support [here](./hardware-compliance).
+
 {% hint style="info" %}
 Note that syncing from scratch/following these instructions takes several weeks, since state-sync is not available for Archive Nodes.
 {% endhint %}
