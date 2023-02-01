@@ -78,6 +78,7 @@
 * [Development](development/README.md)
   * [Getting Started](development/getting-started/README.md)
     * [Setting Up Your Environment](development/getting-started/setting-up-your-environment.md)
+    * [Page 1](development/getting-started/page-1.md)
     * [Compile and Deploy](development/getting-started/compile-and-deploy.md)
     * [Running the Application](development/getting-started/running-the-application.md)
     * [Millionaire's Problem Breakdown (extra credit)](development/getting-started/millionaires-problem-breakdown-extra-credit.md)
