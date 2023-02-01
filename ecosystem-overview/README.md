@@ -234,7 +234,7 @@ Notable games built on the network include:
 
 ## Wallets
 
-![Great and popular wallets for managing your Secret Address](<../.gitbook/assets/5a1eea14289a08747d258d0ffb7d06add1ff2735 (1).jpeg>)
+![Great and popular wallets for managing your Secret Address](../.gitbook/assets/5a1eea14289a08747d258d0ffb7d06add1ff2735.jpeg)
 
 * [Keplr](https://keplr.app) by [Chainapsis](https://chainapsis.com/)
   * Highly featured wallet for the entire Cosmos ecosystem

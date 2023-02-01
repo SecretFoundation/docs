@@ -1,6 +1,6 @@
 # Millionaire's Problem Breakdown (extra credit)
 
-This section will provide a more detailed breakdown of the actual Secret Contract code that went into solving the Millionaire's problem. Going through this section won't require you to know Rust (though it would help), but instead we'll focus mostly on the logic, and how different components interact with each other.
+This section will provide a more detailed breakdown of  Secret Contract code known as [the  Millionaire's problem](https://github.com/scrtlabs/MillionaireProblemTutorial). Going through this section won't require you to know Rust (though it would help), but instead we'll focus mostly on the logic, and how different components interact with each other.
 
 ### Contract Components
 
@@ -36,7 +36,7 @@ For the most part, we can expect the files to contain the following data:
 
 ### High Level Architecture
 
-Before we jump into the code, we will go over the contract flow. Looking back at [the problem](compile-and-deploy.md) we have to solve; it is fairly simple. We have to accept inputs from two different users, save their inputs, and expose a way to check which input is greater.
+Before we jump into the code, we will go over the contract flow. We have to accept inputs from two different users, save their inputs, and expose a way to check which input is greater.
 
 We end up with the following state machine:
 
