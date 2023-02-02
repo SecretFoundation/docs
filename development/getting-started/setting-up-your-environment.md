@@ -106,7 +106,7 @@ cargo install cargo-generate --features vendored-openssl
 
 #### Install SecretCLI
 
-SecretCLI is a command-line tool that helps us interact with the Secret Network blockchain. It is used to send and query data as well as manage user keys and wallets.
+SecretCLI is a command-line tool that lets us interact with the Secret Network blockchain. It is used to send and query data as well as manage user keys and wallets.
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -148,7 +148,7 @@ chmod 755 secretcli
 {% endtab %}
 {% endtabs %}
 
-For a more detailed and in-depth guide on SecretCLI installation and usage, check out the [documentation](https://docs.scrt.network/secret-network-documentation/development/secret-cli)
+For a more detailed and in-depth guide on SecretCLI installation and usage, check out the [documentation here](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/secret-cli/install).
 
 #### Install LocalSecret
 
@@ -160,20 +160,13 @@ An instance of LocalSecret requires approximately 2.5 GB of RAM to run. You may 
 The installation methods differ based on the processor architecture. This is because Secret Network makes use of Intel SGX to protect private data.
 {% endhint %}
 
+Now that you have docker installed, open the docker application and then in your terminal run:&#x20;
+
 {% tabs %}
 {% tab title="x86 (Intel/AMD)" %}
 ```bash
 docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
   --name localsecret ghcr.io/scrtlabs/localsecret:v1.6.0
-```
-
-You'll need to configure SecretCLI to work with LocalSecret
-
-```bash
-secretcli config node http://localhost:26657
-secretcli config chain-id secretdev-1
-secretcli config keyring-backend test
-secretcli config output json
 ```
 {% endtab %}
 
@@ -182,7 +175,7 @@ Unfortunately, even LocalSecret inside a docker cannot be run on an M1 Mac. As a
 
 This environment is set up in such a way that can be accessed remotely as well.
 
-To get started, simply click [here](https://gitpod.io/#https://github.com/scrtlabs/GitpodDevEnv).
+To get started, follow the instructions at the [main repo here](https://github.com/scrtlabs/GitpodLocalSecret).&#x20;
 
 To connect, prepend the port number with the Gitpod URL. e.g., if my workspace is at `https://scrtlabs-gitpoddevenv-shqyv12iyrv.ws-eu54.gitpod.io` then I would be able to connect to the RPC service at `https://26657-scrtlabs-gitpoddevenv-shqyv12iyrv.ws-eu54.gitpod.io`
 
@@ -194,10 +187,14 @@ secretcli config chain-id secret-testnet-1
 secretcli config keyring-backend test
 secretcli config output json
 ```
-
-For more information, check the main repo at [https://github.com/scrtlabs/GitpodLocalSecret](https://github.com/scrtlabs/GitpodLocalSecret)
 {% endtab %}
 {% endtabs %}
+
+Congrats! You now have a containerized version of LocalSecret running inside docker! You should see blocks being created in real time:&#x20;
+
+<figure><img src="../../.gitbook/assets/LocalSecret.png" alt=""><figcaption><p>LocalSecret developer testnet</p></figcaption></figure>
+
+Now it's time to learn how to compile and deploy your first smart contract 🎉
 
 <details>
 
