@@ -66,7 +66,7 @@ Run `make build` from the terminal, or just GUI it up -
 
 This will create a `contract.wasm` and `contract.wasm.gz` file in the root directory.
 
-While we could upload this contract wasm file to the blockchain exactly as it is, instead we are going to follow best practices and **optimize** the wasm file. This just means we are going to reduce the size of the file so that it costs less gas to upload, which is critical when uploading contracts to mainnet. Make sure you have an instance of LocalSecret running and then run the following code:
+While we could upload this contract wasm file to the blockchain exactly as it is, instead we are going to follow best practices and **optimize** the wasm file. This just means we are going to reduce the size of the file so that it costs less gas to upload, which is critical when you eventually upload contracts to mainnet. Make sure you have an instance of LocalSecret running and then run the following code:
 
 **Optimize compiled wasm**
 
@@ -99,7 +99,7 @@ You should now have access to a wallet with a unique name, address, and mnemonic
 
 <figure><img src="../../.gitbook/assets/LocalSecret - myWallet .png" alt=""><figcaption></figcaption></figure>
 
-The wallet currently has zero funds, which you query by running the following secretcli command (be sure to use your wallet address in place of mine)&#x20;
+The wallet currently has zero funds, which you query by running this secretcli command (be sure to use your wallet address in place of mine)&#x20;
 
 ```
 secretcli query bank balances "secret16u7w28vp68qmldffuc89am4f02045zlfsjht90"
@@ -115,16 +115,18 @@ Your wallet address should now have 1000000000 uscrt 🤯
 
 #### Upload the contract
 
-Finally, we can upload our contract -
+Finally, we can upload our contract:
 
 ```
 secretcli tx compute store contract.wasm.gz --gas 5000000 --from <name> --chain-id secretdev-1
 ```
 
 {% hint style="info" %}
-**--from \<name>** refers to which account (or wallet) is sending the transaction. Update \<name> to your wallet address.&#x20;
+`--from <name>` refers to which account (or wallet) is sending the transaction. Update \<name> to your wallet address.&#x20;
 
-**--gas 5000000** refers to the cost of the transaction we are sending. Gas is the unit of cost which we measure how expensive a transaction is.
+`--gas 5000000` refers to the cost of the transaction we are sending. Gas is the unit of cost which we measure how expensive a transaction is.
+
+`--chain-id` refers to which chain we are uploading to, which in this case is LocalSecret!&#x20;
 {% endhint %}
 
 To verify whether storing the code has been successful, we can use SecretCLI to query the chain:
@@ -153,11 +155,11 @@ In the previous step we stored the contract code on the blockchain. To actually 
 secretcli tx compute instantiate 1 '{"count": 1}' --from <name> --label counterContract -y
 ```
 
-{% hint style="warning" %}
-* **1** is the code\_id that you saw in the previous section
-* **`{"count": 1}` ** is the instantiation message. Here we instantiate a starting count of 1, but you can make it any `i32 you want` &#x20;
-* **--from \<name>** is your wallet address
-* **--label** is a mandatory field that gives the contract a unique meaningful identifier
+{% hint style="info" %}
+* `instantiate 1` is the code\_id that you created in the previous section
+* `{"count": 1}` **** is the instantiation message. Here we instantiate a starting count of 1, but you can make it any `i32 you want` &#x20;
+* `--from <name>` **** is your wallet address
+* `--label` is a mandatory field that gives the contract a unique meaningful identifier
 {% endhint %}
 
 Let's check that the instantiate command worked:

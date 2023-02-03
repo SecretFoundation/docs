@@ -14,7 +14,7 @@ We'll start by going through the basic components of a contract.
 Each contract will contain these basic building blocks, with their logic being built around how they work.&#x20;
 
 {% hint style="info" %}
-**Did you know?** Executes require a transaction, which costs gas. Queries are free! This is why it is preferable to use queries when an action does not require modifying data.
+**Did you know?** Execute messages require a transaction, which costs gas. Queries are free! This is why it is preferable to use queries when an action does not require modifying data.
 {% endhint %}
 
 ### Directory Structure
