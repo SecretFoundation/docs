@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to use SecretCLI to handle execute messages to query and modify
-  contract state.
+  Learn how to use SecretCLI to handle messages to query and modify contract
+  state.
 ---
 
 # Running the Application
