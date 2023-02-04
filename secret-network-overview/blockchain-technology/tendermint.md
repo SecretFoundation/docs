@@ -20,8 +20,8 @@ Tendermint consensus module relies on Proof-of-stake and BFT.
 
 Let’s take a look at the consensus process from a high-level standpoint:
 
-1. Transactions are received by the node and goes into a local cache mempool
-2. Before going into the node mempool, Tendermint ask the application if the transaction is valid through “CheckTx” ABCI message
+1. Transactions are received by the node and go into a local cache mempool
+2. Before going into the node mempool, Tendermint asks the application if the transaction is valid through “CheckTx” ABCI message
 3. If it’s valid, transaction is added to the mempool and broadcasted to the peer nodes
 4. A new consensus round is initiated with a Proposer Node
 5. The Proposer selects transactions in the mempool to be included in a new block
