@@ -23,7 +23,7 @@ Cosmos SDK allows developers to tweak, if needed, the framework or the consensus
 
 As the application is not competing with others for blockspace or is limited by the VM computation, the performance is enhanced and only limited by the state-machine itself.
 
-In terms of security, developers are not constrained by the VM cryptographic functions or any VM exploitable mechanisms and can rely on their own cryptography or audited librairies.
+In terms of security, developers are not constrained by the VM cryptographic functions or any VM exploitable mechanisms and can rely on their own cryptography or audited libraries.
 
 ### Conclusion
 

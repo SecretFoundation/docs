@@ -4,7 +4,7 @@
 
 The core vision of Cosmos is to scale horizontally by having an ecosystem of interconnected application specific blockchains. Inter-Blockchain Communication Protocol (IBC) is responsible for interconnecting heterogeneous blockchains or in another way, relaying data packets between arbitrary state machines (i.e application blockchains).
 
-It could also be defined as a generic and standard protocol implementation for transfering value between chains, not only limited to Cosmos chains as other blockchains with different consensus could support IBC to communicate with the Cosmos Ecosystem (Polkadot, Ethereum through a peg zone for example).
+It could also be defined as a generic and standard protocol implementation for transferring value between chains, not only limited to Cosmos chains as other blockchains with different consensus could support IBC to communicate with the Cosmos Ecosystem (Polkadot, Ethereum through a peg zone for example).
 
 IBC provides a common protocol for blockchains to communicate in a standardized and trustless way.
 
@@ -27,11 +27,11 @@ Relayers are off-chain actors ensuring the “physical” connection between two
 
 For example in the case of fungible token transfer between two chains, the relayers are responsible for proving that your tokens are locked in Chain A and giving a representation (Voucher) on Chain B.&#x20;
 
-Relayers are using the light client of each blockchain to verify incoming messages on chain A and submit them (and the proof of commitment) on chain B. Chain A can’t send data directly to chain B and instead “commit” the hash of the data packet in its own state machine. That’s this specific state that relayers are monitoring to send this packet and its proof the chain B.
+Relayers are using the light client of each blockchain to verify incoming messages on chain A and submit them (and the proof of commitment) on chain B. Chain A can’t send data directly to chain B and instead “commit” the hash of the data packet in its own state machine. That’s this specific state that relayers are monitoring to send this packet and its proof to the chain B.
 
 ### Native security - no additional trust
 
-The major difference of IBC compared to existing bridge solutions is that there are no third parties to trust, no multisig involved, for transfering value/messages between blockchains. This concept of IBC native security means that if you trust chain A and chain B then you also trust IBC-TokenA on chain B and vice versa.  As long as relayers are operated by any party and channels/ports are open and authentication successful between blockchains, messages can be passed along.&#x20;
+The major difference of IBC compared to existing bridge solutions is that there are no third parties to trust, no multisig involved, for transferring value/messages between blockchains. This concept of IBC native security means that if you trust chain A and chain B then you also trust IBC-TokenA on chain B and vice versa.  As long as relayers are operated by any party and channels/ports are open and authentication successful between blockchains, messages can be passed along.&#x20;
 
 An analogy of IBC could be seen as an internet application on a computer. A channel is an IP connection, with the IBC portID being an IP port and the IBC channelID being an IP address.
 
@@ -44,7 +44,7 @@ IBC is then still Byzantine resistant thanks to the proof validation by the ligh
 
 ### Interoperable messaging & contracts
 
-Fungible token transfer is the one example but IBC allows for Non-Fungible token transfer, multi-chain smart contracts and interchain accounts (interacting on a blockchain account from another source blockchain). This is the function enabling Secret Network to be the privacy hub for the Interchain. Other Cosmos chains can store and manipulate private data (even private keys) on Secret Network from the comfort of their own chain, Privacy as a service.
+Fungible token transfer is one example but IBC allows for Non-Fungible token transfer, multi-chain smart contracts and interchain accounts (interacting on a blockchain account from another source blockchain). This is the function enabling Secret Network to be the privacy hub for the Interchain. Other Cosmos chains can store and manipulate private data (even private keys) on Secret Network from the comfort of their own chain, Privacy as a service.
 
 Finally, below a figure explaining the travel of an IBC packet between blockchains:
 
