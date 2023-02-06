@@ -1,5 +1,5 @@
 ---
-description: The one-page overview of Secret Network, the tech and its ecosystem.
+description: The one-page overview of Secret Network, the tech and it's ecosystem.
 ---
 
 # Secret Network Overview
@@ -8,7 +8,7 @@ Secret Network is the first blockchain with customizable privacy. You get to cho
 
 The Network's privacy by default nature is essential to the security and adoption of the decentralized web. User-side privacy not only enables novel use cases but also puts users back in charge of their sensitive data.
 
-Built with the robust Tendermint SDK, Secret Network provides a platform for scalable, private permissionless smart contracts which can connect to the interchain.&#x20;
+Built with the Cosmos SDK and the Tendermint consensus engine, Secret Network provides a platform for scalable, private permissionless smart contracts which can connect to the interchain.&#x20;
 
 ### **Privacy Technology**
 
@@ -16,13 +16,17 @@ Secret Network leverages novel key management techniques, encryption schemes, an
 
 The decentralized network of computers that host Secret Network come to a consensus (delegated Proof-of-Stake — Byzantine Fault Tolerance) without ever obtaining access to the data they process. Users can use “viewing keys” to view their sensitive data or enable third parties to do the same.
 
+{% hint style="info" %}
+Want to learn more about the Secret Network techstack? - Read about it!
+{% endhint %}
+
 ### **Smart Contract Use-Cases**
 
 “Secret Contracts”, an implementation of the Rust-based library CosmWasm, enable computation with private metadata. This brings unique use cases to Secret Network which simply aren’t possible on other blockchains.&#x20;
 
-Secret Contracts have a number of real-life applications including user-side encrypted data storage and communication, NFTs with private content and ownership, lending protocols with private collateralization information, and any application requiring true on-chain randomness.
+Secret Contracts have many real-life use cases including user-side encrypted data storage and communication, NFTs with private content and ownership, lending protocols with private collateralization information, and any application requiring true on-chain randomness.
 
-The nature of Secret Network also means that all of the Dapps benefit from being resistant to MEV attacks due to the encrypted mempool and state of the chain, protecting users from getting front-run on their transactions.&#x20;
+The nature of Secret Network also means that all dApps benefit MEV resistancy. Attacks are not possible due to the encrypted mempool and state of the chain. All users on Secret are protected from front-running and information disparity by default.&#x20;
 
 ### **The SCRT Coin And Secret Tokens**
 
@@ -38,15 +42,23 @@ Secret Network and its applications are built by a community of over 100 dedicat
 
 The Secret Network community, known as “Secret Agents,” are the core of the Network, helping to test and enjoy new applications while spreading the importance of web3 privacy online and at in-person events.
 
-![](https://cdn-images-1.medium.com/max/800/0\*1EnJw32oGDihRO02.jpeg)
+{% hint style="success" %}
+Want to better understand the extent of the Secret ecosystem? \
+\
+Find analytics on [SecretAnalytics](https://secretanalytics.xyz/)/[Secretnodes](https://secretnodes.com/) or take a look at our [Ecosystem roadmap.](https://scrt.network/ecosystem/ecosystem-roadmap)
+{% endhint %}
+
+<figure><img src="../.gitbook/assets/Ecosystem_overview.png" alt=""><figcaption></figcaption></figure>
 
 ### **History And Roadmap**
 
 Secret Network has come a long way, with the core development group starting out in 2017 and the Mainnet launching in early 2020.&#x20;
 
-The most recent string of updates dubbed “Supernova” and “Shockwave” have brought Secret Network IBC interoperability, 200x performance upgrades for encrypted verifications, the launch of permits for user authentication, multiple performance optimizations for blockchain queries, a more redundant API node infrastructure, and IBC compatible cross-chain smart contract integration.&#x20;
+The most recent string of updates dubbed “[Supernova](https://scrt.network/blog/supernova-explosive-vision-future-secret-network)” and “Shockwave - [Alpha](https://scrt.network/blog/shockwave-alpha-mainnet-upgrade-complete) & [Delta](https://scrt.network/blog/shockwave-delta-mainnet-upgrade-complete)” have brought Secret Network IBC interoperability, 200x performance upgrades for encrypted verification's, the launch of query permits for user authentication, multiple performance optimizations for blockchain queries, a more redundant API node infrastructure, and IBC compatible cross-chain smart contract integration. The latter kickstarting Privacy as a Service for the entire Cosmos ecosystem.
 
-On the core development roadmap is the replacement of the smart contract engine for a more performant version which will bring a massive overall transaction throughput upgrade in Q3 2022.
+With the "[Shockwave - Omega"](https://scrt.network/blog/shockwave-omega-upgrade-complete) upgrade Secret Network switched to a more performant smart contract engine increasing throughput significantly . Beyond this Secret is hard at work to ensure long-term privacy for all users with the introduction of [Secret 2.0](https://scrt.network/blog/secret-2-0-building-the-next-generation-of-web3-privacy) and expanding Privacy as a Service to Ethereum and other blockchains. The upcoming infrastructure upgrades will bring several features like: Encryption seed rotation, Iterators and upgradeabillity for CosmWasm Contracts, the Gramine SGX backend, support for new generation hardware and lastly the Wasmer contract engine bringing another significant increase in contract throughput.\
+\
+In the meantime research towards MPC, FHE and ZKp's is in full speed with Guy Zyskind from SCRT labs focusing fully on improving the privacy suite and optionality for developers. For a first look at Secret 2.0 and the cryptographic primitives coming to Secret check out the most recent [forum post](https://forum.scrt.network/t/secret-2-0-the-next-generation-request-for-feedback/6607) and the [roadmap section](roadmap.md) of this documentation.
 
 ### **Transactional Vs. Computational Privacy**
 
@@ -54,7 +66,7 @@ Secret Network differs greatly from protocols like Monero and Zcash as it does n
 
 Unlike other protocols aiming to provide programmable privacy, Secret Network does not utilize “group-oriented anonymous signature schemes” but assures privacy through encryption and specified hardware. Secret Network does not utilize ZK-proofs (ZKPs), Multi-Party Computation (MPC), or Homomorphic Encryption (HME) to achieve privacy due to concerns including poor scalability, technical infeasibility, and information centralization.
 
-The core development group and founder Guy Zyskind strive to deploy the best software-based cryptographic solution possible much like the original [paper from MIT](http://homepage.cs.uiowa.edu/\~ghosh/blockchain.pdf) when the technology is ready for that.
+However, with technology constantly increasing research is ongoing to include more of the above cryptographic primitives in the Secret Network base layer likst ideated in the original [paper ](http://homepage.cs.uiowa.edu/\~ghosh/blockchain.pdf)from Guy Zysking at MIT. Read more about the vision of Guy for Secure computation in our Series [#BeyondZK](https://scrt.network/blog/beyond-zk-guide-to-web3-privacy-part-1).
 
 ### Conclusion
 
@@ -62,8 +74,4 @@ There has never been a greater need for easily accessible privacy solutions insi
 
 The intent of the Secret Network is to be an open-source protocol that enables a wide range of privacy-preserving tools and applications through programmable privacy — improving the adoption and usability of decentralized technologies.
 
-Follow Secret Network on [Twitter](https://twitter.com/secretnetwork) to keep up to date or find more information on the [website](https://scrt.network/).
-
-
-
-### &#x20;
+Follow Secret Network on [Twitter](https://twitter.com/secretnetwork) to keep up to date or find more information on the [website](https://scrt.network/).&#x20;
