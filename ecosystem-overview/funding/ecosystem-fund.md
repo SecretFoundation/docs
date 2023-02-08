@@ -2,7 +2,7 @@
 
 On February 1, 2022, Secret Network announced raising a $225 million Ecosystem Fund. The Ecosystem Fund is for experienced Secret Network Community members to offer long-term financial and strategic support for developers looking to build/start projects on Secret Network. Ecosystem Funding is part of Shockwave, a growth initiative to push Secret Network to become the privacy hub for all of Web3.&#x20;
 
-The Ecosystem fund is intended to support teams with seed funding and enable easy communication between teams building on Secret Network and potential investment partners. To get in contact with ecosystem partners teams can best reach out to [_The business development committee_](../contributors-and-entities/core/secret-committees/) _or SCRT Labs (_[_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com)_)_
+The Ecosystem fund is intended to support teams with seed funding and enable easy communication between teams building on Secret Network and potential investment partners. To get in contact with ecosystem partners teams can best reach out to [_The business development committee_](../contributors-and-entities/secret-committees/) _or SCRT Labs (_[_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com)_)_
 
 ## Ecosystem Fund Ownership + Partners&#x20;
 

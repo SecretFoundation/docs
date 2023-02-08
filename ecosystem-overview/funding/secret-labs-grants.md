@@ -14,7 +14,7 @@ Interested developers may submit applications and get more information about the
 ## How to apply for a Grant
 
 {% hint style="info" %}
-_If you need help with applying for a grant or want to connect with Business development then please reach out to:_ [_The business development committee_](../contributors-and-entities/core/secret-committees/) _or SCRT Labs (_[_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com)_)_
+_If you need help with applying for a grant or want to connect with Business development then please reach out to:_ [_The business development committee_](../contributors-and-entities/secret-committees/) _or SCRT Labs (_[_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com)_)_
 {% endhint %}
 
 ### Funding Amounts
