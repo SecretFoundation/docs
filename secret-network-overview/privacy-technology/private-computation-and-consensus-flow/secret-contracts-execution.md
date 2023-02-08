@@ -1,4 +1,4 @@
-# Secret Contracts - execution
+# Secret Contracts - Execution
 
 A Secret Contract’s code is always deployed publicly on-chain, so users and developers know exactly what code will be executed on submitted data. However, the data that is submitted is encrypted, so as previously stated, it cannot be read by a developer, anyone observing the chain, or anyone running a node. If the behavior of the code is trusted (which is possible because it is recorded on chain), a user of Secret Contracts obtains strong privacy guarantees.
 

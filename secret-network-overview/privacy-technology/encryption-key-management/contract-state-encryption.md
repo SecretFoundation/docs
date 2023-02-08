@@ -2,13 +2,13 @@
 
 ## Encryption at deployment of contract
 
-When a contract is executed on chain the state of the contracts needs to be encrypted so that observers can not see the computation that is initialized. The contract should be able to call certain functions inside the enclave and store the contract state on-chain.&#x20;
+When a contract is executed on chain the state of the contracts needs to be encrypted so that observers can not see the computation that is initialized. The contract should be able to call certain functions inside the enclave and store the contract state on-chain.
 
 A contract can call 3 different functions: `write_db(field_name, value)`, `read_db(field_name)`, and `remove_db(field_name)` . It is important that the `field_name` remains constant between contract calls.
 
 We will go over the different steps associated with the encryption of the contract state.
 
-### 1. Create `contract_key`&#x20;
+### 1. Create `contract_key`
 
 The `contract_key` is the encryption key for the contract state and is a combination of two values: `signer_id || authenticated_contract_key`. Every contract has its own unforgeable encryption key. The concatenation of the values is what makes every unique and this is important for several reasons
 
@@ -33,7 +33,7 @@ authentication_key = hkdf({
 });
 ```
 
-From the `authentication_key` create `authenticated_contract_key` by calling the hmac-SHA256 hash function with the contract `code_hash` as hashing data.&#x20;
+From the `authentication_key` create `authenticated_contract_key` by calling the hmac-SHA256 hash function with the contract `code_hash` as hashing data.
 
 This step makes sure the key is unique for every contracts with different code.
 
@@ -50,7 +50,7 @@ Lastly concat the `signer_id` and `authenticated_contract_key` to create `contra
 contract_key = concat(signer_id, authenticated_contract_key);
 ```
 
-### 2.  At execution share `contract_key` with enclave
+### 2. At execution share `contract_key` with enclave
 
 Every time a contract execution is called, `contract_key` should be sent to the enclave. In the enclave, the following verification needs to happen to proof a genuine `contract_key`
 

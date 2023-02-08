@@ -33,7 +33,7 @@ rm -rf ~/.secretd/*
 rm -rf ~/.sgx_secrets/*
 ```
 
-You're probably familiar with [SGX](../../techstack/privacy-technology/intel-sgx/why-sgx.md) by now:
+You're probably familiar with [SGX](../../secret-network-overview/privacy-technology/intel-sgx/why-sgx.md) by now:
 
 * [Setup SGX](../../node-runners/node-setup/install-sgx.md)
 * [Verify SGX](../../node-runners/misc/verify-sgx.md)

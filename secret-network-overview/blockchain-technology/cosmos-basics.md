@@ -26,9 +26,8 @@ The following figure shows the Networking and Consensus layers as “Tendermint 
 
 On top of Tendermint Core, Cosmos introduced the Cosmos SDK, an open-source framework for building application specific blockchains with composable modules (plugins) to help developers build their blockchain faster and easier. Developers could build their application directly on Tendermint core using ABCI to interact with Tendermint but Cosmos SDK allows a faster and battle tested path to bootstrap an application.
 
-## &#x20;Interoperability at the Base Layer
+## Interoperability at the Base Layer
 
-In order to scale horizontally and fulfill the vision of an internet of interoperable blockchains, blockchains can support the Inter-Blockchain Communication Protocol (IBC), which enables value transfers, token transfers, and other communication between chains, all without the need to involve exchanges or make compromises regarding the chains' sovereignties. Following figures show blockchains interconnected with IBC ([IBC Networks](https://hub.mintscan.io/ibc-network))\
-
+In order to scale horizontally and fulfill the vision of an internet of interoperable blockchains, blockchains can support the Inter-Blockchain Communication Protocol (IBC), which enables value transfers, token transfers, and other communication between chains, all without the need to involve exchanges or make compromises regarding the chains' sovereignties. Following figures show blockchains interconnected with IBC ([IBC Networks](https://hub.mintscan.io/ibc-network))\\
 
 ![The Map of Zones - IBC in action](https://lh4.googleusercontent.com/mNmzPYZZo94eph706FMyKfG5FvflMIYxwga9UgY-6kEFhBzxQxJVNPBB4ZzQIrs8N05Bzb1aXsE2jw72X66bwjprAZDrdwNZ6-W4NRwQSgERh9C2S-MW4ciTAlvFWVTUnhgKMqSLElGaJ81jiQ)

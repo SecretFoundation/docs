@@ -17,11 +17,17 @@ You can buy SCRT from Centralized exchanges and decentralized exchanges. Once yo
 
 ### Decentralized Exchanges&#x20;
 
+* [Btn.group](https://btn.group/secret\_network/button\_swap)
 * [Sienna ](https://sienna.network/)
-* [Osmosis](https://osmosis.zone/)&#x20;
+* [Shade](https://app.shadeprotocol.io/bridge)
+* [Osmosis](https://osmosis.zone/)
+* [Kujira](https://fin.kujira.app/trade/kujira1fkwjqyfdyktgu5f59jpwhvl23zh8aav7f98ml9quly62jx2sehysqa4unf?q=all)
 
 ### Cryptocurrency Wallets&#x20;
 
+* [Starshell](https://starshell.net/)
+* [Fina.Cash](https://fina.cash/wallet)
+* [Leap](https://www.leapwallet.io/)
 * [Keplr](https://wallet.keplr.app/)
 * [Citadel.One](https://citadel.one/)
 * [Ledger ](https://www.ledger.com/)

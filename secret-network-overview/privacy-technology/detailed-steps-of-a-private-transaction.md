@@ -1,4 +1,4 @@
-# Detailed steps of a private transaction
+# Steps Of A Private Transaction
 
 1. Using the Eliptic-Curve Diffie Hellman key exchange (ECDH) the user generates a shared secret from their private key and the Secret Network public key. The network can generate the same shared secret using the user public key and the Network private key (only available within the Trusted Execution Environment (TEE)).
 2. The user then generates a shared `tx_encryption_key` using HKDF-SHA256 and the shared secret generated in step 1. The pseudo-random HDKF is used to ensure deterministic consensus across all nodes. The random component comes from a 256-bit nonce so that each transaction has its own encryption key, an AES-256-GCM encryption key is never used twice.

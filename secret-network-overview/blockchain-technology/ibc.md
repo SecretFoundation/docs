@@ -1,6 +1,6 @@
 # IBC
 
-### Interconnected Blockchains&#x20;
+### Interconnected Blockchains
 
 The core vision of Cosmos is to scale horizontally by having an ecosystem of interconnected application specific blockchains. Inter-Blockchain Communication Protocol (IBC) is responsible for interconnecting heterogeneous blockchains or in another way, relaying data packets between arbitrary state machines (i.e application blockchains).
 
@@ -25,13 +25,13 @@ This is wrapped up in a “light client” and relayers are external components 
 
 Relayers are off-chain actors ensuring the “physical” connection between two chains, scanning the state of the two interconnected chains, looking for an intention to send a transaction on a chain and then relaying the data and its commitment proof to the other chain.
 
-For example in the case of fungible token transfer between two chains, the relayers are responsible for proving that your tokens are locked in Chain A and giving a representation (Voucher) on Chain B.&#x20;
+For example in the case of fungible token transfer between two chains, the relayers are responsible for proving that your tokens are locked in Chain A and giving a representation (Voucher) on Chain B.
 
 Relayers are using the light client of each blockchain to verify incoming messages on chain A and submit them (and the proof of commitment) on chain B. Chain A can’t send data directly to chain B and instead “commit” the hash of the data packet in its own state machine. That’s this specific state that relayers are monitoring to send this packet and its proof to the chain B.
 
 ### Native security - no additional trust
 
-The major difference of IBC compared to existing bridge solutions is that there are no third parties to trust, no multisig involved, for transferring value/messages between blockchains. This concept of IBC native security means that if you trust chain A and chain B then you also trust IBC-TokenA on chain B and vice versa.  As long as relayers are operated by any party and channels/ports are open and authentication successful between blockchains, messages can be passed along.&#x20;
+The major difference of IBC compared to existing bridge solutions is that there are no third parties to trust, no multisig involved, for transferring value/messages between blockchains. This concept of IBC native security means that if you trust chain A and chain B then you also trust IBC-TokenA on chain B and vice versa. As long as relayers are operated by any party and channels/ports are open and authentication successful between blockchains, messages can be passed along.
 
 An analogy of IBC could be seen as an internet application on a computer. A channel is an IP connection, with the IBC portID being an IP port and the IBC channelID being an IP address.
 

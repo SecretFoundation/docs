@@ -1,12 +1,12 @@
 # Cosmos SDK
 
-The main difference when it comes to Cosmos compared to virtual-machine blockchain, is the application-specific blockchain concept. Developers can build from scratch their application specific blockchain on top of Tendermint through ABCI protocol. Cosmos SDK is the framework offering a bank of independent modules for implementing the application state machine, ABCI, service routers to route messages between modules, and a flavor of features like governance, staking, slashing, etc …&#x20;
+The main difference when it comes to Cosmos compared to virtual-machine blockchain, is the application-specific blockchain concept. Developers can build from scratch their application specific blockchain on top of Tendermint through ABCI protocol. Cosmos SDK is the framework offering a bank of independent modules for implementing the application state machine, ABCI, service routers to route messages between modules, and a flavor of features like governance, staking, slashing, etc …
 
 ### Cosmos Virtual Machine
 
 Below a figure showing the architecture differences between a VM blockchain and Cosmos:
 
-![](https://lh3.googleusercontent.com/3ILJ5pOIu\_vyDakYvZo-wLKjrzOpjVeBpa3DW-\_34jV\_TexMemVOI9pAIlzqO1DXD\_qIgfpm2Ok3l3xTSrIK4CCXn0y2cwq9YY1wrHqA4wJ3k2nc3gZjpnB0A1HK8SHgPmDYX4t0EEGOL8jExQ)![](https://lh5.googleusercontent.com/RMGVNI5V9XowAzBHvVYo2LTMXs1erz5cpZrlKEZS7dm7MIJQlTMbhviLJPz\_nN0ihX-aUgyO0jFroEQm\_sXp4ujrpWNw13EEcfr6q7mLPGz2BFu9hdmA06mJpWGdKzqQz5Bb2T4tK6grXMSz6A)
+![](https://lh3.googleusercontent.com/3ILJ5pOIu\_vyDakYvZo-wLKjrzOpjVeBpa3DW-\_34jV\_TexMemVOI9pAIlzqO1DXD\_qIgfpm2Ok3l3xTSrIK4CCXn0y2cwq9YY1wrHqA4wJ3k2nc3gZjpnB0A1HK8SHgPmDYX4t0EEGOL8jExQ) ![](https://lh5.googleusercontent.com/RMGVNI5V9XowAzBHvVYo2LTMXs1erz5cpZrlKEZS7dm7MIJQlTMbhviLJPz\_nN0ihX-aUgyO0jFroEQm\_sXp4ujrpWNw13EEcfr6q7mLPGz2BFu9hdmA06mJpWGdKzqQz5Bb2T4tK6grXMSz6A)
 
 A virtual-machine interprets Smart Contracts to change the state of the underlying blockchain state machine. It’s developer friendly and easy to use to deploy applications but comes with certain limitations:
 
@@ -17,9 +17,9 @@ A virtual-machine interprets Smart Contracts to change the state of the underlyi
 
 ### Development framework
 
-In Cosmos, developers have all the keys to develop a sovereign, secure, flexible and tailor made application specific blockchain.&#x20;
+In Cosmos, developers have all the keys to develop a sovereign, secure, flexible and tailor made application specific blockchain.
 
-Cosmos SDK allows developers to tweak, if needed, the framework or the consensus engine or any modules to match their application/network requirements.&#x20;
+Cosmos SDK allows developers to tweak, if needed, the framework or the consensus engine or any modules to match their application/network requirements.
 
 As the application is not competing with others for blockspace or is limited by the VM computation, the performance is enhanced and only limited by the state-machine itself.
 
