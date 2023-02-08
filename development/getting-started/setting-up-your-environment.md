@@ -220,4 +220,22 @@ Lastly, it will be helpful to configure SecretCLI by using the included "Configu
 
 </details>
 
+<details>
+
+<summary>Gitpod Set Up Instructions (for M1 Mac users)</summary>
+
+LocalSecret cannot be run on an M1 Mac.&#x20;
+
+To know whether you have a Mac with an M1 chip or an Intel chip, click on the Apple logo located in the lefthand corner of your desktop and navigate to **About This Mac/Overview,** and confirm whether the processor is M1 or Intel. If you have an Intel chip, you can run LocalSecret in docker, otherwise, proceed with these set up instructions to learn how to [run LocalSecret in Gitpod](https://github.com/scrtlabs/GitpodLocalSecret).&#x20;
+
+1. Run an instance of LocalSecret in Gitpod by [clicking here](https://gitpod.io/#https://github.com/scrtlabs/GitpodLocalSecret).&#x20;
+2. Gitpod will automatically create a workspace and ask if you want to open it in your text editor. It will then prompt you to allow an extension to open the URI. Select "Open" to proceed.&#x20;
+3. If you don't have a registered SSH public key for your computer in your Gitpod account, it will ask you to copy  a temporary password to use until you restart the workspace at a later date. Copy the password.&#x20;
+4. Enter the password you copied in your text editor to finish setting up the SSH host connection. &#x20;
+5. Congrats! You have successfully set up an instance of LocalSecret in Gitpod which you can use for testing your smart contracts.&#x20;
+
+</details>
+
+
+
 ##
