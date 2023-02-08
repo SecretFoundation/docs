@@ -36,7 +36,7 @@ For the most part, we can expect the files to contain the following data:
 
 ### High Level Architecture
 
-Before we jump into the code, we will go over the contract flow. Looking back at [the problem](../getting-started/compile-and-deploy.md) we have to solve; it is fairly simple. We have to accept inputs from two different users, save their inputs, and expose a way to check which input is greater.
+Before we jump into the code, we will go over the contract flow. We have to accept inputs from two different users, save their inputs, and expose a way to check which input is greater.
 
 We end up with the following state machine:
 
@@ -64,9 +64,9 @@ Alright, now we are armed with all the knowledge we need to dive into the code i
 
 ### Entry Points
 
-Entry points, or _handlers_ are where messages or queries are handled by the contract - this is basically where all data coming into the contract ends up. We can see the different entry points based on the [contract components](millionaires-problem.md#contract-components) we described.
+Entry points, or _handlers_ are where messages or queries are handled by the contract - this is basically where all data coming into the contract ends up. We can see the different entry points based on the contract components we described.
 
-Looking at our contract, we can see these entry points defined in **contract.rs -**
+[Looking at our contract](https://github.com/scrtlabs/MillionaireProblemTutorial/blob/master/src/contract.rs), we can see these entry points defined in **contract.rs -**
 
 ```rust
 #[entry_point]
@@ -94,10 +94,6 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<QueryResponse> {
     //... stuff
 }
 ```
-
-This is how most CosmWasm contracts will look like**,** and usually this is where you'll want to start when both writing or reading a contract.
-
-For now, we can ignore all these scary data types that we don't understand. Instead, let's dive in to breaking down the various components based on the architecture.
 
 ### Instantiate
 
@@ -194,7 +190,7 @@ Without understanding anything else, we can immediately see our 2 actions that w
 
 #### Contract Interface
 
-Toggling over to **msg.rs** we can see what `ExecuteMsg` is defined as:
+[Toggling over to **msg.rs**](https://github.com/scrtlabs/MillionaireProblemTutorial/blob/master/src/msg.rs) **** we can see what `ExecuteMsg` is defined as:
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]

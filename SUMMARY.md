@@ -71,7 +71,6 @@
     * [Setting Up Your Environment](development/getting-started/setting-up-your-environment.md)
     * [Compile and Deploy](development/getting-started/compile-and-deploy.md)
     * [Running the Application](development/getting-started/running-the-application.md)
-    * [Millionaire's Problem Breakdown (extra credit)](development/getting-started/millionaires-problem-breakdown-extra-credit.md)
   * [Connecting to the Network](development/connecting-to-the-network.md)
   * [Using the Testnet](development/testnet.md)
   * [Secret Contracts](development/secret-contracts/README.md)
