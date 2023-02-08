@@ -1,24 +1,24 @@
 root: ./ 
 
 redirects:
-   	dev/developers.html: secret-network-documentation/development.md
-    dev/quickstart.html: secret-network-documentation/development/getting-started.md
-    dev/secret-contracts.html: secret-network-documentation/development/secret-contracts.md
-    dev/tutorials.html: secret-network-documentation/development/secret-by-example.md
-    protocol/governance.html: secret-network-documentation/development/tools-and-libraries/secret-cli/governance.md
-    backup/backup-a-validator.html: secret-network-documentation/node-runners/node-setup/best-practices/validator-backup.md
-    cosmovisor.html: secret-network-documentation/post-mortems-upgrades/upgrade-instructions/cosmovisor.md
-    node-guides/full-node-docker.html: secret-network-documentation/node-runners/node-monitoring/docker.md
-    node-guides/join-validator-mainnet.html#dangers-in-running-a-validator: secret-network-documentation/node-runners/testnet/join-as-a-validator.md
-    node-guides/registration.html: secret-network-documentation/node-runners/node-setup.md
-    node-guides/run-full-node-mainnet.html: secret-network-documentation/node-runners/node-setup/setup-full-node.md
-    node-guides/setup-sgx.html: secret-network-documentation/node-runners/node-setup/install-sgx.md
-    node-guides/state-sync.html: secret-network-documentation/node-runners/node-setup/state-sync.md
-    node-guides/verify-sgx.html: secret-network-documentation/node-runners/misc/verify-sgx.md
-    shockwave-alpha-upgrade-secret-4.html#secret-network-v13-shockwave-alpha-network-upgrade-instructions: secret-network-documentation/post-mortems-upgrades/upgrade-instructions/shockwave-alpha.md
-    testnet/run-full-node-testnet.html: secret-network-documentation/node-runners/node-setup/setup-full-node.md
-    secret-network-documentation/ecosystem-overview/funding/secret-labs-grants: secret-network-documentation/ecosystem-overview/funding/secret-labs-grants.md
-    backup/backup/wallets: secret-network-documentation/ecosystem-overview.md
-    cli/install-cli.html: secret-network-documentation/development/tools-and-libraries/secret-cli.md
-    guides/governance: secret-network-documentation/development/tools-and-libraries/secret-cli/governance.md
-    protocol/encryption-specs.html#new-node-registration: secret-network-documentation/node-runners/node-setup.md
+    dev/developers: development.md
+    dev/quickstart: development/getting-started.md
+    dev/secret-contracts: development/secret-contracts.md
+    dev/tutorials: development/secret-by-example.md
+    protocol/governance: development/tools-and-libraries/secret-cli/governance.md
+    backup/backup-a-validator: node-runners/node-setup/best-practices/validator-backup.md
+    cosmovisor: post-mortems-upgrades/upgrade-instructions/cosmovisor.md
+    node-guides/full-node-docker: node-runners/node-monitoring/docker.md
+    node-guides/join-validator-mainnet: node-runners/testnet/join-as-a-validator.md
+    node-guides/registration: node-runners/node-setup.md
+    node-guides/run-full-node-mainnet: node-runners/node-setup/setup-full-node.md
+    node-guides/setup-sgx: node-runners/node-setup/install-sgx.md
+    node-guides/state-sync: node-runners/node-setup/state-sync.md
+    node-guides/verify-sgx: node-runners/misc/verify-sgx.md
+    shockwave-alpha-upgrade-secret-4: post-mortems-upgrades/upgrade-instructions/shockwave-alpha.md
+    testnet/run-full-node-testnet: node-runners/node-setup/setup-full-node.md
+    secret-network-documentation/ecosystem-overview/funding/secret-labs-grants: ecosystem-overview/funding/secret-labs-grants.md
+    backup/backup/wallets: ecosystem-overview.md
+    cli/install-cli: development/tools-and-libraries/secret-cli.md
+    guides/governance: development/tools-and-libraries/secret-cli/governance.md
+    protocol/encryption-specs: node-runners/node-setup.md
