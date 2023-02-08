@@ -1,10 +1,6 @@
 # Millionaire's Problem
 
-{% hint style="info" %}
-This is a copy of the information found in the [Getting Started Guide](../getting-started/)
-{% endhint %}
-
-This section will provide a more detailed breakdown of the actual Secret Contract code that went into solving the Millionaire's problem. Going through this section won't require you to know Rust (though it would help), but instead we'll focus mostly on the logic, and how different components interact with each other.
+This section will provide a more detailed breakdown of Secret Contract code known as [the Millionaire's problem](https://github.com/scrtlabs/MillionaireProblemTutorial). Going through this section won't require you to know Rust (though it would help), but instead we'll focus mostly on the logic, and how different components interact with each other.
 
 ### Contract Components
 
@@ -340,5 +336,5 @@ Usually, you will want to define a custom return type for each separate query, w
 That's it! An entire Secret Contract from start to end. Thanks for taking the time to go through all of this guide (or even a small portion of it)! You should now have a good understanding of the building blocks of a contract not only on Secret Network, but for all blockchains that support CosmWasm.&#x20;
 
 * [Intro to Secret Contracts](https://docs.scrt.network/secret-network-documentation/development/intro-to-secret-contracts) - a more in-depth Secret Contract guide
-* [CosmWasm Documentation](https://docs.cosmwasm.com/docs/1.0/) - everything you want to know about CosmWasm
+* [CosmWasm Documentation](https://book.cosmwasm.com/) - everything you want to know about CosmWasm
 * [Secret.JS](https://docs.scrt.network/secret-network-documentation/development/secretjs/templates) - Building a web UI for a Secret Contract

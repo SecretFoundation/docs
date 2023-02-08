@@ -15,7 +15,7 @@
 
 ## Validators <a href="#validators" id="validators"></a>
 
-All coordination efforts will be done in the [mainnet-validators](https://chat.scrt.network/channel/mainnet-validators) channel in the Secret Network Discord.&#x20;
+All coordination efforts will be done in the [mainnet-validators](https://chat.scrt.network/channel/mainnet-validators) channel in the Secret Network Discord.
 
 > ⚠️ Don't delete your `secret-1` machine, as we might have to relaunch it.
 
@@ -33,7 +33,7 @@ rm -rf ~/.secretd/*
 rm -rf ~/.sgx_secrets/*
 ```
 
-You're probably familiar with [SGX](../../secret-network-overview/privacy-technology/intel-sgx/why-sgx.md) by now:
+You're probably familiar with [SGX](../../techstack/privacy-technology/intel-sgx/why-sgx.md) by now:
 
 * [Setup SGX](../../node-runners/node-setup/install-sgx.md)
 * [Verify SGX](../../node-runners/misc/verify-sgx.md)
@@ -79,8 +79,6 @@ On the new SGX machine (`secret-2`) use `secretcli keys import "$YOUR_KEY_NAME" 
 >
 > 1. If you're recovering the wallet using `secretcli keys add "$YOUR_KEY_NAME" --recover` you should also use `--hd-path "44'/118'/0'/0/0"`.
 > 2. If the wallet is stored on a Ledger device, use `--legacy-hd-path` when importing it with `secretcli keys add`.
-
-
 
 ### 5. Set Up Your SGX Machine And Become A `secret-2` Validator <a href="#_5-set-up-your-sgx-machine-and-become-a-secret-2-validator" id="_5-set-up-your-sgx-machine-and-become-a-secret-2-validator"></a>
 

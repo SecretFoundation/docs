@@ -28,4 +28,4 @@ Large investors are using dark pools in traditional finance for huge transaction
 
 > Source: [Pros and Cons of Dark Pools of Liquidity](https://www.investopedia.com/articles/investing/060915/pros-and-cons-dark-pools-liquidity.asp)
 
-> More about DeFi dApp on Secret? [SecretSwap](https://secretswap.net/) - [Sienna Network](https://app.sienna.network/) - [Button Group](https://btn.group/secret\_network/button\_swap) - [Hydro Finance](https://medium.com/@secret\_swap/introducing-hydro-finance-d93299b967da) - [Shade Protocol](https://shadeprotocol.io/)
+> More about DeFi dApp on Secret? -  [Sienna Network](https://app.sienna.network/) - [Button Group](https://btn.group/secret\_network/button\_swap) - [Shade Protocol](https://shadeprotocol.io/)

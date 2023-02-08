@@ -33,4 +33,4 @@ StarShell is a privacy-preserving, free, and open-source Web3 wallet built for t
 
 With Secret as a base layer, you can see the impressive diversity of use cases that become possible.
 
-> Learn more about [Jackal](https://jackaldao.com/), [DataVault](https://scrt.network/blog/secret-feature-datavault-secret-bazaar), and [StarShell](https://starshell.net/).
+> Learn more about [Alter.network](https://alter.network/), [DataVault](https://scrt.network/blog/secret-feature-datavault-secret-bazaar), and [StarShell](https://starshell.net/).

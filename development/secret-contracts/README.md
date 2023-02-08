@@ -4,31 +4,31 @@ description: Overview of Secret Contracts
 
 # Secret Contracts
 
-There are a number of important things to know about Secret Contracts. This section of documentation will cover:&#x20;
+There are a number of important things to know about Secret Contracts. This section of documentation will cover:
 
 * Core Components
-* Init&#x20;
+* Instantiate
 * Handles
-* Queries&#x20;
+* Queries
   * Querier
 * Storage
-  * Prefixed Storage&#x20;
+  * Prefixed Storage
   * Keymap
   * Append Store
-* Data Handling&#x20;
+* Data Handling
 * Permissioned Viewing
-  * Viewing Keys&#x20;
+  * Viewing Keys
   * Certs / Viewing Permits
-* Inter-Contract Interaction&#x20;
-  * Factory Contracts&#x20;
+* Inter-Contract Interaction
+  * Factory Contracts
   * Snip-20s
-  * Inter-Contract Handling&#x20;
-  * Contract Hashes&#x20;
+  * Inter-Contract Handling
+  * Contract Hashes
 * Use Cases Of Secret Contracts
   * Private Liquidations
-  * Hidden Private Keys&#x20;
+  * Hidden Private Keys
   * Hidden NFT Evolution
-* Community Tutorials&#x20;
+* Community Tutorials
 * How To Send Native SCRT
 * CosmosMSG
 * Reference Contracts

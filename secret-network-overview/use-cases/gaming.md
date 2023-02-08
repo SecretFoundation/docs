@@ -14,6 +14,6 @@ Here is some of the function made possible in gaming through Secret’s technolo
 4. Fair randomness for online Casino or Poker (with Secret RNG)&#x20;
 5. Private betting markets
 
-> If you want to go deeper on Secret gaming differentiators, read this article: [Blockchain games](https://medium.com/@secretnetwork/secret-is-the-privacy-hub-for-web3-3fca9866b62).
+> If you want to dive deeper into what differentiates Secret games then read [this article.](https://medium.com/@secretnetwork/secret-is-the-privacy-hub-for-web3-3fca9866b62)
 
 Now, let’s take a look at what Secret is bringing for your day-to-day applications.&#x20;

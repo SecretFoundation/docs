@@ -6,7 +6,11 @@ Secret Network’s programmable privacy enables non-private tokens to be wrapped
 
 All native tokens like SHD, SEFI, ALTER, SIENNA are SNIP-20s and have privacy by default, all coins and tokens bridged from other networks like sATOM, sETH and sBNB are also private by default.
 
-> Secret Tokens really are the backbone behind the programmable privacy of Secret Network and have various different use-cases. Learn more about that on [this page](https://scrt.network/about/secret-tokens-bridges).
+{% hint style="success" %}
+Secret Tokens really are the backbone behind the programmable privacy of Secret Network and have various different use-cases.\
+\
+Learn more about Secret Tokens on the [Secret Network website.](https://scrt.network/about/secret-tokens-bridges)
+{% endhint %}
 
 ### Example Of SNIP-20 Privacy
 
@@ -17,5 +21,5 @@ If wallet A sends 100 sSCRT to wallet B this will happen:
 * Wallet B can use their viewing key to decrypt the receiving transaction so will see the address of the sender and the amount they got.
 
 {% hint style="info" %}
-Want to learn about the Tech enabling Secret Tokens? Check out the [SNIP-20 reference implementation](https://github.com/scrtlabs/snip20-reference-impl) or the section on [permissioned viewing ](../development/secret-contracts/permissioned-viewing/)/[ access control](privacy-technology/access-control/) .
+Want to learn about the Tech enabling Secret Tokens? Check out the [SNIP-20 reference implementation](https://github.com/scrtlabs/snip20-reference-impl) or the section on [permissioned viewing ](../development/secret-contracts/permissioned-viewing/)/[ access control](../techstack/privacy-technology/access-control/) .
 {% endhint %}

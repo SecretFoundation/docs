@@ -8,7 +8,7 @@ description: >-
 
 ## Contract Messages
 
-The way you interact with contracts on a blockchain is by sending contract _**messages**. A_ message contains the JSON description of a specific action that should be taken on behalf of the sender, and in most Rust smart contracts they are defined in the `msg.rs` file.&#x20;
+The way you interact with contracts on a blockchain is by sending contract _****_** messages**_. A_ message contains the JSON description of a specific action that should be taken on behalf of the sender, and in most Rust smart contracts they are defined in the `msg.rs` file.&#x20;
 
 In our `msg.rs` file,  there are two enums: `ExecuteMsg`, and `QueryMsg`. They are enums because each variant of them represents a different message which can be sent. For example, the `ExecuteMsg::Increment` corresponds to the `try_increment` message in our `contract.rs` file.
 
@@ -89,7 +89,7 @@ Way to go! You have now successfully interacted with a Secret Network smart cont
 
 Congratulations! You completed the tutorial and successfully compiled, uploaded, deployed and executed a Secret Contract! The contract is the business logic that powers a blockchain application, but a full application contains other components as well. If you want to learn more about Secret Contracts, or explore what you just did more in depth, feel free to explore these awesome resources:
 
-* [Millionaire's problem breakdown](millionaires-problem-breakdown-extra-credit.md) - explains how a Secret Contract works
-* [Intro to Secret Contracts](https://docs.scrt.network/secret-network-documentation/development/intro-to-secret-contracts) - a more in-depth Secret Contract guide
+* [Secret University counter contract breakdown ](https://github.com/secretuniversity/secret-counter-vuejs-box/blob/main/app/tutorial/guide.md)- explains the counter contract in depth
+* [Millionaire's problem breakdown](https://docs.scrt.network/secret-network-documentation/development/secret-by-example/millionaires-problem) - explains how a Secret Contract works
 * [CosmWasm Documentation](https://book.cosmwasm.com/) - everything you want to know about CosmWasm
 * [Secret.JS](https://docs.scrt.network/secret-network-documentation/development/secretjs/templates) - Building a web UI for a Secret Contract

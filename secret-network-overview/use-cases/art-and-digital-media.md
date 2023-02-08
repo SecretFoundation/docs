@@ -1,6 +1,6 @@
 # Art And Digital Media
 
-Art and Digital Media are booming in the blockchain space thanks to the NFT primitive. Secret Network is providing exciting and critical features to NFT with privacy. We’ll not go through the details here but to learn more about all the aspects of Private NFT check out: [The Infinite Horizon of Secret NFTs](https://medium.com/@secretnetwork/history-will-remember-2021-as-the-year-that-nfts-came-of-age-but-what-comes-next-73e338d1578b)
+Art and Digital Media are booming in the blockchain space thanks to the NFT primitive. Secret Network is providing exciting and critical features to NFT with privacy. You can learn more about the infinite horizon of Secret NFTs in [this article.](https://scrt.network/learn/creative/future-of-secret-nfts)
 
 ### What Secret Could Bring To Art And Digital Media?
 
