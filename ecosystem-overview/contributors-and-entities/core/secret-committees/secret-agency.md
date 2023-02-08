@@ -9,9 +9,7 @@ The Secret Agency is a separate entity paid by the foundation (and therefore the
 * Generating social media presence for the community and supporting KOL and other contributors in doing so.
 * Growing the engaged and educated user base of Secret Network
 
-You can contact the agency via any of the leaders (Brendan, SecretSkrillah, Ertemann, SeanP, Jeremy.S or Wesley) or via their e-mail agents@scrt.network. You can stay up to date with the work of the Secret Agency by joining the [discord](https://discord.gg/W6yyEvbC68) and following them on [twitter](https://twitter.com/SCRT\_Agency).\
-\
-The Agency hosts a weekly progress meeting at 1500 UTC in the Secret Network discord.
+You can contact the agency via any of the leaders (Brendan, SecretSkrillah, Ertemann, Sean) or via their e-mail agents@scrt.network. You can stay up to date with the work of the Secret Agency by joining the [discord](https://discord.gg/W6yyEvbC68) and following them on [twitter](https://twitter.com/SCRT\_Agency).
 
 ### Working groups
 

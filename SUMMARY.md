@@ -62,7 +62,6 @@
       * [Secret Foundation](ecosystem-overview/contributors-and-entities/core/secret-foundation.md)
       * [Secret Agency](ecosystem-overview/contributors-and-entities/core/secret-committees/secret-agency.md)
       * [Secret Committees](ecosystem-overview/contributors-and-entities/core/secret-committees/README.md)
-        * [BizDev & Growth](ecosystem-overview/contributors-and-entities/core/secret-committees/bizdev-and-growth-committee.md)
         * [Development](ecosystem-overview/contributors-and-entities/core/secret-committees/development.md)
         * [Support](ecosystem-overview/contributors-and-entities/core/secret-committees/support.md)
         * [Governance](ecosystem-overview/contributors-and-entities/core/secret-committees/governance.md)

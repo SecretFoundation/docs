@@ -4,7 +4,6 @@ Secret network has a very active community pool which funds several different co
 
 #### Overview
 
-* [Business development](bizdev-and-growth-committee.md)
 * [(Smart contract) development](development.md)
 * [User support](support.md)
 * [Governance](governance.md)
