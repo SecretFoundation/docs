@@ -119,14 +119,14 @@ sudo mv secretcli-Linux /usr/local/bin/secretcli
 
 {% tab title="Windows (PowerShell)" %}
 ```powershell
-wget -O secretcli-Windows.exe https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-Windows
+wget -O secretcli-Windows.exe https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.1/secretcli-Windows
 ```
 
 TODO: Add \`secretcli-Windows.exe\` to the PATH
 {% endtab %}
 
 {% tab title="MacOS (Intel)" %}
-Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-macOS)
+Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.1/secretcli-macOS).
 
 Set the file name to `secretcli` and set it as executable
 
@@ -137,7 +137,7 @@ chmod 755 secretcli
 {% endtab %}
 
 {% tab title="MacOS (M1)" %}
-Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.3.1/secretcli-MacOS-arm64)
+Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.1/secretcli-MacOS-arm64).
 
 Set the file name to `secretcli` and set it as executable
 

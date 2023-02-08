@@ -1,17 +1,17 @@
 # Millionaire's Problem Breakdown (extra credit)
 
-This section will provide a more detailed breakdown of  Secret Contract code known as [the  Millionaire's problem](https://github.com/scrtlabs/MillionaireProblemTutorial). Going through this section won't require you to know Rust (though it would help), but instead we'll focus mostly on the logic, and how different components interact with each other.
+This section will provide a more detailed breakdown of Secret Contract code known as [the Millionaire's problem](https://github.com/scrtlabs/MillionaireProblemTutorial). Going through this section won't require you to know Rust (though it would help), but instead we'll focus mostly on the logic, and how different components interact with each other.
 
 ### Contract Components
 
 We'll start by going through the basic components of a contract.
 
-* Instantiate - the logic that is ran once on initialization of the contract. This will usually be the initial conditions and configuration of the contract.&#x20;
+* Instantiate - the logic that is ran once on initialization of the contract. This will usually be the initial conditions and configuration of the contract.
 * Execute - this is where the _transactional_ logic resides. These are functions that modify contract data
 * Query - these are functions that are ran as read-only and cannot modify contract data
-* State - the long-term storage of the contract. By default, data used by contracts will be lost between transactions. &#x20;
+* State - the long-term storage of the contract. By default, data used by contracts will be lost between transactions.
 
-Each contract will contain these basic building blocks, with their logic being built around how they work.&#x20;
+Each contract will contain these basic building blocks, with their logic being built around how they work.
 
 {% hint style="info" %}
 **Did you know?** Execute messages require a transaction, which costs gas. Queries are free! This is why it is preferable to use queries when an action does not require modifying data.
@@ -31,7 +31,7 @@ For the most part, we can expect the files to contain the following data:
 * cargo.toml - will contain metadata and detail the various libraries that the contract is using
 
 {% hint style="info" %}
-**Did you know?** Contracts for Secret Network depend on forked versions of the standard CosmWasm dependencies&#x20;
+**Did you know?** Contracts for Secret Network depend on forked versions of the standard CosmWasm dependencies
 {% endhint %}
 
 ### High Level Architecture
@@ -48,7 +48,7 @@ This is a fairly naïve approach, but for the purposes of this example it is fai
 2. **Query Result** - ask the contract which input is greater and return the id of the user whose input was greater
 3. **Reset** - resets the state and start over
 
-We'll note that _Submit Input_ and _Reset_ are both actions that require modifying contract data, so they will be _executes._ Similarly, _Query Result_ is a read-only function, so it can be implemented (as the name suggests) as a _query._&#x20;
+We'll note that _Submit Input_ and _Reset_ are both actions that require modifying contract data, so they will be _executes._ Similarly, _Query Result_ is a read-only function, so it can be implemented (as the name suggests) as a _query._
 
 Now let's think about what data our contract will need to store. Each _submit input_ method will require a separate transaction, so we need to save both the user data, and something to help keep track of which step we are on. This means that our state will look something like:
 
@@ -95,7 +95,7 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<QueryResponse> {
 }
 ```
 
-This is how most CosmWasm contracts will look like**,** and usually this is where you'll want to start when both writing or reading a contract.
+This is how most CosmWasm contracts will look like\*\*,\*\* and usually this is where you'll want to start when both writing or reading a contract.
 
 For now, we can ignore all these scary data types that we don't understand. Instead, let's dive in to breaking down the various components based on the architecture.
 
@@ -125,11 +125,11 @@ pub fn instantiate(
 }
 ```
 
-Again, we'll ignore all the scary stuff and look only at lines 9 and 10.&#x20;
+Again, we'll ignore all the scary stuff and look only at lines 9 and 10.
 
 On line #9 we're taking this yet unknown _State_ data type and calling its `default()` function.
 
-On line #10 we're saving this _State_ data structure to the contract storage. This means it will be available for us to read the next time the contract is called (from the execute or query entry-points). We can also see `deps.storage` is being used as a function parameter. This gives us a clue as to what the `deps` variable contains - objects that allow the contract to interact with functionality outside the contract code itself. Some examples of this are using long-term storage, calling efficient crypto APIs, or querying the blockchain state.&#x20;
+On line #10 we're saving this _State_ data structure to the contract storage. This means it will be available for us to read the next time the contract is called (from the execute or query entry-points). We can also see `deps.storage` is being used as a function parameter. This gives us a clue as to what the `deps` variable contains - objects that allow the contract to interact with functionality outside the contract code itself. Some examples of this are using long-term storage, calling efficient crypto APIs, or querying the blockchain state.
 
 {% hint style="info" %}
 **Did you know?** The instantiate function can only be called once per contract when it is initialized
@@ -162,7 +162,7 @@ pub struct Millionaire {
 As per usual, let's ignore all that`#[derive]` stuff, and instead look at our data structures. We can see that our `State` data structure contains the exact types that we expected when thinking about the [design](millionaires-problem-breakdown-extra-credit.md#high-level-architecture) of the contract. We'll also note that we chose to contain the user data in the `Millionaire` struct.
 
 {% hint style="info" %}
-**Do you even Rust?** The #\[derive] header tells the compiler to provide implementations for basic behaviour. For example, using _`Default` _ will tell our compiler to generate the _`::default()`_  function, which will allocate the structure and set all the values to their defaults (0 for a number, "" for a string, etc.)&#x20;
+**Do you even Rust?** The #\[derive] header tells the compiler to provide implementations for basic behaviour. For example, using \_`Default` \_ will tell our compiler to generate the _`::default()`_ function, which will allocate the structure and set all the values to their defaults (0 for a number, "" for a string, etc.)
 {% endhint %}
 
 ### Execute
@@ -186,7 +186,7 @@ pub fn execute(
 }
 ```
 
-Without understanding anything else, we can immediately see our 2 actions that we [talked about previously](millionaires-problem-breakdown-extra-credit.md#high-level-architecture) implemented here. We can also figure out that `msg` is some data type that tells us what function we need to call. &#x20;
+Without understanding anything else, we can immediately see our 2 actions that we [talked about previously](millionaires-problem-breakdown-extra-credit.md#high-level-architecture) implemented here. We can also figure out that `msg` is some data type that tells us what function we need to call.
 
 {% hint style="info" %}
 **Do you even Rust?** The _match_ syntax is logically similar to _switch-case_ that you might be familiar with from other languages
@@ -194,7 +194,7 @@ Without understanding anything else, we can immediately see our 2 actions that w
 
 #### Contract Interface
 
-Toggling over to **msg.rs** we can see what `ExecuteMsg` is defined as:
+[Toggling over to **msg.rs**](https://github.com/scrtlabs/MillionaireProblemTutorial/blob/master/src/msg.rs) we can see what `ExecuteMsg` is defined as:
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
@@ -209,7 +209,7 @@ pub enum ExecuteMsg {
 **Do you even Rust?** In Rust Enums can contain complex data types, which makes them especially useful for interface definitions
 {% endhint %}
 
-Yep, as we expect, `ExecuteMsg` is just an enumeration of the different message types (and their parameters) that a user can send to the contract. The way this works in practice is that the user sends his data as a JSON object. This object then gets parsed and matched according to the definition in `ExecuteMsg`. If the object does not match one of the enum types? The transaction will fail and get rejected!&#x20;
+Yep, as we expect, `ExecuteMsg` is just an enumeration of the different message types (and their parameters) that a user can send to the contract. The way this works in practice is that the user sends his data as a JSON object. This object then gets parsed and matched according to the definition in `ExecuteMsg`. If the object does not match one of the enum types? The transaction will fail and get rejected!
 
 {% hint style="info" %}
 **Do you even Rust?** Can you intuitively guess what _#\[derive(Serialize, Deserialize, PartialEq)]_ are used for? How about _#\[serde(rename\_all = "snake\_case")]_?
@@ -272,7 +272,7 @@ pub fn try_reset(
 
 At this point I don't even have to explain to you what's going on here. We'll just note that the `Response` object in this case returns something called an _attribute._ An _attribute_ is a key-value pair that gets returned after a successful message that can help summarizing what happened. _Attributes_ can even be indexed, queried and used as event triggers via WebSocket.
 
-Now we have all the pieces in place. All that remains to be done is to look at how the result is queried by the user.   &#x20;
+Now we have all the pieces in place. All that remains to be done is to look at how the result is queried by the user.
 
 ### Query
 
@@ -327,13 +327,13 @@ Logically, this is super simple. Read the state, check which player has the most
 **Do you even Rust?** The astute reader will remember that _player_ in this context is actually a complex data structure. How is it possible to call _max(player1, player2)_ or to check if _player1 == player2_? It turns out you can actually implement the logic for equality and ordering yourself for structs. Head over to **state.rs** to see an example of that in action
 {% endhint %}
 
-&#x20;The only thing worth noting is that the response is of the type `RicherResponse` (we ignore the `StdResult` wrapper - it is used to handle and include errors in the possible return types). `RicherResponse` is a custom type that we defined (in **msg.rs**).&#x20;
+The only thing worth noting is that the response is of the type `RicherResponse` (we ignore the `StdResult` wrapper - it is used to handle and include errors in the possible return types). `RicherResponse` is a custom type that we defined (in **msg.rs**).
 
-Usually, you will want to define a custom return type for each separate query, which makes data easier to process on the user side - we'll remember that while we talk about user queries for simplicity, in reality, the user will most likely be accessing data through some web application which will be handling both querying the contract and processing the response.&#x20;
+Usually, you will want to define a custom return type for each separate query, which makes data easier to process on the user side - we'll remember that while we talk about user queries for simplicity, in reality, the user will most likely be accessing data through some web application which will be handling both querying the contract and processing the response.
 
 ### In Closing
 
-That's it! An entire Secret Contract from start to end. Thanks for taking the time to go through all of this guide (or even a small portion of it)! You should now have a good understanding of the building blocks of a contract not only on Secret Network, but for all blockchains that support CosmWasm.&#x20;
+That's it! An entire Secret Contract from start to end. Thanks for taking the time to go through all of this guide (or even a small portion of it)! You should now have a good understanding of the building blocks of a contract not only on Secret Network, but for all blockchains that support CosmWasm.
 
 * [Intro to Secret Contracts](https://docs.scrt.network/secret-network-documentation/development/intro-to-secret-contracts) - a more in-depth Secret Contract guide
 * [CosmWasm Documentation](https://docs.cosmwasm.com/docs/1.0/) - everything you want to know about CosmWasm
