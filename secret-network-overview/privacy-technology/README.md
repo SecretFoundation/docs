@@ -14,7 +14,7 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 <summary>Topics Covered</summary>
 
-[Steps Of A Private Transactions](detailed-steps-of-a-private-transaction.md)
+[Steps Of A Private Transactions](../../techstack/detailed-steps-of-a-private-transaction.md)
 
 [Private Computation & Consensus Flow](private-computation-and-consensus-flow/)
 

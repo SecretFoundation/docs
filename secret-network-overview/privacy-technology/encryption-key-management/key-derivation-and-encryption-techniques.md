@@ -1,6 +1,6 @@
 # Key Derivation & Encryption Techniques
 
-## HKDF-SHA256
+### HKDF-SHA256
 
 To do deterministic key generation inside the SGX enclave Secret Network leverages HDKF-SHA256 [1](https://tools.ietf.org/html/rfc5869#section-2) [2](https://en.wikipedia.org/wiki/HKDF). HDKF-SHA256 is a key derivation function for symmetric (private key) encryption. The function generates a 256-bit encryption key from a common public "salt" and a piece of Input Key Material (IKM). The `salt`[1](https://tools.ietf.org/html/rfc5869#section-3.1) for the use in the Secret Network encryption schemes is chosen to be the Bitcoin's block halving hash `hkdf_salt = 0x000000000000000000024bead8df69990852c202db0e0097c1a12ea637d7e96d`&#x20;
 
@@ -8,7 +8,7 @@ HDKF is commonly used to extract entropy from a larger source and deliver smalle
 
 The output of the HDKF is a curve25519 private key, which can be used to derive a public key as well.
 
-## Elliptic-curve Diffie-Hellman
+### Elliptic-curve Diffie-Hellman
 
 Elliptic-curve Diffie-Hellman [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve\_Diffie%E2%80%93Hellman) ([x25519](https://tools.ietf.org/html/rfc7748#section-6)) is a key derivation protocol designed to support assymetric encryption by returning a public-private key pair. ECDH allows for sharing secrets over public channels as one needs the private key to decrypt information while using the public key for sending the encrypted message. These Shared secrets can be used by both parties to then set up subsequent symmetric keys with functions like HDKF as mentioned above. ECDH delivers 256 bits Curve25519 encryption keys which have a probabilistic level of security of 2^128.
 
@@ -18,7 +18,7 @@ ECDH also allows for a special way of generating shared secrets which involves u
 For additional explanation of Diffie-Hellman, check out [this video](https://www.youtube.com/watch?v=NmM9HA2MQGI\&t=166s).
 {% endhint %}
 
-## AES-128-SIV - "Rijndael"
+### AES-128-SIV - "Rijndael"
 
 Advanced Encyption Standard (AES) is an encryption algorithm slightly varying from the block cipher "Rijndael" set to a fixed 128 bits size block. The algorithm generates 256 bit encryption keys which offer very high security guarantees.&#x20;
 

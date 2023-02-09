@@ -10,13 +10,11 @@ SCRT (pronounced as “secret”) is the native coin of Secret Network. It is de
 
 There are many use cases for SCRT such as Payment of transactional and computational fees such as gas fees, staking with validators to secure the underlying network and earn inflation rewards, participation in community governance which helps to shape the future of the network, and so on.&#x20;
 
-### SCRT is public
-
 The SCRT coin is a public asset on-chain, interactions with the coin are public-by-default (eg. balance, receiver etc).&#x20;
 
-This means interactions on the network that require SCRT gas like: Viewing key generation, NFT minting, AMM swaps and more will all show as interactions on chain. These interactions can sill have private metadata thanks to the design of Secret Tokens, but the interaction is publicly verifiable on-chain.
+This means interactions on the network that require SCRT gas like: Viewing key generation, NFT minting, AMM swaps and more will all show as interactions on chain. These interactions can sill have private metadata thanks to the design of [Secret Tokens](private-tokens.md), but the interaction is publicly verifiable on-chain.
 
-### SCRT utillity
+### SCRT utility
 
 #### Governance&#x20;
 
@@ -38,7 +36,7 @@ When processing transactions on Secret Network users need to pay for the space t
 
 The current gas fee per unit of gas is `0.0125uSCRT` . A transaction on average is sized at 100,000 gas units, each transaction therefore costs `100,000 * 0.0125 *10^-6 = 0,00125 SCRT` . The prices for these example transactions can always change if validators decide to run with different settings.&#x20;
 
-There is no reason for a fee market to arise on Secret Network due to the high throughput and fast finality. The fee on Secret Network could be `0` but this is not done as to eliminate denial-of-service attacks. An attacker would have to pay a full block worth of gas every 6 seconds to keep up that attack this can become costly quite fast which disincentives the attacker.
+There is no reason for a fee market to arise on Secret Network due to the high throughput and fast finality. The fee on Secret Network could be `0` but this is not done as to eliminate denial-of-service attacks. An attacker would have to pay a full block worth of gas every 6 seconds to keep up that attack, this can become costly quite fast, which disincentives the attacker.
 
 The transaction fees are paid out to stakers on the network and are an addition to their yield. Every wallet on Secret Network needs some SCRT to complete transactions, this drives utility to the SCRT coin.
 

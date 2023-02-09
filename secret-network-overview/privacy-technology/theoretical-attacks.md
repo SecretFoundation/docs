@@ -2,19 +2,21 @@
 
 There are several theoretical attacks identified as potentially being problematic for the Secret Network. This page seeks to identify and explain each theoretical attack to educate the community of developers building on the Secret Network.&#x20;
 
-## Two Contracts With The Same `contract_key` Could Deanonymize Their States <a href="#two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states" id="two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states"></a>
+### Two Contracts With The Same `contract_key` Could Deanonymize Their States <a href="#two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states" id="two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states"></a>
 
 If an attacker creates a contract with the same `contract_key` as another contract, the state of the original contract can potentially be deanonymized.
 
 For example, an original contract with a permissioned getter, such that only whitelisted addresses can query the getter. In the malicious contract, the attacker can set themselves as the owner and decrypt the state of the original contract using a permissioned getter.
 
-## Deanonymizing With Ciphertext Byte Count <a href="#deanonymizing-with-ciphertext-byte-count" id="deanonymizing-with-ciphertext-byte-count"></a>
+### Deanonymizing With Ciphertext Byte Count <a href="#deanonymizing-with-ciphertext-byte-count" id="deanonymizing-with-ciphertext-byte-count"></a>
 
 No encryption padding, so a value of e.g. "yes" or "no" can be deanonymized by its byte count.
 
-## Tx Replay Attacks <a href="#tx-replay-attacks" id="tx-replay-attacks"></a>
+### Tx Replay Attacks/Side-chain attacks <a href="#tx-replay-attacks" id="tx-replay-attacks"></a>
 
 After a contract runs on the chain, an attacker can sync up a node up to a specific block in the chain, and then call into the enclave with the same authenticated user inputs given to the enclave on-chain, but out-of-order, or omit selected messages. A contract not anticipating or protecting against this might end up de-anonymizing the information provided by users. For example, in a naive voting contract (or other personal data collection algorithm), we can de-anonymize a voter by re-running the vote without the target's request, and analyze the difference in final results.
+
+Running complete sidechain attacks requires replaying the entire state and is not trivial and is mitigated completely if contacts have no Asynchronous inputs or outputs. Examples of affected contracts are mixers, here every user puts a TX in the pool for the final combination of TXs to be executed at once. An adversary could fill the pool with their own TX in a sidechain after every user input and deduct the user input from the retrieved output by eliminating the TXs they put in themselves.
 
 ### More Advanced Tx Replay Attacks ⁠— The Millionaire's Problem <a href="#more-advanced-tx-replay-attacks-search-to-decision-for-millionaire-s-problem" id="more-advanced-tx-replay-attacks-search-to-decision-for-millionaire-s-problem"></a>
 
@@ -28,7 +30,7 @@ The naive solution to this is requiring the node to successfully broadcast the d
 _You could maybe implement the contract with the help of a 3rd party. I.e. the 2 players send their amounts. When the 3rd party sends an approval tx only then the 2 players can query the result. However, this is not good UX._
 {% endhint %}
 
-## Data Leakage Attacks By Analyzing Metadata Of Contract Usage
+### Data Leakage Attacks By Analyzing Metadata Of Contract Usage
 
 Depending on the contract's implementation, an attacker might be able to de-anonymization information about the contract and its clients. Contract developers must consider all the following scenarios and more, and implement mitigations in case some of these attack vectors can compromise privacy aspects of their application.
 
@@ -40,7 +42,7 @@ Most of the below examples talk about an attacker revealing which function was e
 
 Secret Contract developers must analyze the privacy model of their contract - What kind of information must remain private and what kind of information, if revealed, won't affect the operation of the contract and its users. **Analyze what it is that you need to keep private and structure your Secret Contract's boundaries to protect that.**
 
-## Partial Storage Rollback During Contract Runtime <a href="#partial-storage-rollback-during-contract-runtime" id="partial-storage-rollback-during-contract-runtime"></a>
+### Partial Storage Rollback During Contract Runtime <a href="#partial-storage-rollback-during-contract-runtime" id="partial-storage-rollback-during-contract-runtime"></a>
 
 Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage.&#x20;
 
@@ -48,7 +50,7 @@ BUT we can not (yet) verify that the value is the most recent value that was sto
 
 The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
 
-## Inputs
+### Inputs
 
 Encrypted inputs are known by the query sender and the contract. In `query` we don't have an `env` like we do in `init` and `handle`.
 
@@ -60,7 +62,7 @@ Encrypted inputs are known by the query sender and the contract. In `query` we d
 
 Although `query` cannot change the contract's state and the attacker cannot decrypt the query output, the attacker might be able to deduce private information by monitoring output sizes at different times. See [differences in output return values size ](theoretical-attacks.md#differences-in-output-messages-callbacks)to learn more about this kind of attack and how to mitigate it.
 
-## Differences In Output Messages / Callbacks
+### Differences In Output Messages / Callbacks
 
 Secret Contracts can output messages to be executed immediately following the current execution, in the same transaction as the current execution. Secret Contracts have decryptable outputs only by the contract and the transaction sender.
 
@@ -171,14 +173,14 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 
 Again, be creative if that's affecting your secrets. ![rainbow](https://github.githubassets.com/images/icons/emoji/unicode/1f308.png)
 
-## Differences In Output Events
+### Differences In Output Events
 
-### Output events
+#### Output events
 
 * "Push notifications" for GUIs with SecretJS
 * To make the tx searchable on-chain
 
-### Examples
+#### Examples
 
 * Number of logs
 * Size of logs
@@ -208,6 +210,3 @@ Therefore similar to previous examples, an attacker might guess what happened in
 
 For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. This also applies with deposits, callbacks and transfers.
 
-## Side Chain Attack
-
-**Coming soon!**

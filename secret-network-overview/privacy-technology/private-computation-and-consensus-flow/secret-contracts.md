@@ -1,8 +1,8 @@
-# Secret Contracts - Verification
+# Input data verification
 
 Secret Contract developers must always consider the trade-off between privacy, user experience, performance and gas usage. Secret Contracts are able to provide privacy by default functionalities through verifying values during Secret Contract execution and verification of transaction parameters.&#x20;
 
-## Verified Values During Contract Execution
+## Input data needs to be verified
 
 During execution, some contracts may want to use "external-data", meaning data generated outside of the enclave and sent into the enclave, such as the tx sender address, the funds sent with the tx, block height, etc...
 
@@ -27,6 +27,3 @@ The parameter verification method depends on the contract caller:
 
 For more detailed explanations of Secret Contracts see the [Secret Contracts section under Development](../../../development/secret-contracts/).
 
-## Verification - public binary WASM
-
-#### Coming Soon!
