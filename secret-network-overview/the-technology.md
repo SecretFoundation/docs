@@ -14,20 +14,20 @@ Secret brings privacy to the Interchain by leveraging CosmWasm IBC compatible sm
 
 **Dive in deep by exploring our detailed documentation of the Secret Network technology stack:**
 
-* [Steps Of A Private Transactions](../secret-network-techstack/detailed-steps-of-a-private-transaction.md) - overview
-* [Blockchain technology](../secret-network-techstack/blockchain-technology/)
-  * [CosmWasm Smart contracts](../secret-network-techstack/blockchain-technology/cosmwasm.md)
-  * [Inter-Blokchain Communication (IBC)](../secret-network-techstack/blockchain-technology/ibc.md)
-  * [Cosmos SDK](../secret-network-techstack/blockchain-technology/cosmos-sdk.md)
-  * [Tendermint Consensus](../secret-network-techstack/blockchain-technology/tendermint.md)
-  * [Cosmos introduction](../secret-network-techstack/blockchain-technology/cosmos-basics.md)
-* [Privacy technology](../secret-network-techstack/privacy-technology/)
-  * [Encryption - Key Management](../secret-network-techstack/privacy-technology/encryption-key-management/)&#x20;
-  * [Trusted Execution Environments (TEE) - Intel SGX](../secret-network-techstack/privacy-technology/intel-sgx/)
-  * [Access Control](../secret-network-techstack/privacy-technology/access-control/)&#x20;
-  * [Private Smart contracts](../secret-network-techstack/privacy-technology/private-computation-and-consensus-flow/)
-  * [Plans Beyond SGX](../secret-network-techstack/privacy-technology/plans-beyond-sgx.md)
-  * [Theoretical Attacks](../secret-network-techstack/privacy-technology/theoretical-attacks.md)
+* [Steps Of A Private Transactions](../techstack/detailed-steps-of-a-private-transaction.md) - overview
+* [Blockchain technology](blockchain-technology/)
+  * [CosmWasm Smart contracts](blockchain-technology/cosmwasm.md)
+  * [Inter-Blokchain Communication (IBC)](blockchain-technology/ibc.md)
+  * [Cosmos SDK](blockchain-technology/cosmos-sdk.md)
+  * [Tendermint Consensus](blockchain-technology/tendermint.md)
+  * [Cosmos introduction](blockchain-technology/cosmos-basics.md)
+* [Privacy technology](privacy-technology/)
+  * [Encryption - Key Management](privacy-technology/encryption-key-management/)&#x20;
+  * [Trusted Execution Environments (TEE) - Intel SGX](privacy-technology/intel-sgx/)
+  * [Access Control](privacy-technology/access-control/)&#x20;
+  * [Private Smart contracts](privacy-technology/private-computation-and-consensus-flow/)
+  * [Plans Beyond SGX](privacy-technology/plans-beyond-sgx.md)
+  * [Theoretical Attacks](privacy-technology/theoretical-attacks.md)
 
 **Reading not your thing? Do not worry, our Secret technology basics video series got you covered.**
 

@@ -1,2 +1,0 @@
-# Private vs public contracts
-
