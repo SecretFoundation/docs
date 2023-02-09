@@ -1,16 +1,16 @@
-root: ./ 
+root: ./docs/ 
 
 redirects:
-    dev/developers: development.md
-    dev/quickstart: development/getting-started.md
-    dev/secret-contracts: development/secret-contracts.md
-    dev/tutorials: development/secret-by-example.md
-    protocol/governance: development/tools-and-libraries/secret-cli/governance.md
-    backup/backup-a-validator: node-runners/node-setup/best-practices/validator-backup.md
+    dev/developers: development/README.md
+    dev/quickstart: development/getting-started/README.md
+    dev/secret-contracts: development/secret-contracts/README.md
+    dev/tutorials: development/secret-by-example/community-tutorials.md
+    protocol/governance: development/tools-and-libraries/secret-cli/governance/README.md
+    backup/backup-a-validator: node-runners/node-setup/best-practices/README.md
     cosmovisor: post-mortems-upgrades/upgrade-instructions/cosmovisor.md
-    node-guides/full-node-docker: node-runners/node-monitoring/docker.md
+    node-guides/full-node-docker: node-runners/node-monitoring/docker/README.md
     node-guides/join-validator-mainnet: node-runners/testnet/join-as-a-validator.md
-    node-guides/registration: node-runners/node-setup.md
+    node-guides/registration: node-runners/node-setup/README.md
     node-guides/run-full-node-mainnet: node-runners/node-setup/setup-full-node.md
     node-guides/setup-sgx: node-runners/node-setup/install-sgx.md
     node-guides/state-sync: node-runners/node-setup/state-sync.md
@@ -18,7 +18,7 @@ redirects:
     shockwave-alpha-upgrade-secret-4: post-mortems-upgrades/upgrade-instructions/shockwave-alpha.md
     testnet/run-full-node-testnet: node-runners/node-setup/setup-full-node.md
     secret-network-documentation/ecosystem-overview/funding/secret-labs-grants: ecosystem-overview/funding/secret-labs-grants.md
-    backup/backup/wallets: ecosystem-overview.md
-    cli/install-cli: development/tools-and-libraries/secret-cli.md
-    guides/governance: development/tools-and-libraries/secret-cli/governance.md
-    protocol/encryption-specs: node-runners/node-setup.md
+    backup/backup/wallets: ecosystem-overview/README.md
+    cli/install-cli: development/tools-and-libraries/secret-cli/install.md
+    guides/governance: development/tools-and-libraries/secret-cli/governance/README.md
+    protocol/encryption-specs: node-runners/node-setup/README.md
