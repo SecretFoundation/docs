@@ -1,14 +1,4 @@
-# CCR and CCBL
-
-### Community code repositories (CCR)
-
-The community code repositories are a small bounty framework where developers can take up tasks taking up to 20-30 hours to complete and thereby create an open source code library to be used by any other developer on the network.\
-\
-The CCR concept is budgeted for by the Secret Network development Committee and open projects can be found in the [Github repository](https://github.com/SecretNetwork/secret-network-community-code-repositories). Before taking on a task the Development committee leads will have a quick conversation with you so they can guide you in the project.\
-\
-Upon completion the code for the created tool is open sourced and the developer is paid the agreed upon bounty of up to $ 2,500 USD.\
-\
-To contribute please reference the [Contributing.md](https://github.com/SecretNetwork/secret-network-community-code-repositories/blob/main/CONTRIBUTING.md) in the CCR repository.
+# CCBL
 
 ### Community Curated Bounty List
 
@@ -27,6 +17,8 @@ Before every Validator Survey new submissions will be vetted in a public CCBL Wo
 
 #### Open projects on the CCBL
 
+> Stay up to date with the Bounties of the CCBL via [SCRT.University](https://scrt.university/bounties)
+
 * A SCRT faucet that will use the fee-grant module that will be included with the IBC upgrade
 * Secret bet: a decentralized, permissionless, and privacy-preserving betting place where you can set up a bet with your friends or even bet on your favorite basketball or football team (This project is likely to be subject to increased local regulation, please ensure research into local laws and regulations)
 * A secret NFT project where you can store identification documents as secret NFTs that only you can see and that you can show to people on request with a temporary viewing key
@@ -36,8 +28,3 @@ Before every Validator Survey new submissions will be vetted in a public CCBL Wo
 * An interface to view and create viewing keys in batches
 * A peer to peer NFT trading platform, including escrow functionality
 * A crowdfunding platform
-
-
-
-\
-\

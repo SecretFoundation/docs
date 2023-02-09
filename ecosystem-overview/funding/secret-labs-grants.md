@@ -1,4 +1,4 @@
-# Accelerator Pool
+# Accelerator/Ecosystem Pool
 
 Funded in SCRT and primarily managed by SCRT Labs, the Accelerator Pool is used to support critical growth initiatives across Secret DeFi, NFTs, gaming and metaverse, and other essential application verticals on Secret Network. Initiatives will target the core network metrics especially active usage, userbase, and TVL.
 
@@ -14,7 +14,7 @@ Interested developers may submit applications and get more information about the
 ## How to apply for a Grant
 
 {% hint style="info" %}
-_If you need help with applying for a grant or want to connect with Business development then please reach out to:_ [_The business development committee_](../contributors-and-entities/secret-committees/) _or SCRT Labs (_[_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com)_)_
+_If you need help with applying for a grant or want to connect with Business development then please reach out to: SCRT Labs (_[_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com)_) or_ [_The secret agenc_](../contributors-and-entities/secret-agency.md)_y_
 {% endhint %}
 
 ### Funding Amounts
