@@ -2,6 +2,10 @@
 
 A simple way to describe a blockchain is that it’s a distributed ledger on a peer-to-peer (P2P) network where each node of that network contains a copy of the blockchain state. The state of the blockchain is updated by an application and broadcast to each node, agreeing on this new state through consensus.
 
+**Want to learn about Cosmos and the Secret Techstack via a video instead? Check this video series on the Secret Network Youtube.**
+
+{% embed url="https://www.youtube.com/watch?index=3&list=PLL1JDiTNCUAW_jGFyBjOFAzzTw3zKb3TM&v=icauyoowsbQ" %}
+
 ## Horizontal Scaling - Application Specific Blockchains
 
 Cosmos is an ecosystem of independent, interconnected and application specific blockchains commonly referred to as the internet of blockchains. By having all these application specific interconnected blockchains, the ecosystem can easily scale horizontally which avoids most of the bottlenecks and scalability issues we know today on other heterogenous blockchains.

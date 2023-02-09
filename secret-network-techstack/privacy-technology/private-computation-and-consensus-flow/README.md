@@ -6,8 +6,8 @@ In this part of the documentation, we highlight the flow of data for interaction
 
 ## Overview
 
-* [Secret Contracts Vs public contracts](../../../techstack/privacy-technology/private-computation-and-consensus-flow/private-vs-public-contracts.md)
-* [Encryption of the contract state](../../../techstack/privacy-technology/private-computation-and-consensus-flow/encryption-of-the-contract-state.md)
+* [Secret Contracts Vs public contracts](private-vs-public-contracts.md)
+* [Encryption of the contract state](encryption-of-the-contract-state.md)
 * [Execution of a private smart contract](secret-contracts-execution.md)
 * [Input data verification](secret-contracts.md)
 

@@ -40,4 +40,8 @@ There is no reason for a fee market to arise on Secret Network due to the high t
 
 The transaction fees are paid out to stakers on the network and are an addition to their yield. Every wallet on Secret Network needs some SCRT to complete transactions, this drives utility to the SCRT coin.
 
-``
+
+
+Want to learn more about SCRT and how you can participate in the Secret ecosystem? **Check out our website.**
+
+{% embed url="https://scrt.network/about/get-scrt" %}

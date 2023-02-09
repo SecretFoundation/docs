@@ -16,3 +16,7 @@ Secret Network offers users and developers privacy by default allowing everyone 
 
 In Web2 middlemen can take advantage of user data and by eliminating the middlemen public blockchain technology might have created an even worse situation. Secret Network enables users to take back ownership of their data and presents novel use-cases for builders on its private by default blockchain. Charging the truly decentralized web.
 
+We would be happy to tell a little more about privacy, **read further on out blog!**
+
+{% embed url="https://medium.com/@secretnetwork/why-web3-privacy-matters-78014b4da62e" %}
+

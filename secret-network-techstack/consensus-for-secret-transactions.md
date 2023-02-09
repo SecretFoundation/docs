@@ -15,3 +15,7 @@ The following process is based on how Tendermint works to reach consensus in a s
 7. The encrypted output and state is committed on-chain to the specific contract
 
 ![](<../.gitbook/assets/image (3) (2).png>)
+
+**Want to learn about Secret transactions in a video format instead? Check out the last part of the Secret Network techstack video series.**
+
+{% embed url="https://www.youtube.com/watch?index=5&list=PLL1JDiTNCUAW_jGFyBjOFAzzTw3zKb3TM&v=IKd7mOY3DQs" %}

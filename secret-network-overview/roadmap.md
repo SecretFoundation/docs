@@ -60,6 +60,8 @@ Gramine will allow for a cleaner management of the TEE component of the techstac
 
 ### What is Secret 2.0?
 
+{% embed url="https://www.youtube.com/watch?index=1&list=PLL1JDiTNCUAW_jGFyBjOFAzzTw3zKb3TM&v=umPiRefLFrQ" %}
+
 > Below info comes from the "Request for Feedback" [forum post](https://forum.scrt.network/t/secret-2-0-the-next-generation-request-for-feedback/6607).
 
 Secret remains today the only privacy-preserving smart contracts L1 in production. We were first to identify the need for privacy beyond transactional and beyond Zero-Knowledge Proofs (which in general are more of a scaling solution rather than a privacy one). With concerns such as MEV and L1 censorship, it appears that others are catching up to the need of having base-layer privacy.

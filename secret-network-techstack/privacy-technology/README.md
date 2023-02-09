@@ -14,7 +14,7 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 <summary>Topics Covered</summary>
 
-[Steps Of A Private Transactions](../../techstack/detailed-steps-of-a-private-transaction.md)
+[Steps Of A Private Transactions](../detailed-steps-of-a-private-transaction.md)
 
 [Private Computation & Consensus Flow](private-computation-and-consensus-flow/)
 
@@ -29,3 +29,7 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 [Theoretical Attacks](theoretical-attacks.md)
 
 </details>
+
+**Want to learn about Privacy for smart contracts and the Secret network techstack? Check out the following video series for an introduction:**
+
+{% embed url="https://www.youtube.com/watch?index=4&list=PLL1JDiTNCUAW_jGFyBjOFAzzTw3zKb3TM&v=SZkDLPxj2-c" %}
