@@ -5,24 +5,24 @@ structure:
     summary: SUMMARY.md
 
 redirects:
-    dev/developers: ./development/README.md
-    dev/quickstart: ./development/getting-started/README.md
-    dev/secret-contracts: ./development/secret-contracts/README.md
-    dev/tutorials: ./development/secret-by-example/community-tutorials.md
-    protocol/governance: ./development/tools-and-libraries/secret-cli/governance/README.md
-    backup/backup-a-validator: ./node-runners/node-setup/best-practices/README.md
-    cosmovisor: ./post-mortems-upgrades/upgrade-instructions/cosmovisor.md
-    node-guides/full-node-docker: ./node-runners/node-monitoring/docker/README.md
-    node-guides/join-validator-mainnet: ./node-runners/testnet/join-as-a-validator.md
-    node-guides/registration: ./node-runners/node-setup/README.md
-    node-guides/run-full-node-mainnet: ./node-runners/node-setup/setup-full-node.md
-    node-guides/setup-sgx: ./node-runners/node-setup/install-sgx.md
-    node-guides/state-sync: ./node-runners/node-setup/state-sync.md
-    node-guides/verify-sgx: ./node-runners/misc/verify-sgx.md
-    shockwave-alpha-upgrade-secret-4: ./post-mortems-upgrades/upgrade-instructions/shockwave-alpha.md
-    testnet/run-full-node-testnet: ./node-runners/node-setup/setup-full-node.md
-    secret-network-documentation/ecosystem-overview/funding/secret-labs-grants: ./ecosystem-overview/funding/secret-labs-grants.md
+    dev/developers.html: ./development/README.md
+    dev/quickstart.html: ./development/getting-started/README.md
+    dev/secret-contracts.html: ./development/secret-contracts/README.md
+    dev/tutorials.html: ./development/secret-by-example/community-tutorials.md
+    protocol/governance.html: ./development/tools-and-libraries/secret-cli/governance/README.md
+    backup/backup-a-validator.html: ./node-runners/node-setup/best-practices/README.md
+    cosmovisor.html: ./post-mortems-upgrades/upgrade-instructions/cosmovisor.md
+    node-guides/full-node-docker.html: ./node-runners/node-monitoring/docker/README.md
+    node-guides/join-validator-mainnet.html: ./node-runners/testnet/join-as-a-validator.md
+    node-guides/registration.html: ./node-runners/node-setup/README.md
+    node-guides/run-full-node-mainnet.html: ./node-runners/node-setup/setup-full-node.md
+    node-guides/setup-sgx.html: ./node-runners/node-setup/install-sgx.md
+    node-guides/state-sync.html: ./node-runners/node-setup/state-sync.md
+    node-guides/verify-sgx.html: ./node-runners/misc/verify-sgx.md
+    shockwave-alpha-upgrade-secret-4.html: ./post-mortems-upgrades/upgrade-instructions/shockwave-alpha.md
+    testnet/run-full-node-testnet.html: ./node-runners/node-setup/setup-full-node.md
+    secret-network-documentation/ecosystem-overview/funding/secret-labs-grants.html: ./ecosystem-overview/funding/secret-labs-grants.md
     backup/backup/wallets: ./ecosystem-overview/README.md
-    cli/install-cli: ./development/tools-and-libraries/secret-cli/install.md
-    guides/governance: ./development/tools-and-libraries/secret-cli/governance/README.md
-    protocol/encryption-specs: ./node-runners/node-setup/README.md
+    cli/install-cli.html: ./development/tools-and-libraries/secret-cli/install.md
+    guides/governance.html: ./development/tools-and-libraries/secret-cli/governance/README.md
+    protocol/encryption-specs.html: ./node-runners/node-setup/README.md
