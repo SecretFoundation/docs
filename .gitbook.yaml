@@ -26,3 +26,8 @@ redirects:
     cli/install-cli.html: ./development/tools-and-libraries/secret-cli/install.md
     guides/governance.html: ./development/tools-and-libraries/secret-cli/governance/README.md
     protocol/encryption-specs.html: ./node-runners/node-setup/README.md
+    secret-network-documentation/development/local-secret: ./development/tools-and-libraries/local-secret.md
+    secret-network-documentation/development/intro-to-secret-contracts: ./development/secret-by-example/intro-to-secret-contracts.md
+    secret-network-documentation/development/secretjs/templates: ./development/tools-and-libraries/secretjs/README.md
+    secret-network-documentation/ecosystem-overview/contributors-and-entities/core/secret-committees/development: ./ecosystem-overview/contributors-and-entities/secret-committees/development.md
+    secret-network-documentation/secret-network-overview/privacy-technology/detailed-steps-of-a-private-transaction: ./techstack/detailed-steps-of-a-private-transaction.md
