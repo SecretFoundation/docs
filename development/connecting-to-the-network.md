@@ -68,6 +68,7 @@
 | LCD      | `https://lcd.secret.express`                        | [secret.express](https://secret.express)                                                                                                           |
 | LCD      | `https://secret-4.api.trivium.network:1317`         | [Trivium \| Trivium.Network](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1ahawe276d250zpxt0xgpfg63ymmu63a0svuvgw) |
 | LCD      | `https://scrt-lcd.blockpane.com` (archive node)     | [\[block pane\]](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1tmtcu980raqvypdf0dd6hsgh6qcm7ex7l29u58)             |
+| LCD      | `https://lcd.mainnet.secretsaturn.net`                    | [🪐 𝕊ecret 𝕊aturn](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1q0rth4fu4svxnw63vjd7w74nadzsdp0fmkhj3d)         |
 | LCD      | `https://api.secret.forbole.com/`                   | [Forbole](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1kvp570cd6zvzh8ffrhz7lmytt6v6u2gxz8tl0g)                    |
 | LCD      | `https://lcd.spartanapi.dev`                        | [secretnodes.com ❄️☄️](https://secretnodes.com/secret/validators/secretvaloper1hjd20hjvkx06y8p42xl0uzr3gr3ue3nkvd79jj)                             |
 | LCD      | `https://secret.api.consensus.one`                  | [Consensus One](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1sa8av4qw3xerr58kwvnm8wvd87zgp36mv6cnyg)              |
