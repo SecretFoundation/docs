@@ -6,11 +6,15 @@ description: >-
 
 # Setting Up Your Environment
 
-Secret Contracts are written using the [CosmWasm framework](https://book.cosmwasm.com/). CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a LocalSecret development environment with all the tools required so that you can upload, instantiate, and execute your smart contracts.&#x20;
+Secret Contracts are written using the [CosmWasm framework](https://book.cosmwasm.com/). CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a LocalSecret development environment with all the tools required so that you can upload, instantiate, and execute your smart contracts.
+
+{% hint style="info" %}
+For a step-by-step Secret Network environment configuration video tutorial, [follow along here](https://www.youtube.com/watch?v=m64c\_3fui3o\&ab\_channel=SecretNetwork) 🎥. Otherwise, continue reading!
+{% endhint %}
 
 ## What Is LocalSecret? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
 
-LocalSecret is a complete Secret Network testnet and ecosystem containerized with Docker. It simplifies the way secret contract developers test their contracts in a sandbox before they deploy them on a public testnet or mainnet (You can think of it like a local testnet that only you have access to).&#x20;
+LocalSecret is a complete Secret Network testnet and ecosystem containerized with Docker. It simplifies the way secret contract developers test their contracts in a sandbox before they deploy them on a public testnet or mainnet (You can think of it like a local testnet that only you have access to).
 
 There are 3 main tools we will use -
 
@@ -18,7 +22,7 @@ There are 3 main tools we will use -
 * SecretCLI - a command-line tool to interact with the blockchain
 * LocalSecret - a local Secret Network chain set up for development purposes
 
-We're going to install our environment manually so that you can code in a text editor of your choosing, but if you would prefer to work with JetBrains you can also configure your environment that way using the resources at the bottom of this page.&#x20;
+We're going to install our environment manually so that you can code in a text editor of your choosing, but if you would prefer to work with JetBrains you can also configure your environment that way using the resources at the bottom of this page.
 
 ### Install Requirements
 
@@ -160,7 +164,7 @@ An instance of LocalSecret requires approximately 2.5 GB of RAM to run. You may 
 The installation methods differ based on the processor architecture. This is because Secret Network makes use of Intel SGX to protect private data.
 {% endhint %}
 
-Now that you have docker installed, open the docker application and then in your terminal run:&#x20;
+Now that you have docker installed, open the docker application and then in your terminal run:
 
 {% tabs %}
 {% tab title="x86 (Intel/AMD)" %}
@@ -175,7 +179,7 @@ Unfortunately, even LocalSecret inside a docker cannot be run on an M1 Mac. As a
 
 This environment is set up in such a way that can be accessed remotely as well.
 
-To get started, follow the instructions at the [main repo here](https://github.com/scrtlabs/GitpodLocalSecret).&#x20;
+To get started, follow the instructions at the [main repo here](https://github.com/scrtlabs/GitpodLocalSecret).
 
 To connect, prepend the port number with the Gitpod URL. e.g., if my workspace is at `https://scrtlabs-gitpoddevenv-shqyv12iyrv.ws-eu54.gitpod.io` then I would be able to connect to the RPC service at `https://26657-scrtlabs-gitpoddevenv-shqyv12iyrv.ws-eu54.gitpod.io`
 
@@ -190,7 +194,7 @@ secretcli config output json
 {% endtab %}
 {% endtabs %}
 
-Congrats! You now have a containerized version of LocalSecret running inside docker! You should see blocks being created in real time:&#x20;
+Congrats! You now have a containerized version of LocalSecret running inside docker! You should see blocks being created in real time:
 
 <figure><img src="../../.gitbook/assets/LocalSecret.png" alt=""><figcaption><p>LocalSecret developer testnet</p></figcaption></figure>
 
@@ -212,7 +216,7 @@ Then after a few seconds you will be able to access your in-browser IDE at [http
 
 Once the environment loads, clone the repository from [https://github.com/scrtlabs/secret-template](https://github.com/scrtlabs/secret-template)
 
-Secret IDE has built-in support for both the Pulsar testnet and mainnet, but for the purposes of this guide we will be using the SecretCLI via terminal.&#x20;
+Secret IDE has built-in support for both the Pulsar testnet and mainnet, but for the purposes of this guide we will be using the SecretCLI via terminal.
 
 Secret-IDE is also available as a plugin for IDEA, so you can just install it from the marketplace.
 
@@ -224,18 +228,16 @@ Lastly, it will be helpful to configure SecretCLI by using the included "Configu
 
 <summary>Gitpod Set Up Instructions (for M1 Mac users)</summary>
 
-LocalSecret cannot be run on an M1 Mac.&#x20;
+LocalSecret cannot be run on an M1 Mac.
 
-To know whether you have a Mac with an M1 chip or an Intel chip, click on the Apple logo located in the lefthand corner of your desktop and navigate to **About This Mac/Overview,** and confirm whether the processor is M1 or Intel. If you have an Intel chip, you can run LocalSecret in docker, otherwise, proceed with these set up instructions to learn how to [run LocalSecret in Gitpod](https://github.com/scrtlabs/GitpodLocalSecret).&#x20;
+To know whether you have a Mac with an M1 chip or an Intel chip, click on the Apple logo located in the lefthand corner of your desktop and navigate to **About This Mac/Overview,** and confirm whether the processor is M1 or Intel. If you have an Intel chip, you can run LocalSecret in docker, otherwise, proceed with these set up instructions to learn how to [run LocalSecret in Gitpod](https://github.com/scrtlabs/GitpodLocalSecret).
 
-1. Run an instance of LocalSecret in Gitpod by [clicking here](https://gitpod.io/#https://github.com/scrtlabs/GitpodLocalSecret).&#x20;
-2. Gitpod will automatically create a workspace and ask if you want to open it in your text editor. It will then prompt you to allow an extension to open the URI. Select "Open" to proceed.&#x20;
-3. If you don't have a registered SSH public key for your computer in your Gitpod account, it will ask you to copy  a temporary password to use until you restart the workspace at a later date. Copy the password.&#x20;
-4. Enter the password you copied in your text editor to finish setting up the SSH host connection. &#x20;
-5. Congrats! You have successfully set up an instance of LocalSecret in Gitpod which you can use for testing your smart contracts.&#x20;
+1. Run an instance of LocalSecret in Gitpod by [clicking here](https://gitpod.io/#https://github.com/scrtlabs/GitpodLocalSecret).
+2. Gitpod will automatically create a workspace and ask if you want to open it in your text editor. It will then prompt you to allow an extension to open the URI. Select "Open" to proceed.
+3. If you don't have a registered SSH public key for your computer in your Gitpod account, it will ask you to copy a temporary password to use until you restart the workspace at a later date. Copy the password.
+4. Enter the password you copied in your text editor to finish setting up the SSH host connection.
+5. Congrats! You have successfully set up an instance of LocalSecret in Gitpod which you can use for testing your smart contracts.
 
 </details>
-
-
 
 ##

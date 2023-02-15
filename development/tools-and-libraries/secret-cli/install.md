@@ -4,18 +4,18 @@ To install the _secretcli_ [download the latest version here. ](https://github.c
 
 * secretcli-Linux
 * secretcli-macOS
-* secretcli-MacOS-arm64&#x20;
-* secretcli-Windows&#x20;
+* secretcli-MacOS-arm64
+* secretcli-Windows
 
 ### Linux
 
 After downloading secretcli-Linux you will need to navigate to the folder you have download it to make secretcli-Linux an executable program using a graphical user interface (GUI) or the command-line.
 
-**Note:** Installing secretcli-Linux will ONLY give you access to the `secretcli` commands. For `secretcli` and `secretd` commands install one of the .deb packages.&#x20;
+**Note:** Installing secretcli-Linux will ONLY give you access to the `secretcli` commands. For `secretcli` and `secretd` commands install one of the .deb packages.
 
 #### GUI
 
-Right click on the secretcli-Linux file and select 'Properties', then select 'Permissions', and then check the 'Allow executing the file as program' box beside the 'Execute' column.&#x20;
+Right click on the secretcli-Linux file and select 'Properties', then select 'Permissions', and then check the 'Allow executing the file as program' box beside the 'Execute' column.
 
 ![Make secretcli-Linux executable.](../../../.gitbook/assets/secretcliguiinstall.png)
 
@@ -29,23 +29,23 @@ chmod +x secretcli-Linux
 
 #### Next Steps
 
-You can now use the `secretcli` by using the following command inside of the folder it is located in with:&#x20;
+You can now use the `secretcli` by using the following command inside of the folder it is located in with:
 
 ```
 ./secretcli-Linux
 ```
 
-You will see some outputs related to available commands, flags, and usage.&#x20;
+You will see some outputs related to available commands, flags, and usage.
 
-It is recommended to rename seretcli-Linux to 'secretcli', and move the executable file into the correct location so it is automatically executable by typing `secretcli` anywhere within the command-line.&#x20;
+It is recommended to rename seretcli-Linux to 'secretcli', and move the executable file into the correct location so it is automatically executable by typing `secretcli` anywhere within the command-line.
 
-To achieve this use the following commands in the directory containing secretcli-Linux:&#x20;
+To achieve this use the following commands in the directory containing secretcli-Linux:
 
 ```
 sudo mv secretcli-Linux /usr/local/bin/secretcli
 ```
 
-**Congrats! The `secretcli` is now installed!**&#x20;
+**Congrats! The `secretcli` is now installed!**
 
 ### Mac
 
@@ -64,19 +64,19 @@ mv secretcli-MacOS-arm64 secretcli
 chmod 755 secretcli
 ```
 
-Mac users are required to perform another step after making the `secretcli` executable on their machines. This is because MacOs cannot recognize the developer of the secretcli file. Try running the following command in the directory containing the executable `secretcli`:&#x20;
+Mac users are required to perform another step after making the `secretcli` executable on their machines. This is because MacOs cannot recognize the developer of the secretcli file. Try running the following command in the directory containing the executable `secretcli`:
 
 ```bash
 ./secretcli
 ```
 
-You will get a warning popup window with text similar to the following --> **“secretcli” cannot be opened because the developer cannot be verified.**  There will be two options: move to trash or cancel. Select cancel.&#x20;
+You will get a warning popup window with text similar to the following --> **“secretcli” cannot be opened because the developer cannot be verified.** There will be two options: move to trash or cancel. Select cancel.
 
-In order to get your MaOs system to be able to execute the `secretcli`, you will need to change the system preferences on your mac by going to the Apple menu <img src="https://help.apple.com/assets/6226843B0C3B6F4420549000/6226843E0C3B6F442054900F/en_GB/2f77cc85238452e25cb517130188bf99.png" alt="" data-size="line">> System Preferences > click Security & Privacy <img src="https://help.apple.com/assets/6226843B0C3B6F4420549000/6226843E0C3B6F442054900F/en_GB/106ba2d7107ef06182690a344e00b1ce.png" alt="" data-size="line"> > then click General.&#x20;
+In order to get your MaOs system to be able to execute the `secretcli`, you will need to change the system preferences on your mac by going to the Apple menu <img src="https://help.apple.com/assets/6226843B0C3B6F4420549000/6226843E0C3B6F442054900F/en_GB/2f77cc85238452e25cb517130188bf99.png" alt="" data-size="line">> System Preferences > click Security & Privacy <img src="https://help.apple.com/assets/6226843B0C3B6F4420549000/6226843E0C3B6F442054900F/en_GB/106ba2d7107ef06182690a344e00b1ce.png" alt="" data-size="line"> > then click General.
 
-You will see the text: "secretcli" was blocked from use because it is not from an identified developer. Click the 'Allow Anyway' button. &#x20;
+You will see the text: "secretcli" was blocked from use because it is not from an identified developer. Click the 'Allow Anyway' button.
 
-Now you should be able to use the `secretcli` when inside of the folder it is found in:&#x20;
+Now you should be able to use the `secretcli` when inside of the folder it is found in:
 
 ```
 ./secretcli 
@@ -84,9 +84,9 @@ Now you should be able to use the `secretcli` when inside of the folder it is fo
 
 You will see the following warning popup, click 'open'.
 
-![](<../../../.gitbook/assets/cliwarning (1).png>)
+![](../../../.gitbook/assets/cliwarning.png)
 
-**After clicking open you should see the following output in your terminal application:**&#x20;
+**After clicking open you should see the following output in your terminal application:**
 
 ```
 The Secret Network App Daemon (server)
@@ -133,14 +133,14 @@ Flags:
 Use "secretd [command] --help" for more information about a command.
 ```
 
-We recommend moving the `secretcli` into your path to be able to use it anywhere within your systems terminal application with:&#x20;
+We recommend moving the `secretcli` into your path to be able to use it anywhere within your systems terminal application with:
 
 ```
 mv secretcli /usr/local/bin
 ```
 
-**Congrats! The `secretcli` is now installed!**&#x20;
+**Congrats! The `secretcli` is now installed!**
 
 ### Windows
 
-The `secretcli` is compatible for use within the Windows Subsystem for Linux (WSL).&#x20;
+The `secretcli` is compatible for use within the Windows Subsystem for Linux (WSL).

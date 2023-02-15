@@ -6,13 +6,17 @@ description: >-
 
 # Compile and Deploy
 
-Now that you've set up your LocalSecret development environment, we are going to learn how to compile, upload, and instantiate a smart contract using SecretCLI in your LocalSecret testnet environment.&#x20;
+Now that you've set up your LocalSecret development environment, we are going to learn how to compile, upload, and instantiate a smart contract using SecretCLI in your LocalSecret testnet environment.
 
-We will be working with a basic [counter contract](https://github.com/scrtlabs/secret-template/blob/master/src/contract.rs), which allows users to increment a counter variable by 1 and also reset the counter. If you've never worked with smart contracts written in Rust before that is perfectly fine. By the end of this tutorial you will know how to upload and instantiate a Secret Network smart contract in your terminal using SecretCLI. &#x20;
+{% hint style="info" %}
+For a step-by-step Secret Network SecretCLI video tutorial, [follow along here](https://www.youtube.com/watch?v=ZpUz-9sORho\&ab\_channel=SecretNetwork) 🎥. Otherwise, continue reading!
+{% endhint %}
+
+We will be working with a basic [counter contract](https://github.com/scrtlabs/secret-template/blob/master/src/contract.rs), which allows users to increment a counter variable by 1 and also reset the counter. If you've never worked with smart contracts written in Rust before that is perfectly fine. By the end of this tutorial you will know how to upload and instantiate a Secret Network smart contract in your terminal using SecretCLI.
 
 ### Generate your new counter contract
 
-The first thing we need to do is clone the counter contract from the [Secret Network github repo](https://github.com/scrtlabs/secret-template).  Secret Network developed this counter contract template so that developers have a simple structure to work with when developing new smart contracts, but we're going to use the contract exactly as it is for learning purposes. &#x20;
+The first thing we need to do is clone the counter contract from the [Secret Network github repo](https://github.com/scrtlabs/secret-template). Secret Network developed this counter contract template so that developers have a simple structure to work with when developing new smart contracts, but we're going to use the contract exactly as it is for learning purposes.
 
 Go to the folder in which you want to save your counter smart contract and run:
 
@@ -21,10 +25,10 @@ cargo generate --git https://github.com/scrtlabs/secret-template.git --name my-c
 ```
 
 {% hint style="info" %}
-When you run the above code, it will name your contract folder directory "my-counter-contract". But you can change the name by altering the text that follows the `--name` flag.&#x20;
+When you run the above code, it will name your contract folder directory "my-counter-contract". But you can change the name by altering the text that follows the `--name` flag.
 {% endhint %}
 
-Start by opening the `my-counter-contract` project folder in your text editor. If you navigate to `my-counter-contract/src` you will see`contract.rs, msg.rs, lib.rs, and state.rs`—these are the files that make up our counter smart contract.  If you've never worked with a Rust smart contract before, perhaps take some time to familiarize yourself with the code, although in this tutorial we will not be going into detail discussing the contract logic.&#x20;
+Start by opening the `my-counter-contract` project folder in your text editor. If you navigate to `my-counter-contract/src` you will see`contract.rs, msg.rs, lib.rs, and state.rs`—these are the files that make up our counter smart contract. If you've never worked with a Rust smart contract before, perhaps take some time to familiarize yourself with the code, although in this tutorial we will not be going into detail discussing the contract logic.
 
 Next, configure SecretCLI to work with LocalSecret by running the following code in your text editor terminal (this is assuming you already have an instance of LocalSecret running in docker, which we learned in the previous section)
 
@@ -41,7 +45,7 @@ secretcli config output json
 
 ### Compile the Code
 
-Since we are not making any changes to the contract code, we are going to compile it exactly as it is. To compile the code, run `make build` in your terminal. This will take our Rust code and build a Web Assembly file that we can deploy to Secret Network. Basically, it just takes the smart contract that we've written and translates the code into a language that the blockchain can understand.&#x20;
+Since we are not making any changes to the contract code, we are going to compile it exactly as it is. To compile the code, run `make build` in your terminal. This will take our Rust code and build a Web Assembly file that we can deploy to Secret Network. Basically, it just takes the smart contract that we've written and translates the code into a language that the blockchain can understand.
 
 {% tabs %}
 {% tab title="Linux/WSL/MacOS" %}
@@ -77,19 +81,19 @@ docker run --rm -v "$(pwd)":/contract \
   enigmampc/secret-contract-optimizer  
 ```
 
-You should now have an optimized `contract.wasm.gz` file in your root directory,  which is ready to be uploaded to the blockchain! Also note that the optimizer should have removed the `contract.wasm` file from your root directory 👍
+You should now have an optimized `contract.wasm.gz` file in your root directory, which is ready to be uploaded to the blockchain! Also note that the optimizer should have removed the `contract.wasm` file from your root directory 👍
 
 ### Storing the Contract
 
 Now that we have a working contract and an optimized wasm file, we can upload it to the blockchain and see it in action. This is called **storing the contract code**. We are using a local testnet environment, but the same commands apply no matter which network you want to use - local, public testnet, or mainnet.
 
-In order to store the contract code, we first must create a wallet address in order to pay for transactions such as uploading and executing the contract.&#x20;
+In order to store the contract code, we first must create a wallet address in order to pay for transactions such as uploading and executing the contract.
 
 #### Creating a Wallet
 
 To interact with the blockchain, we first need to initialize a wallet. From the terminal run:
 
-`secretcli keys add myWallet`&#x20;
+`secretcli keys add myWallet`
 
 {% hint style="info" %}
 You can name your wallet whatever you'd like, for this tutorial I chose to name my wallet "myWallet"
@@ -99,13 +103,13 @@ You should now have access to a wallet with a unique name, address, and mnemonic
 
 <figure><img src="../../.gitbook/assets/LocalSecret - myWallet .png" alt=""><figcaption></figcaption></figure>
 
-The wallet currently has zero funds, which you query by running this secretcli command (be sure to use your wallet address in place of mine)&#x20;
+The wallet currently has zero funds, which you query by running this secretcli command (be sure to use your wallet address in place of mine)
 
 ```
 secretcli query bank balances "secret16u7w28vp68qmldffuc89am4f02045zlfsjht90"
 ```
 
-To fund the wallet so that it can execute transactions, run:&#x20;
+To fund the wallet so that it can execute transactions, run:
 
 ```
 curl http://localhost:5000/faucet?address=secret16u7w28vp68qmldffuc89am4f02045zlfsjht90
@@ -122,11 +126,11 @@ secretcli tx compute store contract.wasm.gz --gas 5000000 --from <name> --chain-
 ```
 
 {% hint style="info" %}
-`--from <name>` refers to which account (or wallet) is sending the transaction. Update \<name> to your wallet address.&#x20;
+`--from <name>` refers to which account (or wallet) is sending the transaction. Update \<name> to your wallet address.
 
 `--gas 5000000` refers to the cost of the transaction we are sending. Gas is the unit of cost which we measure how expensive a transaction is.
 
-`--chain-id` refers to which chain we are uploading to, which in this case is LocalSecret!&#x20;
+`--chain-id` refers to which chain we are uploading to, which in this case is LocalSecret!
 {% endhint %}
 
 To verify whether storing the code has been successful, we can use SecretCLI to query the chain:
@@ -157,8 +161,8 @@ secretcli tx compute instantiate 1 '{"count": 1}' --from <name> --label counterC
 
 {% hint style="info" %}
 * `instantiate 1` is the code\_id that you created in the previous section
-* `{"count": 1}` **** is the instantiation message. Here we instantiate a starting count of 1, but you can make it any `i32 you want` &#x20;
-* `--from <name>` **** is your wallet address
+* `{"count": 1}` \*\*\*\* is the instantiation message. Here we instantiate a starting count of 1, but you can make it any `i32 you want`
+* `--from <name>` \*\*\*\* is your wallet address
 * `--label` is a mandatory field that gives the contract a unique meaningful identifier
 {% endhint %}
 

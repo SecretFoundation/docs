@@ -2,7 +2,6 @@
 
 * [Introduction](README.md)
 * [Secret Network Overview](secret-network-overview/README.md)
-  * [Privacy For Web3](secret-network-overview/privacy-for-blockchain.md)
   * [The SCRT coin](secret-network-overview/scrt-and-sscrt.md)
   * [Private Tokens](secret-network-overview/private-tokens.md)
   * [Use Cases](secret-network-overview/use-cases/README.md)
