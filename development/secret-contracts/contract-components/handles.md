@@ -1,8 +1,8 @@
 # Execute
 
-On Secret Network there are two primary ways to interact with a smart contract; executes and queries. In this page you will learn about executes, you can find out more about queries [here](queries.md).
+On Secret Network, there are two primary ways to interact with a smart contract; executes and queries. In this page you will learn about executes, you can find out more about queries [here](queries.md).
 
-Executes are functions that are called based on messages send to the contract. If you’re familiar with RPC or you’re familiar with AJAX you can think of executes as the code that runs when a remote procedure is called. On Secret Network, executes are usually designed to be functions that run as quickly as possible and exit as early as possible when any errors are encountered, as this will help save gas. You can find out more about that on the section on contract optimization, [here](../best-practices/contract-optimization.md).&#x20;
+Executes are functions that are called based on messages send to the contract. If you’re familiar with RPC or you’re familiar with AJAX you can think of executes as the code that runs when a remote procedure is called. On Secret Network, executes are usually designed to be functions that run as quickly as possible and exit as early as possible when any errors are encountered, as this will help save gas. You can find out more about that on the section on contract optimization, [here](../best-practices/contract-optimization.md).
 
 The standard practice on Secret Network is to have an `enum` with all the valid message types and reject all messages that don’t follow the usage pattern dictated in that enum; this enum is conventionally called `ExecuteMsg` and is usually in a file called `msg.rs`
 
@@ -39,7 +39,7 @@ Remember, Rust has implicit returns for lines that don’t end in a semicolon, s
 
 You may have noticed that the handle method takes two arguments in addition to the msg, `deps` and `env`. Let’s look at those more closely.
 
-## ``
+## \`\`
 
 ## `env`
 
@@ -101,7 +101,7 @@ The config function returns a singleton over the config key using the `State` st
 
 ## HandleResponse
 
-You may have noticed that the return type for a handle message is HandleResponse. Let's take a look at how HandleResponse is defined:&#x20;
+You may have noticed that the return type for a handle message is HandleResponse. Let's take a look at how HandleResponse is defined:
 
 ```rust
 pub struct HandleResponse<T = Never> 
@@ -114,11 +114,11 @@ where T: Clone + fmt::Debug + PartialEq + JsonSchema, {
 
 It contains a vector of CosmosMsg (messages), an optional vector of type LogAttribute (log), and an optional Binary field (data).
 
-LogAttribute is defined as a simple struct with two String fields, key, and value. Binary is just a Vec\<u8>.&#x20;
+LogAttribute is defined as a simple struct with two String fields, key, and value. Binary is just a Vec\<u8>.
 
-CosmosMsg is an enum with a transaction that will be executed once the handle function returns.&#x20;
+CosmosMsg is an enum with a transaction that will be executed once the handle function returns.
 
-There are three types of messages, you can read more about them [here](broken-reference):&#x20;
+There are three types of messages, you can read more about them [here](broken-reference/):
 
 * BankMsg::Send which sends SCRT from one place to another (such as from the contract's wallet to the caller's wallet)
 * StakingMsg which includes messages for Delegating, Redelegating, Undelegating, and withdrawing rewards to/from a delegator.

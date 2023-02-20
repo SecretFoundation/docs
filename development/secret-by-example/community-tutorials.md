@@ -1,44 +1,22 @@
 # Community Tutorials
 
-## Secret Tutorials
+## Secret Network Tutorials
 
-References to help build Secret Networks dApps and Secret Contracts are found below, beginning with reference tutorials and code repositories.
+This page is dedicated to community tutorials and code repositories that provide helpful references for writing Secret Network contracts as well as building full-stack Secret Networks dApps.&#x20;
 
-To learn more, please visit [Secret Contracts](https://github.com/SecretFoundation/docs/blob/main/docs/dev/secret-contracts.md).
+To follow a guided walk-through on configuring your development environment, please visit the [Getting Started](https://docs.scrt.network/secret-network-documentation/development/getting-started) documentation page.
 
-To follow a guided walk-through on setting up your development environment, developing a first basic Secret Contract (Simple Secret Counter) and deploying it, please visit our [Quickstart](https://github.com/SecretFoundation/docs/blob/main/dev/quickstart.html) documentation page.
+### Secret University
 
-<details>
+Learn to build on Secret Network with [Secret University](https://scrt.university/pathways) and dive deep into the code with [Secret University Boxes](https://scrt.university/repositories), which are pre-built, preconfigured dApp templates built on Secret Network. Each Secret Box runs in its own sandbox developer environment and comes preconfigured with a simple UI kit.&#x20;
 
-<summary>Topics covered on this page</summary>
+### Developing Your First Secret Contract
 
-
-
-</details>
-
-### Tutorial Developing Your First Secret Contract
-
-Refer to this [tutorial](https://github.com/SecretFoundation/docs/blob/main/docs/dev/learn-by-doing-tutorial1.md) from `darwinzer0` about developing a Secret Exploding Message app.
-
-A recommended walkthrough, with practical insights on Secret Contract functions, messages & storage.
+Refer to this [tutorial](https://github.com/SecretFoundation/docs/blob/main/docs/dev/learn-by-doing-tutorial1.md) from `darwinzer0` about developing a Secret Exploding Message app with practical insights on Secret Contract functions, messages, and storage.
 
 ### Simple Secret Voting App
 
-Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to see a sample voting contract and a line by line description of everything you need to know.
-
-A dedicated walkthrough for this app is made in [How To Build Secret Apps: An Evolving Development Guide](https://scrt.network/blog/how-to-build-secret-apps/)
-
-### Secret Contracts Guide
-
-This [repository](https://github.com/scrtlabs/secret-contracts-guide) can be used to master Secret Contract development.
-
-In this repository you'll find information on:
-
-* Setting up a local Secret Network developer testnet
-* Learning Secret Contract development basics and shortcuts
-* Build and deploy Secret Contracts of varying complexity with UIs
-
-A key aspect addresses [how to build a frontend](https://github.com/scrtlabs/secret-contracts-guide/blob/master/building-a-frontend.md) using React.
+Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to see a sample voting contract and a line-by-line description of everything you need to know.
 
 ### Secret Sealed Bid Auction
 
@@ -47,20 +25,6 @@ Use [this link](https://github.com/baedrik/SCRT-sealed-bid-auction) for a sealed
 For an even more advanced version of this stunning Secret Sealed Bid Auction app, you can refer to its enhanced [Secret Auction Factory](https://github.com/baedrik/secret-auction-factory) put in production.
 
 The VueJS UI code is available [here](https://github.com/stakeordie/scrt-auction).
-
-### Figment Learning Materials
-
-Visit [this link](https://learn.figment.io/network-documentation/secret) for all tutorials about Secret Network by our partner Figment.io.
-
-Make sure you go through the [Secret Pathway Tutorials 1-5](https://learn.figment.io/network-documentation/secret/secret-pathway#secret-pathway-tutorials) covering:
-
-1. Connect to a Secret node using DataHub
-2. Create your first Secret account
-3. Query the Secret Network
-4. Submit your first Secret transaction
-5. Write & deploy your first Secret smart contract
-
-Figment's YouTube tutorials playlist can be found [here](https://youtube.com/playlist?list=PLkgTdjgP1aUBZzU5BpYoa5WJx184d\_f0k).
 
 ### SecretJS Templates
 
@@ -96,9 +60,3 @@ To master the SNIP-721 contract specifications for Non-Fungible Tokens (NFT), yo
 
 * [SNIP-721 specifications](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-721.md)
 * [SNIP-721 reference implementation](https://github.com/baedrik/snip721-reference-impl)
-
-#### Secret Toolkit
-
-[Secret Contract Development Toolkit](https://github.com/scrtlabs/secret-toolkit) is a collection of Rust packages that contain common tools used in development of Secret Contracts running on the Secret Network.
-
-{% embed url="https://github.com/SecretFoundation/docs/blob/main/docs/dev/tutorials.md" %}
