@@ -12,7 +12,7 @@ Topics covered:
 What **won't** be covered:
 
 * An in-depth guide to developing Secret Contracts - [Secret By Example](../secret-by-example/)
-* Secret Network architecture - [Secret Network Techstack](../../techstack/)
+* Secret Network architecture - [Secret Network Techstack](../../overview-ecosystem-and-technology/techstack/)
 * How to create a web UI for Secret Contracts - [Secret.Js](../tools-and-libraries/secretjs/)
 
 Most of the topics covered focus directly on Secret Network but are also relevant to other cosmos-based blockchains.
