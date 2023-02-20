@@ -200,6 +200,7 @@
   * [SNIP-23: Improved UX to SNIP-20 Send Operations](development/snips/snip-23-improved-ux-to-snip-20-send-operations.md)
   * [SNIP-24: Query permits for SNIP-20 tokens](development/snips/snip-24-query-permits-for-snip-20-tokens.md)
   * [SNIP-721: Private, Non-Fungible Tokens (NFTs)](development/snips/snip-721-private-non-fungible-tokens-nfts.md)
+  * [SNIP-722](development/snips/SNIP-722.md)
   * [SNIP Template](development/snips/snip-template.md)
 
 ## 🔧 Infrastructure
