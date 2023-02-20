@@ -2,5 +2,11 @@
 
 Contributors and Entities working together to build the Secret Network include:
 
-* [Core contributors and entities (Secret Labs, Secret Foundation, and Secret Committees)](../../../ecosystem-overview/contributors-and-entities/broken-reference/)
-* [Validators (infrastructure, wallets / bridge, tools, relayers, developers, community, and ecosystem partners)](../../../ecosystem-overview/contributors-and-entities/broken-reference/)
+* [Validators](validators.md)
+* [SCRT Labs](secret-labs.md)
+* [Secret Agency DAO](secret-agency.md)
+* [Secret Foundation](secret-foundation.md)
+* [Secret committees](secret-committees/)
+  * [Development](secret-committees/development.md)
+  * [Support](secret-committees/support.md)
+  * [Governance](secret-committees/governance.md)

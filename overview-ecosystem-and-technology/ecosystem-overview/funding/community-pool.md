@@ -6,4 +6,4 @@ The community pool is funded from an on-chain staking tax, 2% of the token infla
 \
 When creating a Governance proposal we suggest you to follow the [Secret Network Charter & Code of conduct](https://forum.scrt.network/t/2022-q1-secret-network-charter-code-of-conduct/5281/) as voted on in proposal #81. This Charter lays out the process of creating a proposal and asking for community feedback. The charter also provides a clear guidance for determining the amount of SCRT required for funding certain proposals.\
 \
-Everyone is free to create a Governance proposal to ask for community funds, please reach out to the community via the[ Forum](https://forum.scrt.network/) first.\\
+Everyone is free to create a Governance proposal to ask for community funds, please reach out to the community via the[ Forum](https://forum.scrt.network/) first.

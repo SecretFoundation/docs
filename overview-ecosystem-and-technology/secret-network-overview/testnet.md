@@ -17,15 +17,15 @@ Once you have saved your mnemonic phrase you can connect to the **pulsar-2** cha
 * Go to [https://connect.pulsar.scrttestnet.com](https://connect.pulsar.scrttestnet.com) and click on the Keplr button
 * Click “**approve**” once the Keplr window pops up to add the chain config
 
-![](../.gitbook/assets/add\_keplr.png)
+![](<../../.gitbook/assets/add\_keplr (1).png>)
 
 And again to connect the website, and allow it to view your balances etc
 
-![](../.gitbook/assets/connect\_keplr.png)
+![](../../.gitbook/assets/connect\_keplr.png)
 
 * Now you should be able to see the Secret Testnet network on Keplr wallet by selecting it from the drop down menu. (verify that your Secret mainnet and testnet addresses coincide and start with “secret”)
 
-![](../.gitbook/assets/keplr\_testnet.png)
+![](../../.gitbook/assets/keplr\_testnet.png)
 
 You have now successfully added the Secret Testnet to your wallet and you’re ready to get your first tokens and experiment!
 
@@ -37,7 +37,7 @@ Remember that all tokens on the Secret Testnet have **no real value** as they’
 
 * Go to [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/)
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
-  ![](<../.gitbook/assets/testnetguide\_3 (1).png>)
+  ![](../../.gitbook/assets/testnetguide\_3.png)
 
 In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can use the [backup faucet](https://faucet.pulsar.scrttestnet.com), or let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
 
@@ -56,7 +56,7 @@ To have access to all the testnet functionalities and to develop you can connect
     ```
 * Paste your wallet’s mnemonic phrase when asked to do so
 
-You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](../development/connecting-to-the-network/testnet-pulsar-2.md).
+You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](../../development/connecting-to-the-network/testnet-pulsar-2.md).
 
 ## **Secret Tokens**
 
@@ -67,9 +67,9 @@ On top of that 100 SCRT, the faucet sends you a basket of Secret Tokens that you
 * Open your Keplr extension and click on the hamburger menu on the top left
 * Select “**Add Token**”
 * Paste the address and click “**Submit**” and approve the transaction (you can set high fees as it’s paid in test SCRT)\
-  ![](<../.gitbook/assets/testnetguide\_4 (1).png>)
+  ![](../../.gitbook/assets/testnetguide\_4.png)
 * You should now be able to see the Secret Token balance on your Keplr extension under the section “**Tokens**”\
-  ![](<../.gitbook/assets/testnetguide\_5 (1).png>)
+  ![](../../.gitbook/assets/testnetguide\_5.png)
 
 ## **Interact With Dapps**
 
@@ -99,7 +99,7 @@ Alternatively you can directly interact with their testnet secret contracts. Bel
 
 With Keplr you’ll need to approve a connection request for each protocol that you want to connect to. You can easily manage active website connections under “**Manage Connections**” in the Keplr settings.
 
-_**Note:** If you’re using `secretcli` view a full list of commands for_ [_Secret Contracts here_](../development/tools-and-libraries/secret-cli/secret-contracts.md)_._
+_**Note:** If you’re using `secretcli` view a full list of commands for_ [_Secret Contracts here_](../../development/tools-and-libraries/secret-cli/secret-contracts.md)_._
 
 ## Viewing Testnet Transactions
 

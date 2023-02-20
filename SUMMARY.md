@@ -17,7 +17,11 @@
   * [History](overview-ecosystem-and-technology/secret-network-overview/history.md)
   * [Roadmap (Core development)](overview-ecosystem-and-technology/secret-network-overview/roadmap.md)
   * [Where To Buy SCRT?](overview-ecosystem-and-technology/secret-network-overview/where-to-buy-scrt.md)
+  * [Using the Testnet](overview-ecosystem-and-technology/secret-network-overview/testnet.md)
 * [Ecosystem Overview](overview-ecosystem-and-technology/ecosystem-overview/README.md)
+  * [Wallets](overview-ecosystem-and-technology/ecosystem-overview/wallets.md)
+  * [Applications](overview-ecosystem-and-technology/ecosystem-overview/applications.md)
+  * [Explorers & tools](overview-ecosystem-and-technology/ecosystem-overview/explorers-and-tools.md)
   * [Funding](overview-ecosystem-and-technology/ecosystem-overview/funding/README.md)
     * [Accelerator/Ecosystem Pool](overview-ecosystem-and-technology/ecosystem-overview/funding/secret-labs-grants.md)
     * [Dillutive funding/VC raise](overview-ecosystem-and-technology/ecosystem-overview/funding/ecosystem-fund.md)
@@ -33,7 +37,7 @@
   * [Contributors & Entities](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/README.md)
     * [Validators](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/validators.md)
     * [SCRT Labs](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-labs.md)
-    * [Secret Agency](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-agency.md)
+    * [Secret Agency DAO](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-agency.md)
     * [Secret Foundation](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-foundation.md)
     * [Secret Committees](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-committees/README.md)
       * [Development](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-committees/development.md)
@@ -73,7 +77,6 @@
       * [Input data verification](overview-ecosystem-and-technology/techstack/privacy-technology/private-computation-and-consensus-flow/secret-contracts.md)
     * [Plans Beyond SGX](overview-ecosystem-and-technology/techstack/privacy-technology/plans-beyond-sgx.md)
     * [Theoretical Attacks](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks.md)
-* [Using the Testnet](overview-ecosystem-and-technology/testnet.md)
 
 ## 💻 Development
 
