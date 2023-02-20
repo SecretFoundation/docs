@@ -11,11 +11,11 @@ Topics covered:
 
 What **won't** be covered:
 
-* An in-depth guide to developing Secret Contracts
-* Secret Network architecture
-* How to create a web UI for Secret Contracts
+* An in-depth guide to developing Secret Contracts - [Secret By Example](../secret-by-example/)
+* Secret Network architecture - [Secret Network Techstack](../../techstack/)
+* How to create a web UI for Secret Contracts - [Secret.Js](../tools-and-libraries/secretjs/)
 
-Most of the topics covered focus directly on Secret Network but are also relevant to other cosmos-based blockchains.&#x20;
+Most of the topics covered focus directly on Secret Network but are also relevant to other cosmos-based blockchains.
 
 {% hint style="info" %}
 If at any point you have any trouble understanding or following along, [join us on discord](https://chat.scrt.network) to get help from the community!

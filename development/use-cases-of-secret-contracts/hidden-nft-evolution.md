@@ -1,3 +1,3 @@
-# Hidden NFT evolution
+# Hidden NFT Evolution
 
-Mystic skulls&#x20;
+**Coming Soon!**

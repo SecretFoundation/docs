@@ -24,11 +24,8 @@ There are a number of important things to know about Secret Contracts. This sect
   * Snip-20s
   * Inter-Contract Handling
   * Contract Hashes
-* Use Cases Of Secret Contracts
-  * Private Liquidations
-  * Hidden Private Keys
-  * Hidden NFT Evolution
-* Community Tutorials
-* How To Send Native SCRT
-* CosmosMSG
+* Common patterns
+  * How To Send Native SCRT
+  * SNIP20 Payments
+  * Factory contracts
 * Reference Contracts

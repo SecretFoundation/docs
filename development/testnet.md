@@ -17,7 +17,7 @@ Once you have saved your mnemonic phrase you can connect to the **pulsar-2** cha
 * Go to [https://connect.pulsar.scrttestnet.com](https://connect.pulsar.scrttestnet.com) and click on the Keplr button
 * Click “**approve**” once the Keplr window pops up to add the chain config
 
-![](<../.gitbook/assets/add\_keplr (1).png>)
+![](../.gitbook/assets/add\_keplr.png)
 
 And again to connect the website, and allow it to view your balances etc
 
@@ -37,7 +37,7 @@ Remember that all tokens on the Secret Testnet have **no real value** as they’
 
 * Go to [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/)
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
-  ![](../.gitbook/assets/testnetguide\_3.png)
+  ![](<../.gitbook/assets/testnetguide\_3 (1).png>)
 
 In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can use the [backup faucet](https://faucet.pulsar.scrttestnet.com), or let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
 
@@ -56,7 +56,7 @@ To have access to all the testnet functionalities and to develop you can connect
     ```
 * Paste your wallet’s mnemonic phrase when asked to do so
 
-You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](https://github.com/scrtlabs/testnet).
+You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](connecting-to-the-network/testnet-pulsar-2.md).
 
 ## **Secret Tokens**
 
@@ -67,9 +67,9 @@ On top of that 100 SCRT, the faucet sends you a basket of Secret Tokens that you
 * Open your Keplr extension and click on the hamburger menu on the top left
 * Select “**Add Token**”
 * Paste the address and click “**Submit**” and approve the transaction (you can set high fees as it’s paid in test SCRT)\
-  ![](../.gitbook/assets/testnetguide\_4.png)
+  ![](<../.gitbook/assets/testnetguide\_4 (1).png>)
 * You should now be able to see the Secret Token balance on your Keplr extension under the section “**Tokens**”\
-  ![](../.gitbook/assets/testnetguide\_5.png)
+  ![](<../.gitbook/assets/testnetguide\_5 (1).png>)
 
 ## **Interact With Dapps**
 
@@ -77,17 +77,20 @@ Once you have everything set up you can connect to protocols that have a public 
 
 Here’s a table of the main ones:
 
-| Dapp   | Website                                                                                                    | Testnet Chain |
-| ------ | ---------------------------------------------------------------------------------------------------------- | ------------- |
-| Stashh | [https://stashhapp-public-testnet.azurewebsites.net/](https://stashhapp-public-testnet.azurewebsites.net/) | Pulsar-2      |
-| Jackal | [https://alpha.jackaldao.com/](https://alpha.jackaldao.com/)                                               | Pulsar-2      |
-| Sienna | [https://testnet.sienna.network/](https://testnet.sienna.network/)                                         | Pulsar-2      |
+| Dapp             | Website                                                                                                                                                                | Feedback form                                                                                               |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Sienna           | [https://testnet.sienna.network/](https://testnet.sienna.network/)                                                                                                     | Na                                                                                                          |
+| Actilist.io      | [https://test.actilist.io/](https://test.actilist.io/)                                                                                                                 | Na                                                                                                          |
+| Prifi labs       | [https://locker.prifilabs.com/ ](https://locker.prifilabs.com/)                                                                                                        | [https://forms.gle/uHxL8TD8ih17SJHK7](https://forms.gle/uHxL8TD8ih17SJHK7)                                  |
+| Secret Dashboard | [https://dashboard.secretsaturn.net/](https://dashboard.secretsaturn.net/)                                                                                             | [form](https://docs.google.com/forms/d/e/1FAIpQLSeq3QyrO0Pu2OuA8-QfW2XVG7zGyFUyVo8yuG2JkLxTvofySQ/viewform) |
+| Shade Swap       | h[ttps://blog.shadeprotocol.io/shadeswap-incentivized-testnet/](https://blog.shadeprotocol.io/shadeswap-incentivized-testnet/)                                         |                                                                                                             |
+| abakhus          | [https://abakhus.notion.site/abakhus/Alpha-2-test-192739e211da4c27aa502b526f3b492c](https://abakhus.notion.site/abakhus/Alpha-2-test-192739e211da4c27aa502b526f3b492c) |                                                                                                             |
+| Bidshop          | [https://testnet.bidshop.io/](https://testnet.bidshop.io/)                                                                                                             |                                                                                                             |
 
 Alternatively you can directly interact with their testnet secret contracts. Below are some of the main smart contract addresses available:
 
 | Contract       | Address                                                                                    | Testnet Chain |
 | -------------- | ------------------------------------------------------------------------------------------ | :-----------: |
-| Jackal         | secret1epm82uygswvgzy32es2nu4fnjsztfln8mud84ksecret1epm82uygswvgzy32es2nu4fnjsztfln8mud84k |    Pulsar-2   |
 | Sienna AMM     | secret1203futsqmxjjjk6rv8lvxmxlgwyje8jkf7ndxf                                              |    Pulsar-2   |
 | Sienna Lend    | secret13jw078vweqgr4v0q9u0l8a44525nlqxju29xkq                                              |    Pulsar-2   |
 | Sienna Rewards | [Rewards Address List](https://ethereumbridgebackendtestnet.azurewebsites.net/rewards)     |    Pulsar-2   |
