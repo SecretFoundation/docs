@@ -1,2 +1,0 @@
-# Inter-Blockchain Communication (IBC)
-

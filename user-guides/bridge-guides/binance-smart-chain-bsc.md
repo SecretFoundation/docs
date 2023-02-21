@@ -1,2 +1,0 @@
-# Binance Smart Chain (BSC)
-
