@@ -17,7 +17,6 @@ Secret Network offers scalable permissionless smart contracts with a private by 
 * [Homepage](https://scrt.network/)
 
 **Secret Network is free software**\
-Everyone can participate on the open source software of Secret Network. You can redistribute it and/or modify it under the terms of the [Public License](https://github.com/scrtlabs/SecretNetwork/blob/master/LICENSE) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\
-The GNU Affero General Public License is based on the GNU GPL, but has an additional term to allow users who interact with the licensed software over a network to receive the source for that program.
+Everyone can participate on the open source software of Secret Network. You can redistribute it and/or modify it under the terms of the [Public License](https://github.com/scrtlabs/SecretNetwork/blob/master/LICENSE).
 
 Get the latest version: [https://github.com/scrtlabs/SecretNetwork](https://github.com/scrtlabs/SecretNetwork)
