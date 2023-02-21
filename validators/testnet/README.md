@@ -1,6 +1,0 @@
----
-description: General overview
----
-
-# Testnet
-

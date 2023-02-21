@@ -1,3 +1,0 @@
-# Grafana
-
-## Introduction&#x20;
