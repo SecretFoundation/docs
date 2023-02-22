@@ -84,6 +84,7 @@
   * [Setting Up Your Environment](development/getting-started/setting-up-your-environment.md)
   * [Compile and Deploy](development/getting-started/compile-and-deploy.md)
   * [Running the Application](development/getting-started/running-the-application.md)
+  * [Interacting with the Testnet](development/getting-started/interacting-with-the-testnet.md)
 * [Secret By Example](development/secret-by-example/README.md)
   * [Intro To Secret Contracts](development/secret-by-example/intro-to-secret-contracts.md)
   * [Millionaire's Problem](development/secret-by-example/millionaires-problem.md)
