@@ -14,7 +14,7 @@ Interested developers may submit applications and get more information about the
 ## How to apply for a Grant
 
 {% hint style="info" %}
-_If you need help with applying for a grant or want to connect with Business development then please reach out to: SCRT Labs (_[_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com)_) or_ [_The secret agenc_](../contributors-and-entities/secret-agency.md)_y_
+_If you need help with applying for a grant or want to connect with Business development then please reach out to: SCRT Labs (_[_info@scrtlabs.com_](mailto:info@scrtlabs.com)_) or_ [_the Secret Agency_](../contributors-and-entities/secret-agency.md)_._
 {% endhint %}
 
 ### Funding Amounts
@@ -49,9 +49,9 @@ The application should cover the following details:
 * Problem / solution (max. 200 words)
 * Detailed product/network improvement description (max. 500 words)
 * Go-to-market and commercialization plan (if applicable)
-* Team:&#x20;
+* Team:
   * Please share all past experiences, Github links, and repos
-* Milestones and budget:&#x20;
+* Milestones and budget:
   * Please provide a budget, development timelines for milestones, and budget distribution based on milestones.
 
 _If you’d like to apply privately, please email_ [_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com) _with the above information._
