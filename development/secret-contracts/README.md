@@ -2,13 +2,13 @@
 description: Overview of Secret Contracts
 ---
 
-# Secret Contracts
+# Secret Contracts Overview
 
-There are a number of important things to know about Secret Contracts. This section of documentation will cover:
+Secret Network offers scalable permissionless smart contracts with a private-by-default design— bringing novel use cases to blockchain not feasible on public systems. This section of documentation covers:
 
-* Core Components
-* Instantiate
-* Handles
+* CosmWasm Core Components
+* Instantiation Messages
+* Execute Messages
 * Queries
   * Querier
 * Storage
@@ -18,7 +18,7 @@ There are a number of important things to know about Secret Contracts. This sect
 * Data Handling
 * Permissioned Viewing
   * Viewing Keys
-  * Certs / Viewing Permits
+  * Query Permits
 * Inter-Contract Interaction
   * Factory Contracts
   * Snip-20s
