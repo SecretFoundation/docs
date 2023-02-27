@@ -106,7 +106,7 @@
       * [Keymap](development/secret-contracts/contract-components/storage/keymap.md)
       * [Append Store](development/secret-contracts/contract-components/storage/append-store.md)
   * [Development Concepts](development/secret-contracts/development-concepts/README.md)
-    * [Testing](development/secret-contracts/development-concepts/testing.md)
+    * [Testing Secret Contracts](development/secret-contracts/development-concepts/testing.md)
     * [Inter contract interactions](development/secret-contracts/development-concepts/inter-contract-interaction.md)
     * [Permissioned Viewing](development/secret-contracts/development-concepts/permissioned-viewing/README.md)
       * [Viewing Keys](development/secret-contracts/development-concepts/permissioned-viewing/viewing-keys.md)

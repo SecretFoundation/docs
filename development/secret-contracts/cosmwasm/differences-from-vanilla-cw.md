@@ -8,7 +8,7 @@ description: >-
 
 ### Cosmwasm and Secret
 
-“Secret Contracts”, an implementation of the Rust-based library CosmWasm, enable computation with private metadata. This brings unique use cases to Secret Network which aren’t possible on other blockchains, and also means that Secret Contracts have features that are different from standard CosmWasm contracts including: contract hashes, a specialized approach to iterators, raw queries, and contract migration.&#x20;
+Secret Contracts are an implementation of the Rust-based library CosmWasm, while additionally enabling computation with private metadata. This brings unique use cases to Secret Network which aren’t possible on other blockchains, and also means that Secret Contracts have features that are different from standard CosmWasm contracts including: contract hashes, a specialized approach to iterators, raw queries, and contract migration.&#x20;
 
 ### Contract Hashes
 
