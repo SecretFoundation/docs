@@ -106,7 +106,7 @@ ls -lh /opt/secret/.sgx_secrets/attestation_cert.der
 Verify the certificate is valid. A 64-character registration key will be printed if it was successful.
 
 ```bash
-PUBLIC_KEY=$(secretd parse /opt/secret/.sgx_secrets/attestation_cert.der  2> /dev/null | cut -c 3-)
+PUBLIC_KEY=$(secretd parse /opt/secret/.sgx_secrets/attestation_cert.der 2> /dev/null | cut -c 3-)
 echo $PUBLIC_KEY
 ```
 
@@ -161,7 +161,7 @@ These are necessary to configure the node before it starts.
 
 ```bash
 secretd query register secret-network-params
-ls -lh ./io-master-cert.der ./node-master-cert.der
+ls -lh ./io-master-key.txt ./node-master-key.txt
 ```
 
 ### **Configure Secret Node**
@@ -172,7 +172,7 @@ From here on, commands must be ran on the full node.
 
 ```bash
 mkdir -p ~/.secretd/.node
-secretd configure-secret node-master-cert.der $SEED
+secretd configure-secret node-master-key.txt $SEED
 ```
 
 ### **Optimization**
@@ -183,7 +183,7 @@ In order to be able to handle NFT minting and other Secret Contract-heavy operat
 sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclave-cache-size = \"15\"/" ~/.secretd/config/app.toml
 ```
 
-Also checkout[this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `[ block pane ]` for fine tuning your machine for better uptime.
+Also checkout [this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `block pane` for fine tuning your machine for better uptime.
 
 ### **Set `minimum-gas-price` Parameter**
 
