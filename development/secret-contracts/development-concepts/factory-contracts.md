@@ -7,7 +7,7 @@ Factory contracts are contracts that create other contracts. They are useful for
 * Managing different parts of the app from a single location, etc.
 
 {% hint style="info" %}
-The [Factory Contract Template](https://github.com/srdtrk/secret-factory-contract) is a good starting point for setting up your own factory contracts and experiment with them.
+The [Factory Contract Template](https://github.com/srdtrk/secret-factory-contract) is a good starting point for setting up your own factory contracts and experimenting with them.
 {% endhint %}
 
 Here are some examples of active projects that use factory contracts:

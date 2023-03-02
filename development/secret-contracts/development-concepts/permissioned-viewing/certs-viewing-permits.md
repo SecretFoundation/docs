@@ -5,11 +5,17 @@ description: >-
   almost every situation.
 ---
 
-# Certs/Viewing Permits
+# Permits
 
 ## What is a Permit?
 
-Permits are simply a dummy transaction signed by a wallet. The wallet is able to use this signature as proof that the transactor is who they say they are. Any wallet capable of using Tendermint is able to carry out this process. Generating a permit happens outside of the smart-contract, but checking them in your smart contract is extremely simple. Once again the Secret-Toolkit provides a package for us, aptly named `permit`. The function that checks the permit is called `validate` shown below.
+Permits are simply a dummy transaction signed by a wallet. The wallet is able to use this signature as proof that the transactor is who they say they are. Any wallet capable of using Tendermint is able to carry out this process.
+
+{% hint style="info" %}
+For an in-depth implementation of query permits, [navigate to the snip-20 section of the docs here. ](https://docs.scrt.network/secret-network-documentation/development/snips/snip-24-query-permits-for-snip-20-tokens)
+{% endhint %}
+
+&#x20;Generating a permit happens outside of the smart-contract, but checking them in your smart contract is extremely simple. Once again the Secret-Toolkit provides a package for us, aptly named `permit`. The function that checks the permit is called `validate` shown below.
 
 ```rust
 pub fn validate<Permission: Permissions, S: Storage, A: Api, Q: Querier>(
