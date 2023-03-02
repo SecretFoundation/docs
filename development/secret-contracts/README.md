@@ -25,7 +25,7 @@ Secret Network offers scalable permissionless smart contracts with a private-by-
   * Contract Optimization
 * Testing Secret Contracts
   * Unit Tests
-  * Integration Tests
+  * Multitests
 * Additional Development Concepts&#x20;
   * Inter-Contract Interaction
   * Permissioned Viewing
