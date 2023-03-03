@@ -1,3 +1,9 @@
-# Development Concepts
+---
+description: >-
+  Additional development concepts to improve your experience building on Secret
+  Network.
+---
 
-By following best practices for developing smart contracts on Secret Network, developers can ensure that their contracts are secure, efficient, and effective, and can help to promote the growth and adoption of the network. These best practices include everything from proper code documentation and version control to testing procedures, and they are essential for building smart contracts that are reliable, trustworthy, and valuable for users.
+# Additional Development Concepts
+
+It covers a range of best practices, including smart contract upgradability, admin key management, and secure data handling. The documentation also explores advanced features such as inter-contract interactions, permissioned viewing, and contract migration. By following these best practices, developers can create secure, upgradable, and scalable smart contracts that protect sensitive data without compromising on functionality.
