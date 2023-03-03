@@ -277,6 +277,7 @@
     - [Verify SGX](infrastructure/node-runners/misc/verify-sgx.md)
     - [Running Multiple Nodes on the Same Server](infrastructure/node-runners/misc/running-multiple-nodes-on-the-same-server.md)
 - [Upgrade Instructions](infrastructure/upgrade-instructions/README.md)
+  - [v1.8](infrastructure/upgrade-instructions/v1.8.md)
   - [v1.7](infrastructure/upgrade-instructions/v1.7.md)
   - [Shockwave Omega v1.6](infrastructure/upgrade-instructions/shockwave-omega.md)
   - [v1.5](infrastructure/upgrade-instructions/v1.5.md)
