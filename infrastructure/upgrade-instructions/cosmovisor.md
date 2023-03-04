@@ -45,6 +45,7 @@ After=network.target
 
 [Service]
 Type=simple
+WorkingDirectory=${HOME}
 ExecStart=/bin/cosmovisor run start
 User=${USER}
 Restart=on-failure
