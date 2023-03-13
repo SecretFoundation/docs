@@ -8,6 +8,10 @@ The autostake feature will claim rewards for you and automatically delegate them
 
 The minimum amount of staked SCRT to use this feature is 10 SCRT!
 
+{% hint style="info" %}
+Learn more about the Restake feature [here](../../../overview-ecosystem-and-technology/techstack/blockchain-technology/modules/auto-restaking.md)
+{% endhint %}
+
 ### Query restake status <a href="#query-validators" id="query-validators"></a>
 
 You can query the restaking situation per delegator and receive a list with validator addresses for which the user has turned this feature on.
@@ -28,15 +32,15 @@ secretcli tx distribution set-auto-restaking [validator] [true/false] --from [de
 
 ### Query restake Parameters
 
-The only parameter for Restake is the restake-threshold, the query command is not yet implemented in SecretCLI.
+One can query the parameters for Restake using the command below
 
 ```
-Coming Soon!
+secretcli q distribution params
 ```
 
-With the above command you will get the values for:
+With the above command you will get the values for all parameters that can be set by Governance including:
 
-* &#x20;\# of uSCRT required to enable restake
+* &#x20;`minimum_restake_threshold` - # of uSCRT required to enable restake
+* `restake_period` - The autocompouding frequency denominated in the # of blocks
 
-For now one can use a direct LCD CURL to get the information like: [https://lcd.secret.express/cosmos/distribution/v1beta1/restake\_threshold](https://lcd.secret.express/cosmos/distribution/v1beta1/restake\_threshold)
-
+One can also query the `restake-threshold`directly. For now one can use a direct LCD CURL to get the information like: [https://lcd.secret.express/cosmos/distribution/v1beta1/restake\_threshold](https://lcd.secret.express/cosmos/distribution/v1beta1/restake\_threshold) but a SecretCLI and Secret.JS query is being implemented.

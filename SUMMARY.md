@@ -48,6 +48,8 @@
   * [Consensus For Secret Transactions](overview-ecosystem-and-technology/techstack/consensus-for-secret-transactions.md)
   * [Steps Of A Private Transaction - Overview](overview-ecosystem-and-technology/techstack/detailed-steps-of-a-private-transaction.md)
   * [Blockchain Technology](overview-ecosystem-and-technology/techstack/blockchain-technology/README.md)
+    * [Modules](overview-ecosystem-and-technology/techstack/blockchain-technology/modules/README.md)
+      * [Auto Restaking](overview-ecosystem-and-technology/techstack/blockchain-technology/modules/auto-restaking.md)
     * [Cosmos Basics](overview-ecosystem-and-technology/techstack/blockchain-technology/cosmos-basics.md)
     * [Tendermint](overview-ecosystem-and-technology/techstack/blockchain-technology/tendermint.md)
     * [Cosmos SDK](overview-ecosystem-and-technology/techstack/blockchain-technology/cosmos-sdk.md)
