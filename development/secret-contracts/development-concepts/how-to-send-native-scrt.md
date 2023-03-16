@@ -1,6 +1,14 @@
-# How To Send Native SCRT
+---
+description: >-
+  Explanation of executing modules inside a CosmWasm contract using sending
+  Native SCRT as an example.
+---
 
-Sending Native SCRT from a contract is simple. You will need to use the [`BankMsg::Send`](https://docs.rs/cosmwasm-std/latest/cosmwasm\_std/enum.BankMsg.html#variant.Send) message. This is a [contract-to-module](https://docs.cosmwasm.com/docs/0.14/architecture/composition/#modules) call. You can send any other native denoms this way, such as ibc-denoms.
+# Contract - module call
+
+Sending Native SCRT from a contract is realtively trivial and can be done using the [`BankMsg::Send`](https://docs.rs/cosmwasm-std/latest/cosmwasm\_std/enum.BankMsg.html#variant.Send) message. \
+\
+This is a [contract-to-module](https://book.cosmwasm.com/basics/funds.html) call. Any native denoms can be send in this way (ex. native IBC tokens).
 
 {% tabs %}
 {% tab title="Cosmwasm v1.0" %}
