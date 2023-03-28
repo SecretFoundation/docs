@@ -8,7 +8,7 @@ description: >-
 
 ### What is Secret.js? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
 
-[In the previous section](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environmenthttps://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment), we learned how to upload, execute, and query a Secret Network smart contract using SecretCLI and LocalSecret. Now we are going to repeat this process, but we will be uploading, executing, and querying our smart contract **on a public testnet using Secret.js.**&#x20;
+[In the previous section](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment), we learned how to upload, execute, and query a Secret Network smart contract using SecretCLI and LocalSecret. Now we are going to repeat this process, but we will be uploading, executing, and querying our smart contract **on a public testnet using Secret.js.**&#x20;
 
 {% hint style="info" %}
 [Secret.js](https://secretjs.scrt.network/) is a JavaScript SDK for writing applications that interact with the Secret Network blockchain.
