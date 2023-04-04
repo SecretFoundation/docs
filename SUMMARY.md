@@ -112,7 +112,7 @@
     * [Permissioned Viewing](development/secret-contracts/development-concepts/permissioned-viewing/README.md)
       * [Viewing Keys](development/secret-contracts/development-concepts/permissioned-viewing/viewing-keys.md)
       * [Permits](development/secret-contracts/development-concepts/permissioned-viewing/certs-viewing-permits.md)
-    * [Inter-contract interactions](development/secret-contracts/development-concepts/inter-contract-interaction.md)
+    * [Cross Contract Communication](development/secret-contracts/development-concepts/cross-contract-communication.md)
     * [SNIP20 Payments](development/secret-contracts/development-concepts/snip-20s.md)
     * [Contract - module call](development/secret-contracts/development-concepts/how-to-send-native-scrt.md)
     * [Factory Contracts](development/secret-contracts/development-concepts/factory-contracts.md)
