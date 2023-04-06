@@ -23,16 +23,16 @@ The state-sync configuration is as follows:
 ```toml
 # snapshot-interval specifies the block interval at which local state sync snapshots are
 # taken (0 to disable). Must be a multiple of pruning-keep-every.
-snapshot-interval = 1000
+snapshot-interval = 2000
 
 # snapshot-keep-recent specifies the number of recent snapshots to keep and serve (0 to keep all).
-snapshot-keep-recent = 5
+snapshot-keep-recent = 3
 ```
 
 ### Assign And Verify Variables
 
 ```bash
-SNAP_RPC="https://rpc.cosmos.directory:443/secretnetwork"
+SNAP_RPC="https://rpc.secret.express:443"
 ```
 
 Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
@@ -51,7 +51,7 @@ echo $BLOCK_HEIGHT $TRUST_HASH
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"https://rpc.cosmos.directory:443/secretnetwork,https://secret-rpc.lavenderfive.com:443\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"https://rpc.cosmos.directory:443/secretnetwork,https://rpc.secret.express:443\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml
 ```
