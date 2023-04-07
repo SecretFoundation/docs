@@ -187,7 +187,7 @@ You can call this function by commenting out the other functions in index.js and
 
 Now, in your terminal, navigate to the `secret/counter/node` directory. Call the `query_count` function to see the current count of the counter contract. After using the manager contract to increment, it should now be incremented by one!
 
-**Conclusion**&#x20;
+### **Conclusion**&#x20;
 
 Congratulations, you have now created a Manager smart contract that interacts with a Counter smart contract on Secret Network! By designing a Multi-Contract System, you can enable secure and efficient communication between secret contracts, allowing for more intricate and interconnected decentralized applications.
 
