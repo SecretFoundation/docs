@@ -26,7 +26,7 @@ We're going to install our environment manually so that you can code in a text e
 
 ### Install Requirements
 
-To follow along with the guide, we will be using `git,` `make,` `rust,` and `docker`.
+To follow along with the guide, we will be using `git`, `make`, `rust`, and `docker`.
 
 {% tabs %}
 {% tab title="Linux/WSL" %}
@@ -213,6 +213,8 @@ Congrats! You now have a containerized version of LocalSecret running inside doc
 <figure><img src="../../.gitbook/assets/LocalSecret.png" alt=""><figcaption><p>LocalSecret developer testnet</p></figcaption></figure>
 
 Now it's time to learn how to compile and deploy your first smart contract 🎉
+
+### Additional Resources
 
 <details>
 
