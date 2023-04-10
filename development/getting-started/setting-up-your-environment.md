@@ -117,7 +117,7 @@ SecretCLI is a command-line tool that lets us interact with the Secret Network b
 {% tabs %}
 {% tab title="Linux" %}
 ```bash
-wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0/secretcli-Linux
+wget https://github.com/scrtlabs/SecretNetwork/releases/latest/download/secretcli-Linux
 chmod +x secretcli-Linux
 sudo mv secretcli-Linux /usr/local/bin/secretcli
 ```
@@ -144,7 +144,7 @@ secretcli version
 {% endtab %}
 
 {% tab title="MacOS (Intel)" %}
-Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.1/secretcli-macOS).
+Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/latest/download/secretcli-macOS).
 
 Set the file name to `secretcli` and set it as executable
 
@@ -155,7 +155,7 @@ chmod 755 secretcli
 {% endtab %}
 
 {% tab title="MacOS (M1)" %}
-Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.1/secretcli-MacOS-arm64).
+Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/latest/download/secretcli-MacOS-arm64).
 
 Set the file name to `secretcli` and set it as executable
 
@@ -184,7 +184,7 @@ Now that you have docker installed, open the docker application and then in your
 {% tab title="x86 (Intel/AMD)" %}
 ```bash
 docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
-  --name localsecret ghcr.io/scrtlabs/localsecret:v1.6.0
+  --name localsecret ghcr.io/scrtlabs/localsecret:latest
 ```
 {% endtab %}
 
