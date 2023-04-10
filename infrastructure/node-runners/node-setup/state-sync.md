@@ -68,6 +68,14 @@ It is recommended to copy `data/priv_validator_state.json` to a backup and resto
 sudo systemctl stop secret-node && secretd tendermint unsafe-reset-all --home ~/.secretd/ --keep-addr-book
 ```
 
+### Set IAVL-disable-fastnode
+
+IAVL fast node must be disabled, otherwise the daemon will attempt to upgrade the database while state sync is occuring.
+
+```
+sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" ~/.secretd/config/app.toml
+```
+
 ### Restart Node And Check Logs
 
 This generally takes several minutes to complete, but has been known to take up to 24 hours. To better help the process along, add [seeds](../troubleshooting.md#undefined).
