@@ -15,7 +15,7 @@ The code implementation for native Restake is available [here](https://github.co
 Delegators can enable Restaking independently for every validator they stake with using the `set-auto-restaking` command available in [SecretCLI](../../../../development/tools-and-libraries/secret-cli/restake.md) or on any UI implementing the Secret.JS command.
 
 The feature only activates if the delegator has a balance with the validators larger than `minimum_restake_threshold` which is currently set to 10 `SCRT.`\
-``
+
 
 {% hint style="success" %}
 Start autocompouding your rewards now at the [Secret Dashboard](https://autorestake.secretsaturn.net/)!

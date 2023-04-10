@@ -228,7 +228,7 @@ let instantiate_contract = async () => {
 instantiate_contract();
 ```
 
-Run `node index.js` in your terminal to call the `instantiate_contract()` function. Upon successful instantiation, a contractAddress **** will be logged in your terminal:&#x20;
+Run `node index.js` in your terminal to call the `instantiate_contract()` function. Upon successful instantiation, a contractAddress will be logged in your terminal:&#x20;
 
 ```
 secret1ez0nchvy6awpnnmzqqzvmqz62dcgke80pzaqc7

@@ -6,7 +6,7 @@ description: How to setup your contracts to accept snip-20 payments
 
 ## Implementing Snip Payments
 
-To pay with [SNIP-20 tokens](../../snips/snip-20-spec-private-fungible-tokens.md) in a smart contract you will always call the SNIP-20 contract first, which in turn will call the the smart-contract you want to send the payment to. This is done through the `Send` function, which calls a HandleMsg called `Receive` in the destination contract. The `Receive` Enum can be set to receive multiple different message formats, and should setup a match statement to sift through those options.
+To pay with [SNIP-20 tokens](../../snips/snip-20-spec-private-fungible-tokens/) in a smart contract you will always call the SNIP-20 contract first, which in turn will call the the smart-contract you want to send the payment to. This is done through the `Send` function, which calls a HandleMsg called `Receive` in the destination contract. The `Receive` Enum can be set to receive multiple different message formats, and should setup a match statement to sift through those options.
 
 Within the `Receive` function you will be able to include any logic you need to respond to the payment. This should include checks to ensure both the payment amount and the snip20 contract address are correct.
 
