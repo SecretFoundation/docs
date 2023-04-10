@@ -50,11 +50,13 @@ brew install make
 {% endtab %}
 
 {% tab title="Windows" %}
-Install `git` (for Windows):
+Install `git` and `perl` (for Windows):
 
 1. Go to [https://git-scm.com/download/win](https://git-scm.com/download/win) and the download will start automatically. Note that this is a project called Git for Windows, which is separate from Git itself; for more information on it, go to [https://gitforwindows.org](https://gitforwindows.org/).
 
-**Note:** support for \*\*\*\* `make` on Windows is pretty shit, so we'll provide separate commands for Windows where necessary
+2. Go to [https://strawberryperl.com](https://strawberryperl.com) and download the recommended version for your system. StrawberryPerl is an open-source Perl environment for Windows; for more information, visit [https://perl.org](https://www.perl.org/get.html#win32). Perl is used to build other dependencies that will be installed later.
+
+**Note:** support for `make` on Windows is limited, so we'll provide separate commands for Windows where necessary
 {% endtab %}
 {% endtabs %}
 
@@ -78,7 +80,7 @@ Download and run [`rustup-init.exe`](https://static.rust-lang.org/rustup/dist/i6
 {% endtab %}
 
 {% tab title="Windows (GUI)" %}
-Download and run [the Rust .msi installer](https://static.rust-lang.org/dist/rust-1.62.1-aarch64-pc-windows-msvc.msi)
+Download and run [the Rust .msi installer](https://static.rust-lang.org/dist/rust-1.68.2-x86_64-pc-windows-msvc.msi)
 {% endtab %}
 {% endtabs %}
 
@@ -122,11 +124,23 @@ sudo mv secretcli-Linux /usr/local/bin/secretcli
 {% endtab %}
 
 {% tab title="Windows (PowerShell)" %}
+
+Run the following commands in Powershell to download the latest version of SecretCLI and add it to your profile's PATH:
+
 ```powershell
-wget -O secretcli-Windows.exe https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.1/secretcli-Windows
+mkdir "$home\appdata\local\secretcli"
+wget -O "$home/appdata/local/secretcli/secretcli.exe" https://github.com/scrtlabs/SecretNetwork/releases/latest/download/secretcli-Windows
+$old_path = [Environment]::GetEnvironmentVariable('path', 'user');
+$new_path = $old_path + ';' + "$home\appdata\local\secretcli"
+[Environment]::SetEnvironmentVariable('path', $new_path,'User');
 ```
 
-TODO: Add \`secretcli-Windows.exe\` to the PATH
+Afterwards, restart the terminal and test the installation with the following command:
+
+```powershell
+secretcli version
+```
+
 {% endtab %}
 
 {% tab title="MacOS (Intel)" %}
