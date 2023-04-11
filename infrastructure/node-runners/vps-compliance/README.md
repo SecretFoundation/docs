@@ -28,6 +28,7 @@ Just because a VPS is cheaper it does not make it better.&#x20;
 | ****[**PhoenixNap**](https://admin.phoenixnap.com/wap-pncpadmin-shell/orderForm?bmbPath=/order-management/order-form?currencyCode=usd)****                      | 210               | [Here](phoenixnap-setup.md)      |
 | ****[**OVHCloud**](https://www.ovhcloud.com/en/bare-metal/rise/rise-3/)****                                                                                     | 144               | [Here](ovhcloud-setup.md)        |
 | Hetzner                                                                                                                                                         | \*NOT SUPPORTED\* |                                  |
+| ****[**IPAX**]([https://azure.microsoft.com/en-us/solutions/confidential-compute/#overview](https://www.ipax.at/rootserver-mieten/dedicated-server-mieten/leistungsstarke-dedizierte-server/))****                                                       | 160               | X1 (Professional Line) |
 
 ## **Contributors**
 
@@ -35,3 +36,4 @@ Just because a VPS is cheaper it does not make it better.&#x20;
 * [Eddie from FreshSCRTs](https://secretnodes.com/secret/chains/secret-3/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
 * [Ian from secretnodes.com](https://secretnodes.com/secret/chains/secret-3/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
 * [Mohammed from securesecrets.org](https://secretnodes.com/secret/chains/secret-3/validators/45521282C12E0EC1691495FCA714947DCA072745)
+* [danku_zone w/ DAIC](https://www.mintscan.io/secret/validators/secretvaloper1gkk02na77t83dvmf9vd7lajptejaqkyug62h56)
