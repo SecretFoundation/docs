@@ -30,4 +30,6 @@ redirects:
     development/intro-to-secret-contracts: ./development/secret-by-example/intro-to-secret-contracts.md
     development/secretjs/templates: ./development/tools-and-libraries/secretjs/README.md
     ecosystem-overview/contributors-and-entities/core/secret-committees/development: ./overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-committees/development.md
+    privacy-technology/detailed-steps-of-a-private-transaction: ./overview-ecosystem-and-technology/techstack/detailed-steps-of-a-private-transaction.md
     secret-network-overview/privacy-technology/detailed-steps-of-a-private-transaction: ./overview-ecosystem-and-technology/techstack/detailed-steps-of-a-private-transaction.md
+
