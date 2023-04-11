@@ -56,7 +56,8 @@ make build
 
 {% tab title="Windows" %}
 ```
-RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown
+$env:RUSTFLAGS='-C link-arg=-s'
+cargo build --release --target wasm32-unknown-unknown
 cp ./target/wasm32-unknown-unknown/release/*.wasm ./contract.wasm
 ```
 {% endtab %}

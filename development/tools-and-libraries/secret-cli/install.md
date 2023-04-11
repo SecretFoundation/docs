@@ -141,6 +141,44 @@ mv secretcli /usr/local/bin
 
 **Congrats! The `secretcli` is now installed!**
 
-### Windows
+### Windows (WSL)
 
-The `secretcli` is compatible for use within the Windows Subsystem for Linux (WSL).
+`secretcli-Linux` is compatible for use within the Windows Subsystem for Linux (WSL). Follow the Linux Command-line instructions to install it.
+
+### Windows (Native)
+
+After downloading secretcli-Windows you can now use the `secretcli` by using the following command inside of the folder it is located in:
+
+```
+./secretcli-Windows
+```
+
+You will see some outputs related to available commands, flags, and usage.
+
+It is recommended to rename seretcli-Windows to 'secretcli.exe', and move the executable file to a location where it is automatically executable by typing `secretcli` anywhere within the command-line.
+
+To achieve this use the following commands in a Powershell terminal, in the directory containing secretcli-Windows:
+
+```powershell
+mkdir "$home\appdata\local\secretcli"
+mv secretcli-Windows "$home/appdata/local/secretcli/secretcli.exe"
+$old_path = [Environment]::GetEnvironmentVariable('path', 'user');
+$new_path = $old_path + ';' + "$home\appdata\local\secretcli"
+[Environment]::SetEnvironmentVariable('path', $new_path,'User');
+```
+
+Restart your terminal and test the installation by running:
+
+```powershell
+secretcli
+```
+
+#### Update SecretCLI (Windows)
+
+To update or install a different version of SecretCLI on Windows, download the release of secretcli-Windows and move it to the correct location:
+
+```powershell
+mv secretcli-Windows "$home/appdata/local/secretcli/secretcli.exe"
+```
+
+The other commands do not need to be run again if they have already been run on your account.
