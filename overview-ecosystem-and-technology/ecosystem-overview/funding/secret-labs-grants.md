@@ -54,7 +54,7 @@ The application should cover the following details:
 * Milestones and budget:
   * Please provide a budget, development timelines for milestones, and budget distribution based on milestones.
 
-_If you’d like to apply privately, please email_ [_info@scrtlabs.com_](https://scrt.network/blog/info@scrtlabs.com) _with the above information._
+_If you’d like to apply privately, please email_ [_info@scrtlabs.com_](mailto:info@scrtlabs.com) _with the above information._
 
 You can find a sample application [here](https://github.com/scrtlabs/Grants/blob/main/Sample%20grant%20application).
 

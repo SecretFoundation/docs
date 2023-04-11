@@ -111,5 +111,3 @@ There are three types of messages:&#x20;
 * `BankMsg`: sends SCRT from one place to another (such as from the contract's wallet to the caller's wallet)
 * `StakingMsg`:  includes messages for Delegating, Redelegating, Undelegating, and withdrawing rewards to/from a delegator.
 * `WasmMsg`:   includes two messages: `Execute` to execute another contract, and `Instantiate` to instantiate a contract.
-
-You can find more information about these messages in the following pages.

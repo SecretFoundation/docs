@@ -2,11 +2,11 @@
 
 ## Setting Up A Node Using Cosmovisor <a href="#setting-up-a-node-using-cosmovisor" id="setting-up-a-node-using-cosmovisor"></a>
 
-* [Setting up a node using Cosmovisor](https://docs.scrt.network/cosmovisor.html#setting-up-a-node-using-cosmovisor)
-* [Install Cosmovisor](https://docs.scrt.network/cosmovisor.html#install-cosmovisor)
-* [Set up a new v1.2 node](https://docs.scrt.network/cosmovisor.html#set-up-a-new-v12-node)
-* [Migrate a running v1.2 node](https://docs.scrt.network/cosmovisor.html#migrate-a-running-v12-node)
-* [Prepare a v1.3 node upgrade (Shockwave Alpha)](https://docs.scrt.network/cosmovisor.html#prepare-a-v13-node-upgrade-shockwave-alpha)
+- [Setting up a node using Cosmovisor](https://docs.scrt.network/cosmovisor.html#setting-up-a-node-using-cosmovisor)
+- [Install Cosmovisor](https://docs.scrt.network/cosmovisor.html#install-cosmovisor)
+- [Set up a new v1.2 node](https://docs.scrt.network/cosmovisor.html#set-up-a-new-v12-node)
+- [Migrate a running v1.2 node](https://docs.scrt.network/cosmovisor.html#migrate-a-running-v12-node)
+- [Prepare a v1.3 node upgrade (Shockwave Alpha)](https://docs.scrt.network/cosmovisor.html#prepare-a-v13-node-upgrade-shockwave-alpha)
 
 Cosmovisor is a new process manager for cosmos blockchains. It can make low-downtime upgrades smoother, as validators don't have to manually upgrade binaries during the upgrade, and instead can pre-install new binaries, and Cosmovisor will automatically update them based on on-chain SoftwareUpgrade proposals.
 
@@ -45,6 +45,7 @@ After=network.target
 
 [Service]
 Type=simple
+WorkingDirectory=${HOME}
 ExecStart=/bin/cosmovisor run start
 User=${USER}
 Restart=on-failure
@@ -86,10 +87,7 @@ echo "1a51d3d9324979ef9a1f56023e458023488b4583bf4587abeed2d1f389aea947 /tmp/secr
 dpkg-deb -R /tmp/secretnetwork_v1.2.2_mainnet_amd64.deb /tmp/secretnetwork_v1.2.2_mainnet_amd64.deb.extracted
 
 # Move v1.2 binaries to Cosmovisor's directory
-mv /tmp/secretnetwork_v1.2.2_mainnet_amd64.deb.extracted/usr/{local/bin/secretd,lib/librust_cosmwasm_enclave.signed.so,lib/libgo_cosmwasm.so} ~/.secretd/cosmovisor/genesis/bin
-
-# For a query node also move the query enclave
-sudo mv /tmp/secretnetwork_v1.2.2_mainnet_amd64.deb.extracted/usr/lib/librust_cosmwasm_query_enclave.signed.so ~/.secretd/cosmovisor/genesis/bin
+mv /tmp/secretnetwork_v1.2.2_mainnet_amd64.deb.extracted/usr/{local/bin/*,lib/*} ~/.secretd/cosmovisor/genesis/bin
 ```
 
 Now the Cosmovisor directory structure should look like this:
@@ -100,6 +98,7 @@ $ find ~/.secretd/cosmovisor
 /home/ubuntu/.secretd/cosmovisor/genesis/bin/
 /home/ubuntu/.secretd/cosmovisor/genesis/bin/libgo_cosmwasm.so
 /home/ubuntu/.secretd/cosmovisor/genesis/bin/librust_cosmwasm_enclave.signed.so
+/home/ubuntu/.secretd/cosmovisor/genesis/bin/tendermint_enclave.signed.so
 /home/ubuntu/.secretd/cosmovisor/genesis/bin/secretd
 ```
 

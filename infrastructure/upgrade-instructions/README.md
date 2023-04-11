@@ -7,5 +7,7 @@ There are regular upgrades to the Secret Network that require users and validato
 - [Shockwave Delta (Testnet)](shockwave-delta-testnet.md)
 - [v1.5](v1.5.md)
 - [Shockwave Omega](shockwave-omega.md)
+- [v1.7](v1.7.md)
+- [v1.8](v1.8.md)
 - [Cosmovisor](cosmovisor.md)
 - [Vulcan Network Upgrade (OLD)](vulcan-network-upgrade-old.md)

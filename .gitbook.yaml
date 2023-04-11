@@ -5,7 +5,7 @@ structure:
     summary: SUMMARY.md
 
 redirects:
-    dev/developers.html: ./development/README.md
+    dev/developers.html: ./development/getting-started/README.md
     dev/quickstart.html: ./development/getting-started/README.md
     dev/secret-contracts.html: ./development/secret-contracts/README.md
     dev/tutorials.html: ./development/secret-by-example/community-tutorials.md
@@ -31,3 +31,5 @@ redirects:
     development/secretjs/templates: ./development/tools-and-libraries/secretjs/README.md
     ecosystem-overview/contributors-and-entities/core/secret-committees/development: ./overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-committees/development.md
     privacy-technology/detailed-steps-of-a-private-transaction: ./overview-ecosystem-and-technology/techstack/detailed-steps-of-a-private-transaction.md
+    secret-network-overview/privacy-technology/detailed-steps-of-a-private-transaction: ./overview-ecosystem-and-technology/techstack/detailed-steps-of-a-private-transaction.md
+

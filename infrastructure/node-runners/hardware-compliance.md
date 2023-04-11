@@ -26,7 +26,8 @@ The following are confirmed compliant Intel CPUs:
 |       |                   | `E-2278G`         |
 |       |                   | `E-2286G`         |
 |       |                   | `E-2288G`         |
-|       | ``                | `E-2386G`         |
+|       |                   | `E-2334G`         |
+|       |                   | `E-2386G`         |
 |       |                   | `E-2388G`         |
 |       | XEON Gold-Series  | \*NOT SUPPORTED\* |
 | AMD   | \*NOT SUPPORTED\* |                   |
@@ -51,7 +52,10 @@ This is not an exhaustive list of supported motherboards. These are simply mothe
 |            | `X11SCW-F`           | `SYS-5019C-WR`                 | [link](https://www.supermicro.com/products/motherboard/X11/X11SCW-F.cfm)                        |
 |            | `X11SCZ-F`           |                                |                                                                                                 |
 |            | `X11SSL-F`           |                                |                                                                                                 |
-| Dell       | `Dell R240`          |                                |                                                                                                 |
+| Dell       | `Dell R240`          |                                |                                                                                                 
+|
+|            | `Dell R350`          | BIOS version 1.5.1             |                                                                                                 
+|
 | HP         | `HP DL20 G10`        |                                |                                                                                                 |
 | ASUS       | `ASUS RS100-E10-PI2` | BIOS version 4003              | [link](https://servers.asus.com/products/Servers/Rack-Servers/RS100-E10-PI2)                    |
 | Asrock     | `E3C246D4U2-2T`      |                                | [link](https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications) |
@@ -65,3 +69,4 @@ This is not an exhaustive list of supported motherboards. These are simply mothe
 * [Mario](https://secretnodes.com/secret/chains/secret-4/validators/2DD098C8ECAF04DFE31BBC59799C786AC09BF53F)
 * [Consensus One](https://secretnodes.com/secret/chains/secret-4/validators/secretvaloper1sa8av4qw3xerr58kwvnm8wvd87zgp36mv6cnyg)
 * [Lavender.Five Nodes](https://www.mintscan.io/secret/validators/secretvaloper1t5wtcuwjkdct9qkw2h6m48zu2hectpd6ulmekk)
+* [danku_zone w/ DAIC](https://www.mintscan.io/secret/validators/secretvaloper1gkk02na77t83dvmf9vd7lajptejaqkyug62h56)

@@ -1,6 +1,14 @@
+---
+description: An API Registry to connect to Secret Network
+---
+
 # Connecting to the Network
 
 ## Secret Network API Registry
+
+{% hint style="info" %}
+For an in-depth smart contract guide on how to connect and interact with the Secret testnet, [view the Interacting with the Testnet guide here](https://docs.scrt.network/secret-network-documentation/development/getting-started/interacting-with-the-testnet).&#x20;
+{% endhint %}
 
 * [secret-4 mainnet](connecting-to-the-network/mainnet-secret-4.md)
   * [Binaries](connecting-to-the-network/mainnet-secret-4.md#binaries)

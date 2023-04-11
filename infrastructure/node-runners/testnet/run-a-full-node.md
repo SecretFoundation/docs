@@ -89,7 +89,7 @@ export SCRT_SGX_STORAGE=/opt/secret/.sgx_secrets
 secretd auto-register --pulsar
 ```
 
-If this step was successful, you can skip straight to [step 9](run-a-full-node.md#9.-optimization).
+If this step was successful, you can skip straight to [Optimization](run-a-full-node.md#optimization).
 
 #### **Initialize Secret Enclave - Manual Registration**
 
@@ -163,7 +163,7 @@ These are necessary to configure the node before it starts.
 
 ```bash
 secretd query register secret-network-params
-ls -lh ./io-master-cert.der ./node-master-cert.der
+ls -lh ./io-master-key.txt ./node-master-key.txt
 ```
 
 ### **Configure Your Secret Node**
