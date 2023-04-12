@@ -29,7 +29,7 @@
   * Run by the testnet committee
 * [Secretnodes](https://secretnodes.com/secret/chains/pulsar-2)
   * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
-* [Documentation](../../infrastructure/setting-up-a-node-validator/testnet/)
+* [Documentation](../../infrastructure/node-runners/testnet/)
 
 `holodeck-2`, [Docs](https://github.com/scrtlabs/testnet/blob/master/holodeck-2/details.md) (maintained by validator [Chain of Secrets](https://chainofsecrets.org/))
 

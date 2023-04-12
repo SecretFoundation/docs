@@ -5,7 +5,7 @@
 ### ⚠️ IMPORTANT NOTES ⚠️ <a href="#important-notes" id="important-notes"></a>
 
 * All coordination efforts will be done in the "SN Validators" Telegram group.
-* Make sure to [backup your validator](../maintaining-a-node-validator/validator-backup.md) before making any chnages.
+* Make sure to [backup your validator](../node-runners/best-practices/validator-backup.md) before making any chnages.
 * **Please read carefully before you begin the upgrade.**
 
 ## Upgrading Manually <a href="#upgrading-manually" id="upgrading-manually"></a>
