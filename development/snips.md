@@ -9,7 +9,7 @@ The Secret Network Improvement Proposals (SNIPs) are documents pertaining to sta
 * [Contributing](broken-reference/)
 * [SNIP-0](snips/snip-0.md)
 * [SNIP-1155: Private Multitokens](snips/snip-1155-private-multitokens.md)
-* [SNIP-20 Spec: Private, Fungible Tokens](snips/snip-20-spec-private-fungible-tokens/)
+* [SNIP-20 Spec: Private, Fungible Tokens](snips/snip-20-spec-private-fungible-tokens.md)
 * [SNIP-21: Minor Improvements to SNIP-20](snips/snip-21-minor-improvements-to-snip-20.md)
 * [SNIP-22: Batch Operations for SNIP-20 Contracts](snips/snip-22-batch-operations-for-snip-20-contracts.md)
 * [SNIP-23: Improved UX to SNIP-20 Send Operations](snips/snip-23-improved-ux-to-snip-20-send-operations.md)

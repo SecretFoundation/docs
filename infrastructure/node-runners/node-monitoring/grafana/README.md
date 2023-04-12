@@ -1,3 +1,0 @@
-# Grafana
-
-## Coming Soon!
