@@ -117,6 +117,7 @@
     * [Contract - module call](development/secret-contracts/development-concepts/how-to-send-native-scrt.md)
     * [Factory Contracts](development/secret-contracts/development-concepts/factory-contracts.md)
     * [Contract Migration](development/secret-contracts/development-concepts/contract-migration.md)
+    * [Creating-a-Secret-Token](development/snips/snip-20-spec-private-fungible-tokens/create-your-own-snip-20-token-on-secret-network.md)
 * [Secret Contracts By Example](development/secret-by-example/README.md)
   * [Intro To Secret Contracts](development/secret-by-example/intro-to-secret-contracts.md)
   * [Millionaire's Problem](development/secret-by-example/millionaires-problem.md)
