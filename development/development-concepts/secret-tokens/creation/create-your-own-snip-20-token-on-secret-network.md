@@ -42,7 +42,7 @@ RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown
 
 In your index.js file, paste the following (be sure to replace the wallet seed phrase with your wallet seed phrase):
 
-```
+```javascript
 import { SecretNetworkClient, Wallet } from "secretjs";
 import * as fs from "fs";
 
@@ -99,7 +99,7 @@ Contract hash: cc4d8657939baf7ebc1ba8845b17807e6c06ef035c7bc7e22daf6f27327c823e
 
 In your index.js file, paste the following:
 
-```
+```javascript
 let instantiate_contract = async () => {
   const initMsg = {
     name: "Zebra",
@@ -151,7 +151,7 @@ secret1z5fjuu6sexn7ayes6k0aeqy8afj3p5ffvar67k
 
 To check that the instantiation of our SNIP-20 ZEBRA token was successful, let's query the smart contract's token info:
 
-```
+```javascript
 let query_token_info = async () => {
   const tokenInfoQuery = await secretjs.query.compute.queryContract({
     contract_address: contractAddress,
@@ -187,7 +187,7 @@ Start by adding the token to your Keplr wallet. Click on Keplr, select the hambu
 
 Now let's [transfer some tokens](https://github.com/scrtlabs/snip20-reference-impl/blob/81ad9714e50b890a50d8394dcac718950da127b6/src/msg.rs#L107) to another wallet address. The transfer message is defined in msg.rs as follows:
 
-```
+```javascript
   Transfer {
         recipient: String,
         amount: Uint128,
@@ -200,7 +200,7 @@ Now let's [transfer some tokens](https://github.com/scrtlabs/snip20-reference-im
 
 Now let's execute the transfer message with secret.js. Be sure to update the `recipient` wallet address with your own wallet before executing the code below. For testing purposes, I am using two Keplr wallet connected to the Secret Network testnet in order to move funds back and forth:
 
-```
+```javascript
 let transfer_snip20 = async (receiver_wallet) => {
   let executeMsg = {
     transfer: {
