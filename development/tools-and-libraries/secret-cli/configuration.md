@@ -2,7 +2,7 @@
 
 ## Configuration
 
-SCRT Labs regularly updates a [Secret Network API Registry ](../../connecting-to-the-network.md)containing information required to configure the _secretcli._
+SCRT Labs regularly updates a [Secret Network API Registry ](../../queries-and-connecting-to-the-network/connecting-to-the-network/)containing information required to configure the _secretcli._
 
 To check the status of a node use:
 

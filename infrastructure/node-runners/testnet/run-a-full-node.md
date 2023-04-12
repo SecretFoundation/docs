@@ -14,7 +14,7 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 * A public IP address
 * Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 * Reading [Tendermint: Running in production](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html)
-* RPC address of an already active node. You can use `bootstrap.secrettestnet.io:26657`, or any other node that exposes RPC services. Alternate RPC nodes available in the [API Registry.](../../../development/connecting-to-the-network.md)
+* RPC address of an already active node. You can use `bootstrap.secrettestnet.io:26657`, or any other node that exposes RPC services. Alternate RPC nodes available in the [API Registry.](../../../development/queries-and-connecting-to-the-network/connecting-to-the-network/)
 * [Install SGX](install-sgx.md)
 
 #### Minimum Requirements <a href="#minimum-requirements" id="minimum-requirements"></a>
@@ -39,7 +39,7 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the [Archive Nodes](../sentry-archive-and-ibc-node-setup/archive-nodes.md) instructions.
 {% endhint %}
 
-For more information on SGX, see instructions for [SGX Installation](../node-setup/install-sgx.md) and [Verifying SGX](broken-reference). See [Node Registration Information](broken-reference) if you'd like a more comprehensive overview on what's happening in these steps.
+For more information on SGX, see instructions for [SGX Installation](../node-setup/install-sgx.md) and [Verifying SGX](broken-reference/). See [Node Registration Information](broken-reference/) if you'd like a more comprehensive overview on what's happening in these steps.
 
 ### **Initialize Secret Network Configs**
 

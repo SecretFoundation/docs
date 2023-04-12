@@ -21,5 +21,5 @@ If wallet A sends 100 sSCRT to wallet B this will happen:
 * Wallet B can use their viewing key to decrypt the receiving transaction so will see the address of the sender and the amount they got.
 
 {% hint style="info" %}
-Want to learn about the Tech enabling Secret Tokens? Check out the [SNIP-20 reference implementation](https://github.com/scrtlabs/snip20-reference-impl) or the section on [permissioned viewing ](../../development/secret-contracts/development-concepts/permissioned-viewing/)/[ access control](../techstack/privacy-technology/access-control/) .
+Want to learn about the Tech enabling Secret Tokens? Check out the [SNIP-20 reference implementation](https://github.com/scrtlabs/snip20-reference-impl) or the section on [permissioned viewing ](../../development/development-concepts/permissioned-viewing/)/[ access control](../techstack/privacy-technology/access-control/) .
 {% endhint %}

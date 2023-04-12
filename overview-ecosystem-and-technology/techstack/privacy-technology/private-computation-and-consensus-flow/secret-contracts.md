@@ -25,4 +25,4 @@ The parameter verification method depends on the contract caller:
   * Receiver contract verifies the signature it created matches the signature it got from the caller
   * For the specifics, visit the [encryption specs](../encryption-key-management/)
 
-For more detailed explanations of Secret Contracts see the [Secret Contracts section under Development](../../../../development/secret-contracts/).
+For more detailed explanations of Secret Contracts see the [Secret Contracts section under Development](broken-reference).

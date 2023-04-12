@@ -1,0 +1,2 @@
+# in-contract queries
+

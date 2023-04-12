@@ -32,7 +32,7 @@ secretcli config output json
 secretcli config node https://rpc.pulsar.griptapejs.com
 ```
 
-You can find alternate node endpoints in the [API registry](../../../development/connecting-to-the-network.md), or run your own [full node](run-a-full-node.md)\\
+You can find alternate node endpoints in the [API registry](../../../development/queries-and-connecting-to-the-network/connecting-to-the-network/), or run your own [full node](run-a-full-node.md)\\
 
 ### Check the installation <a href="#create-a-new-address" id="create-a-new-address"></a>
 
