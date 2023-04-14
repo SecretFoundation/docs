@@ -1,2 +1,0 @@
-# Know before advancing
-
