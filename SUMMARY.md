@@ -160,7 +160,6 @@
     * [Community pages](development/secret-by-example/tutorials/community-pages.md)
     * [Secret University](development/secret-by-example/tutorials/secret-university.md)
     * [Millionaire's Problem](development/secret-by-example/tutorials/millionaires-problem.md)
-    * [Intro To Secret Contracts](development/secret-by-example/tutorials/intro-to-secret-contracts.md)
   * [Privacy best practices](development/secret-by-example/privacy-best-practices/README.md)
     * [Prevent replay attacks](development/secret-by-example/privacy-best-practices/prevent-replay-attacks.md)
   * [Contract Best Practices](development/secret-by-example/best-practices/README.md)
