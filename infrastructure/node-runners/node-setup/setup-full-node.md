@@ -260,7 +260,7 @@ secretcli config node tcp://<your-public-ip>:26657
 
 ### **Snapshot**
 
-To sync to head quickly, please see [#snapshot](setup-full-node.md#snapshot "mention").
+To sync to head quickly, please see [snapshot.md](../../setting-up-a-node-validator/node-setup/snapshot.md "mention").
 
 ### **State Sync**
 
