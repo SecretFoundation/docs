@@ -11,6 +11,10 @@ sudo apt install snapd lz4
 
 ## Download snapshot
 
+{% hint style="info" %}
+This snapshot only supports goleveldb.
+{% endhint %}
+
 ```
 wget -O secret.tar.lz4 https://snapshots.lavenderfive.com/snapshots/secretnetwork/latest.tar.lz4
 ```
