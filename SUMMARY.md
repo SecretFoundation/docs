@@ -132,6 +132,7 @@
   * [Escrow contracts](development/development-concepts/escrow-contracts.md)
   * [Contract Migration](development/development-concepts/contract-migration.md)
   * [Callbacks - submessages (Reply)](development/development-concepts/callbacks-submessages-reply.md)
+  * [Secret-VRF - on-chain Randomness](development/development-concepts/secret-vrf-on-chain-randomness.md)
   * [Privacy design - contracts](development/development-concepts/privacy-design-contracts.md)
   * [Interoperable contracts](development/development-concepts/interoperable-contracts/README.md)
     * [non-IBC](development/development-concepts/interoperable-contracts/non-ibc/README.md)
