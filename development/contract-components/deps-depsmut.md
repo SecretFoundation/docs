@@ -34,4 +34,6 @@ Api consists of a collection of callbacks to system functions defined outside of
     This batch verification implementation is adaptive, in the sense that it detects multiple signatures created with the same verification key, and automatically coalesces terms in the final verification equation.
 * `secp256k1_sign( &self, message: &[u8], private_key: &[u8] ) -> Result<Vec, SigningError>` Signs a message with a private key using the secp256k1 elliptic curve digital signature parametrization / algorithm.
 * `ed25519_sign( &self, message: &[u8], private_key: &[u8] ) -> Result<Vec, SigningError>` Signs a message with a private key using the ed25519 elliptic curve digital signature parametrisation / algorithm.
-* **(New in CosmWasm 1.0)** `debug` - a function that allows for debug prints, which can be used during development to print to STDOUT in a testnet or LocalSecret environment (replaces `debug_print` from CosmWasm v0.10)
+* **(CosmWasm 1.0)** `debug` - a function that allows for debug prints, which can be used during development to print to STDOUT in a testnet or LocalSecret environment (replaces `debug_print` from CosmWasm v0.10)
+* **(New in Secret-Cosmwasm v1.2.0)**  `gas_evaporate(evaporate: u32) -> u32` - this API function allows a contract to consume a set amount of gas. Use together with `check_gas` in order to create contract calls that consume an exact amount of gas regardless of the code path taken.&#x20;
+* **(New in Secret-Cosmwasm v1.2.0)** `check_gas() -> u64` - this API returns the current amount of gas consumed by a contract call.
