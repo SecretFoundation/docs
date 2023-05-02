@@ -14,7 +14,7 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 * A public IP address
 * Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 * Reading [Tendermint: Running in production](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html)
-* RPC address of an already active node. You can use `bootstrap.secrettestnet.io:26657`, or any other node that exposes RPC services. Alternate RPC nodes available in the [API Registry.](../../../development/connecting-to-the-network/)
+* RPC address of an already active node. You can use `bootstrap.secrettestnet.io:26657`, or any other node that exposes RPC services. Alternate RPC nodes available in the [API Registry.](../../../development/queries-and-connecting-to-the-network/connecting-to-the-network/)
 * [Install SGX](install-sgx.md)
 
 #### Minimum Requirements <a href="#minimum-requirements" id="minimum-requirements"></a>

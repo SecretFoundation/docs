@@ -11,7 +11,7 @@ Topics covered:
 
 What **won't** be covered:
 
-* An in-depth guide to developing Secret Contracts - [Secret By Example](../secret-by-example/)
+* An in-depth guide to developing Secret Contracts - [Secret By Example](broken-reference)
 * Secret Network architecture - [Secret Network Techstack](../../overview-ecosystem-and-technology/techstack/)
 * How to create a web UI for Secret Contracts - [Secret.Js](../tools-and-libraries/frontend-development/secretjs/)
 

@@ -10,8 +10,6 @@ description: >-
 
 Viewing keys can be thought of the password side as a unique Username/Password combination saved to storage. The viewing key `String` is matched to a `HumanAddr` and whenever a user wishes to query permissioned data they must provide both pieces of data. The contract will then check if the two are a match.
 
-
-
 ## What's The Best Way To Use These?
 
 With recent advances in the efficiency of Certs/Permits, viewing-keys only remain the most efficient option when dealing with permissions between contracts for inter-contract queries. To optimize gas, it is best to only use them in this situation.

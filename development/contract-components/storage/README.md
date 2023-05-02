@@ -1,6 +1,6 @@
 # Storage
 
-## How Storage Works&#x20;
+## How Storage Works
 
 CosmWasm uses a key-value storage design. Smart contracts can store data in binary, access it through a storage key, edit it, and save it. Similar to a HashMap, each storage key is associated with a specific piece of data stored in binary. The storage keys are formatted as references to byte arrays (`&[u8]`).
 
@@ -10,7 +10,7 @@ Any type of data may be stored this way as long as the user can serialize/deseri
 
 All the data is actually stored in `deps.storage` , and the examples below show how to save/load data to/from there with a storage key.
 
-## Storage Keys&#x20;
+## Storage Keys
 
 Creating a storage key is simple, any way of generating a constant `&[u8]` suffices. People often prefer generating these keys from strings as shown in the example below.
 
@@ -26,7 +26,7 @@ The example above also highlights that storage keys are not meant to be secret n
 
 As mentioned above, serializing/deserializing data while loading/saving it with a key is cumbersome. This is why we often use wrapper functions written by community members. There are three common wrapper functions that are included in the `state.rs` of most secret contract templates.
 
-### Saving To Storage&#x20;
+### Saving To Storage
 
 A commonly used wrapper function to save data is the following. This function overwrites previously saved data associated to that storage key.
 
@@ -67,7 +67,7 @@ let config = Config {
 save(&mut deps.storage, CONFIG_KEY, &config)?;
 ```
 
-### Loading From Storage&#x20;
+### Loading From Storage
 
 A commonly used wrapper function to load data from storage is the following:
 
@@ -132,7 +132,7 @@ let minters: Vec<CanonicalAddr> =
 
 This line of code returns the list of minters if it is saved to MINTERS\_KEY, otherwise, it returns an empty list.
 
-### Removing From Storage&#x20;
+### Removing From Storage
 
 A commonly used wrapper function to remove saved data from storage is the following. This might be the only wrapper function that does not make anything more convenient, because there is no serialize/deserialize implemented.
 

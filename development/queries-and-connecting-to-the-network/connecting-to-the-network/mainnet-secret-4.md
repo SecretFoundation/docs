@@ -46,5 +46,5 @@ Additional API nodes may be found in the [Cosmos chain registry](https://github.
 * `ebc272824924ea1a27ea3183dd0b9ba713494f83@secret.mainnet.seed.autostake.net:26656`
 
 {% hint style="success" %}
-**are we missing your endpoint or tool?** Submit a Pull Request at [https://github.com/SecretFoundation/docs/blob/gitbook/development/api-endpoints.md](../api-endpoints.md)
+**are we missing your endpoint or tool?** Submit a Pull Request at [https://github.com/SecretFoundation/docs/blob/gitbook/development/api-endpoints.md](../../api-endpoints.md)
 {% endhint %}

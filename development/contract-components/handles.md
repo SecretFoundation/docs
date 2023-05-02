@@ -1,6 +1,6 @@
 # Execution Message
 
-**Execution Messages** are contract messages that trigger the execution of a smart contract and perform specific operations, such as updating the contract state or transferring tokens. If you’re familiar with RPC or AJAX, you can think of execution messages as the code that runs when a remote procedure is called. On Secret Network, execution messages are usually designed to be functions that run as quickly as possible and exit as early as possible when any errors are encountered, as this will help save gas. You can learn more about contract optimization [here](../../secret-by-example/best-practices/contract-optimization.md).
+**Execution Messages** are contract messages that trigger the execution of a smart contract and perform specific operations, such as updating the contract state or transferring tokens. If you’re familiar with RPC or AJAX, you can think of execution messages as the code that runs when a remote procedure is called. On Secret Network, execution messages are usually designed to be functions that run as quickly as possible and exit as early as possible when any errors are encountered, as this will help save gas. You can learn more about contract optimization [here](../development-concepts/best-practices/contract-optimization.md).
 
 The standard practice on Secret Network is to have an `enum` with all the valid message types and reject all messages that don’t follow the usage pattern dictated in that enum; this enum is conventionally called `ExecuteMsg` and is usually in a file called `msg.rs`
 

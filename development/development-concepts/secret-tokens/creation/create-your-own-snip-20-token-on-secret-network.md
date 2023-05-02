@@ -2,7 +2,7 @@
 description: Learn how to create a SNIP-20 token on Secret Network
 ---
 
-# Creating Secret Token
+# Secret Tokens (SNIP-20)
 
 ### Introduction
 

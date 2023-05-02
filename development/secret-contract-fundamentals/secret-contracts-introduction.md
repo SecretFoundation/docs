@@ -23,7 +23,7 @@ When designing contracts for Secret network one should take into account the usa
 * Secret Contracts have private input, output and state. This means all data on-chain is stored as cyphertext and is only accessible by the owner (either the contract or the user). More details are available in the [encryption specs](../../overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/contract-state-encryption.md).
 * The binary of any contract is public meaning the execution logic is verifiable just like any other smart contract blockchain.
 * Secret smart contracts are IBC compatible (CosmWasm v1.0+) allowing for cross-chain logic with other IBC connected chains.
-* Unlike vanilla CosmWasm Secret does not support migrate-able contracts and Iterators due to the privacy design. Workarounds are highlighted under [ugradeabillity](../development-concepts/contract-migration.md) and [storage](contract-components/storage/keymap.md).
+* Unlike vanilla CosmWasm Secret does not support migrate-able contracts and Iterators due to the privacy design. Workarounds are highlighted under [ugradeabillity](../development-concepts/contract-migration.md) and [storage](../contract-components/storage/keymap.md).
 * When designing Secret contracts the verification of input-data is key to ensure the secure execution of transactions as not all blockchain data is exposed automatically to the enclave.
 * Developers need to be mindful of data leakage via replay attacks, improper padding and more so that the privacy for users of their contracts is optimized.
 

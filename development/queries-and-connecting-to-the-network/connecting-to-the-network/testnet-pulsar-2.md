@@ -38,5 +38,5 @@
 * `29bb32d07d3e749f24226653a447f43e69502a1a@212.7.211.39:26656`
 
 {% hint style="success" %}
-**are we missing your endpoint or tool?** Submit a Pull Request at [https://github.com/SecretFoundation/docs/blob/gitbook/development/api-endpoints.md](../api-endpoints.md)
+**are we missing your endpoint or tool?** Submit a Pull Request at [https://github.com/SecretFoundation/docs/blob/gitbook/development/api-endpoints.md](../../api-endpoints.md)
 {% endhint %}
