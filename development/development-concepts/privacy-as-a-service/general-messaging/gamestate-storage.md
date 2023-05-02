@@ -1,2 +1,0 @@
-# Gamestate storage
-

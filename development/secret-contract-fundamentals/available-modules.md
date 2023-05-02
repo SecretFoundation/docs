@@ -1,3 +1,0 @@
-# Available Modules
-
-**Coming soon!**

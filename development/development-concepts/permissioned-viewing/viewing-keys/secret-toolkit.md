@@ -1,3 +1,0 @@
-# Secret-toolkit
-
-**Coming soon!**

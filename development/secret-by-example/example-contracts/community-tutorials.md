@@ -1,18 +1,15 @@
+---
+description: >-
+  This page is dedicated to community tutorials and code repositories that
+  provide helpful references for writing Secret Network contracts as well as
+  building full-stack Secret Networks dApps.
+---
+
 # Reference Contracts
-
-## Secret Network Tutorials
-
-This page is dedicated to community tutorials and code repositories that provide helpful references for writing Secret Network contracts as well as building full-stack Secret Networks dApps.&#x20;
-
-To follow a guided walk-through on configuring your development environment, please visit the [Getting Started](https://docs.scrt.network/secret-network-documentation/development/getting-started) documentation page.
 
 ### Secret University
 
 Learn to build on Secret Network with [Secret University](https://scrt.university/pathways) and dive deep into the code with [Secret University Boxes](https://scrt.university/repositories), which are pre-built, preconfigured dApp templates built on Secret Network. Each Secret Box runs in its own sandbox developer environment and comes preconfigured with a simple UI kit.&#x20;
-
-### Developing Your First Secret Contract
-
-Refer to this [tutorial](https://github.com/SecretFoundation/docs/blob/main/docs/dev/learn-by-doing-tutorial1.md) from `darwinzer0` about developing a Secret Exploding Message app with practical insights on Secret Contract functions, messages, and storage.
 
 ### Simple Secret Voting App
 

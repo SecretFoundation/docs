@@ -1,2 +1,0 @@
-# Axelar - cross-chain messaging
-

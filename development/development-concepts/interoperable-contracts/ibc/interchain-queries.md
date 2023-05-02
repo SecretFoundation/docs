@@ -1,2 +1,0 @@
-# Interchain Queries
-

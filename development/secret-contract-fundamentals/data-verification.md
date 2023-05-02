@@ -1,3 +1,0 @@
-# Data verification
-
-**Coming soon!**

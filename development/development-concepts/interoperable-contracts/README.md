@@ -1,2 +1,0 @@
-# Interoperable contracts
-

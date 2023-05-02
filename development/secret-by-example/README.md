@@ -1,3 +1,6 @@
-# Secret By Example
+---
+description: An introduction to CosmWasm and Secret Network through simple examples
+---
 
-An introduction to CosmWasm and Secret Network through simple examples&#x20;
+# Tutorials & best practices
+

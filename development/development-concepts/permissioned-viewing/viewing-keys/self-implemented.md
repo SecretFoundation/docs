@@ -1,3 +1,0 @@
-# Self-implemented
-
-**Coming soon!**

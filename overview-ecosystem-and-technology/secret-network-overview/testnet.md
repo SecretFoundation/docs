@@ -56,7 +56,7 @@ To have access to all the testnet functionalities and to develop you can connect
     ```
 * Paste your wallet’s mnemonic phrase when asked to do so
 
-You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](../../development/queries-and-connecting-to-the-network/connecting-to-the-network/testnet-pulsar-2.md).
+You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](../../development/connecting-to-the-network/testnet-pulsar-2.md).
 
 ## **Secret Tokens**
 

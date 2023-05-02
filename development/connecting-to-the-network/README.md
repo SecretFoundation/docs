@@ -29,5 +29,5 @@ For an in-depth smart contract guide on how to connect and interact with the Sec
   * [Peers](usage-examples.md#peers)
 
 {% hint style="success" %}
-**Are we missing your endpoint or tool?** Submit a Pull Request at [https://github.com/SecretFoundation/docs/blob/gitbook/development/api-endpoints.md](../../api-endpoints.md)
+**Are we missing your endpoint or tool?** Submit a Pull Request at [https://github.com/SecretFoundation/docs/blob/gitbook/development/api-endpoints.md](../api-endpoints.md)
 {% endhint %}
