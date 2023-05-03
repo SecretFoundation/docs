@@ -80,7 +80,7 @@ let total_stake = 1000;
 let my_stake = 333;
 ```
 
-Not scaling up before the calculation causes loss of precision:&#x20;
+Not scaling up before the calculation causes loss of precision:
 
 <pre class="language-rust"><code class="lang-rust">let reward_per_share = total_prize / total_stake;
 <strong>let my_rewards = reward_per_share * my_stake;
@@ -97,7 +97,7 @@ let my_rewards = reward_per_share * my_stake / SCALE_FACTOR;
 // Here, we correctly receive 33 coins as rewards
 ```
 
-Scale factors can be as big as possible, provided they don't cause overflows.&#x20;
+Scale factors can be as big as possible, provided they don't cause overflows.
 
 ### Fixed point decimals
 

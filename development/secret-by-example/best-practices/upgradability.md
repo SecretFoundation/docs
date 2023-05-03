@@ -16,11 +16,4 @@ If a single admin calls a function that would transfer over all user data to a n
 
 #### Data removal
 
-In some cases, you may want to ensure once the data is transferred it is immediately deleted, or otherwise prevented from being accessed again from the old contract. This is to prevent the possibility of a user taking advantage of their data existing on two contracts simultaneously. For example, if an NFT contract was updated and the NFTs were moved over to the new contract, but the old contract did not remove them after transferring, you could risk your users selling both the old and new copy their NFTs. Your specific contract may not require data deletion like this, but it is important to consider all possibilities and think from the perspective of potential attackers to decide if this is a risk you need to prevent.&#x20;
-
-
-
-
-
-
-
+In some cases, you may want to ensure once the data is transferred it is immediately deleted, or otherwise prevented from being accessed again from the old contract. This is to prevent the possibility of a user taking advantage of their data existing on two contracts simultaneously. For example, if an NFT contract was updated and the NFTs were moved over to the new contract, but the old contract did not remove them after transferring, you could risk your users selling both the old and new copy their NFTs. Your specific contract may not require data deletion like this, but it is important to consider all possibilities and think from the perspective of potential attackers to decide if this is a risk you need to prevent.

@@ -1,6 +1,6 @@
 # Continuous Integration
 
-We recommend when writing Secret Contracts to leverage a CI platform to create a continuous integration flow for your contract.&#x20;
+We recommend when writing Secret Contracts to leverage a CI platform to create a continuous integration flow for your contract.
 
 The two types of tests to focus on:
 
@@ -12,8 +12,6 @@ Our platform of choice is GitHub Actions. GitHub Actions is a continuous integra
 Here are examples of how to implement these flows in your own contracts:
 
 * Unit Tests - [https://github.com/scrtlabs/SecretJack/blob/master/.github/workflows/Static.yml](https://github.com/scrtlabs/SecretJack/blob/master/.github/workflows/Static.yml)
-* Integration Tests - [https://github.com/scrtlabs/SecretJack/blob/master/.github/workflows/Integration.yml](https://github.com/scrtlabs/SecretJack/blob/master/.github/workflows/Integration.yml)\
-
+* Integration Tests - [https://github.com/scrtlabs/SecretJack/blob/master/.github/workflows/Integration.yml](https://github.com/scrtlabs/SecretJack/blob/master/.github/workflows/Integration.yml)\\
 
 Note that in this example the unit test flow executes the main command `make unit-test`, while the integration tests initialize a LocalSecret instance, and execute a Typescript file that handles deployment, initialization and execution of the test logic. You can find that file [here](https://github.com/scrtlabs/SecretJack/blob/master/contract/tests/integration.ts).
-

@@ -2,7 +2,7 @@
 description: Avoid data leaks with proper precautions
 ---
 
-# Padding/datatype
+# Padding/Datatype
 
 While everything that happens within a smart contract is encrypted, gas usage in contracts is still recorded publicly on chain. Because of this, unless certain practices are followed, an observer can get some information from transactions by observing variations in gas costs. Specifically, it can reveal things such as how many digits are in a number, or letters in a word (such as a password), due those variations.
 

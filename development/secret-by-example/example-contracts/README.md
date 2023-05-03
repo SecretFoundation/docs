@@ -4,5 +4,5 @@ description: >-
   full-stack Secret Networks dApps.
 ---
 
-# Example contracts
+# Example Contracts
 

@@ -1,6 +1,6 @@
-# Contract optimization
+# Contract Optimization
 
-Optimizing your code is especially important on blockchain due to the fact that inefficient code costs your users money and can jam up the entire network. With any function you make, try to complete it in as few steps as possible and avoid unnecessary computation. One of the most costly actions you can make is loading and saving data, thus you should ensure you are only saving  what is needed. Aside from this, there are a few other tips we can provide.
+Optimizing your code is especially important on blockchain due to the fact that inefficient code costs your users money and can jam up the entire network. With any function you make, try to complete it in as few steps as possible and avoid unnecessary computation. One of the most costly actions you can make is loading and saving data, thus you should ensure you are only saving what is needed. Aside from this, there are a few other tips we can provide.
 
 ## Avoid Vector and Arrays
 
