@@ -2,7 +2,7 @@
 
 ### Binaries
 
-* [https://github.com/scrtlabs/SecretNetwork/releases/v1.4.1-beta-2](https://github.com/scrtlabs/SecretNetwork/releases/v1.4.1-beta-2) (use the testnet binaries)
+* [https://github.com/scrtlabs/SecretNetwork/releases/](https://github.com/scrtlabs/SecretNetwork/releases/) (use the latest testnet binaries)
 
 ### Explorers
 
