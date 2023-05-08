@@ -6,6 +6,7 @@ Below are all actively used Secret tokens with details on their contract address
 
 | Contract Name / Label             | Symbol    | Decimals    | denom      | Contract Address                              | SNIP version |
 | --------------------------------- | --------- | ----------- | ---------- | --------------------------------------------- | ------------ |
+| Secret Secret         | sSCRT    | 6           | uscrt                                                                                  | secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek            | SNIP-20      |
 | Sienna                            | SIENNA    | 18          | usienna    | secret1rgm2m5t530tdzyd99775n6vzumxa5luxcllml4 | SNIP-20      |
 | Silk Stablecoin                   | SILK      | <p><br></p> | usilk      | secret1fl449muk5yq8dlad7a22nje4p5d2pnsgymhjfd | SNIP-25      |
 | Shade                             | SHD       | <p><br></p> | ushd       | secret153wu605vvp934xhd4k9dtd640zsep5jkesstdm | SNIP-25      |
@@ -30,7 +31,6 @@ Below are all actively used Secret tokens with details on their contract address
 | Secret Axelar UNI     | saUNI    | 18          | uni-wei                                                                                | secret1egqlkasa6xe6efmfp9562sfj07lq44z7jngu5k            | SNIP-25      |
 | Secret Axelar WBUSD   | saBUSD   | 18          | busd-wei                                                                               | secret1t642ayn9rhl5q9vuh4n2jkx0gpa9r6c3sl96te            | SNIP-25      |
 | Secret Axelar WBNB    | saWBNB   | 18          | wbnb-wei                                                                               | secret19xsac2kstky8nhgvvz257uszt44g0cu6ycd5e4            | SNIP-25      |
-| Secret Secret         | sSCRT    | 6           | uscrt                                                                                  | secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek            | SNIP-20      |
 | Secret IST            | sIST     | 6           | ibc/5BE3E5E08E949BDF29EE93E81BF2CBD66347C86CE3D5D99A6E6FB487E62D8414                   | secret1xmqsk8tnge0atzy4e079h0l2wrgz6splcq0a24            | SNIP-25      |
 | Secret USK            | sUSK     | 6           | ibc/C84076353ADA602528AC211EE626AE95FC4E091A0033B93CA5E1F6BE17070BBE                   | secret1cj2fvj4ap79fl9euz8kqn0k5xlvck0pw9z9xhr            | SNIP-25      |
 | Secret Kujira         | sKUJI    | 6           | <p>ibc/FFA324A40F82EF430CF78D498CE04FF634D2091FCDC04EFEC8841B86011F307A</p><p><br></p> | secret13hvh0rn0rcf5zr486yxlrucvwpzwqu2dsz6zu8            | SNIP-25      |
@@ -48,7 +48,7 @@ Below are all actively used Secret tokens with details on their contract address
 | Secret BLD            | sBLD     | 6           | ibc/CDEA201B61DF09C2456A91A60A87856796E6B40FAF41FC64E3482D4EF07DE26C                   | secret1uxvpq889uxjcpj656yjjexsqa3zqm6ntkyjsjq            | SNIP-25      |
 | Secret Comdex         | sCMDX    | 6           | ibc/DFBDE185EC916F4933DF02D3A282FA801BC9EE77FE0B768FB517407730105491                   | secret1mndng80tqppllk0qclgcnvccf9urak08e9w2fl            | SNIP-25      |
 | Secret DVPN           | sDVPN    | 6           | ibc/E83107E876FF194B54E9AC3099E49DBB7728156F250ABD3E997D2B7E89E0810B                   | secret15qtw24mpmwkjessr46dnqruq4s4tstzf74jtkf            | SNIP-25      |
-| Secret Harbor         | sHARBOR  | 6           | ibc/33E509EAF84ED39E60F746CCAF89130B386A11FDD3B76A77377FB3946BC9D829                   | secret1lrlkqhmwkh5y4326akn3hwn6j69f8l5656m43e            | SNIP-25      |
+| Secret Harbor         | sHARBOR  | 6           | ibc/33E509EAF84ED39E60F746CCAF89130B386A11FDD3B76A77377FB3946BC9D829                   | ecret1nw83wzlceflrecd03ydjru3tcr2y345x7aetjp            | SNIP-25      |
 | Secret Monero         | sXMR     | <p><br></p> | usXMR                                                                                  | <p><br>secret19ungtd2c7srftqdwgq0dspwvrw63dhu79qxv88</p> | SNIP-20      |
 | Secret INJ            | sINJ     | 18          | ibc/5A76568E079A31FA12165E4559BA9F1E9D4C97F9C2060B538C84DCD503815E30                   | secret14706vxakdzkz9a36872cs62vpl5qd84kpwvpew            | SNIP-25      |
 | Secret stINJ          | sstINJ   | 18          | ibc/C8D8F46E3CE6F41E01E32542215597CF4B32709C8A310F728653CB91FDB8A904                   | secret1eurddal3m0tphtapad9awgzcuxwz8ptrdx7h4n            | SNIP-25      |
