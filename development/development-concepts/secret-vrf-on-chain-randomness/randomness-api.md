@@ -208,7 +208,7 @@ secretcli query compute query <your contract address> '{"get_flip": {}}'
 {% endcode %}
 
 {% hint style="info" %}
-You might have to execute the flip function a few times to see the queried flip change, sine there is a 50% chance the flip will return the same number :D
+You might have to execute the flip function a few times to see the queried flip change, since there is a 50% chance the flip will return the same number :D
 {% endhint %}
 
 ### Summary
