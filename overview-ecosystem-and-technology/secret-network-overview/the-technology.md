@@ -14,7 +14,7 @@ Secret brings privacy to the Interchain by leveraging CosmWasm IBC compatible sm
 
 **Dive in deep by exploring our detailed documentation of the Secret Network technology stack:**
 
-* [Steps Of A Private Transactions](../techstack/detailed-steps-of-a-private-transaction.md) - overview
+* [Steps Of A Private Transactions](broken-reference) - overview
 * [Blockchain technology](../techstack/blockchain-technology/)
   * [CosmWasm Smart contracts](../techstack/blockchain-technology/cosmwasm.md)
   * [Inter-Blokchain Communication (IBC)](../techstack/blockchain-technology/ibc.md)
