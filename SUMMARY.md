@@ -282,6 +282,7 @@
   * [Cosmovisor](infrastructure/upgrade-instructions/cosmovisor.md)
   * [Vulcan Network Upgrade (OLD)](infrastructure/upgrade-instructions/vulcan-network-upgrade-old.md)
 * [Postmortems](infrastructure/post-mortems-upgrades/README.md)
+  * [SNIP-20 leaks](infrastructure/post-mortems-upgrades/snip-20-leaks.md)
   * [xApic](infrastructure/post-mortems-upgrades/xapic.md)
   * [Secpk-Verifications Bloat](infrastructure/post-mortems-upgrades/secpk-verifications-bloat.md)
   * [Earn Contract Exploit](infrastructure/post-mortems-upgrades/earn-contract-exploit.md)
