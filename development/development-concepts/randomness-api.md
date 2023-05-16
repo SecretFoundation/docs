@@ -4,7 +4,7 @@ description: >-
   generate a coin flip
 ---
 
-# Randomness API
+# Randomness API - Secret VRF
 
 ## Introduction
 
@@ -26,6 +26,10 @@ Randomness is essential in many applications, including:
 4.  Before calling the contract, the chain injects `env.block.random = hkdf_sha256(block_random_seed + wasm_call_count)`.
 
     Thus each contract call gets a unique random seed.
+
+{% hint style="info" %}
+For a more in-depth explanation of why and how this method of randomness works feel free to read the [feature explainer](../secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness.md)
+{% endhint %}
 
 ### Enable the "random" feature
 
@@ -208,7 +212,7 @@ secretcli query compute query <your contract address> '{"get_flip": {}}'
 {% endcode %}
 
 {% hint style="info" %}
-You might have to execute the flip function a few times to see the queried flip change, sine there is a 50% chance the flip will return the same number :D
+You might have to execute the flip function a few times to see the queried flip change, since there is a 50% chance the flip will return the same number :D
 {% endhint %}
 
 ### Summary

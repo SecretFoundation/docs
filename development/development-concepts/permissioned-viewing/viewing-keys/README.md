@@ -1,14 +1,12 @@
 ---
-description: >-
-  The original network viewing permission method. Still useful in some
-  situations.
+description: The original network viewing permission method
 ---
 
 # Viewing Keys
 
 ## What Are Viewing Keys?
 
-Viewing keys can be thought of the password side as a unique Username/Password combination saved to storage. The viewing key `String` is matched to a `HumanAddr` and whenever a user wishes to query permissioned data they must provide both pieces of data. The contract will then check if the two are a match.
+Viewing keys can be thought of the password side as a unique Username/Password combination saved to storage. The viewing key `String` is matched to an `Addr` and whenever a user wishes to query permissioned data they must provide both pieces of data. The contract will then check if the two are a match.
 
 ## What's The Best Way To Use These?
 
@@ -24,7 +22,7 @@ Below are two example functions from the Secret-Toolkit Viewing-Keys package. Fu
 
 ```rust
  /// Set a new viewing key based on a predetermined value.
-    fn set<S: Storage>(storage: &mut S, account: &HumanAddr, viewing_key: &str) {
+    fn set<S: Storage>(storage: &mut S, account: &Addr, viewing_key: &str) {
         let mut balance_store = PrefixedStorage::new(Self::STORAGE_KEY, storage);
         balance_store.set(
             account.as_str().as_bytes(),
@@ -37,7 +35,7 @@ Below are two example functions from the Secret-Toolkit Viewing-Keys package. Fu
 /// Check if a viewing key matches an account.
     fn check<S: ReadonlyStorage>(
         storage: &S,
-        account: &HumanAddr,
+        account: &Addr,
         viewing_key: &str,
     ) -> StdResult<()> {
         let balance_store = ReadonlyPrefixedStorage::new(Self::STORAGE_KEY, storage);

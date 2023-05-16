@@ -2,7 +2,7 @@
 
 ## Privacy-Preserving Smart Contract Introduction
 
-Smart contract blockchains are typically public by default. This means that the ledger, the transactions, and the data contained in the smart contract are accessible to anyone. However, this is not the case with Secret Network as it’s the first blockchain that offers programmable privacy through privacy-preserving smart contracts (“Secret Contracts”). “Secret Contracts” have both public and private metadata. Private data on Secret Network is encrypted at input, state, and output and therefore never accessible to any nodes, developers, users, or everyone else.&#x20;
+Smart contract blockchains are typically public by default. This means that the ledger, the transactions, and the data contained in the smart contract are accessible to anyone. However, this is not the case with Secret Network as it’s the first blockchain that offers programmable privacy through privacy-preserving smart contracts (“Secret Contracts”). “Secret Contracts” have both public and private metadata. Private data on Secret Network is encrypted at input, state, and output and therefore never accessible to any nodes, developers, users, or everyone else.
 
 #### Programmable Privacy
 
@@ -14,15 +14,15 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 <summary>Topics Covered</summary>
 
-[Steps Of A Private Transactions](../../techstack/detailed-steps-of-a-private-transaction.md)
+[Steps Of A Private Transactions](broken-reference)
 
 [Private Computation & Consensus Flow](private-computation-and-consensus-flow/)
 
-[Encryption - Key Management](encryption-key-management/)&#x20;
+[Encryption - Key Management](encryption-key-management/)
 
 [Trusted Execution Environments (TEE) - Intel SGX](intel-sgx/)
 
-[Access Control](access-control/)&#x20;
+[Access Control](access-control/)
 
 [Plans Beyond SGX](plans-beyond-sgx.md)
 

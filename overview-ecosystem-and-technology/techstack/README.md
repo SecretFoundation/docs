@@ -10,7 +10,7 @@ Secret brings privacy to the Interchain by leveraging CosmWasm IBC compatible sm
 \
 In this Section we dive into all of these elements of the techstack.
 
-* [Steps Of A Private Transactions](detailed-steps-of-a-private-transaction.md) - overview
+* Steps Of A Private Transactions - overview
 * [Blockchain technology](blockchain-technology/)
   * [CosmWasm Smart contracts](blockchain-technology/cosmwasm.md)
   * [Inter-Blokchain Communication (IBC)](blockchain-technology/ibc.md)

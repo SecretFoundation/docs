@@ -9,7 +9,7 @@ The autostake feature will claim rewards for you and automatically delegate them
 The minimum amount of staked SCRT to use this feature is 10 SCRT!
 
 {% hint style="info" %}
-Learn more about the Restake feature [here](../../../overview-ecosystem-and-technology/techstack/blockchain-technology/modules/auto-restaking.md)
+Learn more about the Restake feature [here](../../secret-contract-fundamentals/available-native-features-modules/auto-restaking.md)
 {% endhint %}
 
 ### Query restake status <a href="#query-validators" id="query-validators"></a>
