@@ -53,10 +53,6 @@ What follows is a step-by-step tutorial of how to use Secret Network's randomnes
 
 LocalSecret is a tool that allows you to run a local Secret Network on your machine for testing and development purposes. To use the new randomness feature with LocalSecret, you can leverage the localsecret:v1.9.0-beta.1-random Docker image, which supports the "random" feature for CosmWasm contracts.
 
-{% hint style="info" %}
-Secret Network's randomness API is currently only supported on LocalSecret testnet.
-{% endhint %}
-
 Here are the steps to use the randomness feature with LocalSecret:
 
 1. [Configure your developer environment](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment) and be sure to install the [latest version of SecretCLI.](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/secret-cli/install)
@@ -218,16 +214,6 @@ You might have to execute the flip function a few times to see the queried flip 
 ### Summary
 
 Congrats! In this step-by-step tutorial on creating a coin flip contract, you learned how to compile, upload, instantiate, and execute a contract on LocalSecret using Secret Network's randomness API to generate random numbers 🎉
-
-
-
-&#x20;
-
-
-
-
-
-
 
 
 
