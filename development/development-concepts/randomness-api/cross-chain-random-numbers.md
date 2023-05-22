@@ -6,7 +6,7 @@ description: >-
 
 # Cross-Chain Random Numbers
 
-http://localhost:8080Cross-Chain Random Numbers Demo
+## Cross-Chain Random Numbers Demo
 
 This documentation serves as a demo on how to **use cross-chain random numbers from Secret Network to another chain via IBC**. The demo repository we will be referencing [can be cloned here](https://github.com/scrtlabs/random-ibc-example).&#x20;
 
