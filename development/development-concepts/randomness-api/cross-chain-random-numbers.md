@@ -6,7 +6,7 @@ description: >-
 
 # Cross-Chain Random Numbers
 
-## Cross-Chain Random Numbers Demo
+http://localhost:8080Cross-Chain Random Numbers Demo
 
 This documentation serves as a demo on how to **use cross-chain random numbers from Secret Network to another chain via IBC**. The demo repository we will be referencing [can be cloned here](https://github.com/scrtlabs/random-ibc-example).&#x20;
 
@@ -147,6 +147,8 @@ The consumer contract exposes an interface to display the latest received random
 ```
 http://localhost:8080
 ```
+
+<figure><img src="../../../.gitbook/assets/rng ibc.png" alt=""><figcaption><p>http://localhost:8080 User Interface</p></figcaption></figure>
 
 {% hint style="info" %}
 The contract must first be instantiated with docker in order to access the web interface in the browser&#x20;

@@ -107,7 +107,7 @@
     * [Permits](development/development-concepts/permissioned-viewing/certs-viewing-permits/README.md)
   * [Contract - module call](development/development-concepts/how-to-send-native-scrt/README.md)
   * [Cross Contract Communication](development/development-concepts/cross-contract-communication.md)
-  * [Randomness API - Secret VRF](development/development-concepts/randomness-api/README.md)
+  * [Randomness API - Secret VRF](development/development-concepts/randomness-api.md)
     * [Cross-Chain Random Numbers](development/development-concepts/randomness-api/cross-chain-random-numbers.md)
   * [CosmWasm vs Secret CosmWasm](development/secret-contract-fundamentals/differences-from-vanilla-cw.md)
   * [Execution Finalization](development/development-concepts/execution-finalization.md)
