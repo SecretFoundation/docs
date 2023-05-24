@@ -4,6 +4,14 @@ description: A description of the SecretVRF function
 
 # Secret-VRF - on-chain Randomness
 
+
+
+{% hint style="warning" %}
+Want to develop with decentralized on-chain randomness? \
+\
+[**Visit the development examples here!**](../../development-concepts/randomness-api.md)
+{% endhint %}
+
 ### Introduction
 
 The ability to generate fair and verifiable random numbers on blockchain without compromising security or usability is critical for many decentralized applications. However, generating true randomness is difficult because blockchains rely on consensus mechanisms, such as Proof of Work or Proof of Stake, to reach agreement on the state of the network, and these consensus mechanisms are deterministic and therefore do not provide a source of true randomness. There have been attempts to solve this problem by various methods, such as using random data from external sources (the hash of a previous block, etc) or by using off-chain solutions, such as Chainlink’s VRF oracle, but these solutions are not optimal as they are either deterministic, rely on trusted parties, and/or require additional fees for gas and infrastructure. What is needed is a verifiable random number generator that exists on-chain, and this is now possible across blockchain ecosystems through Secret Network Random Number Generator (RNG). &#x20;
