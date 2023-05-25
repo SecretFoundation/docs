@@ -1,5 +1,7 @@
 ---
-description: Code example for using Secret-VRF within a secret smart contract
+description: >-
+  A step-by-step tutorial of how to use Secret Network's randomness API to
+  generate a coin flip
 ---
 
 # Native On-chain randomness
@@ -190,4 +192,6 @@ You might have to execute the flip function a few times to see the queried flip 
 
 ### Summary
 
-Congrats! In this step-by-step tutorial on creating a coin flip contract, you learned how to compile, upload, instantiate, and execute a contract on LocalSecret using Secret Network's randomness API to generate random numbers 🎉
+Congrats! In this step-by-step tutorial on creating a coin flip contract, you learned how to compile, upload, instantiate, and execute a contract on LocalSecret using Secret Network's randomness API to generate random numbers 🎉\
+\
+For documentation on Secret VRF in a contract on another IBC-connected chain, [click here](https://docs.scrt.network/secret-network-documentation/development/development-concepts/randomness-api/cross-chain-ibc-randomness).

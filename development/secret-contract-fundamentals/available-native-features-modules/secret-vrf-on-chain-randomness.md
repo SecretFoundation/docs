@@ -72,6 +72,8 @@ Finally, if a malicious actor were to somehow break Secret Network’s SGX and s
 
 In conclusion, the Secret Network Random Number Generator (RNG) is a significant breakthrough in the generation of verifiable and fair random numbers on-chain. By leveraging the power of SGX and Tendermint consensus, Secret Network has created a first-in-class on-chain solution that generates random numbers with sufficient entropy, and these numbers are then encrypted, paired with an Initial Randomness Seed, and attached to block proposals where they are decrypted in order to generate true on-chain randomness. Coupled with cross-chain interoperable smart contracts over IBC, Secret Network enables thousands of developers and projects across the Cosmos access to state-of-the-art on-chain RNG.&#x20;
 
+For documentation on using Secret VRF in a native Secret contract, [click here](https://docs.scrt.network/secret-network-documentation/development/development-concepts/randomness-api/native-on-chain-randomness).
+
 ### Maths&#x20;
 
 <pre class="language-go"><code class="lang-go">IRS = HKDF(Consensus Seed, 0xdeadbeef)
