@@ -1,10 +1,10 @@
 ---
-description: A description of the SecretVRF function
+description: >-
+  An in-depth explanation of Secret VRF, a secure and verifiable random number
+  generator
 ---
 
 # Secret-VRF - on-chain Randomness
-
-
 
 {% hint style="warning" %}
 Want to develop with decentralized on-chain randomness? \

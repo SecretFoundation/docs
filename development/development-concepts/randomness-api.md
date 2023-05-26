@@ -1,7 +1,5 @@
 ---
-description: >-
-  A step-by-step tutorial of how to use Secret Network's randomness API to
-  generate a coin flip
+description: An introduction to Secret VRF, a secure and verifiable random number generator
 ---
 
 # Randomness API - Secret VRF

@@ -1,7 +1,7 @@
 ---
 description: >-
-  An example of how to interact with a Proxy Contract to fetch random numbers
-  via IBC, as well as a development playground for applications
+  An example of how to use Secret VRF to fetch random numbers via IBC, as well
+  as a development playground for applications
 ---
 
 # Cross-Chain (IBC) randomness
