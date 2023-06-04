@@ -229,45 +229,12 @@ docker start -a localsecret
 
 LocalSecret is often used alongside a script written with the secret.js as a convenient way to do integration tests. You can greatly improve the experience by speeding up the block time.
 
-To decrease block times, edit the `[consensus]` parameters in `~/.secretd/config/config.toml`, and specify your own values.
+To decrease block times, run LocalSecret with the `FAST_BLOCKS=true` environment varibale:
 
-The following example configures block time to be roughly `200ms`:
-
-```toml
-##### consensus configuration options #####
-[consensus]
-
-wal_file = "data/cs.wal/wal"
-- timeout_propose = "3s"
-- timeout_propose_delta = "500ms"
-- timeout_prevote = "1s"
-- timeout_prevote_delta = "500ms"
-- timeout_precommit_delta = "500ms"
-- timeout_commit = "5s"
-+ timeout_propose = "120ms"
-+ timeout_propose_delta = "20ms"
-+ timeout_prevote = "40ms"
-+ timeout_prevote_delta = "20ms"
-+ timeout_precommit_delta = "20ms"
-+ timeout_commit = "200ms"
 ```
-
-You can use the following commands to configure the above timeouts:
-
-```bash
-docker exec localsecret perl -i -pe 's/^timeout_propose =.*/timeout_propose = "120ms"/' .secretd/config/config.toml
-docker exec localsecret perl -i -pe 's/^timeout_propose_delta =.*/timeout_propose_delta = "20ms"/' .secretd/config/config.toml
-docker exec localsecret perl -i -pe 's/^timeout_prevote =.*/timeout_prevote = "40ms"/' .secretd/config/config.toml
-docker exec localsecret perl -i -pe 's/^timeout_prevote_delta =.*/timeout_prevote_delta = "20ms"/' .secretd/config/config.toml
-docker exec localsecret perl -i -pe 's/^timeout_precommit_delta =.*/timeout_precommit_delta = "20ms"/' .secretd/config/config.toml
-docker exec localsecret perl -i -pe 's/^timeout_commit =.*/timeout_commit = "200ms"/' .secretd/config/config.toml
+docker run -it -e FAST_BLOCKS=true -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
+  --name localsecret ghcr.io/scrtlabs/localsecret
 ```
-
-To load the changes, restart LocalSecret.
-
-{% hint style="info" %}
-_It may take some time for the container to setup before you can edit `.secretd/config/config.toml`, so when scripting this you might want to check when this file is present or simply wait for 5-10 seconds._
-{% endhint %}
 
 To complement this, when testing with secret.js you can lower `broadcastCheckIntervalMs` to `100` from the default of `6000` ([example](https://github.com/scrtlabs/secret.js/blob/70f1852/test/test.ts#L357-L360)).
 
