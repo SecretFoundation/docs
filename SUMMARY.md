@@ -88,6 +88,7 @@
   * [Secret Contracts introduction](development/secret-contract-fundamentals/secret-contracts-introduction.md)
   * [Gas/Fee usage](development/secret-contract-fundamentals/gas-fee-usage.md)
   * [TPS and scalability](development/secret-contract-fundamentals/tps-and-scalability.md)
+  * [Privacy as a Service (PaaS)](development/secret-contract-fundamentals/privacy-as-a-service-paas.md)
   * [Available native features/modules](development/secret-contract-fundamentals/available-native-features-modules/README.md)
     * [Auto Restaking](development/secret-contract-fundamentals/available-native-features-modules/auto-restaking.md)
     * [Secret-VRF - on-chain Randomness](development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness.md)
