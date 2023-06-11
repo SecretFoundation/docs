@@ -63,6 +63,5 @@ This same concept applies to many different usecases like Sealed bid auctions an
 {% hint style="info" %}
 Want to get started with Privacy as a Service or explore the possibilities but need some extra help?\
 \
-[**Get in Contact!**](https://forms.monday.com/forms/d1687ce9e74d031fac96c36a405a1fa1?r=use1)
+[**Get in Contact!**](https://forms.monday.com/forms/068ffff6bbc4e0308d44946273a9c612?r=use1)
 {% endhint %}
-
