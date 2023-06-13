@@ -1,3 +1,7 @@
+---
+description: An explainer on the varying storage frameworks for Secret contracts
+---
+
 # Storage
 
 ## How Storage Works

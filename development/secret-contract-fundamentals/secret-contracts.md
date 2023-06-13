@@ -1,4 +1,10 @@
-# Input data verification
+---
+description: >-
+  This page explains the concept of input data verification, a required
+  mechanism to ensure reliable privacy for secret contracts.
+---
+
+# Trusted and untrusted data
 
 Secret Contract developers must always consider the trade-off between privacy, user experience, performance and gas usage. Secret Contracts are able to provide privacy by default functionalities through verifying values during Secret Contract execution and verification of transaction parameters.
 
@@ -23,6 +29,6 @@ The parameter verification method depends on the contract caller:
   * Caller contract creates `callback_signature` based on parameters it sends, passes it on to the next contract
   * Receiver contract creates `callback_signature` based on the parameter it got.
   * Receiver contract verifies the signature it created matches the signature it got from the caller
-  * For the specifics, visit the [encryption specs](../encryption-key-management/)
+  * For the specifics, visit the [encryption specs](../../overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/)
 
 For more detailed explanations of Secret Contracts see the [Secret Contracts section under Development](broken-reference).

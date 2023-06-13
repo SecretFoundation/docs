@@ -1,3 +1,7 @@
+---
+description: An explainer of the Instantiate file inside of the CosmWasm code framework
+---
+
 # Instantiation Message
 
 ## What Is Instantiation?

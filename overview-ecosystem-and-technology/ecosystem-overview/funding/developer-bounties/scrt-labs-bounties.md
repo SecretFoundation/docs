@@ -1,3 +1,3 @@
 # SCRT Labs bounties
 
-**More info coming soon!**
+**Available under:** [**https://scrt.university/bounties**](https://scrt.university/bounties)

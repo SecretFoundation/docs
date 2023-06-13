@@ -1,3 +1,7 @@
+---
+description: An explainer of the query file inside of the CosmWasm code framework
+---
+
 # Query Message
 
 **Query messages** retrieve the relevant smart contract and execute the query message. The results of the query are then returned to the sender of the query message, providing users with information about the state of the blockchain and the smart contracts running on it.

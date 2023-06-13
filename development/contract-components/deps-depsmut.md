@@ -1,3 +1,7 @@
+---
+description: An explainer of the dependecies inside of the CosmWasm code framework
+---
+
 # Deps/DepsMut
 
 `Deps` (or the mutable version `DepsMut`) holds all external dependencies of the contract, and is designed to allow easy dependency injection at runtime. Those external dependencies are as follows:

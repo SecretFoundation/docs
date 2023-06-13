@@ -2,4 +2,4 @@
 
 Detailed Changelog of Secret Network can be found on the Github.
 
-{% embed url="https://github.com/scrtlabs/SecretNetwork/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/scrtlabs/SecretNetwork/blob/master/CHANGELOG.md" %}
