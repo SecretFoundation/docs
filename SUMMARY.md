@@ -125,6 +125,7 @@
   * [Contract Best Practices](development/testing-and-best-practices/best-practices/README.md)
     * [Upgradability](development/testing-and-best-practices/best-practices/upgradability.md)
     * [Padding/Datatype](development/testing-and-best-practices/best-practices/padding-datatype.md)
+    * [Gas Evaporation & Tracking](development/testing-and-best-practices/best-practices/gas-evaporation-and-tracking.md)
     * [Admin Keys](development/testing-and-best-practices/best-practices/admin-keys.md)
     * [Data Handling](development/testing-and-best-practices/best-practices/data-handling.md)
     * [Contract Optimization](development/testing-and-best-practices/best-practices/contract-optimization.md)

@@ -30,7 +30,8 @@ const addMinterMsg = await secretjs.tx.snip721.addMinter(
   {
     gasLimit: 200_000,
   },
-);</code></pre>
+);
+</code></pre>
 
 ### Send SNIP721 Token
 

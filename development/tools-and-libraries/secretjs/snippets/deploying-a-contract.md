@@ -1,7 +1,5 @@
 # Deploying a Contract
 
-
-
 ```typescript
 const { Wallet, SecretNetworkClient } = require("secretjs");
 
