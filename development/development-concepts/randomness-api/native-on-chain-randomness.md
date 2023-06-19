@@ -10,19 +10,20 @@ In this tutorial, you will learn how to access the randomness feature and use it
 
 For a detailed feature explainer head to the [network technical documentation](../../secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness.md)
 
-### Enable the "random" feature
+### Import Secret VRF
 
-In your Cargo.toml file, add the "random" feature to the cosmwasm-std dependency:
+In your Cargo.toml file, add secret-toolkit-storage 0.9.0:
 
 ```rust
-[dependencies.cosmwasm-std]
-git = "https://github.com/scrtlabs/cosmwasm"
-rev = "8ee395ba033c392d7170c971df97f085edaed2d9"
-package = "secret-cosmwasm-std"
-features = ["random"]
+[dependencies]
+cosmwasm-std = { package = "secret-cosmwasm-std", version = "1.1.10" }
+cosmwasm-storage = { package = "secret-cosmwasm-storage", version = "1.1.10" }
+secret-toolkit-storage = "0.9.0"
 ```
 
-_Note this will change as the feature gets merged into the main-line branch_
+{% hint style="info" %}
+Make sure you're compiling with rust < 1.70. Newer versions are currently not compatible.
+{% endhint %}
 
 ### Tutorial - Coin Flip
 
