@@ -90,6 +90,7 @@
   * [Trusted and untrusted data](development/secret-contract-fundamentals/secret-contracts.md)
   * [Privacy as a Service (PaaS)](development/secret-contract-fundamentals/privacy-as-a-service-paas.md)
   * [Available native features/modules](development/secret-contract-fundamentals/available-native-features-modules/README.md)
+    * [Price Oracles](development/secret-contract-fundamentals/available-native-features-modules/price-oracles.md)
     * [Auto Restaking](development/secret-contract-fundamentals/available-native-features-modules/auto-restaking.md)
     * [Secret-VRF - on-chain Randomness](development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness.md)
 * [Secret Contract / CosmWasm framework](development/secret-contract-cosmwasm-framework/README.md)
