@@ -107,6 +107,7 @@
       * [Append Store](development/secret-contract-cosmwasm-framework/contract-components/storage/append-store.md)
       * [Best practices](development/secret-contract-cosmwasm-framework/contract-components/storage/contract-optimization.md)
 * [Development concepts/templates](development/development-concepts/README.md)
+  * [Update CW v0.10 --> V1.1](development/development-concepts/update-cw-v0.10-greater-than-v1.1.md)
   * [Datatype Handling - Uint, floats etc.](development/development-concepts/data-handling.md)
   * [Secret Tokens (SNIP-20)](development/development-concepts/secret-tokens/creation/create-your-own-snip-20-token-on-secret-network.md)
   * [Contract - module call](development/development-concepts/how-to-send-native-scrt/README.md)
