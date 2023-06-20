@@ -181,10 +181,10 @@ secretd configure-secret node-master-cert.der $SEED
 
 ```bash
 # seeds
-perl -i -pe 's/seeds = ""/seeds = "7a421a6f5f1618f7b6fdfbe4854985746f85d263\@108.62.104.102:26656,a72e376dca664bac55e8ce55a2e972a8ae2c995e\@144.202.126.98:26656,a941999e72f4726d276ef055a09cb8bedf8e7a9a\@45.35.77.30:26656,f95ba3da4a9eec559397f4b47b1539e24af6904c\@52.190.249.47:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/seeds = ""/seeds = "7a421a6f5f1618f7b6fdfbe4854985746f85d263\@108.62.104.102:26656,d2d1c0a683845154d9cfb0e2d666233c2ed07513\@81.171.3.86:26656,388e413016394cd12c7fbb3a0b24a702b1299eea\@212.95.51.207:26656,b3e04cf004cdfd5d9fcfa47c6a3ce0e3c0e920c1\@144.202.126.98:26656"/' ~/.secretd/config/config.toml
 
 # persistent_peers
-perl -i -pe 's/persistent_peers = ""/persistent_peers = "7a421a6f5f1618f7b6fdfbe4854985746f85d263\@108.62.104.102:26656,a72e376dca664bac55e8ce55a2e972a8ae2c995e\@144.202.126.98:26656,a941999e72f4726d276ef055a09cb8bedf8e7a9a\@45.35.77.30:26656,f95ba3da4a9eec559397f4b47b1539e24af6904c\@52.190.249.47:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "7a421a6f5f1618f7b6fdfbe4854985746f85d263\@108.62.104.102:26656,d2d1c0a683845154d9cfb0e2d666233c2ed07513\@81.171.3.86:26656,388e413016394cd12c7fbb3a0b24a702b1299eea\@212.95.51.207:26656,b3e04cf004cdfd5d9fcfa47c6a3ce0e3c0e920c1\@144.202.126.98:26656"/' ~/.secretd/config/config.toml
 ```
 
 ### **Optimization**
