@@ -84,6 +84,7 @@
   * [Secret Contracts introduction](development/secret-contract-fundamentals/secret-contracts-introduction.md)
   * [Gas/Fee usage](development/secret-contract-fundamentals/gas-fee-usage.md)
   * [TPS and scalability](development/secret-contract-fundamentals/tps-and-scalability.md)
+  * [Privacy Essentials](development/secret-contract-fundamentals/privacy-essentials.md)
   * [Access Control](development/secret-contract-fundamentals/access-control/README.md)
     * [Viewing Keys](development/secret-contract-fundamentals/access-control/viewing-keys.md)
     * [Permits](development/secret-contract-fundamentals/access-control/permits.md)
