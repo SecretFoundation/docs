@@ -8,7 +8,7 @@ description: How to write Unit Tests for Secret Contracts
 
 To ensure that Secret smart contract code is reliable and free of errors, it's important to test it thoroughly. One effective way to achieve this is through **unit testing.**
 
-Unit testing involves breaking down a program into its smallest components or units and testing each one in isolation. By testing each unit separately, developers can easily pinpoint the root cause of any errors or bugs and fix them quickly.
+Unit testing involves breaking down a program into its smallest components or units and testing each one in isolation. By testing each unit separately, developers can pinpoint the root cause of any errors or bugs and fix them quickly.
 
 In Rust, unit testing is supported by the [Rust testing framework](https://doc.rust-lang.org/book/ch11-01-writing-tests.html), which provides a set of macros and utilities for writing and running tests. Rust's testing framework is built into the standard library and is designed to:
 

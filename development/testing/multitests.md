@@ -1,10 +1,14 @@
 ---
-description: How to write Multitests for Secret Contracts
+description: How to write Multitests for Cosmwasm Smart Contracts
 ---
 
 # Multitests
 
-## Writing Secret Contract Multitests <a href="#writing-automated-tests" id="writing-automated-tests"></a>
+{% hint style="warning" %}
+When working with Secret Network, it's crucial to understand that official support for multi-tests is not currently provided. As a result, when porting over a standard CosmWasm smart contract, it's advisable to exclude the `integration_tests.rs` file from your project. This page of documentation explains how to write standard CosmWasm multitests, but this is not yet supported on Secret Network.&#x20;
+{% endhint %}
+
+## Writing CosmWasm Multitests <a href="#writing-automated-tests" id="writing-automated-tests"></a>
 
 `cw_multi_test` is [a Rust library](https://docs.rs/cw-multi-test/latest/cw\_multi\_test/) that provides utilities for writing **integration tests** for CosmWasm smart contracts. According to the rust docs:
 
