@@ -80,6 +80,7 @@
   * [Compile and Deploy](development/getting-started/compile-and-deploy.md)
   * [Running the Application](development/getting-started/running-the-application.md)
   * [Interacting with the Network](development/getting-started/interacting-with-the-testnet.md)
+  * [Fullstack dApp Integration](development/getting-started/fullstack-dapp-integration.md)
 * [Secret contract - design fundamentals](development/secret-contract-fundamentals/README.md)
   * [Secret Contracts introduction](development/secret-contract-fundamentals/secret-contracts-introduction.md)
   * [Gas/Fee usage](development/secret-contract-fundamentals/gas-fee-usage.md)
