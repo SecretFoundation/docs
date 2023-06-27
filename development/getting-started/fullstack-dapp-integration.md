@@ -12,7 +12,7 @@ Yao's Millionaires' problem is a secure multi-party computation problem introduc
 
 [The Secret smart contract](https://github.com/scrtlabs/MillionaireProblemTutorial/tree/master) we will be working with demonstrates an example implementation that allows two millionaires to submit their net worth and determine who is richer, without revealing their actual net worth.&#x20;
 
-[This is the source code](https://github.com/scrtlabs/examples/tree/master/secret-millionaire) for the full stack application. In this demo you will learn how to **integrate the Secret Millionaire contract with a front end designed in React using Secret.Js.** Let's get started! &#x20;
+[This is the source code](https://github.com/scrtlabs/examples/tree/master/secret-millionaire) for the full stack application, [and you can use the live dApp at this web address](https://fullstack-secret-millionaire.vercel.app/) on Secret testnet. In this demo you will learn how to **integrate the Secret Millionaire contract with a front end designed in React using Secret.Js.** Let's get started! &#x20;
 
 <figure><img src="../../.gitbook/assets/secret millionaire (1).gif" alt=""><figcaption><p>Completed React.js application</p></figcaption></figure>
 
@@ -209,5 +209,5 @@ Lastly, we need to be able to query the result of submitted transaction, namely,
 
 ### Putting it all together&#x20;
 
-You now have all of the tools you need to create a decentralized full stack application on Secret Network. In this tutorial you learned how to write React.js functions to connect to Keplr wallet, submit simultaneous transactions and reset net worth data, and query a Secret smart contract for the wealthier party. If you have further questions as you continue to develop on Secret Network, **please join the weekly Monday developer call on Discord at 12pmET.**&#x20;
+You now have all of the tools you need to create a decentralized full stack application on Secret Network. In this tutorial you learned how to write React.js functions to connect to Keplr wallet, submit simultaneous transactions and reset net worth data, and query a Secret smart contract for the wealthier party. If you have further questions as you continue to develop on Secret Network, **please** [**join the weekly Monday developer call on Discord**](https://discord.com/channels/360051864110235648/760903186067488779) **at 12pmET.**&#x20;
 
