@@ -38,7 +38,7 @@ Copy of raw script.
 #! /bin/bash
 
 sudo apt-get update && sudo apt upgrade -y
-sudo apt-get install make build-essential gcc git jq chrony -y
+sudo apt-get install make build-essential gcc git jq chrony dkms gpg-agent -y
 
 UBUNTUVERSION=$(lsb_release -r -s | cut -d '.' -f 1)
 PSW_PACKAGES='libsgx-enclave-common libsgx-aesm-launch-plugin libsgx-aesm-epid-plugin libsgx-aesm-quote-ex-plugin libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
