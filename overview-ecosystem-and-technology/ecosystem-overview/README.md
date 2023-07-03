@@ -30,7 +30,7 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 ### Community Channels
 
 * [Forum](https://forum.scrt.network/)
-* [Discord](https://chat.scrt.network)
+* [Discord](https://scrt.network/discord)
 * [Telegram](https://t.me/scrtCommunity)
 * [Reddit](https://www.reddit.com/r/SecretNetwork/)
 * [Twitter](https://twitter.com/SecretNetwork)

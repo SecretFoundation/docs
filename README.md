@@ -11,7 +11,7 @@ Secret Network offers scalable permissionless smart contracts with a private by 
 
 * [Telegram](https://t.me/SCRTCommunity)
 * [Twitter](https://twitter.com/SecretNetwork)
-* [Discord](https://chat.scrt.network/)
+* [Discord](https://scrt.network/discord/)
 * [Forum](https://forum.scrt.network/)
 * [Blog](https://blog.scrt.network/)
 * [Homepage](https://scrt.network/)

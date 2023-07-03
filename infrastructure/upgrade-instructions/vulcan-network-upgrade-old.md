@@ -15,7 +15,7 @@
 
 ## Validators <a href="#validators" id="validators"></a>
 
-All coordination efforts will be done in the [mainnet-validators](https://chat.scrt.network/channel/mainnet-validators) channel in the Secret Network Discord.
+All coordination efforts will be done in the [mainnet-validators](https://scrt.network/discord/channel/mainnet-validators) channel in the Secret Network Discord.
 
 > ⚠️ Don't delete your `secret-1` machine, as we might have to relaunch it.
 
