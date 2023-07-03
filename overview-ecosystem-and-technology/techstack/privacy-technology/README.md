@@ -16,13 +16,13 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 [Steps Of A Private Transactions](broken-reference)
 
-[Private Computation & Consensus Flow](private-computation-and-consensus-flow/)
+[Private Computation & Consensus Flow](private-computation-and-consensus-flow.md)
 
 [Encryption - Key Management](encryption-key-management/)
 
 [Trusted Execution Environments (TEE) - Intel SGX](intel-sgx/)
 
-[Access Control](access-control/)
+[Access Control](../../../development/secret-contract-fundamentals/access-control/)
 
 [Plans Beyond SGX](plans-beyond-sgx.md)
 

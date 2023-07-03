@@ -1,6 +1,6 @@
-# Theoretical Attacks
+# Potential Attacks
 
-There are several theoretical attacks identified as potentially being problematic for the Secret Network. This page seeks to identify and explain each theoretical attack to educate the community of developers building on the Secret Network.&#x20;
+There are several theoretical attacks identified as potentially being problematic for the Secret Network. This page seeks to identify and explain each theoretical attack to educate the community of developers building on the Secret Network.
 
 ### Two Contracts With The Same `contract_key` Could Deanonymize Their States <a href="#two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states" id="two-contracts-with-the-same-contract-key-could-deanonymize-each-other-s-states"></a>
 
@@ -10,7 +10,8 @@ For example, an original contract with a permissioned getter, such that only whi
 
 ### Deanonymizing With Ciphertext Byte Count <a href="#deanonymizing-with-ciphertext-byte-count" id="deanonymizing-with-ciphertext-byte-count"></a>
 
-No encryption padding, so a value of e.g. "yes" or "no" can be deanonymized by its byte count.
+No encryption padding, so a value of e.g. "yes" or "no" can be deanonymized by its byte count.\
+Padding the inputs and variables during execution can limit this attack vector.
 
 ### Tx Replay Attacks/Side-chain attacks <a href="#tx-replay-attacks" id="tx-replay-attacks"></a>
 
@@ -44,9 +45,9 @@ Secret Contract developers must analyze the privacy model of their contract - Wh
 
 ### Partial Storage Rollback During Contract Runtime <a href="#partial-storage-rollback-during-contract-runtime" id="partial-storage-rollback-during-contract-runtime"></a>
 
-Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage.&#x20;
+Our current schema can verify that when reading from a field in storage, the value received from the host has been written by the same contract instance to the same field in storage.
 
-BUT we can not (yet) verify that the value is the most recent value that was stored there. This means a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this causes a contract to expose old secrets with new permissions, or new secrets with old permissions.&#x20;
+BUT we can not (yet) verify that the value is the most recent value that was stored there. This means a malicious host can (offline) run a transaction, and then selectively provide outdated values for some fields of the storage. In the worst case, this causes a contract to expose old secrets with new permissions, or new secrets with old permissions.
 
 The contract can protect against this by either (e.g.) making sure that pieces of information that have to be synced with each other are saved under the same field (so they are never observed as desynchronized) or (e.g.) somehow verify their validity when reading them from two separate fields of storage.
 
@@ -58,7 +59,7 @@ Encrypted inputs are known by the query sender and the contract. In `query` we d
 | ----- | ---------- | ---------- | -------- | ----- |
 | `msg` | `QueryMsg` | Yes        | Yes      |       |
 
-`Trusted = No` means this data can easily be forged. An attacker can take its node offline and replay old inputs. This data that is `Trusted = No` by itself cannot be trusted in order to reveal secrets. This is more applicable to `init` and `handle`, but know that an attacker can replay the input `msg` to its offline node.&#x20;
+`Trusted = No` means this data can easily be forged. An attacker can take its node offline and replay old inputs. This data that is `Trusted = No` by itself cannot be trusted in order to reveal secrets. This is more applicable to `init` and `handle`, but know that an attacker can replay the input `msg` to its offline node.
 
 Although `query` cannot change the contract's state and the attacker cannot decrypt the query output, the attacker might be able to deduce private information by monitoring output sizes at different times. See [differences in output return values size ](theoretical-attacks.md#differences-in-output-messages-callbacks)to learn more about this kind of attack and how to mitigate it.
 
@@ -209,4 +210,3 @@ Therefore similar to previous examples, an attacker might guess what happened in
 ### Tx Outputs Can Leak Data <a href="#tx-outputs-can-leak-data" id="tx-outputs-can-leak-data"></a>
 
 For example, a dev writes a contract with 2 functions, the first one always outputs 3 events and the second one always outputs 4 events. By counting the number of output events an attacker can know which function was invoked. This also applies with deposits, callbacks and transfers.
-

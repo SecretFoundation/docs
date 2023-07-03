@@ -14,7 +14,7 @@ If you're running a local machine and not a cloud-based VM -
 #### Install SGX <a href="#install-sgx" id="install-sgx"></a>
 
 {% hint style="info" %}
-`sgx_linux_x64_driver_2.11.054c9c4c.bin` is the latest driver as of Jun 7th, 2022. Please check under [https://download.01.org/intel-sgx/sgx-linux/](https://download.01.org/intel-sgx/sgx-linux/) that this is still the case. If not, please send us a PR or notify us.
+`sgx_linux_x64_driver_1.41.bin` is the latest driver as of March 9th, 2023. Please check under [https://download.01.org/intel-sgx/sgx-linux/](https://download.01.org/intel-sgx/sgx-linux/) that this is still the case. If not, please send us a PR or notify us.
 {% endhint %}
 
 If you are a node runner all you must do to install SGX is to save this as a script and run it.
@@ -38,10 +38,10 @@ Copy of raw script.
 #! /bin/bash
 
 sudo apt-get update && sudo apt upgrade -y
-sudo apt-get install make build-essential gcc git jq chrony -y
+sudo apt-get install make build-essential gcc git jq chrony dkms gpg-agent -y
 
 UBUNTUVERSION=$(lsb_release -r -s | cut -d '.' -f 1)
-PSW_PACKAGES='libsgx-enclave-common libsgx-aesm-launch-plugin libsgx-aesm-quote-ex-plugin libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
+PSW_PACKAGES='libsgx-enclave-common libsgx-aesm-launch-plugin libsgx-aesm-epid-plugin libsgx-aesm-quote-ex-plugin libsgx-urts sgx-aesm-service libsgx-uae-service autoconf libtool make gcc'
 
 if (($UBUNTUVERSION < 16)); then
 	echo "Your version of Ubuntu is not supported. Must have Ubuntu 16.04 and up. Aborting installation script..."
@@ -69,7 +69,7 @@ if (($UBUNTUVERSION == 16)); then
    # Ubuntu 16 was deprecated by the latest Intel SGX drivers
    wget "https://download.01.org/intel-sgx/sgx-linux/2.13/distro/${OS}/sgx_linux_x64_driver_2.11.0_0373e2e.bin"
 else
-   wget "https://download.01.org/intel-sgx/sgx-linux/2.17/distro/${OS}/sgx_linux_x64_driver_2.11.054c9c4c.bin"
+   wget "https://download.01.org/intel-sgx/sgx-linux/2.17/distro/${OS}/sgx_linux_x64_driver_1.41.bin"
 fi
 
 # Make the driver installer executable
@@ -106,16 +106,16 @@ wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key |
    sudo apt-key add -
 sudo apt update
 
-# Install libprotobuf
-if (($UBUNTUVERSION > 18)); then
-   sudo apt install -y gdebi
-   # Install all the additional necessary dependencies (besides the driver and the SDK)
-   # for building a rust enclave
-   wget -O /tmp/libprotobuf30_3.19.4-1_amd64.deb https://engfilestorage.blob.core.windows.net/filestorage/libprotobuf30_3.19.4-1_amd64.deb
-   yes | sudo gdebi /tmp/libprotobuf30_3.19.4-1_amd64.deb
-else
-   PSW_PACKAGES+=' libprotobuf-dev'
-fi
+# Install libprotobuf - should not be necessary anymore
+# if (($UBUNTUVERSION > 18)); then
+#   sudo apt install -y gdebi
+#   # Install all the additional necessary dependencies (besides the driver and the SDK)
+#   # for building a rust enclave
+#   wget -O /tmp/libprotobuf30_3.19.4-1_amd64.deb https://engfilestorage.blob.core.windows.net/filestorage/libprotobuf30_3.19.4-1_amd64.deb
+#   yes | sudo gdebi /tmp/libprotobuf30_3.19.4-1_amd64.deb
+#else
+#   PSW_PACKAGES+=' libprotobuf-dev'
+#fi
 
 sudo apt install -y $PSW_PACKAGES
 ```

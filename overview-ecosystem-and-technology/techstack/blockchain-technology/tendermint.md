@@ -8,11 +8,9 @@ Tendermint allows developers to focus on the application level and not take care
 
 ### Byzantine-Fault-Tolerance (BFT)
 
-In short, BFT represents the ability of a system to continue operating even if some of its nodes fail or act maliciously. In the Tendermint case, it can only tolerate up to a 1/3 of failures, meaning that the blockchain will halt momentarily until a 2/3 of the validator set comes to consensus.
+In short, BFT represents the ability of a system to continue operating even if some of its nodes fail or act maliciously. In the Tendermint case, it can only tolerate up to 1/3 of failures, meaning that the blockchain will halt momentarily until 2/3 of the validator set comes to consensus.
 
-Unlike Nakamoto consensus where it’s subject to 51% attack (meaning that 51% of the actors acting maliciously could attack and alter the blockchain), Tendermint is more resistant as it is subject to a 66% attack.
-
-> 💡 If you want to understand in more details how this concept works, check this link: [Delegated Byzantine Fault Tolerance (dBFT) - CryptoGraphics](https://cryptographics.info/cryptographics/blockchain/consensus-mechanisms/delegated-byzantine-fault-tolerance-dbft/)
+Unlike Nakamoto consensus where it is subject to 51% attack (meaning that 51% of the actors acting maliciously could attack and alter the blockchain), Tendermint is more resistant as it is subject to a 66% attack.
 
 ### Consensus
 
