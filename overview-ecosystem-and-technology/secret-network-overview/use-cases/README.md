@@ -31,5 +31,5 @@ Secret Network is providing the solution to take back control, preserve your rig
 Secret Network is not only bringing privacy to existing blockchain applications but also providing the base layer for a better Web3. This is where we are seeing a lot of real use case applications putting back the user at the center of it all, preserving your right to privacy.
 
 {% hint style="info" %}
-Want to learn more? Join the community: [Website](https://scrt.network/) - [Twitter](https://twitter.com/SecretNetwork) - [Discord](https://chat.scrt.network/)
+Want to learn more? Join the community: [Website](https://scrt.network/) - [Twitter](https://twitter.com/SecretNetwork) - [Discord](https://scrt.network/discord/)
 {% endhint %}

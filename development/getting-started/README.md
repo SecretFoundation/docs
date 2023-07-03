@@ -18,7 +18,7 @@ What **won't** be covered:
 Most of the topics covered focus directly on Secret Network but are also relevant to other cosmos-based blockchains.
 
 {% hint style="info" %}
-If at any point you have any trouble understanding or following along, [join us on discord](https://chat.scrt.network) to get help from the community!
+If at any point you have any trouble understanding or following along, [join us on discord](https://scrt.network/discord) to get help from the community!
 {% endhint %}
 
 If you have suggestions, improvements, or corrections, [let us know on GitHub](https://github.com/SecretFoundation/docs/issues)!

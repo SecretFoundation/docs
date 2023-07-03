@@ -37,7 +37,7 @@ If you do not see such an output, look for a file called `attestation_cert.der` 
 #### What to do if this didn't work?
 
 1. Running `secretd init-enclave` should have created a file called `attestation_cert.der`. This file contains the attestation report from above.
-2. Contact us on the proper channels on `chat.scrt.network`
+2. Contact us on the proper channels on `scrt.network/discord`
 3. The details we will need to investigate will include:
    * Hardware specs
    * SGX PSW/driver versions

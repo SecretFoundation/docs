@@ -111,7 +111,7 @@ echo $PUBLIC_KEY
 ```
 
 {% hint style="danger" %}
-If registration was NOT succesfull consider checking out the [Registration troubleshooting](../../setting-up-a-node-validator/hardware-setup/registration-troubleshooting.md) help or contact a fellow validator on our [discord](https://chat.scrt.network).
+If registration was NOT succesfull consider checking out the [Registration troubleshooting](../../setting-up-a-node-validator/hardware-setup/registration-troubleshooting.md) help or contact a fellow validator on our [discord](https://scrt.network/discord).
 {% endhint %}
 
 ### **Configure `secretd`**
