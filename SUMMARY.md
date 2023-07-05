@@ -125,6 +125,7 @@
   * [Randomness API - Secret VRF](development/development-concepts/randomness-api.md)
     * [Native On-chain randomness](development/development-concepts/randomness-api/native-on-chain-randomness.md)
     * [Cross-Chain (IBC) randomness](development/development-concepts/randomness-api/cross-chain-ibc-randomness.md)
+    * [Cross-Chain (Juno) randomness](development/development-concepts/randomness-api/cross-chain-ibc-randomness-1.md)
   * [Execution Finalization](development/development-concepts/execution-finalization.md)
   * [Factory Contracts](development/development-concepts/factory-contracts.md)
   * [Cross-deploy Vanilla CW and Secret Contracts](development/development-concepts/cross-deploy-vanilla-cw-and-secret-contracts.md)

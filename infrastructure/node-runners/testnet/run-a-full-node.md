@@ -274,4 +274,3 @@ You can skip syncing from scratch or download a snapshot by [State Syncing](test
 
 To turn your full node into a validator, see [Join Testnet as a Validator](run-a-full-node.md#how-to-join-secret-network-as-a-full-node-on-testnet).
 
-***
