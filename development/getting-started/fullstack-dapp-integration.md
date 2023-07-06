@@ -12,7 +12,13 @@ Yao's Millionaires' problem is a secure multi-party computation problem introduc
 
 [The Secret smart contract](https://github.com/scrtlabs/MillionaireProblemTutorial/tree/master) we will be working with demonstrates an example implementation that allows two millionaires to submit their net worth and determine who is richer, without revealing their actual net worth.&#x20;
 
-[This is the source code](https://github.com/scrtlabs/examples/tree/master/secret-millionaire) for the full stack application, [and you can use the live dApp at this web address](https://fullstack-secret-millionaire.vercel.app/) on Secret testnet. In this demo you will learn how to **integrate the Secret Millionaire contract with a front end designed in React using Secret.Js.** Let's get started! &#x20;
+[This is the source code](https://github.com/scrtlabs/examples/tree/master/secret-millionaire) for the full stack application, [and you can use the live dApp at this web address](https://fullstack-secret-millionaire.vercel.app/) on Secret testnet.
+
+{% hint style="info" %}
+To interact with the dApp, you will need to have the Secret Testnet (pulsar-2) configured with your Keplr wallet and also fund it with testnet tokens. [Learn how to configure and fund your keplr wallet here](https://docs.scrt.network/secret-network-documentation/overview-ecosystem-and-technology/secret-network-overview/testnet#set-up-with-keplr)!
+{% endhint %}
+
+In this demo you will learn how to **integrate the Secret Millionaire contract with a front end designed in React using Secret.Js.** Let's get started! &#x20;
 
 <figure><img src="../../.gitbook/assets/secret millionaire (1).gif" alt=""><figcaption><p>Completed React.js application</p></figcaption></figure>
 
