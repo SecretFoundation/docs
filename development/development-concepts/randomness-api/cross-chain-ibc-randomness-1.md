@@ -4,7 +4,7 @@ description: >-
   Secret and Juno testnet
 ---
 
-# Cross-Chain (Juno) randomness
+# Cross-Chain (IBC) randomness
 
 ## Cross-Chain Random Numbers Demo
 
@@ -103,3 +103,100 @@ junod tx wasm instantiate <your code id> '{"init": {"rand_provider": { "address"
 {% endcode %}
 
 My contract address is `juno1z4n39vfckeuv6udx6f4e6h8d5mt3xucuwdjs6lk2ets60ejruseqnpt00k`  🙌
+
+#### Configuring Hermes Relayer
+
+Now that you have successfully uploaded and instantiated the three smart contracts, let's configure Hermes Relayer to relay packets between Secret test and Juno testnet.&#x20;
+
+First, [install Hermes and Gaiad manager](https://hermes.informal.systems/quick-start/index.html).&#x20;
+
+Then, configure Hermes by navigating to the folder `.hermes` and opening the `config.toml` file.&#x20;
+
+{% hint style="info" %}
+If you're on a Mac, you may need to press `Command + Shift + Period` to see hidden files, such as the `.hermes` folder.&#x20;
+{% endhint %}
+
+To relay packets between Secret Network testnet and Juno testnet, update the `config.toml` file with the [configuration seen here](https://github.com/scrtlabs/examples/blob/master/secret-ibc-rng-template/config.toml).&#x20;
+
+Next, configure Gaiad Manager by navigating to the folder `.gm`, and then update the gm.toml file with the [configuration seen here.](https://github.com/scrtlabs/examples/blob/master/secret-ibc-rng-template/gm.toml)&#x20;
+
+{% hint style="info" %}
+If you are using Hermes Relayer, make sure your paths are set up correctly in both the `config.toml and gm.toml`. See the image below for reference:
+{% endhint %}
+
+<figure><img src="../../../.gitbook/assets/path config.png" alt="" width="375"><figcaption></figcaption></figure>
+
+Now let's relay packets! 🎉&#x20;
+
+### Consuming the random number via IBC
+
+Now it's time to execute our IBC smart contracts and relay packets between Juno testnet and Secret testnet. If you run into any issues at this step, refer to the [hermes docs ](https://hermes.informal.systems/tutorials/local-chains/start-local-chains.html)for guidance, and also ask questions in the [Secret Network developer discord chat](https://discord.com/channels/360051864110235648/603225118545674241)!&#x20;
+
+1. &#x20;Start Gaiad Manager
+
+```
+gm start
+```
+
+2. Create clients&#x20;
+
+```
+hermes create client --host-chain pulsar-2 --reference-chain uni-6
+hermes create client --host-chain uni-6 --reference-chain pulsar-2
+```
+
+3. Create connections
+
+{% code overflow="wrap" %}
+```
+hermes create connection --a-chain uni-6 --a-client 07-tendermint-468 --b-client 07-tendermint-235
+```
+{% endcode %}
+
+{% hint style="info" %}
+In place of `07-tendermint-235 and 07-tendermint-468`,  use the client IDs returned to you in your terminal.&#x20;
+{% endhint %}
+
+Upon success, you should see a message like so:&#x20;
+
+<figure><img src="../../../.gitbook/assets/hermes connection id.png" alt="" width="332"><figcaption></figcaption></figure>
+
+Now that a channel is established, let's create a channel identifier, which links the Juno proxy contract to the Secret proxy contract. Note that the ports listed below are the addresses of the Juno and Secret proxy contracts which we instantiated earlier.&#x20;
+
+4. Create channel identifier&#x20;
+
+{% code overflow="wrap" %}
+```
+hermes create channel --a-chain uni-6 --a-connection connection-612 --a-port wasm.juno1ecl4r6dhhlluz56jqm24t6ss7s9gr6d0pu2lumvpwnnk56gnw7gqpz8m6c --b-port wasm.secret1rmccmgwf6zf2kawrv7h5faq3tx883epz7ty6tj
+```
+{% endcode %}
+
+After successfully creating a channel identifier, we can relay packets! Let's start Hermes and then execute the Juno consumer contract to send a random network from Secret Network to Juno 🤯
+
+5. Start Hermes (open a new terminal window and then run the following)
+
+```
+hermes start 
+```
+
+After Hermes has started running, execute the Juno consumer contract to return a random number from Secret via IBC:&#x20;
+
+{% code overflow="wrap" %}
+```
+junod tx wasm execute --from <your wallet name> juno1z4n39vfckeuv6udx6f4e6h8d5mt3xucuwdjs6lk2ets60ejruseqnpt00k '{"do_something": {}}' --gas 300000 -y --chain-id uni-6 --node https://uni-rpc.reece.sh:443 --gas-prices 0.025ujunox
+```
+{% endcode %}
+
+{% hint style="info" %}
+Hermes will scan the chain for all clients, connections and channels. This might take some time, which is normal. If you want to specify which channels it scans, update the hermes config file to include the following at the [end of the chain configuration](https://github.com/scrtlabs/examples/blob/24f516d2d92ae292aab85d2007e5704f844d8b5c/secret-ibc-rng-template/config.toml#L82) (but with your channel info):&#x20;
+{% endhint %}
+
+```
+[chains.packet_filter]
+policy = 'allow'
+list = [
+  ['transfer', 'channel-495'],
+]
+```
+
+_Documentation currently in progress 7/6/23_
