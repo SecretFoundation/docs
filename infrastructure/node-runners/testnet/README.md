@@ -1,7 +1,7 @@
 ---
 description: >-
   This section will take you through the process of taking a node from fresh
-  machine to full validator on the public testnet pulsar-2.
+  machine to full validator on the public testnet pulsar-3.
 ---
 
 # Testnet Setup

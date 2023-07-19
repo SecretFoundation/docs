@@ -12,9 +12,9 @@ In this step-by-step guide I’ll show you how to connect to a testnet with Kepl
 
 The easy way to use a testnet is via the Keplr wallet browser extension, you can install it and set it up by following [this guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet) or [this video](https://www.youtube.com/watch?v=HgFWNJdD7-U\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4\_Uwwdg\&index=3). For safety reasons we recommend using a separate secondary wallet for testing purposes (read [this article](https://medium.com/@secretnetwork/how-to-avoid-scams-and-stay-safe-in-defi-b7309e123a7b) to learn about the best practices to stay safe in Secret Defi).
 
-Once you have saved your mnemonic phrase you can connect to the **pulsar-2** chain. The pulsar chain is hosted by the Secret Network testnet team which updates it periodically to make sure it’s in parallel with the current mainnet version.
+Once you have saved your mnemonic phrase you can connect to the **pulsar-3** chain. The pulsar chain is hosted by the Secret Network testnet team which updates it periodically to make sure it’s in parallel with the current mainnet version.
 
-* Go to [https://connect.pulsar.scrttestnet.com](https://connect.pulsar.scrttestnet.com) and click on the Keplr button
+* Go to [https://keplr-connect-pulsar3.vercel.app](https://keplr-connect-pulsar3.vercel.app) and click on the Keplr button
 * Click “**approve**” once the Keplr window pops up to add the chain config
 
 ![](../../.gitbook/assets/add\_keplr.png)
@@ -35,11 +35,11 @@ The fastest and easiest way to get some test SCRT into your wallet is to use **f
 
 Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.
 
-* Go to [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/)
+* Go to [https://faucet-ui-pulsar3.vercel.app/](https://faucet.pulsar.scrttestnet.com/)
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
   ![](<../../.gitbook/assets/testnetguide\_3 (1).png>)
 
-In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can use the [backup faucet](https://faucet.pulsar.scrttestnet.com), or let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
+In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can use the [backup faucet](http://bootstrap.pulsar3.scrtlabs.com:5000/address=secret1), or let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
 
 ## **Set Up SecretCLI**
 
@@ -49,9 +49,9 @@ To have access to all the testnet functionalities and to develop you can connect
 *   Open your terminal and run the following commands to connect to pulsar-2 and add your wallet:
 
     ```
-    secretcli config node https://rpc.pulsar.scrttestnet.com
+    secretcli config node https://rpc.pulsar3.scrttestnet.com
     secretcli config output json
-    secretcli config chain-id pulsar-2
+    secretcli config chain-id pulsar-3
     secretcli keys add <a-name> --recover
     ```
 * Paste your wallet’s mnemonic phrase when asked to do so
@@ -103,4 +103,9 @@ _**Note:** If you’re using `secretcli` view a full list of commands for_ [_Sec
 
 ## Viewing Testnet Transactions
 
-To view testnet transactions and contract interactions on the testnets you can use the [SecretNodes block explorer](https://secretnodes.com/chains)—the chain configured for this page's demonstration purposes is [pulsar-2](https://secretnodes.com/secret/chains/pulsar-2).
+To view testnet transactions and contract interactions on the testnets you can use the [Ping Dashboard, a light explorer for Cosmos-based Blockchains. https://ping.pub  [pulsar-2](https://testnet.ping.pub/secret/).
+
+
+
+* [Ping Dashboard - pulsar-2](https://testnet.ping.pub/secret/)
+  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub 

@@ -27,18 +27,19 @@
 
 * [Faucet](https://faucet.pulsar.scrttestnet.com/)
   * Run by the testnet committee
-* [Secretnodes](https://secretnodes.com/secret/chains/pulsar-2)
-  * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
+* [Ping Dashboard - pulsar-2](https://testnet.ping.pub/secret/)
+  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub 
 * [Documentation](../../infrastructure/node-runners/testnet/)
 
-`holodeck-2`, [Docs](https://github.com/scrtlabs/testnet/blob/master/holodeck-2/details.md) (maintained by validator [Chain of Secrets](https://chainofsecrets.org/))
 
-* [Faucet](https://faucet.secrettestnet.io/)
-  * Run by validator [Chain of Secrets](https://chainofsecrets.org/)
-* [Secretnodes](https://secretnodes.com/secret/chains/holodeck-2)
-  * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
-* [SecretTestnet](https://explorer.secrettestnet.io/) **(retired)**
-  * Explorer run by validator [Chain of Secrets](https://chainofsecrets.org/)
+### Testnet - Pulsar-3
+
+* [Faucet](https://faucet-ui-pulsar3.vercel.app/)
+  * Run by the testnet committee
+* [Ping Dashboard - pulsar-3](https://explorer-pulsar3.vercel.app)
+  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub 
+* [Documentation](../../infrastructure/node-runners/testnet/)
+
 
 ### Bots
 
