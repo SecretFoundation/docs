@@ -14,7 +14,7 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 * A public IP address
 * Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 * Reading [Tendermint: Running in production](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html)
-* RPC address of an already active node. You can use `bootstrap.secrettestnet.io:26657`, or any other node that exposes RPC services. Alternate RPC nodes available in the [API Registry.](../../../development/resources-api-contract-addresses/connecting-to-the-network/)
+* RPC address of an already active node. You can use `http://bootstrap.pulsar3.scrtlabs.com:26657`, or any other node that exposes RPC services. Alternate RPC nodes available in the [API Registry.](../../../development/resources-api-contract-addresses/connecting-to-the-network/)
 * [Install SGX](install-sgx.md)
 
 #### Minimum Requirements <a href="#minimum-requirements" id="minimum-requirements"></a>
@@ -46,7 +46,7 @@ For more information on SGX, see instructions for [SGX Installation](../node-set
 Choose a **moniker** for yourself, and replace `<MONIKER>` with your moniker below. This moniker will serve as your public nickname in the network.
 
 ```bash
-secretd init <MONIKER> --chain-id pulsar-2
+secretd init <MONIKER> --chain-id pulsar-3
 ```
 
 This will generate the following files in `~/.secretd/config/`
@@ -60,9 +60,9 @@ This will generate the following files in `~/.secretd/config/`
 The genesis file is how other nodes on the network know what network you should be on.
 
 ```bash
-wget -O ~/.secretd/config/genesis.json "https://storage.googleapis.com/stakeordie-pulsar-2/genesis.json"
+wget -O ~/.secretd/config/genesis.json http://bootstrap.pulsar3.scrtlabs.com:26657/genesis
 # verify genesis.json checksum
-echo "a48a5c2ba3f0d0ee077fc9a24514caaed3914e23e0de7b88163bb4d25e0866b8 $HOME/.secretd/config/genesis.json" | sha256sum --check
+echo "adb91d0ee8cb5da80ef47e0b13d42b89bba003063542054d67522e52ddb4f514 $HOME/.secretd/config/genesis.json" | sha256sum --check
 ```
 
 ### **Initialize Secret Enclave**
@@ -121,8 +121,8 @@ The following steps should use `secretd` be ran on the full node itself. To run 
 Configure `secretd`. Initially you'll be using the bootstrap node, as you'll need to connect to a running node and your own node is not running yet.
 
 ```bash
-secretd config chain-id pulsar-2
-secretd config node https://rpc.pulsar.scrttestnet.com
+secretd config chain-id pulsar-3
+secretd config node https://rpc.pulsar3.scrttestnet.com
 secretd config output json
 ```
 
@@ -140,7 +140,7 @@ Otherwise, you will need to set up a key. Make sure you back up the mnemonic and
 secretd keys add <key-alias>
 ```
 
-This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some test-SCRT from [the faucet](https://faucet.pulsar.scrttestnet.com/). Continue when you have confirmed your account has some test-SCRT in it.
+This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some test-SCRT from [the faucet](https://faucet-ui-pulsar3.vercel.app/). Continue when you have confirmed your account has some test-SCRT in it.
 
 ### **Configure Node Attestation**
 
@@ -181,10 +181,10 @@ secretd configure-secret node-master-cert.der $SEED
 
 ```bash
 # seeds
-perl -i -pe 's/seeds = ""/seeds = "7a421a6f5f1618f7b6fdfbe4854985746f85d263\@108.62.104.102:26656,d2d1c0a683845154d9cfb0e2d666233c2ed07513\@81.171.3.86:26656,388e413016394cd12c7fbb3a0b24a702b1299eea\@212.95.51.207:26656,b3e04cf004cdfd5d9fcfa47c6a3ce0e3c0e920c1\@144.202.126.98:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/seeds = ""/seeds = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' ~/.secretd/config/config.toml
 
 # persistent_peers
-perl -i -pe 's/persistent_peers = ""/persistent_peers = "7a421a6f5f1618f7b6fdfbe4854985746f85d263\@108.62.104.102:26656,d2d1c0a683845154d9cfb0e2d666233c2ed07513\@81.171.3.86:26656,388e413016394cd12c7fbb3a0b24a702b1299eea\@212.95.51.207:26656,b3e04cf004cdfd5d9fcfa47c6a3ce0e3c0e920c1\@144.202.126.98:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' ~/.secretd/config/config.toml
 ```
 
 ### **Optimization**
@@ -260,7 +260,7 @@ If someone wants to add you as a peer, have them add the above address to their 
 And if someone wants to use your node from their secretcli then have them run:
 
 ```bash
-secretcli config chain-id pulsar-2
+secretcli config chain-id pulsar-3
 secretcli config output json
 secretcli config indent true
 secretcli config node tcp://<your-public-ip>:26657

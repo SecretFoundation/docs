@@ -144,6 +144,7 @@
   * [Connecting to the Network](development/resources-api-contract-addresses/connecting-to-the-network/README.md)
     * [Mainnet (Secret-4)](development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md)
     * [Testnet (Pulsar-2)](development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-2.md)
+    * [Testnet (Pulsar-3)](development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-3.md)
     * [Usage examples](development/resources-api-contract-addresses/connecting-to-the-network/usage-examples.md)
 * [Tools & Libraries](development/tools-and-libraries/README.md)
   * [LocalSecret](development/tools-and-libraries/local-secret.md)

@@ -6,12 +6,10 @@
 
 ### Explorers
 
-* [https://secretnodes.com/pulsar](https://secretnodes.com/pulsar)
 * [https://testnet.ping.pub/secret](https://testnet.ping.pub/secret)
 
 ### Faucets
 
-* [https://faucet.secrettestnet.io](https://faucet.secrettestnet.io/)
 * [https://faucet.pulsar.scrttestnet.com](https://faucet.pulsar.scrttestnet.com/)
 
 ### API endpoints
