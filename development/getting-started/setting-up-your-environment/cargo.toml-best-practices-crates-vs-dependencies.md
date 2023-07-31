@@ -2,28 +2,23 @@
 
 ### SCRT Labs and Crates.io
 
-Crates.io serves as a centralized repository for Rust packages, also known as "crates." When building applications or libraries with Rust, developers often need to use external libraries for functionality not provided by the standard library, many of which are included on Crates.io. **However, Secret Labs stopped publishing to crates.io in order to improve compatibility with vanilla Cosmwasm libraries.**&#x20;
+Crates.io serves as a centralized repository for Rust packages, also known as "crates." When building applications or libraries with Rust, developers often need to use external libraries for functionality not provided by the standard library, many of which are included on Crates.io. Below is an example of how to import [Secret Labs' crates](https://crates.io/crates/secret-cosmwasm-std/1.1.10), such as `secret-cosmwasm-std`, a fork of the original `cosmwasm-storage` repository adapted for use in SecretNetwork's Secret Contracts.
 
-This workaround involves "patching" existing libraries, which simply requires you to put a patch statement in your Cargo.toml file. Using `patch` will allow you to always use the latest and most updated package version. The cargo.toml syntax for patching a crate so that it is compatible with Secret Network requires adding `[patch.crates-io]` to your cargo.toml file like so:&#x20;
-
-```
-[dependencies]
-cosmwasm-std = { git = "https://github.com/scrtlabs/cosmwasm", tag = "v1.1.9-secret" }
-cosmwasm-storage = { git = "https://github.com/scrtlabs/cosmwasm", tag = "v1.1.9-secret" }
-schemars = { version = "0.8.11" }
-serde = { version = "1.0" }
+<pre class="language-rust"><code class="lang-rust">[dependencies]
+cosmwasm-std = { package = "secret-cosmwasm-std", version = "1.1.10" }
+cosmwasm-storage = { package = "secret-cosmwasm-storage", version = "1.1.10" }
+secret-toolkit-storage = "0.9.0"
+secret-toolkit = { git = "https://github.com/scrtlabs/secret-toolkit", tag = "v0.8.0", default-features = false, features = [
+  "storage",
+  "viewing-key",
+  "crypto",
+  "utils",
+] }
+<strong>schemars = { version = "0.8.11" }
+</strong>serde = { version = "1.0" }
 thiserror = { version = "1.0" }
 cosmwasm-schema = "1.0.0"
-
-# Uncomment these for some common extra tools
-# secret-toolkit = { git = "https://github.com/scrtlabs/secret-toolkit", tag = "v0.8.0" }
-# cw-storage-plus = { version = "1.0.1", default-features = false }
-
-# [patch.crates-io]
-# uncomment this if you use cw-storage-plus
-# cosmwasm-std = { git = "https://github.com/scrtlabs/cosmwasm", tag = "v1.1.9-secret" }
-
-```
+</code></pre>
 
 ### Further Reading: Crates vs Dependencies
 
