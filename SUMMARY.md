@@ -71,6 +71,7 @@
     * [Plans Beyond SGX](overview-ecosystem-and-technology/techstack/privacy-technology/plans-beyond-sgx.md)
     * [Potential Attacks](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/README.md)
       * [Contract level](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/contract-level/README.md)
+        * [Contract storage](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/contract-level/contract-storage.md)
         * [(meta-)data analysis](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/contract-level/meta-data-analysis.md)
         * [Replay/side-chain](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/contract-level/replay-side-chain.md)
       * [Network level](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/network-level.md)
