@@ -16,7 +16,7 @@ You can read more about this interplay between blocktime, TPS and scalability in
 
 One can expect the overhead of all enclave and encryption transactions to be roughly 30% over a vanilla wasm engine. This overhead comes from the decryption and re-encryption done in the enclave and the varying verification's that are required of the message input data. This overhead does not exist for standard SDK messages like "stake",  "transfer", "vote" etc.
 
-Additionally Secret leverages an older engine for the wasm VM dubbed "Wasm3". The vanilla engine "Wasmer" is roughly10-15x more performant. This engine is not yet supported as there is no Enclave compatible version, development effort to support it though is underway as listed in the [core roadmap](../../overview-ecosystem-and-technology/secret-network-overview/roadmap.md).
+Additionally Secret leverages an older engine for the wasm VM dubbed "Wasm3". The vanilla engine "Wasmer" is roughly10-15x more performant. This engine is not yet supported as there is no Enclave compatible version, development effort to support it though is underway as listed in the [core roadmap](../../overview-ecosystem-and-technology/secret-network-overview/roadmap/).
 
 ### Transactions per second
 
@@ -34,4 +34,4 @@ As transaction complexity overhead decreases with better engines so does increas
 
 Short term scalability improvements can come from a WASM engine replacement and increase in Light client verification methods so to lower the enclave load. Also storage access can become more performant with an SGX backend change which is on the short term roadmap.\
 \
-Long term Secret does not have to worry about blockspace with the plenty opportunities of replicated security and the cosmos sdk. For more on the core development roadmap check out the [documentation here](../../overview-ecosystem-and-technology/secret-network-overview/roadmap.md).
+Long term Secret does not have to worry about blockspace with the plenty opportunities of replicated security and the cosmos sdk. For more on the core development roadmap check out the [documentation here](../../overview-ecosystem-and-technology/secret-network-overview/roadmap/).

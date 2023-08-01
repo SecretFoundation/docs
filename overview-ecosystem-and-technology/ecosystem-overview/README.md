@@ -14,8 +14,6 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * [Developer Tools](./#developer-tools)
 * [Reference Contracts](./#reference-contracts)
 
-<figure><img src="../../.gitbook/assets/Ecosystem_overview.png" alt=""><figcaption></figcaption></figure>
-
 ## General Resources
 
 ### Information resources

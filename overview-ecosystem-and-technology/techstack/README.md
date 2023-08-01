@@ -23,7 +23,7 @@ In this Section we dive into all of these elements of the techstack.
   * [Access Control](../../development/secret-contract-fundamentals/access-control/)
   * [Private Computation & Consensus Flow](privacy-technology/private-computation-and-consensus-flow.md)
   * [Plans Beyond SGX](privacy-technology/plans-beyond-sgx.md)
-  * [Theoretical Attacks](privacy-technology/theoretical-attacks.md)
+  * [Theoretical Attacks](privacy-technology/theoretical-attacks/)
 
 For a video introduction to the Secret techstack you can watch this playlist:
 

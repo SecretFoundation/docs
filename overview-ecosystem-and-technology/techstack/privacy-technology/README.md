@@ -26,7 +26,7 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 [Plans Beyond SGX](plans-beyond-sgx.md)
 
-[Theoretical Attacks](theoretical-attacks.md)
+[Theoretical Attacks](theoretical-attacks/)
 
 </details>
 

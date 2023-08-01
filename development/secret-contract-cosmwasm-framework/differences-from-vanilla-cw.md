@@ -31,7 +31,7 @@ Raw queries are not available since raw data is encrypted when stored on-chain. 
 The implementation of the CosmWasm runtime on Secret Network is designed to safeguard against unauthorized access to data stored within smart contracts. Specifically, the platform disallows the native migration of contracts, which effectively ensures that any data written to storage using a given contract can only be accessed by that same contract. This crucial aspect of Secret Network's approach to smart contract management ensures the utmost privacy and security for its users.
 
 {% hint style="info" %}
-Additionally one would have to learn about privacy design, [potential attack vectors](../../overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks.md) and [trusted and untrusted data](../secret-contract-fundamentals/secret-contracts.md) to make their application properly privacy preserving.\
+Additionally one would have to learn about privacy design, [potential attack vectors](../../overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/) and [trusted and untrusted data](../secret-contract-fundamentals/secret-contracts.md) to make their application properly privacy preserving.\
 \
 An introduction to these concepts can be found[ here.](../development-concepts/privacy-design/)
 {% endhint %}

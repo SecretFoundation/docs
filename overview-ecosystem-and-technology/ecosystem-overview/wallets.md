@@ -1,6 +1,6 @@
 # Wallets
 
-<figure><img src="../../.gitbook/assets/Wallet_Trade-offs_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wallets.jpg" alt=""><figcaption></figcaption></figure>
 
 * [Keplr](https://keplr.app) by [Chainapsis](https://chainapsis.com/)
   * Highly featured wallet for the entire Cosmos ecosystem

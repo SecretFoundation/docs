@@ -2,8 +2,6 @@
 
 ### Mainnet
 
-* [Secretnodes](https://secretnodes.com)
-  * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
 * [Mintscan](https://www.mintscan.io/secret)
   * Popular and highly featured explorer for many chains in the Cosmos ecosystem
 * [Cryptoclerk](https://www.cryptoclerk.xyz/introduction)
@@ -14,8 +12,6 @@
   * Contract code verifier and explorer by Diggiline
 * [Secret Analytics](https://secretanalytics.xyz/)
   * Analytics data collected about the Network, Bridges, and Sienna Network
-* [SmartStake Secret Analytics](https://secret.smartstake.io/)
-  * Validator stats by [SmartStake](https://smartstake.io/)
 * [Xiphiar](https://scrthost.xiphiar.com/)
   * Tools by Xiphiar for tracking of your SNIP-20 history
 * [Address Alias](https://btn.group/secret\_network/address\_alias)
@@ -28,18 +24,16 @@
 * [Faucet](https://faucet.pulsar.scrttestnet.com/)
   * Run by the testnet committee
 * [Ping Dashboard - pulsar-2](https://testnet.ping.pub/secret/)
-  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub 
+  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub
 * [Documentation](../../infrastructure/node-runners/testnet/)
-
 
 ### Testnet - Pulsar-3
 
 * [Faucet](https://faucet-ui-pulsar3.vercel.app/)
   * Run by the testnet committee
 * [Ping Dashboard - pulsar-3](https://explorer-pulsar3.vercel.app)
-  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub 
+  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub
 * [Documentation](../../infrastructure/node-runners/testnet/)
-
 
 ### Bots
 

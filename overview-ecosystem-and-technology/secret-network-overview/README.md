@@ -54,7 +54,7 @@ The most recent string of updates dubbed “[Supernova](https://scrt.network/blo
 
 With the "[Shockwave - Omega"](https://scrt.network/blog/shockwave-omega-upgrade-complete) upgrade, Secret Network switched to a more performant smart contract engine increasing throughput significantly. Beyond this, Secret is hard at work to ensure long-term privacy for all users with the introduction of [Secret 2.0](https://scrt.network/blog/secret-2-0-building-the-next-generation-of-web3-privacy) and expanding Privacy as a Service to Ethereum and other blockchains. The upcoming infrastructure upgrades will bring several features like: Encryption seed rotation, Iterators and upgradeabillity for CosmWasm Contracts, the Gramine SGX backend, support for new generation hardware, and lastly the Wasmer contract engine bringing another significant increase in contract throughput.\
 \
-In the meantime, research towards MPC, FHE and ZKP's is ongoing. For a first look at Secret 2.0 and the cryptographic primitives coming to Secret check out the most recent [forum post](https://forum.scrt.network/t/secret-2-0-the-next-generation-request-for-feedback/6607) and the [roadmap section](roadmap.md) of this documentation.
+In the meantime, research towards MPC, FHE and ZKP's is ongoing. For a first look at Secret 2.0 and the cryptographic primitives coming to Secret check out the most recent [forum post](https://forum.scrt.network/t/secret-2-0-the-next-generation-request-for-feedback/6607) and the [roadmap section](roadmap/) of this documentation.
 
 ### **Transactional Vs. Computational Privacy**
 

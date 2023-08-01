@@ -1,3 +1,5 @@
 # Dillutive funding/VC raise
 
-**More info coming soon!**
+**Want to get warm introduction to VCs and other Angel investors for your dApp on Secret?**\
+\
+**Contact the Secret Bizdev Team via a Ticket in Discord now!**
