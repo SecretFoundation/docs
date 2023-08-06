@@ -31,7 +31,7 @@ What follows is a step-by-step tutorial of how to use Secret Network's randomnes
 
 #### Environment Configuration
 
-LocalSecret is a tool that allows you to run a local Secret Network on your machine for testing and development purposes. To use the new randomness feature with LocalSecret, you can leverage the localsecret:v1.9.0-beta.1-random Docker image, which supports the "random" feature for CosmWasm contracts.
+LocalSecret is a tool that allows you to run a local Secret Network on your machine for testing and development purposes.&#x20;
 
 Here are the steps to use the randomness feature with LocalSecret:
 
@@ -54,7 +54,7 @@ In your contract, import the necessary dependencies (these are already imported 
 use cosmwasm_std::{Binary, Env, MessageInfo, Response, Result};
 ```
 
-In the contract's entry point (e.g., execute, instantiate, or query), you can access the random number from the [env parameter](https://github.com/writersblockchain/SecretNetwork-Randomness-Tutorial/blob/8dbdfcca74507a98ac2bdb7bc18112a597fc727b/src/contract.rs#L32):
+In the contract's entry point (e.g., execute, instantiate, or query), you can access the random number from the `env` parameter:
 
 ```rust
 #[entry_point]
@@ -90,7 +90,7 @@ pub struct BlockInfo {
 }
 ```
 
-Where the random is 32 bytes long and base64 encoded.
+Where `random` is 32 bytes and base64 encoded.
 
 #### Accessing the Env struct
 
@@ -117,10 +117,13 @@ Now, let's compile, upload, instantiate, and execute the contract to see it in a
 
 #### Compile
 
-To compile your contract, in your terminal run:
+To compile your contract, in your terminal, make sure you have docker open, and then run:
 
 ```rust
-make build-mainnet
+docker run --rm -v "$(pwd)":/contract \                       
+  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
+  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
+  enigmampc/secret-contract-optimizer
 ```
 
 This returns the optimized contract wasm file, ie `contract.wasm.gz`
@@ -131,7 +134,7 @@ To upload your contract to a containerized version of LocalSecret in docker, mak
 
 {% code overflow="wrap" %}
 ```
-docker run -it --rm -p 26657:26657 -p 26656:26656 -p 1317:1317 -p 5000:5000 --name localsecret ghcr.io/scrtlabs/localsecret:v1.9.0-beta.1-random
+docker run -it --rm -p 26657:26657 -p 26656:26656 -p 1317:1317 -p 5000:5000 --name localsecret ghcr.io/scrtlabs/localsecret
 ```
 {% endcode %}
 
