@@ -27,7 +27,7 @@ Make sure you're compiling with rust < 1.70. Newer versions are currently not co
 
 ### Tutorial - Coin Flip
 
-What follows is a step-by-step tutorial of how to use Secret Network's randomness API to generate a coin flip (returning either 0 or 1) with true randomness. You can follow along and/or view the completed code [in this repo](https://github.com/writersblockchain/SecretNetwork-Randomness-Tutorial).&#x20;
+What follows is a step-by-step tutorial of how to use Secret Network's randomness API to generate a coin flip (returning either 0 or 1) with true randomness. You can follow along and/or view [the completed code in this repo](https://github.com/scrtlabs/examples/tree/master/vrf-Randomness-Tutorial).&#x20;
 
 #### Environment Configuration
 
@@ -36,11 +36,11 @@ LocalSecret is a tool that allows you to run a local Secret Network on your mach
 Here are the steps to use the randomness feature with LocalSecret:
 
 1. [Configure your developer environment](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment) and be sure to install the [latest version of SecretCLI.](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/secret-cli/install)
-2. Clone the coin flip repo:
+2. Clone the Secret Labs examples repo and then navigate to the vrf-randomness-tutorial folder:
 
 {% code overflow="wrap" %}
 ```
-git clone https://github.com/writersblockchain/SecretNetwork-Randomness-Tutorial.git
+git clone https://github.com/scrtlabs/examples.git
 ```
 {% endcode %}
 
