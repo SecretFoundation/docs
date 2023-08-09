@@ -66,6 +66,10 @@ Next, upload them to Juno testnet using either [CosmJs](https://github.com/scrtl
 
 {% hint style="info" %}
 To upload the contracts to Juno testnet, you need Juno testnet tokens in your wallet. Visit faucet.reece.sh/uni-6/\<your Juno address> to get a payment
+
+To add a wallet to junod, run the following your terminal:
+
+&#x20;**`junod keys add <your wallet name>`**
 {% endhint %}
 
 Upon successful upload, you will see a success message, along with a transaction hash and code ID. Note the code ID for both contracts, as you will need this to instantiate the smart contracts on Juno.&#x20;
@@ -77,12 +81,6 @@ Next, instantiate the Juno proxy contract by running the following:&#x20;
 junod tx wasm instantiate <codeId> '{"init": {}' --label 'juno-proxy' --no-admin --from <your juno wallet> --gas 200000 -y --chain-id uni-6 --node https://uni-rpc.reece.sh:443 --gas-prices 0.025ujunox
 ```
 {% endcode %}
-
-{% hint style="info" %}
-To add a wallet to junod, run the following your terminal:
-
-&#x20;**`junod keys add <your wallet name>`**
-{% endhint %}
 
 Then, to query that the instantiation was successful and find the contract address, query the returned `txHash` with:
 
