@@ -14,28 +14,20 @@ An example use-case for a keymap is if you want to contain a large amount of vot
 
 To import this package (and also the packages that we will be using for unit tests), add the following dependencies to your `Cargo.toml` file
 
-```
-[dependencies]
-cosmwasm-std = { package = "secret-cosmwasm-std", version = "1.0.0" }
-cosmwasm-storage = { package = "secret-cosmwasm-storage", version = "1.0.0" }
-schemars = "0.8.8"
-serde = { version = "1.0.103", default-features = false, features = ["derive"] }
-snafu = { version = "0.7.4" }
-secret-toolkit = { version = "0.7.0", default-features = false, features = ["utils", "storage", "serialization", "viewing-key", "permit"] }
-thiserror = { version = "1.0.31" }
-
-[dev-dependencies]
-cosmwasm-schema = { git = "https://github.com/scrtlabs/cosmwasm/", branch = "secret" }
+```rust
+cosmwasm-std = { package = "secret-cosmwasm-std", version = "1.1.10" }
+cosmwasm-storage = { package = "secret-cosmwasm-storage", version = "1.1.10" }
+secret-toolkit-storage = "0.9.0"
 ```
 
 ### Configuring the testing environment&#x20;
 
 To import and initialize a keymap, use the following packages in your test environment:&#x20;
 
-```
+```rust
 #[cfg(test)]
 mod tests {
-    use secret_toolkit::storage::Keymap;
+    use secret_toolkit_storage::{Item, Keymap};
     use serde::{Deserialize, Serialize};
     use cosmwasm_std::testing::MockStorage;
     use cosmwasm_std::StdResult;
@@ -79,7 +71,7 @@ We are going to create a new `Keymap` that maps `Vec<u8>` keys to a struct `Vote
 
 We then use `iter()` to check that the size of the iterator is 2, which means there are two key-value pairs in the `Keymap:`&#x20;
 
-```
+```rust
  #[test]
     fn test_keymap_votes_iter() -> StdResult<()> {
         let mut storage = MockStorage::new();
