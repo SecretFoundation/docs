@@ -12,7 +12,7 @@ If you have any vital info to save to the state such as Config parameters or an 
 
 **Instantiate** takes four arguments:&#x20;
 
-<pre><code><strong>#[entry_point]
+<pre class="language-rust"><code class="lang-rust"><strong>#[entry_point]
 </strong>pub fn instantiate(
     _deps: DepsMut,
     _env: Env,

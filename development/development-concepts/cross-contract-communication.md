@@ -25,7 +25,7 @@ To follow along with this tutorial step-by-step, clone down the [Secret Network 
 
 We will be designing a Manager Smart Contract which can execute a Counter Contract that is deployed to the Secret testnet.  Let's start by creating the message that we want to execute on the counter smart contract. In the src directory (which currently contains `contract.rs`, `lib.rs`, `msg.rs` and `state.rs`), create a `counter.rs` file and add the following:
 
-<pre><code><strong>use schemars::JsonSchema;
+<pre class="language-rust"><code class="lang-rust"><strong>use schemars::JsonSchema;
 </strong>use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -41,7 +41,7 @@ pub enum CounterExecuteMsg {
 
 Now, navigate to the `msg.rs` file. Replace the existing code with the following:&#x20;
 
-```
+```rust
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
@@ -69,7 +69,7 @@ Contract hashes are what binds a transaction to the specific contract code being
 
 Now, navigate to the `contract.rs` file. Replace the **execute entry point** with the following:
 
-```
+```rust
 #[entry_point]
 pub fn execute(
     deps: DepsMut,
@@ -118,7 +118,7 @@ In CosmWasm, a `WasmMsg` is an enum used to perform actions such as instantiatin
 
 In the counter.rs file, comment out or delete the existing execute functions and add the following:
 
-```
+```rust
 pub fn try_increment(
     _deps: DepsMut,
     _env: Env,
@@ -156,7 +156,7 @@ You can view the [completed code repo here](https://github.com/writersblockchain
 
 Let's focus on how to write the increment function as seen below:
 
-```
+```rust
 let increase_count = async () => {
   const tx = await secretjs.tx.compute.executeContract(
     {
