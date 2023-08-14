@@ -294,6 +294,7 @@
   * [Archive Nodes](infrastructure/node-runners/sentry-archive-and-ibc-node-setup/archive-nodes.md)
   * [IBC Relayers](infrastructure/node-runners/sentry-archive-and-ibc-node-setup/ibc-relayers.md)
 * [Upgrade Instructions](infrastructure/upgrade-instructions/README.md)
+  * [v1.10](infrastructure/upgrade-instructions/v1.10.md)
   * [v1.9](infrastructure/upgrade-instructions/v1.9.md)
   * [v1.8](infrastructure/upgrade-instructions/v1.8.md)
   * [v1.7](infrastructure/upgrade-instructions/v1.7.md)
