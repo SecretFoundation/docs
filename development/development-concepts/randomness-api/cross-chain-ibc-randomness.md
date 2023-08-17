@@ -55,8 +55,8 @@ You can configure the consumer contracts for any IBC-compatible chain of your ch
 
 First, download the wasm files for the two Juno contracts:
 
-* [Juno Consumer Contract wasm file](https://github.com/scrtlabs/examples/blob/master/secret-ibc-rng-template/consumer/target/wasm32-unknown-unknown/release/consumer.wasm)
-* [Juno Proxy Contract wasm file  ](https://github.com/scrtlabs/examples/blob/master/secret-ibc-rng-template/consumer-side-proxy/target/wasm32-unknown-unknown/release/secret\_ibc\_rng\_template.wasm)
+* [Juno Consumer Contract wasm file](https://github.com/writersblockchain/secret-juno-ibc-example/blob/master/consumer/target/wasm32-unknown-unknown/release/consumer.wasm)
+* [Juno Proxy Contract wasm file](https://github.com/writersblockchain/secret-juno-ibc-example/blob/master/consumer-side-proxy/target/wasm32-unknown-unknown/release/secret\_ibc\_rng\_template.wasm) &#x20;
 
 Next, upload them to Juno testnet using either [CosmJs](https://github.com/scrtlabs/examples/blob/master/secret-ibc-rng-template/node/index\_juno.js) or the [Juno CLI](https://docs.junonetwork.io/validators/getting-setup).
 
