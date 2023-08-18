@@ -35,7 +35,7 @@ The fastest and easiest way to get some test SCRT into your wallet is to use **f
 
 Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.
 
-* Go to [https://faucet-ui-pulsar3.vercel.app/](https://faucet.pulsar.scrttestnet.com/)
+* Go to [https://faucet-ui-pulsar3.vercel.app/](https://faucet-ui-pulsar3.vercel.app/)
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
   ![](<../../.gitbook/assets/testnetguide\_3 (1).png>)
 
@@ -103,9 +103,7 @@ _**Note:** If you’re using `secretcli` view a full list of commands for_ [_Sec
 
 ## Viewing Testnet Transactions
 
-To view testnet transactions and contract interactions on the testnets you can use the [Ping Dashboard, a light explorer for Cosmos-based Blockchains. https://ping.pub  [pulsar-2](https://testnet.ping.pub/secret/).
-
-
+To view testnet transactions and contract interactions on the testnets you can use the \[Ping Dashboard, a light explorer for Cosmos-based Blockchains. https://ping.pub [pulsar-2](https://testnet.ping.pub/secret/).
 
 * [Ping Dashboard - pulsar-2](https://testnet.ping.pub/secret/)
-  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub 
+  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub
