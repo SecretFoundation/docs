@@ -124,6 +124,7 @@
     * [Mitigate privacy risks - full guide](development/development-concepts/privacy-design/mitigate-privacy-risks-full-guide.md)
     * [Limiting storage access data leaks](development/development-concepts/privacy-design/limiting-storage-access-data-leaks.md)
     * [Gas Evaporation & Tracking](development/development-concepts/privacy-design/gas-evaporation-and-tracking.md)
+  * [IBC-hooks](development/development-concepts/ibc-hooks.md)
   * [Permissioned Viewing](development/development-concepts/permissioned-viewing/README.md)
     * [Viewing Keys](development/development-concepts/permissioned-viewing/viewing-keys/README.md)
     * [Permits](development/development-concepts/permissioned-viewing/certs-viewing-permits/README.md)
