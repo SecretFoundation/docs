@@ -6,68 +6,22 @@ description: Initiate a contract call with an incoming IBC token transfer using 
 
 _note: this documentation is currently in progress as of 8/21/23_
 
-### Wasm Hooks
+### IBC-hooks Overview
 
-The wasm hook is an IBC middleware that **allows incoming ICS-20 token transfers to initiate smart contract calls**. This allows for arbitrary data to be passed in as a string along with token transfers. For instance, information such as user action/call-data, number of decimal places, denomination (denom), ticker symbol, and logo can be indicated within the memo field.
-
-Note that the metadata in the memo field is not used within ICS-20 itself, but instead, a middleware or custom CosmWasm contract can wrap around the transfer protocol to parse the metadata and execute custom logic based off of it.
-
-This allows cross-chain token swaps, auto-wrapping of SNIP-20 tokens, General Message Passing (GMP) between Secret Network and EVM chains, and much more!
+IBC-hooks is an IBC middleware that **uses incoming ICS-20 token transfers to initiate smart contract calls**. This allows for arbitrary data to be passed in as a string along with token transfers and is useful for a variety of use cases such as cross-chain token swaps, auto-wrapping of SNIP-20 tokens, General Message Passing (GMP) between Secret Network and EVM chains, and much more! The mechanism enabling this is a `memo` field on every ICS20 transfer packet as of IBC v3.4.0. Wasm hooks is an IBC middleware that parses an ICS20 transfer, and if the `memo` field is of a particular form, it executes a WASM contract call.
 
 {% hint style="info" %}
-The mechanism enabling ibc-hooks is a `memo` field on every ICS20 transfer packet as of [IBC v3.4.0](https://medium.com/the-interchain-foundation/moving-beyond-simple-token-transfers-d42b2b1dc29b).&#x20;
+Note that the metadata in the memo field is not used within ICS-20 itself, but instead, a middleware or custom CosmWasm contract can wrap around the transfer protocol to parse the metadata and execute custom logic based off of it. [See more here.](https://medium.com/the-interchain-foundation/moving-beyond-simple-token-transfers-d42b2b1dc29b)&#x20;
 {% endhint %}
 
-#### Cosmwasm Contract Execution Format
+### ICS20 Packet Structure
 
-Before we dive into the IBC metadata format, we show the cosmwasm execute message format, so the reader has a sense of what are the fields we need to be setting in. The cosmwasm `MsgExecuteContract` is defined [here](https://github.com/CosmWasm/wasmd/blob/4fe2fbc8f322efdaf187e2e5c99ce32fd1df06f0/x/wasm/types/tx.pb.go#L340-L349) as the following type:
-
-{% code overflow="wrap" %}
-```rust
-type MsgExecuteContract struct {
-	// Sender is the that actor that signed the messages
-	Sender string
-	// Contract is the address of the smart contract
-	Contract string
-	// Msg json encoded message to be passed to the contract
-	Msg RawContractMessage
-	// Funds coins that are transferred to the contract on execution
-	Funds sdk.Coins
-}
-```
-{% endcode %}
-
-&#x20;So we detail where we want to get each of these fields from:
-
-* Sender: We cannot trust the sender of an IBC packet, the counterparty chain has full ability to lie about it. We cannot risk this sender being confused for a particular user or module address on Secret. In addition, we cnanot allow sending an unsigned execution order into the enclave, because a malicious actor can exploit this to execute contract while falsifying the sender. Therefore on Secret we replace the contract caller (sender) with an empty account.
-* Contract: This field should be directly obtained from the ICS-20 packet metadata
-* Msg: This field should be directly obtained from the ICS-20 packet metadata.
-* Funds: This field is set to the amount of funds being sent over in the ICS 20 packet. One detail is that the denom in the packet is the counterparty chains representation of the denom, so we have to translate it to Osmosis' representation.
-
-So our constructed cosmwasm message that we execute will look like:
-
-{% code overflow="wrap" %}
-```rust
-msg := MsgExecuteContract{
-	// Sender is the that actor that signed the messages
-	Sender: "secret1-hash-of-channel-and-sender",
-	// Contract is the address of the smart contract
-	Contract: packet.data.memo["wasm"]["ContractAddress"],
-	// Msg json encoded message to be passed to the contract
-	Msg: packet.data.memo["wasm"]["Msg"],
-	// Funds coins that are transferred to the contract on execution
-	Funds: sdk.NewCoin{Denom: ibc.ConvertSenderDenomToLocalDenom(packet.data.Denom), Amount: packet.data.Amount}
-```
-{% endcode %}
-
-#### ICS20 packet structure
-
-So given the details above, we propogate the implied ICS20 packet data structure. ICS20 is JSON native, so we use JSON for the memo format:
+ICS20 is JSON native, so JSON is used for the memo format:
 
 {% code overflow="wrap" %}
 ```rust
 {
-  //... other ibc fields that we don't care about
+  //... other ibc fields omitted for example
   "data": {
     "denom": "denom on counterparty chain (e.g. uatom)", // will be transformed to the local denom (ibc/...)
     "amount": "1000",
@@ -86,7 +40,7 @@ So given the details above, we propogate the implied ICS20 packet data structure
 ```
 {% endcode %}
 
-An ICS20 packet is formatted correctly for wasmhooks if the following all hold:
+An ICS20 packet is formatted correctly for WASM hooks if the following all hold:
 
 * `memo` is not blank
 * `memo` is valid JSON
@@ -95,60 +49,94 @@ An ICS20 packet is formatted correctly for wasmhooks if the following all hold:
 * `memo["wasm"]["msg"]` is a valid JSON object
 * `receiver == memo["wasm"]["contract"]`
 
-We consider an ICS20 packet as directed towards wasmhooks iff all of the following hold:
+We consider an ICS20 packet as directed towards wasmhooks if:
 
 * `memo` is not blank
 * `memo` is valid JSON
 * `memo` has at least one key, with name `"wasm"`
 
+{% hint style="info" %}
 If an ICS20 packet is not directed towards wasmhooks, wasmhooks doesn't do anything. If an ICS20 packet is directed towards wasmhooks, and is formated incorrectly, then wasmhooks returns an error.
+{% endhint %}
 
-#### Execution flow
+### ICS20 Packet Execution Flow
 
-Pre wasm hooks:
+Before WASM hooks:
 
-* Ensure the incoming IBC packet is cryptogaphically valid
-* Ensure the incoming IBC packet is not timed out.
+* Ensure the incoming IBC packet is cryptographically valid
+* Ensure the incoming IBC packet has not timed out
 
-In Wasm hooks, pre packet execution:
+In WASM hooks, before packet execution:
 
 * Ensure the packet is correctly formatted (as defined above)
 * Edit the receiver to be the hardcoded IBC module account
 
-In wasm hooks, post packet execution:
+In WASM hooks, after packet execution:
 
-* Construct wasm message as defined before
+* Construct wasm message as defined above
 * Execute wasm message
-* if wasm message has error, return ErrAck
-* otherwise continue through middleware
+* If wasm message has error, return `ErrAck`
+* Otherwise continue through middleware
+
+### Auto-wrapping of SNIP-20 Example
+
+[The following contract](https://github.com/scrtlabs/secret.js/blob/e6919420e1650c1a37ff188743b2e6bb33a93823/test/ibc-hooks-contract/src/contract.rs#L22-L46) receives funds from IBC, wraps them as SNIP-20 tokens, and then transfers them to the recipient that is specified in the ibc-hooks message:
+
+{% code overflow="wrap" %}
+```rust
+#[entry_point]
+pub fn execute(_deps: DepsMut, env: Env, info: MessageInfo, msg: Msg) -> StdResult<Response> {
+    match msg {
+        Msg::Nop {} => Ok(Response::default()),
+        Msg::WrapDeposit {
+            snip20_address,
+            snip20_code_hash,
+            recipient_address,
+        } => Ok(Response::default().add_messages(vec![
+            CosmosMsg::Wasm(cosmwasm_std::WasmMsg::Execute {
+                contract_addr: snip20_address.clone(),
+                code_hash: snip20_code_hash.clone(),
+                msg: to_binary(&secret_toolkit::snip20::HandleMsg::Deposit { padding: None })
+                    .unwrap(),
+                funds: info.funds.clone(),
+            }),
+            CosmosMsg::Wasm(cosmwasm_std::WasmMsg::Execute {
+                contract_addr: snip20_address,
+                code_hash: snip20_code_hash,
+                msg: to_binary(&secret_toolkit::snip20::HandleMsg::Transfer {
+                    recipient: recipient_address,
+                    amount: info.funds[0].amount,
+                    memo: None,
+                    padding: None,
+                })
+                .unwrap(),
+                funds: vec![],
+            }),
+        ])),
+        }
+    }
+```
+{% endcode %}
 
 ### Ack callbacks
 
-A contract that sends an IBC transfer, may need to listen for the ACK from that packet. To allow contracts to listen on the ack of specific packets, we provide Ack callbacks.
+A contract that sends an IBC transfer may need to listen for the acknowledgment (`ACK`) of that packet. To allow contracts to listen to the `ack` of specific packets, we provide **Ack callbacks**. The sender of an IBC transfer packet may specify a callback in the `memo` field of the transfer packet when the `ack` of that packet is received
 
-#### Design
+{% hint style="info" %}
+Only the IBC packet sender can set the callback
+{% endhint %}
 
-The sender of an IBC transfer packet may specify a callback for when the ack of that packet is received in the memo field of the transfer packet.
+#### Ack callback implementation
 
-Crucially, _only_ the IBC packet sender can set the callback.
-
-#### Use case
-
-The crosschain swaps implementation sends an IBC transfer. If the transfer were to fail, we want to allow the sender to be able to retrieve their funds (which would otherwise be stuck in the contract). To do this, we allow users to retrieve the funds after the timeout has passed, but without the ack information, we cannot guarantee that the send hasn't failed (i.e.: returned an error ack notifying that the receiving change didn't accept it)
-
-#### Implementation
-
-**Callback information in memo**
-
-For the callback to be processed, the transfer packet's memo should contain the following in its JSON:
+For the callback to be processed, the transfer packet's `memo` should contain the following in its JSON:
 
 `{"ibc_callback": "secret1contractAddr"}`
 
-The wasm hooks will keep the mapping from the packet's channel and sequence to the contract in storage. When an ack is received, it will notify the specified contract via a `execute` message.
+The WASM hooks will keep the mapping from the packet's channel and sequence to the contract in storage. When an `ack` is received, it will notify the specified contract via an `execute` message.
 
 **Interface for receiving the Acks and Timeouts**
 
-The contract that awaits the callback should implement the following interface for a sudo message:
+[The contract that awaits the callback](https://github.com/scrtlabs/secret.js/blob/e6919420e1650c1a37ff188743b2e6bb33a93823/test/ibc-hooks-contract/src/contract.rs#L66C10-L66C10) should implement the following interface for a sudo message:
 
 {% code overflow="wrap" %}
 ```rust
