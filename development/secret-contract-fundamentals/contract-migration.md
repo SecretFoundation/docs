@@ -58,19 +58,14 @@ const secretjs = new SecretNetworkClient({
   walletAddress: wallet.address,
 });
 
-  const codeId = 1; // codeId for new contract
-  const contractCodeHash = ""; // codeHash for new contract
-  const contractAddress = ""; // previous contract address
-
-
+const codeId = 1; // codeId for new contract
+const contractCodeHash = ""; // codeHash for new contract
+const contractAddress = ""; // contract address, which doesn't change upon migration
 
 let main = async () => {
-
-  const migrateMsg = {
-  };
+  const migrateMsg = {};
   
-  const instantiateResult = await secretjs.tx.compute.instantiateContract(
-   {
+  const instantiateResult = await secretjs.tx.compute.instantiateContract({
       code_id: codeId,
       contract_address: contractAddress,
       sender: wallet.address,
@@ -85,9 +80,11 @@ let main = async () => {
   
   //Find the contract_address in the logs
   const contractAddress = tx.arrayLog.find(
-<strong>    (log) => log.type === "message" &#x26;&#x26; log.key === "contract_address").value;
+<strong>    log => log.type === "message" &#x26;&#x26; log.key === "contract_address"
+</strong><strong>  ).value;
 </strong>
   console.log(contractAddress);
 };
+
 main();
 </code></pre>
