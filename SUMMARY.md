@@ -95,6 +95,7 @@
     * [Permits](development/secret-contract-fundamentals/access-control/permits.md)
   * [Trusted and untrusted data](development/secret-contract-fundamentals/secret-contracts.md)
   * [Privacy as a Service (PaaS)](development/secret-contract-fundamentals/privacy-as-a-service-paas.md)
+  * [Contract Migration](development/secret-contract-fundamentals/contract-migration.md)
   * [Available native features/modules](development/secret-contract-fundamentals/available-native-features-modules/README.md)
     * [Price Oracles](development/secret-contract-fundamentals/available-native-features-modules/price-oracles.md)
     * [Auto Restaking](development/secret-contract-fundamentals/available-native-features-modules/auto-restaking.md)
