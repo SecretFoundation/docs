@@ -45,7 +45,9 @@ If the `migrate` function returns an error, the transaction will abort and no st
 
 ### Execute Migration with Secret.js
 
-<pre class="language-javascript" data-overflow="wrap"><code class="lang-javascript">import { SecretNetworkClient, Wallet } from "secretjs";
+{% code overflow="wrap" %}
+```javascript
+import { SecretNetworkClient, Wallet } from "secretjs";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -63,28 +65,26 @@ const contractCodeHash = ""; // codeHash for new contract
 const contractAddress = ""; // contract address, which doesn't change upon migration
 
 let main = async () => {
-  const migrateMsg = {};
-  
-  const instantiateResult = await secretjs.tx.compute.instantiateContract({
+  const migrateMsg = {
+    remove_users: { a, b }, // this is an example. migrateMsg can be left empty if contract storage is unchanged during migration
+  };
+
+  const tx = await secretjs.tx.compute.migrateContract(
+    {
       code_id: codeId,
       contract_address: contractAddress,
       sender: wallet.address,
       code_hash: contractCodeHash,
-      migrate_msg: migrateMsg,
-      label: "migrate example" + Math.ceil(Math.random() * 10000),
+      msg: migrateMsg,
     },
     {
       gasLimit: 400_000,
     }
   );
-  
-  //Find the contract_address in the logs
-  const contractAddress = tx.arrayLog.find(
-<strong>    log => log.type === "message" &#x26;&#x26; log.key === "contract_address"
-</strong><strong>  ).value;
-</strong>
-  console.log(contractAddress);
+
+  console.log(tx.rawLog);
 };
 
 main();
-</code></pre>
+```
+{% endcode %}
