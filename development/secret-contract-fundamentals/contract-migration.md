@@ -25,7 +25,7 @@ Performing a contract migration is a three step process:
 2. Upload the new smart contract, but don’t instantiate it
 3. Use a dedicated [MigrateMsg](https://github.com/scrtlabs/SecretNetwork/blob/139a0eb18/cosmwasm/contracts/v1/compute-tests/migration/contract-v2/src/contract.rs#L37-L43) transaction to point the new contract to the code you wish to migrate
 
-When migrating, the `migrate` function from the new contract runs, not the one from the old contract. So the new contract must have a `migrate` function set up and correctly marked as an `entry_point.`
+When migrating, the new contract must have a `migrate` function as an `entry_point.`
 
 {% code overflow="wrap" %}
 ```rust
@@ -39,15 +39,13 @@ pub fn migrate(_deps: DepsMut, _env: Env, msg: MigrateMsg) -> StdResult<Response
 ```
 {% endcode %}
 
-The migrate function provides the ability to make any desired changes to the contract's state, similar to a database migration.
+The `migrate` function provides the ability to make any desired changes to the contract's state, similar to a database migration.
 
 If the `migrate` function returns an error, the transaction will abort and no state changes will occur.&#x20;
 
 ### Execute Migration with Secret.js
 
-{% code overflow="wrap" %}
-```javascript
-import { SecretNetworkClient, Wallet } from "secretjs";
+<pre class="language-javascript" data-overflow="wrap"><code class="lang-javascript">import { SecretNetworkClient, Wallet } from "secretjs";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -61,8 +59,9 @@ const secretjs = new SecretNetworkClient({
 });
 
   const codeId = 1; // codeId for new contract
+  const contractCodeHash = ""; // codeHash for new contract
   const contractAddress = ""; // previous contract address
-  const contractCodeHash = ""; // previous contract codeHash
+
 
 
 let main = async () => {
@@ -70,22 +69,25 @@ let main = async () => {
   const migrateMsg = {
   };
   
-  const instantiateResult = await secretjs.migrate(
-  {
-    wallet.address,
-    contractAddress,
-    contractCodeHash,
-    codeId,
-    migrateMsg,
-    'auto',
-    },  
+  const instantiateResult = await secretjs.tx.compute.instantiateContract(
+   {
+      code_id: codeId,
+      contract_address: contractAddress,
+      sender: wallet.address,
+      code_hash: contractCodeHash,
+      migrate_msg: migrateMsg,
+      label: "migrate example" + Math.ceil(Math.random() * 10000),
+    },
     {
       gasLimit: 400_000,
     }
   );
   
-  console.log(tx.arrayLog);
+  //Find the contract_address in the logs
+  const contractAddress = tx.arrayLog.find(
+<strong>    (log) => log.type === "message" &#x26;&#x26; log.key === "contract_address").value;
+</strong>
+  console.log(contractAddress);
 };
 main();
-```
-{% endcode %}
+</code></pre>
