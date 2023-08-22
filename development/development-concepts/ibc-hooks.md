@@ -49,14 +49,8 @@ An ICS20 packet is formatted correctly for WASM hooks if the following all hold:
 * `memo["wasm"]["msg"]` is a valid JSON object
 * `receiver == memo["wasm"]["contract"]`
 
-We consider an ICS20 packet as directed towards wasmhooks if:
-
-* `memo` is not blank
-* `memo` is valid JSON
-* `memo` has at least one key, with name `"wasm"`
-
 {% hint style="info" %}
-If an ICS20 packet is not directed towards wasmhooks, wasmhooks doesn't do anything. If an ICS20 packet is directed towards wasmhooks, and is formated incorrectly, then wasmhooks returns an error.
+If an ICS20 packet is not directed towards wasmhooks, wasmhooks doesn't do anything. If an ICS20 packet is directed towards wasmhooks, and is formatted incorrectly, then wasmhooks returns an error.
 {% endhint %}
 
 ### ICS20 Packet Execution Flow
@@ -120,7 +114,7 @@ pub fn execute(_deps: DepsMut, env: Env, info: MessageInfo, msg: Msg) -> StdResu
 
 ### Ack callbacks
 
-A contract that sends an IBC transfer may need to listen for the acknowledgment (`ACK`) of that packet. To allow contracts to listen to the `ack` of specific packets, we provide **Ack callbacks**. The sender of an IBC transfer packet may specify a callback in the `memo` field of the transfer packet when the `ack` of that packet is received
+A contract that sends an IBC transfer may need to listen for the acknowledgment (`ack`) of that packet. To allow contracts to listen to the `ack` of specific packets, we provide **Ack callbacks**. The sender of an IBC transfer packet may specify a callback in the `memo` field of the transfer packet when the `ack` of that packet is received.
 
 {% hint style="info" %}
 Only the IBC packet sender can set the callback
