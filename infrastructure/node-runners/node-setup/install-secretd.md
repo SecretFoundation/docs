@@ -13,7 +13,7 @@ The most common method for install `secretd` is the Secret Network package insta
 wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.10.0/secretnetwork_1.10.0_mainnet_goleveldb_amd64.deb"
 
 # verify download
-echo "894857bb414d3b20c48d4fb9126e14ae462bcd8aa21bde9ae3361ed1ad37e5d9 secretnetwork_1.10.0_mainnet_goleveldb_amd64" | sha256sum --check
+echo "4c1818a6cc8b72e20e492741cb9fbed6567e8971333718f0787e8f182fda18a4 secretnetwork_1.10.0_mainnet_goleveldb_amd64.deb" | sha256sum --check
 ```
 
 ### Install `secretd` <a href="#_2-install-the-package" id="_2-install-the-package"></a>
