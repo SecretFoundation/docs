@@ -15,7 +15,11 @@ There are two key components to a migratable contract:
 
 ### Contract Admin
 
-On `instantiation`, the contract creator can specify an `admin` address, which can be the contract creator's wallet address, an external account, or a governance contract, etc. Whatever the address is, this `admin` gains the ability to migrate the contract to a new `codeId`, and can also update or clear the `admin` address. When the `admin` invokes the `MigrateMsg` message, the `migrate()` function is called on the new contract, where the new contract can optionally perform state migrations from an old contract.&#x20;
+On `instantiation`, the contract creator can specify an `admin` address, which can be the contract creator's wallet address, an external account, or a governance contract, etc. Whatever the address is, this `admin` gains the ability to migrate the contract to a new `codeId` and `codeHash`, and can also update or clear the `admin` address. When the `admin` invokes the `MigrateMsg` message, the `migrate()` function is called on the new contract, where the new contract can optionally perform state migrations from an old contract.&#x20;
+
+{% hint style="info" %}
+Once the `migrate()` function is invoked, the contract address now points to the new code, and anybody contacting that address will reach the new code. The old code becomes unreachable.&#x20;
+{% endhint %}
 
 ### MigrateMsg
 
