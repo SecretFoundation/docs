@@ -1,6 +1,6 @@
 # Generating Keys
 
-After installing the secretcli, the next thing to do is to start generating your own keys (public and private) to begin receiving, sending, and bonding SCRT.&#x20;
+After installing the secretcli, the next thing to do is to start generating your own keys (public and private) to begin receiving, sending, and bonding SCRT.
 
 ## Generate a `secp256k1` Key
 
@@ -12,7 +12,7 @@ secretcli keys add <key-alias>
 
 Note: The output of the above command contains a _**seed phrase**_. It's recommended to save the _seed phrase_ in a safe place in case you forget the password of the operating system's credentials store.
 
-The above command will generate an output similar to:&#x20;
+The above command will generate an output similar to:
 
 ```bash
 - name: test
@@ -30,7 +30,7 @@ become inspire first replace ask luxury extend member social donor expire lock c
 
 ## Delete A Key
 
-To delete a key use:&#x20;
+To delete a key use:
 
 ```bash
 secretcli keys delete test
@@ -39,9 +39,9 @@ Key reference will be deleted. Continue? [y/N]: y
 Key deleted forever (uh oh!)
 ```
 
-After deleting a key you will no longer have access to the associated key account. You may regenerate the deleted key using the secretcli and the keys seed phrase.&#x20;
+After deleting a key you will no longer have access to the associated key account. You may regenerate the deleted key using the secretcli and the keys seed phrase.
 
-Multiple keys may be deleted at once. You will be prompted to confirm each keys deletion:&#x20;
+Multiple keys may be deleted at once. You will be prompted to confirm each keys deletion:
 
 ```bash
 secretcli keys delete pub_addr_2 pub_addr_1 multisig_sorted
@@ -73,6 +73,20 @@ become inspire first replace ask luxury extend member social donor expire lock c
   mnemonic: ""
 ```
 
+## Regenerate Key From Old Key Path
+
+<pre class="language-bash"><code class="lang-bash">secretcli keys add test --coin-type 118 --recover 
+
+Enter your bip39 mnemonic
+<strong>become inspire first replace ask luxury extend member social donor expire lock correct buddy skull task dizzy rather injury decline series reflect piece dumb
+</strong>
+- name: test
+  type: local
+  address: secret1tnmmdv2xkty3jgqh5l52tndgsk9m5caakv3ud6
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A/MV4cGgm7ILcdc/tyxysevjBBWjqBjsBoO5QIItzohJ"}'
+  mnemonic: ""
+</code></pre>
+
 ## Backup And Export Key
 
 You can also backup your key using `export` — which outputs to _stderr_:
@@ -103,7 +117,7 @@ secretcli keys import <key-alias> <key-export-file>
 Enter passphrase to decrypt your key:
 ```
 
-After importing your key, verify the key is imported with:&#x20;
+After importing your key, verify the key is imported with:
 
 ```bash
 secretcli keys show test
@@ -115,4 +129,4 @@ secretcli keys show test
   mnemonic: ""
 ```
 
-\
+\\
