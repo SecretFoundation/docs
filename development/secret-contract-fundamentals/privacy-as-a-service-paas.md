@@ -56,7 +56,7 @@ One such example is private voting. Voting is inherently a public system, the re
 
 One can design a dApp that allows Ethereum (or any other chain) DAOs to vote privately by voting via a Secret contract instead. Users encrypt their vote and their VP with the TX encryption key of the Secret network contract. The contract remains open for a set amount of time to collect votes after which it tallies results and emits the output. The output can be sent back to the consumer chain to complete the official voting process.&#x20;
 
-This same concept applies to many different use cases like sealed bid auctions and obscuring the game-state of turn-based games. The first mainnet application on Polygon called [**Bidshop**](https://liquidfactory.io/) is using Secret Network in this way to enable a gamified auction platform. **To enable these use casesm cross-chain messaging is needed from either Axelar GMP, IBC or other solutions.**  Bidshop will be allowing integrations for other dApps on their novel trustless message bridge as well, want to get connected? Let us know!
+This same concept applies to many different use cases like sealed bid auctions and obscuring the game-state of turn-based games. The first mainnet application on Polygon called [**Bidshop**](https://liquidfactory.io/) is using Secret Network in this way to enable a gamified auction platform. **To enable these use cases, cross-chain messaging is needed from either Axelar GMP, IBC or other solutions.**  Bidshop will be allowing integrations for other dApps on their novel trustless message bridge as well, want to get connected? Let us know!
 
 {% hint style="info" %}
 Want to get started with Privacy as a Service or explore the possibilities but need some extra help?\
