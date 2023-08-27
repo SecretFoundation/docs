@@ -9,10 +9,10 @@ description: >-
 
 
 {% hint style="info" %}
-A more in-depth explenation of input-data verification and the Replay attack vectors that come with are displayed in the "[potential attacks](../../overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/)" section of the Encryption specs.
+A more in-depth explanation of input-data verification and the Replay attack vectors that come with are displayed in the "[potential attacks](../../overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/)" section of the Encryption specs.
 {% endhint %}
 
-As secret runs the compute module from within the enclave of the validator node it handles with 2 types of data, data coming from within the enclave or outside of it. This data can then be separated as trusted (in-enclave) and un-trusted (outside enclave) meaning you can only rely on the trusted to be true in all cases, the untrusted data can be forged either with replay attacks on forked chains or state modification attacks.
+As Secret runs the compute module from within the enclave of the validator node it handles 2 types of data, data coming from within the enclave or outside of it. This data can then be separated as trusted (in-enclave) and un-trusted (outside enclave) meaning you can only rely on the trusted to be true in all cases, the untrusted data can be forged either with replay attacks on forked chains or state modification attacks.
 
 The amount of trusted data options can be increased by additional verification mechanisms.
 

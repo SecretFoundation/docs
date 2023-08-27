@@ -10,7 +10,7 @@ You can find the Gas settings for Secret Network in the Network code here - [\[S
 
 The `max_gas` parameter is chosen in such a way that validators can ensure they process the full computational load within the target block execution time (\~6s). If this computation and expected blocktime don't align the blocks will become longer and longer as they await 66% of voting power to sign the block. When block time increases the TPS of the blockchain drastically decreases only complicating the situation further.
 
-You can read more about this interplay between blocktime, TPS and scalability in this [post mortem of the Shade airdrop.](../../infrastructure/post-mortems-upgrades/)
+You can read more about this interplay between blocktime, TPS and scalability in this [post mortem of the Shade airdrop](../../infrastructure/post-mortems-upgrades/).
 
 ### Encryption overhead
 
@@ -24,11 +24,11 @@ Because of above factors the TPS of Secret is limited in comparison to vanilla T
 
 As explained in the above section this number can still be significantly increased by upgrading the WASM engine but has proven sufficient so far in periods of high demand
 
-### Enclave Query's
+### Enclave Queries
 
 Important to note is that Queries related to contract state require the API node to access the enclave, these are therefore more resource expensive than SDK queries. Secret API infrastructure needs to be scaled accordingly to fit heavy load user interfaces. One can expect to require more Secret API nodes than standard Cosmos API nodes for a similar application.\
 \
-As transaction complexity overhead decreases with better engines so does increase the ability for a node to process queries. Verified queries on Secret have already become hundred times more performant with upgrade 1.4-1.6 and with the current community API in in a very stable spot.
+As transaction complexity overhead decreases with better engines so does increase the ability for a node to process queries. Verified queries on Secret have already become a hundred times more performant with 1.4-1.6 upgrades, and with the current community API they are in a very stable spot.
 
 ### Scalability
 
