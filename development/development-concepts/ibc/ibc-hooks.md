@@ -4,8 +4,6 @@ description: Initiate a contract call with an incoming IBC token transfer using 
 
 # IBC-hooks
 
-_note: this documentation is currently in progress as of 8/21/23_
-
 ### IBC-hooks Overview
 
 IBC-hooks is an IBC middleware that **uses incoming ICS-20 token transfers to initiate smart contract calls**. This allows for arbitrary data to be passed in as a string along with token transfers and is useful for a variety of use cases such as cross-chain token swaps, auto-wrapping of SNIP-20 tokens, General Message Passing (GMP) between Secret Network and EVM chains, and much more! The mechanism enabling this is a `memo` field on every ICS20 transfer packet as of IBC v3.4.0. Wasm hooks is an IBC middleware that parses an ICS20 transfer, and if the `memo` field is of a particular form, it executes a WASM contract call.
