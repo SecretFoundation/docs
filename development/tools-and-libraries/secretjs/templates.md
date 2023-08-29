@@ -25,25 +25,25 @@ The project directory will contain the following structure:
 ..  2_creating_account    4_transactions  6_wallets    8_websocket     .env.example  .env.testnet.example  .gitignore  package.json  README.md
 ```
 
-For this tutorial we will be using the pulsar-2 test network to go through each SecretJS example. To do this we need to copy one of the example environment files, eg .env.testnet.example, to a new file name .env\
+For this tutorial we will be using the pulsar-3 test network to go through each SecretJS example. To do this we need to copy one of the example environment files, eg .env.testnet.example, to a new file name .env\
 Update the contents of .env file to contain the following:
 
 ```
-SECRET_GRPC_WEB_URL='https://grpc.pulsar.scrttestnet.com'
-SECRET_LCD_URL='https://api.pulsar.scrttestnet.com'
-SECRET_WS_URL='wss://rpc.pulsar.scrttestnet.com/websocket'
-SECRET_CHAIN_ID='pulsar-2'
+SECRET_GRPC_WEB_URL='https://grpc.pulsar3.scrttestnet.com'
+SECRET_LCD_URL='https://api.pulsar3.scrttestnet.com'
+SECRET_WS_URL='wss://rpc.pulsar3.scrttestnet.com/websocket'
+SECRET_CHAIN_ID='pulsar-3'
 
 MNEMONIC='<YOUR SECRET MNEMONIC>'
 ADDRESS='<YOUR ACCOUNT ADDRESS>'
 ```
 
-You will also need to configure the Secret Network CLI to work with the pulsar-2 test network:
+You will also need to configure the Secret Network CLI to work with the pulsar-3 test network:
 
 ```bash
 secretcli config node https://rpc.pulsar.scrttestnet.com
 
-secretcli config chain-id pulsar-2
+secretcli config chain-id pulsar-3
  
 ```
 
@@ -53,7 +53,7 @@ If you do not have a mnemonic and public address for testing purposes yet create
 secretcli keys add <key-alias> // choose your own alias
 ```
 
-After creating an account add funds to the account using the [pulsar-2 faucet.](https://faucet.secrettestnet.io/)
+After creating an account add funds to the account using the [pulsar-3 faucet](https://docs.scrt.network/secret-network-documentation/overview-ecosystem-and-technology/secret-network-overview/testnet#faucet).
 
 Query your account balance to confirm faucet funding:
 
@@ -63,7 +63,7 @@ secretcli query bank balances <account address>
 
 ### Connecting to a node
 
-Now it's time to connect to a pulsar-2 test net node. Run the following commands in the root directory of the SecretJS-Templates folder:
+Now it's time to connect to a pulsar-3 test net node. Run the following commands in the root directory of the SecretJS-Templates folder:
 
 ```
 npm install
@@ -74,12 +74,12 @@ npm run 1
 You will see an output similar to the following:
 
 ```
-ChainId: pulsar-2
+ChainId: pulsar-3
 Block height: <block height at time of connection> 
 Successfully connected to Secret Network
 ```
 
-The code responsible for connecting with pulsar-2 in SecretJS-Templates/1\_connecting\_to\_node/connect.js is:
+The code responsible for connecting with pulsar-3 in SecretJS-Templates/1\_connecting\_to\_node/connect.js is:
 
 ```rust
 const secretjs = new SecretNetworkClient({url: process.env.SECRET_LCD_URL});
@@ -125,7 +125,7 @@ Node Info: {
     protocolVersion: { p2p: '8', block: '11', app: '0' },
     defaultNodeId: '63b0dc21d557c97a41fc51095d161c7b069d4946',
     listenAddr: 'tcp://0.0.0.0:26656',
-    network: 'pulsar-2',
+    network: 'pulsar-3',
     version: '0.34.14',
     channels: Uint8Array(10) [
       64, 32, 33, 34, 35,

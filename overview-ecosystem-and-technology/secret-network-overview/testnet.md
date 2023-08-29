@@ -46,7 +46,7 @@ In a matter of seconds you should be able to see 100 test SCRT on your Keplr bal
 To have access to all the testnet functionalities and to develop you can connect using **SecretCLI**, a desktop client tool to interact with the blockchain from the console.
 
 * Install and configure SecretCLI by following [this tutorial](https://docs.scrt.network/)
-*   Open your terminal and run the following commands to connect to pulsar-2 and add your wallet:
+*   Open your terminal and run the following commands to connect to pulsar-3 and add your wallet:
 
     ```
     secretcli config node https://rpc.pulsar3.scrttestnet.com
