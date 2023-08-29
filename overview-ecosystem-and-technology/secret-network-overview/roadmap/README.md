@@ -18,17 +18,9 @@ Contract migration has not been implemented yet either as it was always deemed b
 
 ### 1a. EVM support
 
-Multiple phases of EVM support coming to Secret Network over 2024
+Multiple phases of EVM support coming to Secret Network over 2024. Use Secret as your Ethereum Layer 2 for any privacy demands of your project. Supported by Axelar GMP and Core protocol changes to better support EVM developers.
 
-Phase 1/2 - Privacy as a service with metamask support and bridge solutions to Ethereum - Launching September 2023
-
-Phase 3/4 - Full EVM support on Secret Adjacent to CosmWasm, acting as a Private rollup for Secret on the current Tendermint chain
-
-
-
-Full details: --- Blog here Soon --
-
-Announcement: 4:37:00 - [https://www.youtube.com/watch?v=8d9ERiS9JcM](https://www.youtube.com/watch?v=8d9ERiS9JcM)
+{% embed url="https://scrt.network/blog/announcing-secret-ethereum/" %}
 
 ### 2. Bridge migration - Expected Fall of 2023
 
