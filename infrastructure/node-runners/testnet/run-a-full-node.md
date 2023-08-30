@@ -174,7 +174,7 @@ From here on, commands must be ran on the full node.
 
 ```bash
 mkdir -p ~/.secretd/.node
-secretd configure-secret node-master-cert.der $SEED
+secretd configure-secret node-master-key.txt $SEED
 ```
 
 #### Add Seeds And Persistent Peers To Configuration File. <a href="#_16-add-persistent-peers-to-your-configuration-file" id="_16-add-persistent-peers-to-your-configuration-file"></a>
