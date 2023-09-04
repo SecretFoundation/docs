@@ -16,7 +16,7 @@ If you want to get the information of a single validator you can check it with:
 secretcli q staking validator <validator-address>
 ```
 
-_**Note:** _ [_A list of validators on the pulsar-2 Secret Network testnet can be found here_](https://secretnodes.com/secret/chains/pulsar-2/validators)_._&#x20;
+_**Note:** _ [_A list of validators on the pulsar-3 Secret Network testnet can be found here_](https://testnet.ping.pub/secret/uptime)_._&#x20;
 
 ## Bond Tokensw <a href="#bond-tokens" id="bond-tokens"></a>
 

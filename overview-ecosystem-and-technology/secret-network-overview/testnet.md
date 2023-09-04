@@ -56,7 +56,7 @@ To have access to all the testnet functionalities and to develop you can connect
     ```
 * Paste your wallet’s mnemonic phrase when asked to do so
 
-You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](../../development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-2.md).
+You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](../../development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-3.md).
 
 ## **Secret Tokens**
 
@@ -103,7 +103,7 @@ _**Note:** If you’re using `secretcli` view a full list of commands for_ [_Sec
 
 ## Viewing Testnet Transactions
 
-To view testnet transactions and contract interactions on the testnets you can use the \[Ping Dashboard, a light explorer for Cosmos-based Blockchains. https://ping.pub [pulsar-2](https://testnet.ping.pub/secret/).
+To view testnet transactions and contract interactions on the testnets you can use the \[Ping Dashboard, a light explorer for Cosmos-based Blockchains. https://ping.pub [pulsar-3](https://testnet.ping.pub/secret/).
 
-* [Ping Dashboard - pulsar-2](https://testnet.ping.pub/secret/)
+* [Ping Dashboard - pulsar-3](https://testnet.ping.pub/secret/)
   * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub

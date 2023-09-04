@@ -16,7 +16,7 @@ var wallet = await Wallet.Create(options: createWalletOptions);
 
 // get infos from https://docs.scrt.network/secret-network-documentation/development/connecting-to-the-network
 var gprcUrl = "https://grpc.testnet.secretsaturn.net"; 
-var chainId = "pulsar-2";
+var chainId = "pulsar-3";
 
 // Create a readonly connection to Secret Network node (does not attach the wallet)
 var secretClient = new SecretNetworkClient(gprcUrl, chainId, wallet: null); // without a wallet
