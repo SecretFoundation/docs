@@ -35,7 +35,7 @@ The fastest and easiest way to get some test SCRT into your wallet is to use **f
 
 Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.
 
-* Go to [https://faucet-ui-pulsar3.vercel.app/](https://faucet-ui-pulsar3.vercel.app/)
+* Go to [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/)
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
   ![](<../../.gitbook/assets/testnetguide\_3 (1).png>)
 

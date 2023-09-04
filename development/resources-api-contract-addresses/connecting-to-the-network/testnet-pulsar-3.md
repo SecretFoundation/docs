@@ -6,11 +6,11 @@
 
 ### Explorers
 
-* [https://explorer-pulsar3.vercel.app/](https://explorer-pulsar3.vercel.app/)
+* [https://testnet.ping.pub/secret/](https://testnet.ping.pub/secret/)
 
 ### Faucets
 
-* [https://faucet-ui-pulsar3.vercel.app](https://faucet-ui-pulsar3.vercel.app/)
+* [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/)
 
 ### API endpoints
 
