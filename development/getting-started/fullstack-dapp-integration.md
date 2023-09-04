@@ -67,7 +67,7 @@ Before we proceed, review the [`ConnectWallet()`](https://github.com/scrtlabs/ex
 This function awaits [`SetupKeplr()`](https://github.com/scrtlabs/examples/blob/bc4676c4d3a644e3cc841384033ba1b7306250eb/secret-millionaire/react-millionaire/src/secretJs/SecretjsContext.js#L11C1-L47C4), an asynchronous function which enables Secret Network on Keplr, retrieves the user's account information from Keplr, creates a Secret Network client with this information, and then sets the `secretjs` instance and `secretAddress` with these details so that we can then share this data with the rest of our application.  Notice that when we establish the Secret Network client with Secret.js we are also specifying the `url` and `chainId` of the client, which in this case is the `url` + `chainId` for Secret testnet:
 
 ```javascript
-    const chainID = "pulsar-2",
+    const chainID = "pulsar-3",
     const url = "https://api.pulsar.scrttestnet.com",
     
     const accounts = await keplrOfflineSigner.getAccounts();

@@ -45,7 +45,7 @@ You may have noticed that the execution message takes two arguments in addition 
 
 As the name perhaps implies, `env` contains all the information about the environment the contract is running in, but what does that mean exactly? On Secret Network the properties available in the Env struct are as follows:
 
-* block: this contains all the information about the current block. This is the block height (`height`), the current time as a unix timestamp (`time`) and the chain id (`chain_id`) such as secret-4 or pulsar-2.
+* block: this contains all the information about the current block. This is the block height (`height`), the current time as a unix timestamp (`time`) and the chain id (`chain_id`) such as secret-4 or pulsar-3.
 * message: contains information that was sent as part of the payload for the execution. This is the sender, or the wallet address of the person that called the handle function and sent\_funds which contains a vector of native funds sent by the caller (SNIP-20s are not included).
 * contract: contains a property with the contract’s address.
 * contract\_code\_hash: this is a String containing the code hash of the current contract, it’s useful when registering with other contracts such as SNIP20s or SNIP721s or when working on a factory contract.

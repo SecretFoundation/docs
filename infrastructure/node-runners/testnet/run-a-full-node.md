@@ -140,7 +140,7 @@ Otherwise, you will need to set up a key. Make sure you back up the mnemonic and
 secretd keys add <key-alias>
 ```
 
-This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some test-SCRT from [the faucet](https://faucet-ui-pulsar3.vercel.app/). Continue when you have confirmed your account has some test-SCRT in it.
+This will output your address, a 45 character-string starting with `secret1...`. Copy/paste it to get some test-SCRT from [the faucet](https://faucet.pulsar.scrttestnet.com/). Continue when you have confirmed your account has some test-SCRT in it.
 
 ### **Configure Node Attestation**
 

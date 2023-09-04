@@ -137,8 +137,8 @@ gm start
 2. Create clients&#x20;
 
 ```
-hermes create client --host-chain pulsar-2 --reference-chain uni-6
-hermes create client --host-chain uni-6 --reference-chain pulsar-2
+hermes create client --host-chain pulsar-3 --reference-chain uni-6
+hermes create client --host-chain uni-6 --reference-chain pulsar-3
 ```
 
 3. Create connections
