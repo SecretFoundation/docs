@@ -1,4 +1,8 @@
-# Contract migration/upgradeability
+# Manual - < v1.11
+
+{% hint style="info" %}
+Since the V1.11 Upgrade Secret now supports native migrateability for contracts
+{% endhint %}
 
 The Secret Network's version of the CosmWasm runtime disables the ability to natively migrate contracts. Data written to storage using some contract can only ever be accessed by that same contract. This is done for trust and security reasons. Once a user sends some information to a secret contract, there should not be an easy way for anyone to change the code that has access to this information. If it was possible, then the new code would be able to leak any information entrusted by the user to the old code.
 

@@ -2,7 +2,7 @@
 description: Optionally perform state migrations of Secret Network smart contracts
 ---
 
-# Contract Migration
+# Native - from v1.11
 
 ## Contract Migration on Secret Network
 
