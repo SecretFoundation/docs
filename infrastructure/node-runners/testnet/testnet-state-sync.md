@@ -43,7 +43,7 @@ echo $BLOCK_HEIGHT $TRUST_HASH
 
 ```
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.pulsar-3.secretsaturn.net,http://rpc.pulsar-3.secretsaturn.net\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.pulsar-3.secretsaturn.net:26657,http://secret-testnet-rpc.01no.de:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.secretd/config/config.toml
