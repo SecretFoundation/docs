@@ -130,7 +130,7 @@
     * [Gas Evaporation & Tracking](development/development-concepts/privacy-design/gas-evaporation-and-tracking.md)
   * [IBC](development/development-concepts/ibc/README.md)
     * [Secret IBC setup](development/development-concepts/ibc/secret-ibc-setup.md)
-    * [IBC-hooks](development/development-concepts/ibc/ibc-hooks.md)
+    * [IBC-Hooks](development/development-concepts/ibc/ibc-hooks.md)
     * [Cross-Chain (IBC) randomness](development/development-concepts/ibc/cross-chain-ibc-randomness.md)
   * [Permissioned Viewing](development/development-concepts/permissioned-viewing/README.md)
     * [Viewing Keys](development/development-concepts/permissioned-viewing/viewing-keys/README.md)

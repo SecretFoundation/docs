@@ -1,15 +1,15 @@
 ---
-description: Initiate a contract call with an incoming IBC token transfer using WASM hooks
+description: Initiate a contract call with an incoming IBC token transfer using IBC hooks
 ---
 
-# IBC-hooks
+# IBC-Hooks
 
-### IBC-hooks Overview
+### Overview
 
-IBC-hooks is an IBC middleware that **uses incoming ICS-20 token transfers to initiate smart contract calls**. This allows for arbitrary data to be passed in as a string along with token transfers and is useful for a variety of use cases such as cross-chain token swaps, auto-wrapping of SNIP-20 tokens, General Message Passing (GMP) between Secret Network and EVM chains, and much more! The mechanism enabling this is a `memo` field on every ICS20 transfer packet as of IBC v3.4.0. Wasm hooks is an IBC middleware that parses an ICS20 transfer, and if the `memo` field is of a particular form, it executes a WASM contract call.
+IBC-Hooks is an IBC middleware that **uses incoming ICS-20 token transfers to initiate smart contract calls**. This allows for arbitrary data to be passed in along with token transfers. This is useful for a variety of use cases such as cross-chain token swaps, auto-wrapping of SNIP-20 tokens, General Message Passing (GMP) between Secret Network and EVM chains, and much more! The mechanism enabling this is a `memo` field on every ICS20 transfer packet as of IBC v3.4.0. Wasm hooks is an IBC middleware that parses an ICS20 transfer, and if the `memo` field is of a particular form, it executes a Wasm contract call.
 
 {% hint style="info" %}
-Note that the metadata in the memo field is not used within ICS-20 itself, but instead, a middleware or custom CosmWasm contract can wrap around the transfer protocol to parse the metadata and execute custom logic based off of it. [See more here.](https://medium.com/the-interchain-foundation/moving-beyond-simple-token-transfers-d42b2b1dc29b)&#x20;
+Note that the metadata in the `memo` field is not used within ICS-20 itself, but instead, a middleware or custom CosmWasm contract can wrap around the transfer protocol to parse the metadata and execute custom logic based off of it. [See more here.](https://medium.com/the-interchain-foundation/moving-beyond-simple-token-transfers-d42b2b1dc29b)&#x20;
 {% endhint %}
 
 ### ICS20 Packet Structure
@@ -38,7 +38,7 @@ ICS20 is JSON native, so JSON is used for the memo format:
 ```
 {% endcode %}
 
-An ICS20 packet is formatted correctly for WASM hooks if the following all hold:
+An ICS20 packet is formatted correctly for Wasm hooks if the following all hold:
 
 * `memo` is not blank
 * `memo` is valid JSON
@@ -53,17 +53,17 @@ If an ICS20 packet is not directed towards wasmhooks, wasmhooks doesn't do anyth
 
 ### ICS20 Packet Execution Flow
 
-Before WASM hooks:
+Before Wasm hooks:
 
 * Ensure the incoming IBC packet is cryptographically valid
 * Ensure the incoming IBC packet has not timed out
 
-In WASM hooks, before packet execution:
+In Wasm hooks, before packet execution:
 
 * Ensure the packet is correctly formatted (as defined above)
 * Edit the receiver to be the hardcoded IBC module account
 
-In WASM hooks, after packet execution:
+In Wasm hooks, after packet execution:
 
 * Construct wasm message as defined above
 * Execute wasm message
@@ -79,7 +79,6 @@ In WASM hooks, after packet execution:
 #[entry_point]
 pub fn execute(_deps: DepsMut, env: Env, info: MessageInfo, msg: Msg) -> StdResult<Response> {
     match msg {
-        Msg::Nop {} => Ok(Response::default()),
         Msg::WrapDeposit {
             snip20_address,
             snip20_code_hash,
@@ -112,7 +111,7 @@ pub fn execute(_deps: DepsMut, env: Env, info: MessageInfo, msg: Msg) -> StdResu
 
 ### Ack callbacks
 
-A contract that sends an IBC transfer may need to listen for the acknowledgment (`ack`) of that packet. To allow contracts to listen to the `ack` of specific packets, we provide **Ack callbacks**. The sender of an IBC transfer packet may specify a callback in the `memo` field of the transfer packet when the `ack` of that packet is received.
+A contract that sends an IBC transfer may need to listen for the acknowledgment (`ack`) of that packet. To allow contracts to listen to `ack` of specific packets, we provide **Ack callbacks**. The sender of an IBC transfer packet may specify a callback in the `memo` field of the transfer packet when the `ack` of that packet is received.
 
 {% hint style="info" %}
 Only the IBC packet sender can set the callback
