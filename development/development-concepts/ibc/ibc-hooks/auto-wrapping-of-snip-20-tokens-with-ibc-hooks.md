@@ -4,21 +4,20 @@ description: A step-by-step guide on how to auto-wrap SNIP-20 tokens with IBC ho
 
 # Auto-wrapping of SNIP-20 tokens with IBC Hooks
 
-_Note: this documentation is currently in progress as of 9.7.23_
-
 ## Tutorial: Auto-wrapping of SNIP-20 Tokens
 
 In this tutorial, you will learn how to use [IBC hooks](https://docs.scrt.network/secret-network-documentation/development/development-concepts/ibc/ibc-hooks) to auto-wrap [SNIP-20 tokens](https://docs.scrt.network/secret-network-documentation/overview-ecosystem-and-technology/secret-network-overview/private-tokens) between two LocalSecret IBC chains. Simply put, you will learn how to IBC transfer tokens from one blockchain to another blockchain, and in doing so, the token transfer will execute a smart contract call that turns the tokens into privacy-preserving tokens, all with a single token transfer!&#x20;
 
 ### Overview
 
-This tutorial will cover the following:&#x20;
+**What You Will Learn:**\
+This tutorial is structured to cover the following key steps:
 
-1. Set up a Hermes relayer between two LocalSecret chains (Chain A and Chain B)
-2. Execute an IBC token transfer between Chain A and Chain B
-3. Upload and instantiate a SNIP-20 contract on Chain A
-4. Upload and instantiate a Wasm Hooks wrapper contract on Chain A
-5. Send tokens from chain A to Chain B, and in doing so, use IBC hooks to auto-wrap SNIP-20 tokens.&#x20;
+1. Setting up a Hermes relayer between two LocalSecret chains, specifically Chain [secretdev-1](https://github.com/scrtlabs/examples/blob/253c2ffc7dcd43600ad806706782f9a6e820d761/secret-IBC-setup/relayer/config.toml#L33) and Chain [secretdev-2](https://github.com/scrtlabs/examples/blob/253c2ffc7dcd43600ad806706782f9a6e820d761/secret-IBC-setup/relayer/config.toml#L59).
+2. Executing an IBC token transfer between the two aforementioned chains.
+3. Uploading and initializing a SNIP-20 contract on the secretdev-1 chain.
+4. Uploading and initializing a Wasm Hooks wrapper contract on the secretdev-1 chain.
+5. Transferring tokens from secretdev-1 to secretdev-2, and in the process, utilizing IBC hooks to automatically wrap the SNIP-20 tokens.
 
 Let's dive in! 🏊‍♀️
 
@@ -28,17 +27,13 @@ To follow along with this tutorial, setup a Hermes relayer between two LocalSecr
 
 ### Execute IBC Token Transfer
 
-In order to auto-wrap SNIP-20 token over IBC, we must first instantiate a SNIP-20 contract on LocalSecret that can be used with our SNIP-20 wrapper contract.&#x20;
-
-Because we will be auto-wrapping an IBC token, we must instantiate the SNIP-20 contract with the [**IBC denom**](https://github.com/scrtlabs/examples/blob/ff7d93126c94a5ad6be3b556efbca04f7a6bc573/IBC-wasm-hooks-tutorial/contracts/snip20-reference-impl/src/msg.rs#L28) of the token in order for the contract to receive the token. We can find the IBC denom of our token by executing an IBC token transfer!
+In order to auto-wrap SNIP-20 tokens over IBC, you must first instantiate a SNIP-20 smart contract on LocalSecret with the [**IBC denom**](https://github.com/scrtlabs/examples/blob/ff7d93126c94a5ad6be3b556efbca04f7a6bc573/IBC-wasm-hooks-tutorial/contracts/snip20-reference-impl/src/msg.rs#L28) of the token.&#x20;
 
 {% hint style="info" %}
-If you've never funded a Hermes wallet or LocalSecret wallet before, [learn how to do so here](https://github.com/scrtlabs/examples/blob/master/secret-IBC-setup/Wallets.md).&#x20;
-
-If you would like to do further reading, refer to the [LocalSecret wallet docs](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/local-secret) and the [Hermes wallet docs](https://hermes.informal.systems/documentation/commands/keys/index.html).&#x20;
+Want to learn more about IBC denoms? Read the [Cosmos documentation here.](https://tutorials.cosmos.network/tutorials/6-ibc-dev/)&#x20;
 {% endhint %}
 
-Assuming you have the wallet key `'a'` which is not the relayer's key, run the following:&#x20;
+You can find the IBC denom of your token by executing an IBC token transfer. Assuming you have funded the LocalSecret wallet `'a'` for chain secretdev-1, run the following:&#x20;
 
 {% code overflow="wrap" %}
 ```sh
@@ -53,13 +48,19 @@ secretcli tx ibc-transfer transfer transfer channel-0 secret1ap26qrlp8mcq2pg6r47
 ```
 {% endcode %}
 
+{% hint style="info" %}
+If you have never funded a Hermes wallet or LocalSecret wallet before, [learn how to do so here](https://github.com/scrtlabs/examples/blob/master/secret-IBC-setup/Wallets.md).&#x20;
+
+If you would like to do further reading, refer to the [LocalSecret wallet docs](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/local-secret) and the [Hermes wallet docs](https://hermes.informal.systems/documentation/commands/keys/index.html).&#x20;
+{% endhint %}
+
 Query that the transaction was successful:&#x20;
 
 ```bash
 secretcli query tx <tx hash>
 ```
 
-Now switch to the destination network (secretdev-2) and query the bank balance of **wallet a** to confirm that the transaction was successful:&#x20;
+Now switch to the destination network (secretdev-2) and query the bank balance of wallet `'a'` to confirm that the transaction was successful:&#x20;
 
 ```
 # switch to the destination network (secretdev-2)
@@ -88,7 +89,7 @@ docker run --rm -v "$(pwd)":/contract \
   enigmampc/secret-contract-optimizer 
 ```
 
-Now upload it (but first make sure you are on chain A):&#x20;
+Now upload it (but first make sure you are on chain secretdev-1):&#x20;
 
 ```bash
 secretcli config node http://localhost:26657
@@ -215,9 +216,9 @@ If the instantiation was successful it will return:&#x20;
 
 ### Auto-wrap Tokens
 
-Now all that's left is to make an IBC token transfer and experience the magic of IBC hooks with our token wrapping contract.&#x20;
+Now all that's left is to make an IBC token transfer and experience the magic of IBC hooks with the token wrapping contract.&#x20;
 
-First, initialize some variables in your terminal:&#x20;
+First, initialize the variables in your terminal:&#x20;
 
 {% code overflow="wrap" %}
 ```bash
@@ -237,7 +238,7 @@ Now execute the token transfer!
 
 {% code overflow="wrap" %}
 ```bash
-secretcli tx ibc-transfer transfer transfer channel-0 $sSCRT 1uscrt --memo $memo --from a
+secretcli tx ibc-transfer transfer transfer channel-0 "$sSCRT" 1uscrt --memo "$memo" --from a
 ```
 {% endcode %}
 
@@ -255,6 +256,6 @@ Here is an excerpt from the transaction query which includes the IBC memo:&#x20;
 ```
 {% endcode %}
 
-Notice that the sender is our **wallet address a** and the receiver is the **SNIP-20 contract address.**&#x20;
+Notice that the sender is wallet address `'a'` and the receiver is the **SNIP-20 contract address.**&#x20;
 
-**Congrats!** You've just successfully used IBC hooks to autowrap tokens on Secret Network 🎉🚀
+**Congrats!** You've just successfully used IBC hooks to auto-wrap tokens on Secret Network 🎉🚀
