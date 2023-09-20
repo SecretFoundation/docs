@@ -1,4 +1,4 @@
-# Query Governace Parameters
+# Query Governance Parameters
 
 To check the current governance parameters run:
 
