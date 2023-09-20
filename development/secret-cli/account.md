@@ -32,14 +32,14 @@ secretcli query bank balances <secret-address>
 Get your `<secret-address>` using:
 
 ```bash
-# Use the -a flag to display the addres only
+# Use the -a flag to display the address only
 secretcli keys show -a <key-alias>
 ```
 
 You can also supply your address with the following command:
 
 ```bash
-# This grabs the desired acount address and uses it as an input to the 
+# This grabs the desired account address and uses it as an input to the 
 # secretcli query bank balances command
 secretcli query bank balances $(secretcli keys show -a <key-alias>)
 ```
@@ -60,7 +60,7 @@ _**Note:** The `amount` argument accepts the format `<value|coin_name>`. You may
 
 If you pass `--gas=auto`, the gas supply is automatically estimated before transaction execution.
 
-Inaccurate gas estimates may occur in-between the end of the simulation and the actual execution of a transaction. An adjustment needs to be applied on top of the original estimate for the transaction to be broadcasted successfully. Adjustment are controlled via the `--gas-adjustment` flag, with a default value of 1.0.
+Inaccurate gas estimates may occur in-between the end of the simulation and the actual execution of a transaction. An adjustment needs to be applied on top of the original estimate for the transaction to be broadcasted successfully. Adjustments are controlled via the `--gas-adjustment` flag, with a default value of 1.0.
 
 To view updated balances of origin and destination accounts use:
 
