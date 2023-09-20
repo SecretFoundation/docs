@@ -50,7 +50,7 @@ Before we proceed, review the [`ConnectWallet()`](https://github.com/scrtlabs/ex
  async function connectWallet() {
     try {
       if (!window.:) {
-        console.log("intall keplr!");
+        console.log("install keplr!");
       } else {
         await setupKeplr(setSecretjs, setSecretAddress);
         localStorage.setItem("keplrAutoConnect", "true");
@@ -211,7 +211,7 @@ Lastly, we need to be able to query the result of submitted transaction, namely,
    * `query`: The query message to be sent to the contract. In this case, it's calling the `who_is_richer` method of the contract, which returns information about the richer of the two millionaires.&#x20;
    * `code_hash`: The code hash of the contract to ensure that the contract code hasn't been tampered with.
 2. The result of this query is stored in the `query` variable.
-3. The result of the query is then pushed onto the `myQuery` array. This array store the results of all queries made so far, and we can display this on our React front end.&#x20;
+3. The result of the query is then pushed onto the `myQuery` array. This array stores the results of all queries made so far, and we can display this on our React front end.&#x20;
 
 ### Putting it all together&#x20;
 
