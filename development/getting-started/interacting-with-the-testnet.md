@@ -56,7 +56,7 @@ When you run the above code, it will name your contract folder directory "my-cou
 
 Start by opening the `my-counter-contract` project folder in your text editor. If you navigate to `my-counter-contract/src` you will see`contract.rs, msg.rs, lib.rs, and state.rs`—these are the files that make up our counter smart contract. If you've never worked with a Rust smart contract before, perhaps take some time to familiarize yourself with the code, although in this tutorial we will not be going into detail discussing the contract logic.
 
-1. In the your root project folder, ie`my-counter-contract`, create a new folder. For this tutorial I am choosing to call the folder `node`.
+1. In your root project folder, ie `my-counter-contract`, create a new folder. For this tutorial I am choosing to call the folder `node`.
 2. In your `my-counter-contract/node` folder, create a new javascript file––I chose to name mine`index.js`.
 3. Run `npm init -y` to create a package.json file.
 4. Add `"type" : "module"` to your package.json file.
