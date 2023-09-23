@@ -15,7 +15,7 @@ There are two key components to a migratable contract:
 
 ### Contract Admin
 
-On `instantiation`, the contract creator can specify an `admin` address, which can be the contract creator's wallet address, an external account, or a governance contract, etc. Whatever the address is, this `admin` gains the ability to migrate the contract to a new `codeId` and `codeHash`, and can also update or clear the `admin` address. When the `admin` invokes the `MigrateMsg` message, the `migrate()` function is called on the new contract, where the new contract can optionally perform state migrations from an old contract.&#x20;
+On [`instantiation`](https://github.com/scrtlabs/secret.js/blob/5b98a6d7e527228b16706ff32b85d303be7714b2/src/tx/compute.ts#L48C24-L48C24), the contract creator can specify an `admin` address, which can be the contract creator's wallet address, an external account, or a governance contract, etc. Whatever the address is, this `admin` gains the ability to migrate the contract to a new `codeId` and `codeHash`, and can also update or clear the `admin` address. When the `admin` invokes the `MigrateMsg` message, the `migrate()` function is called on the new contract, where the new contract can optionally perform state migrations from an old contract.&#x20;
 
 {% hint style="info" %}
 Once the `migrate()` function is invoked, the contract address now points to the new code, and anybody contacting that address will reach the new code. The old code becomes unreachable.&#x20;
@@ -92,3 +92,60 @@ let main = async () => {
 main();
 ```
 {% endcode %}
+
+### Query contract migratability
+
+Secret contracts instantiated prior to the v1.11 network upgrade can be migrated via a SCRT governance signaling proposal.  If approved for migration, the contracts' code hashes will be matched to a chosen admin key and added to a list which is hardcoded inside the enclave for reference.
+
+{% hint style="info" %}
+[Further reading on hardcoded admin list](https://forum.scrt.network/t/an-update-on-the-contract-upgrade-feature/7012/2)
+{% endhint %}
+
+In order for a Secret contract instantiated after the v1.11 network upgrade to be migrated, **the contract must be instantiated with an admin**. To query whether or not a Secret contract was instantiated with an `admin`, use the `contractInfo` method:
+
+```javascript
+let queryContractInfo = async () => {
+  let query = await secretjs.query.compute.contractInfo({
+    contract_address: contractAddress,
+    code_hash: contractCodeHash,
+  });
+
+  console.log(query);
+};
+queryContractInfo();
+```
+
+The query will return the admin address, if there is one:&#x20;
+
+{% code overflow="wrap" %}
+```javascript
+{
+  contract_address: 'secret15l8cqadh5pruweuxvr5ku830hamqny8ey2q2vf',
+  contract_info: {
+    code_id: '1303',
+    creator: 'secret1j7n3xx4sfgjea4unghd78qvnvxdz49cxmrkqlj',
+    label: 'migrate example',
+    created: { block_height: '1088301', tx_index: '0' },
+    ibc_port_id: '',
+    admin: 'secret1j7n3xx4sfgjea4unghd78qvnvxdz49cxmrkqlj',
+    admin_proof: 'TSxuJZZG0/eYGggmXNXw79So9jET3zLIy2An9bB5dA0='
+  }
+}
+```
+{% endcode %}
+
+**To query if a Secret contract was migrated successfully**, use the [`contractHistory`](https://github.com/scrtlabs/secret.js/blob/5b98a6d7e527228b16706ff32b85d303be7714b2/src/query/compute.ts#L245C3-L245C24) method:
+
+```javascript
+let queryContractHistory = async () => {
+  let query = await secretjs.query.compute.contractHistory({
+    contract_address: contractAddress,
+    code_hash: contractCodeHash,
+  });
+
+  console.log(query);
+};
+queryContractHistory();
+```
+
+The method is designed to retrieve the history of a contract, specifically its code changes over time. The method returns an object containing an array of `ContractCodeHistoryEntry` items.
