@@ -60,7 +60,7 @@ This will generate the following files in `~/.secretd/config/`
 The genesis file is how other nodes on the network know what network you should be on.
 
 ```bash
-curl https://rpc.pulsar3.scrttestnet.com/genesis | jq '.result.genesis' > ~/.secretd/config/genesis.json
+curl https://rpc.pulsar.scrttestnet.com/genesis | jq '.result.genesis' > ~/.secretd/config/genesis.json
 # verify genesis.json checksum
 echo "adb91d0ee8cb5da80ef47e0b13d42b89bba003063542054d67522e52ddb4f514 $HOME/.secretd/config/genesis.json" | sha256sum --check
 ```
@@ -122,7 +122,7 @@ Configure `secretd`. Initially you'll be using the bootstrap node, as you'll nee
 
 ```bash
 secretd config chain-id pulsar-3
-secretd config node https://rpc.pulsar3.scrttestnet.com
+secretd config node https://rpc.pulsar.scrttestnet.com
 secretd config output json
 ```
 

@@ -16,11 +16,13 @@
 
 | Type     | API                                          | Courtesy of                                                                                                                                        |
 | -------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RPC      | `http://rpc.pulsar-3.secretsaturn.net`       | [🪐 𝕊ecret 𝕊aturn](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1q0rth4fu4svxnw63vjd7w74nadzsdp0fmkhj3d)         |
-| RPC      | `https://rpc.pulsar3.scrttestnet.com`         | SCRT Testnet Committee                                                                                                                             |
-| GRPC     | `http://grpcbin.pulsar3.scrttestnet.com:19099` | SCRT Testnet Committee                                                                                                                             |
-| gRPC-web | `https://grpc.pulsar3.scrttestnet.com`        | SCRT Testnet Committee                                                                                                                             |
-| LCD      | `https://api.pulsar3.scrttestnet.com`         | SCRT Testnet Committee                                                                                                                             |
+| RPC      | `https://rpc.pulsar-3.secretsaturn.net`       | [🪐 𝕊ecret 𝕊aturn](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1q0rth4fu4svxnw63vjd7w74nadzsdp0fmkhj3d)         |
+| LCD      | `https://lcd.pulsar-3.secretsaturn.net`         | [🪐 𝕊ecret 𝕊aturn](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1q0rth4fu4svxnw63vjd7w74nadzsdp0fmkhj3d)         |   
+| GRPC      | `https://grpc.pulsar-3.secretsaturn.net`         | [🪐 𝕊ecret 𝕊aturn](https://wallet.keplr.app/#/secret/stake?modal=detail\&validator=secretvaloper1q0rth4fu4svxnw63vjd7w74nadzsdp0fmkhj3d)         |   
+| RPC      | `https://rpc.pulsar.scrttestnet.com`         | SCRT Testnet Committee                                                                                                                             |
+| GRPC     | `http://grpcbin.pulsar.scrttestnet.com:9099` | SCRT Testnet Committee                                                                                                                             |
+| gRPC-web | `https://grpc.pulsar.scrttestnet.com`        | SCRT Testnet Committee                                                                                                                             |
+| LCD      | `https://api.pulsar.scrttestnet.com`         | SCRT Testnet Committee                                                                                                                             |
 
 ### Peer nodes
 
