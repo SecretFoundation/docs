@@ -49,7 +49,7 @@ To have access to all the testnet functionalities and to develop you can connect
 *   Open your terminal and run the following commands to connect to pulsar-3 and add your wallet:
 
     ```
-    secretcli config node https://rpc.pulsar3.scrttestnet.com
+    secretcli config node https://rpc.pulsar.scrttestnet.com
     secretcli config output json
     secretcli config chain-id pulsar-3
     secretcli keys add <a-name> --recover

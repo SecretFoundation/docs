@@ -12,9 +12,9 @@ The most common method for install `secretd` is the Secret Network package insta
 # download secretd v1.11
 
 ## goleveldb
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.11.0-beta.2/secretnetwork_1.11.0-beta.2_testnet_goleveldb_amd64.deb"
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.11.0-beta.14/secretnetwork_1.11.0-beta.14_testnet_goleveldb_amd64.deb"
 # Verify the v1.11 binaries
-echo '723a2d03ec51deadf4675f8363e79ae85c2965ea94fe9cc8d6063eb58062e40f secretnetwork_1.11.0-beta.2_testnet_goleveldb_amd64.deb' | sha256sum --check
+echo '6919f6ff544c6bfc8e408dcc3ce53cec2d42f30abd7c775f6872a1edf75258a7 secretnetwork_1.11.0-beta.14_testnet_goleveldb_amd64.deb' | sha256sum --check
 
 
 ```
@@ -23,9 +23,9 @@ echo '723a2d03ec51deadf4675f8363e79ae85c2965ea94fe9cc8d6063eb58062e40f secretnet
 
 ```bash
 # Install v1.11 binaries
-sudo apt install -y "./secretnetwork_1.11.0-beta.2_testnet_goleveldb_amd64.deb"
+sudo apt install -y "./secretnetwork_1.11.0-beta.14_testnet_goleveldb_amd64.deb"
 
 # verify installation
 secretd version
-# 1.11.0-beta.2
+# 1.11.0-beta.14
 ```

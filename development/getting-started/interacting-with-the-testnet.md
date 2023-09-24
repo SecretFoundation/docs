@@ -139,7 +139,7 @@ Note the **chainId** and the **url** that we are using. This chainId and url are
 ```javascript
 const secretjs = new SecretNetworkClient({
   chainId: "pulsar-3",
-  url: "https://api.pulsar3.scrttestnet.com",
+  url: "https://api.pulsar.scrttestnet.com",
   wallet: wallet,
   walletAddress: wallet.address,
 });

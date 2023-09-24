@@ -29,9 +29,9 @@ For this tutorial we will be using the pulsar-3 test network to go through each 
 Update the contents of .env file to contain the following:
 
 ```
-SECRET_GRPC_WEB_URL='https://grpc.pulsar3.scrttestnet.com'
-SECRET_LCD_URL='https://api.pulsar3.scrttestnet.com'
-SECRET_WS_URL='wss://rpc.pulsar3.scrttestnet.com/websocket'
+SECRET_GRPC_WEB_URL='https://grpc.pulsar.scrttestnet.com'
+SECRET_LCD_URL='https://api.pulsar.scrttestnet.com'
+SECRET_WS_URL='wss://rpc.pulsar.scrttestnet.com/websocket'
 SECRET_CHAIN_ID='pulsar-3'
 
 MNEMONIC='<YOUR SECRET MNEMONIC>'

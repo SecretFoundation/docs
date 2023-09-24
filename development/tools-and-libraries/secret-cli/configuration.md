@@ -21,7 +21,7 @@ secretcli config chain-id secret-4
 ## Testnet
 
 ```bash
-secretcli config node https://rpc.pulsar3.scrttestnet.com/
+secretcli config node https://rpc.pulsar.scrttestnet.com/
 
 secretcli config chain-id pulsar-3
 
