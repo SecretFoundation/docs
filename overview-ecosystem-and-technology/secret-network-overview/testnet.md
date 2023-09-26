@@ -91,11 +91,7 @@ Alternatively you can directly interact with their testnet secret contracts. Bel
 
 | Contract       | Address                                                                                    | Testnet Chain |
 | -------------- | ------------------------------------------------------------------------------------------ | :-----------: |
-| Sienna AMM     | secret1203futsqmxjjjk6rv8lvxmxlgwyje8jkf7ndxf                                              |    Pulsar-2   |
-| Sienna Lend    | secret13jw078vweqgr4v0q9u0l8a44525nlqxju29xkq                                              |    Pulsar-2   |
-| Sienna Rewards | [Rewards Address List](https://ethereumbridgebackendtestnet.azurewebsites.net/rewards)     |    Pulsar-2   |
-| StakeEasy      | secret1qrhv2lwjaawevskdz5v5mn4t4d65c2ndtltf8p                                              |    Pulsar-2   |
-| Time Capsule   | secret1hznvj7amwq5dqnl0snyhzpyrwufdcjll6my6casecret1hznvj7amwq5dqnl0snyhzpyrwufdcjll6my6ca |    Pulsar-2   |
+| SSCRT     | secret1gvn6eap7xgsf9kydgmvpqwzkru2zj35ar2vncj                                              |    Pulsar-3   |
 
 With Keplr you’ll need to approve a connection request for each protocol that you want to connect to. You can easily manage active website connections under “**Manage Connections**” in the Keplr settings.
 
