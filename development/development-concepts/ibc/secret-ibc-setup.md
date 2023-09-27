@@ -6,6 +6,10 @@ description: >-
 
 # Secret IBC setup
 
+{% hint style="success" %}
+For deployment of production level relaying services and config/guide information for both RLY and Hermes please refer to --> [IBC relayers documentation](../../../infrastructure/ibc-relayers/)
+{% endhint %}
+
 ### Secret IBC setup
 
 In this demo, you will learn how to create two LocalSecret docker containers that can send IBC token transfers to each other using a Hermes relayer. This tutorial assumes that you already have [SecretCLI](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/secret-cli/install) installed on your machine. In order to follow along, [clone the Secret-IBC-setup repo](https://github.com/scrtlabs/examples/tree/master/secret-IBC-setup) before proceeding.&#x20;
