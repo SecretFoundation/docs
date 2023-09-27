@@ -46,10 +46,10 @@ global:
     memo: Relayed by Me
     light-cache-size: 20
 chains:
-    nolus:
+    secret:
         type: cosmos
         value:
-            key-directory: /home/<user>/.relayer/keys/pirin-1
+            key-directory: /home/<user>/.relayer/keys/secret-4
             key: default
             chain-id: secret-4
             rpc-addr: http://127.0.0.1:26657
@@ -104,14 +104,14 @@ paths:
 Now you need to add a new key for your relayer or import an existing one to use to sign and relay IBC transactions. Adding a new key happens with the following command:
 
 ```
-rly keys add nolus [key-name]  
+rly keys add secret [key-name]  
 rly keys add osmosis [key-name]
 ```
 
 If you already have a private key and want to restore it from your mnemonic you can use the restore subcommand.
 
 ```
-rly keys restore nolus [key-name] "mnemonic words here"
+rly keys restore secret [key-name] "mnemonic words here"
 rly keys restore osmosis [key-name] "mnemonic words here"
 ```
 

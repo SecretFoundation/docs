@@ -198,7 +198,7 @@ hermes health-check
 You should see a similar output as the one below:
 
 ```
-INFO ThreadId(01) [pirin-1] chain is healthy
+INFO ThreadId(01) [secret-4] chain is healthy
 INFO ThreadId(01) [osmosis-1] chain is healthy
 ```
 
