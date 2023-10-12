@@ -6,7 +6,7 @@ description: >-
 
 # Ethereum -> Secret Network
 
-_10/11/23: Currently in progress, not production ready_
+_10/12/23: Currently in progress, not production ready_
 
 ## Axelar General Message Passing&#x20;
 
@@ -47,27 +47,53 @@ Next, create a new file called `SendReceive.sol` and insert the [Axelar GMP soli
 
 Now all that's left is to compile and upload the contract. Navigate to the Solidity compiler using the sidebar and click "Compile SendReceive.sol". Then, navigate to "Deploy and run transactions." Toggle the Environment from "Remix VM (Shanghai)" to "Injected Provider - MetaMask" and make sure that in your MetaMask wallet you have currently selected the Mumbai testnet.&#x20;
 
-The `constructor` of SendReceive.sol contains 3 variables that we must now input in order to instantiate the contract and link it to Axelar's Polygon gateway and gas receiver contracts, as well as the Polygon testnet chainname:&#x20;
+The `constructor` of SendReceive.sol contains 3 variables that we must now input in order to instantiate the contract and link it to Axelar's Polygon **gateway contract** and **gas receiver contract**, as well as the Polygon **testnet chain name**:&#x20;
 
 <pre><code>GATEWAY CONTRACT: "0xBF62ef1486468a6bd26Dd669C06db43dEd5B849B"
 GASRECEIVER CONTRACT: "0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6"
 <strong>CHAINNAME: "Polygon"
 </strong></code></pre>
 
-Input these strings like so and then click Transact:
+Input these strings like so and then click "Transact":
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt="" width="294"><figcaption><p>SendReceive constructor</p></figcaption></figure>
 
-Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon testnet that can send messages to a Secret Network smart contract 🎉
+Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon testnet that can send and receives messages to and from a Secret Network smart contract 🎉
 
 ### Upload a contract to Secret testnet
 
+Now that you've uploaded a GMP-compatible contract to Polygon testnet, let's do the same on Secret Network testnet so that the contracts can communicate with each other across the Cosmos!
+
+First clone this Secret Network EVM-GMP repository:&#x20;
+
+```
+git clone https://github.com/writersblockchain/evm-gmp.git
+```
+
+{% hint style="info" %}
+If this is your first time working with a Secret contract, visit the [Getting Started docs](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment) to properly configure your developer environment&#x20;
+{% endhint %}
+
+Now compile the contract:&#x20;
+
+```
+RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown
+```
+
+You can then **upload and instantiate the contract** from the [evm-gmp/node folder](https://github.com/writersblockchain/evm-gmp/blob/master/node/index.js) by running `node index.js`. Upon successful instantiation, a Secret contract address is returned that you can then use to send messages to from Polygon:
+
+```javascript
+let contractAddress = "secret1q4pk525xgpunrj8zysj0rtpd3aktgg7hgdrl34";
+```
+
+Now let's send a `string` from Polygon to Secret!
+
 ### Send a string from Polygon to Secret
+
+Now that you have a GMP-compatible contract instantiated on Secret Network, you have all of the variables needed in order to send a cross-chain message using the `SendReceive.sol` contract.&#x20;
+
+_Currently in development_&#x20;
 
 ### Send a string from Secret to Polygon&#x20;
 
-
-
-
-
-Ethereum&#x20;
+_Currently in development_&#x20;
