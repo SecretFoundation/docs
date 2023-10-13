@@ -6,7 +6,7 @@ description: >-
 
 # Ethereum -> Secret Network
 
-_10/12/23: Currently in progress, not production ready_
+_10/13/23: Currently in progress, not production ready_
 
 ## Axelar General Message Passing&#x20;
 
@@ -92,7 +92,64 @@ Now let's send a `string` from Polygon to Secret!
 
 Now that you have a GMP-compatible contract instantiated on Secret Network, you have all of the variables needed in order to send a cross-chain message using the `SendReceive.sol` contract.&#x20;
 
-_Currently in development_&#x20;
+In order to send messages using Axelar GMP, **the user prepays the relayer gas fee on the source chain to Axelar’s Gas Services contract**.&#x20;
+
+{% hint style="info" %}
+You can do this in Remix by navigating to the "Deploy and run transactions" tab in the sidebar and adding gas to prepay the gas fee.&#x20;
+{% endhint %}
+
+To make sure you have enough gas, add .40 Matic, (roughly .20 USD or [400000000000000000 Wei](https://polygonscan.com/unitconverter)), to the transaction:
+
+<figure><img src="../../.gitbook/assets/remix gas.png" alt=""><figcaption><p>Axelar Gas fee</p></figcaption></figure>
+
+Now all that's left is to execute the transaction! From the "Deployed contracts" section of Remix, open the dropdown for the `send` function, which should have three inputs: `destinationChain`, `destinationAddress`, and `message`.  Input the following:
+
+```
+destinationChain: "secret"
+destinationAddress: "Your Secret Contract Address"
+destinationMessage: "Your message that you want to send!"
+```
+
+Once you have inputed these strings and your contract address, select "transact." Congratulations! You've just sent a `string` from Polygon to Secret Network! 🎉&#x20;
+
+{% hint style="info" %}
+* [Use Polygonscan to track the transaction on Polygon](https://polygonscan.com/address/0x13ACd5794A3136E7fAc8f9727259930fcab1290F)
+* [Use Axelarscan to track the transaction on Axelar ](https://axelarscan.io/gmp/0xc259627a6ca5ea786184d452802bcbf8d16df7c244dda3cf544e556c59eb0a85:634)
+{% endhint %}
+
+### Query the string on Secret
+
+Now that we've successfully executed a cross-chain message from Polygon to Secret using Axelar GMP, let's query the message on Secret Network to see if your message was actually received by the Secret contract.&#x20;
+
+You can use [Secret.js to query the message](https://github.com/writersblockchain/evm-gmp/blob/3e8e88ae0b39189518917f2834c25ead0f50a3c1/node/index.js#L116) once the transaction has been executed successfully:&#x20;
+
+```javascript
+let get_stored_message = async () => {
+  let query = await secretjs.query.compute.queryContract({
+    contract_address: contractAddress,
+    query: {
+      get_stored_message: {},
+    },
+    code_hash: contractCodeHash,
+  });
+
+  console.log(query);
+};
+
+get_stored_message();
+```
+
+If the message was executed successfully, the query will return the Ethereum wallet address that sent the transaction as well as the message that the wallet included:
+
+```
+{
+sender: `0x49e01eb08bBF0696Ed0df8cD894906f7Da635929`,
+message: `one small step for Secret!`
+
+}
+```
+
+Stay tuned for docs on how to send a string from Secret to Polygon!
 
 ### Send a string from Secret to Polygon&#x20;
 
