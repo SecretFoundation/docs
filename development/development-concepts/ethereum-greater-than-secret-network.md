@@ -6,8 +6,6 @@ description: >-
 
 # Ethereum -> Secret Network
 
-_10/13/23: Currently in progress, not production ready_
-
 ## Axelar General Message Passing&#x20;
 
 [Axelar](https://docs.axelar.dev/dev/intro) enables secure interchain communication and token transfers, spanning consensus methods including Cosmos and Ethereum. Through the use of General Message Passing (GMP), developers building on Ethereum can execute smart contracts on Secret and vice versa. This means complete composability across Web3.
@@ -17,19 +15,18 @@ With GMP you can:
 * Call a contract on chain B from chain A.
 * Call a contract on chain B from chain A and attach some tokens.
 
-In this tutorial, you will learn how to use Axelar GMP to send a `string` between Polygon and Secret testnets. To learn more about the flow architecture, [see the Axelar documentation here](https://docs.axelar.dev/dev/general-message-passing/overview#steps).&#x20;
+In this tutorial, you will learn how to use Axelar GMP to send a `string` **between Polygon and Secret mainnets** (testnet configuration is pending). To learn more about the flow architecture, [see the Axelar documentation here](https://docs.axelar.dev/dev/general-message-passing/overview#steps).&#x20;
 
 ### Prerequisites
 
-* For GMP to work, both chain A and chain B must be EVM or Cosmos with a deployed Axelar Gateway contract. For this tutorial we will be using the [Polygon testnet Axelar Gateway contracts](https://docs.axelar.dev/dev/reference/testnet-contract-addresses). We will go into this in more detail momentarily.&#x20;
-* Have Metamask installed, Polygon testnet added to your wallet, and your wallet funded with Polygon testnet tokens. &#x20;
+* For GMP to work, both chain A and chain B must be EVM or Cosmos with a deployed Axelar Gateway contract. For this tutorial we will be using the [Polygon mainnet Axelar Gateway contracts](https://docs.axelar.dev/resources/mainnet). We will go into this in more detail momentarily.&#x20;
+* Have [Metamask installed](https://metamask.io/download/), Polygon added to your wallet, and your wallet funded with Polygon tokens. &#x20;
 
 {% hint style="info" %}
-* Add Polygon testnet to your Metamask wallet by navigating to the [Polygon testnet explorer](https://mumbai.polygonscan.com/) and clicking "Add Mumbai Network" in the bottom righthand corner of the homepage.&#x20;
-* Fund your Polygon wallet using [this faucet ](https://faucet.polygon.technology/)
+Add Polygon to your Metamask wallet by navigating to the [Polygon  explorer](https://polygonscan.com/) and clicking "Add Polygon Network" in the bottom righthand corner of the homepage.&#x20;
 {% endhint %}
 
-### 1) Upload a contract to Polygon testnet
+### 1) Upload a contract to Polygon
 
 In order to execute a smart contract on Secret network, you must first upload and instantiate a smart contract on Polygon that can execute messages using Axelar GMP. Axelar has a [github repository of example contracts ](https://github.com/axelarnetwork/evm-cosmos-gmp-sample/tree/main/cosmwasm-integration)that can be used for GMP. We will be uploading the [SendReceive.sol](https://github.com/axelarnetwork/evm-cosmos-gmp-sample/blob/main/cosmwasm-integration/send-receive/evm/contracts/SendReceive.sol) contract to Polygon for this demo.&#x20;
 
@@ -43,14 +40,14 @@ First, navigate to Remix and create a new blank workspace:
 
 <figure><img src="../../.gitbook/assets/remix.png" alt="" width="375"><figcaption><p>Remix workspace</p></figcaption></figure>
 
-Next, create a new file called `SendReceive.sol` and insert the [Axelar GMP solidity code](https://github.com/axelarnetwork/evm-cosmos-gmp-sample/blob/main/cosmwasm-integration/send-receive/evm/contracts/SendReceive.sol). This will autofill your workspace with the necessary dependencies for your SendReceive.sol contract 🤯
+Next, create a new file called `SendReceive.sol` and paste the [Axelar GMP solidity code](https://github.com/axelarnetwork/evm-cosmos-gmp-sample/blob/main/cosmwasm-integration/send-receive/evm/contracts/SendReceive.sol). This will autofill your workspace with the necessary dependencies for your SendReceive.sol contract 🤯
 
-Now all that's left is to compile and upload the contract. Navigate to the Solidity compiler using the sidebar and click "Compile SendReceive.sol". Then, navigate to "Deploy and run transactions." Toggle the Environment from "Remix VM (Shanghai)" to "Injected Provider - MetaMask" and make sure that in your MetaMask wallet you have currently selected the Mumbai testnet.&#x20;
+Now all that's left is to compile and upload the contract. Navigate to the Solidity compiler using the sidebar and click "Compile SendReceive.sol". Then, navigate to "Deploy and run transactions." Toggle the Environment from "Remix VM (Shanghai)" to "Injected Provider - MetaMask" and make sure that in your MetaMask wallet you have currently selected Polygon network.&#x20;
 
-The `constructor` of SendReceive.sol contains 3 variables that we must now input in order to instantiate the contract and link it to Axelar's Polygon **gateway contract** and **gas receiver contract**, as well as the Polygon **testnet chain name**:&#x20;
+The `constructor` of SendReceive.sol contains 3 variables that we must now input in order to instantiate the contract and link it to Axelar's Polygon **gateway contract** and **gas receiver contract**, as well as the Polygon **chain name**:&#x20;
 
-<pre><code>GATEWAY CONTRACT: "0xBF62ef1486468a6bd26Dd669C06db43dEd5B849B"
-GASRECEIVER CONTRACT: "0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6"
+<pre><code>GATEWAY CONTRACT: "0x6f015F16De9fC8791b234eF68D486d2bF203FBA8"
+GASRECEIVER CONTRACT: "0x2d5d7d31F671F86C782533cc367F14109a082712"
 <strong>CHAINNAME: "Polygon"
 </strong></code></pre>
 
@@ -58,35 +55,35 @@ Input these strings like so and then click "Transact":
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt="" width="294"><figcaption><p>SendReceive constructor</p></figcaption></figure>
 
-Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon testnet that can send and receives messages to and from a Secret Network smart contract 🎉
+Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon mainnet that can send and receives messages to and from a Secret Network smart contract 🎉
 
 ### Upload a contract to Secret testnet
 
-Now that you've uploaded a GMP-compatible contract to Polygon testnet, let's do the same on Secret Network testnet so that the contracts can communicate with each other across the Cosmos!
+Now that you've uploaded a GMP-compatible contract to Polygon, let's do the same on Secret Network so that the contracts can communicate with each other across the Cosmos!
 
-First clone this Secret Network EVM-GMP repository:&#x20;
+First, clone this Secret Network examples repository:&#x20;
 
 ```
-git clone https://github.com/writersblockchain/evm-gmp.git
+git clone https://github.com/scrtlabs/examples
 ```
+
+Then, `cd` into the `examples/secret-ethereum-gmp` folder and compile the contract by running `make build-mainnet` in your terminal.&#x20;
 
 {% hint style="info" %}
-If this is your first time working with a Secret contract, visit the [Getting Started docs](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment) to properly configure your developer environment&#x20;
+If this is your first time working with a Secret contract, visit the [Getting Started docs](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment) to properly configure your developer environment.
 {% endhint %}
 
-Now compile the contract:&#x20;
+Now, open a new terminal window and `cd` into `examples/secret-ethereum-gmp/node` and then run `npm install` to install the `package.json` dependencies.&#x20;
 
-```
-RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown
-```
+Create a `.env` file in `examples/secret-ethereum-gmp/node` and add your wallet mnemonic in order to upload the contract:&#x20;
 
-You can then **upload and instantiate the contract** from the [evm-gmp/node folder](https://github.com/writersblockchain/evm-gmp/blob/master/node/index.js) by running `node index.js`. Upon successful instantiation, a Secret contract address is returned that you can then use to send messages to from Polygon:
+<figure><img src="../../.gitbook/assets/env.png" alt=""><figcaption><p>.env config</p></figcaption></figure>
 
-```javascript
-let contractAddress = "secret1q4pk525xgpunrj8zysj0rtpd3aktgg7hgdrl34";
-```
+You can then **upload and instantiate the contract** by running `node index.js`. Upon successful instantiation, a Secret contract address is returned that you can then use to send messages to from Polygon:
 
-Now let's send a `string` from Polygon to Secret!
+<figure><img src="../../.gitbook/assets/contract address.png" alt=""><figcaption><p>Secret contract address upon successful instantation </p></figcaption></figure>
+
+Now let's send a `string` from Polygon to Secret! 🚀
 
 ### Send a string from Polygon to Secret
 
@@ -113,15 +110,15 @@ destinationMessage: "Your message that you want to send!"
 Once you have inputed these strings and your contract address, select "transact." Congratulations! You've just sent a `string` from Polygon to Secret Network! 🎉&#x20;
 
 {% hint style="info" %}
-* [Use Polygonscan to track the transaction on Polygon](https://polygonscan.com/address/0x13ACd5794A3136E7fAc8f9727259930fcab1290F)
-* [Use Axelarscan to track the transaction on Axelar ](https://axelarscan.io/gmp/0xc259627a6ca5ea786184d452802bcbf8d16df7c244dda3cf544e556c59eb0a85:634)
+* [Use Polygonscan to track the transaction on Polygon](https://polygonscan.com/address/0x13ACd5794A3136E7fAc8f9727259930fcab1290F). Here is an already [deployed contract for reference](https://polygonscan.com/address/0x13ACd5794A3136E7fAc8f9727259930fcab1290F). Transaction times vary depending upon Poygon network congestion; you might want to "speed up" the transaction in Metamask.&#x20;
+* [Use Axelarscan to track the transaction on Axelar. ](https://axelarscan.io/gmp/0xc259627a6ca5ea786184d452802bcbf8d16df7c244dda3cf544e556c59eb0a85:634)Here is a [successful transaction for reference](https://axelarscan.io/gmp/0xb8ff5a63acb95cff351c7f421e7a835139ba51f5e6677481d2d79ff49d2c5799:816).&#x20;
 {% endhint %}
 
 ### Query the string on Secret
 
-Now that we've successfully executed a cross-chain message from Polygon to Secret using Axelar GMP, let's query the message on Secret Network to see if your message was actually received by the Secret contract.&#x20;
+Now that you've successfully executed a cross-chain message from Polygon to Secret using Axelar GMP, let's query the message on Secret Network to see if the message was actually received by the Secret contract.&#x20;
 
-You can use [Secret.js to query the message](https://github.com/writersblockchain/evm-gmp/blob/3e8e88ae0b39189518917f2834c25ead0f50a3c1/node/index.js#L116) once the transaction has been executed successfully:&#x20;
+**First, confirm that the transaction has been successfully relayed by Axelar**. Once the transaction has been executed successfully, you can use [Secret.js to query the message](https://github.com/writersblockchain/evm-gmp/blob/3e8e88ae0b39189518917f2834c25ead0f50a3c1/node/index.js#L116):
 
 ```javascript
 let get_stored_message = async () => {
@@ -139,18 +136,68 @@ let get_stored_message = async () => {
 get_stored_message();
 ```
 
-If the message was executed successfully, the query will return the Ethereum wallet address that sent the transaction as well as the message that the wallet included:
+To execute this query, navigate to the `query.js` file in  `examples/secret-ethereum-gmp/node` and replace the `contractAdress` and `contractCodeHash` with your contract address and code hash, respectively.&#x20;
+
+Then run `node query`.&#x20;
+
+If the message was executed successfully, the query will return the **Ethereum wallet address** that sent the transaction as well as the **message** that the wallet included:
 
 ```
 {
 sender: `0x49e01eb08bBF0696Ed0df8cD894906f7Da635929`,
 message: `one small step for Secret!`
-
 }
 ```
 
-Stay tuned for docs on how to send a string from Secret to Polygon!
+Great work! Now let's send a string from Secret to Polygon!
 
 ### Send a string from Secret to Polygon&#x20;
 
-_Currently in development_&#x20;
+To execute the [SendMessageEvm](https://github.com/scrtlabs/examples/blob/176a433ba2a349353e1e60652fad6ba92cfdf5f7/secret-ethereum-gmp/src/msg.rs#L11) transaction, navigate to the [`execute.js`](https://github.com/scrtlabs/examples/blob/master/secret-ethereum-gmp/node/execute.js) file in  `examples/secret-ethereum-gmp/node` and replace the `contractAdress` and `contractCodeHash` with your contract address and code hash, respectively.&#x20;
+
+Then, update `destinationAddress` to your Polygon contract address, and `myMessage` to the message that you want to send:
+
+<figure><img src="../../.gitbook/assets/execute variables.png" alt=""><figcaption><p>execute.js variables</p></figcaption></figure>
+
+Next, in order to send a GMP message from Secret to Polygon, you need to include the correct IBC denom to pay for gas so that the message can be executed over IBC.&#x20;
+
+{% hint style="info" %}
+[Learn more about IBC denoms here.](https://tutorials.cosmos.network/tutorials/6-ibc-dev/)
+{% endhint %}
+
+The [correct IBC denom](https://github.com/scrtlabs/examples/blob/3470d6d3375ea25888371e931aea7661c511048c/secret-ethereum-gmp/node/execute.js#L40C14-L40C14) is already included in the secret.js transaction, but in order for it to execute successfully, **you need to have this IBC denom in your Keplr wallet**. To add this token to your Keplr wallet, send Axelar tokens to your Secret wallet address over IBC:
+
+1. Procure some AXL tokens from an exchange of your chice.&#x20;
+2. In Keplr, click "Send" and select the "AXL" (Axelar) token.
+3. Click "IBC Send" and select "Secret Network" for the chain.&#x20;
+4. Execute the transaction.&#x20;
+
+{% hint style="info" %}
+[See a video tutorial here. ](https://www.youtube.com/shorts/JELkjrSHCoA)
+{% endhint %}
+
+Once you have properly configured your `execute.js` file and procured the IBC denom needed to execute the transaction, all that's left is to run `node execute.`&#x20;
+
+The transaction should return a `transactionHash` as well as data about the IBC routing: &#x20;
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-17 at 1.55.23 PM (1).png" alt=""><figcaption><p>send_message_evm() transaction</p></figcaption></figure>
+
+Now, [navigate to Axelarscan to monitor the status of the transaction](https://axelarscan.io/gmp/443353C7CA528994A0B538142D409F0D1AF81A9E0C897FCB6DC7A00DCC6239DF) (for reference, mine executed in 1 minute, 50 seconds).&#x20;
+
+And for good measure, [view the transaction on Polygonscan](https://polygonscan.com/tx/0xea2d5d8cdb36fde553f493279ff1e3adc6ea5fb0089492715c00d0aae1a97e04) to see that the message was received!
+
+To actually see the message that you sent, click on "Click to see more":
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-17 at 1.59.36 PM.png" alt=""><figcaption><p>Polygonscan transaction</p></figcaption></figure>
+
+And then at "Input Data" view the input as UTF-8 to reveal the decoded message!  👀
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-17 at 2.01.07 PM.png" alt=""><figcaption><p>Decoded String sent from Secret to Ethereum</p></figcaption></figure>
+
+Congratulations! You just sent a message from Secret Network to Polygon using Axelar GMP! 🎉
+
+### Summary
+
+In conclusion, Axelar's General Message Passing (GMP) offers a powerful solution for achieving secure interchain communication and token transfers across diverse blockchain ecosystems, including Cosmos and Ethereum. With GMP, developers can seamlessly execute smart contracts on one blockchain from another, fostering complete composability within the Web3 landscape. This documentation has guided you through the process of deploying GMP-compatible contracts on both Polygon and Secret Network, illustrating how to send messages across these networks. By following these steps, you have unlocked the potential for seamless interoperability and enhanced functionality in your blockchain applications. Axelar GMP paves the way for a more interconnected and efficient blockchain ecosystem. Congratulations on your successful journey with Axelar GMP!
+
+If you run into any errors or questions, ping the [#dev-issues channel](https://discord.gg/secret-network-360051864110235648) on Secret Network's Discord and somebody will get back to you shortly 😊
