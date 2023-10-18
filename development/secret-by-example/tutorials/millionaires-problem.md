@@ -40,7 +40,7 @@ Before we jump into the code, we will go over the contract flow. We have to acce
 
 We end up with the following state machine:
 
-![Millionaire's Problem State Machine](../../../.gitbook/assets/image.png)
+![Millionaire's Problem State Machine](<../../../.gitbook/assets/image (2).png>)
 
 This is a fairly naïve approach, but for the purposes of this example it is fairly straightforward. From looking at this state machine, we can expect that the implementation will contain (at minimum) the following methods:
 

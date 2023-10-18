@@ -46,7 +46,7 @@ Now all that's left is to **compile and upload the contract**. Navigate to the S
 
 The `constructor` of SendReceive.sol contains 3 variables that you must now input in order to instantiate the contract and link it to Axelar's Polygon **gateway contract** and **gas receiver contract**, as well as the Polygon **chain name**:&#x20;
 
-<pre><code>GATEWAY CONTRACT: "0x6f015F16De9fC8791b234eF68D486d2bF203FBA8"
+<pre class="language-bash"><code class="lang-bash">GATEWAY CONTRACT: "0x6f015F16De9fC8791b234eF68D486d2bF203FBA8"
 GASRECEIVER CONTRACT: "0x2d5d7d31F671F86C782533cc367F14109a082712"
 <strong>CHAINNAME: "Polygon"
 </strong></code></pre>
@@ -55,7 +55,9 @@ Input these strings like so and then click "Transact":
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt="" width="294"><figcaption><p>SendReceive constructor</p></figcaption></figure>
 
-Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then [view on Polygonscan](https://polygonscan.com/address/0x13ACd5794A3136E7fAc8f9727259930fcab1290F).&#x20;
+Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then [view on Polygonscan](https://polygonscan.com/address/0x13ACd5794A3136E7fAc8f9727259930fcab1290F). And the deployed contract can now be interacted with in the "Deployed Contracts" window:&#x20;
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon mainnet that can send and receives messages to and from a Secret Network smart contract 🎉
 
@@ -65,23 +67,49 @@ Now that you've uploaded a GMP-compatible contract to Polygon, let's do the same
 
 First, clone this Secret Network examples repository:&#x20;
 
-```
+```bash
 git clone https://github.com/scrtlabs/examples
 ```
 
-Then, `cd` into the `examples/secret-ethereum-gmp` folder and compile the contract by running `make build-mainnet` in your terminal.&#x20;
+Then, `cd` into the `examples/secret-ethereum-gmp` folder
+
+```bash
+cd examples/secret-ethereum-gmp
+```
+
+and compile the contract by running `make build-mainnet` in your terminal.
+
+```bash
+make build-mainnet
+```
 
 {% hint style="info" %}
 If this is your first time working with a Secret contract, visit the [Getting Started docs](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment) to properly configure your developer environment.
 {% endhint %}
 
-Now, open a new terminal window and `cd` into `examples/secret-ethereum-gmp/node` and then run `npm install` to install the `package.json` dependencies.&#x20;
+Now, open a new terminal window and `cd` into `examples/secret-ethereum-gmp/node`
+
+```bash
+cd examples/secret-ethereum-gmp/node
+```
+
+&#x20;and then run `npm install` to install the `package.json` dependencies.&#x20;
+
+```bash
+npm install
+```
 
 Create a `.env` file in `examples/secret-ethereum-gmp/node` and add your wallet mnemonic in order to upload the contract:&#x20;
 
 <figure><img src="../../.gitbook/assets/env.png" alt=""><figcaption><p>.env config</p></figcaption></figure>
 
-You can then **upload and instantiate the contract** by running `node index.js`. Upon successful instantiation, a Secret contract address is returned that you can then use to send messages to and from Polygon:
+You can then **upload and instantiate the contract** by running `node index.js`.&#x20;
+
+```bash
+node index.js
+```
+
+Upon successful instantiation, a Secret contract address is returned that you can then use to send messages to and from Polygon:
 
 <figure><img src="../../.gitbook/assets/contract address.png" alt=""><figcaption><p>Secret contract address upon successful instantation </p></figcaption></figure>
 
@@ -97,13 +125,13 @@ In order to send messages using Axelar GMP, **the user prepays the relayer gas f
 You can do this in Remix by navigating to the "Deploy and run transactions" tab in the sidebar and adding gas to prepay the gas fee.&#x20;
 {% endhint %}
 
-To make sure you have enough gas, add .40 Matic, (roughly .20 USD or [400000000000000000 Wei](https://polygonscan.com/unitconverter)), to the transaction:
+To make sure you have enough gas, add .40 Matic, (roughly .20 USD or 400000000000000000 [Wei](https://polygonscan.com/unitconverter)), to the transaction:
 
 <figure><img src="../../.gitbook/assets/remix gas.png" alt=""><figcaption><p>Axelar Gas fee</p></figcaption></figure>
 
 Now all that's left is to execute the transaction! From the "Deployed contracts" section of Remix, open the dropdown for the `send` function, which should have three inputs: `destinationChain`, `destinationAddress`, and `message`.  Input the following:
 
-```
+```bash
 destinationChain: "secret"
 destinationAddress: "Your Secret Contract Address"
 destinationMessage: "Your message that you want to send!"
@@ -120,7 +148,15 @@ Once you have inputed these strings and your contract address, select "transact.
 
 Now that you've successfully executed a cross-chain message from Polygon to Secret using Axelar GMP, let's query the message on Secret Network to see if the message was actually received by the Secret contract.&#x20;
 
-**First, confirm that the transaction has been** [**successfully relayed by Axelar**](https://axelarscan.io/gmp/0xb8ff5a63acb95cff351c7f421e7a835139ba51f5e6677481d2d79ff49d2c5799:816). Once the transaction has been executed successfully, you can use [Secret.js to query the message](https://github.com/writersblockchain/evm-gmp/blob/3e8e88ae0b39189518917f2834c25ead0f50a3c1/node/index.js#L116):
+**First, confirm that the transaction has been** [**successfully relayed by Axelar**](https://axelarscan.io/gmp/0xb8ff5a63acb95cff351c7f421e7a835139ba51f5e6677481d2d79ff49d2c5799:816).&#x20;
+
+{% hint style="info" %}
+The Axelarscan status diagram indicates the following 5 steps were executed successfully:
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-18 at 12.03.33 PM.png" alt=""><figcaption><p>Axelarscan Transaction Status</p></figcaption></figure>
+
+Once the transaction has been executed successfully, you can use [Secret.js to query the message](https://github.com/writersblockchain/evm-gmp/blob/3e8e88ae0b39189518917f2834c25ead0f50a3c1/node/index.js#L116):
 
 ```javascript
 let get_stored_message = async () => {
@@ -142,9 +178,13 @@ To execute this query, navigate to the `query.js` file in  `examples/secret-ethe
 
 Then run `node query`.&#x20;
 
+```bash
+node query
+```
+
 If the message was executed successfully, the query will return the **Ethereum wallet address** that sent the transaction as well as the **message** that the wallet included:
 
-```
+```javascript
 {
 sender: `0x49e01eb08bBF0696Ed0df8cD894906f7Da635929`,
 message: `one small step for Secret!`
@@ -179,6 +219,10 @@ The [correct IBC denom](https://github.com/scrtlabs/examples/blob/3470d6d3375ea2
 {% endhint %}
 
 Once you have properly configured your `execute.js` file and procured the IBC denom needed to execute the transaction, all that's left is to run `node execute.`&#x20;
+
+```bash
+node execute 
+```
 
 The transaction should return a `transactionHash` as well as data about the IBC routing: &#x20;
 

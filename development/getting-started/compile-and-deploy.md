@@ -65,7 +65,7 @@ cp ./target/wasm32-unknown-unknown/release/*.wasm ./contract.wasm
 {% tab title="Secret IDE" %}
 Run `make build` from the terminal, or just GUI it up -
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (2).png>)
 {% endtab %}
 {% endtabs %}
 
