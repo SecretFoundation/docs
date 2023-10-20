@@ -26,7 +26,7 @@ In this tutorial, you will learn how to use Axelar GMP to send a `string` **betw
 Add Polygon Network to your Metamask wallet by navigating to the [Polygon explorer](https://polygonscan.com/) and clicking "Add Polygon Network" in the bottom righthand corner of the homepage.&#x20;
 {% endhint %}
 
-### 1) Upload a contract to Polygon
+### Upload a contract to Polygon
 
 In order to execute a smart contract on Secret network, you must first upload and instantiate a smart contract on Polygon that can execute messages using Axelar GMP. Axelar has a [github repository of example contracts ](https://github.com/axelarnetwork/evm-cosmos-gmp-sample/tree/main/cosmwasm-integration)that can be used for GMP. We will be uploading the [SendReceive.sol](https://github.com/axelarnetwork/evm-cosmos-gmp-sample/blob/main/cosmwasm-integration/send-receive/evm/contracts/SendReceive.sol) contract to Polygon for this demo.&#x20;
 
@@ -59,7 +59,7 @@ Upon successful instantiation, the contract address will be returned in the Remi
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon mainnet that can send and receives messages to and from a Secret Network smart contract 🎉
+Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon mainnet that can send and receive messages to and from a Secret Network smart contract 🎉
 
 ### Upload a contract to Secret Network
 

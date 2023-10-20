@@ -137,7 +137,7 @@
     * [Viewing Keys](development/development-concepts/permissioned-viewing/viewing-keys/README.md)
     * [Permits](development/development-concepts/permissioned-viewing/certs-viewing-permits/README.md)
   * [Ethereum -> Secret Network](development/development-concepts/ethereum-greater-than-secret-network/README.md)
-    * [Verifiable Randomness Tutorial](development/development-concepts/ethereum-greater-than-secret-network/verifiable-randomness-tutorial.md)
+    * [Ethereum Verifiable Randomness Tutorial](development/development-concepts/ethereum-greater-than-secret-network/ethereum-verifiable-randomness-tutorial.md)
   * [Cross Contract Communication](development/development-concepts/cross-contract-communication.md)
   * [Randomness API - Secret VRF](development/development-concepts/randomness-api.md)
     * [Native On-chain randomness](development/development-concepts/randomness-api/native-on-chain-randomness.md)
