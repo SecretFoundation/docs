@@ -60,7 +60,7 @@ secretd tx staking create-validator \
   --from=<key-alias>
 ```
 
-
+***
 
 ### **4. Confirm Validator is Created**
 

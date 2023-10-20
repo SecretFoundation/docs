@@ -38,7 +38,7 @@ To upload the contract, we will use [Remix Online IDE](https://remix.ethereum.or
 
 First, navigate to Remix and create a new blank workspace:
 
-<figure><img src="../../.gitbook/assets/remix.png" alt="" width="375"><figcaption><p>Remix workspace</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/remix.png" alt="" width="375"><figcaption><p>Remix workspace</p></figcaption></figure>
 
 Next, create a new file called `SendReceive.sol` and paste the [Axelar GMP solidity code](https://github.com/axelarnetwork/evm-cosmos-gmp-sample/blob/main/cosmwasm-integration/send-receive/evm/contracts/SendReceive.sol). This will autofill your workspace with the necessary dependencies for your SendReceive.sol contract 🤯
 
@@ -53,11 +53,11 @@ GASRECEIVER CONTRACT: "0x2d5d7d31F671F86C782533cc367F14109a082712"
 
 Input these strings like so and then click "Transact":
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt="" width="294"><figcaption><p>SendReceive constructor</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt="" width="294"><figcaption><p>SendReceive constructor</p></figcaption></figure>
 
 Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then [view on Polygonscan](https://polygonscan.com/address/0x13ACd5794A3136E7fAc8f9727259930fcab1290F). And the deployed contract can now be interacted with in the "Deployed Contracts" window:&#x20;
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon mainnet that can send and receives messages to and from a Secret Network smart contract 🎉
 
@@ -101,7 +101,7 @@ npm install
 
 Create a `.env` file in `examples/secret-ethereum-gmp/node` and add your wallet mnemonic in order to upload the contract:&#x20;
 
-<figure><img src="../../.gitbook/assets/env.png" alt=""><figcaption><p>.env config</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/env.png" alt=""><figcaption><p>.env config</p></figcaption></figure>
 
 You can then **upload and instantiate the contract** by running `node index.js`.&#x20;
 
@@ -111,7 +111,7 @@ node index.js
 
 Upon successful instantiation, a Secret contract address is returned that you can then use to send messages to and from Polygon:
 
-<figure><img src="../../.gitbook/assets/contract address.png" alt=""><figcaption><p>Secret contract address upon successful instantation </p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/contract address.png" alt=""><figcaption><p>Secret contract address upon successful instantation </p></figcaption></figure>
 
 Now let's send a `string` from Polygon to Secret! 🚀
 
@@ -127,7 +127,7 @@ You can do this in Remix by navigating to the "Deploy and run transactions" tab 
 
 To make sure you have enough gas, add .40 Matic, (roughly .20 USD or 400000000000000000 [Wei](https://polygonscan.com/unitconverter)), to the transaction:
 
-<figure><img src="../../.gitbook/assets/remix gas.png" alt=""><figcaption><p>Axelar Gas fee</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/remix gas.png" alt=""><figcaption><p>Axelar Gas fee</p></figcaption></figure>
 
 Now all that's left is to execute the transaction! From the "Deployed contracts" section of Remix, open the dropdown for the `send` function, which should have three inputs: `destinationChain`, `destinationAddress`, and `message`.  Input the following:
 
@@ -154,7 +154,7 @@ Now that you've successfully executed a cross-chain message from Polygon to Secr
 The Axelarscan status diagram indicates the following 5 steps were executed successfully:
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-18 at 12.03.33 PM.png" alt=""><figcaption><p>Axelarscan Transaction Status</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-18 at 12.03.33 PM.png" alt=""><figcaption><p>Axelarscan Transaction Status</p></figcaption></figure>
 
 Once the transaction has been executed successfully, you can use [Secret.js to query the message](https://github.com/writersblockchain/evm-gmp/blob/3e8e88ae0b39189518917f2834c25ead0f50a3c1/node/index.js#L116):
 
@@ -199,7 +199,7 @@ To execute the [SendMessageEvm](https://github.com/scrtlabs/examples/blob/176a43
 
 Then, update `destinationAddress` to your Polygon contract address, and `myMessage` to the message that you want to send:
 
-<figure><img src="../../.gitbook/assets/execute variables.png" alt=""><figcaption><p>execute.js variables</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/execute variables.png" alt=""><figcaption><p>execute.js variables</p></figcaption></figure>
 
 Next, in order to send a GMP message from Secret to Polygon, you need to include the correct IBC denom to pay for gas so that the message can be executed over IBC.&#x20;
 
@@ -226,7 +226,7 @@ node execute
 
 The transaction should return a `transactionHash` as well as data about the IBC routing: &#x20;
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-17 at 1.55.23 PM (1).png" alt=""><figcaption><p>send_message_evm() transaction</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-17 at 1.55.23 PM (1).png" alt=""><figcaption><p>send_message_evm() transaction</p></figcaption></figure>
 
 Now, [navigate to Axelarscan to monitor the status of the transaction](https://axelarscan.io/gmp/443353C7CA528994A0B538142D409F0D1AF81A9E0C897FCB6DC7A00DCC6239DF) (for reference, my transaction executed in 1 minute, 50 seconds).&#x20;
 
@@ -234,11 +234,11 @@ And for good measure, [view the transaction on Polygonscan](https://polygonscan.
 
 To actually see the message that you sent, click on "Click to see more":
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-17 at 1.59.36 PM.png" alt=""><figcaption><p>Polygonscan transaction</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-17 at 1.59.36 PM.png" alt=""><figcaption><p>Polygonscan transaction</p></figcaption></figure>
 
 And then at "Input Data", **view the input as UTF-8** to reveal the decoded message!  👀
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-17 at 2.01.07 PM.png" alt=""><figcaption><p>Decoded String sent from Secret to Ethereum</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-17 at 2.01.07 PM.png" alt=""><figcaption><p>Decoded String sent from Secret to Ethereum</p></figcaption></figure>
 
 Congratulations! You now have all of the tools to send a message from Secret Network to Polygon using Axelar GMP! 🎉
 
