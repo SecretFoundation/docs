@@ -4,7 +4,7 @@ description: >-
   EVM-compatible chains with Axelar GMP
 ---
 
-# Ethereum Verifiable Randomness Tutorial
+# EVM Verifiable Randomness Tutorial
 
 ## Ethereum 🤝 SecretRNG
 

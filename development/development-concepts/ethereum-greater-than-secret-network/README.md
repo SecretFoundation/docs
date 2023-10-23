@@ -4,7 +4,7 @@ description: >-
   between EVM chains and Secret Network
 ---
 
-# Ethereum -> Secret Network
+# Ethereum (EVM) Developer Toolkit
 
 ## Axelar General Message Passing&#x20;
 
