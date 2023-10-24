@@ -52,7 +52,7 @@ SNAP_RPC="https://rpc.statesync.secretsaturn.net:443"
 Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
 
 <pre class="language-bash"><code class="lang-bash">SNAP_RPC="https://rpc.statesync.secretsaturn.net:443"
-<strong>BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000+3)}'); \
+<strong>BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}'); \
 </strong>TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
 echo $BLOCK_HEIGHT $TRUST_HASH
@@ -68,7 +68,7 @@ The output should be similar to:&#x20;
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync.secretsaturn.net:80,http://rpc.statesync.secretsaturn.net:80\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync1.secretsaturn.net:26657,http://rpc.statesync2.secretsaturn.net:26657,http://rpc.statesync3.secretsaturn.net:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml
 ```
@@ -115,10 +115,10 @@ sudo systemctl restart secret-node && journalctl -fu secret-node
 When state-sync fails, you can restart the process and try again using the condensed script below. This usually fixes some of the random problems with it:
 
 <pre><code>SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
-BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000+3)}'); &#x26;&#x26;
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}'); &#x26;&#x26;
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash) &#x26;&#x26;
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync.secretsaturn.net:26657,http://rpc.statesync.secretsaturn.net:26657\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync1.secretsaturn.net:26657,http://rpc.statesync2.secretsaturn.net:26657,http://rpc.statesync3.secretsaturn.net:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml &#x26;&#x26;
 echo $BLOCK_HEIGHT $TRUST_HASH &#x26;&#x26;
@@ -143,10 +143,10 @@ To safe time, you can use this script to quickly init everything you need for st
 <pre><code>sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" $HOME/.secretd/config/app.toml &#x26;&#x26;
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = 2000/" -e "s/^snapshot-keep-recent *=.*/snapshot-keep-recent = 3/" $HOME/.secretd/config/app.toml &#x26;&#x26;
 SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
-BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000+3)}'); &#x26;&#x26;
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}'); &#x26;&#x26;
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash) &#x26;&#x26;
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync.secretsaturn.net:26657,http://rpc.statesync.secretsaturn.net:26657\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync1.secretsaturn.net:26657,http://rpc.statesync2.secretsaturn.net:26657,http://rpc.statesync3.secretsaturn.net:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml &#x26;&#x26;
 echo $BLOCK_HEIGHT $TRUST_HASH &#x26;&#x26;
