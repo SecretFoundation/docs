@@ -6,10 +6,10 @@ description: >-
 
 # Hardware Compliance
 
-This is not a comprehensive list of compliant hardware, but rather a guide for what has been verified to work. [This list](https://github.com/ayeks/SGX-hardware) is often show as SGX compliant, but it does not discriminate against whether SGX is supported via SPS or IntelME. Only SGX via SPS is supported.
+This is not a comprehensive list of compliant hardware, but rather a guide for what has been verified to work. [This list](https://github.com/ayeks/SGX-hardware) is often show as SGX compliant, but it does not discriminate against whether SGX is supported via SPS or Intel ME. Only SGX via SPS is supported.
 
 {% hint style="danger" %}
-**CPU must support SGX via SPS.** CPUs that only support SGX via IntelME will not work.
+**CPU must support SGX via SPS.** CPUs that only support SGX via Intel ME will not work.
 {% endhint %}
 
 ## Supported CPUs <a href="#cpus" id="cpus"></a>

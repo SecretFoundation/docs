@@ -1,4 +1,4 @@
-# Snapshot
+# Quicksync / Snapshot
 
 Snapshots are compressed folders of the database to reach the current block quickly.
 
@@ -11,9 +11,7 @@ sudo apt install snapd lz4
 
 ## Download snapshot
 
-{% hint style="info" %}
-This snapshot only supports goleveldb.
-{% endhint %}
+Quicksync / snapshots are provided by [Lavender.five Nodes](https://services.lavenderfive.com/mainnet/secretnetwork/snapshot).
 
 ```
 wget -O secret.tar.lz4 https://snapshots.lavenderfive.com/snapshots/secretnetwork/latest.tar.lz4
@@ -28,7 +26,7 @@ Reset your node.&#x20;
 {% endhint %}
 
 ```bash
-sudo service secret-node stop
+sudo systemctl stop secret-node
 secretd tendermint unsafe-reset-all --home $HOME/.secretd
 ```
 
@@ -50,6 +48,6 @@ mv addrbook.json ~/.secretd/config
 ## Restart service
 
 ```bash
-sudo service secret-node status && sudo journalctl -o cat -fu secret-node
+sudo service secret-node status && journalctl -fu secret-node
 ```
 
