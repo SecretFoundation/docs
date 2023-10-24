@@ -96,7 +96,7 @@ sudo rm -rf $HOME/.secretd/.compute &&
 sudo rm -rf $HOME/.secretd/data &&
 mkdir $HOME/.secretd/data &&
 secretd tendermint unsafe-reset-all  --home $HOME/.secretd &&
-mkdir ~/.secretd/data/snapshots/
+mkdir $HOME/.secretd/data/snapshots/
 ```
 
 ### Restart Node And Check Logs
@@ -129,7 +129,7 @@ sudo rm -rf $HOME/.secretd/.compute &#x26;&#x26;
 sudo rm -rf $HOME/.secretd/data &#x26;&#x26;
 mkdir $HOME/.secretd/data &#x26;&#x26;
 secretd tendermint unsafe-reset-all  --home $HOME/.secretd &#x26;&#x26;
-mkdir ~/.secretd/data/snapshots/ &#x26;&#x26;
+mkdir $HOME/.secretd/data/snapshots/ &#x26;&#x26;
 sudo systemctl restart secret-node &#x26;&#x26; 
 journalctl -fu secret-node
 </code></pre>
@@ -157,7 +157,7 @@ sudo rm -rf $HOME/.secretd/.compute &#x26;&#x26;
 sudo rm -rf $HOME/.secretd/data &#x26;&#x26;
 mkdir $HOME/.secretd/data &#x26;&#x26;
 secretd tendermint unsafe-reset-all  --home $HOME/.secretd &#x26;&#x26;
-mkdir ~/.secretd/data/snapshots/ &#x26;&#x26;
+mkdir $HOME/.secretd/data/snapshots/ &#x26;&#x26;
 sudo systemctl restart secret-node &#x26;&#x26; 
 journalctl -fu secret-node
 </code></pre>

@@ -217,9 +217,9 @@ Note that the `secret-node` system file is created when installing sgx.
 sudo systemctl enable secret-node
 ```
 
-If everything above worked correctly, the following command will show your node streaming blocks (this is for debugging purposes only, kill this command anytime with Ctrl-C).
+You are now a now ready to finally sync the full node. 🎉.
 
-You are now a now ready to finally sync the full node. 🎉
+Go to [testnet-state-sync.md](testnet-state-sync.md "mention") to continue.
 
 ### Get Node ID <a href="#_21-get-your-node-id-with" id="_21-get-your-node-id-with"></a>
 

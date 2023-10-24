@@ -237,7 +237,7 @@
 * [Setting up a node/validator](infrastructure/setting-up-a-node-validator/README.md)
   * [Hardware setup](infrastructure/setting-up-a-node-validator/hardware-setup/README.md)
     * [Hardware Compliance](infrastructure/node-runners/hardware-compliance.md)
-    * [VPS Compliance](infrastructure/node-runners/vps-compliance/README.md)
+    * [VPS/Bare-Metal Compliance](infrastructure/node-runners/vps-compliance/README.md)
       * [PhoenixNAP Setup](infrastructure/node-runners/vps-compliance/phoenixnap-setup.md)
       * [Microsoft Azure Setup](infrastructure/node-runners/vps-compliance/microsoft-azure-setup.md)
       * [Psychz Setup](infrastructure/node-runners/vps-compliance/psychz-setup.md)

@@ -15,20 +15,6 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 * RPC address of an already active node. You can use any node that exposes RPC services.
 * Refer to [Intel Processor Specifications](https://ark.intel.com/content/www/us/en/ark.html#@Processors) if you're unsure if your processor supports SGX
 
-### **Minimum Requirements**
-
-* 32GB RAM
-* 512GB SDD
-* 1 dedicated core of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
-* Motherboard with support for SGX in the BIOS
-
-### **Recommended Requirements**
-
-* 32GB RAM
-* 1TB NVMe SSD
-* 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
-* Motherboard with support for SGX in the BIOS
-
 ## Installation <a href="#installation" id="installation"></a>
 
 ### **Install SGX and `secretd`**
@@ -124,7 +110,7 @@ Configure `secretd`. Initially you'll be using the bootstrap node, as you'll nee
 
 ```bash
 secretd config chain-id secret-4
-secretd config node https://lcd-secret.scrtlabs.com:443/rpc
+secretd config node https://rpc.secret.express
 secretd config output json
 ```
 
@@ -191,10 +177,10 @@ Also checkout [this document](https://gist.github.com/blockpane/40bc6b64caa48fda
 
 ### **Set `minimum-gas-price` Parameter**
 
-We recommend `0.0125uscrt` per gas unit:
+We recommend `0.1uscrt` per gas unit:
 
 ```bash
-perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125uscrt"/' ~/.secretd/config/app.toml
+perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.1uscrt"/' ~/.secretd/config/app.toml
 ```
 
 Your node will not accept transactions that specify `--fees` lower than the `minimun-gas-price` you set here.
@@ -206,32 +192,20 @@ Note that the `secret-node` system file is created when installing sgx.
 {% endhint %}
 
 ```bash
-sudo systemctl enable secret-node && sudo systemctl start secret-node
+sudo systemctl enable secret-node 
 ```
 
-If everything above worked correctly, the following command will show your node streaming blocks (this is for debugging purposes only, kill this command anytime with Ctrl-C).
+You are now a now ready to finally sync the full node. 🎉.
 
-```bash
-journalctl -f -u secret-node
-```
+Go to [state-sync.md](state-sync.md "mention") or [snapshot.md](../../setting-up-a-node-validator/node-setup/snapshot.md "mention") to continue.
 
-```bash
--- Logs begin at Mon 2020-02-10 16:41:59 UTC. --
-Nov 09 11:16:31 scrt-node-01 secretd[619529]: 11:16AM INF indexed block height=12 module=txindex
-Nov 09 11:16:35 scrt-node-01 secretd[619529]: 11:16AM INF Ensure peers module=pex numDialing=0 numInPeers=0 numOutPeers=0 numToDial=10
-Nov 09 11:16:35 scrt-node-01 secretd[619529]: 11:16AM INF No addresses to dial. Falling back to seeds module=pex
-Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF Timed out dur=4983.86819 height=13 module=consensus round=0 step=1
-Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF received proposal module=consensus proposal={"Type":32,"block_id":{"hash":"0AF9693538AB0C753A7EA16CB618C5D988CD7DC01D63742DC4795606D10F0CA4","parts":{"hash":"58F6211ED5D6795E2AE4D3B9DBB1280AD92B2EE4EEBAA2910F707C104258D2A0","total":1}},"height":13,"pol_round":-1,"round":0,"signature":"eHY9dH8dG5hElNEGbw1U5rWqPp7nXC/VvOlAbF4DeUQu/+q7xv5nmc0ULljGEQR8G9fhHaMQuKjgrxP2KsGICg==","timestamp":"2021-11-09T11:16:36.7744083Z"}
-Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF received complete proposal block hash=0AF9693538AB0C753A7EA16CB618C5D988CD7DC01D63742DC4795606D10F0CA4 height=13 module=consensus
-Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF finalizing commit of block hash=0AF9693538AB0C753A7EA16CB618C5D988CD7DC01D63742DC4795606D10F0CA4 height=13 module=consensus num_txs=0 root=E4968C9B525DADA22A346D5E158C648BC561EEC351F402A611B9DA2706FD8267
-Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF minted coins from module account amount=6268801uscrt from=mint module=x/bank
-Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF executed block height=13 module=state num_invalid_txs=0 num_valid_txs=0
-Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF commit synced commit=436F6D6D697449447B5B373520353520323020352032342031312032333820353320383720313137203133372031323020313638203234302035302032323020353720343520363620313832203138392032333920393920323439203736203338203131322035342032332033203233362034375D3A447D
-Nov 09 11:16:36 scrt-node-01 secretd[619529]: 11:16AM INF committed state app_hash=4B371405180BEE3557758978A8F032DC392D42B6BDEF63F94C2670361703EC2F height=13 module=state num_txs=0
-^C
-```
+### **Snapshot**
 
-You are now a full node. 🎉
+To sync to head quickly, please see [snapshot.md](../../setting-up-a-node-validator/node-setup/snapshot.md "mention").
+
+### **State Sync**
+
+You can skip syncing from scratch or download a snapshot by [state-sync.md](state-sync.md "mention") to the current block.
 
 ### Get Node ID <a href="#_21-get-your-node-id-with" id="_21-get-your-node-id-with"></a>
 
@@ -258,13 +232,7 @@ secretcli config indent true
 secretcli config node tcp://<your-public-ip>:26657
 ```
 
-### **Snapshot**
 
-To sync to head quickly, please see [snapshot.md](../../setting-up-a-node-validator/node-setup/snapshot.md "mention").
-
-### **State Sync**
-
-You can skip syncing from scratch or download a snapshot by [State Syncing](https://docs.scrt.network/docs/node-runners/node-setup/state-sync) to the current block.
 
 ### **Optional: Become a Validator**
 
