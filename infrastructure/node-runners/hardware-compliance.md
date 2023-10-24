@@ -18,10 +18,12 @@ The following are confirmed compliant Intel CPUs:
 
 | Brand | Family            | Model             |
 | ----- | ----------------- | ----------------- |
-| Intel | XEON E-Series     | `E-2176G`         |
+| Intel | XEON E-Series     | `E-2174G`         |
+|       |                   | `E-2176G`         |
 |       |                   | `E-2178G`         |
 |       |                   | `E-2186G`         |
 |       |                   | `E-2188G`         |
+|       |                   | `E-2274G`         |
 |       |                   | `E-2276G`         |
 |       |                   | `E-2278G`         |
 |       |                   | `E-2286G`         |
@@ -52,14 +54,15 @@ This is not an exhaustive list of supported motherboards. These are simply mothe
 |            | `X11SCW-F`           | `SYS-5019C-WR`                | [link](https://www.supermicro.com/products/motherboard/X11/X11SCW-F.cfm)                        |
 |            | `X11SCZ-F`           |                               |                                                                                                 |
 |            | `X11SSL-F`           |                               |                                                                                                 |
-| Dell       | `Dell R240`          |                               |                                                                                                 |
+| Dell       | `Dell R240`          | BIOS Version `2.14.1`         |                                                                                                 |
 |            |                      |                               |                                                                                                 |
-|            | `Dell R350`          | BIOS version 1.5.1            |                                                                                                 |
+|            | `Dell R350`          | BIOS version `1.7.3`          |                                                                                                 |
 |            |                      |                               |                                                                                                 |
-| HP         | `HP DL20 G10`        |                               |                                                                                                 |
+| HP         | `DL20 G10`           |                               |                                                                                                 |
+|            | `DL20 G10 +`         |                               |                                                                                                 |
 | ASUS       | `ASUS RS100-E10-PI2` | BIOS version 4003             | [link](https://servers.asus.com/products/Servers/Rack-Servers/RS100-E10-PI2)                    |
 | Asrock     | `E3C246D4U2-2T`      |                               | [link](https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications) |
-| GIGABYTE   | MX33-BS1-V1          | BIOS version F06              | [link](https://www.gigabyte.com/Enterprise/Server-Motherboard/MX33-BS0-rev-1x)                  |
+| GIGABYTE   | `MX33-BS1-V1`        | BIOS version F06              | [link](https://www.gigabyte.com/Enterprise/Server-Motherboard/MX33-BS0-rev-1x)                  |
 
 ### **Contributors**
 
