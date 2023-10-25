@@ -10,7 +10,7 @@ description: >-
 
 The ability to generate fair and verifiable random numbers on blockchain without compromising security or usability is critical for many decentralized applications. There have been attempts to solve this problem by various methods, such as using random data from external sources (the hash of a previous block, etc) or by using off-chain solutions, such as Chainlink’s VRF oracle, but these solutions are not optimal as they are either deterministic, rely on trusted parties, and/or require additional fees for gas and infrastructure. What is needed is a verifiable random number generator that exists on-chain, and is accessible across developer ecosystems, and this is now possible through the use of **Secret Network Random Number Generator (RNG) + Axelar GMP.**&#x20;
 
-In this tutorial, you will learn how to use Axelar GMP to send an array of verifiable random numbers from **Secret to Polygon** (testnet configuration is pending). Let's get started!
+In this tutorial, you will learn how to use Axelar GMP to send an array of verifiable random numbers from **Secret to Polygon**. Let's get started!
 
 ### Prerequisites
 
