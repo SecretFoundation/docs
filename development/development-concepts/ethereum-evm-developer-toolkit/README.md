@@ -201,6 +201,8 @@ Then, update `destinationAddress` to your Polygon contract address, and `myMessa
 
 <figure><img src="../../../.gitbook/assets/execute variables.png" alt=""><figcaption><p>execute.js variables</p></figcaption></figure>
 
+#### IBC Denom
+
 Next, in order to send a GMP message from Secret to Polygon, you need to include the correct IBC denom to pay for gas so that the message can be executed over IBC.&#x20;
 
 {% hint style="info" %}

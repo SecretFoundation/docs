@@ -15,7 +15,7 @@ In this tutorial, you will learn how to use Axelar GMP to send an array of verif
 ### Prerequisites
 
 {% hint style="info" %}
-[See here for prerequisites](https://docs.scrt.network/secret-network-documentation/development/development-concepts/ethereum-greater-than-secret-network#prerequisites) to follow along with this tutorial.&#x20;
+[See here for prerequisites](https://docs.scrt.network/secret-network-documentation/development/development-concepts/ethereum-evm-developer-toolkit#prerequisites) to follow along with this tutorial.&#x20;
 {% endhint %}
 
 ### Upload ReceiveRandom.sol Contract to Polygon
@@ -30,24 +30,25 @@ First, navigate to Remix and create a new blank workspace:
 
 Next, create a new file called `ReceiveRandom.sol` and [paste the solidity code.](https://github.com/scrtlabs/examples/blob/master/EVM-GMP-RNG/polygon/contracts/ReceiveRandom.sol) This will autofill your workspace with the necessary dependencies for your ReceiveRandom.sol contract 🤯
 
-Now all that's left is to **compile and upload the contract**. Navigate to the Solidity compiler using the sidebar and click **"Compile ReceiveRandom.sol"**. Then, navigate to "Deploy and run transactions." Toggle the Environment from "Remix VM (Shanghai)" to "Injected Provider - MetaMask" and make sure that in your MetaMask wallet **you have currently selected Polygon network**.&#x20;
+Now all that's left is to **compile and upload the contract**. Navigate to the Solidity compiler using the sidebar and click **"Compile ReceiveRandom.sol"**. Then, navigate to "Deploy and run transactions." Toggle the Environment from "Remix VM (Shanghai)" to "Injected Provider - MetaMask" and make sure that in your MetaMask wallet **you have currently selected Polygon testnet Mumbai network**.&#x20;
 
-The `constructor` of ReceiveRandom.sol contains 3 variables that you must now input in order to instantiate the contract and link it to Axelar's Polygon **gateway contract** and **gas receiver contract**, as well as the Polygon **chain name**:&#x20;
+The `constructor` of ReceiveRandom.sol contains 3 variables that you must now input in order to instantiate the contract and link it to [Axelar's Polygon **gateway contract** and **gas receiver contract**](https://docs.axelar.dev/dev/reference/testnet-contract-addresses), as well as the Polygon **chain name**:&#x20;
 
-<pre class="language-bash"><code class="lang-bash">GATEWAY CONTRACT: "0x6f015F16De9fC8791b234eF68D486d2bF203FBA8"
-GASRECEIVER CONTRACT: "0x2d5d7d31F671F86C782533cc367F14109a082712"
-<strong>CHAINNAME: "Polygon"
-</strong></code></pre>
+```bash
+GATEWAY CONTRACT: "0xBF62ef1486468a6bd26Dd669C06db43dEd5B849B"
+GASRECEIVER CONTRACT: "0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6"
+CHAINNAME: "Polygon"
+```
 
 Input these strings like so and then click "Transact":
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt=""><figcaption><p>ReceiveRandom.soll constructor</p></figcaption></figure>
 
-Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then [view on Polygonscan](https://polygonscan.com/address/0xf3431487fd737ec32279333987b1D7fBdB2faD91). And the deployed contract can now be interacted with in the "Deployed Contracts" window:&#x20;
+Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then [view on Polygonscan.](https://mumbai.polygonscan.com/address/0x4396a9F3b1962bC7277fC44a78AA5c57e8966978) And the deployed contract can now be interacted with in the "Deployed Contracts" window:&#x20;
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon mainnet that can **receive verifiable random numbers** from a Secret Network smart contract 🎉
+Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon testnet that can **receive verifiable random numbers** from a Secret Network smart contract 🎉
 
 ### Upload a contract to Secret Network
 
@@ -75,7 +76,7 @@ make build-mainnet
 If this is your first time working with a Secret contract, visit the [Getting Started docs](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment) to properly configure your developer environment.
 {% endhint %}
 
-Now, open a new terminal window and `cd` into `examples/EVM-GMP-RNG/secret_network/node`
+Now,  `cd` into `examples/EVM-GMP-RNG/secret_network/node`
 
 ```bash
 cd examples/EVM-GMP-RNG/secret_network/node
@@ -117,19 +118,8 @@ Then, update `destinationAddress` to your Polygon contract address:
 
 Next, in order to send a GMP message from Secret to Polygon, you need to include the correct IBC denom to pay for gas so that the message can be executed over IBC.&#x20;
 
-{% hint style="info" %}
-[Learn more about IBC denoms here.](https://tutorials.cosmos.network/tutorials/6-ibc-dev/)
-{% endhint %}
-
-The [correct IBC denom](https://github.com/scrtlabs/examples/blob/3470d6d3375ea25888371e931aea7661c511048c/secret-ethereum-gmp/node/execute.js#L40C14-L40C14) is already included in the secret.js transaction, but in order for it to execute successfully, **you need to have this IBC denom funded in your Keplr wallet**. To add this token to your Keplr wallet, send Axelar tokens to your Secret wallet address over IBC:
-
-1. Procure  AXL tokens from an exchange of your choice.&#x20;
-2. In Keplr, click "Send" and select the "AXL" (Axelar) token.
-3. Click "IBC Send" and select "Secret Network" for the chain.&#x20;
-4. Execute the transaction.&#x20;
-
-{% hint style="info" %}
-[See a video tutorial here. ](https://www.youtube.com/shorts/JELkjrSHCoA)
+{% hint style="success" %}
+[Learn how to get the correct AXL/Secret IBC denom here. ](https://docs.scrt.network/secret-network-documentation/development/development-concepts/ethereum-evm-developer-toolkit#ibc-denom)&#x20;
 {% endhint %}
 
 Once you have properly configured your `execute.js` file and procured the IBC denom needed to execute the transaction, all that's left is to run `node execute.`&#x20;
@@ -142,11 +132,11 @@ The transaction should return a `transactionHash` as well as data about the IBC 
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-17 at 1.55.23 PM (1).png" alt=""><figcaption><p>send_message_evm() transaction</p></figcaption></figure>
 
-Now, [navigate to Axelarscan to monitor the status of the transaction](https://axelarscan.io/gmp/D65384BAB15C0506DB0BFED8BD05D2E7444C786F889A48BFBC395756A1D71307):&#x20;
+Now, [navigate to Axelarscan to monitor the status of the transaction](https://testnet.axelarscan.io/gmp/E6EB7C4C2A3D16F60A1650948D2396D46C3F46868C75D93D8B726C51D72B4848):&#x20;
 
 <figure><img src="../../../.gitbook/assets/axelarscan rng.png" alt=""><figcaption></figcaption></figure>
 
-And for good measure, [view the transaction on Polygonscan](https://polygonscan.com/tx/0x0aea7d322c3b32b68dd6e89d4f9d08f9c82ceac46ed267337cb7230c477dea68) to see that the array of random numbers was received!
+And for good measure, [view the transaction on Polygonscan](https://mumbai.polygonscan.com/tx/0x2b9558eee4d508a9473adc448ba19a76af2f648e3ab7379defa5c50eb1b132d9) to see that the array of random numbers was received!
 
 ### Query the random number on Polygon and Secret
 
@@ -206,27 +196,20 @@ Install the `package.json` dependencies:
 npm install 
 ```
 
-Open `hardhat.config.js`. Replace the `url` and `accounts` variables with your [Polygon mainnet Infura API url](https://app.infura.io/dashboard) and [Metamask private wallet key](https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key), respectively.&#x20;
+Create a `.env` file in `examples/EVM-GMP-RNG/polygon` and add your  [Polygon testnet Infura API ](https://app.infura.io/dashboard)key and your [Metamask private wallet key](https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key)
+
+<figure><img src="../../../.gitbook/assets/env (1).png" alt="" width="375"><figcaption></figcaption></figure>
+
+Open `./scripts/queryRandom.js` and replace the `contractAddress` with your Polygon contract address:
 
 ```javascript
-networks: {
-    polygon: {
-      url: `https://polygon-mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-      accounts: ["0x" + process.env.PRIVATE_KEY],
-    },
-  }
+const contractAddress = "0x4396a9F3b1962bC7277fC44a78AA5c57e8966978";
 ```
 
-Then, `cd` into `examples/EVM-GMP-RNG/polygon/scripts`:
+Then execute the query by running `npx hardhat run --network polygon ./scripts/queryRandom.js`
 
 ```bash
-cd examples/EVM-GMP-RNG/polygon/scripts
-```
-
-Open `queryRandom.js` and replace the Polygon contract address with your Polygon contract address. Then execute the query by running `npx hardhat run --network polygon queryRandom.js`
-
-```bash
-npx hardhat run --network polygon queryRandom.js
+npx hardhat run --network polygon ./scripts/queryRandom.js
 ```
 
 Congrats! 🎉 The query should return an array of random numbers which matches the random numbers stored in the Secret Contract:
