@@ -51,8 +51,8 @@ SNAP_RPC="https://rpc.statesync.secretsaturn.net:443"
 
 Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
 
-<pre class="language-bash"><code class="lang-bash">SNAP_RPC="https://rpc.statesync.secretsaturn.net:443"
-<strong>BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}'); \
+<pre class="language-bash"><code class="lang-bash">SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
+<strong>BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &#x26;&#x26;
 </strong>TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
 echo $BLOCK_HEIGHT $TRUST_HASH
@@ -88,16 +88,17 @@ It is recommended to copy the signing state of the node by coping `data/priv_val
 
 The code below stops the node, resets the temporary directory and resets the node into a fresh state.
 
-```bash
-sudo systemctl stop secret-node && 
-sudo umount -l /tmp && 
-sudo mount -t tmpfs -o size=12G,mode=1777 overflow /tmp &&
-sudo rm -rf $HOME/.secretd/.compute &&
-sudo rm -rf $HOME/.secretd/data &&
-mkdir $HOME/.secretd/data &&
-secretd tendermint unsafe-reset-all  --home $HOME/.secretd &&
+<pre class="language-bash"><code class="lang-bash">sudo systemctl stop secret-node &#x26;&#x26; 
+sudo umount -l /tmp &#x26;&#x26; 
+sudo mount -t tmpfs -o size=12G,mode=1777 overflow /tmp &#x26;&#x26;
+sudo rm -rf $HOME/.secretd/.compute &#x26;&#x26;
+sudo rm -rf $HOME/.secretd/data &#x26;&#x26;
+mkdir $HOME/.secretd/data &#x26;&#x26;
+secretd tendermint unsafe-reset-all  --home $HOME/.secretd &#x26;&#x26;
+<strong>perl -i -pe 's/seeds = ""/seeds = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' $HOME/.secretd/config/config.toml &#x26;&#x26;
+</strong>perl -i -pe 's/persistent_peers = ""/persistent_peers = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' $HOME/.secretd/config/config.toml &#x26;&#x26;
 mkdir $HOME/.secretd/data/snapshots/
-```
+</code></pre>
 
 ### Restart Node And Check Logs
 
@@ -114,8 +115,8 @@ sudo systemctl restart secret-node && journalctl -fu secret-node
 
 When state-sync fails, you can restart the process and try again using the condensed script below. This usually fixes some of the random problems with it:
 
-<pre><code>SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
-BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}'); &#x26;&#x26;
+<pre class="language-bash"><code class="lang-bash">SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &#x26;&#x26;
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash) &#x26;&#x26;
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
 s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync1.secretsaturn.net:26657,http://rpc.statesync2.secretsaturn.net:26657,http://rpc.statesync3.secretsaturn.net:26657\"| ; \
@@ -129,6 +130,8 @@ sudo rm -rf $HOME/.secretd/.compute &#x26;&#x26;
 sudo rm -rf $HOME/.secretd/data &#x26;&#x26;
 mkdir $HOME/.secretd/data &#x26;&#x26;
 secretd tendermint unsafe-reset-all  --home $HOME/.secretd &#x26;&#x26;
+perl -i -pe 's/seeds = ""/seeds = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' $HOME/.secretd/config/config.toml &#x26;&#x26;
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' $HOME/.secretd/config/config.toml &#x26;&#x26;
 mkdir $HOME/.secretd/data/snapshots/ &#x26;&#x26;
 sudo systemctl restart secret-node &#x26;&#x26; 
 journalctl -fu secret-node
@@ -140,10 +143,10 @@ journalctl -fu secret-node
 To safe time, you can use this script to quickly init everything you need for statesync. Please be aware that this might be dangerous if you have a validator.
 {% endhint %}
 
-<pre><code>sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" $HOME/.secretd/config/app.toml &#x26;&#x26;
+<pre class="language-bash"><code class="lang-bash">sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" $HOME/.secretd/config/app.toml &#x26;&#x26;
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = 2000/" -e "s/^snapshot-keep-recent *=.*/snapshot-keep-recent = 3/" $HOME/.secretd/config/app.toml &#x26;&#x26;
 SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
-BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}'); &#x26;&#x26;
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &#x26;&#x26;
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash) &#x26;&#x26;
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
 s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync1.secretsaturn.net:26657,http://rpc.statesync2.secretsaturn.net:26657,http://rpc.statesync3.secretsaturn.net:26657\"| ; \
@@ -157,6 +160,8 @@ sudo rm -rf $HOME/.secretd/.compute &#x26;&#x26;
 sudo rm -rf $HOME/.secretd/data &#x26;&#x26;
 mkdir $HOME/.secretd/data &#x26;&#x26;
 secretd tendermint unsafe-reset-all  --home $HOME/.secretd &#x26;&#x26;
+perl -i -pe 's/seeds = ""/seeds = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' $HOME/.secretd/config/config.toml &#x26;&#x26;
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' $HOME/.secretd/config/config.toml &#x26;&#x26;
 mkdir $HOME/.secretd/data/snapshots/ &#x26;&#x26;
 sudo systemctl restart secret-node &#x26;&#x26; 
 journalctl -fu secret-node
