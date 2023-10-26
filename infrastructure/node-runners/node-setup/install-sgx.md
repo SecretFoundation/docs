@@ -19,13 +19,13 @@ If you're running a local machine and not a cloud-based VM -
 
 If you are a node runner all you must do to install SGX is to save this as a script and run it.
 
-1. Download the SGX install script.
+#### Download the SGX install script
 
 ```bash
 wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guides/sgx
 ```
 
-Execute the script.
+#### Execute the script
 
 ```bash
 sudo bash sgx
@@ -139,7 +139,7 @@ and run it again.
 
 #### Run `secretd init-enclave` <a href="#run-secretd-init-enclave" id="run-secretd-init-enclave"></a>
 
-See [Verify SGX](broken-reference) for a guide how to test your setup.
+See [Verify SGX](broken-reference/) for a guide how to test your setup.
 
 ## Uninstall <a href="#uninstall" id="uninstall"></a>
 
