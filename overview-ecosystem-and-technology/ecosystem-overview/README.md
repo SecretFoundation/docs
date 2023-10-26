@@ -10,9 +10,10 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * [Explorers](./#explorers)
 * [Wallets](./#wallets)
 * [User Guides](./#user-guides)
-* [Developer Guides](./#developer-guides)
-* [Developer Tools](./#developer-tools)
-* [Reference Contracts](./#reference-contracts)
+* [Development Concepts](../../development/development-concepts/)
+* [Developer Guides](../../development/example-contracts/guides-tutorials.md#developer-guides)
+* [Developer Tools](../../development/tools-and-libraries/)
+* [Reference Contracts](../../development/secret-by-example/example-contracts/community-tutorials.md)
 
 ## General Resources
 
