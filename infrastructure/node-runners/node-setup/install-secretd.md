@@ -1,12 +1,14 @@
 # Install secretd
 
 {% hint style="warning" %}
-Unlike other Tendermint/Cosmos based daemons, `secretd` cannot be built from source due to the SGX requirement. For other builds other than `.deb`, see the [Secret Network Github Releases](https://github.com/scrtlabs/SecretNetwork/releases).
+Unlike other Tendermint/Cosmos based daemons, `secretd` cannot be built from source due to the SGX requirement.&#x20;
+
+For other builds other than `.deb`, see the [Secret Network Github Releases](https://github.com/scrtlabs/SecretNetwork/releases).
 {% endhint %}
 
 ### Install script <a href="#_1-download-the-secret-network-package-installer-for-debian-ubuntu" id="_1-download-the-secret-network-package-installer-for-debian-ubuntu"></a>
 
-#### Download the SGX install script
+#### Download the secretd install script
 
 ```bash
 wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guides/install-secretd
@@ -18,9 +20,9 @@ wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guid
 sudo bash install-secretd
 ```
 
-### Manual method: Download and Verify `secretd` <a href="#_1-download-the-secret-network-package-installer-for-debian-ubuntu" id="_1-download-the-secret-network-package-installer-for-debian-ubuntu"></a>
+### Manual method: Download and Install `secretd` <a href="#_1-download-the-secret-network-package-installer-for-debian-ubuntu" id="_1-download-the-secret-network-package-installer-for-debian-ubuntu"></a>
 
-The most common method for install `secretd` is the Secret Network package installer for Debian/Ubuntu:
+The most common method for installing `secretd` is the Secret Network package installer for Debian/Ubuntu:
 
 ```bash
 # Get the latest release info
