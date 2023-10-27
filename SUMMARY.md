@@ -260,7 +260,7 @@
     * [Install secretd](infrastructure/node-runners/node-setup/install-secretd.md)
     * [Setup Full Node](infrastructure/node-runners/node-setup/setup-full-node.md)
     * [Quicksync / Snapshot](infrastructure/setting-up-a-node-validator/node-setup/snapshot.md)
-    * [State-Sync](infrastructure/node-runners/node-setup/state-sync.md)
+    * [Statesync](infrastructure/node-runners/node-setup/state-sync.md)
     * [Becoming A Validator](infrastructure/node-runners/node-setup/becoming-a-validator.md)
 * [Maintaining a node/validator](infrastructure/maintaining-a-node-validator/README.md)
   * [Slashing information](infrastructure/node-runners/README.md)

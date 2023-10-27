@@ -2,14 +2,31 @@
 
 Snapshots are compressed folders of the database to reach the current block quickly.
 
-## Install dependencies
+You can either chose to use the [#\_1-download-the-secret-network-package-installer-for-debian-ubuntu](snapshot.md#\_1-download-the-secret-network-package-installer-for-debian-ubuntu "mention") or do it with the [#\_1-download-the-secret-network-package-installer-for-debian-ubuntu-1](snapshot.md#\_1-download-the-secret-network-package-installer-for-debian-ubuntu-1 "mention").
+
+{% hint style="danger" %}
+**WARNING**: This will erase your node database. If you are already running validator, be sure you backed up your `priv_validator_key.json` prior to running the command. The command does not wipe the file. However, you should have a backup of it already in a safe location.
+{% endhint %}
+
+## Quicksync / Snapshot script <a href="#_1-download-the-secret-network-package-installer-for-debian-ubuntu" id="_1-download-the-secret-network-package-installer-for-debian-ubuntu"></a>
+
+### Download the quicksync script
 
 ```bash
-sudo apt update
-sudo apt install snapd lz4
+wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guide/quicksync
 ```
 
-## Download snapshot
+### Run the quicksync script
+
+```bash
+sudo bash quicksync
+```
+
+## Manual Method <a href="#_1-download-the-secret-network-package-installer-for-debian-ubuntu" id="_1-download-the-secret-network-package-installer-for-debian-ubuntu"></a>
+
+All of the above steps can also be done manually if you wish.
+
+### Download snapshot
 
 Quicksync / snapshots are provided by [Lavender.five Nodes](https://services.lavenderfive.com/mainnet/secretnetwork/snapshot).
 
@@ -17,26 +34,29 @@ Quicksync / snapshots are provided by [Lavender.five Nodes](https://services.lav
 wget -O secret.tar.lz4 https://snapshots.lavenderfive.com/snapshots/secretnetwork/latest.tar.lz4
 ```
 
-## Delete old data
+### Install dependencies
+
+```bash
+sudo apt update
+sudo apt install snapd lz4 pv
+```
+
+### Delete old data
 
 Reset your node.&#x20;
-
-{% hint style="danger" %}
-**WARNING**: This will erase your node database. If you are already running validator, be sure you backed up your `priv_validator_key.json` prior to running the the command. The command does not wipe the file. However, you should have a backup of it already in a safe location.
-{% endhint %}
 
 ```bash
 sudo systemctl stop secret-node
 secretd tendermint unsafe-reset-all --home $HOME/.secretd
 ```
 
-## Decompress snapshot
+### Decompress snapshot
 
 ```bash
-lz4 -c -d secret.tar.lz4  | tar -x -C $HOME/.secretd
+lz4 -c -d secret.tar.lz4 | pv -s $(du -sb secret.tar.lz4 | awk '{ print $1 }') | tar -x -C $HOME/.secretd
 ```
 
-## Download latest addrbook
+### Download latest addrbook
 
 This will ensure you connect to peers quickly.
 
@@ -45,9 +65,9 @@ wget -O addrbook.json https://snapshots.lavenderfive.com/addrbooks/secretnetwork
 mv addrbook.json ~/.secretd/config
 ```
 
-## Restart service
+### Restart service and open logs
 
 ```bash
-sudo service secret-node status && journalctl -fu secret-node
+sudo systemctl restart secret-node && journalctl -fu secret-node
 ```
 

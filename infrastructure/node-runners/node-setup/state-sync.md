@@ -1,4 +1,4 @@
-# State-Sync
+# Statesync
 
 {% hint style="info" %}
 [Got questions or need help with ](#user-content-fn-1)[^1]using state-sync properly?
@@ -11,13 +11,13 @@
 A complete to go command that should fit most needs can be found at [#fast-state-sync-script](state-sync.md#fast-state-sync-script "mention"). Be aware that this script can also fail or cause problems. In that case please ask for help in the channels above.
 {% endhint %}
 
-State-sync is a module built into the Cosmos SDK to allow validators to rapidly join the network by syncing your node with a snapshot enabled RPC from a trusted block height.
+Statesync is a module built into the Cosmos SDK to allow validators to rapidly join the network by syncing your node with a snapshot enabled RPC from a trusted block height.
 
 This greatly reduces the time required for a node to sync with the network from days to minutes. The limitations of this are that there is not a full transaction history, just the most recent state that the state-sync RPC has stored. An advantage of state-sync is that the database is very small in comparison to a fully synced node, therefore using state-sync to re-sync your node to the network can help keep running costs lower by minimizing storage usage.
 
 By syncing to the network with state-sync, a node can avoid having to go through all the upgrade procedures and can sync with the most recent binary only.
 
-## Mainnet State Sync <a href="#mainnet-state-sync" id="mainnet-state-sync"></a>
+## Mainnet Statesync <a href="#mainnet-state-sync" id="mainnet-state-sync"></a>
 
 {% hint style="info" %}
 **This documentation assumes you have followed the instructions for** [**Running a Full Node**](setup-full-node.md)**.**
@@ -43,7 +43,7 @@ sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = 2000/" -e "s/^snaps
 
 ### Assign And Verify Variables
 
-SNAP\_RPC is the RPC node endpoint that is used for state-syncing
+SNAP\_RPC is the RPC node endpoint that is used for statesyncing
 
 ```bash
 SNAP_RPC="https://rpc.statesync.secretsaturn.net:443"
@@ -75,7 +75,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/c
 
 ### Reset Database And Stop Node
 
-[Got questions or need help with ](#user-content-fn-2)[^2]using state-sync properly?
+[Got questions or need help with ](#user-content-fn-2)[^2]using statesync properly?
 
 * You can find help in Telegram [here](https://t.me/SCRTNodeSupport)
 * Visit the Secret Network Discord [here](https://discord.com/invite/SJK32GY) and ask in #node-discussion or #node-support for help
@@ -105,7 +105,6 @@ This generally takes several minutes to complete, but has been known to take up 
 
 ```bash
 sudo systemctl restart secret-node && journalctl -fu secret-node
-
 ```
 
 ![Expected State Sync Output](<../../../.gitbook/assets/Screen Shot 2022-07-03 at 7.56.31 PM.png>)

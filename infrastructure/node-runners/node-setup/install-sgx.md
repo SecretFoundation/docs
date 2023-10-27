@@ -2,7 +2,7 @@
 
 Ensure your hardware is [Secret Node Compliant](../hardware-compliance.md).
 
-If you're running a local machine and not a cloud-based VM -
+If you're running a local machine or bare-metal and not a cloud-based VM -
 
 1. Go to your BIOS menu
 2. Enable SGX (Software controlled is not enough)
