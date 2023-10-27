@@ -6,7 +6,7 @@ Below are all actively used Secret tokens with details on their contract address
 
 | Contract Name / Label             | Symbol    | Decimals    | denom      | Contract Address                              | SNIP version |
 | --------------------------------- | --------- | ----------- | ---------- | --------------------------------------------- | ------------ |
-| Secret Secret         | sSCRT    | 6           | uscrt                                                                                  | secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek            | SNIP-20      |
+| Secret Secret                     | sSCRT     | 6           | uscrt      | secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek | SNIP-20      |
 | Sienna                            | SIENNA    | 18          | usienna    | secret1rgm2m5t530tdzyd99775n6vzumxa5luxcllml4 | SNIP-20      |
 | Silk Stablecoin                   | SILK      | <p><br></p> | usilk      | secret1fl449muk5yq8dlad7a22nje4p5d2pnsgymhjfd | SNIP-25      |
 | Shade                             | SHD       | <p><br></p> | ushd       | secret153wu605vvp934xhd4k9dtd640zsep5jkesstdm | SNIP-25      |
@@ -48,7 +48,7 @@ Below are all actively used Secret tokens with details on their contract address
 | Secret BLD            | sBLD     | 6           | ibc/CDEA201B61DF09C2456A91A60A87856796E6B40FAF41FC64E3482D4EF07DE26C                   | secret1uxvpq889uxjcpj656yjjexsqa3zqm6ntkyjsjq            | SNIP-25      |
 | Secret Comdex         | sCMDX    | 6           | ibc/DFBDE185EC916F4933DF02D3A282FA801BC9EE77FE0B768FB517407730105491                   | secret1mndng80tqppllk0qclgcnvccf9urak08e9w2fl            | SNIP-25      |
 | Secret DVPN           | sDVPN    | 6           | ibc/E83107E876FF194B54E9AC3099E49DBB7728156F250ABD3E997D2B7E89E0810B                   | secret15qtw24mpmwkjessr46dnqruq4s4tstzf74jtkf            | SNIP-25      |
-| Secret Harbor         | sHARBOR  | 6           | ibc/33E509EAF84ED39E60F746CCAF89130B386A11FDD3B76A77377FB3946BC9D829                   | ecret1nw83wzlceflrecd03ydjru3tcr2y345x7aetjp            | SNIP-25      |
+| Secret Harbor         | sHARBOR  | 6           | ibc/33E509EAF84ED39E60F746CCAF89130B386A11FDD3B76A77377FB3946BC9D829                   | ecret1nw83wzlceflrecd03ydjru3tcr2y345x7aetjp             | SNIP-25      |
 | Secret Monero         | sXMR     | <p><br></p> | usXMR                                                                                  | <p><br>secret19ungtd2c7srftqdwgq0dspwvrw63dhu79qxv88</p> | SNIP-20      |
 | Secret INJ            | sINJ     | 18          | ibc/5A76568E079A31FA12165E4559BA9F1E9D4C97F9C2060B538C84DCD503815E30                   | secret14706vxakdzkz9a36872cs62vpl5qd84kpwvpew            | SNIP-25      |
 | Secret stINJ          | sstINJ   | 18          | ibc/C8D8F46E3CE6F41E01E32542215597CF4B32709C8A310F728653CB91FDB8A904                   | secret1eurddal3m0tphtapad9awgzcuxwz8ptrdx7h4n            | SNIP-25      |
@@ -57,3 +57,5 @@ Below are all actively used Secret tokens with details on their contract address
 | Secret pSTAKE         | spSTAKE  | 18          | ibc/11C28A45FB2B2FC9CD8C42F30FA3984076211E16A48B17C8B43BB3806E54947D                   | secret1umeg3u5y949vz6jkgq0n4rhefsr84ws3duxmnz            | SNIP-25      |
 | Secret Quicksilver    | sQCK     | 6           | ibc/C21A7C8801B94E73EBEDB9B0870D492190D7A01F63C8855962AAFDE2F026D8F6                   | secret17d8c96kezszpda3r2c5dtkzlkfxw6mtu7q98ka            | SNIP-25      |
 | Secret qATOM          | sqATOM   | 6           | ibc/97048A1FAFF5D84D4A5DDD9976AD332A3CAD99C81BC5C0C2B82A50E4C2131FB2                   | secret120cyurq25uvhkc7qjx7t28deuqslprxkc4rrzc            | SNIP-25      |
+| Secret dYdX           | sdYdX    | 18          | ibc/007F5EB5C29FF8BB23133B099B4A3D68326BD02B05E20590287746FAFF29E3CD                   | secret13lndcagy53wfzh69rtv0dex3a7cks0dv5emwke            | SNIP-25      |
+
