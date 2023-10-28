@@ -4,18 +4,18 @@ Below are all actively used Secret tokens with details on their contract address
 
 ### Native
 
-| Contract Name / Label             | Symbol    | Decimals    | denom      | Contract Address                              | SNIP version |
-| --------------------------------- | --------- | ----------- | ---------- | --------------------------------------------- | ------------ |
-| Secret Secret                     | sSCRT     | 6           | uscrt      | secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek | SNIP-20      |
-| Sienna                            | SIENNA    | 18          | usienna    | secret1rgm2m5t530tdzyd99775n6vzumxa5luxcllml4 | SNIP-20      |
-| Silk Stablecoin                   | SILK      | <p><br></p> | usilk      | secret1fl449muk5yq8dlad7a22nje4p5d2pnsgymhjfd | SNIP-25      |
-| Shade                             | SHD       | <p><br></p> | ushd       | secret153wu605vvp934xhd4k9dtd640zsep5jkesstdm | SNIP-25      |
-| Shade SCRT staking derivative     | stkd-SCRT | <p><br></p> | ustkd-SCRT | secret1k6u0cy4feepm6pehnz804zmwakuwdapm69tuc4 | SNIP-24      |
-| StakeEasy SCRT staking derivative | seSCRT    |             | useSCRT    | secret1ljhmqzukmg3ke54lpj3wadd2fczjlasr0cfjwd | SNIP-20      |
-| Btn.group buttcoin                | BUTT      |             | ubutt      | secret1yxcexylwyxlq58umhgsjgstgcg2a0ytfy4d9lt | SNIP-20      |
-| Alter                             | ALTER     |             | uAlter     | secret12rcvz0umvk875kd6a803txhtlu7y0pnd73kcej | < SNIP-24    |
-| SecretSwap Sefi token             | SEFI      |             | uSefi      | secret1s6k09sx6pgy2z5rxfu73z3yvypfmxm7aaqvau5 | SNIP-20      |
-| Amber                             | AMBER     |             | uAmber     | secret1x6my6xxxkladvsupcka7k092m50rdw8pk8dpq9 | SNIP-24      |
+| Contract Name / Label             | Symbol    | Decimals | denom      | Contract Address                              | SNIP version |
+| --------------------------------- | --------- | -------- | ---------- | --------------------------------------------- | ------------ |
+| Secret Secret                     | sSCRT     | 6        | uscrt      | secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek | SNIP-20      |
+| Sienna                            | SIENNA    | 18       | usienna    | secret1rgm2m5t530tdzyd99775n6vzumxa5luxcllml4 | SNIP-20      |
+| Silk Stablecoin                   | SILK      | 6        | usilk      | secret1fl449muk5yq8dlad7a22nje4p5d2pnsgymhjfd | SNIP-25      |
+| Shade                             | SHD       | 8        | ushd       | secret153wu605vvp934xhd4k9dtd640zsep5jkesstdm | SNIP-25      |
+| Shade SCRT staking derivative     | stkd-SCRT | 6        | ustkd-SCRT | secret1k6u0cy4feepm6pehnz804zmwakuwdapm69tuc4 | SNIP-24      |
+| StakeEasy SCRT staking derivative | seSCRT    | 6        | useSCRT    | secret1ljhmqzukmg3ke54lpj3wadd2fczjlasr0cfjwd | SNIP-20      |
+| Btn.group buttcoin                | BUTT      | 6        | ubutt      | secret1yxcexylwyxlq58umhgsjgstgcg2a0ytfy4d9lt | SNIP-20      |
+| Alter                             | ALTER     | 6        | ualter     | secret12rcvz0umvk875kd6a803txhtlu7y0pnd73kcej | < SNIP-24    |
+| SecretSwap SEFI token             | SEFI      | 6        | usefi      | secret1s6k09sx6pgy2z5rxfu73z3yvypfmxm7aaqvau5 | SNIP-20      |
+| Amber                             | AMBER     | 6        | uamber     | secret1x6my6xxxkladvsupcka7k092m50rdw8pk8dpq9 | SNIP-24      |
 
 ### Bridged
 
@@ -34,11 +34,11 @@ Below are all actively used Secret tokens with details on their contract address
 | Secret IST            | sIST     | 6           | ibc/5BE3E5E08E949BDF29EE93E81BF2CBD66347C86CE3D5D99A6E6FB487E62D8414                   | secret1xmqsk8tnge0atzy4e079h0l2wrgz6splcq0a24            | SNIP-25      |
 | Secret USK            | sUSK     | 6           | ibc/C84076353ADA602528AC211EE626AE95FC4E091A0033B93CA5E1F6BE17070BBE                   | secret1cj2fvj4ap79fl9euz8kqn0k5xlvck0pw9z9xhr            | SNIP-25      |
 | Secret Kujira         | sKUJI    | 6           | <p>ibc/FFA324A40F82EF430CF78D498CE04FF634D2091FCDC04EFEC8841B86011F307A</p><p><br></p> | secret13hvh0rn0rcf5zr486yxlrucvwpzwqu2dsz6zu8            | SNIP-25      |
-| CMST                  | sCMST    | 6           | ibc/B8CA0EBE2C9D8800390CE4256DF6C194CF6740CB0AEE140EEE60C1CE288CDB86                   | secret14l7s0evqw7grxjlesn8yyuk5lexuvkwgpfdxr5            | SNIP-25      |
+| Secret CMST           | sCMST    | 6           | ibc/B8CA0EBE2C9D8800390CE4256DF6C194CF6740CB0AEE140EEE60C1CE288CDB86                   | secret14l7s0evqw7grxjlesn8yyuk5lexuvkwgpfdxr5            | SNIP-25      |
 | Secret ATOM           | sATOM    | 6           | ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2                   | secret19e75l25r6sa6nhdf4lggjmgpw0vmpfvsw5cnpe            | SNIP-25      |
-| Secret Juno           | sJUNO    | 6           | ibc/DF8D00B4B31B55AFCA9BAF192BC36C67AA06D9987DCB96490661BCAB63C27006                   | secret1z6e4skg5g9w65u5sqznrmagu05xq8u6zjcdg4a            | SNIP-25      |
-| Secret Luna           | sLUNA    | 6           | ibc/28DECFA7FB7E3AB58DC3B3AEA9B11C6C6B6E46356DCC26505205DAD3379984F5                   | secret149e7c5j7w24pljg6em6zj2p557fuyhg8cnk7z8            | SNIP-25      |
-| Secret Osmo           | sOSMO    | 6           | ibc/0471F1C4E7AFD3F07702BEF6DC365268D64570F7C1FDC98EA6098DD6DE59817B                   | secret150jec8mc2hzyyqak4umv6cfevelr0x9p0mjxgg            | SNIP-25      |
+| Secret JUNO           | sJUNO    | 6           | ibc/DF8D00B4B31B55AFCA9BAF192BC36C67AA06D9987DCB96490661BCAB63C27006                   | secret1z6e4skg5g9w65u5sqznrmagu05xq8u6zjcdg4a            | SNIP-25      |
+| Secret LUNA           | sLUNA    | 6           | ibc/28DECFA7FB7E3AB58DC3B3AEA9B11C6C6B6E46356DCC26505205DAD3379984F5                   | secret149e7c5j7w24pljg6em6zj2p557fuyhg8cnk7z8            | SNIP-25      |
+| Secret OSMO           | sOSMO    | 6           | ibc/0471F1C4E7AFD3F07702BEF6DC365268D64570F7C1FDC98EA6098DD6DE59817B                   | secret150jec8mc2hzyyqak4umv6cfevelr0x9p0mjxgg            | SNIP-25      |
 | Secret stJUNO         | sstJUNO  | 6           | ibc/9B7F6219D699F608B23382F341E29303D66D5CA81F91D6D0B957119F97569F0F                   | secret1097nagcaavlkchl87xkqptww2qkwuvhdnsqs2v            | SNIP-25      |
 | Secret stATOM         | sstATOM  | 6           | ibc/A0E80E59956C754F1D9CB37234D13E0CF2949E7254896359F284512FA8428E18                   | secret155w9uxruypsltvqfygh5urghd5v0zc6f9g69sq            | SNIP-25      |
 | Secret stLUNA         | sstLUNA  | 6           | ibc/C8D8F46E3CE6F41E01E32542215597CF4B32709C8A310F728653CB91FDB8A904                   | secret1rkgvpck36v2splc203sswdr0fxhyjcng7099a9            | SNIP-25      |
@@ -57,5 +57,7 @@ Below are all actively used Secret tokens with details on their contract address
 | Secret pSTAKE         | spSTAKE  | 18          | ibc/11C28A45FB2B2FC9CD8C42F30FA3984076211E16A48B17C8B43BB3806E54947D                   | secret1umeg3u5y949vz6jkgq0n4rhefsr84ws3duxmnz            | SNIP-25      |
 | Secret Quicksilver    | sQCK     | 6           | ibc/C21A7C8801B94E73EBEDB9B0870D492190D7A01F63C8855962AAFDE2F026D8F6                   | secret17d8c96kezszpda3r2c5dtkzlkfxw6mtu7q98ka            | SNIP-25      |
 | Secret qATOM          | sqATOM   | 6           | ibc/97048A1FAFF5D84D4A5DDD9976AD332A3CAD99C81BC5C0C2B82A50E4C2131FB2                   | secret120cyurq25uvhkc7qjx7t28deuqslprxkc4rrzc            | SNIP-25      |
-| Secret dYdX           | sdYdX    | 18          | ibc/007F5EB5C29FF8BB23133B099B4A3D68326BD02B05E20590287746FAFF29E3CD                   | secret13lndcagy53wfzh69rtv0dex3a7cks0dv5emwke            | SNIP-25      |
+| Secret dYdX           | sdYdX    | 18          | ibc/007F5EB5C29FF8BB23133B099B4A3D68326BD02B05E20590287746FAFF29E3CD                   | secret13lndcagy53wfzh69rtv0dex3a7cks0dv5emwke            | SNIP-24      |
+| Secret ARCH           | sARCH    | 18          | ibc/64C032841EC8FEDFEA08C89B1AE8CEB5D616533C7CFC02158B83F221D8AE5618                   | secret188z7hncvphw4us4h6uy6vlq4qf20jd2vm2vu8c            | SNIP-25      |
+| Secret AKT            | sAKT     | 6           | ibc/448B29AB9766D29CC09944EDF6A08573B45A37C55746A45FA3CF53F1B58DF98D                   | secret168j5f78magfce5r2j4etaytyuy7ftjkh4cndqw            | SNIP-20      |
 
