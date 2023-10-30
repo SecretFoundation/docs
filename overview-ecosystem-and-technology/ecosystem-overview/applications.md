@@ -8,28 +8,20 @@ Most updated information: [https://scrt.network/ecosystem/dapps](https://scrt.ne
 
 * [Secret Bridges](http://tunnel.scrt.network)
   * Implementation of the Axelar EVM bridge to Ethereum, Polygon, Avalanche, Arbitrum and more
-* [Secret Monero Bridge](https://ipfs.io/ipfs/QmNRrLDhKGZCSXAZcPU1cBTaLouhWnTi5kfWUzJB4nJbzA)
+* [Secret Monero Bridge](https://ipfs.io/ipfs/QmNRrLDhKGZCSXAZcPU1cBTaLouhWnTi5kfWUzJB4nJbzA) (not working as of right now, please do NOT use)
   * Turn XMR into the SNIP-20 sXMR
 * [IBC Bridges](https://wrap.scrt.network/)
   * Transfer tokens across IBC networks and wrap them in SNIP-20 tokens
     * Alternate UI for [IBC bridging](https://app.sienna.network/wrap/ibc) and [SNIP-20 wrapping](https://app.sienna.network/wrap) of IBC tokens, by [Sienna](https://sienna.network/)
 * Andromeda Protocol
   * Message passing solution over IBC with no-code digital objects for novel Application creation
-* Axelar GMP - Message passing bridge for EVM
-* Bidshop - Permissionless fast finality PAAS messagiung bridge
-* XP.network - Secret NFT bridge to EVM and other networks like Near/polkadot
+* [Axelar GMP ](https://docs.axelar.dev/dev/general-message-passing/overview)- Message passing bridge for EVM
+* [Bidshop](https://twitter.com/BIDSHOP\_io) - Permissionless fast finality PAAS messaging bridge
+* [XP.network](https://xp.network) - Secret NFT bridge to EVM and other networks like Near/polkadot
 * Router network - General message passing bridge for EVM
 
 ### DeFi
 
-* [Sienna Network](https://sienna.network/)
-  * Front running resistant AMM
-  * Private lending application
-  * :soon: Sienna launchpad
-* [Button Swap](https://www.btn.group/secret\_network/button\_swap)
-  * AMM/DEX aggregator by [btn.group](https://www.btn.group)
-    * Limit orders available as well
-  * password manager, Viewing key wizard and more
 * [Shade Protocol](https://shadeprotocol.io/)
   * An array of connected privacy-preserving DeFi applications
     * **Shade**&#x20;
@@ -42,23 +34,28 @@ Most updated information: [https://scrt.network/ecosystem/dapps](https://scrt.ne
       * Purchase discounted SHD by providing LP shares.
     * STKD-SCRT
       * staking derivative for the SCRT token
+* [Sienna Network](https://sienna.network/)
+  * Front running resistant AMM
+  * Private lending application
+* [Button Swap](https://www.btn.group/secret\_network/button\_swap)
+  * AMM/DEX aggregator by [btn.group](https://www.btn.group)
+    * Limit orders available as well
+  * password manager, Viewing key wizard and more
 * [StakeEasy](https://stakeeasy.finance/)
   * Privacy preserving liquid staking solution for Secret Network. With a compounding and non-compounding Staking derivative seSCRT and bSCRT.
-* SecretSwap V2
-  * CPMM on the Secret network by the StakeEasy team
-* Bidshop
+* [Bidshop](https://twitter.com/BIDSHOP\_io)
   * Polygon based Auction platform using Secret Privacy as a Service for gamified auctions.
 * [Blackbox](https://blackbox.cash/)
   * A 2 legged application for transactional privacy on Secret Network
 * [AmberDAO](https://twitter.com/AmberDAO\_)
   * Private store of Value token
-* YOIU launchpad
+* [YOIU launchpad](https://app.yoiu.io)
   * Launchpad for SNIP-20 projects with community governance
-* Fina.cash
+* [Fina.cash](https://fina.cash)
   * Debit card with SCRT for Payments and mobile wallet
-* Kado.money
+* [Kado.money](https://kado.money)
   * Global Fiat onramp with SCRT
-* HoudiniSwap
+* [HoudiniSwap](https://houdiniswap.com)
   * Swap privately into SCRT using Monero obfuscation
 
 ### NFT
@@ -75,25 +72,25 @@ Most updated information: [https://scrt.network/ecosystem/dapps](https://scrt.ne
   * The first feature film launched as an NFT by Kevin Smith
 * [V-IRL](https://www.v-irl.com/)
   * A platform and tooling to bridge real-life assets to SecretNFTs while maintaining user privacy
-* Actilist
+* [Actilist](https://actilist.io)
   * NFT marketplace with Novel auction methods
-* Secret Admirers
+* [Secret Admirers](https://twitter.com/admirariDAO)
   * On-chain OnlyFans using Secret NFTs
 * Eqoty
   * on-chain Spotify leveraging Secret NFTs
-* Lorem Ipsum
+* [Lorem Ipsum](https://geeks.pics)
   * Metaverse with Secret NFTs
 
 ### Other
 
-* Prifi Labs
+* [Prifi Labs](https://www.prifilabs.com)
   * The locker - Mnemonic seed phrase backup solution
   * The shield - Secures EVM contracts using Secret PAAS
-* Serenity shield
+* [Serenity shield](https://www.serenityshield.io)
   * Inheritance and security solution for Mnemonic seed phrase backups
-* Primevault - Excheqr
+* [Primevault - Excheqr](https://www.primevault.com)
   * MPC wallets using Secret PAAS
-* Obi.money
+* [Obi.money](https://obi.money)
   * MPC wallets and walletless onboarding using Secret PAAS
 * [Fardels](https://fardels.network/)
   * An decentralized social network for access-control to content with a paywall
@@ -122,5 +119,5 @@ Notable games built on the network include:
   * Texas Holdem game on testnet ([Codebase](https://github.com/enigmampc/SecretHoldEm/))
 * [Rock Paper Scissors](https://testrps.lindlof.io/)
   * Rock paper scissors game without commit-reveal on testnet ([Codebase](https://github.com/lindlof/secret\_rock\_paper\_scissors))
-* AART Blackjack
+* [AART Blackjack](https://aart-blackjack.anther.info/landingpage)
   * A full dledged Blackjack online app using Secret-VRF

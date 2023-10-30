@@ -8,9 +8,9 @@
 
 ### Explorers
 
-* SecretNodes - [https://secretnodes.com/secret](https://secretnodes.com/secret)
 * MintScan - [https://www.mintscan.io/secret](https://www.mintscan.io/secret)
-* PingPub - [https://ping.pub/secret](https://ping.pub/secret)
+* Ping.pub - [https://ping.pub/secret](https://ping.pub/secret)
+* ATOMScan - [https://atomscan.com/secret-network/](https://atomscan.com/secret-network/)
 
 ### API endpoints
 
@@ -18,24 +18,23 @@
 ⚠️ These endpoints are offered to the public for free, please be mindful and don't spam them. **The recommended endpoint** for high traffic applications is [https://secret.express](https://secret.express), a combined endpoint maintained by multiple Secret validator teams and funded via governance.
 {% endhint %}
 
-| Type         | API                                                                                                                                                        | Courtesy of                                               |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| **RPC**      | `https://rpc.secret.express`                                                                                                                               | [secret.express](https://secret.express)                  |
-| RPC          | `https://scrt.public-rpc.com`                                                                                                                              | [Ankr](https://scrt.public-rpc.com/)                      |
-| RPC          | `https://secret-rpc.lavenderfive.com:443`                                                                                                                  | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
-| RPC          | `https://rpc-secret.whispernode.com:443`                                                                                                                   | [Whispernode](https://www.whispernode.com/)               |
-| RPC          | `https://secret-rpc.bharvest.io`                                                                                                                           | B-Harvest                                                 |
-| RPC          | `https:///1rpc.io/scrt-rpc`                                                                                                                                | [1RPC (Automata Network)](https://www.1rpc.io/)            |
-|              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn, Blizzard.finance, AgoraNodes<br></p> |                                                           |
-| **gRPC-web** | `https://wgrpc.secret.express`                                                                                                                             | [secret.express](https://secret.express)                  |
-| **gRPC**     | `https://secret-grpc.lavenderfive.com:443`                                                                                                                 | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
-|              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn, Blizzard.finance</p>                 |                                                           |
-| **LCD**      | `https://lcd.secret.express`                                                                                                                               | [secret.expres](https://secret.express)s                  |
-| LCD          | `https://lcd-secret.whispernode.com:443`                                                                                                                   | [Whispernode](https://www.whispernode.com/)               |
-| LCD          | `https://secret-api.lavenderfive.com:443`                                                                                                                  | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
-| LCD          | `https://secret-api.bharvest.io`                                                                                                                           | B-Harvest                                                 |
-| LCD          | `https://1rpc.io/scrt-lcd`                                                                                                                                 | [1RPC (Automata Network)](https://www.1rpc.io/)           |
-|              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn, Blizzard.finance</p>                 |                                                           |
+| Type         | API                                                                                                                                  | Courtesy of                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
+| **RPC**      | `https://rpc.secret.express`                                                                                                         | [secret.express](https://secret.express)                  |
+| RPC          | `https://scrt.public-rpc.com`                                                                                                        | [Ankr](https://scrt.public-rpc.com/)                      |
+| RPC          | `https://secret-rpc.lavenderfive.com:443`                                                                                            | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
+| RPC          | `https://rpc-secret.whispernode.com:443`                                                                                             | [Whispernode](https://www.whispernode.com/)               |
+| RPC          | `https:///1rpc.io/scrt-rpc`                                                                                                          | [1RPC (Automata Network)](https://www.1rpc.io/)           |
+|              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn, AgoraNodes</p> |                                                           |
+| **gRPC-web** | `https://wgrpc.secret.express`                                                                                                       | [secret.express](https://secret.express)                  |
+| **gRPC**     | `https://secret-grpc.lavenderfive.com:443`                                                                                           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
+|              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn</p>             |                                                           |
+| **LCD**      | `https://lcd.secret.express`                                                                                                         | [secret.express](https://secret.express)                  |
+| LCD          | `https://rpc.ankr.com/http/scrt_cosmos`                                                                                              | [Ankr](https://scrt.public-rpc.com/)                      |
+| LCD          | `https://1rpc.io/scrt-lcd`                                                                                                           | [1RPC (Automata Network)](https://www.1rpc.io/)           |
+| LCD          | `https://lcd-secret.whispernode.com:443`                                                                                             | [Whispernode](https://www.whispernode.com/)               |
+| LCD          | `https://secret-api.lavenderfive.com:443`                                                                                            | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
+|              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn</p>             |                                                           |
 
 {% hint style="info" %}
 Additional API nodes may be found in the [Cosmos chain registry](https://github.com/cosmos/chain-registry/blob/master/secretnetwork/chain.json)
