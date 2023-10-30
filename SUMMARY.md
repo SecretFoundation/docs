@@ -159,7 +159,7 @@
   * [Open source dApps](development/example-contracts/open-source-dapps.md)
   * [Frontend](development/example-contracts/frontend.md)
 * [Resources - API/Contract addresses](development/resources-api-contract-addresses/README.md)
-  * [Secret token contracts](development/resources-api-contract-addresses/secret-token-contracts.md)
+  * [Secret (SNIP) token contracts](development/resources-api-contract-addresses/secret-token-contracts.md)
   * [Connecting to the Network](development/resources-api-contract-addresses/connecting-to-the-network/README.md)
     * [Mainnet (Secret-4)](development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md)
     * [Testnet (Pulsar-3)](development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-3.md)
