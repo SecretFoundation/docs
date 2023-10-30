@@ -2,9 +2,10 @@
 
 This section will take you through the process of taking a node from fresh machine to full validator. The general steps are as follows:
 
-1. [Install SGX](install-sgx.md)
-2. [Install secretd](install-secretd.md)
-3. [Setup the Full Node](setup-full-node.md)
-4. [Convert Full Node into Validator](becoming-a-validator.md)
+1. [install-sgx.md](../testnet/install-sgx.md "mention")
+2. [install-secretd.md](install-secretd.md "mention")
+3. [setup-full-node.md](setup-full-node.md "mention")
+4. [snapshot.md](../../setting-up-a-node-validator/node-setup/snapshot.md "mention") or [state-sync.md](state-sync.md "mention") the node
+5. [becoming-a-validator.md](becoming-a-validator.md "mention")
 
 If you wish to create an archive node, replace step 3 with [Running an Archive Node](../sentry-archive-and-ibc-node-setup/archive-nodes.md).
