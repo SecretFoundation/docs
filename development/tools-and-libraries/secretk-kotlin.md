@@ -30,5 +30,5 @@ A Kotlin multiplatform Encryption and REST client for Secret Network utilizing g
 {% hint style="info" %}
 See the full documentation, code and usage examples [here](https://github.com/eqoty-labs/secretk)\
 \
-For help and questions please ask Luca Spinazzola from Eqoty labs.
+For help and questions please ask Luca Spinazzola from Eqoty Labs.
 {% endhint %}
