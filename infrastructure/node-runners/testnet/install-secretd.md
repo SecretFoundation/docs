@@ -9,19 +9,19 @@ Unlike other Tendermint/Cosmos based daemons, `secretd` cannot be built from sou
 The most common method for install `secretd` is the Secret Network package installer for Debian/Ubuntu:
 
 ```bash
-# download secretd v1.11
+# download secretd v1.12
 
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.11.0-beta.18/secretnetwork_1.11.0-beta.18_testnet_goleveldb_amd64.deb"
+wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.12.0-beta.8/secretnetwork_1.12.0-beta.8_testnet_goleveldb_amd64.deb"
 
-# Verify the v1.11 binaries
-echo 'a84b5097166aa9f518004b184a17771c5433f89be1bae7e6649c949a3eae240b  secretnetwork_1.11.0-beta.18_testnet_goleveldb_amd64.deb' | sha256sum --check
+# Verify the v1.12 binaries
+echo '10bd6edf4425041bfaaf43df3741b8a81151a707249b4714f521f8abc56776d1 secretnetwork_1.12.0-beta.8_testnet_goleveldb_amd64.deb' | sha256sum --check
 
-# Install v1.11 binaries
-sudo apt install -y "./secretnetwork_1.11.0-beta.18_testnet_goleveldb_amd64.deb"
+# Install v1.12 binaries
+sudo apt install -y "./secretnetwork_1.12.0-beta.8_testnet_goleveldb_amd64.deb"
 
 # verify installation
 secretd version
-# 1.11.0-beta.14
+# 1.12.0-beta.8
 
 ```
 
