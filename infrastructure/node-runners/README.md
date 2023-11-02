@@ -11,14 +11,14 @@ All SCRT holders can become a Secret Network validator or delegator and particip
 {% hint style="info" %}
 _For information on running a node, delegating, staking, and voting, please see the validator guide below and visit our_ [_governance documentation_](https://docs.scrt.network/protocol/governance.html)_._
 
-_Here is a list of_ [_SGX-compatible hardware_](https://github.com/ayeks/SGX-hardware) _for running a validator._
+_Here is a list of Hardware_ [hardware-compliance.md](hardware-compliance.md "mention") _for running a validator._
 
-For detailed information on how to set up and run a validator, see the [Validator Set Up](node-setup/) section.
+For detailed information on how to set up and run a validator, see the [becoming-a-validator.md](node-setup/becoming-a-validator.md "mention")section.
 {% endhint %}
 
 ## **Slashing For Downtime**
 
-Slashing for downtime is based on actual block times and NOT theoretical block times, such as `SignedBlocksWindow` and `MinSignedPerWindow` network parameters. Validators signing less than MinSignedPerWindow blocks out of every SignedBlocksWindow will experience a downtime slash.
+Slashing for downtime is based on actual block times and NOT theoretical block times, such as `SignedBlocksWindow` and `MinSignedPerWindow` network parameters. Validators signing less than MinSignedPerWindow blocks out of every SignedBlocksWindow will experience a downtime slash.&#x20;
 
 ### Slashing Conditions For Downtime
 

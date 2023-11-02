@@ -62,7 +62,7 @@ This will ensure you connect to peers quickly.
 
 ```bash
 wget -O addrbook.json https://snapshots.lavenderfive.com/addrbooks/secretnetwork/addrbook.json
-mv addrbook.json ~/.secretd/config
+mv addrbook.json $HOME/.secretd/config
 ```
 
 ### Restart service and open logs

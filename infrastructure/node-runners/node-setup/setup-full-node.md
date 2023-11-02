@@ -1,33 +1,34 @@
 # Setup Full Node
 
-This document details how to join the Secret Network `secret-4` mainnet as a full node. Once your full node is running and state synced to the current block, you can turn it into a validator in the optional last step.
+This document details how to join the Secret Network `secret-4` mainnet as a full node. Once your full node is running and synced to the last block, you can use it&#x20;
 
 ## Requirements <a href="#requirements" id="requirements"></a>
 
 {% hint style="danger" %}
-Secret Network has strict Hardware Requirements. If your machine does not meet them, it will \*NOT\* work as a node.
+Secret Network has strict Hardware Requirements, see [hardware-compliance.md](../hardware-compliance.md "mention"). If your machine does not meet them, it will \*NOT\* work as a node.
 {% endhint %}
 
-* Ubuntu/Debian host (with ZFS or LVM to be able to add more storage easily)
-* A public IP address
+* Ubuntu/Debian host, recommended is Ubuntu 20.04 LTS or 22.04 LTS.
+* A public IP address, so that other nodes can connect to you.
 * Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 * Reading [Tendermint: Running in production](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html)
-* RPC address of an already active node. You can use any node that exposes RPC services.
-* Refer to [Intel Processor Specifications](https://ark.intel.com/content/www/us/en/ark.html#@Processors) if you're unsure if your processor supports SGX
+* RPC address of an already active node. You can use any node that exposes RPC services, please see [mainnet-secret-4.md](../../../development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md "mention").
 
 ## Installation <a href="#installation" id="installation"></a>
 
 ### **Install SGX and `secretd`**
 
 {% hint style="danger" %}
-This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the [Archive Nodes](../sentry-archive-and-ibc-node-setup/archive-nodes.md) instructions.
+This guide assumes you've already installed the latest version of secretd and SGX.&#x20;
 {% endhint %}
 
-For more information on SGX, see instructions for [SGX Installation](install-sgx.md) and [Verifying SGX](broken-reference/). See [Node Registration Information](broken-reference/) if you'd like a more comprehensive overview on what's happening in these steps.
+For more information on how to install SGX, see instructions for [install-sgx.md](install-sgx.md "mention").
+
+If you need help with installing secretd, please take a look at [install-secretd.md](../testnet/install-secretd.md "mention").
 
 ### **Initialize Secret Network Configs**
 
-Choose a **moniker** for yourself, and replace `<MONIKER>` with your moniker below. This moniker will serve as your public nickname in the network.
+Choose a **moniker** for yourself, and replace `<MONIKER>` with whatever name you like (could be some random string, or just how you like to name to node) below. This moniker is your public nickname of the node in the network.
 
 ```bash
 secretd init <MONIKER> --chain-id secret-4
@@ -40,8 +41,6 @@ This will generate the following files in `~/.secretd/config/`
 * `priv_validator_key.json`
 
 ### **Download `genesis.json`**
-
-The genesis file is how other nodes on the network know what network you should be on.
 
 ```bash
 wget -O ~/.secretd/config/genesis.json "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.2.0/genesis.json"
@@ -97,7 +96,7 @@ echo $PUBLIC_KEY
 ```
 
 {% hint style="danger" %}
-If registration was NOT succesfull consider checking out the [Registration troubleshooting](../../setting-up-a-node-validator/hardware-setup/registration-troubleshooting.md) help or contact a fellow validator on our [discord](https://chat.scrt.network).
+If registration was NOT succesfull consider checking out the [Registration troubleshoot](../../setting-up-a-node-validator/hardware-setup/registration-troubleshooting.md) help or contact a fellow validator on our [discord](https://chat.scrt.network).
 {% endhint %}
 
 ### **Configure `secretd`**
