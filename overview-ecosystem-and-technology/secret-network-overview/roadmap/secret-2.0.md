@@ -18,7 +18,7 @@ What does being the privacy hub for all of Web3 actually mean? We identified sev
 
 2. **Constellation of chains**: Secret 2.0 will look to collaborate with others to build an ecosystem of blockchains that Secret Network will spearhead and/or support, truly solidifying Secret’s position as the hub of Web3 Privacy. Alongside the existing Secret Network blockchain, we expect to see:
 
-* The development of a threshold fully homomorphic encryption (“FHE”) Layer-1 (“L1”) - - **now started labelled as fhenix.io**
+* The development of a threshold fully homomorphic encryption (“FHE”) Layer-1 (“L1”) - **now started as fhenix.io**
 * The development of consumer chains utilizing Privacy-as-a-Service (“PaaS”)
 * The development of privacy-preserving rollups to complement the threshold FHE Layer-1&#x20;
 * The addition/inclusion of any chain that shares our mission for privacy. In other words, becoming part of the constellation does not necessitate having an affiliation with Secret. Being a kindred spirit and formalizing all kinds of business relations (see next section on becoming a liquidity hub, as an example) is enough.\*\*
@@ -28,11 +28,11 @@ What does being the privacy hub for all of Web3 actually mean? We identified sev
 > More info/detail coming soon!
 
 * Honest-dealer Key Generation
-* Validator Threshold Decryption Protocol
+* Validator Threshold Decryption Protocol - **On the roadmap**
 * Distributed Key Generation Protocol
-* Additively Homomorphic Encryption Library and API (client and enclave-friendly)
+* Additively Homomorphic Encryption Library and API (client and enclave-friendly) - **In production**
 * Client-side proof of encryption ZK API
-* Hardened Private Voting (via HE+ZKP)
-* Threshold wallets
+* Hardened Private Voting (via HE+ZKP)  - **Under development**
+* Threshold wallets - **In production**
 * Threshold key-management (e.g., hardened Secret NFTs)
-* Threshold Randomness (using Threshold BLS)
+* Threshold Randomness (using Threshold BLS) - **In production**
