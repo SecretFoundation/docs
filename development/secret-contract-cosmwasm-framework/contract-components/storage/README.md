@@ -92,7 +92,7 @@ pub fn load<T: DeserializeOwned, S: ReadonlyStorage>(storage: &S, key: &[u8]) ->
 }
 ```
 
-Note that this function throw an error if there is no data previously saved with that storage key.
+Note that this function throws an error if there is no data previously saved with that storage key.
 
 #### Example
 
@@ -102,7 +102,7 @@ When loading data, rust must be told what Struct to expect after deserializing.
 let config: Config = load(&deps.storage, CONFIG_KEY)?;
 ```
 
-### Loading With May Load
+### Loading With may\_load
 
 In some instances you may be unsure whether there is any data stored with a particular key. In this case you want to use `may_load()` which wraps any data inside within an option. Returning `None` if there is no value saved with that key, and returning `Some(value)` if there is some value saved. An example function for this is:
 
@@ -240,7 +240,7 @@ pub fn json_load<T: DeserializeOwned, S: ReadonlyStorage>(storage: &S, key: &[u8
 
 The usage of this function is extremely similar to the `load` wrapper function we discussed [above](./#loading-from-storage).
 
-### Loading with May Load
+### Loading with may\_load
 
 ```rust
 /// Returns StdResult<Option<T>> from retrieving the item with the specified key using Json

@@ -4,6 +4,6 @@ This section of documentation is for keeping a record of issues occurring on the
 
 * [Postmortems / Issues](broken-reference)
   * [xAPIC](xapic.md)
-  * [Secpk-Verification Bloat](secpk-verifications-bloat.md)
+  * [Secpk-Verification Bloat](secpk-verifications-bloat.md) (Shade Airdrop)
   * [Earn Contract Exploit](earn-contract-exploit.md)
   * [Testnet Halt 95](testnet-halt-95.md)

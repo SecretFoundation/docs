@@ -18,7 +18,7 @@ All outputs would appear to be random and unpredictable, with no discernible pat
 
 ### Understanding The Risks
 
-> **Most of the items below are covered in greater detail here:** [**Potential Attacks.**](../../overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks.md)
+> **Most of the items below are covered in greater detail here:** [**Potential Attacks.**](../../overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/)
 
 In reality, there are many forms of contextual data that an attacker can use to infer information, de-anonymize users, or compromise the privacy of applications purely through analysis:
 
@@ -33,7 +33,7 @@ Additionally, there are active attacks that can expose unwanted leaks of informa
 
 * executions that produce measurable side-effects
 * tx replay attacks, side-chain attacks, the Millionaire's Problem
-* targetted storage access pattern attacks
+* targeted storage access pattern attacks
 
 ### Mitigating The Risks
 
@@ -46,7 +46,7 @@ The remaining privacy risks are those which can only be mitigated through contra
 * padding query and execution results (see [`pad_query_result`](https://github.com/scrtlabs/secret-toolkit/blob/master/packages/utils/src/padding.rs#L43) and [`pad_handle_result`](https://docs.scrt.network/secret-network-documentation/development/development-concepts/privacy-design/gas-evaporation-and-tracking) from the [Secret Toolkit](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/contract-development/secret-toolkit))
 * using [Gas Evaporation](../development-concepts/privacy-design/gas-evaporation-and-tracking.md) to make all methods consume a consistent amount of gas
 * adding decoy attributes to the event log when necessary
-* understanding storage access pattern attacks and employing a system of decoys or oblivious data models
+* understanding storage access pattern attacks and employing a system of decoys or oblivious data models (or even UTXO)
 
 {% hint style="info" %}
 Find code implementation of the above privacy preserving methods under our [Privacy design section.](../development-concepts/privacy-design/)

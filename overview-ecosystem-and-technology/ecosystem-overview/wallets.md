@@ -1,6 +1,6 @@
 # Wallets
 
-<figure><img src="../../.gitbook/assets/Wallet_Trade-offs_3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wallets.jpg" alt=""><figcaption></figcaption></figure>
 
 * [Keplr](https://keplr.app) by [Chainapsis](https://chainapsis.com/)
   * Highly featured wallet for the entire Cosmos ecosystem
@@ -19,10 +19,10 @@
   * Convert between SCRT and sSCRT
   * Validator on the network
   * Web app + Mobile wallet
-* &#x20;[STARSHELL](https://starshell.net/)
+* [Starshell](https://starshell.net)
   * Desktop and mobile wallet with SCRT and Secret contract support
   * A privacy-preserving, free and open-source Web3 wallet built for the Secret Network and Cosmos ecosystem.
-* Leap wallet
+* [Leap wallet](https://www.leapwallet.io/)
   * Cosmos wide supported wallet
 * [Sputnik Exchange](https://sputnik.exchange/) ([Guide](https://www.youtube.com/watch?v=NwiI6xXkMcw))
   * Send SCRT to other Twitter users with a tweet

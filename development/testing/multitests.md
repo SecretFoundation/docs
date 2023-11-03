@@ -5,7 +5,7 @@ description: How to write Multitests for Cosmwasm Smart Contracts
 # Multitests
 
 {% hint style="warning" %}
-When working with Secret Network, it's crucial to understand that official support for multi-tests is not currently provided. As a result, when porting over a standard CosmWasm smart contract, it's advisable to exclude the `integration_tests.rs` file from your project. This page of documentation explains how to write standard CosmWasm multitests, but this is not yet supported on Secret Network.&#x20;
+When working with Secret Network, official support for multi-tests is not currently provided. As a result, when porting over a standard CosmWasm smart contract, it's advisable to exclude the `integration_tests.rs` file from your project. This page of documentation explains how to write standard CosmWasm multitests, but this is not yet supported on Secret Network.&#x20;
 {% endhint %}
 
 ## Writing CosmWasm Multitests <a href="#writing-automated-tests" id="writing-automated-tests"></a>
@@ -16,7 +16,7 @@ When working with Secret Network, it's crucial to understand that official suppo
 
 To use `cw_multi_test`, you need to add it to your project's `Cargo.toml` file as a dependency:
 
-```
+```rust
 [dev-dependencies]
 cw-multi-test = "0.13.4"
 ```
@@ -37,7 +37,7 @@ The test sets up two contracts: (1) a CW3 multisig contract and (2) a CW20 token
 
 It then creates a proposal to mint new tokens, which is voted on and executed by the multisig contract. Finally, it queries the balance of the mint recipient to verify that the tokens were successfully minted. The test case demonstrates how to use `cw_multi_test` to create a mock app, deploy contracts, and execute transactions with multiple contracts. Let's examine it line-by-line:&#x20;
 
-```
+```rust
 #[cfg(test)]
 
 use cosmwasm_std::{to_binary, Addr, Empty, Uint128, WasmMsg};
@@ -58,7 +58,7 @@ fn mock_app() -> App {
 
 First, the test sets up a mock application and imports the contract dependencies. At the beginning of the test, an[**`App`**](https://docs.rs/cw-multi-test/0.13.4/cw\_multi\_test/struct.App.html) **object is created**. `App` is a core multitest entity representing the virtual blockchain on which we run our contracts.
 
-```
+```rust
 pub fn contract_cw3_fixed_multisig() -> Box<dyn Contract<Empty>> {
     let contract = ContractWrapper::new(execute, instantiate, query);
     Box::new(contract)
@@ -80,7 +80,7 @@ Here, the `contract` instance is created using the `ContractWrapper::new()` meth
 
 Now let's examine the `cw3_controls_cw20()` function:
 
-```
+```rust
 #[test]
 fn cw3_controls_cw20() {
     let mut router = mock_app();
@@ -89,13 +89,13 @@ fn cw3_controls_cw20() {
 
 `mut router` initializes the router mock app.
 
-```
+```rust
 let cw3_id = router.store_code(contract_cw3_fixed_multisig());
 ```
 
 `cw3_id` stores the cw3 multisig contract code in the router and get its ID.&#x20;
 
-```
+```rust
 let addr1 = Addr::unchecked("addr1");
 let addr2 = Addr::unchecked("addr2");
 let addr3 = Addr::unchecked("addr3");
@@ -103,7 +103,7 @@ let addr3 = Addr::unchecked("addr3");
 
 `addr1, addr2, addr3` are three arbitrary addresses to use as voters for the cw3 multisig account.
 
-```
+```rust
 let cw3_instantiate_msg = InstantiateMsg {
     voters: vec![
         Voter {
@@ -126,7 +126,7 @@ let cw3_instantiate_msg = InstantiateMsg {
 
 `cw3_instantiate_msg` creates an instantiation message for the cw3 multisig account.&#x20;
 
-```
+```rust
 let multisig_addr = router
     .instantiate_contract(
         cw3_id,
@@ -141,7 +141,7 @@ let multisig_addr = router
 
 `multisig_addr` instantiates the cw3 multisig account and get its address.&#x20;
 
-```
+```rust
 let cw20_id = router.store_code(contract_cw20());
 
 let cw20_instantiate_msg = cw20_base::msg::InstantiateMsg {
@@ -175,7 +175,7 @@ let cw20_addr = router
 
 `cw20_addr` instantiates the cw20 contract and get its address.&#x20;
 
-```
+```rust
 let mint_recipient = Addr::unchecked("recipient");
 let mint_amount = Uint128::new(1000);
 let cw20_mint_msg = cw20_base::msg::ExecuteMsg::Mint {
@@ -205,7 +205,7 @@ router
 
 `propose_msg` creates a proposal message that includes the `execute_mint_msg` and proposes it to the multisig account.&#x20;
 
-```
+```rust
 // only 1 vote and msg mint fails
     let execute_proposal_msg = ExecuteMsg::Execute { proposal_id: 1 };
     // execute mint

@@ -12,7 +12,13 @@ Yao's Millionaires' problem is a secure multi-party computation problem introduc
 
 [The Secret smart contract](https://github.com/scrtlabs/MillionaireProblemTutorial/tree/master) we will be working with demonstrates an example implementation that allows two millionaires to submit their net worth and determine who is richer, without revealing their actual net worth.&#x20;
 
-[This is the source code](https://github.com/scrtlabs/examples/tree/master/secret-millionaire) for the full stack application, [and you can use the live dApp at this web address](https://fullstack-secret-millionaire.vercel.app/) on Secret testnet. In this demo you will learn how to **integrate the Secret Millionaire contract with a front end designed in React using Secret.Js.** Let's get started! &#x20;
+[This is the source code](https://github.com/scrtlabs/examples/tree/master/secret-millionaire) for the full stack application, [and you can use the live dApp at this web address](https://fullstack-secret-millionaire.vercel.app/) on Secret testnet.
+
+{% hint style="info" %}
+To interact with the dApp, you will need to have the Secret Testnet (pulsar-3) configured with your Keplr wallet and also fund it with testnet tokens. [Learn how to configure and fund your keplr wallet here](https://docs.scrt.network/secret-network-documentation/overview-ecosystem-and-technology/secret-network-overview/testnet#set-up-with-keplr)!
+{% endhint %}
+
+In this demo you will learn how to **integrate the Secret Millionaire contract with a front end designed in React using Secret.Js.** Let's get started! &#x20;
 
 <figure><img src="../../.gitbook/assets/secret millionaire (1).gif" alt=""><figcaption><p>Completed React.js application</p></figcaption></figure>
 
@@ -44,7 +50,7 @@ Before we proceed, review the [`ConnectWallet()`](https://github.com/scrtlabs/ex
  async function connectWallet() {
     try {
       if (!window.:) {
-        console.log("intall keplr!");
+        console.log("install keplr!");
       } else {
         await setupKeplr(setSecretjs, setSecretAddress);
         localStorage.setItem("keplrAutoConnect", "true");
@@ -61,7 +67,7 @@ Before we proceed, review the [`ConnectWallet()`](https://github.com/scrtlabs/ex
 This function awaits [`SetupKeplr()`](https://github.com/scrtlabs/examples/blob/bc4676c4d3a644e3cc841384033ba1b7306250eb/secret-millionaire/react-millionaire/src/secretJs/SecretjsContext.js#L11C1-L47C4), an asynchronous function which enables Secret Network on Keplr, retrieves the user's account information from Keplr, creates a Secret Network client with this information, and then sets the `secretjs` instance and `secretAddress` with these details so that we can then share this data with the rest of our application.  Notice that when we establish the Secret Network client with Secret.js we are also specifying the `url` and `chainId` of the client, which in this case is the `url` + `chainId` for Secret testnet:
 
 ```javascript
-    const chainID = "pulsar-2",
+    const chainID = "pulsar-3",
     const url = "https://api.pulsar.scrttestnet.com",
     
     const accounts = await keplrOfflineSigner.getAccounts();
@@ -205,7 +211,7 @@ Lastly, we need to be able to query the result of submitted transaction, namely,
    * `query`: The query message to be sent to the contract. In this case, it's calling the `who_is_richer` method of the contract, which returns information about the richer of the two millionaires.&#x20;
    * `code_hash`: The code hash of the contract to ensure that the contract code hasn't been tampered with.
 2. The result of this query is stored in the `query` variable.
-3. The result of the query is then pushed onto the `myQuery` array. This array store the results of all queries made so far, and we can display this on our React front end.&#x20;
+3. The result of the query is then pushed onto the `myQuery` array. This array stores the results of all queries made so far, and we can display this on our React front end.&#x20;
 
 ### Putting it all together&#x20;
 

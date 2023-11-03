@@ -10,7 +10,7 @@ There are a number of funding methods for Secret Network community members, incl
 * [Ecosystem Fund](ecosystem-fund.md)
 * [Community Pool](community-pool.md)
 * [Shade Grants](application-specific/shade-grants.md)
-* [SNAC](snac.md)
+* [SNAC](broken-reference)
 
 ### Funding
 

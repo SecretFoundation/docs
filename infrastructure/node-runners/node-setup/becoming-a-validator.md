@@ -2,17 +2,26 @@
 
 ## Creating a Validator
 
+{% hint style="info" %}
+[Got questions or need help with ](#user-content-fn-1)[^1]becoming a validator?&#x20;
+
+* You can find help in Telegram [here](https://t.me/SCRTNodeSupport)&#x20;
+* Visit the Secret Network Discord [here](https://discord.com/invite/SJK32GY) and ask in #node-discussion or #node-support for help
+{% endhint %}
+
 In order to become an **active** validator, you must have more stake than the [bottom validator](https://www.mintscan.io/secret/validators). You may still execute the following steps, but you will not be active and therefore won't receive staking rewards.
 
-### [**Run a Full Node**](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)\*\*\*\*
+### [**Run a Full Node**](https://docs.scrt.network/node-guides/run-full-node-mainnet.html)
 
-In order to become a validator, you node must be fully synced with the network. You can check this by doing:
+In order to become a validator, you node must be fully synced with the network, using either the [snapshot.md](../../setting-up-a-node-validator/node-setup/snapshot.md "mention") or [state-sync.md](state-sync.md "mention").
+
+After you completed these steps, you can check this by doing:
 
 ```bash
-secretd status | jq .SyncInfo.catching_up
+secretd status
 ```
 
-When the value of `catching_up` is _false_, your node is fully sync'd with the network. You can speed up syncing time by [State Syncing](state-sync.md) to the current block.
+When the value of `catching_up` is _false_, your node is fully sync'd with the network and ready to go.&#x20;
 
 ```bash
   "sync_info": {
@@ -44,7 +53,7 @@ ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx do
 
 ### **Backup Validator Key**
 
-Before \*\*\*\* creating your validator, [backup your validator key.](../best-practices/validator-backup.md)
+Before creating your validator, [backup your validator key.](../best-practices/validator-backup.md)
 
 {% hint style="danger" %}
 WARNING: if you don't backup your key and your node goes down, you will lose your validator and have to start a new one.
@@ -53,12 +62,12 @@ WARNING: if you don't backup your key and your node goes down, you will lose you
 ### **Create Validator**
 
 {% hint style="info" %}
-Remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT
+Remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 10 SCRT
 {% endhint %}
 
 ```bash
 secretd tx staking create-validator \
-  --amount=100000000uscrt \
+  --amount=10000000uscrt \
   --pubkey=$(secretd tendermint show-validator) \
   --identity={KEYBASE_IDENTITY} \
   --details="To infinity and beyond!" \
@@ -94,7 +103,7 @@ secretd tx staking delegate $(secretcli keys show <key-alias> --bech=val -a) <am
 
 ```
 secretd tx staking edit-validator \
-  --moniker "<new-moniker>" \
+  --new-moniker "<new-moniker>" \
   --website "https://scrt.network" \
   --identity 6A0D65E29A4CBC8E \
   --details "To infinity and beyond!" \
@@ -166,3 +175,5 @@ You can get the current slashing parameters via:
 ```
 secretd q slashing params
 ```
+
+[^1]: 

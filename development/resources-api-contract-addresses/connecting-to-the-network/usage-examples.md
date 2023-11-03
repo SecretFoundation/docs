@@ -6,13 +6,13 @@ With `secretcli` (replace `"$URL"`):
 
 ```
 $ secretcli config node "$URL"
-$ secretcli config chain-id secret-4 # or pulsar-2
+$ secretcli config chain-id secret-4 # or pulsar-3
 ```
 
 Or:
 
 ```
-$ secretcli status --node "$URL" --chain-id secret-4 # or --chain-id pulsar-2
+$ secretcli status --node "$URL" --chain-id secret-4 # or --chain-id pulsar-3
 ```
 
 ### gRPC-web
@@ -23,7 +23,7 @@ With `secretjs@beta` (replace `"$URL"`):
 import { SecretNetworkClient } from "secretjs";
 
 const grpcWebUrl = "$URL";
-const chainId = "secret-4"; // or "pulsar-2"
+const chainId = "secret-4"; // or "pulsar-3"
 
 // Readonly Client
 const secretjs = await SecretNetworkClient.create({
@@ -54,7 +54,7 @@ With (the deprecated) `secretjs` (replace `"$URL"`):
 import { CosmWasmClient, SigningCosmWasmClient } from "secretjs";
 
 const lcdUrl = "$URL";
-const chainId = "secret-4"; // or "pulsar-2"
+const chainId = "secret-4"; // or "pulsar-3"
 
 // Readonly Client
 const queryJs = new CosmWasmClient(lcdUrl);

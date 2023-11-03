@@ -2,8 +2,6 @@
 
 ### Mainnet
 
-* [Secretnodes](https://secretnodes.com)
-  * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
 * [Mintscan](https://www.mintscan.io/secret)
   * Popular and highly featured explorer for many chains in the Cosmos ecosystem
 * [Cryptoclerk](https://www.cryptoclerk.xyz/introduction)
@@ -14,8 +12,6 @@
   * Contract code verifier and explorer by Diggiline
 * [Secret Analytics](https://secretanalytics.xyz/)
   * Analytics data collected about the Network, Bridges, and Sienna Network
-* [SmartStake Secret Analytics](https://secret.smartstake.io/)
-  * Validator stats by [SmartStake](https://smartstake.io/)
 * [Xiphiar](https://scrthost.xiphiar.com/)
   * Tools by Xiphiar for tracking of your SNIP-20 history
 * [Address Alias](https://btn.group/secret\_network/address\_alias)
@@ -23,22 +19,14 @@
 * [Cashmaney Explorer](https://explorer.cashmaney.com) **(retired)**
   * One of the first explorers, run by core-dev [Cashmaney](https://twitter.com/Cashmaney3/)
 
-### Testnet - Pulsar-2
+
+### Testnet - Pulsar-3
 
 * [Faucet](https://faucet.pulsar.scrttestnet.com/)
   * Run by the testnet committee
-* [Secretnodes](https://secretnodes.com/secret/chains/pulsar-2)
-  * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
+* [Ping Dashboard - pulsar-3](https://testnet.ping.pub/secret/)
+  * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub
 * [Documentation](../../infrastructure/node-runners/testnet/)
-
-`holodeck-2`, [Docs](https://github.com/scrtlabs/testnet/blob/master/holodeck-2/details.md) (maintained by validator [Chain of Secrets](https://chainofsecrets.org/))
-
-* [Faucet](https://faucet.secrettestnet.io/)
-  * Run by validator [Chain of Secrets](https://chainofsecrets.org/)
-* [Secretnodes](https://secretnodes.com/secret/chains/holodeck-2)
-  * Highly featured explorer, originally funded by the network, run by validator [Secretnodes](https://secretnodes.org)
-* [SecretTestnet](https://explorer.secrettestnet.io/) **(retired)**
-  * Explorer run by validator [Chain of Secrets](https://chainofsecrets.org/)
 
 ### Bots
 

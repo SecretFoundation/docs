@@ -32,6 +32,8 @@ Here are some examples of additional Secret Contracts for reference:
 * [Secret Template](https://github.com/scrtlabs/secret-template) - Quick-start template to start developing Secret Contracts.
 * [Template with Viewing Keys and Permits](https://github.com/TriviumNode/secret-contract-template) - Includes messages for frequently used permissioned functionality.
 * [SNIP-20](https://github.com/scrtlabs/snip20-reference-impl) - Reference implementation of Secret Tokens.
+* [SNIP-1155](https://github.com/DDT5/snip1155-reference-impl/) - Reference Implementation of Private Multitokens.
+* [SNIP-721](https://github.com/baedrik/snip721-reference-impl) - Reference implementation of Secret NFTs.
 * [Factory Contract Template](https://github.com/srdtrk/secret-factory-contract) - Demonstrates how to use a parent contract to create offspring contracts.
 * [Cross-Chain Contracts Demo](https://github.com/scrtlabs/crosschain-contract-demo) - Example of a contract that can be uploaded to both secret and non-secret cosmwasm chains.
 
@@ -39,8 +41,6 @@ Here are some examples of additional Secret Contracts for reference:
 
 * [Secret Dice](https://github.com/scrtlabs/SecretDice) - Simple betting game on the outcome of a dice roll, with a video tutorial.
 * [Simple Voting](https://github.com/scrtlabs/SecretSimpleVote) - Example of a voting contract.
-* [SNIP-721](https://github.com/baedrik/snip721-reference-impl) - Reference implementation of Secret NFTs.
-* [SNIP-1155](https://github.com/DDT5/snip1155-reference-impl/) - Reference Implementation of Private Multitokens.
 * [NFT Minting](https://github.com/luminaryphi/secret-random-minting-snip721-impl) - Template for launching NFT projects that need randomized minting.
 * [Secret Contract Verifier](https://github.com/digiline-io/secret-contract-verifier) - Verifies that an on-chain contract is indeed running a specific code. [Frontend](https://github.com/Xiphiar/fund-forwarding-frontend).
 * [Funds Forwarding](https://github.com/luminaryphi/fund-forwarding) - A smart contract that receives tokens and distributes them to multiple addresses. [Frontend](https://github.com/Xiphiar/fund-forwarding-frontend).
@@ -49,5 +49,4 @@ Here are some examples of additional Secret Contracts for reference:
 * [Price Oracle](https://github.com/scrtlabs/secret-oracle) - Example how real-world data could be inserted on chain by validators.
 * [Sealed Bid Auction](https://github.com/baedrik/SCRT-sealed-bid-auction).
 * [Token vesting contract](https://github.com/digiline-io/secret-token-vesting) - Demonstrates Vesting implementation
-* [SNIP-1155](https://github.com/DDT5/snip1155-reference-impl) -  is a [Secret Network](https://github.com/scrtlabs/SecretNetwork) contract that can create and manage multiple tokens from a single contract instance
 * [Fractionalized NFTs](https://github.com/DDT5/frac-snft-ref-impl) - These are the standard specifications and reference contract that implements the base standard required for fractionalized NFTs on Secret Network.

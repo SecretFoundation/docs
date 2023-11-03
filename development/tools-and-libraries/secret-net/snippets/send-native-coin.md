@@ -24,7 +24,7 @@ if (await storageProvider.HasPrivateKey())
 
 // get infos from https://docs.scrt.network/secret-network-documentation/development/connecting-to-the-network
 var gprcUrl = "https://grpc.testnet.secretsaturn.net";
-var chainId = "pulsar-2";
+var chainId = "pulsar-3";
 
 // Create a connection to Secret Network node
 // Pass in a wallet that can sign transactions

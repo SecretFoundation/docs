@@ -65,7 +65,7 @@ cp ./target/wasm32-unknown-unknown/release/*.wasm ./contract.wasm
 {% tab title="Secret IDE" %}
 Run `make build` from the terminal, or just GUI it up -
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (2).png>)
 {% endtab %}
 {% endtabs %}
 
@@ -75,7 +75,7 @@ While we could upload this contract wasm file to the blockchain exactly as it is
 
 **Optimize compiled wasm**
 
-```
+```bash
 docker run --rm -v "$(pwd)":/contract \
   --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
   --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \

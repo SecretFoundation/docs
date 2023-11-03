@@ -1,13 +1,13 @@
 # Install SGX
 
-Ensure your hardware is [Secret Node Compliant](../hardware-compliance.md).
+Ensure your hardware is [hardware-compliance.md](../hardware-compliance.md "mention").
 
 If you're running a local machine and not a cloud-based VM -
 
 1. Go to your BIOS menu
-2. Enable SGX (Software controlled is not enough)
+2. Enable SGX (Set to "YES", it's not enough to set it to "software controlled")
 3. Disable Secure Boot
-4. Disable Hyperthreading (recommended)
+4. Disable Hyperthreading
 
 ## Installation <a href="#installation" id="installation"></a>
 
@@ -134,7 +134,7 @@ and run it again.
 
 #### Run `secretd init-enclave` <a href="#run-secretd-init-enclave" id="run-secretd-init-enclave"></a>
 
-See [Verify SGX](broken-reference) for a guide how to test your setup.
+See [Verify SGX](broken-reference/) for a guide how to test your setup.
 
 ## Uninstall <a href="#uninstall" id="uninstall"></a>
 

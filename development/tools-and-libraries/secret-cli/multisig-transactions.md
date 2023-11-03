@@ -100,7 +100,7 @@ secretcli tx sign \
     --multisig=test_multisig \
     --from=key1 \
     --output-document=key1Signature.json \
-    --chain-id=pulsar-2 # This is the testnet chain-id
+    --chain-id=pulsar-3 # This is the testnet chain-id
 ```
 
 After generating the key1Signature.json file, other wallets making up the multisig need to use the unsignedTx.json to generate their own individual signed json files:
@@ -111,7 +111,7 @@ secretcli tx sign \
     --multisig=test_multisig \
     --from=key2 \
     --output-document=key2Signature.json \
-    --chain-id=pulsar-2
+    --chain-id=pulsar-3
 ```
 
 Since the 'k' value of `test_multisig` is set to 2, a third signature from the final key making up the wallet (`key3`) is not required to officially sign and broadcast the multisig transaction. Any the key holders of the multisig can now generate the multisig transaction by combining the required signature files:
@@ -236,4 +236,4 @@ After executing the above command an output will be generated containing informa
 }
 ```
 
-Broadcasted transactions can be viewed online using a Secret Network block explorer by searching for the transaction has (txhash). For example, the testnet transaction above can be viewed [here](https://secretnodes.com/secret/chains/pulsar-2/transactions/52A1CB5C4049023A14616462A37A419240EBE99E7C941B7E9E17BD32FE92B134).&#x20;
+Broadcasted transactions can be viewed online using a Secret Network block explorer by searching for the transaction has (txhash). For example, the testnet transaction above can be viewed [here](https://testnet.ping.pub/secret/tx/52A1CB5C4049023A14616462A37A419240EBE99E7C941B7E9E17BD32FE92B134).&#x20;

@@ -2,6 +2,12 @@
 
 Website: [Microsoft Azure](https://azure.microsoft.com/en-us/solutions/confidential-compute/)
 
+{% hint style="warning" %}
+Using Azure is not recommened anymore as of now because of higher pricing than bare-metals and not enough RAM (32GB is possible to use, but not recommended anymore).
+{% endhint %}
+
+When renting a compliant bare metal machine from a VPS provider, ensure you do not accept any chassis or CPU substitutes they propose, unless those substitutes are on the [Hardware Compliance list](../hardware-compliance.md).
+
 Microsoft Azure is tested and confirmed working by the Secret Network Community.
 
 To setup a node on Microsoft Azure do the following.

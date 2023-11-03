@@ -21,9 +21,9 @@ secretcli config chain-id secret-4
 ## Testnet
 
 ```bash
-secretcli config node https://rpc.pulsar.griptapejs.com:443
+secretcli config node https://rpc.pulsar.scrttestnet.com/
 
-secretcli config chain-id pulsar-2
+secretcli config chain-id pulsar-3
 
 secretcli config keyring-backend test
 ```

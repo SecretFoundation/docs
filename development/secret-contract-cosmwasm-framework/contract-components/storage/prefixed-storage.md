@@ -6,7 +6,7 @@ Before we understand what the PrefixedStorage struct is, we should first underst
 
 ### The Problem
 
-We will go over a storage problem and discuss how we might tackle it with the methods we learnt in [Storage](./) to get to the root of what prefixed storage actually is. Suppose that we have contract that stores a different password (String) for each wallet address that interacts with it (so that the wallets can later give that password when querying the contract). How would we want store all these passwords so that they can be checked when it is time for queries?
+We will go over a storage problem and discuss how we might tackle it with the methods we learnt in [Storage](./) to get to the root of what prefixed storage actually is. Suppose that we have contract that stores a different password (String) for each wallet address that interacts with it (so that the wallets can later give that password when querying the contract). How would we want to store all these passwords so that they can be checked when it is time for queries?
 
 #### The Naive Approach
 
@@ -49,7 +49,7 @@ The compiler only allows one mutable reference to the underlying storage to be v
 
 ### Example
 
-Let's solve [the password problem](prefixed-storage.md#the-problem) that I mentioned above with prefixed storage. The solution to this problem resembles [viewing keys for permissioned viewing](../../../development-concepts/permissioned-viewing/viewing-keys/). You will learn more about this in the coming sections. We first define a namespace (prefix) in `state.rs`.
+Let's solve [the password problem](prefixed-storage.md#the-problem) that was mentioned above with prefixed storage. The solution to this problem resembles [viewing keys for permissioned viewing](../../../development-concepts/permissioned-viewing/viewing-keys/). You will learn more about this in the coming sections. We first define a namespace (prefix) in `state.rs`.
 
 ```rust
 pub const PREFIX_PASSWORDS: &[u8] = b"passwords";
