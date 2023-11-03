@@ -18,9 +18,9 @@ There are a number of funding methods for Secret Network community members, incl
   * Best for pre-seed developer funding and tooling creation
 * Secret Foundation [SNACs](https://forum.scrt.network/t/open-discussion-snacs-secret-network-action-campaigns/3150) - Secret Network Action Campaigns
   * Best for marketing, content and event funding
-* [The Secret Agency funding](https://chat.scrt.network/)
+* [The Secret Agency funding](https://scrt.network/discord/)
   * Get budget for events with merch or educational content.
-* [Development committee](https://chat.scrt.network/) - mentorship program
+* [Development committee](https://scrt.network/discord/) - mentorship program
   * Learn to work with Secret Contracts and get a personal mentor
 * [Community Code Repositories](https://github.com/zorostang/secret-network-community-code-repositories)
   * Open source repositories designed to take 1 to 5 days to complete with bounties ranging from $500 to $2,500 USD. Jump in, get involved!

@@ -37,7 +37,7 @@ Secret Apps are encouraged to have a path for commercial sustainability (token o
 
 #### Ideation
 
-Use [the Secret Network developer forum](https://forum.scrt.network/c/secret-contracts/5) and [Secret Network Discord ](http://chat.scrt.network/)(#use-cases and #find-a-team channels) to brainstorm, discuss ideas, and form teams. We encourage you to get feedback from the community (including the Enigma development and product team) before submitting any application.
+Use [the Secret Network developer forum](https://forum.scrt.network/c/secret-contracts/5) and [Secret Network Discord ](http://scrt.network/discord/)(#use-cases and #find-a-team channels) to brainstorm, discuss ideas, and form teams. We encourage you to get feedback from the community (including the Enigma development and product team) before submitting any application.
 
 #### Application Process
 
