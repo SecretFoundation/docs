@@ -2,8 +2,6 @@
 
 A Kotlin multiplatform Encryption and REST client for Secret Network utilizing gRPC gateway endpoints.
 
-Based on the work of: [secret.js](https://github.com/scrtlabs/SecretNetwork/tree/f01dda32b12e02c6cc2326ea58f8b13bf6e3ff8f/cosmwasm-js/packages/sdk) ( old) + [secret.js](https://github.com/scrtlabs/secret.js)
-
 #### Supported Features:
 
 * Contract Queries
@@ -11,6 +9,9 @@ Based on the work of: [secret.js](https://github.com/scrtlabs/SecretNetwork/tree
 * Contract Execution (MsgExecuteContract)
 * Contract Code Upload (MsgStoreCode)
 * Contract Instantiate (MsgInstantiateContract)
+* Contract Migrate (MsgMigrateContract)
+* Contract Update Admin (MsgUpdateAdmin)
+* Contract Clear Admin (MsgClearAdmin)
 * Bank Send (MsgSend)
 * Web: Delegate signing transactions to Kepler or Metamask browser wallets
 
@@ -20,10 +21,14 @@ Based on the work of: [secret.js](https://github.com/scrtlabs/SecretNetwork/tree
 * js
 * iOS
 * macOS
-* TODO: lin
+* TODO: linux
+
+# Swift/Objective-C Support
+
+* An experimental swift pacakge for use with iOS and macOS is available as well.
 
 {% hint style="info" %}
 See the full documentation, code and usage examples [here](https://github.com/eqoty-labs/secretk)\
 \
-For help and questions please ask Luca Spinnoza from Eqoty labs.
+For help and questions please ask Luca Spinazzola from Eqoty Labs.
 {% endhint %}
