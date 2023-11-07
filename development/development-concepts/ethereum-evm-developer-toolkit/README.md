@@ -209,7 +209,11 @@ Next, in order to send a GMP message from Secret to Polygon, you need to acquire
 Learn more about IBC denoms [here](https://tutorials.cosmos.network/tutorials/6-ibc-dev/).
 {% endhint %}
 
-The [correct IBC denom](https://github.com/scrtlabs/examples/blob/3470d6d3375ea25888371e931aea7661c511048c/secret-ethereum-gmp/node/execute.js#L40C14-L40C14) is already included in the secret.js transaction, but in order for it to execute successfully, **you need to have this IBC denom funded in your wallet**. To add this token to your wallet, you can send Axelar tokens to your Secret wallet address over IBC:
+The [correct IBC denom](https://github.com/scrtlabs/examples/blob/3470d6d3375ea25888371e931aea7661c511048c/secret-ethereum-gmp/node/execute.js#L40C14-L40C14) is already included in the secret.js transaction, but in order for it to execute successfully, **you need to have this IBC denom funded in your wallet**. To add this token to your wallet, you can send Axelar tokens to your Secret wallet address over IBC.
+
+{% hint style="info" %}
+If this is your first time sending Axelar testnet tokens over IBC, see an Axelar Gas Token video tutorial [here](https://www.youtube.com/watch?v=Q3fIvXpdLyo\&ab\_channel=SeanRad), which guides you through the following steps:&#x20;
+{% endhint %}
 
 1. Add Axelar testnet to your Keplr wallet by visiting [Axelar Satellite](https://testnet.satellite.money/?source=axelar\&destination=secret\&asset\_denom=uaxl\&destination\_address=) (upon visiting the website, a Keplr notification will pop up that says, _"https://testnet.satellite.money would like to add blockchain axelar-testnet-lisbon-3 to Keplr"_)
 2. Procure AXL testnet tokens from the [Axelar faucet](https://faucet.testnet.axelar.dev/).
