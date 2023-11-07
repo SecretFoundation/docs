@@ -32,7 +32,7 @@ Next, create a new file called `ReceiveRandom.sol` and [paste the solidity code.
 
 Now all that's left is to **compile and upload the contract**. Navigate to the Solidity compiler using the sidebar and click **"Compile ReceiveRandom.sol"**. Then, navigate to "Deploy and run transactions." Toggle the Environment from "Remix VM (Shanghai)" to "Injected Provider - MetaMask" and make sure that in your MetaMask wallet **you have currently selected Polygon testnet Mumbai network**.&#x20;
 
-The `constructor` of ReceiveRandom.sol contains 3 variables that you must now input in order to instantiate the contract and link it to [Axelar's Polygon **gateway contract** and **gas receiver contract**](https://docs.axelar.dev/dev/reference/testnet-contract-addresses), as well as the Polygon **chain name**:&#x20;
+The `constructor` of ReceiveRandom.sol contains 3 variables that you must now input in order to instantiate the contract and link it to [Axelar's Polygon](https://docs.axelar.dev/dev/reference/testnet-contract-addresses) **gateway contract** and **gas receiver contract**, as well as the Polygon **chain name**:&#x20;
 
 ```bash
 GATEWAY CONTRACT: "0xBF62ef1486468a6bd26Dd669C06db43dEd5B849B"
@@ -119,7 +119,7 @@ Then, update `destinationAddress` to your Polygon contract address:
 Next, in order to send a GMP message from Secret to Polygon, you need to include the correct IBC denom to pay for gas so that the message can be executed over IBC.&#x20;
 
 {% hint style="success" %}
-[Learn how to get the correct AXL/Secret IBC denom here. ](https://docs.scrt.network/secret-network-documentation/development/development-concepts/ethereum-evm-developer-toolkit#ibc-denom)&#x20;
+Learn how to get the correct AXL/Secret IBC denom [here](https://docs.scrt.network/secret-network-documentation/development/development-concepts/ethereum-evm-developer-toolkit#gas-token). &#x20;
 {% endhint %}
 
 Once you have properly configured your `execute.js` file and procured the IBC denom needed to execute the transaction, all that's left is to run `node execute.`&#x20;
@@ -136,7 +136,7 @@ Now, [navigate to Axelarscan to monitor the status of the transaction](https://t
 
 <figure><img src="../../../.gitbook/assets/axelarscan rng.png" alt=""><figcaption></figcaption></figure>
 
-And for good measure, [view the transaction on Polygonscan](https://mumbai.polygonscan.com/tx/0x2b9558eee4d508a9473adc448ba19a76af2f648e3ab7379defa5c50eb1b132d9) to see that the array of random numbers was received!
+And for good measure, view the transaction on [Polygonscan](https://mumbai.polygonscan.com/tx/0x2b9558eee4d508a9473adc448ba19a76af2f648e3ab7379defa5c50eb1b132d9) to see that the array of random numbers was received!
 
 ### Query the random number on Polygon and Secret
 

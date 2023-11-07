@@ -201,18 +201,19 @@ Then, update `destinationAddress` to your Polygon contract address, and `myMessa
 
 <figure><img src="../../../.gitbook/assets/execute variables.png" alt=""><figcaption><p>execute.js variables</p></figcaption></figure>
 
-#### IBC Denom
+#### Gas Token
 
-Next, in order to send a GMP message from Secret to Polygon, you need to include the correct IBC denom to pay for gas so that the message can be executed over IBC.&#x20;
+Next, in order to send a GMP message from Secret to Polygon, you need to acquire some AXL tokens and include the correct IBC denom representing those tokens to your transaction to pay for gas, so that the message can be executed over IBC
 
 {% hint style="info" %}
-[Learn more about IBC denoms here.](https://tutorials.cosmos.network/tutorials/6-ibc-dev/)
+Learn more about IBC denoms [here](https://tutorials.cosmos.network/tutorials/6-ibc-dev/).
 {% endhint %}
 
 The [correct IBC denom](https://github.com/scrtlabs/examples/blob/3470d6d3375ea25888371e931aea7661c511048c/secret-ethereum-gmp/node/execute.js#L40C14-L40C14) is already included in the secret.js transaction, but in order for it to execute successfully, **you need to have this IBC denom funded in your wallet**. To add this token to your wallet, you can send Axelar tokens to your Secret wallet address over IBC:
 
-1. [Procure AXL testnet tokens from the Axelar faucet](https://faucet.testnet.axelar.dev/).
-2. [Send AXL testnet tokens to your Secret testnet wallet address over IBC using Axelar Satellite](https://testnet.satellite.money/?source=axelar\&destination=secret\&asset\_denom=uaxl\&destination\_address=).
+1. Add Axelar testnet to your Keplr wallet by visiting [Axelar Satellite](https://testnet.satellite.money/?source=axelar\&destination=secret\&asset\_denom=uaxl\&destination\_address=) (upon visiting the website, a Keplr notification will pop up that says, _"https://testnet.satellite.money would like to add blockchain axelar-testnet-lisbon-3 to Keplr"_)
+2. Procure AXL testnet tokens from the [Axelar faucet](https://faucet.testnet.axelar.dev/).
+3. Send AXL testnet tokens to your Secret testnet wallet address over IBC using [Axelar Satellite](https://testnet.satellite.money/?source=axelar\&destination=secret\&asset\_denom=uaxl\&destination\_address=).
 
 <figure><img src="../../../.gitbook/assets/axl satelite.png" alt="" width="375"><figcaption></figcaption></figure>
 
