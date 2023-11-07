@@ -1,4 +1,4 @@
-# Run A Full Node
+# Setup Full Node
 
 ## How To Join Secret Network as a Full Node on Testnet <a href="#how-to-join-secret-network-as-a-full-node-on-testnet" id="how-to-join-secret-network-as-a-full-node-on-testnet"></a>
 
@@ -16,20 +16,6 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 * Reading [Tendermint: Running in production](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html)
 * RPC address of an already active node. You can use `http://bootstrap.pulsar3.scrtlabs.com:26657`, or any other node that exposes RPC services. Alternate RPC nodes available in the [API Registry.](../../../development/resources-api-contract-addresses/connecting-to-the-network/)
 * [Install SGX](install-sgx.md)
-
-#### Minimum Requirements <a href="#minimum-requirements" id="minimum-requirements"></a>
-
-* 16GB RAM
-* 150GB SSD for Prune Everything, or default pruning. 1TB premium SSD for Archive nodes.
-* 1 dedicated core of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
-* Motherboard with support for SGX in the BIOS
-
-#### Recommended Requirements <a href="#recommended-requirements" id="recommended-requirements"></a>
-
-* 32GB RAM
-* 512GB SSD
-* 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
-* Motherboard with support for SGX in the BIOS
 
 ## Installation <a href="#installation" id="installation"></a>
 

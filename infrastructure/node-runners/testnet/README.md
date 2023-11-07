@@ -11,4 +11,5 @@ This section will take you through the process of taking a node from fresh machi
 1. [install-sgx.md](install-sgx.md "mention")
 2. [install-secretd.md](install-secretd.md "mention")
 3. [run-a-full-node.md](run-a-full-node.md "mention")
-4. [join-as-a-validator.md](join-as-a-validator.md "mention")
+4. [testnet-state-sync.md](testnet-state-sync.md "mention")
+5. [join-as-a-validator.md](join-as-a-validator.md "mention")
