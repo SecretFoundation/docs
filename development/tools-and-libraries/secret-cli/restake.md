@@ -1,4 +1,4 @@
-# ReStake
+# Restake
 
 As of V1.7 of Secret Network users can enable autocompounding SCRT staking with their respective validators.
 
@@ -24,7 +24,7 @@ secretd query distribution restake-entries [delegator] [flags]
 
 On the Secret Network mainnet, we delegate `uscrt`, where `1scrt = 1000000uscrt`. Instructions can be found [here](delegating.md).
 
-One must be staked before one can activate restaking. The following command can be used to activate restaking for the stake that is with that validator as long more tokens are bonded than `restake-threshold`(currently `10000000 uSCRT`).
+One must be staked before one can activate restaking. The following command can be used to activate restaking for the stake that is with that validator as long more tokens are bonded than `restake-threshold`(currently `10000000 uSCRT = 10 SCRT`).
 
 ```
 secretcli tx distribution set-auto-restaking [validator] [true/false] --from [delegator]

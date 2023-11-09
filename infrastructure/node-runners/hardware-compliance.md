@@ -48,26 +48,11 @@ The distinguishing factor of these motherboards is that they support Intel SGX.
 This is not an exhaustive list of supported motherboards. These are simply motherboards proven supported by community members.
 {% endhint %}
 
-| Brand      | Tag                  | Versions                      | Link                                                                                            |
-| ---------- | -------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------- |
-| Supermicro | `X11SCM-F`           | `SYS-5019C-M`, `SYS-5019C-MR` | [link](https://www.supermicro.com/products/motherboard/X11/X11SCM-F.cfm)                        |
-|            | `X11SCW-F`           | `SYS-5019C-WR`                | [link](https://www.supermicro.com/products/motherboard/X11/X11SCW-F.cfm)                        |
-|            | `X11SCZ-F`           |                               |                                                                                                 |
-|            | `X11SSL-F`           |                               |                                                                                                 |
-| Dell       | `Dell R240`          | BIOS Version `2.14.1`         |                                                                                                 |
-|            |                      |                               |                                                                                                 |
-|            | `Dell R350`          | BIOS version `1.7.3`          |                                                                                                 |
-|            |                      |                               |                                                                                                 |
-| HP         | `DL20 G10`           |                               |                                                                                                 |
-|            | `DL20 G10 +`         |                               |                                                                                                 |
-| ASUS       | `ASUS RS100-E10-PI2` | BIOS version 4003             | [link](https://servers.asus.com/products/Servers/Rack-Servers/RS100-E10-PI2)                    |
-| Asrock     | `E3C246D4U2-2T`      |                               | [link](https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications) |
-| GIGABYTE   | `MX33-BS1-V1`        | BIOS version F06              | [link](https://www.gigabyte.com/Enterprise/Server-Motherboard/MX33-BS0-rev-1x)                  |
+<table><thead><tr><th>Brand</th><th width="177">Tag</th><th width="265">Versions</th><th>Link</th></tr></thead><tbody><tr><td>Supermicro</td><td><code>X11SCM-F</code></td><td><code>SYS-5019C-M</code>, <code>SYS-5019C-MR</code></td><td><a href="https://www.supermicro.com/products/motherboard/X11/X11SCM-F.cfm">link</a></td></tr><tr><td></td><td><code>X11SCW-F</code></td><td><code>SYS-5019C-WR</code></td><td><a href="https://www.supermicro.com/products/motherboard/X11/X11SCW-F.cfm">link</a></td></tr><tr><td></td><td><code>X11SCZ-F</code></td><td></td><td></td></tr><tr><td></td><td><code>X11SSL-F</code></td><td></td><td></td></tr><tr><td>Dell</td><td><code>Dell R240</code></td><td>BIOS Version <code>2.14.1</code></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td><code>Dell R350</code></td><td>BIOS version <code>1.7.3</code></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>HP</td><td><code>DL20 G10</code></td><td>BIOS version <code>1.80_07-20-2023</code></td><td></td></tr><tr><td></td><td><code>DL20 G10 +</code></td><td></td><td></td></tr><tr><td>ASUS</td><td><code>ASUS RS100-E10-PI2</code></td><td>BIOS version <code>5601</code></td><td><a href="https://servers.asus.com/products/Servers/Rack-Servers/RS100-E10-PI2">link</a></td></tr><tr><td>Asrock</td><td><del><code>E3C246D4U2-2T</code></del></td><td></td><td><a href="https://www.asrockrack.com/general/productdetail.asp?Model=E3C246D4U2-2T#Specifications">link</a></td></tr><tr><td>GIGABYTE</td><td><del><code>MX33-BS1-V1</code></del></td><td>BIOS version F06</td><td><a href="https://www.gigabyte.com/Enterprise/Server-Motherboard/MX33-BS0-rev-1x">link</a></td></tr></tbody></table>
 
 ### **Contributors**
 
 * [FreshSCRT](https://secretnodes.com/secret/chains/secret-4/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
-* [secretnodes](https://secretnodes.com/secret/chains/secret-4/validators/81EBCE2FFC29820351C086E9EDA6A220098FF41C)
 * [chainofsecrets](https://secretnodes.com/secret/chains/secret-4/validators/1B68882AB7CD6BC4CDDD742FC8F3D1FDE31C1A82)
 * [Mario](https://secretnodes.com/secret/chains/secret-4/validators/2DD098C8ECAF04DFE31BBC59799C786AC09BF53F)
 * [Consensus One](https://secretnodes.com/secret/chains/secret-4/validators/secretvaloper1sa8av4qw3xerr58kwvnm8wvd87zgp36mv6cnyg)

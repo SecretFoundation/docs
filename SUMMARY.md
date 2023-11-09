@@ -195,7 +195,7 @@
     * [Slashing](development/tools-and-libraries/secret-cli/slashing.md)
     * [Minting](development/tools-and-libraries/secret-cli/minting.md)
     * [Delegating](development/tools-and-libraries/secret-cli/delegating.md)
-    * [ReStake](development/tools-and-libraries/secret-cli/restake.md)
+    * [Restake](development/tools-and-libraries/secret-cli/restake.md)
     * [Nodes](development/tools-and-libraries/secret-cli/nodes.md)
     * [Ledger](development/tools-and-libraries/secret-cli/ledger.md)
     * [Governance](development/tools-and-libraries/secret-cli/governance/README.md)
