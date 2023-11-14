@@ -13,7 +13,7 @@ You can either chose to use the [#\_1-download-the-secret-network-package-instal
 ### Download the quicksync script
 
 ```bash
-wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guide/quicksync
+wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guides/quicksync
 ```
 
 ### Run the quicksync script
