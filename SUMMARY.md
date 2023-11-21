@@ -151,7 +151,6 @@
   * [EVM Verifiable Randomness Tutorial](development/ethereum-evm-developer-toolkit/evm-verifiable-randomness-tutorial.md)
 * [Testing Secret Contracts](development/testing/README.md)
   * [Unit Tests](development/testing/unit-tests.md)
-  * [Multitests](development/testing/multitests.md)
   * [Continuous Integration](development/testing/continuous-integration.md)
 * [Reference contracts, guides and examples](development/secret-by-example/example-contracts/README.md)
   * [Starter guide - Millionaire's Problem](development/secret-by-example/tutorials/millionaires-problem.md)

@@ -5,7 +5,7 @@ We recommend when writing Secret Contracts to leverage a CI platform to create a
 The two types of tests to focus on:
 
 * Unit Tests - tests that are executed only in the context of the contract itself
-* Integration Tests - tests that include executing contract flows on a running chain (LocalSecret)
+* Integration Tests - tests that include executing contract flows on a running chain (LocalSecret or Secret testnet)
 
 Our platform of choice is GitHub Actions. GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
 
