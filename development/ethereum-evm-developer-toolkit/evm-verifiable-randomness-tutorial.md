@@ -15,7 +15,7 @@ In this tutorial, you will learn how to use Axelar GMP to send an array of verif
 ### Prerequisites
 
 {% hint style="info" %}
-[See here for prerequisites](https://docs.scrt.network/secret-network-documentation/development/development-concepts/ethereum-evm-developer-toolkit#prerequisites) to follow along with this tutorial.&#x20;
+[See here for prerequisites](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/evm-general-message-passing#prerequisites) to follow along with this tutorial.&#x20;
 {% endhint %}
 
 ### Upload ReceiveRandom.sol Contract to Polygon
@@ -26,7 +26,7 @@ To upload the contract, we will use [Remix Online IDE](https://remix.ethereum.or
 
 First, navigate to Remix and create a new blank workspace:
 
-<figure><img src="../../../.gitbook/assets/remix.png" alt=""><figcaption><p>Remix workspace</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/remix.png" alt=""><figcaption><p>Remix workspace</p></figcaption></figure>
 
 Next, create a new file called `ReceiveRandom.sol` and [paste the solidity code.](https://github.com/scrtlabs/examples/blob/master/EVM-GMP-RNG/polygon/contracts/ReceiveRandom.sol) This will autofill your workspace with the necessary dependencies for your ReceiveRandom.sol contract 🤯
 
@@ -42,11 +42,11 @@ CHAINNAME: "Polygon"
 
 Input these strings like so and then click "Transact":
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt=""><figcaption><p>ReceiveRandom.soll constructor</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt=""><figcaption><p>ReceiveRandom.soll constructor</p></figcaption></figure>
 
 Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then [view on Polygonscan.](https://mumbai.polygonscan.com/address/0x4396a9F3b1962bC7277fC44a78AA5c57e8966978) And the deployed contract can now be interacted with in the "Deployed Contracts" window:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon testnet that can **receive verifiable random numbers** from a Secret Network smart contract 🎉
 
@@ -90,7 +90,7 @@ npm install
 
 Create a `.env` file in `examples/EVM-GMP-RNG/secret_network/node` and add your wallet mnemonic in order to upload the contract:&#x20;
 
-<figure><img src="../../../.gitbook/assets/env.png" alt=""><figcaption><p>.env config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/env.png" alt=""><figcaption><p>.env config</p></figcaption></figure>
 
 You can then **upload and instantiate the contract** by running `node index.js`.&#x20;
 
@@ -100,7 +100,7 @@ node index.js
 
 Upon successful instantiation, a Secret contract address is returned that you can then use to send messages to Polygon:
 
-<figure><img src="../../../.gitbook/assets/contract address.png" alt=""><figcaption><p>Secret contract address upon successful instantation </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/contract address.png" alt=""><figcaption><p>Secret contract address upon successful instantation </p></figcaption></figure>
 
 Now let's execute the Secret RNG contract and send a random number to Polygon! 🚀
 
@@ -114,7 +114,7 @@ cd examples/EVM-GMP-RNG/secret_network/node
 
 Then, update `destinationAddress` to your Polygon contract address:
 
-<figure><img src="../../../.gitbook/assets/execute variables2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/execute variables2.png" alt=""><figcaption></figcaption></figure>
 
 Next, in order to send a GMP message from Secret to Polygon, you need to include the correct IBC denom to pay for gas so that the message can be executed over IBC.&#x20;
 
@@ -130,11 +130,11 @@ node execute
 
 The transaction should return a `transactionHash` as well as data about the IBC routing: &#x20;
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-10-17 at 1.55.23 PM (1).png" alt=""><figcaption><p>send_message_evm() transaction</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-10-17 at 1.55.23 PM (1).png" alt=""><figcaption><p>send_message_evm() transaction</p></figcaption></figure>
 
 Now, [navigate to Axelarscan to monitor the status of the transaction](https://testnet.axelarscan.io/gmp/E6EB7C4C2A3D16F60A1650948D2396D46C3F46868C75D93D8B726C51D72B4848):&#x20;
 
-<figure><img src="../../../.gitbook/assets/axelarscan rng.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/axelarscan rng.png" alt=""><figcaption></figcaption></figure>
 
 And for good measure, view the transaction on [Polygonscan](https://mumbai.polygonscan.com/tx/0x2b9558eee4d508a9473adc448ba19a76af2f648e3ab7379defa5c50eb1b132d9) to see that the array of random numbers was received!
 
@@ -198,7 +198,7 @@ npm install
 
 Create a `.env` file in `examples/EVM-GMP-RNG/polygon` and add your  [Polygon testnet Infura API ](https://app.infura.io/dashboard)key and your [Metamask private wallet key](https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key)
 
-<figure><img src="../../../.gitbook/assets/env (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/env (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 Open `./scripts/queryRandom.js` and replace the `contractAddress` with your Polygon contract address:
 
