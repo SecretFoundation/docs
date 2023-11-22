@@ -6,11 +6,32 @@ description: >-
 
 # EVM Encryption/Decryption with Secret Contracts
 
-_Note: These docs are currently in progress. 11/21/23_
+## EVM Encryption on Secret Network
 
-## EVM Encryption with Secret Network
+In this tutorial you will learn **how to encrypt a message on Polygon testnet and decrypt the message in a Secret contract** using the Advanced Encryption Standard (AES), Elliptic-curve Diffie–Hellman (ECDH) asynchronous key agreement, and Axelar GMP. This opens up a whole new standard of cross-chain use cases such as private voting, private auctions, and anything you can imagine that utilizes cross-chain encryption! By the end of this tutorial you will learn how to use Secret contracts to send and receive private data to and from Ethereum. Let's dive in! 🏊
 
-In this tutorial you will learn how to encrypt a message on Polygon testnet and decrypt the message in a Secret contract using a combination of the Advanced Encryption Standard (AES), Elliptic-curve Diffie–Hellman (ECDH) asynchronous key agreement, and Axelar GMP. This opens up a whole new standard of cross-chain use cases such as private voting, private auctions, and anything you can imagine that utilizes cross-chain encryption! By the end of this tutorial you will learn how to use Secret contracts to send and receive private data to and from Ethereum. Let's dive in! 🏊
+### Key Terms
+
+**ECDH (Elliptic Curve Diffie-Hellman)**: ECDH is a key agreement protocol that allows two parties, each having an **elliptic curve public-private key pair**, to establish a **shared secret** over an insecure channel. This shared secret can then be used to encrypt subsequent communications. We use ECDH between Secret Network and Polygon to establish a shared secret that can be used to safely encrypt and decrypt the messages being sent.
+
+1. **Key Pairs**: Each party (our front end and our Secret smart contract) generates their own ECDH key pair, which consists of a private key and a public key (a point on the elliptic curve). The private key is kept secret, while the public key can be openly shared.
+2. **Public Key Exchange**: The two parties exchange their public keys. The security of ECDH ensures that even if this exchange is intercepted, the shared secret cannot be easily computed by a third party.
+3. **Shared Secret:**
+   * Due to the properties of elliptic curves, when you multiply your private key with someone else's public key, the result is the same point on the curve as when the other party multiplies their private key with your public key.
+   * This resulting point on the elliptic curve is used to derive the shared secret, typically by taking the x-coordinate of the point and using a hash function to generate a fixed-size key.
+   * This shared secret will be the same for both parties and can now be used to encrypt and decrypt messages between them. The ECDH shared secret is used as the symmetric key in an encryption algorithm like AES.
+
+**AES (Advanced Encryption Standard)**: AES is an encryption algorithm that uses the same key for encrypting and decrypting data, which is why a shared secret is useful. We use AES to encrypt a message into cipher text (using the ECDH shared secret as the key)  before it is sent from Polygon testnet to Secret testnet.&#x20;
+
+### Encryption Scheme Overview
+
+1. An ECDH public/private key pair is generated in a Secret smart contract.&#x20;
+2. An additional ECDH public/private key pair is generated in our front end.&#x20;
+3. Generate a shared secret in our front end using the Secret Network contract public key and the front end's private key.&#x20;
+4. Use AES + the shared secret to encrypt a message "M" to generate cipher text "C".&#x20;
+5. Send cipher text "C" from Polygon smart contract to Secret smart contract using Axelar GMP.&#x20;
+6. Secret contract generates a shared secret from the front end's public key and Secret Network's contract private key
+7. Decrypt cipher text "C" in the Secret contract using the shared secret + AES.&#x20;
 
 ### EVM Prerequisites &#x20;
 
@@ -32,13 +53,14 @@ Install the node dependencies:&#x20;
 npm install 
 ```
 
-Create a `.env` file and add your Metamask private key + Infura API key like so:&#x20;
+Create a `.env` file and add your Metamask private key, Infura API key, and Secret Network wallet mnemonic:
 
-<figure><img src="../../.gitbook/assets/EVM env file.png" alt=""><figcaption><p>EVM .env file</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-22 at 11.22.47 AM.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-* Learn how to view your Metamask private key [here](https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key) and create an Infura API key [here](https://www.infura.io/).&#x20;
 * These environment variables are used in the [hardhat.config.js](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/hardhat.config.js) file in order to execute a smart contract deployed on Polygon testnet. If you need polygon testnet tokens to execute the contract, refer to the Polygon Mumbai faucet [here](https://faucet.polygon.technology/).&#x20;
+* Learn how to view your Metamask private key [here](https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key) and create an Infura API key [here](https://www.infura.io/).&#x20;
+* Fund your Secret testnet wallet with the faucet [here](https://faucet.pulsar.scrttestnet.com/).&#x20;
 {% endhint %}
 
 Now you are ready to encrypt a message on Polygon testnet and send it to Secret testnet to be decrypted! 🎉&#x20;
@@ -47,13 +69,13 @@ Now you are ready to encrypt a message on Polygon testnet and send it to Secret 
 
 Now that you have your Ethereum environment properly configured, you can encrypt a message of your choosing and send it to a Secret Network smart contract where it will be decrypted.&#x20;
 
-Open the file [`encrypt.js`](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/scripts/encrypt.js)  in ./EVM-encrypt-decrypt/polygon/scripts/encrypt.js.&#x20;
+Open [`encrypt.js`](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/scripts/encrypt.js)  in ./EVM-encrypt-decrypt/polygon/scripts/encrypt.js.&#x20;
 
 {% hint style="info" %}
-`encrypt.js` generates a private key, creates a shared secret via ECDH, encrypts a message with this shared secret, and then executes a Polygon testnet smart contract to send the encrypted data to a Secret Network testnet smart contract using Axelar GMP.&#x20;
+For the purpose of this tutorial, the Secret Network public key is hardcoded at [line 19](https://github.com/scrtlabs/examples/blob/ce83c3f4f313820d0f7510b31f1243d70a2a3d4f/EVM-encrypt-decrypt/polygon/scripts/encrypt.js#L19), which we will use to generate the shared secret to encrypt our message. You could also choose to query the public key from the Secret contract with secret.js 🤯
 {% endhint %}
 
-Next, update the `msg` variable at [line 52](https://github.com/scrtlabs/examples/blob/ce83c3f4f313820d0f7510b31f1243d70a2a3d4f/EVM-encrypt-decrypt/polygon/scripts/encrypt.js#L52) with a message of your choosing which will be encrypted.&#x20;
+Update the `msg` variable at [line 78](https://github.com/scrtlabs/examples/blob/35ce04ec46dee33ca365317be562ddbace65c88a/EVM-encrypt-decrypt/polygon/scripts/encrypt.js#L78) with a message of your choosing which will be encrypted.&#x20;
 
 Then, execute the Polygon smart contract to encrypt the message and send it to a Secret smart contract:&#x20;
 
@@ -61,3 +83,80 @@ Then, execute the Polygon smart contract to encrypt the message and send it to a
 npx hardhat --network polygon run ./scripts/encrypt.js
 ```
 
+If the transaction is executed successfully, a transaction hash will be returned:&#x20;
+
+{% code overflow="wrap" %}
+```bash
+Transaction hash: 0xfe0b8477411bca9f9c21e38eb23d88e07006d530a65f114e4727e4513d779760
+```
+{% endcode %}
+
+{% hint style="info" %}
+When you execute encrypt.js, it writes the public key to your .env file so that you can use it to decrypt the message in your Secret Network smart contract.
+{% endhint %}
+
+You can now query this transaction on [Polygonscan](https://mumbai.polygonscan.com/tx/0xfe0b8477411bca9f9c21e38eb23d88e07006d530a65f114e4727e4513d779760) and [Axelarscan](https://testnet.axelarscan.io/gmp/0xfe0b8477411bca9f9c21e38eb23d88e07006d530a65f114e4727e4513d779760:47). You can view the most recent transactions on Axelarscan [here](https://testnet.axelarscan.io/gmp/search).&#x20;
+
+View the transaction on Axelarscan to monitor its status:
+
+<figure><img src="../../.gitbook/assets/axelarscan.png" alt=""><figcaption><p>Axelarscan transaction status</p></figcaption></figure>
+
+Once you see the transaction has been "executed" on Axelarscan, proceed to the next step of the documentation to learn how to decrypt the message. 😊
+
+### Secret Network Prerequisites
+
+Open a new terminal window and `cd` into examples/EVM-encrypt-decrypt/secret\_network/node
+
+```bash
+cd EVM-encrypt-decrypt/secret_network/node
+```
+
+Install the node dependencies:&#x20;
+
+```bash
+npm install 
+```
+
+### Execute Secret Contract
+
+Now let's decrypt the message. If you would like to understand how the decryption works behind the scenes, refer to the `try_decrypt()` function in [contract.rs](https://github.com/scrtlabs/examples/blob/ce83c3f4f313820d0f7510b31f1243d70a2a3d4f/EVM-encrypt-decrypt/secret\_network/src/contract.rs#L75).&#x20;
+
+Here is a high level overview:&#x20;
+
+1. **Load Private Key**:
+   * The function loads a private key from storage using `MY_KEYS.load(deps.storage)?`.&#x20;
+
+{% hint style="info" %}
+For the purpose of this tutorial, this contract has already created a public/private key pair. But you could also generate your own using the [`try_create_keys()`](https://github.com/scrtlabs/examples/blob/ce83c3f4f313820d0f7510b31f1243d70a2a3d4f/EVM-encrypt-decrypt/secret\_network/src/contract.rs#L53) function.&#x20;
+{% endhint %}
+
+1. **Validate Keys**:
+   * It then validates the loaded private key and the provided front end public key, converting them from byte slices to their respective key types (`SecretKey` and `PublicKey`).
+2. **Create Shared Secret**:
+   * A shared secret is generated using the `SharedSecret::new` function, which combines the front end's public key and the Secret contract's private key.
+3. **Decrypt Ciphertext**:
+   * The function then decrypts the ciphertext we sent using the `aes_siv_decrypt` function, which uses the AES-SIV (Symmetric Initialization Vector) algorithm. It requires the ciphertext, additional authenticated data (empty in this case), and the derived shared key.
+4. **Handle Decrypted Data**:
+   * If decryption is successful, it converts the decrypted data to a `String` and saves the decrypted string in storage.
+
+To execute `try_decrypt()`, run `node decrypt:`
+
+```bash
+node decrypt
+```
+
+Upon successful execution, you should see a transaction message and your decrypted data returned:&#x20;
+
+```bash
+ decrypted: '{"test":"Secret 4ever!!!"}' 
+```
+
+### Conclusion
+
+Congrats! You have now encrypted a message on Polygon testnet and decrypted it in a Secret Network contract using AES and ECDH key agreement, along with Axelar GMP! 🎉
+
+This opens up a whole new standard of cross-chain use cases such as private voting, private auctions, and anything you can imagine that utilizes cross-chain encryption!&#x20;
+
+### Next Steps
+
+Both the Polygon contract and the Secret contract have deploy scripts-- for a next step try deploying and instantiating your own contracts for further testing and development [🚀](https://emojipedia.org/rocket)
