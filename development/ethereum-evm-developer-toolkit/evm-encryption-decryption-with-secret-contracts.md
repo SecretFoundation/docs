@@ -14,6 +14,8 @@ In this tutorial you will learn **how to pass encrypted messages from EVM blockc
 
 _The following encryption scheme is used to make sure the information passed from the end user to the Secret contract and back is always encrypted in transit and cannot be read by anyone._
 
+<figure><img src="../../.gitbook/assets/UML diagram (1).png" alt=""><figcaption><p>EVM encryption scheme</p></figcaption></figure>
+
 1. An ECDH public/private key pair is generated in a Secret smart contract.&#x20;
 2. An additional ECDH public/private key pair is generated in our front end on the user's side
 3. Generate a shared secret in our front end using the Secret Network contract public key and the front end's private key.&#x20;
