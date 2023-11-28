@@ -68,6 +68,14 @@ To compile the contract run `npx hardhat compile`
 npx hardhat compile
 ```
 
+{% hint style="info" %}
+If you are on a Mac and run into compilation error:
+
+`error occurred: Command “clang”`
+
+Make sure you have the [latest version](https://developer.apple.com/download/applications/) of x-code installed and see [here](https://github.com/rust-bitcoin/rust-secp256k1/issues/283#issuecomment-1670222980) for instructions on updating your clang path.&#x20;
+{% endhint %}
+
 To upload the compiled contract to Polygon testnet run:
 
 ```bash
