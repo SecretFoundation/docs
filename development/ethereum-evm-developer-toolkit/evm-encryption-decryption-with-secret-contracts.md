@@ -44,7 +44,7 @@ Install the node dependencies:&#x20;
 npm install 
 ```
 
-Create a `dotenv` [file](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/.env) and add your Metamask private key, Infura API key, and Secret Network wallet mnemonic:
+Create a `dotenv` [file](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/.env) and add your **Metamask private key, Infura API key, and Secret Network wallet mnemonic**:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-22 at 11.22.47 AM.png" alt=""><figcaption></figcaption></figure>
 
@@ -100,6 +100,21 @@ Compile the Secret contract:&#x20;
 make build-mainnet
 ```
 
+{% hint style="info" %}
+If you are on a Mac and run into compilation error:
+
+`error occurred: Command “clang”`
+
+Make sure you have the [latest version](https://developer.apple.com/download/applications/) of Xcode installed and then update your clang path by running the following in your terminal:&#x20;
+
+\
+`cargo clean`
+
+`AR=/opt/homebrew/opt/llvm/bin/llvm-ar CC=/opt/homebrew/opt/llvm/bin/clang cargo build --release --target wasm32-unknown-unknown`\
+\
+See [here](https://github.com/rust-bitcoin/rust-secp256k1/issues/283#issuecomment-1670222980) for instructions on updating your clang path.&#x20;
+{% endhint %}
+
 Open a new terminal window and `cd` into examples/EVM-encrypt-decrypt/secret\_network/node
 
 ```bash
@@ -119,14 +134,6 @@ Run the upload + instantiate script:
 ```bash
 node index.js
 ```
-
-{% hint style="info" %}
-If you are on a Mac and run into compilation error:
-
-`error occurred: Command “clang”`
-
-Make sure you have the [latest version](https://developer.apple.com/download/applications/) of Xcode installed and see [here](https://github.com/rust-bitcoin/rust-secp256k1/issues/283#issuecomment-1670222980) for instructions on updating your clang path.&#x20;
-{% endhint %}
 
 Upon successful upload + instantiation, a contract address will be returned:&#x20;
 
