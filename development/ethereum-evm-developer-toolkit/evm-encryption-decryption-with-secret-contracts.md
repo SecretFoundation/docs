@@ -46,10 +46,10 @@ npm install
 
 Create a `dotenv` [file](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/.env) and add your **Metamask private key, Infura API key, and Secret Network wallet mnemonic**:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-22 at 11.22.47 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/encrypt env.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-* These environment variables are used in the [hardhat.config.js](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/hardhat.config.js) file in order to execute a smart contract deployed on Polygon testnet. If you need polygon testnet tokens to execute the contract, refer to the Polygon Mumbai faucet [here](https://mumbaifaucet.com/).&#x20;
+* These environment variables are used in the [hardhat.config.js](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/hardhat.config.js) file in order to execute a smart contract deployed on Polygon testnet. If you need polygon testnet tokens to execute the contract, refer to the Polygon Mumbai faucet [here](https://faucet.quicknode.com/polygon/mumbai).&#x20;
 * Learn how to view your Metamask private key [here](https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key) and create an Infura API key [here](https://www.infura.io/).&#x20;
 * Fund your Secret testnet wallet with the faucet [here](https://faucet.pulsar.scrttestnet.com/).&#x20;
 {% endhint %}
@@ -145,7 +145,7 @@ Instantiating contract…
 contract address:  secret1zj4fuh42k6h2rpcnalq5wuzxys8gnqxcuhts33
 ```
 
-### Execute Secret Contract
+### Get Public Key from Secret Contract
 
 Let's start by generating an ECDH public/private keypair. Open `create_keys.js` and replace the existing contract codehash + contract address at [line 15](https://github.com/scrtlabs/examples/blob/d01d68d4f424b278f1563823eaa989ec6169f698/EVM-encrypt-decrypt/secret\_network/node/create\_keys.js#L15) with your codehash and contract address. Then run:&#x20;
 
@@ -175,7 +175,7 @@ Your public key should be returned:&#x20;
 
 Now let's use this public key to encrypt a message in our Polygon smart contract!
 
-### Execute Polygon Contract
+### Send Encrypted Message from Polygon to Secret
 
 Now that you have your Ethereum environment properly configured, you can encrypt a message of your choosing and send it to your Secret Network smart contract where it will be decrypted.&#x20;
 
@@ -202,7 +202,7 @@ Transaction hash: 0x605cb8c5b069aea9f79d7e9ba36aec91fe33a1800849a99553ad61605358
 When you execute encrypt.js, it writes the public key to your .env file so that you can use it to decrypt the message in your Secret Network smart contract.
 {% endhint %}
 
-You can now query this transaction on [Polygonscan](https://mumbai.polygonscan.com/tx/0xfe0b8477411bca9f9c21e38eb23d88e07006d530a65f114e4727e4513d779760) (paste your Polygon wallet address to view the latest transactions) and [Axelarscan](https://testnet.axelarscan.io/gmp/0xfe0b8477411bca9f9c21e38eb23d88e07006d530a65f114e4727e4513d779760:47). You can view your transaction on Axelarscan [here](https://testnet.axelarscan.io/gmp/search), which is the recommended way of monitoring the transaction's success or failure.&#x20;
+You can now find this transaction on [Polygonscan](evm-encryption-decryption-with-secret-contracts.md#get-public-key-from-secret-contract) and [Axelarscan](https://testnet.axelarscan.io/gmp/0xfe0b8477411bca9f9c21e38eb23d88e07006d530a65f114e4727e4513d779760:47) by pasting the transaction hash.&#x20;
 
 View the transaction on Axelarscan to monitor its status:
 
@@ -210,9 +210,39 @@ View the transaction on Axelarscan to monitor its status:
 
 **Once you see the transaction has been "executed" on Axelarscan**, proceed to the next step of the documentation to learn how to decrypt the message. 😊
 
-### Decrypt the message
+{% hint style="info" %}
+_Note: your message was encrypted, and the plaintext message will not appear in either Polygon or Axelar blockchains. You can validate that by looking at the `Logs` tab for your transaction in Polygonscan and finding the `ContractCall` log._
+{% endhint %}
 
-Now let's decrypt the message. If you would like to understand how the decryption works behind the scenes, refer to the `try_decrypt()` function in [contract.rs](https://github.com/scrtlabs/examples/blob/ce83c3f4f313820d0f7510b31f1243d70a2a3d4f/EVM-encrypt-decrypt/secret\_network/src/contract.rs#L75).&#x20;
+### Decrypt the message on Secret
+
+Now let's decrypt the message. To execute the decryption, you will first need to update `secret_network/node/decrypt.js` and **set the** [**contractAddress**](https://github.com/scrtlabs/examples/blob/d01d68d4f424b278f1563823eaa989ec6169f698/EVM-encrypt-decrypt/secret\_network/node/decrypt.js#L17) **and**[ **contractCodeHash**](https://github.com/scrtlabs/examples/blob/d01d68d4f424b278f1563823eaa989ec6169f698/EVM-encrypt-decrypt/secret\_network/node/decrypt.js#L15) **to your address and codehash**.
+
+{% hint style="info" %}
+Before you try to decrypt the encrypted message, make sure the transaction has been executed successfully on [Axelarscan](https://testnet.axelarscan.io/gmp/0x605cb8c5b069aea9f79d7e9ba36aec91fe33a1800849a99553ad616053587236:29). Transaction times have been averaging around 5 minutes.&#x20;
+{% endhint %}
+
+Then cd into `secret_network/node`&#x20;
+
+```bash
+cd secret_network/node 
+```
+
+and run `node decrypt:`
+
+```bash
+node decrypt
+```
+
+Upon successful execution, you should see a transaction message and your decrypted data returned:&#x20;
+
+```bash
+ decrypted: '{"test":"Secret 4ever!!!"}' 
+```
+
+### Secret Contracts Decryption Overview
+
+If you would like to understand how the decryption works behind the scenes, refer to the `try_decrypt()` function in [contract.rs](https://github.com/scrtlabs/examples/blob/ce83c3f4f313820d0f7510b31f1243d70a2a3d4f/EVM-encrypt-decrypt/secret\_network/src/contract.rs#L75).&#x20;
 
 Here is a high level overview:&#x20;
 
@@ -227,33 +257,11 @@ Here is a high level overview:&#x20;
 5. **Handle Decrypted Data**:
    * If decryption is successful, it converts the decrypted data to a `String` and saves the decrypted string in storage.
 
-To execute `try_decrypt()`, update the contract [address](https://github.com/scrtlabs/examples/blob/d01d68d4f424b278f1563823eaa989ec6169f698/EVM-encrypt-decrypt/secret\_network/node/decrypt.js#L17) + [codehash](https://github.com/scrtlabs/examples/blob/d01d68d4f424b278f1563823eaa989ec6169f698/EVM-encrypt-decrypt/secret\_network/node/decrypt.js#L15) with your address and codehash.&#x20;
-
-{% hint style="info" %}
-Before you try to decrypt the encrypted message, make sure the transaction has been executed successfully on [Axelarscan](https://testnet.axelarscan.io/gmp/0x605cb8c5b069aea9f79d7e9ba36aec91fe33a1800849a99553ad616053587236:29). Transaction times have been averaging around 5 minutes.&#x20;
-{% endhint %}
-
-Then run `node decrypt:`
-
-```bash
-node decrypt
-```
-
-Upon successful execution, you should see a transaction message and your decrypted data returned:&#x20;
-
-```bash
- decrypted: '{"test":"Secret 4ever!!!"}' 
-```
-
 ### Conclusion
 
 Congrats! You have now successfully passed an encrypted message from Polygon to Secret and decrypted it on Secret using AES and ECDH key agreement, along with Axelar GMP! 🎉
 
 This opens up a whole new standard of cross-chain use cases such as private voting, private auctions, and anything you can imagine that utilizes cross-chain encryption!&#x20;
-
-### Next Steps
-
-Both the Polygon contract and the Secret contract have deploy scripts-- for a next step try deploying and instantiating your own contracts for further testing and development [🚀](https://emojipedia.org/rocket)
 
 ### Glossary
 
