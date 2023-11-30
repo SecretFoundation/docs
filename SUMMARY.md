@@ -224,6 +224,8 @@
   * [Frontend Development](development/tools-and-libraries/frontend-development/README.md)
     * [Griptape.js](development/tools-and-libraries/frontend-development/griptape.md)
   * [Hidden Gems](development/tools-and-libraries/hidden-gems.md)
+  * [Feegrant](development/tools-and-libraries/feegrant/README.md)
+    * [Understanding Feegrant allowances](development/tools-and-libraries/feegrant/understanding-feegrant-allowances.md)
 * [Versioning & Changelog](development/versioning-and-changelog/README.md)
   * [Secret Network v1.11](development/versioning-and-changelog/secret-network-v1.11.md)
   * [Secret Network v1.10](development/versioning-and-changelog/secret-network-v1.10.md)
