@@ -1,6 +1,6 @@
 # Setup Full Node
 
-This document details how to join the Secret Network `secret-4` mainnet as a full node. Once your full node is running and synced to the last block, you can use it&#x20;
+This document details how to join the Secret Network `secret-4` mainnet as a full node. Once your full node is running and synced to the last block, you can use it
 
 ## Requirements <a href="#requirements" id="requirements"></a>
 
@@ -19,7 +19,7 @@ Secret Network has strict Hardware Requirements, see [hardware-compliance.md](..
 ### **Install SGX and `secretd`**
 
 {% hint style="danger" %}
-This guide assumes you've already installed the latest version of secretd and SGX.&#x20;
+This guide assumes you've already installed the latest version of secretd and SGX.
 {% endhint %}
 
 For more information on how to install SGX, see instructions for [install-sgx.md](install-sgx.md "mention").
@@ -174,7 +174,7 @@ sed -i.bak -e "s/^contract-memory-enclave-cache-size *=.*/contract-memory-enclav
 
 Also checkout [this document](https://gist.github.com/blockpane/40bc6b64caa48fdaff3b0760acb51eaa) by `block pane` for fine tuning your machine for better uptime.
 
-### **Set `minimum-gas-price` Parameter**
+#### **Set `minimum-gas-price` Parameter**
 
 We recommend `0.1uscrt` per gas unit:
 
@@ -183,6 +183,14 @@ perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.1uscrt"/' ~/.s
 ```
 
 Your node will not accept transactions that specify `--fees` lower than the `minimun-gas-price` you set here.
+
+#### Set IAVL-disable-fastnode
+
+IAVL fast node **must** be disabled, otherwise the daemon will attempt to upgrade the database whil state sync is occuring.
+
+```
+sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" $HOME/.secretd/config/app.toml
+```
 
 ### **Enable `secret-node`:**
 
@@ -230,8 +238,6 @@ secretcli config output json
 secretcli config indent true
 secretcli config node tcp://<your-public-ip>:26657
 ```
-
-
 
 ### **Optional: Become a Validator**
 
