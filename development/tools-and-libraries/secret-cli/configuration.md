@@ -13,9 +13,11 @@ $ secretcli status --node "$URL"
 ## Mainnet
 
 ```bash
-secretcli config node https://secret-4.api.trivium.network:26657
+secretcli config node https://rpc.secret.express:443
 
 secretcli config chain-id secret-4
+
+secretcli config output json
 ```
 
 ## Testnet
@@ -24,6 +26,8 @@ secretcli config chain-id secret-4
 secretcli config node https://rpc.pulsar.scrttestnet.com/
 
 secretcli config chain-id pulsar-3
+
+secretcli config output json
 
 secretcli config keyring-backend test
 ```
