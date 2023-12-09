@@ -132,6 +132,7 @@
     * [Secret IBC setup](development/development-concepts/ibc/secret-ibc-setup.md)
     * [IBC-Hooks](development/development-concepts/ibc/ibc-hooks/README.md)
       * [Auto-wrapping of SNIP-20 tokens with IBC Hooks](development/development-concepts/ibc/ibc-hooks/auto-wrapping-of-snip-20-tokens-with-ibc-hooks.md)
+      * [Using auto-wrapping on SNIP-20 tokens on mainnet with secret.js](development/development-concepts/ibc/ibc-hooks/using-auto-wrapping-on-snip-20-tokens-on-mainnet-with-secret.js.md)
     * [Cross-Chain (IBC) randomness](development/development-concepts/ibc/cross-chain-ibc-randomness.md)
   * [Permissioned Viewing](development/development-concepts/permissioned-viewing/README.md)
     * [Viewing Keys](development/development-concepts/permissioned-viewing/viewing-keys/README.md)
