@@ -1,25 +1,4 @@
-<p align="center">
-  <img src="./media/logo-light.svg#gh-light-mode-only" type="image/svg+xml" width="75%" class="light-logo" />
-  <img src="./media/logo-dark.svg#gh-dark-mode-only" type="image/svg+xml" width="75%" class="dark-logo" />
-</p>
-
-<p align="center">
-  The JavaScript SDK for Secret Network
-</p>
-
-<p align="center">
-  <img alt="npm" src="https://img.shields.io/npm/v/secretjs" />
-  <img alt="ci" style="margin-left: 0.3em" src="https://github.com/scrtlabs/secret.js/actions/workflows/test.yml/badge.svg?branch=master" />
-</p>
-
-<p align="center">
-  <a href="https://secretjs.scrt.network" target="_blank"><strong>Explore the Docs »</strong></a>
-</p>
-<p align="center">
-  <a href="https://github.com/scrtlabs/secret.js" target="_blank"><strong>GitHub »</strong></a>
-</p>
-
-<h1 id="table-of-contents">Table of Contents</h1>
+# Table of Contents
 
 - [Key Features](#key-features)
 - [Beta Version Notice](#beta-version-notice)
