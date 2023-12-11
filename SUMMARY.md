@@ -223,7 +223,7 @@
     * [Secret Toolkit](development/tools-and-libraries/contract-development/secret-toolkit.md)
     * [CW-Plus](development/tools-and-libraries/contract-development/cw-plus.md)
   * [Frontend Development](development/tools-and-libraries/frontend-development/README.md)
-    * [Griptape.js](development/tools-and-libraries/frontend-development/griptape.md)
+    * [Secret.js](development/tools-and-libraries/frontend-development/griptape.md)
   * [Hidden Gems](development/tools-and-libraries/hidden-gems.md)
   * [Feegrant](development/tools-and-libraries/feegrant/README.md)
     * [Understanding Feegrant allowances](development/tools-and-libraries/feegrant/understanding-feegrant-allowances.md)
