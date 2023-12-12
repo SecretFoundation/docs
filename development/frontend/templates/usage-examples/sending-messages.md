@@ -4,7 +4,7 @@ description: Learn how to send messages with SecretJS.
 
 # Sending Messages
 
-### Secret Network Client setup
+### Secret Network Client Setup
 
 ```javascript
 import { SecretNetworkClient, Wallet } from "secretjs";

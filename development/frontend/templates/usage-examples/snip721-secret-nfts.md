@@ -4,7 +4,7 @@ description: Learn how to send SNIP721s with SecretJS.
 
 # SNIP721 (Secret NFTs)
 
-### Secret Network Client setup
+### Secret Network Client Setup
 
 ```javascript
 import { SecretNetworkClient, Wallet } from "secretjs";

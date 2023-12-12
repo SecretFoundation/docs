@@ -4,7 +4,7 @@ description: Learn how to use query permits with SecretJS.
 
 # Query Permits
 
-### Secret Network Client setup
+### Secret Network Client Setup
 
 ```javascript
 import { SecretNetworkClient, Wallet } from "secretjs";

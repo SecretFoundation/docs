@@ -4,7 +4,7 @@ description: Learn how to send SNIP20 tokens with SecretJS.
 
 # SNIP20 (SCRT Tokens)
 
-### Secret Network Client setup
+### Secret Network Client Setup
 
 ```javascript
 import { SecretNetworkClient, Wallet } from "secretjs";
