@@ -46,7 +46,7 @@ Notes:
 3. You might want to pass `encryptionSeed` to `SecretNetworkClient.create()` to use the same encryption key for the user across sessions. This value should be a true random 32 byte number that is stored securly in your app, such that only the user can decrypt it. This can also be a `sha256(user_password)` but might impair UX.
 4. See Keplr's [`getOfflineSignerOnlyAmino()`](https://secretjs.scrt.network/#windowkeplrgetofflinesigneronlyamino) for list of unsupported transactions.
 
-![](https://secretjs.scrt.network/media/metamask-signing-example.jpg)
+<figure><img src="https://secretjs.scrt.network/media/metamask-signing-example.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Keplr Walllet
 
@@ -120,7 +120,9 @@ Although this is the legacy way of signing transactions on cosmos-sdk, it's stil
 
 Note that [ibc\_transfer/MsgTransfer](https://secretjs.scrt.network/classes/MsgTransfer) for sending funds across IBC **is** supported.
 
-![](https://secretjs.scrt.network/media/keplr-amino.png)[**`window.keplr.getOfflineSigner()`**](https://secretjs.scrt.network/#windowkeplrgetofflinesigner)
+<figure><img src="https://secretjs.scrt.network/media/keplr-amino.png" alt=""><figcaption></figcaption></figure>
+
+[**`window.keplr.getOfflineSigner()`**](https://secretjs.scrt.network/#windowkeplrgetofflinesigner)
 
 The new way of signing transactions on cosmos-sdk, it's more efficient but still doesn't have Ledger support, so it's most recommended for usage in apps that don't require signing transactions with Ledger.
 
@@ -128,7 +130,9 @@ The new way of signing transactions on cosmos-sdk, it's more efficient but still
 * 🟥 Doesn't support users signing with Ledger
 * 🟩 Supports signing transactions with all types of Msgs
 
-![](https://secretjs.scrt.network/media/keplr-proto.png)[**`window.keplr.getOfflineSignerAuto()`**](https://secretjs.scrt.network/#windowkeplrgetofflinesignerauto)
+[**`window.keplr.getOfflineSignerAuto()`**](https://secretjs.scrt.network/#windowkeplrgetofflinesignerauto)
+
+<figure><img src="https://secretjs.scrt.network/media/keplr-proto.png" alt=""><figcaption></figcaption></figure>
 
 If the connected Keplr account uses Ledger, returns `window.keplr.getOfflineSignerOnlyAmino()`.\
 Otherwise returns `window.keplr.getOfflineSigner()`.

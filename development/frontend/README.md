@@ -15,7 +15,7 @@ description: Learn how to connect Secret Network contracts to a frontend.
 * Handles input/output encryption/decryption for Secret Contracts.
 * Works in Node.js, modern web browsers and React Native.
 
-You can find the full version of the docs at [https://secretjs.scrt.network/](https://secretjs.scrt.network/)
+You can find the full version of the docs [here](https://github.com/scrtlabs/secret.js/blob/master/test/permit.test.ts).&#x20;
 
 ### SecretJS Templates
 
