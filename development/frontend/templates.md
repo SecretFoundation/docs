@@ -1,14 +1,12 @@
+---
+description: Learn how to use SecretJS with SecretCLI through a series of tutorials.
+---
+
 # Getting Started with SecretJS
 
 ## SecretJS
 
-A Secret App is a decentralized application with computational and data privacy. Secret Apps are usually comprised of the following components:
-
-* A Secret Contract deployed on the Secret Network
-* A frontend app built with a JavaScript framework (e.g. ReactJS, VueJS, AngularJS, etc.) connected to the Secret Network using **SecretJS**
-* SecretJS interacting with a REST API exposed by nodes in the Secret Network. The REST API/HTTPS server is commonly referred to as LCD Server (Light Client Daemon). Usually by connecting SecretJS with a wallet, the wallet handles interactions with the LCD server.
-
-You will need to have the Secret Network CLI installed to complete this set of tutorials. If it's not installed yet, follow the instructions found [HERE.](https://build.scrt.network/light-client-mainnet.html)
+You will need to have the Secret Network CLI installed to complete this set of tutorials. If it's not installed yet, follow the instructions found [here](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment).
 
 ### SecretJS Tutorial Set Up
 
@@ -18,14 +16,7 @@ Get started by cloning the [SecretJS Templates](https://github.com/scrtlabs/Secr
 git clone https://github.com/scrtlabs/SecretJS-Templates.git
 ```
 
-The project directory will contain the following structure:
-
-```
-.   1_connecting_to_node  3_query_node    5_contracts  7_snip20_token   .env.local.example    .git        node_modules  package-lock.json
-..  2_creating_account    4_transactions  6_wallets    8_websocket     .env.example  .env.testnet.example  .gitignore  package.json  README.md
-```
-
-For this tutorial we will be using the pulsar-3 test network to go through each SecretJS example. To do this we need to copy one of the example environment files, eg .env.testnet.example, to a new file name .env\
+For this tutorial we will be using the pulsar-3 test network to go through each SecretJS example. To do this, we need to copy one of the example environment files, eg `.env.testnet.example`, to a new file name: `.env`\
 Update the contents of .env file to contain the following:
 
 ```
