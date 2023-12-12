@@ -15,14 +15,14 @@ To make use of the auto-wrapping contract, follow the guide below:&#x20;
 We begin by initializing a new instance of `SecretNetworkClient`  but with the caviat that this client is doing the transaction on the other IBC chain (e.g. Osmosis, Kujira etc.). This client is configured with several parameters, including the network URL (`chainLCD`), a wallet object, the wallet address, and the IBC chains specific `chainId`:
 
 ```javascript
-const sourceOfflineSigner = (window as any).wallet.getOfflineSignerOnlyAmino(chain_id)
-const depositFromAccounts = await sourceOfflineSigner.getAccounts()
+const sourceOfflineSigner = (window as any).wallet.getOfflineSignerOnlyAmino(chainId)
+const accounts = await sourceOfflineSigner.getAccounts()
 
 const otherIBCChainSecretjs = new SecretNetworkClient({
     url: chainLCD,
     chainId: chainId,
     wallet: sourceOfflineSigner,
-    walletAddress: depositFromAccounts[0].address
+    walletAddress: accounts[0].address
 })
 ```
 
@@ -47,7 +47,7 @@ The main action is in the transaction creation, specifically with the `otherIBCC
  
  let tx = await otherIBCChainSecretjs.tx.ibc.transfer(
       {
-        sender: otherChainSecretjs.address, //The address on the other IBC chain
+        sender: otherIBCChainSecretjs.address, //The address on the other IBC chain
         receiver: wrapDepositContractAddress,
         source_channel: ibcChannelIdOnChain2,
         source_port: "transfer",
