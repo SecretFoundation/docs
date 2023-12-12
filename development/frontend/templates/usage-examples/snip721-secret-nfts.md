@@ -1,4 +1,23 @@
-# SNIP721
+---
+description: Learn how to send SNIP721s with SecretJS.
+---
+
+# SNIP721 (Secret NFTs)
+
+### Secret Network Client setup
+
+```javascript
+import { SecretNetworkClient, Wallet } from "secretjs";
+
+const wallet = new Wallet("Your mnemonic words go here");
+
+const secretjs = new SecretNetworkClient({
+  chainId: "pulsar-3",
+  url: "https://api.pulsar3.scrttestnet.com",
+  wallet: wallet,
+  walletAddress: wallet.address,
+});
+```
 
 ### Add Minter
 

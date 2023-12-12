@@ -1,4 +1,23 @@
-# SNIP20
+---
+description: Learn how to send SNIP20 tokens with SecretJS.
+---
+
+# SNIP20 (SCRT Tokens)
+
+### Secret Network Client setup
+
+```javascript
+import { SecretNetworkClient, Wallet } from "secretjs";
+
+const wallet = new Wallet("Your mnemonic words go here");
+
+const secretjs = new SecretNetworkClient({
+  chainId: "pulsar-3",
+  url: "https://api.pulsar3.scrttestnet.com",
+  wallet: wallet,
+  walletAddress: wallet.address,
+});
+```
 
 ### Transfer SNIP-20 tokens
 
@@ -47,7 +66,7 @@ const txQuery = await secretjs.query.snip20.getBalance({
 
 ```
 
-Query Token Parameters
+### Query Token Parameters
 
 ```typescript
 const txQuery = await secretjs.query.snip20.getSnip20Params({

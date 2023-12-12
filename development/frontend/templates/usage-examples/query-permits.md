@@ -1,4 +1,23 @@
-# Permits
+---
+description: Learn how to use query permits with SecretJS.
+---
+
+# Query Permits
+
+### Secret Network Client setup
+
+```javascript
+import { SecretNetworkClient, Wallet } from "secretjs";
+
+const wallet = new Wallet("Your mnemonic words go here");
+
+const secretjs = new SecretNetworkClient({
+  chainId: "pulsar-3",
+  url: "https://api.pulsar3.scrttestnet.com",
+  wallet: wallet,
+  walletAddress: wallet.address,
+});
+```
 
 ### Sign a Permit and use in a query
 
@@ -39,3 +58,7 @@ let result = secretjs.utils.accessControl.permit.verify(
   ["owner"],
 );
 ```
+
+{% hint style="info" %}
+Learn more about Query Permits [here](https://docs.scrt.network/secret-network-documentation/development/development-concepts/permissioned-viewing/certs-viewing-permits).&#x20;
+{% endhint %}

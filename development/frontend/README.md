@@ -6,7 +6,7 @@ description: Learn how to connect Secret Network contracts to a frontend.
 
 ## SecretJS
 
-Secret.js a JavaScript SDK for writing applications that interact with the Secret Network blockchain. Key features include:&#x20;
+[Secret.js](https://secretjs.scrt.network/) a JavaScript SDK for writing applications that interact with the Secret Network blockchain. Key features include:&#x20;
 
 * Written in TypeScript and provided with type definitions.
 * Provides simple abstractions over core data structures.
@@ -30,3 +30,6 @@ Refer to the reference [SecretJS Templates](https://github.com/scrtlabs/SecretJS
 * SNIP-20 tokens
 * Consuming websocket contract events
 
+### Fullstack dApp tutorial&#x20;
+
+See [here](https://docs.scrt.network/secret-network-documentation/development/getting-started/fullstack-dapp-integration) for a fullstack dApp tutorial that uses SecretJS.&#x20;
