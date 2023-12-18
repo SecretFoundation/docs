@@ -2,6 +2,10 @@
 
 ### Open-Source Projects
 
+#### Cosmwasm v1.0+
+
+* [Shade Protocol ](https://github.com/securesecrets/shade)- Integrated Defi dApp with Stablecoin, lending, AMM and more
+
 #### Cosmwasm v0.10
 
 * [Mystic Skulls](https://github.com/baedrik/mystic-skulls) - Upgradable NFT collection with puzzles. [Frontend](https://mysticskulls.com/).

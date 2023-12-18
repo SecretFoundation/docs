@@ -1,5 +1,5 @@
 # Randomness over IBC
 
 {% hint style="info" %}
-Please follow the guide [here!](../ibc/cross-chain-ibc-randomness.md)
+Please follow the guide [here!](../../secret-contract-cross-chain-privacy/ibc/cross-chain-ibc-randomness.md)
 {% endhint %}

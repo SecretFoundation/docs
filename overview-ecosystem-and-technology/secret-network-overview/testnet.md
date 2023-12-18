@@ -89,13 +89,13 @@ Here’s a table of the main ones:
 
 Alternatively you can directly interact with their testnet secret contracts. Below are some of the main smart contract addresses available:
 
-| Contract       | Address                                                                                    | Testnet Chain |
-| -------------- | ------------------------------------------------------------------------------------------ | :-----------: |
-| SSCRT     | secret1gvn6eap7xgsf9kydgmvpqwzkru2zj35ar2vncj                                              |    Pulsar-3   |
+| Contract | Address                                       | Testnet Chain |
+| -------- | --------------------------------------------- | :-----------: |
+| SSCRT    | secret1gvn6eap7xgsf9kydgmvpqwzkru2zj35ar2vncj |    Pulsar-3   |
 
 With Keplr you’ll need to approve a connection request for each protocol that you want to connect to. You can easily manage active website connections under “**Manage Connections**” in the Keplr settings.
 
-_**Note:** If you’re using `secretcli` view a full list of commands for_ [_Secret Contracts here_](../../development/tools-and-libraries/secret-cli/secret-contracts.md)_._
+_**Note:** If you’re using `secretcli` view a full list of commands for_ [_Secret Contracts here_](../../infrastructure/secret-cli/secret-contracts.md)_._
 
 ## Viewing Testnet Transactions
 
