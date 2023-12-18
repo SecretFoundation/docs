@@ -96,6 +96,7 @@
   * [Trusted and untrusted data](development/secret-contract-fundamentals/secret-contracts.md)
   * [Privacy as a Service (PaaS)](development/secret-contract-fundamentals/privacy-as-a-service-paas.md)
   * [Available native features/modules](development/secret-contract-fundamentals/available-native-features-modules/README.md)
+    * [Fiat/Crypto Onboarding](development/secret-contract-fundamentals/available-native-features-modules/fiat-crypto-onboarding.md)
     * [Account abstraction](development/secret-contract-fundamentals/available-native-features-modules/account-abstraction.md)
     * [Fee abstraction](development/secret-contract-fundamentals/available-native-features-modules/fee-abstraction.md)
     * [Wallet support](development/secret-contract-fundamentals/available-native-features-modules/wallet-support.md)
