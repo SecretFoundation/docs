@@ -19,7 +19,7 @@ wget https://raw.githubusercontent.com/SecretFoundation/docs/main/docs/node-guid
 ### Run the quicksync script
 
 ```bash
-sudo bash quicksync
+bash quicksync
 ```
 
 ## Manual Method <a href="#_1-download-the-secret-network-package-installer-for-debian-ubuntu" id="_1-download-the-secret-network-package-installer-for-debian-ubuntu"></a>
