@@ -2,6 +2,15 @@
 
 Websites: [Global](https://www.ovhcloud.com/en/) or [United States](https://us.ovhcloud.com/)
 
+{% hint style="danger" %}
+Currently, it is advised to exercise caution when considering OVHCloud servers, as there are concerns regarding the inadequate updating of their mainboards.&#x20;
+
+Please contact the node support in case you got more questions:&#x20;
+
+* You can find help in Telegram [here](https://t.me/SCRTNodeSupport)
+* Visit the Secret Network Discord [here](https://discord.com/invite/SJK32GY) and ask in #node-discussion or #node-support for help
+{% endhint %}
+
 ### Selecting a Server
 
 The following are examples of [Hardware Compliant](../hardware-compliance.md) servers:
