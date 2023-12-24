@@ -27,7 +27,8 @@
 | RPC          | `https:///1rpc.io/scrt-rpc`                                                                                                          | [1RPC (Automata Network)](https://www.1rpc.io/)           |
 |              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn, AgoraNodes</p> |                                                           |
 | **gRPC-web** | `https://wgrpc.secret.express`                                                                                                       | [secret.express](https://secret.express)                  |
-| **gRPC**     | `https://secret-grpc.lavenderfive.com:443`                                                                                           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
+| **gRPC**     | `https://grpc.secret.express`                                                                                                        | [secret.express](https://secret.express)                  |
+| gRPC         | `https://secret-grpc.lavenderfive.com:443`                                                                                           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
 |              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn</p>             |                                                           |
 | **LCD**      | `https://lcd.secret.express`                                                                                                         | [secret.express](https://secret.express)                  |
 | LCD          | `https://rpc.ankr.com/http/scrt_cosmos`                                                                                              | [Ankr](https://scrt.public-rpc.com/)                      |
