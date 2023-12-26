@@ -52,6 +52,7 @@ This is not an exhaustive list of supported motherboards. These are simply mothe
 
 ### **Contributors**
 
+* [Secret Express](https://www.mintscan.io/secret/validators/secretvaloper1hjd20hjvkx06y8p42xl0uzr3gr3ue3nkvd79jj)
 * [FreshSCRT](https://secretnodes.com/secret/chains/secret-4/validators/6AFCF9EB1AC264954C784274A6ABF012D50EB0B6)
 * [chainofsecrets](https://secretnodes.com/secret/chains/secret-4/validators/1B68882AB7CD6BC4CDDD742FC8F3D1FDE31C1A82)
 * [Mario](https://secretnodes.com/secret/chains/secret-4/validators/2DD098C8ECAF04DFE31BBC59799C786AC09BF53F)
