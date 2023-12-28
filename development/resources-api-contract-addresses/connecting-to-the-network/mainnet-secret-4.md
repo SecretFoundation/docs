@@ -22,19 +22,19 @@
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
 | **RPC**      | `https://rpc.secret.express`                                                                                                         | [secret.express](https://secret.express)                  |
 | RPC          | `https://scrt.public-rpc.com`                                                                                                        | [Ankr](https://scrt.public-rpc.com/)                      |
-| RPC          | `https://secret-rpc.lavenderfive.com:443`                                                                                            | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
+| RPC          | `https://secretnetwork-rpc.lavenderfive.com:443`                                                                                     | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
 | RPC          | `https://rpc-secret.whispernode.com:443`                                                                                             | [Whispernode](https://www.whispernode.com/)               |
 | RPC          | `https:///1rpc.io/scrt-rpc`                                                                                                          | [1RPC (Automata Network)](https://www.1rpc.io/)           |
 |              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn, AgoraNodes</p> |                                                           |
 | **gRPC-web** | `https://wgrpc.secret.express`                                                                                                       | [secret.express](https://secret.express)                  |
 | **gRPC**     | `https://grpc.secret.express`                                                                                                        | [secret.express](https://secret.express)                  |
-| gRPC         | `https://secret-grpc.lavenderfive.com:443`                                                                                           | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
+| gRPC         | `https://secretnetwork-grpc.lavenderfive.com:443`                                                                                    | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
 |              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn</p>             |                                                           |
 | **LCD**      | `https://lcd.secret.express`                                                                                                         | [secret.express](https://secret.express)                  |
 | LCD          | `https://rpc.ankr.com/http/scrt_cosmos`                                                                                              | [Ankr](https://scrt.public-rpc.com/)                      |
 | LCD          | `https://1rpc.io/scrt-lcd`                                                                                                           | [1RPC (Automata Network)](https://www.1rpc.io/)           |
 | LCD          | `https://lcd-secret.whispernode.com:443`                                                                                             | [Whispernode](https://www.whispernode.com/)               |
-| LCD          | `https://secret-api.lavenderfive.com:443`                                                                                            | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
+| LCD          | `https://secretnetwork-api.lavenderfive.com:443`                                                                                     | [Lavender.Five Nodes 🐝](https://github.com/LavenderFive) |
 |              | <p><strong>--------- Additional Teams via DM -------</strong></p><p>Autostake, Trivium, Consensus One, Secret Saturn</p>             |                                                           |
 
 {% hint style="info" %}
