@@ -175,6 +175,7 @@
     * [Understanding Feegrant allowances](development/frontend/feegrant/understanding-feegrant-allowances.md)
     * [Grant allowances](development/frontend/feegrant/grant-allowances.md)
     * [Using grant allowances to execute transactions](development/frontend/feegrant/using-grant-allowances-to-execute-transactions.md)
+    * [Using the Fee Grant Faucet](development/frontend/feegrant/using-the-fee-grant-faucet.md)
 * [Tools & Libraries](development/tools-and-libraries/README.md)
   * [Network interaction SDKs](development/tools-and-libraries/network-interaction-sdks/README.md)
     * [Secret.js (JavaScript)](development/tools-and-libraries/network-interaction-sdks/secret.js-javascript.md)

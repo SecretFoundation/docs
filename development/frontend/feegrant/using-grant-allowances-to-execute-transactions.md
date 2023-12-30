@@ -8,13 +8,13 @@ Now that an allowance has been assigned to an account address, you should be abl
 
 The following command using **secretcli** will give the details of a grant allowance:
 
-```
+```bash
 secretcli query feegrant grant "granter_address" "grantee_address" 
 ```
 
 **Results**:
 
-```
+```yaml
 allowance:
   '@type': /cosmos.feegrant.v1beta1.BasicAllowance
   expiration: null
@@ -33,7 +33,7 @@ This can also be achieved via the following API endpoint where **api\_endpoint**
 
 **Results**:
 
-```
+```json
 {
   "allowance": {
     "granter": "secret1tq6y8waegggp4fv2fcxk3zmpsmlfadyc7lsd69",
@@ -75,7 +75,6 @@ const feeGranterAddress =  "secret1tq6y8waegggp4fv2fcxk3zmpsmlfadyc7lsd69";
 2. Define the transaction details which includes the message to the contract (`MsgExecuteContract)` and sign and broadcast the transaction.
 
 ```javascript
-// Increment contract message to increase counter
 const tx = await secretjs.tx
         .broadcast(
           [
