@@ -1,4 +1,4 @@
-# VPS Compliance
+# VPS/Bare-Metal Compliance
 
 ## SGX Compliance for VPS options and the Secret Network <a href="#information-regarding-sgx-compliance-for-vps-options-and-the-secret-network" id="information-regarding-sgx-compliance-for-vps-options-and-the-secret-network"></a>
 
@@ -8,11 +8,11 @@ This is intended to guide you in selecting SGX-compliant VPS options for the Sec
 When renting a compliant bare metal machine from a VPS provider, ensure you do not accept any chassis or CPU substitutes they propose, unless those substitutes are on the [Hardware Compliance list](../hardware-compliance.md).
 {% endhint %}
 
-All cost estimates are based on the following recommendations as of September 2021:
+All cost estimates are based on the following recommendations:
 
 * Processor: E-series rather than E3 (due to age)
-* SSD: 1TB+
-* RAM: 32B+
+* SSD: 512GB+
+* RAM: 64GB+
 
 {% hint style="info" %}
 Just because a VPS is cheaper it does not make it better.
