@@ -68,8 +68,11 @@ echo "###############################################\n\n"
 if (($UBUNTUVERSION == 16)); then
    # Ubuntu 16 was deprecated by the latest Intel SGX drivers
    wget "https://download.01.org/intel-sgx/sgx-linux/2.13/distro/${OS}/sgx_linux_x64_driver_2.11.0_0373e2e.bin"
+elif (( $UBUNTUVERSION == 22 )); then 
+   # Ubuntu 22 is not supported in sgx-linux/v2.17
+   wget "https://download.01.org/intel-sgx/latest/linux-latest/distro/${OS}/sgx_linux_x64_driver_2.11.54c9c4c.bin"
 else
-   wget "https://download.01.org/intel-sgx/sgx-linux/2.17/distro/${OS}/sgx_linux_x64_driver_1.41.bin"
+   wget "https://download.01.org/intel-sgx/sgx-linux/2.17/distro/${OS}/sgx_linux_x64_driver_1.41.bin" 
 fi
 
 # Make the driver installer executable
@@ -105,17 +108,6 @@ echo "deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu $DISTRO
 wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key |
    sudo apt-key add -
 sudo apt update
-
-# Install libprotobuf - should not be necessary anymore
-# if (($UBUNTUVERSION > 18)); then
-#   sudo apt install -y gdebi
-#   # Install all the additional necessary dependencies (besides the driver and the SDK)
-#   # for building a rust enclave
-#   wget -O /tmp/libprotobuf30_3.19.4-1_amd64.deb https://engfilestorage.blob.core.windows.net/filestorage/libprotobuf30_3.19.4-1_amd64.deb
-#   yes | sudo gdebi /tmp/libprotobuf30_3.19.4-1_amd64.deb
-#else
-#   PSW_PACKAGES+=' libprotobuf-dev'
-#fi
 
 sudo apt install -y $PSW_PACKAGES
 ```
