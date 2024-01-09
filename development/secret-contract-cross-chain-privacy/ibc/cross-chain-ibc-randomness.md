@@ -7,7 +7,7 @@ description: >-
 # Cross-Chain (IBC) randomness
 
 {% hint style="warning" %}
-1/8/24: These docs are currently in progress&#x20;
+1/9/24: These docs are currently in progress&#x20;
 {% endhint %}
 
 ## Cross-chain random numbers demo
@@ -70,7 +70,7 @@ cd secret-ibc-rng-template/proxy
 Run the Makefile compile script:
 
 ```bash
-make build-mainnet
+make build-mainnet-reproducible
 ```
 
 Then upload + instantiate the contract in `secret-ibc-rng-template/node:`
@@ -87,6 +87,8 @@ Now that we have our Secret proxy contract, let's upload and instantiate the two
 You can configure the consumer contracts for any IBC-compatible chain of your choosing. However, for this demo will be uploading and instantiating our contracts on Juno.
 {% endhint %}
 
+**Compile Juno Proxy Contract**
+
 Open a new terminal window and `cd` into `secret-ibc-rng-template/consumer-side-proxy:`
 
 ```bash
@@ -96,39 +98,53 @@ cd secret-ibc-rng-template/consumer-side-proxy
 Run the Makefile compile script:
 
 ```bash
-make build-mainnet
+make build-mainnet-reproducible
 ```
 
-Repeat this process for the consumer contract.&#x20;
+**Compile Juno Consumer Contract**
+
+Open a new terminal window and `cd` into `secret-ibc-rng-template/consumer:`
+
+```bash
+cd secret-ibc-rng-template/consumer
+```
+
+Run the Makefile compile script:
+
+```bash
+make build-mainnet-reproducible
+```
+
+**Upload Juno Contracts**
 
 Next, upload the compiled `wasm` files to Juno testnet using [Juno Tools](https://test.juno.tools/contracts/upload/), and be sure to note the respective `codeIds:`
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-01-08 at 3.24.27 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
+You should see the `transaction result` returned upon successful upload.&#x20;
+
 #### Instantiate contracts
 
 {% hint style="info" %}
-If using the CLI, update to[ junod v16.0.0](https://docs.junonetwork.io/validators/getting-setup). If using js/ts, update [CosmJS to 0.31](https://github.com/scrtlabs/examples/blob/cfd1976e30cbe78a866386e27600526a5952add9/secret-ibc-rng-template/node/package.json#L14C37-L14C37).
+If using the CLI, update to junod v16.0. If using js/ts, update [CosmJS to 0.31](https://github.com/scrtlabs/examples/blob/cfd1976e30cbe78a866386e27600526a5952add9/secret-ibc-rng-template/node/package.json#L14C37-L14C37).
 {% endhint %}
 
 {% hint style="info" %}
-To upload the contracts to Juno testnet, you need Juno testnet tokens in your wallet. Visit faucet.reece.sh/uni-6/\<your Juno address> to get a payment
+To upload the contracts to Juno testnet, you need Juno testnet tokens in your wallet. Visit faucet.reece.sh/uni-6/\<your Juno address> to receive testnet tokens
 {% endhint %}
 
-Upon successful upload, you will see a success message, along with a transaction hash and code ID. Note the code ID for both contracts, as you will need this to instantiate the smart contracts on Juno.
-
-Next, instantiate the Juno proxy contract by running the following:
+Next, instantiate the Juno proxy contract by running the following in your terminal:
 
 {% code overflow="wrap" %}
 ```
-junod tx wasm instantiate <codeId> '{"init": {}' --label 'juno-proxy' --no-admin --from <your juno wallet> --gas 200000 -y --chain-id uni-6 --node https://uni-rpc.reece.sh:443 --gas-prices 0.025ujunox
+junod tx wasm instantiate <your-code-id> '{}' --label 'juno-proxy' --no-admin --from <your-wallet> --gas 200000 -y --chain-id uni-6 --node https://rpc.uni.junonetwork.io:443 --gas-prices 0.025ujunox
 ```
 {% endcode %}
 
 Then, to query that the instantiation was successful and find the contract address, query the returned `txHash` with:
 
 ```
-junod q tx <txHash> --node https://uni-rpc.reece.sh:443
+junod q tx <txHash> --node https://rpc.uni.junonetwork.io:443
 ```
 
 You should see the `contract_address` variable. Mine is `juno1ecl4r6dhhlluz56jqm24t6ss7s9gr6d0pu2lumvpwnnk56gnw7gqpz8m6c` 🙌
