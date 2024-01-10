@@ -6,10 +6,6 @@ description: >-
 
 # Cross-Chain (IBC) randomness
 
-{% hint style="warning" %}
-1/9/24: These docs are currently in progress&#x20;
-{% endhint %}
-
 ## Cross-chain random numbers demo
 
 This documentation serves as a demo on how to send **cross-chain random numbers from Secret Network testnet to Juno testnet via IBC**. The demo repository [can be cloned here](https://github.com/scrtlabs/examples/tree/master/secret-ibc-rng-template).
@@ -147,17 +143,35 @@ Then, to query that the instantiation was successful and find the contract addre
 junod q tx <txHash> --node https://rpc.uni.junonetwork.io:443
 ```
 
-You should see the `contract_address` variable. Mine is `juno1ecl4r6dhhlluz56jqm24t6ss7s9gr6d0pu2lumvpwnnk56gnw7gqpz8m6c` 🙌
-
-Now, simply repeat the process for the Juno Consumer contract. The only difference is that the instantiation message is slightly modified because it needs to include the other Juno contract address that we just instantiated as a pointer:
+You should see the `contract_address` variable:
 
 {% code overflow="wrap" %}
-```markup
-junod tx wasm instantiate <your code id> '{"init": {"rand_provider": { "address": <your juno contract address>, "code_hash": ""}}}' --label 'juno-consumer' --no-admin --from <your wallet name> --gas 300000 -y --chain-id uni-6 --node https://uni-rpc.reece.sh:443  --gas-prices 0.025ujunox
+```bash
+juno1r9awn4hek5s8kuvfm46kh775csqvhuzs00j8c0djaul5729s48usht3j0s 
 ```
 {% endcode %}
 
-My contract address is `juno1z4n39vfckeuv6udx6f4e6h8d5mt3xucuwdjs6lk2ets60ejruseqnpt00k` 🙌
+Now, simply repeat the process for the Juno Consumer contract. The only difference is that the instantiation message is slightly modified because it needs to include the other Juno `contract_address` that you instantiated as a pointer:
+
+{% code overflow="wrap" %}
+```markup
+junod tx wasm instantiate <your code id> '{"init": {"rand_provider": { "address": <your juno contract address>, "code_hash": ""}}}' --label 'juno-consumer' --no-admin --from <your wallet name> --gas 300000 -y --chain-id uni-6 --node https://rpc.uni.junonetwork.io:443 --gas-prices 0.025ujunox
+```
+{% endcode %}
+
+Query the returned `txHash:`
+
+```
+junod q tx <txHash> --node https://rpc.uni.junonetwork.io:443
+```
+
+You should see the `contract_address` variable:
+
+{% code overflow="wrap" %}
+```bash
+juno1sznkzlleqlxw8lp8hy66l0zg0fe8khgkeyqlfmlvdkutgxjw69xq7jm32t
+```
+{% endcode %}
 
 #### Configuring Hermes Relayer
 
@@ -171,7 +185,95 @@ Then, configure Hermes by navigating to the folder `.hermes` and opening the `co
 If you're on a Mac, you may need to press `Command + Shift + Period` to see hidden files, such as the `.hermes` folder.
 {% endhint %}
 
-To relay packets between Secret Network testnet and Juno testnet, update the `config.toml` file with the [configuration seen here](https://github.com/scrtlabs/examples/blob/master/secret-ibc-rng-template/config.toml).
+To relay packets between Secret Network testnet and Juno testnet, update the `config.toml` file with this configuration:
+
+```toml
+[global]
+log_level = 'info'
+
+[mode]
+
+[mode.clients]
+enabled = true
+refresh = true
+misbehaviour = true
+
+[mode.connections]
+enabled = true
+
+[mode.channels]
+enabled = true
+
+[mode.packets]
+enabled = true
+clear_interval = 100
+clear_on_start = true
+tx_confirmation = true
+
+[telemetry]
+enabled = true
+host = '127.0.0.1'
+port = 3001
+
+[[chains]]
+id = 'pulsar-3'
+type = 'CosmosSdk'
+rpc_addr = 'https://rpc.pulsar.scrttestnet.com:443'
+grpc_addr = 'http://grpcbin.pulsar.scrttestnet.com:9099'
+event_source = { mode = 'push', url = 'wss://rpc.pulsar.scrttestnet.com:443/websocket', batch_delay = '500ms' }
+rpc_timeout = '10s'
+account_prefix = 'secret'
+key_name = 'wallet'
+store_prefix = 'ibc'
+default_gas = 100000
+max_gas = 400000
+gas_multiplier = 1.1
+max_msg_num = 30
+max_tx_size = 180000
+clock_drift = '5s'
+max_block_time = '30s'
+memo_prefix = ''
+sequential_batch_tx = false
+trusting_period = '16hrs'
+
+[chains.trust_threshold]
+numerator = '1'
+denominator = '3'
+
+[chains.gas_price]
+price = 0.1
+denom = 'uscrt'
+
+[chains.packet_filter]
+policy = 'allow'
+list = [['wasm.*', '*'], ['transfer', '*']]
+
+[[chains]]
+id = 'uni-6'
+rpc_addr = 'https://juno-testnet-rpc.polkachu.com:443'
+grpc_addr = 'http://juno-testnet-grpc.polkachu.com:12690'
+event_source = { mode = 'push', url = 'wss://juno-testnet-rpc.polkachu.com:443/websocket', batch_delay = '500ms' }
+rpc_timeout = '10s'
+account_prefix = 'juno'
+key_name = 'wallet'
+address_type = { derivation = 'cosmos' }
+store_prefix = 'ibc'
+default_gas = 1800000
+max_gas = 9000000
+gas_price = { price = 0.026, denom = 'ujunox' }
+gas_multiplier = 1.2
+max_msg_num = 30
+max_tx_size = 179999
+clock_drift = '15s'
+max_block_time = '10s'
+trusting_period = '448h'
+memo_prefix = 'relayed by CryptoCrew Validators'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[chains.packet_filter]
+policy = 'allow'
+list = [['wasm.*', '*'], ['transfer', '*']]
+```
 
 Next, configure Gaiad Manager by navigating to the folder `.gm`, and then update the gm.toml file with the [configuration seen here.](https://github.com/scrtlabs/examples/blob/master/secret-ibc-rng-template/gm.toml)
 
@@ -193,14 +295,42 @@ Now it's time to execute our IBC smart contracts and relay packets between Juno 
 gm start
 ```
 
-2. Create clients
+2. Add your Secret and Juno testnet wallets to Hermes:&#x20;
+
+`cd` into `examples/secret-ibc-rng-template:`
+
+```bash
+cd examples/secret-ibc-rng-template
+```
+
+and update the `a.mnemonic` file to include your testnet wallet address like so:
 
 ```
+your mnemonic wallet words to go here with no quotes
+```
+
+Then run the following to add your testnet wallet address to Hermes:&#x20;
+
+{% code overflow="wrap" %}
+```bash
+hermes keys add --hd-path "m/44'/529'/0'/0/0" --mnemonic-file a.mnemonic --chain pulsar-3
+
+hermes keys add --hd-path "m/44'/529'/0'/0/0" --mnemonic-file a.mnemonic --chain uni-6
+```
+{% endcode %}
+
+{% hint style="info" %}
+If you run into errors at this step, see the official Hermes docs for adding keys [here](https://hermes.informal.systems/documentation/commands/keys/index.html).&#x20;
+{% endhint %}
+
+3. Create clients
+
+```bash
 hermes create client --host-chain pulsar-3 --reference-chain uni-6
 hermes create client --host-chain uni-6 --reference-chain pulsar-3
 ```
 
-3. Create connections
+4. Create connections
 
 {% code overflow="wrap" %}
 ```
@@ -216,26 +346,26 @@ Upon success, you should see a message like so:
 
 <figure><img src="../../../.gitbook/assets/hermes connection id.png" alt="" width="332"><figcaption></figcaption></figure>
 
-Now that a channel is established, let's create a channel identifier, which links the Juno proxy contract to the Secret proxy contract. Note that the ports listed below are the addresses of the Juno and Secret proxy contracts which we instantiated earlier.
+Now that a channel is established, let's create a channel identifier, which links the Juno proxy contract to the Secret proxy contract. **Note that** **the ports listed below are the addresses of the Juno and Secret proxy contracts which we instantiated earlier.**
 
-4. Create channel identifier
+5. Create channel identifier
 
 {% code overflow="wrap" %}
-```
+```bash
 hermes create channel --a-chain uni-6 --a-connection connection-612 --a-port wasm.juno1ecl4r6dhhlluz56jqm24t6ss7s9gr6d0pu2lumvpwnnk56gnw7gqpz8m6c --b-port wasm.secret1rmccmgwf6zf2kawrv7h5faq3tx883epz7ty6tj
 ```
 {% endcode %}
 
 After successfully creating a channel identifier, we can relay packets! Let's start Hermes and then execute the Juno consumer contract to send a random network from Secret Network to Juno 🤯
 
-5. Start Hermes (open a new terminal window and then run the following)
+6. Start Hermes (open a new terminal window and then run the following)
 
 ```
 hermes start 
 ```
 
 {% hint style="info" %}
-Hermes will scan the chain for all clients, connections and channels. This might take some time, which is normal. If you want to specify which channels it scans, update the hermes config file to include the following at the [end of the chain configuration](https://github.com/scrtlabs/examples/blob/24f516d2d92ae292aab85d2007e5704f844d8b5c/secret-ibc-rng-template/config.toml#L82) (but with your channel info):
+Hermes will scan the chain for all clients, connections and channels. This might take some time, which is normal. If you want to specify which channels it scans, update the hermes config file to include the following at the end of the chain configuration:
 {% endhint %}
 
 ```
@@ -249,8 +379,8 @@ list = [
 After Hermes has started running, execute the Juno consumer contract to return a random number from Secret via IBC:
 
 {% code overflow="wrap" %}
-```
-junod tx wasm execute --from <your wallet name> juno1z4n39vfckeuv6udx6f4e6h8d5mt3xucuwdjs6lk2ets60ejruseqnpt00k '{"do_something": {}}' --gas 300000 -y --chain-id uni-6 --node https://uni-rpc.reece.sh:443 --gas-prices 0.025ujunox
+```bash
+junod tx wasm execute --from <your wallet name> juno1z4n39vfckeuv6udx6f4e6h8d5mt3xucuwdjs6lk2ets60ejruseqnpt00k '{"do_something": {}}' --gas 300000 -y --chain-id uni-6 --node https://rpc.uni.junonetwork.io:443 --gas-prices 0.025ujunox
 ```
 {% endcode %}
 
@@ -258,7 +388,7 @@ Then, query the smart contract to see if it returned the random number:
 
 {% code overflow="wrap" %}
 ```
-junod query wasm contract-state smart juno1z4n39vfckeuv6udx6f4e6h8d5mt3xucuwdjs6lk2ets60ejruseqnpt00k '{"last_random": {}}' --chain-id uni-6 --node https://uni-rpc.reece.sh:443 
+junod query wasm contract-state smart <your-contract-address> '{"last_random": {}}' --chain-id uni-6 --node https://rpc.uni.junonetwork.io:443 
 ```
 {% endcode %}
 
