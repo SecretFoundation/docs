@@ -13,10 +13,6 @@ If you're running a local machine or bare-metal and not a cloud-based VM -
 
 #### Install SGX <a href="#install-sgx" id="install-sgx"></a>
 
-{% hint style="info" %}
-`sgx_linux_x64_driver_1.41.bin` is the latest driver as of March 9th, 2023. Please check under [https://download.01.org/intel-sgx/sgx-linux/](https://download.01.org/intel-sgx/sgx-linux/) that this is still the case. If not, please send us a PR or notify us.
-{% endhint %}
-
 If you are a node runner all you must do to install SGX is to save this as a script and run it.
 
 #### Download the SGX install script
