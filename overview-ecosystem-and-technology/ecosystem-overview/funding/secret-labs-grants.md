@@ -14,7 +14,7 @@ Interested developers may submit applications and get more information about the
 ## How to apply for a Grant
 
 {% hint style="info" %}
-_If you need help with applying for a grant or want to connect with Business development then please reach out to: SCRT Labs (_[_info@scrtlabs.com_](mailto:info@scrtlabs.com)_) or_ [_the Secret Agency_](../contributors-and-entities/secret-agency.md)_._
+_If you need help with applying for a grant or want to connect with Business development then please reach out to: SCRT Labs (_[_info@scrtlabs.com_](mailto:info@scrtlabs.com)_)  or_ [_Secret Network Foundation_](../contributors-and-entities/secret-foundation.md)_._
 {% endhint %}
 
 ### Funding Amounts
