@@ -84,7 +84,7 @@ The main action is in the transaction creation, specifically with the `otherIBCC
 The auto-wrapping feature comes into play in the `memo` field of the transaction. This field carries a JSON object that instructs the wrap deposit contract on how to handle the incoming tokens. The instructions include:
 
 * `wrap_deposit`: Indicates the action to be taken is a deposit wrap.
-* `snip20_address` and `snip20_code_hash`: Details of the SNIP-20 token on Secret Network. See [secret-token-contracts.md](../../../resources-api-contract-addresses/secret-token-contracts.md "mention") for the exact details for each token.
+* `snip20_address` and `snip20_code_hash`: Details of the SNIP-20 token on Secret Network. See [secret-token-contracts.md](../../resources-api-contract-addresses/secret-token-contracts.md "mention") for the exact details for each token.
 * `recipient_address`: The address on the Secret Network where the wrapped token should be sent to.
 
 This auto-wrapping mechanism is a powerful feature of the Secret Network. When the SNIP-20 tokens are transferred via IBC to another chain (like the Secret Network), they are automatically wrapped into a Secret Token (a privacy-preserving token on the Secret Network). This wrapping is done by the wrap deposit contract specified in the `memo` field.
