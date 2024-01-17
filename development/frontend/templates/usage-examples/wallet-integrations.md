@@ -43,8 +43,9 @@ Notes:
 
 1. MetaMask supports mobile!
 2. MetaMask supports Ledger.
-3. You might want to pass `encryptionSeed` to `SecretNetworkClient.create()` to use the same encryption key for the user across sessions. This value should be a true random 32 byte number that is stored securly in your app, such that only the user can decrypt it. This can also be a `sha256(user_password)` but might impair UX.
-4. See Keplr's [`getOfflineSignerOnlyAmino()`](https://secretjs.scrt.network/#windowkeplrgetofflinesigneronlyamino) for list of unsupported transactions.
+3. Secretjs `MetaMaskWallet` will automatically prompt the user to sign a `personal_sign` message, which is used to recover the users public key and derive the user's Secret Network address.&#x20;
+4. You might want to pass `encryptionSeed` to `SecretNetworkClient.create()` to use the same encryption key for the user across sessions. This value should be a true random 32 byte number that is stored securly in your app, such that only the user can decrypt it. This can also be a `sha256(user_password)` but might impair UX.
+5. See Keplr's [`getOfflineSignerOnlyAmino()`](https://secretjs.scrt.network/#windowkeplrgetofflinesigneronlyamino) for list of unsupported transactions.
 
 <figure><img src="https://secretjs.scrt.network/media/metamask-signing-example.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
