@@ -6,15 +6,15 @@ description: >-
 
 # EVM Confidential Voting
 
-{% hint style="danger" %}
-**These docs are currently in progress: 1.17.24**
-{% endhint %}
-
 ## Intro
 
-In this tutorial you will learn **how to encrypt and decrypt votes on the EVM** with Secret Network smart contracts so that you can build confidential voting on any EVM chain of your choosing. To learn more about Secret Network encryption, see the EVM encryption docs [here](evm-encryption-decryption-with-secret-contracts.md#encryption-scheme-overview).&#x20;
+In this tutorial you will learn **how to encrypt and decrypt votes on the EVM** with Secret Network smart contracts so that you can build confidential voting on any EVM chain of your choosing.&#x20;
 
-You will start by configuring your developer environment, and then learn how to generate cryptographic keys in a Secret Network smart contract which you will then use to encrypt votes on the EVM.&#x20;
+{% hint style="success" %}
+See a [live demo here](https://private-voting.vercel.app/), configured for Polygon testnet!
+{% endhint %}
+
+You will start by configuring your developer environment, and then learn how to generate cryptographic keys in a Secret Network smart contract which you will then use to encrypt votes on the EVM. To learn more about Secret Network encryption, see the EVM encryption docs [here](evm-encryption-decryption-with-secret-contracts.md#encryption-scheme-overview).&#x20;
 
 ## Getting Started
 
@@ -129,7 +129,7 @@ node get_keys
 
 Which returns your public key as a `string`:&#x20;
 
-```bash
+```markup
 2,251,34,75,188,184,127,245,254,38,103,132,60,248,107,222,239,201,55,224,56,34,139,127,66,213,21,19,126,68,113,76,233
 ```
 
