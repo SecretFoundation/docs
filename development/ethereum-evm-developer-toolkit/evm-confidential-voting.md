@@ -8,13 +8,18 @@ description: >-
 
 ## Intro
 
-In this tutorial you will learn **how to encrypt and decrypt votes on the EVM** with Secret Network smart contracts so that you can build confidential voting on any EVM chain of your choosing.&#x20;
+In this tutorial you will learn **how to encrypt and decrypt votes on the EVM** with Secret Network smart contracts so that you can build confidential voting on any EVM chain of your choosing. You will be working with two smart contracts:
+
+1. [EVM smart contract](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/polygon/contracts/PrivateVoting.sol) deployed on Polygon testnet (voting contract)
+2. [Secret Network smart contract](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/secret-network/src/contract.rs) deployed on Secret testnet (decryption contract)
+
+**The EVM contract stores encrypted proposals and votes, and the Secret contract decrypts the stored votes and reveals them in a query.**&#x20;
 
 {% hint style="success" %}
-See a [live demo here](https://private-voting.vercel.app/), configured for Polygon testnet!
+See a [live demo here](https://private-voting.vercel.app/), configured for Polygon testnet! _(To use the demo, make sure Polygon testnet is added to your Metamask wallet)_&#x20;
 {% endhint %}
 
-You will start by configuring your developer environment, and then learn how to generate cryptographic keys in a Secret Network smart contract which you will then use to encrypt votes on the EVM. To learn more about Secret Network encryption, see the EVM encryption docs [here](evm-encryption-decryption-with-secret-contracts.md#encryption-scheme-overview).&#x20;
+You will start by configuring your developer environment and then learn how to generate cryptographic keys in a Secret Network smart contract which you will use to encrypt votes on the EVM. To learn more about Secret Network encryption, see the EVM encryption docs [here](evm-encryption-decryption-with-secret-contracts.md#encryption-scheme-overview).&#x20;
 
 ## Getting Started
 
@@ -76,6 +81,21 @@ Compile the Secret Network smart contract:
 ```bash
 make build-mainnet
 ```
+
+{% hint style="info" %}
+If you are on a Mac and run into compilation error:
+
+`error occurred: Command “clang”`
+
+Make sure you have the [latest version](https://developer.apple.com/download/applications/) of Xcode installed and then update your clang path by running the following in your terminal:&#x20;
+
+\
+`cargo clean`
+
+`AR=/opt/homebrew/opt/llvm/bin/llvm-ar CC=/opt/homebrew/opt/llvm/bin/clang cargo build --release --target wasm32-unknown-unknown`\
+\
+See [here](https://github.com/rust-bitcoin/rust-secp256k1/issues/283#issuecomment-1670222980) for instructions on updating your clang path.&#x20;
+{% endhint %}
 
 `cd` into examples/evm-confidential-voting/secret-network/node
 
@@ -196,7 +216,7 @@ For testing purposes, set `quorum` to 1 unless you want to test with multiple wa
     }
 ```
 
-Open `create_proposal.js` and update the [proposal\_description](https://github.com/scrtlabs/examples/blob/ca921897da6ec7e075b36ae9c39eb20f0d4a01c1/evm-confidential-voting/polygon/scripts/create\_proposal.js#L11) to a "yes" or "no" question of your choice:
+Open `create_proposal.js` and update the [proposal\_description](https://github.com/scrtlabs/examples/blob/d80bb3a801bdedf12f314fd373e92b4f1768562c/evm-confidential-voting/polygon/scripts/create\_proposal.js#L11) to a "yes" or "no" question of your choice:
 
 ```javascript
 const proposal_description = "Do you love Secret?";
@@ -217,9 +237,13 @@ Create Proposal function executed successfully!
 
 You can query the proposal by running `query_by_proposal_id`:
 
-```
+```bash
 npx hardhat --network polygon run ./scripts/query_by_proposal_id.js
 ```
+
+{% hint style="info" %}
+Be sure to update the `proposalId` in [query\_by\_proposal\_id.js](https://github.com/scrtlabs/examples/blob/9c4d965b02501b07276cf2c9ba3f9f783a4e4bc1/evm-confidential-voting/polygon/scripts/query\_by\_proposal\_id.js#L31) with the `proposalId` you want to query!
+{% endhint %}
 
 Which returns your proposal:&#x20;
 
@@ -233,7 +257,7 @@ Each time you create a proposal, the **`proposalId`** is incremented by 1. Your 
 
 ### Vote on Proposal
 
-Now it's time to vote on the proposal you created. Open `vote.js` and update your proposal answer to either "yes" or "no" in the `msg object:`&#x20;
+Now it's time to vote on the proposal you created. Open [`vote.js`](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/polygon/scripts/vote.js) and update your proposal answer to either "yes" or "no" in the `msg object:`&#x20;
 
 ```javascript
 let msg = {
@@ -244,7 +268,11 @@ let msg = {
   };
 ```
 
-`proposal.id` and `proposal.description` will match the proposal info you input for `getProposalById`:&#x20;
+`proposal.id` and `proposal.description` will match the proposal info you input for `getProposalById.`&#x20;
+
+{% hint style="info" %}
+**This means that each time you vote, you need to make sure you update the `proposal_id` number that you pass to `getProposalById()` so that it matches the proposal you want to vote on!**&#x20;
+{% endhint %}
 
 ```javascript
 let proposal = await getProposalById(1);
@@ -277,13 +305,17 @@ vote function executed successfully!
 
 ## Decrypt Votes
 
-Now it's time to decrypt your vote! First, query that the vote was successfully added to the proposal:&#x20;
+Now it's time to decrypt your vote! First, query that the vote was successfully added to the proposal by running `query_proposal_votes.js`: &#x20;
+
+{% hint style="info" %}
+Be sure to update the [`proposalId`](https://github.com/scrtlabs/examples/blob/0281fc4bef181e583a88c938107287df35c335d2/evm-confidential-voting/polygon/scripts/query\_proposal\_votes.js#L25) with the proposal you want to query.&#x20;
+{% endhint %}
 
 ```bash
 npx hardhat --network polygon run ./scripts/query_proposal_votes.js
 ```
 
-It should return your encrypted vote for the supplied `proposalId`:&#x20;
+`query_proposal_vote` returns your encrypted vote for the supplied `proposalId`:&#x20;
 
 ```bash
 [
@@ -297,6 +329,10 @@ Run `decrypt.js` to decrypt the vote:&#x20;
 npx hardhat --network polygon run ./scripts/decrypt.js
 ```
 
+{% hint style="info" %}
+In [`decrypt.js`](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/polygon/scripts/decrypt.js#L29), update the [`proposalId`](https://github.com/scrtlabs/examples/blob/bb3fc88b9e1f0d835bd6bd73502eca07fa02f6ed/evm-confidential-voting/polygon/scripts/decrypt.js#L29) with the proposal you want to query.&#x20;
+{% endhint %}
+
 Which returns your decrypted vote:
 
 ```bash
@@ -306,3 +342,7 @@ Which returns your decrypted vote:
   ]
 }
 ```
+
+### Conclusion
+
+Congrats! You have now deployed smart contracts on Polygon and Secret Network and implemented private cross-chain voting. If you have any questions or run into any issues, post them on the [Secret Developer Discord ](https://discord.gg/secret-network-360051864110235648)and somebody will assist you shortly.&#x20;
