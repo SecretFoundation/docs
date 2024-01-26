@@ -2,15 +2,15 @@
 
 For the Secret Network testnet (secret-4) side, the gateway contract information are:
 
-* Gateway contract code id: `1463`
-* Gateway contract address:`secret1kf57plgph0xr7xvegkugscdva5q6j9zwfd0c5u`
-* Gateway contract code hash: `91eeb3f504b1af53775659e7b945835f249d25f2721bf562e3dca0be27a8109d`
-* Gateway encryption key for ChaChaPoly1305: `AqAuKQ9tFucpAn0M6EIfyuYFzfclfq07s7OUycD2L8R/`
-* Public key: `0x04a02e290f6d16e729027d0ce8421fcae605cdf7257ead3bb3b394c9c0f62fc47fce170ea365223065ba8344097aad61726dee6facb98999762393d16e34ebb310`
-* Derived Ethereum Address from Public Key: `0x74667D4C5c3adDb6473CB63C4aA061867F0c68d5`
+* Gateway contract code id: `1533`
+* Gateway contract address: `secret1qzk574v8lckjmqdg3r3qf3337pk45m7qd8x02a`
+* Gateway contract code hash:  `012dd8efab9526dec294b6898c812ef6f6ad853e32172788f54ef3c305c1ecc5`
+* Gateway encryption key for ChaChaPoly1305: `AqDWMqzQ0vXaAvw4XqMKjeq01WOdGoIaOlUmJa0PF1nQ`
+* Public key: `0x04a0d632acd0d2f5da02fc385ea30a8deab4d5639d1a821a3a552625ad0f1759d0d2e80ca3adb236d90caf1b12e0ddf3a351c5729b5e00505472dca6fed5c31e2a`
+* Derived Ethereum Address from Public Key: `0x88e43F4016f8282Ea6235aC069D02BA1cE5417aB`
 
 The RNG contract that provides the Randomness is:
 
-* RNG contract code id: `1464`
-* RNG contract address:`secret13dxefu2d5g30spr35j4fu40vyu3cmt26pffqh0`
-* RNG contract code hash: `ba0006753cb18a8b12fe266707289098bfb8a3ae83de54ecece591231ada2abf`
+* RNG contract code id: `1534`
+* RNG contract address: `secret16pcjalfuy72r4k26r4kn5f5x64ruzv30knflwx`
+* RNG contract code hash: `49ffed0df451622ac1865710380c14d4af98dca2d32342bb20f2b22faca3d00d`

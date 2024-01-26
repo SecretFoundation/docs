@@ -2,15 +2,15 @@
 
 For the Secret Network testnet (pulsar-3) side, the gateway contract information are:
 
-* Gateway contract code id: `3313`
-* Gateway contract address:`secret1avl4z06scwwwrfhdhuggm736f0smgdd2cjjs2v`
-* Gateway contract code hash: `91eeb3f504b1af53775659e7b945835f249d25f2721bf562e3dca0be27a8109d`
-* Gateway encryption key for ChaChaPoly1305: `AsvIdMTvI519MvPWUqHk3DOCmhyDy33XfObKoyvsVheT`
-* Public key: `0x04cbc874c4ef239d7d32f3d652a1e4dc33829a1c83cb7dd77ce6caa32bec5617936a857e8a48a628c254998308b5cc7e5fa506728de7988d5e50554ea1201c008a`
-* Derived Ethereum Address from Public Key: `0x9BEb147dADd9c246B5443Ca89fB56a612236aeEb`
+* Gateway contract code id: `3375`
+* Gateway contract address: `secret10ex7r7c4y704xyu086lf74ymhrqhypayfk7fkj`
+* Gateway contract code hash: `012dd8efab9526dec294b6898c812ef6f6ad853e32172788f54ef3c305c1ecc5`
+* Gateway encryption key for ChaChaPoly1305: `A20KrD7xDmkFXpNMqJn1CLpRaDLcdKpO1NdBBS7VpWh3`
+* Public key: `0x046d0aac3ef10e69055e934ca899f508ba516832dc74aa4ed4d741052ed5a568774d99d3bfed641a7935ae73aac8e34938db747c2f0e8b2aa95c25d069a575cc8b`
+* Derived EVM Address from Public Key: `0x2821E794B01ABF0cE2DA0ca171A1fAc68FaDCa06`
 
 The RNG contract that provides the Randomness is:
 
-* RNG contract code id: `3314`
-* RNG contract address:`secret1udj6x7393y73xr5pevu4u30tuy9j650ljfm25d`
-* RNG contract code hash: `ba0006753cb18a8b12fe266707289098bfb8a3ae83de54ecece591231ada2abf`
+* RNG contract code id: `3376`
+* RNG contract address:`secret1fxs74g8tltrngq3utldtxu9yys5tje8dzdvghr`
+* RNG contract code hash: `49ffed0df451622ac1865710380c14d4af98dca2d32342bb20f2b22faca3d00d`
