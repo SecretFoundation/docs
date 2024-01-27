@@ -14,7 +14,7 @@ There are 2 important things that must be done for each node:
 
 ### Setup
 
-This process assumes you already have a full node running. If you do not, proceed by [Setting Up a Full Node](../node-setup/setup-full-node.md), then returning.
+This process assumes you already have a full node running. If you do not, proceed by [Setting Up a Full Node](../../node-runners/node-setup/setup-full-node.md), then returning.
 
 #### 1. Create a User
 
@@ -35,7 +35,7 @@ secretd status
 
 #### 3. Begin Setting up a Node
 
-On the new user, execute steps 1 and 2 of [Setting Up a Full Node](../node-setup/setup-full-node.md). You should now have a `.secretd` directory on the new user, and the correct genesis file.
+On the new user, execute steps 1 and 2 of [Setting Up a Full Node](../../node-runners/node-setup/setup-full-node.md). You should now have a `.secretd` directory on the new user, and the correct genesis file.
 
 #### 4. Register the Node
 
@@ -92,7 +92,7 @@ EOF
 
 At this point, all unique behavior for additional nodes is complete! :tada:
 
-From here, you can return to[ step 9](../node-setup/setup-full-node.md) of setting up a full node. Note that the service file name is different. The following is what the system file commands would look like.
+From here, you can return to[ step 9](../../node-runners/node-setup/setup-full-node.md) of setting up a full node. Note that the service file name is different. The following is what the system file commands would look like.
 
 ```
 sudo systemctl daemon-reload && sudo systemctl enable secretd && \

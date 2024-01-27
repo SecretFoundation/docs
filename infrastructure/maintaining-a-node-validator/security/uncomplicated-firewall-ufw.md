@@ -56,14 +56,20 @@ sudo ufw limit ssh/tcp
 
 Allow 26656 for a p2p networking port to connect with the Tendermint network; unless you manually specified a different port.
 
-```
+```bash
 sudo ufw allow 26656
 ```
 
 Allow 1317 if you are running a public LCD endpoint from this node. Otherwise, you can skip this.
 
-```
+```bash
 sudo ufw allow 1317
+```
+
+Allow 26657 if you are running a public RPC endpoint from this node. Otherwise, you can skip this.
+
+```bash
+sudo ufw allow 26657
 ```
 
 ### Enable UFW Firewall <a href="#enable-ufw-firewall" id="enable-ufw-firewall"></a>
