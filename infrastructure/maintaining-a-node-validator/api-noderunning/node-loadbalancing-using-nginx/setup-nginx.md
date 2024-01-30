@@ -1,4 +1,4 @@
-# Node Loadbalancing using Nginx
+# Setup Nginx
 
 ### **Login and User Setup**
 
@@ -51,7 +51,7 @@ sudo rm -rf /etc/nginx/nginx.conf
 sudo nano /etc/nginx/nginx.conf
 ```
 
-* Replace the contents with your load balancer configuration.
+* Replace the contents with your load balancer configuration. You can use the [example-nginx-config.md](example-nginx-config.md "mention") as a starting point.
 * Modify RPC/LCD/gRPC server entries and domain names as required.
 * Save and exit the editor (`CTRL + X`, then `Y` to confirm, and `Enter` to save).
 
@@ -76,7 +76,7 @@ sudo apt-get install certbot
 sudo apt-get install python3-certbot-nginx
 ```
 
-2. **Obtain SSL Certificate**:
+2. **Obtain the SSL Certificate for your domain**:
 
 ```bash
 sudo certbot --nginx -d your_domain.com
