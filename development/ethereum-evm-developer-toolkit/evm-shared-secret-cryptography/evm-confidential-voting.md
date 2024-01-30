@@ -55,7 +55,7 @@ npm install
 
 Update the `env` [file](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/polygon/.env) with your Secret Network wallet mnemonic, EVM wallet private key, and [Infura](https://www.infura.io/) API key:
 
-<figure><img src="../../.gitbook/assets/confidential voting env.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/confidential voting env.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Make sure your Infura API key is configured for Polygon Matic testnet 😎
@@ -127,7 +127,7 @@ contract address:  secret1lft908ws8h034zpa6y2gsq2shpsksekl05gqgq
 
 Update the `env` file with your `codeHash` and contract `address`:&#x20;
 
-<figure><img src="../../.gitbook/assets/confidential voting env - updated.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/confidential voting env - updated.png" alt=""><figcaption></figcaption></figure>
 
 ## Execute Secret Network Smart Contract
 

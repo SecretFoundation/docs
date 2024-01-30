@@ -14,7 +14,7 @@ In this tutorial you will learn **how to pass encrypted messages from EVM blockc
 
 _The following encryption scheme is used to make sure the information passed from the end user to the Secret contract and back is always encrypted in transit and cannot be read by anyone._
 
-<figure><img src="../../.gitbook/assets/UML diagram (1).png" alt=""><figcaption><p>EVM encryption scheme</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/UML diagram (1).png" alt=""><figcaption><p>EVM encryption scheme</p></figcaption></figure>
 
 1. An ECDH public/private key pair is generated in a Secret smart contract.&#x20;
 2. An additional ECDH public/private key pair is generated in our front end on the user's side
@@ -46,7 +46,7 @@ npm install
 
 Create a `dotenv` [file](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/.env) and add your **Metamask private key, Infura API key, and Secret Network wallet mnemonic**:
 
-<figure><img src="../../.gitbook/assets/encrypt env.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/encrypt env.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 * These environment variables are used in the [hardhat.config.js](https://github.com/scrtlabs/examples/blob/master/EVM-encrypt-decrypt/polygon/hardhat.config.js) file in order to execute a smart contract deployed on Polygon testnet. If you need polygon testnet tokens to execute the contract, refer to the Polygon Mumbai faucet [here](https://faucet.quicknode.com/polygon/mumbai).&#x20;
@@ -56,7 +56,7 @@ Create a `dotenv` [file](https://github.com/scrtlabs/examples/blob/master/EVM-en
 
 Be sure to use an Infura API key for **Polygon Mumbai** like so:&#x20;
 
-<figure><img src="../../.gitbook/assets/infura api.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/infura api.png" alt=""><figcaption></figcaption></figure>
 
 ### Upload Polygon Contract
 
@@ -206,7 +206,7 @@ You can now find this transaction on [Polygonscan](evm-encryption-decryption-wit
 
 View the transaction on Axelarscan to monitor its status:
 
-<figure><img src="../../.gitbook/assets/axelarscan.png" alt=""><figcaption><p>Axelarscan transaction status</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/axelarscan.png" alt=""><figcaption><p>Axelarscan transaction status</p></figcaption></figure>
 
 **Once you see the transaction has been "executed" on Axelarscan**, proceed to the next step of the documentation to learn how to decrypt the message. 😊
 

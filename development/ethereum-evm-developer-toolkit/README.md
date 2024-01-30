@@ -1,16 +1,16 @@
 ---
 description: >-
-  Learn how to use Axelar General Message Passing in order to send messages
-  between EVM chains and Secret Network
+  Learn how to use Secret Network's EVM Toolkit to design dApps with
+  confidential computing on the EVM.
 ---
 
 # Ethereum (EVM) Developer Toolkit
 
-## Axelar General Message Passing&#x20;
+## Privacy as a Service with Secret Network Contracts&#x20;
 
-[Axelar](https://docs.axelar.dev/dev/intro) enables secure interchain communication and token transfers, spanning consensus methods including Cosmos and Ethereum. Through the use of General Message Passing (GMP), developers building on Ethereum can execute smart contracts on Secret and vice versa. This means complete composability across Web3.
+Secret Network contracts have ushered in a new era of confidential computing for EVM chains. We currently have 3 privacy solutions for EVM developers looking to bring privacy to their applications:
 
-With GMP you can:
+1. **Axelar General Message Passing (GMP):** Send cross-chain messages from an EVM chain to Secret Network and vice versa.
+2. **EVM Shared Secret Cryptography:** Use Secret smart contracts to encrypt messages on any EVM chain with Elliptic Curve Diffie Hellman (ECDH) cryptography.
+3. **Snakepath:** On-chain randomness for the EVM.
 
-* Call a contract on chain B from chain A.
-* Call a contract on chain B from chain A and attach some tokens.
