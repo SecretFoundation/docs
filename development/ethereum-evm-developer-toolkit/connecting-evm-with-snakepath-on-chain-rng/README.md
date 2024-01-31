@@ -1,4 +1,4 @@
-# Connecting EVM with Snakepath (On Chain Randomness)
+# 🐍 Connecting EVM with Snakepath (on-chain RNG)
 
 {% hint style="info" %}
 Need help with using Snakepath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.

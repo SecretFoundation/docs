@@ -4,7 +4,7 @@ description: >-
   between EVM chains and Secret Network
 ---
 
-# Axelar GMP
+# 💌 Axelar GMP
 
 ## Axelar General Message Passing&#x20;
 

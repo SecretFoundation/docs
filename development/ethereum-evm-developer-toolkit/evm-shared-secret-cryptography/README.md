@@ -4,7 +4,7 @@ description: >-
   contract.
 ---
 
-# EVM Shared Secret Cryptography
+# 🤫 EVM Shared Secret Cryptography
 
 ## Overview
 
