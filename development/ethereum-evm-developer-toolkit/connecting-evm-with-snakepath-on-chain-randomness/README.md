@@ -1,4 +1,8 @@
-# Connecting EVM with Snakepath (TNLS)
+# Connecting EVM with Snakepath (On Chain Randomness)
+
+{% hint style="info" %}
+Need help with using Snakepath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
+{% endhint %}
 
 Snakepath is a protocol for lightweight, secure, privacy preserving message-passing between chains. Its purpose is to serve as a critical building block for bringing private data onchain in a useful yet privacy-preserving manner.
 
@@ -10,7 +14,11 @@ Ultimately, Snakepath enables the building of new applications that combine the 
 
 In the upcoming days, more docs on how to use Snakepath will be provided here.&#x20;
 
-You can try a demo of Snakepath that bridges Secret VRF here: [vrfdemo.secretsaturn.net](https://vrfdemo.secretsaturn.net)
+1. [architecture-overview.md](architecture-overview.md "mention")
+2. [gateway-contracts](gateway-contracts/ "mention")
 
-1. [evm-mainnet](evm-mainnet/ "mention")
-2. [evm-testnet](evm-testnet/ "mention")
+The following sections provide a detailed technical overview of the _current_ relayer and gateway architecture for Snakepath. _As an average user_, all you need to know is how to send messages to one gateway/receive messages from a gateway, which will be covered in those respective documentation sections. _As a maintainer_, you might want to look more closely at the relayer section of the codebase as well.
+
+You can try a demo of Snakepath that bridges Secret VRF into EVMs here: [vrfdemo.secretsaturn.net](https://vrfdemo.secretsaturn.net)
+
+This documentation was taken from [https://fortress-labs.gitbook.io/snakepath](https://fortress-labs.gitbook.io/snakepath) and the curtesy of Leor Fishman.
