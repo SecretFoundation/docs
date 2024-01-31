@@ -4,7 +4,7 @@ description: >-
   between EVM chains and Secret Network
 ---
 
-# EVM General Message Passing
+# 📨 EVM General Message Passing
 
 In this tutorial, you will learn how to use Axelar GMP to send a `string` **between Polygon and Secret testnets**. To learn more about the flow architecture, [see the Axelar documentation here](https://docs.axelar.dev/dev/general-message-passing/overview#steps).&#x20;
 

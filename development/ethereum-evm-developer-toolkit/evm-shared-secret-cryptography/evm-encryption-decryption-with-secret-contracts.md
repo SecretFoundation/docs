@@ -4,7 +4,7 @@ description: >-
   contract using Axelar GMP.
 ---
 
-# EVM Encryption/Decryption with Secret Contracts
+# 🛡 EVM Encryption/Decryption with Secret Contracts
 
 ## EVM Encryption on Secret Network
 

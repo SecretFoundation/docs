@@ -4,7 +4,7 @@ description: >-
   numbers.
 ---
 
-# RNG EVM Developer Tutorial
+# 💻 RNG EVM Developer Tutorial
 
 ## Overview
 

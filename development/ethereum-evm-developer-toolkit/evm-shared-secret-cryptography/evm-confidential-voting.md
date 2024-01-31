@@ -4,7 +4,7 @@ description: >-
   on Polygon testnet.
 ---
 
-# EVM Confidential Voting
+# 📝 EVM Confidential Voting
 
 ## Intro
 
