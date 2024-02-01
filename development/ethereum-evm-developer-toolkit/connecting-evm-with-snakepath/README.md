@@ -1,4 +1,4 @@
-# 🐍 Connecting EVM with Snakepath (on-chain RNG)
+# 🐍 Connecting EVM with Snakepath
 
 {% hint style="info" %}
 Need help with using Snakepath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
@@ -12,12 +12,17 @@ _Snakepath itself does not store or compute over data_. Rather, it connects publ
 
 Ultimately, Snakepath enables the building of new applications that combine the transparency, UX, and latency benefits of public blockchains with the trust-minimized and private computation features of privacy-preserving blockchains.
 
-In the upcoming days, more docs on how to use Snakepath will be provided here.&#x20;
+In the upcoming days, more docs on how to use Snakepath will be provided here.
+
+The following sections provide a detailed technical overview of the _current_ relayer and gateway architecture for Snakepath.&#x20;
 
 1. [architecture-overview.md](architecture-overview.md "mention")
-2. [gateway-contracts](gateway-contracts/ "mention")
+2. [rng-evm-developer-tutorial](rng-evm-developer-tutorial/ "mention")
+3. [gateway-contracts](gateway-contracts/ "mention")
 
-The following sections provide a detailed technical overview of the _current_ relayer and gateway architecture for Snakepath. _As an average user_, all you need to know is how to send messages to one gateway/receive messages from a gateway, which will be covered in those respective documentation sections. _As a maintainer_, you might want to look more closely at the relayer section of the codebase as well.
+_As an user and developer_, all you need to know is how to send messages to one gateway/receive messages from a gateway, which will be covered in those respective documentation sections. More tutorials with encrypted payloads are coming soon.
+
+_As a maintainer_, you might want to look more closely at the relayer section of the codebase as well.
 
 You can try a demo of Snakepath that bridges Secret VRF into EVMs here: [vrfdemo.secretsaturn.net](https://vrfdemo.secretsaturn.net)
 
