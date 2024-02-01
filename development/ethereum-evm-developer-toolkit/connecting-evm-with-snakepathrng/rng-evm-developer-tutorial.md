@@ -172,7 +172,7 @@ The query will return info about your transaction for the given `task_id`:&#x20;
 
 Now, open [Polygonscan for the Mumbai proxy contract](https://mumbai.polygonscan.com/address/0x5e16dbd2728d66b4189b2e3aab71837683dfd2d7#writeProxyContract) and then input the returned query info into the `postExecution` field:&#x20;
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2024-01-31 at 2.16.24 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-01-31 at 2.16.24 PM.png" alt=""><figcaption></figcaption></figure>
 
 Once you have entered your transaction info, select "Write" to execute the transaction.&#x20;
 
