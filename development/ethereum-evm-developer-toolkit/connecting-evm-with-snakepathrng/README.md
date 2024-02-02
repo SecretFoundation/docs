@@ -17,7 +17,7 @@ In the upcoming days, more docs on how to use Snakepath will be provided here.
 The following sections provide a detailed technical overview of the _current_ relayer and gateway architecture for Snakepath.&#x20;
 
 1. [architecture-overview.md](architecture-overview.md "mention")
-2. [rng-evm-developer-tutorial.md](rng-evm-developer-tutorial.md "mention")
+2. [evm-rng-developer-tutorial](../connecting-evm-with-snakepath/evm-rng-developer-tutorial/ "mention")
 3. [gateway-contracts](gateway-contracts/ "mention")
 
 _As an user and developer_, all you need to know is how to send messages to one gateway/receive messages from a gateway, which will be covered in those respective documentation sections. More tutorials with encrypted payloads are coming soon.

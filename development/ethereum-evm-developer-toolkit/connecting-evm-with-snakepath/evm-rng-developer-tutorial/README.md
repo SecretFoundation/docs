@@ -4,14 +4,14 @@ description: >-
   numbers.
 ---
 
-# 💻 RNG EVM Developer Tutorial
+# 💻 EVM RNG Developer Tutorial
 
 ## Overview
 
-SecretVRF over Snakepath enables EVM developers to access **on-chain verifiable random numbers** at a fraction of the cost and block time of traditional RNG oracles such as ChainlinkVRF. With fewer than 100 lines of code, you will have access to an infinite supply of randomness. Let'sssss go! [🐍](https://emojipedia.org/snake)
+[SecretVRF](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness) over Snakepath enables EVM developers to access **on-chain verifiable random numbers** at a fraction of the cost and block time of traditional RNG oracles such as ChainlinkVRF. With fewer than 100 lines of code, you will have access to an infinite supply of randomness. Let'sssss go! [🐍](https://emojipedia.org/snake)
 
 {% hint style="info" %}
-To learn how Snakepath message passing works underneath the hood, refer to the whitepaper [here](https://uploads-ssl.webflow.com/632b43ea48475213272bcef4/632dd73d6dfc1b0cba06bbd6\_Snakepath\_whitepaper.pdf). 🤓
+To learn how SecretVRF works underneath the hood, refer to the docs [here](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness). 🤓
 {% endhint %}
 
 ### Getting Started   &#x20;
@@ -172,7 +172,7 @@ The query will return info about your transaction for the given `task_id`:&#x20;
 
 Now, open [Polygonscan for the Mumbai proxy contract](https://mumbai.polygonscan.com/address/0x5e16dbd2728d66b4189b2e3aab71837683dfd2d7#writeProxyContract) and then input the returned query info into the `postExecution` field:&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-01-31 at 2.16.24 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2024-01-31 at 2.16.24 PM.png" alt=""><figcaption></figcaption></figure>
 
 Once you have entered your transaction info, select "Write" to execute the transaction.&#x20;
 
