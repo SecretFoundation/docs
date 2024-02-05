@@ -1,6 +1,6 @@
 # Secret network v1.9
 
-* New Feature: [Randomness injection for secret contracts](../secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness.md).
+* New Feature: [Randomness injection for secret contracts](../secret-contract-fundamentals/secret-vrf-on-chain-randomness.md).
   * Eliminates the need for contracts to bootstrap their own entropy pool.
   * Unique for every contract call.
   * Useful in lotteries, gaming, secure authentication protocols, protocols where unpredictable outcomes are essential for fairness and security, and much more. For more infomation on how to use this feature, see the documentation

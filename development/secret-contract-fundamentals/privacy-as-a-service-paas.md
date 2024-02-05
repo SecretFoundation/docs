@@ -22,7 +22,7 @@ The below design paradigms are separated based on the data flow in the app. The 
 
 The first design pathway only takes data from a Secret contract but is non-interactive beyond that. This means implementing use cases in this path can be considered relatively simple by leveraging IBC, Axelar GMP or other cross-chain messaging solutions.
 
-In this dApp design scheme, we see Secret as a blackbox that has data accessible useful to any other chain on request. The requested data will have to be transferred publicly. The best example is on-chain randomness via [Secret-VRF](available-native-features-modules/secret-vrf-on-chain-randomness.md).&#x20;
+In this dApp design scheme, we see Secret as a blackbox that has data accessible useful to any other chain on request. The requested data will have to be transferred publicly. The best example is on-chain randomness via [Secret-VRF](secret-vrf-on-chain-randomness.md).&#x20;
 
 By leveraging a slightly altered version of Tendermint and the Secure Enclave of every validator, Secret managed to create a truly random number generator on-chain. Every block and every contract call, the number is different and the numbers are verifiable via a callback after the block finalises. A developer on another blockchain can design a lottery completely on-chain by determining the random outcome using Secret-vrf. Simply make a contract on the consumer chain that requests a random-number (over IBC) from a Secret contract. Make sure the lottery entries close before requesting the number as it will arrive over public channels after the block closes on Secret. The number is now used within the contract on the consumer chain to assign the winner; no data has to return to the Secret contract.
 

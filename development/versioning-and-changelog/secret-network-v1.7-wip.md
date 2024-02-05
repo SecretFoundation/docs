@@ -14,7 +14,7 @@ Fixed a critical bug in 1.7.0 that prevented new nodes from joining the network 
     * Voting time: 24 hours
     * Voting treshhold: 2/3 yes to pass
   * If an expedited proposal fails to meet the threshold within the scope of shorter voting duration, the expedited proposal is then converted to a regular proposal and restarts voting under regular voting conditions.
-* Added [auto-restaking](../secret-contract-fundamentals/available-native-features-modules/auto-restaking.md) - an opt-in feature that enables automatic compounding of staking rewards
+* Added [auto-restaking](../secret-contract-fundamentals/auto-restaking.md) - an opt-in feature that enables automatic compounding of staking rewards
 * Added [light-client validation](../secret-contract-fundamentals/secret-contracts.md) for blocks
   * Protects against leaking private data using an offline fork attack
   * Enables trusted block heights and block time to be relied on by contracts

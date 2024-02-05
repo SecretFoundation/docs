@@ -4,9 +4,9 @@
 
 Secret contracts are an awesome tool for native account abstraction. This all comes down to the fact that Secret-contracts can store (parts of) private keys in their state without revealing them to other network participants or observers.\
 \
-This concept was first thought out by scrt labs in a proof of concept multiple years ago \[Code], then uttilised by Alter for easy log-in ([as explained here](../privacy-as-a-service-paas.md#2.-authentication-via-secret-contracts-ex.-web-auth-login-threshold-wallets)), but the newest version uses novel additive HE and MPC to create a form of Unstoppable Threshold wallets [\[Code\]](https://github.com/scrtlabs/unstoppable-secrets). This proof of concept is now taken by [obi.money](https://obi.money) and [primevault](https://www.primevault.com/) to develop walletless experiences and secure threshold wallets for the next million users.
+This concept was first thought out by scrt labs in a proof of concept multiple years ago \[Code], then uttilised by Alter for easy log-in ([as explained here](privacy-as-a-service-paas.md#2.-authentication-via-secret-contracts-ex.-web-auth-login-threshold-wallets)), but the newest version uses novel additive HE and MPC to create a form of Unstoppable Threshold wallets [\[Code\]](https://github.com/scrtlabs/unstoppable-secrets). This proof of concept is now taken by [obi.money](https://obi.money) and [primevault](https://www.primevault.com/) to develop walletless experiences and secure threshold wallets for the next million users.
 
-Obi.money can help you setup smart accounts for your Secret dApp already, feel free to reach out to them!
+**Obi.money can help you setup smart accounts for your Secret dApp already, feel free to reach out to them!**
 
 **Want to learn more about Unstoppable wallets?** - Watch [this talk](https://www.youtube.com/watch?v=vFhjn6TcVJc) from the SCRT labs CEO and Secret Network founder Guy Zyskind at Gateway to Cosmos Prague 2023.
 

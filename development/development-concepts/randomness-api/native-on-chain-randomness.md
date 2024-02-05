@@ -8,7 +8,7 @@ description: >-
 
 In this tutorial, you will learn how to access the randomness feature and use it with a smart contract that returns a truly random coin flip 🎉
 
-For a detailed feature explainer head to the [network technical documentation](../../secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness.md)
+For a detailed feature explainer head to the [network technical documentation](../../secret-contract-fundamentals/secret-vrf-on-chain-randomness.md)
 
 ### Import Secret VRF
 
