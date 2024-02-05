@@ -10,7 +10,7 @@ Secret has integrations with the following wallets:
 * Cosmostation
 * Citadel.One
 
-You can check out app.shadeprotocol.io or dash.scrt.network to try out these various wallets. Documentation for wallet integration is available here: [https://secretjs.scrt.network/#integrations](https://secretjs.scrt.network/#integrations)\
+You can check out app.shadeprotocol.io or dash.scrt.network to try out these various wallets. Documentation for wallet integration is available here: [https://docs.scrt.network/secret-network-documentation/development/frontend/templates/usage-examples/wallet-integrations](https://docs.scrt.network/secret-network-documentation/development/frontend/templates/usage-examples/wallet-integrations)\
 
 
 {% hint style="info" %}
