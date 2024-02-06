@@ -71,8 +71,6 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 
 ### Podcasts
 
-* [Sharing Secrets](https://www.youtube.com/watch?v=-l-c25mhE1M\&list=PLL1JDiTNCUAVq9YeGbxDtqBgaqUZajGIH)
-  * Hosted by [Tor Bair](https://twitter.com/TorBair/)
 * [Secret Code](https://www.secretcodepodcast.com/)
   * Hosted by [Eric Waisanen](https://twitter.com/EricWaisanen) and [Paul Menexas](https://twitter.com/SecretKnight) ([Twitter](https://twitter.com/secretcodepod))
 * [Agents of the Round Table](https://linktr.ee/scrt\_aotrt)
