@@ -2,7 +2,7 @@
 
 ### How to reach consensus for a Secret transaction - The flow of a user's data
 
-The following process is based on how Tendermint works to reach consensus in a standard app chain but with specificity related to the privacy features of Secret Network. Please note that Secret Network is permissionless, validators and nodes can join the network at any time. For more information on how Encrypted data is handled read: [Steps of a Private transaction](broken-reference).
+The following process is based on how Tendermint works to reach consensus in a standard app chain but with specificity related to the privacy features of Secret Network. Please note that Secret Network is permissionless, validators and nodes can join the network at any time.&#x20;
 
 1. Developers write and deploy Secret Contracts which are executed by the validators, the binary for these contracts is public.
 2. Users submit transactions to the mempool — which can include encrypted data inputs

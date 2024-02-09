@@ -8,13 +8,10 @@ The decentralized network of computers that host Secret Network come to a consen
 
 Secret brings privacy to the Interchain by leveraging CosmWasm IBC compatible smart contracts and IBC native token bridging.
 
-**Learn more about the Secret Network technology by exploring our Website learn pages:**
-
-{% embed url="https://scrt.network/about/about-secret-network" %}
+**Learn more about the Secret Network technology by exploring our** [**Website**](https://scrt.network/about/about-secret-network/)**.**
 
 **Dive in deep by exploring our detailed documentation of the Secret Network technology stack:**
 
-* [Steps Of A Private Transactions](broken-reference) - overview
 * [Blockchain technology](../techstack/blockchain-technology/)
   * [CosmWasm Smart contracts](../techstack/blockchain-technology/cosmwasm.md)
   * [Inter-Blokchain Communication (IBC)](../techstack/blockchain-technology/ibc.md)
