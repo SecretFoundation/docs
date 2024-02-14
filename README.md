@@ -16,7 +16,4 @@ Secret Network offers scalable permissionless smart contracts with a private by 
 * [Blog](https://scrt.network/blog/)
 * [Homepage](https://scrt.network/)
 
-**Secret Network is free software**\
-Everyone can participate on the open source software of Secret Network. You can redistribute it and/or modify it under the terms of the [Public License](https://github.com/scrtlabs/SecretNetwork/blob/master/LICENSE).
-
 Get the latest version: [https://github.com/scrtlabs/SecretNetwork](https://github.com/scrtlabs/SecretNetwork)
