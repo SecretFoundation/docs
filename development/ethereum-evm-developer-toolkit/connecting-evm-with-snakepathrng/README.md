@@ -12,17 +12,16 @@ _Snakepath itself does not store or compute over data_. Rather, it connects publ
 
 Ultimately, Snakepath enables the building of new applications that combine the transparency, UX, and latency benefits of public blockchains with the trust-minimized and private computation features of privacy-preserving blockchains.
 
-In the upcoming days, more docs on how to use Snakepath will be provided here.
-
 The following sections provide a detailed technical overview of the _current_ relayer and gateway architecture for Snakepath.&#x20;
 
-1. [architecture-overview.md](architecture-overview.md "mention")
-2. [evm-rng-developer-tutorial](../connecting-evm-with-snakepath/evm-rng-developer-tutorial/ "mention")
-3. [gateway-contracts](gateway-contracts/ "mention")
+1. To get an overview of the Architecture go here: [architecture-overview.md](architecture-overview.md "mention")
+2. If you like to use SecretVRF in the most elegant way for you as an EVM developer, go here:[evm-rng-developer-tutorial](../connecting-evm-with-snakepath/evm-rng-developer-tutorial/ "mention")
+3. If you like to [evm-with-encrypted-payloads](../connecting-evm-with-snakepath/evm-with-encrypted-payloads/ "mention")
+4. [gateway-contracts](gateway-contracts/ "mention")
 
 _As an user and developer_, all you need to know is how to send messages to one gateway/receive messages from a gateway, which will be covered in those respective documentation sections. More tutorials with encrypted payloads are coming soon.
 
-_As a maintainer_, you might want to look more closely at the relayer section of the codebase as well.
+_As a maintainer_, you might want to look more closely at the relayer section of the codebase as well here: [https://github.com/SecretSaturn/TNLS](https://github.com/SecretSaturn/TNLS)
 
 You can try a demo of Snakepath that bridges Secret VRF into EVMs here: [vrfdemo.secretsaturn.net](https://vrfdemo.secretsaturn.net)
 

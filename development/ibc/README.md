@@ -4,5 +4,5 @@ description: >-
   to handle authentication and transport of data between blockchains.
 ---
 
-# IBC
+# 🌈 IBC & Secret Network
 

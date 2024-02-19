@@ -62,19 +62,28 @@ function requestRandomnessTest(uint32 _numWords, uint32 _callbackGasLimit) exter
 }
 ```
 
-The callback gas is the amount of gas that you have to pay for the message coming on the way back. If you do pay less than the amount speficified below, your Gateway TX will fail:&#x20;
+The callback gas is the amount of gas that you have to pay for the message coming on the way back. If you do pay less than the amount specified below, your Gateway TX will fail:&#x20;
 
-<pre class="language-solidity"><code class="lang-solidity">/// @notice Increase the task_id to check for problems 
+```solidity
+/// @notice Increase the task_id to check for problems 
 /// @param _callbackGasLimit the Callback Gas Limit
 
 function estimateRequestPrice(uint32 _callbackGasLimit) private view returns (uint256) {
-<strong>    uint256 baseFee = _callbackGasLimit*block.basefee;
-</strong>    return baseFee;
+    uint256 baseFee = _callbackGasLimit*block.basefee;
+    return baseFee;
 }
+```
 
-</code></pre>
+Since this check is dependent on the current `block.basefee` of the block it is included in, it is recommended that you estimate the gas fee beforehand and add some extra overhead to it. An example of how this can be implemented in your frontend can be found in this [example](https://github.com/SecretSaturn/VRFDemo/blob/6f396e7174fcad297e26455e11b1fa3814ceea16/src/submit.ts#L124) and here:&#x20;
 
-Since this check is dependent on the current block.basefee of the block it is included, it is recommended that you estimate the gas fee beforehand and add some extra overhead. An example of how this can be implemented can be found here.&#x20;
+```javascript
+//Then calculate how much gas you have to pay for the callback
+//Forumla: callbackGasLimit*block.basefee.
+//Use an appropriate overhead for the transaction, 1,5x = 3/2 is recommended since gasPrice fluctuates.
+
+const gasFee = await provider.getGasPrice();
+const amountOfGas = gasFee.mul(callbackGasLimit).mul(3).div(2);
+```
 
 ## Wait for the callback
 

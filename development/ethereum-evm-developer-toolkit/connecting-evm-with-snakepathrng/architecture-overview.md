@@ -2,7 +2,7 @@
 
 <figure><img src="../../../.gitbook/assets/tnls_architecture-2.png" alt=""><figcaption><p>Architectual overview of Snakepath (TNLS). Taken from <a href="https://fortress-labs.gitbook.io/snakepath/high-level-architecture">https://fortress-labs.gitbook.io/snakepath/high-level-architecture</a>.</p></figcaption></figure>
 
-Snakepath consists of two core primitives: **relayer(s)** and **gateways**.
+Snakepath consists of two core primitives: **relayers** and **gateways**.
 
 Gateways are the onchain smart contracts that handle the broadcasting, receipt, packaging, and verification of messages. Gateways are also the mechanism by which application developers will interface with the Snakepath protocol.
 
