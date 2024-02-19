@@ -2,9 +2,13 @@
 description: Verifiable on-chain random number generator for the entire Cosmos.
 ---
 
-# Secret VRF for IBC
+# Secret VRF for IBC with IBC-Hooks
 
 ## Secret VRF (Verifiable Random Function)
+
+{% hint style="info" %}
+This VRF tutorial uses IBC Hooks, as introduced in [IBC v3.4.0](https://medium.com/the-interchain-foundation/moving-beyond-simple-token-transfers-d42b2b1dc29b). If your chain is on a previous IBC version, see the SecretVRF tutorial using proxy contracts here.&#x20;
+{% endhint %}
 
 Secret VRF is a provably fair and verifiable on-chain random number generator (RNG) that enables smart contracts to access random values without compromising security or usability. Coupled with cross-chain interoperable smart contracts using [IBC hooks](https://docs.scrt.network/secret-network-documentation/development/ibc/ibc-hooks), Secret Network enables developers and projects across the Cosmos access to state-of-the-art on-chain RNG.&#x20;
 
