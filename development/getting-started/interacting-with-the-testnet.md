@@ -4,7 +4,7 @@ description: >-
   secret.js
 ---
 
-# Interacting with the Network
+# Compile and Deploy on Secret testnet (best for Javascript devs)
 
 ### What is Secret.js? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
 
@@ -60,7 +60,7 @@ Start by opening the `my-counter-contract` project folder in your text editor. I
 2. In your `my-counter-contract/node` folder, create a new javascript file––I chose to name mine`index.js`.
 3. Run `npm init -y` to create a package.json file.
 4. Add `"type" : "module"` to your package.json file.
-5. Install secret.js and dotenv: `npm i secretjs@^1.7.1-beta.2 dotenv`
+5. Install secret.js and dotenv: `npm i secretjs dotenv`
 6. Create a `.env` file in your `node` folder, and add the variable `MNEMONIC` along with your wallet address seed phrase, like so:
 
 <pre><code><strong>MNEMONIC=grant rice replace explain federal release fix clever romance raise often wild taxi quarter soccer fiber love must tape steak together observe swap guitar
