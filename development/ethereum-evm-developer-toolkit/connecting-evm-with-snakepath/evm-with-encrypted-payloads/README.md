@@ -13,4 +13,4 @@ The key for this symmetric encryption is created by using the [Elliptic-curve Di
 
 Combining both of these keys together via the ECDH Scheme yields our encryption key, which we use to encrypt the payload with ChaCha20-Poly1305.
 
-As a first example for this we have used Snakepath to request random numbers using an encrypted payload to mask the requested number of words and the callback gas limit. It is closely tied to the [evm-rng-developer-tutorial](../evm-rng-developer-tutorial/ "mention") to demonstrate how encrypted payloads change the UI/UX flow and what tools you need for deployment.
+As a first example for this we have used Snakepath to request random numbers using an encrypted payload to mask the requested number of words and the callback gas limit. It is closely tied to the [evm-rng-developer-tutorial.md](../evm-rng-developer-tutorial.md "mention") to demonstrate how encrypted payloads change the UI/UX flow and what tools you need for deployment.

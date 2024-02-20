@@ -15,7 +15,7 @@ Ultimately, Snakepath enables the building of new applications that combine the 
 The following sections provide a detailed technical overview of the _current_ relayer and gateway architecture for Snakepath.&#x20;
 
 1. To get an overview of the Architecture go here: [architecture-overview.md](architecture-overview.md "mention")
-2. If you like to use SecretVRF in the most elegant way for you as an EVM developer, go here:[evm-rng-developer-tutorial](../connecting-evm-with-snakepath/evm-rng-developer-tutorial/ "mention")
+2. If you like to use SecretVRF in the most elegant way for you as an EVM developer, go here:[evm-rng-developer-tutorial.md](../connecting-evm-with-snakepath/evm-rng-developer-tutorial.md "mention")
 3. If you like to [evm-with-encrypted-payloads](../connecting-evm-with-snakepath/evm-with-encrypted-payloads/ "mention")
 4. [gateway-contracts](gateway-contracts/ "mention")
 

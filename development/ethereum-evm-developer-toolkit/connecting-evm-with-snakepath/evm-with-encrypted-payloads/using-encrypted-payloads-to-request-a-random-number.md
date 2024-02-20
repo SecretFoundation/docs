@@ -21,6 +21,19 @@ import {ecdh, chacha20_poly1305_seal} from "@solar-republic/neutrino";
 import {bytes, bytes_to_base64, json_to_bytes, sha256, concat, text_to_bytes, base64_to_bytes} from '@blake.regalia/belt';
 ```
 
+In your `vite.config.ts` in your project, you need to add the support for `bigInt` into your esbuildOptions:
+
+```typescript
+optimizeDeps: { 
+    esbuildOptions: { 
+        target: "esnext", 
+        supported: { 
+        bigint: true 
+        }, 
+    } 
+}
+```
+
 ## Defining variables&#x20;
 
 To start, we first define all of our variables that we need for the encryption, as well as the gateway information:&#x20;
@@ -69,9 +82,78 @@ const gatewayPublicKeyBytes = base64_to_bytes(gatewayPublicKey);
 const sharedKey = await sha256(ecdh(userPrivateKeyBytes, gatewayPublicKeyBytes));
 ```
 
-## Define the Callback information & data for the secret contract
+## Define the Calldata for the secret contract & Callback information&#x20;
 
-... to be continued
+Next, you define all of the information that you need for calling the private contract on Secret + add the callback information for the message on its way back.&#x20;
+
+We begin by defining the function that we are going to call on the private secret contract, here it's `request_random` . Next, we add the parameters/calldata for this function, which is `("{ numWords: Number(numWords) }"`and convert it into a JSON string.&#x20;
+
+Next, we define the callback Information. In this case, we are using the gateway contract as an example callback. Here, you would typically put in your own custom callback address and callback selector in.
+
+```typescript
+//the function name of the function that is called on the private contract
+const handle = "request_random"
+
+//data are the calldata/parameters that are passed into the contract 
+const data = JSON.stringify({ numWords: Number(numWords) })
+    
+const callbackAddress = publicClientAddress.toLowerCase();
+//This is an empty callback for the sake of having a callback in the sample code.
+//Here, you would put your callback selector for you contract in. 
+const callbackSelector = iface.getSighash(iface.getFunction("upgradeHandler"))
+const callbackGasLimit = Number(callback_gas_limit)
+```
+
+After defining the contract call and callback, we now construct the payload:
+
+```typescript
+//payload data that are going to be encrypted
+const payload = {
+      data: data,
+      routing_info: routing_contract,
+      routing_code_hash: routing_code_hash,
+      user_address: myAddress,
+      user_key: bytes_to_base64(userPublicKeyBytes),
+      callback_address: bytes_to_base64(arrayify(callbackAddress)),
+      callback_selector: bytes_to_base64(arrayify(callbackSelector)),
+      callback_gas_limit: callbackGasLimit,
+}
+```
+
+## Encrypting the Payload
+
+Next, we encrypt the payload using ChaCha20-Poly1305. Then, we hash the encrypted payload into a `ciphertextHash` that Metamask will sign using `personal_sign`.
+
+```typescript
+//build a Json of the payload 
+const payloadJson = JSON.stringify(payload); 
+const plaintext = json_to_bytes(payload);
+//generate a nonce for ChaCha20-Poly1305 encryption 
+//DO NOT skip this, stream cipher encryptions are only secure with a random nonce!
+const nonce = crypto.getRandomValues(bytes(12));
+
+//Encrypt the payload using ChachaPoly1305 and concat the ciphertext+tag to fit the Rust ChaChaPoly1305 requirements
+const [ciphertextClient, tagClient] = chacha20_poly1305_seal(sharedKey, nonce, plaintext);
+const ciphertext = concat([ciphertextClient, tagClient]);
+
+//get Metamask to sign the payloadhash with personal_sign
+const ciphertextHash = keccak256(ciphertext)
+```
+
+## Signing the Payload with Metamask
+
+```typescript
+//this is what metamask really signs with personal_sign, it prepends the ethereum signed message here
+const payloadHash = keccak256(concat([
+      text_to_bytes("\x19Ethereum Signed Message:\n32"),
+      arrayify(ciphertextHash),
+]))
+//this is what we provide to metamask
+const msgParams = ciphertextHash;
+const from = myAddress;
+const params = [from, msgParams];
+const method = 'personal_sign';
+```
 
 ## Estimate the Callback Gas
 
@@ -98,3 +180,4 @@ const gasFee = await provider.getGasPrice();
 const amountOfGas = gasFee.mul(callbackGasLimit).mul(3).div(2);
 ```
 
+To be continued...

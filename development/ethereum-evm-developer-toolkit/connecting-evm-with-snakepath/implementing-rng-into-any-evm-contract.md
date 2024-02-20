@@ -1,4 +1,8 @@
-# Implementing RNG into any EVM Contract
+# 👨💻 Implementing RNG into any EVM Contract
+
+For a detailed demonstration, you can watch our video tutorial available here:
+
+[![Cross-chain Randomness | HackSecret 2024 Developer Workshop](https://img.youtube.com/vi/\_BwgZiGWmlw/0.jpg)](https://www.youtube.com/watch?v=\_BwgZiGWmlw)
 
 After we've gone through an extensive example on how our example contract works, here's how to implement SecretVRF via Snakepath in your own contract in 4 easy steps:&#x20;
 
@@ -15,7 +19,7 @@ interface ISecretVRF {
 
 ## Set the SecretVRF gateway contract&#x20;
 
-Second, set your gateway address to the Secret VRF Gateways that you can find [evm-testnet](../../connecting-evm-with-snakepathrng/gateway-contracts/evm-testnet/ "mention") and [evm-mainnet](../../connecting-evm-with-snakepathrng/gateway-contracts/evm-mainnet/ "mention"). You only need to make sure that your contract knows the correct SecretVRF Gateway address, for example:
+Second, set your gateway address to the Secret VRF Gateways that you can find [evm-testnet](../connecting-evm-with-snakepathrng/gateway-contracts/evm-testnet/ "mention") and [evm-mainnet](../connecting-evm-with-snakepathrng/gateway-contracts/evm-mainnet/ "mention"). You only need to make sure that your contract knows the correct SecretVRF Gateway address, for example:
 
 ```solidity
 /// @notice VRFGateway stores address to the Gateway contract to call for VRF
