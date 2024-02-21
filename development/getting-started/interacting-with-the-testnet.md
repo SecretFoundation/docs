@@ -136,6 +136,10 @@ You now have secret.js imported, a `wallet` variable that points to your wallet 
 
 Note the **chainId** and the **url** that we are using. This chainId and url are for the **Secret Network testnet**. If you want to upload to LocalSecret or Mainnet instead, all you would need to do is swap out the chainId and url. [A list of alternate API endpoints can be found here.](https://docs.scrt.network/secret-network-documentation/development/connecting-to-the-network)
 
+{% hint style="info" %}
+When connecting to a local node, you must indicate a port, which is `1317`
+{% endhint %}
+
 ```javascript
 const secretjs = new SecretNetworkClient({
   chainId: "pulsar-3",

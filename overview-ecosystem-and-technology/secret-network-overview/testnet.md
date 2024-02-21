@@ -2,17 +2,15 @@
 
 ## **Introduction**
 
-A **testnet** network is an almost identical copy of a blockchain that serves as an alternative specifically made for **testing** without affecting the operation of the original network (**mainnet**).
+A testnet network is an almost identical copy of a blockchain that serves as an alternative specifically made for testing without affecting the operation of the original network (mainnet).
 
-Secret Network has its own testnets which are an essential tool for the development of Dapps and mainnet blockchain upgrades. The testnet is not just a **test environment**(sandbox) for programmers and builders. It is available for all users and can be used to **learn** how to interact with the Secret Network blockchain **without fear of (financial) consequences**.
-
-In this step-by-step guide I’ll show you how to connect to a testnet with Keplr and SecretCLI, get some tokens through a **faucet** and finally interact with secret applications.
+In this step-by-step guide I’ll show you how to connect to a testnet with Keplr and SecretCLI, receive tokens through a faucet, and interact with secret applications.
 
 ## **Set Up With Keplr**
 
-The easy way to use a testnet is via the Keplr wallet browser extension, you can install it and set it up by following [this guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet) or [this video](https://www.youtube.com/watch?v=HgFWNJdD7-U\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4\_Uwwdg\&index=3). For safety reasons we recommend using a separate secondary wallet for testing purposes (read [this article](https://medium.com/@secretnetwork/how-to-avoid-scams-and-stay-safe-in-defi-b7309e123a7b) to learn about the best practices to stay safe in Secret Defi).
+The easy way to use a testnet is via the Keplr wallet browser extension, you can install it and set it up by following [this guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet) or [this video](https://www.youtube.com/watch?v=HgFWNJdD7-U\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4\_Uwwdg\&index=3). For safety reasons we recommend using a separate secondary wallet for testing purposes.
 
-Once you have saved your mnemonic phrase you can connect to the **pulsar-3** chain. The pulsar chain is hosted by the Secret Network testnet team which updates it periodically to make sure it’s in parallel with the current mainnet version.
+Once you have saved your mnemonic phrase you can connect to the pulsar-3 chain.&#x20;
 
 * Go to [https://keplr-connect-pulsar3.vercel.app](https://keplr-connect-pulsar3.vercel.app) and click on the Keplr button
 * Click “**approve**” once the Keplr window pops up to add the chain config
@@ -31,7 +29,7 @@ You have now successfully added the Secret Testnet to your wallet and you’re r
 
 ## Faucet
 
-The fastest and easiest way to get some test SCRT into your wallet is to use **faucets** which are tools that distribute a standard amount of tokens to a specific address.
+The fastest and easiest way to get some test SCRT into your wallet is to use faucets which are tools that distribute a standard amount of tokens to a specific address.
 
 Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.
 
@@ -39,13 +37,13 @@ Remember that all tokens on the Secret Testnet have **no real value** as they’
 * Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
   ![](<../../.gitbook/assets/testnetguide\_3 (1).png>)
 
-In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance, otherwise the faucet may be down and in that case you can use the [backup faucet](http://bootstrap.pulsar3.scrtlabs.com:5000/address=secret1), or let the #secret-testnet channel know on the Secret Network discord, and they should be able to send some your way.
+In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance.
 
 ## **Set Up SecretCLI**
 
 To have access to all the testnet functionalities and to develop you can connect using **SecretCLI**, a desktop client tool to interact with the blockchain from the console.
 
-* Install and configure SecretCLI by following [this tutorial](https://docs.scrt.network/)
+* Install and configure SecretCLI by following this [tutorial](https://www.youtube.com/watch?v=m64c\_3fui3o\&ab\_channel=SecretNetwork)
 *   Open your terminal and run the following commands to connect to pulsar-3 and add your wallet:
 
     ```
@@ -57,19 +55,6 @@ To have access to all the testnet functionalities and to develop you can connect
 * Paste your wallet’s mnemonic phrase when asked to do so
 
 You can always change the parameters to connect to alternative APIs and testnets. You can find the full list of testnets, APIs, faucets and explorers on the [official github repository](../../development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-3.md).
-
-## **Secret Tokens**
-
-On top of that 100 SCRT, the faucet sends you a basket of Secret Tokens that you can only view by generating a new viewing key.
-
-* Search for a token that you want to view the amount of on [this list](https://docs.griptapejs.com/hackathon/glossary#tokens)
-* Copy the **contract address**
-* Open your Keplr extension and click on the hamburger menu on the top left
-* Select “**Add Token**”
-* Paste the address and click “**Submit**” and approve the transaction (you can set high fees as it’s paid in test SCRT)\
-  ![](<../../.gitbook/assets/testnetguide\_4 (1).png>)
-* You should now be able to see the Secret Token balance on your Keplr extension under the section “**Tokens**”\
-  ![](<../../.gitbook/assets/testnetguide\_5 (1).png>)
 
 ## **Interact With Dapps**
 
