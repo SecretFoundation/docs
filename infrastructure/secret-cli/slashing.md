@@ -1,6 +1,6 @@
 # Slashing
 
-A user can query and interact with the `slashing` module using the CLI. For more information about how slashing works on the Secret Network go to the [Node Runners](../maintaining-a-node-validator/node-runners.md) page and look for the '[Slashing For Downtime](../maintaining-a-node-validator/node-runners.md#slashing-for-downtime)' section.
+A user can query and interact with the `slashing` module using the CLI. For more information about how slashing works on the Secret Network go to the [Node Runners](../node-runners/) page and look for the '[Slashing For Downtime](../node-runners/#slashing-for-downtime)' section.
 
 See [Slashing](https://docs.cosmos.network/main/modules/slashing/) for the official Cosmos Network module documentation.
 

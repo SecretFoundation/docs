@@ -25,7 +25,7 @@
   * Run by the testnet committee
 * [Ping Dashboard - pulsar-3](https://testnet.ping.pub/secret/)
   * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub
-* [Documentation](../../infrastructure/setting-up-a-node-validator/testnet/)
+* [Documentation](../../infrastructure/node-runners/testnet/)
 
 ### Bots
 

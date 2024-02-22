@@ -49,7 +49,7 @@ The compiler only allows one mutable reference to the underlying storage to be v
 
 ### Example
 
-Let's solve [the password problem](prefixed-storage.md#the-problem) that was mentioned above with prefixed storage. The solution to this problem resembles [viewing keys for permissioned viewing](../../../development-concepts/permissioned-viewing/viewing-keys.md). You will learn more about this in the coming sections. We first define a namespace (prefix) in `state.rs`.
+Let's solve [the password problem](prefixed-storage.md#the-problem) that was mentioned above with prefixed storage. The solution to this problem resembles [viewing keys for permissioned viewing](../../../development-concepts/permissioned-viewing/viewing-keys/). You will learn more about this in the coming sections. We first define a namespace (prefix) in `state.rs`.
 
 ```rust
 pub const PREFIX_PASSWORDS: &[u8] = b"passwords";

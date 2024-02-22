@@ -4,6 +4,10 @@
 Need help with using encrypted payloads with Snakepath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
 {% endhint %}
 
+## Complete example
+
+You can find the complete example on [Github](https://github.com/SecretSaturn/Snakepath-Encryption-Example/).
+
 ## Install and import dependencies
 
 First, install all of the the dependencies via NPM:
@@ -21,7 +25,7 @@ import {ecdh, chacha20_poly1305_seal} from "@solar-republic/neutrino";
 import {bytes, bytes_to_base64, json_to_bytes, sha256, concat, text_to_bytes, base64_to_bytes} from '@blake.regalia/belt';
 ```
 
-In your `vite.config.ts` in your project, you need to add the support for `bigInt` into your esbuildOptions:
+In your `vite.config.ts` in the project, you need to add the support for `bigInt` into the esbuildOptions:
 
 ```typescript
 optimizeDeps: { 
@@ -44,7 +48,7 @@ const routing_contract = "secret1fxs74g8tltrngq3utldtxu9yys5tje8dzdvghr" //the c
 const routing_code_hash = "49ffed0df451622ac1865710380c14d4af98dca2d32342bb20f2b22faca3d00d" //its codehash
 ```
 
-First, we define the Gateway address that is specific to each chain, which can you can look up here [gateway-contracts](../gateway-contracts/ "mention").&#x20;
+First, we define the Gateway address that is specific to each chain, which can you can look up here [gateway-contracts](../../connecting-evm-with-snakepathrng/gateway-contracts/ "mention").&#x20;
 
 Second, you need to input the private contract that you are going to call, in our case the Secret VRF RNG contact on Secret Network. The code for this example contract can be found [here](https://github.com/SecretSaturn/TNLS/tree/main/TNLS-Samples/RNG) in case you want to deploy it yourself.
 
@@ -65,7 +69,7 @@ const [myAddress] = await provider.send("eth_requestAccounts", []);
 
 ## Generating the encryption key using ECDH
 
-Next, you generate ephermal keys and load in the public encryption key for the Secret Gateway that you can look up in [gateway-contracts](../gateway-contracts/ "mention"). Then, use ECDH to create the encryption key:
+Next, you generate ephermal keys and load in the public encryption key for the Secret Gateway that you can look up in [gateway-contracts](../../connecting-evm-with-snakepathrng/gateway-contracts/ "mention"). Then, use ECDH to create the encryption key:
 
 ```typescript
 //Generating ephemeral keys
@@ -122,7 +126,7 @@ const payload = {
 
 ## Encrypting the Payload
 
-Next, we encrypt the payload using ChaCha20-Poly1305. Then, we hash the encrypted payload into a `ciphertextHash` that Metamask will sign using `personal_sign`.
+Next, we encrypt the payload using ChaCha20-Poly1305. Then, we hash the encrypted payload into a `ciphertextHash` using Keccak256.
 
 ```typescript
 //build a Json of the payload 
@@ -142,6 +146,12 @@ const ciphertextHash = keccak256(ciphertext)
 
 ## Signing the Payload with Metamask
 
+Next, we use Metamask to sign the `ciphertextHash` using `personal_sign`. Then, we recover the `user_pubkey` from this signed message, which will be also passed into the Public Gateway.
+
+{% hint style="info" %}
+Internally, Metamask takes the  `ciphertextHash`, preprends the `"\x19Ethereum Signed Message:\n32"` string and then hashes it using Keccak256, which results the `payloadHash`. Metamask actually signs the `payloadHash` to get the signature. Keep this in mind when verifying the signature against the `payloadHash` and NOT the `ciphertextHash`.
+{% endhint %}
+
 ```typescript
 //this is what metamask really signs with personal_sign, it prepends the ethereum signed message here
 const payloadHash = keccak256(concat([
@@ -153,6 +163,12 @@ const msgParams = ciphertextHash;
 const from = myAddress;
 const params = [from, msgParams];
 const method = 'personal_sign';
+
+const payloadSignature = await provider.send(method, params)
+console.log(`Payload Signature: ${payloadSignature}`)
+
+const user_pubkey = recoverPublicKey(payloadHash, payloadSignature)
+console.log(`Recovered public key: ${user_pubkey}`)
 ```
 
 ## Estimate the Callback Gas
@@ -180,4 +196,45 @@ const gasFee = await provider.getGasPrice();
 const amountOfGas = gasFee.mul(callbackGasLimit).mul(3).div(2);
 ```
 
-To be continued...
+## Packing the Transaction & Send
+
+Lastly, we pack all the information we collected during previous steps into an `info` struct that we send into the Gateway contract. We the encode the function data. Finally, we set the tx\_params. Please make sure to set an approiate gas amount for your contract call, here we used 150k gas. For the value of the TX, we send over the estimated callback gas that we calculated above.
+
+```typescript
+// function data to be abi encoded
+const _userAddress = myAddress
+const _routingInfo = routing_contract
+const _payloadHash = payloadHash
+const _info = {
+        user_key: hexlify(userPublicKeyBytes),
+        user_pubkey: user_pubkey, 
+        routing_code_hash: routing_code_hash,
+        task_destination_network: "pulsar-3",  //Destination for the task, here: pulsar-3 testnet
+        handle: handle,
+        nonce: hexlify(nonce),
+        payload: hexlify(ciphertext),
+        payload_signature: payloadSignature,
+        callback_gas_limit: Number(callbackGasLimit)
+}
+
+const functionData = iface.encodeFunctionData("send",
+        [
+            _payloadHash,
+            _userAddress,
+            _routingInfo,
+            _info,
+        ]
+    )
+    
+const tx_params = [
+    {
+            gas: hexlify(150000),
+            to: publicClientAddress,
+            from: myAddress,
+            value: hexlify(amountOfGas), // send that extra amount of gas in to pay for the Callback Gas Limit that you set
+            data: functionData, 
+        },
+      ];
+
+const txHash = await provider.send("eth_sendTransaction", tx_params);
+```

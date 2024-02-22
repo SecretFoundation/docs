@@ -9,7 +9,7 @@ description: >-
 {% hint style="warning" %}
 Want to develop with decentralized on-chain randomness? \
 \
-[**Visit the development examples here!**](../development-concepts/randomness-api/)
+[**Visit the development examples here!**](../development-concepts/randomness-api.md)
 {% endhint %}
 
 ### Introduction

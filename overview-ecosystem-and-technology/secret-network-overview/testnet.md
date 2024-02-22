@@ -15,7 +15,7 @@ Once you have saved your mnemonic phrase you can connect to the pulsar-3 chain.&
 * Go to [https://keplr-connect-pulsar3.vercel.app](https://keplr-connect-pulsar3.vercel.app) and click on the Keplr button
 * Click “**approve**” once the Keplr window pops up to add the chain config
 
-![](<../../.gitbook/assets/add\_keplr (1).png>)
+![](../../.gitbook/assets/add\_keplr.png)
 
 And again to connect the website, and allow it to view your balances etc
 
