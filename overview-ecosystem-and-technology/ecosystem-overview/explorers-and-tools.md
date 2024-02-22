@@ -19,14 +19,13 @@
 * [Cashmaney Explorer](https://explorer.cashmaney.com) **(retired)**
   * One of the first explorers, run by core-dev [Cashmaney](https://twitter.com/Cashmaney3/)
 
-
 ### Testnet - Pulsar-3
 
 * [Faucet](https://faucet.pulsar.scrttestnet.com/)
   * Run by the testnet committee
 * [Ping Dashboard - pulsar-3](https://testnet.ping.pub/secret/)
   * Ping Dashboard, light explorer for Cosmos-based Blockchains. https://ping.pub
-* [Documentation](../../infrastructure/node-runners/testnet/)
+* [Documentation](../../infrastructure/setting-up-a-node-validator/testnet/)
 
 ### Bots
 

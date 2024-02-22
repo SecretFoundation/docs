@@ -9,7 +9,7 @@ Go here for our detailed environment setup guide | [Getting started - Environmen
 ### CosmWasm and Secret specific developer Tools and templates
 
 {% hint style="info" %}
-For reference templates of Secret contracts head to our [example section.](../secret-by-example/example-contracts/)\
+For reference templates of Secret contracts head to our [example section.](../example-contracts/)\
 \
 For Toolkits and tooling for Secret Contracts head to our [Tools & libraries section](../tools-and-libraries/).
 {% endhint %}

@@ -44,7 +44,7 @@ const routing_contract = "secret1fxs74g8tltrngq3utldtxu9yys5tje8dzdvghr" //the c
 const routing_code_hash = "49ffed0df451622ac1865710380c14d4af98dca2d32342bb20f2b22faca3d00d" //its codehash
 ```
 
-First, we define the Gateway address that is specific to each chain, which can you can look up here [gateway-contracts](../../connecting-evm-with-snakepathrng/gateway-contracts/ "mention").&#x20;
+First, we define the Gateway address that is specific to each chain, which can you can look up here [gateway-contracts](../gateway-contracts/ "mention").&#x20;
 
 Second, you need to input the private contract that you are going to call, in our case the Secret VRF RNG contact on Secret Network. The code for this example contract can be found [here](https://github.com/SecretSaturn/TNLS/tree/main/TNLS-Samples/RNG) in case you want to deploy it yourself.
 
@@ -65,7 +65,7 @@ const [myAddress] = await provider.send("eth_requestAccounts", []);
 
 ## Generating the encryption key using ECDH
 
-Next, you generate ephermal keys and load in the public encryption key for the Secret Gateway that you can look up in [gateway-contracts](../../connecting-evm-with-snakepathrng/gateway-contracts/ "mention"). Then, use ECDH to create the encryption key:
+Next, you generate ephermal keys and load in the public encryption key for the Secret Gateway that you can look up in [gateway-contracts](../gateway-contracts/ "mention"). Then, use ECDH to create the encryption key:
 
 ```typescript
 //Generating ephemeral keys

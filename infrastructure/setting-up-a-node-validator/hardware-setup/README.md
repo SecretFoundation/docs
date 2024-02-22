@@ -12,13 +12,13 @@ description: >-
 * 32GB RAM (use 20GB+ swap)
 * 512GB SDD
 * Ubuntu 20.04
-* CPU compilant with SGX (see [hardware-compliance.md](../../node-runners/hardware-compliance.md "mention"))
-* Motherboard with support for SGX in the BIOS (see [hardware-compliance.md](../../node-runners/hardware-compliance.md "mention"))
+* CPU compilant with SGX (see [hardware-compliance.md](hardware-compliance.md "mention"))
+* Motherboard with support for SGX in the BIOS (see [hardware-compliance.md](hardware-compliance.md "mention"))
 
 ### **Recommended Requirements**
 
 * 64GB RAM
 * 1TB NVMe SSD
 * Ubuntu 22.04
-* CPU compilant with SGX (see [hardware-compliance.md](../../node-runners/hardware-compliance.md "mention"))
-* Motherboard with support for SGX in the BIOS (see [hardware-compliance.md](../../node-runners/hardware-compliance.md "mention"))
+* CPU compilant with SGX (see [hardware-compliance.md](hardware-compliance.md "mention"))
+* Motherboard with support for SGX in the BIOS (see [hardware-compliance.md](hardware-compliance.md "mention"))

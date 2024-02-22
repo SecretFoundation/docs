@@ -13,7 +13,7 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * [Development Concepts](../../development/development-concepts/)
 * [Developer Guides](../../development/example-contracts/guides-tutorials.md#developer-guides)
 * [Developer Tools](../../development/tools-and-libraries/)
-* [Reference Contracts](../../development/secret-by-example/example-contracts/community-tutorials.md)
+* [Reference Contracts](../../development/example-contracts/community-tutorials.md)
 
 ## General Resources
 

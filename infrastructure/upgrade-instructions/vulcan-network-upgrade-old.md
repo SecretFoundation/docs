@@ -35,10 +35,10 @@ rm -rf ~/.sgx_secrets/*
 
 You're probably familiar with [SGX](../../overview-ecosystem-and-technology/techstack/privacy-technology/intel-sgx/why-sgx.md) by now:
 
-* [Setup SGX](../node-runners/node-setup/install-sgx.md)
-* [Verify SGX](broken-reference)
+* [Setup SGX](../setting-up-a-node-validator/node-setup/install-sgx.md)
+* [Verify SGX](broken-reference/)
 
-### Prepare Your `secret-1` Validator To Halt After Block #1,246,400 <a href="#_1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400" id="_1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400"></a>
+### Prepare Your `secret-1` Validator To Halt After Block #1,246,400 <a href="#id-1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400" id="id-1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400"></a>
 
 On the old machine (`secret-1`):
 
@@ -48,7 +48,7 @@ perl -i -pe 's/^halt-height =.*/halt-height = 1246400/' ~/.secretd/config/app.to
 sudo systemctl restart secret-node
 ```
 
-### 2. Install The New Binaries On Your SGX Machine <a href="#_2-install-the-new-binaries-on-your-sgx-machine" id="_2-install-the-new-binaries-on-your-sgx-machine"></a>
+### 2. Install The New Binaries On Your SGX Machine <a href="#id-2-install-the-new-binaries-on-your-sgx-machine" id="id-2-install-the-new-binaries-on-your-sgx-machine"></a>
 
 On the new SGX machine (`secret-2`):
 
@@ -64,11 +64,11 @@ sudo apt install -y ./secretnetwork_1.0.0_amd64.deb
 secretd init "$MONIKER" --chain-id secret-2
 ```
 
-### 3. Migrate Your Validator's Signing Key <a href="#_3-migrate-your-validator-s-signing-key" id="_3-migrate-your-validator-s-signing-key"></a>
+### 3. Migrate Your Validator's Signing Key <a href="#id-3-migrate-your-validator-s-signing-key" id="id-3-migrate-your-validator-s-signing-key"></a>
 
 Copy your `~/.secretd/config/priv_validator_key.json` from the old machine (`secret-1`) to the new SGX machine (`secret-2`) at the same location.
 
-### 4. Migrate Your Validator's Wallet <a href="#_4-migrate-your-validator-s-wallet" id="_4-migrate-your-validator-s-wallet"></a>
+### 4. Migrate Your Validator's Wallet <a href="#id-4-migrate-your-validator-s-wallet" id="id-4-migrate-your-validator-s-wallet"></a>
 
 Export the self-delegator wallet from the old machine (`secret-1`) and import to the new SGX machine (`secret-2`).
 
@@ -80,7 +80,7 @@ On the new SGX machine (`secret-2`) use `secretcli keys import "$YOUR_KEY_NAME" 
 > 1. If you're recovering the wallet using `secretcli keys add "$YOUR_KEY_NAME" --recover` you should also use `--hd-path "44'/118'/0'/0/0"`.
 > 2. If the wallet is stored on a Ledger device, use `--legacy-hd-path` when importing it with `secretcli keys add`.
 
-### 5. Set Up Your SGX Machine And Become A `secret-2` Validator <a href="#_5-set-up-your-sgx-machine-and-become-a-secret-2-validator" id="_5-set-up-your-sgx-machine-and-become-a-secret-2-validator"></a>
+### 5. Set Up Your SGX Machine And Become A `secret-2` Validator <a href="#id-5-set-up-your-sgx-machine-and-become-a-secret-2-validator" id="id-5-set-up-your-sgx-machine-and-become-a-secret-2-validator"></a>
 
 On the new SGX machine (`secret-2`):
 
