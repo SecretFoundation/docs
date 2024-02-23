@@ -216,7 +216,7 @@
       * [Secret IDE](development/tools-and-libraries/smart-contract-tools-utils/contract-development/secret-ide.md)
       * [Polar](development/tools-and-libraries/smart-contract-tools-utils/contract-development/polar.md)
 * [Resources - Contract addresses / API Endpoints](development/resources-api-contract-addresses/README.md)
-  * [Secret (SNIP) token contracts list](development/resources-api-contract-addresses/secret-token-contracts.md)
+  * [Secret (SNIP 20) token contracts list](development/resources-api-contract-addresses/secret-token-contracts.md)
   * [Connecting to the Network](development/resources-api-contract-addresses/connecting-to-the-network/README.md)
     * [API Endpoints Mainnet (Secret-4)](development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md)
     * [API Endpoints Testnet (Pulsar-3)](development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-3.md)
