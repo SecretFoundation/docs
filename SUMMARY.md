@@ -155,6 +155,7 @@
     * [💻 EVM RNG Developer Tutorial](development/ethereum-evm-developer-toolkit/connecting-evm-with-snakepath/evm-rng-developer-tutorial.md)
     * [👨‍💻 Implementing RNG into any EVM Contract](development/ethereum-evm-developer-toolkit/connecting-evm-with-snakepath/implementing-rng-into-any-evm-contract.md)
     * [📜 EVM with Encrypted Payloads](development/ethereum-evm-developer-toolkit/connecting-evm-with-snakepath/evm-with-encrypted-payloads/README.md)
+      * [EVM Encrypted Payloads Tutorial](development/ethereum-evm-developer-toolkit/connecting-evm-with-snakepath/evm-with-encrypted-payloads/evm-encrypted-payloads-tutorial.md)
       * [Using encrypted payloads to request a random number](development/ethereum-evm-developer-toolkit/connecting-evm-with-snakepath/evm-with-encrypted-payloads/using-encrypted-payloads-to-request-a-random-number.md)
     * [📄 Gateway Contracts](development/ethereum-evm-developer-toolkit/connecting-evm-with-snakepathrng/gateway-contracts/README.md)
       * [EVM Mainnet](development/ethereum-evm-developer-toolkit/connecting-evm-with-snakepathrng/gateway-contracts/evm-mainnet/README.md)
