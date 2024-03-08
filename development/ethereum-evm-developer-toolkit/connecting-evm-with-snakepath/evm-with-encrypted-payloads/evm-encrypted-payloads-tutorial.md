@@ -20,11 +20,15 @@ git clone https://github.com/writersblockchain/encrypted-payloads.git
 cd sepolia
 ```
 
+Install the dependencies:
+
+```bash
+npm install
+```
+
 Create an `env` file and add your EVM wallet private key.&#x20;
 
 Update [lines 73-76](https://github.com/writersblockchain/encrypted-payloads/blob/71c86e979978dfa9bf28c5cf380c6c260b119704/sepolia/scripts/encrypt.js#L73) with your eth wallet address (`myAddress)`, a key (any `string` of your choosing), a value, (any `string` of your choosing), and a viewing\_key (any `string` of your choosing).&#x20;
-
-
 
 {% hint style="info" %}
 `value` is the the data that you want to encrypt, `key` and `viewing_key` are parameters you pass to encrypt the `value.`
@@ -37,10 +41,10 @@ Update [lines 73-76](https://github.com/writersblockchain/encrypted-payloads/blo
   const viewing_key = "";
 ```
 
-Once you have decided upon these parameters, simply run `node encrypt:`&#x20;
+Once you have decided upon these parameters, simply run `encrypt.js:`&#x20;
 
 ```bash
-node encrypt 
+npx hardhat run scripts/encrypt.js --network sepolia
 ```
 
 Upon successful encryption, your payload hash will be returned:&#x20;
