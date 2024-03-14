@@ -4,7 +4,7 @@ description: >-
   on Polygon testnet.
 ---
 
-# 📝 EVM Confidential Voting
+# Confidential Voting Developer Tutorial
 
 ## Intro
 
@@ -19,7 +19,7 @@ In this tutorial you will learn **how to encrypt and decrypt votes on the EVM** 
 See a [live demo here](https://private-voting.vercel.app/), configured for Polygon testnet! _(To use the demo, make sure Polygon testnet is added to your Metamask wallet)_&#x20;
 {% endhint %}
 
-You will start by configuring your developer environment and then learn how to generate cryptographic keys in a Secret Network smart contract which you will use to encrypt votes on the EVM. To learn more about Secret Network encryption, see the EVM encryption docs [here](evm-encryption-decryption-with-secret-contracts.md#encryption-scheme-overview).&#x20;
+You will start by configuring your developer environment and then learn how to generate cryptographic keys in a Secret Network smart contract which you will use to encrypt votes on the EVM. To learn more about Secret Network encryption, see the EVM encryption docs [here](broken-reference).&#x20;
 
 ## Getting Started
 
@@ -55,7 +55,7 @@ npm install
 
 Update the `env` [file](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/polygon/.env) with your Secret Network wallet mnemonic, EVM wallet private key, and [Infura](https://www.infura.io/) API key:
 
-<figure><img src="../../../.gitbook/assets/confidential voting env.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/confidential voting env.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Make sure your Infura API key is configured for Polygon Matic testnet 😎
@@ -127,11 +127,11 @@ contract address:  secret1lft908ws8h034zpa6y2gsq2shpsksekl05gqgq
 
 Update the `env` file with your `codeHash` and contract `address`:&#x20;
 
-<figure><img src="../../../.gitbook/assets/confidential voting env - updated.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/confidential voting env - updated.png" alt=""><figcaption></figcaption></figure>
 
 ## Execute Secret Network Smart Contract
 
-Now that your Secret Network smart contract is instantiated, you can execute the contract **to generate encryption keys as well as decrypt encrypted messages**. To learn more about the encryption schema, see the EVM encryption docs [here](evm-encryption-decryption-with-secret-contracts.md#encryption-scheme-overview).
+Now that your Secret Network smart contract is instantiated, you can execute the contract **to generate encryption keys as well as decrypt encrypted messages**. To learn more about the encryption schema, see the EVM encryption docs [here](broken-reference).
 
 ### Create Keys
 

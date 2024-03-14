@@ -1,6 +1,6 @@
-# 🏗 Architecture Overview
+# Architecture Overview
 
-<figure><img src="../../../.gitbook/assets/tnls_architecture-2.png" alt=""><figcaption><p>Architectual overview of Snakepath (TNLS). Taken from <a href="https://fortress-labs.gitbook.io/snakepath/high-level-architecture">https://fortress-labs.gitbook.io/snakepath/high-level-architecture</a>.</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/tnls_architecture-2.png" alt=""><figcaption><p>Architectual overview of Snakepath (TNLS). Taken from <a href="https://fortress-labs.gitbook.io/snakepath/high-level-architecture">https://fortress-labs.gitbook.io/snakepath/high-level-architecture</a>.</p></figcaption></figure>
 
 Snakepath consists of two core primitives: **relayers** and **gateways**.
 

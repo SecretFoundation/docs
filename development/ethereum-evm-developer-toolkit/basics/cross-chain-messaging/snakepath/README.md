@@ -1,4 +1,4 @@
-# 🐍 Connecting EVM with Snakepath
+# SnakePath
 
 {% hint style="info" %}
 Need help with using Snakepath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
@@ -15,9 +15,9 @@ Ultimately, Snakepath enables the building of new applications that combine the 
 The following sections provide a detailed technical overview of the _current_ relayer and gateway architecture for Snakepath.&#x20;
 
 1. To get an overview of the Architecture go here: [architecture-overview.md](architecture-overview.md "mention")
-2. If you like to use SecretVRF in the most elegant way for you as an EVM developer, go here:[evm-rng-developer-tutorial.md](../connecting-evm-with-snakepath/evm-rng-developer-tutorial.md "mention")
-3. If you like to [evm-with-encrypted-payloads](../connecting-evm-with-snakepath/evm-with-encrypted-payloads/ "mention")
-4. [gateway-contracts](gateway-contracts/ "mention")
+2. If you like to use SecretVRF in the most elegant way for you as an EVM developer, go here:[vrf-developer-tutorial.md](../../../usecases/vrf/vrf-developer-tutorial.md "mention")
+3. If you like to [Broken link](broken-reference "mention")
+4. [gateway-contracts](../../../gateway-contracts/ "mention")
 
 _As an user and developer_, all you need to know is how to send messages to one gateway/receive messages from a gateway, which will be covered in those respective documentation sections. More tutorials with encrypted payloads are coming soon.
 
@@ -25,4 +25,4 @@ _As a maintainer_, you might want to look more closely at the relayer section of
 
 You can try a demo of Snakepath that bridges Secret VRF into EVMs here: [vrfdemo.secretsaturn.net](https://vrfdemo.secretsaturn.net)
 
-This documentation was taken from [https://fortress-labs.gitbook.io/snakepath](https://fortress-labs.gitbook.io/snakepath) and the curtesy of Leor Fishman.
+This documentation was taken from [https://fortress-labs.gitbook.io/snakepath](https://fortress-labs.gitbook.io/snakepath) and the courtesy of Leor Fishman.

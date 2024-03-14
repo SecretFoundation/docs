@@ -1,4 +1,4 @@
-# 📄 Gateway Contracts
+# Gateway Contracts
 
 To access the Snakepath (TNLS) gateways here, please refer to the Gateway contracts for testnet and mainnet here:
 
