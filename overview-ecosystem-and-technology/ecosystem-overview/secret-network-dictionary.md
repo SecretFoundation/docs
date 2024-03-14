@@ -20,12 +20,6 @@ Automated market maker, a fully automated DEX where trades are made against a po
 
 Application Programming Interface, a type of software built to access certain specifications of another software in a clear and direct way used by wallets, explorers, nodes etc.
 
-#### _A.O.T.R.T_
-
-Agents of the round table, restricted group of Secret Agents actively contributing to open projects and AMA sessions
-
-_Auctions_ - private, decentralized bid auction platform built on Secret Network
-
 ### B
 
 #### _Bazaar_
@@ -97,10 +91,6 @@ Application that distributes small amounts of crypto to pay for gas (stakely.io 
 Organization dedicated to building, researching, and scaling adoption of decentralized technologies
 
 ### G
-
-#### _Garden_
-
-Private, decentralized platform to deploy and manage tokens on Secret Network (deprecated)
 
 #### _Gas_
 
@@ -222,10 +212,6 @@ Document that codifies the current standard governance procedures
 
 Secret Network related podcast hosted on their website & YouTube
 
-#### _SecretDAO_
-
-Decentralized Autonomous Organization focused on making DAO creation simple, easy and more accessible
-
 #### _Secret Token_
 
 SNIP-20 tokens with programmable privacy on the Secret Network blockchain
@@ -233,10 +219,6 @@ SNIP-20 tokens with programmable privacy on the Secret Network blockchain
 #### _SecretNFTs_
 
 Non-fungible tokens with programmable privacy on Secret Network (e.g: Anons, Redacted Club, Clandestina gang)
-
-#### _SecretNodes_
-
-Secret Network blockchain explorer tool
 
 #### _Secret Oracles_
 
@@ -258,10 +240,6 @@ SDK for building applications that connect to the Cosmos SDK on Secret Network
 
 Software Guard Extensions, CPU enclaves that every Secret Network node has in order to process transactions without the possibility of viewing private metadata
 
-#### _Shinobi_
-
-Protocol for bridging #Bitcoin and Secret Network
-
 #### _Shockwave_
 
 Ecosystem upgrade phase of H1 2022
@@ -269,10 +247,6 @@ Ecosystem upgrade phase of H1 2022
 #### _SiennaSwap_
 
 Decentralized Exchange and liquidity hub for Secret Tokens
-
-#### _S.N.A.C_
-
-Secret Network Active Campaigns, proposals to accelerate the growth of Secret Network
 
 #### _S.N.I.P_
 
@@ -323,10 +297,6 @@ Trusted Execution Environment, hardware specification for all validator nodes on
 #### _Testnet_
 
 Testing environment for a blockchain network available for development purposes
-
-#### _TarantinoNFTs_
-
-First private by default NFT collection released on Secret Network featuring unseen clips from Tarantino productions
 
 ### U
 
