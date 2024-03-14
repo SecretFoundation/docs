@@ -8,7 +8,13 @@ In this step-by-step guide I’ll show you how to connect to a testnet with Kepl
 
 ## **Set Up With Keplr**
 
-The easy way to use a testnet is via the Keplr wallet browser extension, you can install it and set it up by following [this guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet) or [this video](https://www.youtube.com/watch?v=HgFWNJdD7-U\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4\_Uwwdg\&index=3). For safety reasons we recommend using a separate secondary wallet for testing purposes.
+The easy way to use a testnet is via the Keplr wallet browser extension, you can install it and set it up by following [this guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet) or [this video](https://www.youtube.com/watch?v=dsaRBsX5Nic\&ab\_channel=SecretNetwork).&#x20;
+
+{% embed url="https://www.youtube.com/watch?ab_channel=SecretNetwork&v=dsaRBsX5Nic" %}
+
+{% hint style="info" %}
+For safety reasons we recommend using a separate secondary wallet for testing purposes.
+{% endhint %}
 
 Once you have saved your mnemonic phrase you can connect to the pulsar-3 chain.&#x20;
 
