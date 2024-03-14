@@ -13,7 +13,7 @@ $ secretcli status --node "$URL"
 ## Mainnet
 
 ```bash
-secretcli config node https://rpc.secret.express:443
+secretcli config node https://rpc.mainnet.secretsaturn.net:443
 
 secretcli config chain-id secret-4
 

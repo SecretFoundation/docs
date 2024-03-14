@@ -109,7 +109,7 @@ Configure `secretd`. Initially you'll be using the bootstrap node, as you'll nee
 
 ```bash
 secretd config chain-id secret-4
-secretd config node https://rpc.secret.express
+secretd config node https://rpc.mainnet.secretsaturn.net
 secretd config output json
 ```
 
@@ -214,7 +214,7 @@ To sync to head quickly, please see [snapshot.md](../../setting-up-a-node-valida
 
 You can skip syncing from scratch or download a snapshot by [state-sync.md](state-sync.md "mention") to the current block.
 
-### Get Node ID <a href="#_21-get-your-node-id-with" id="_21-get-your-node-id-with"></a>
+### Get Node ID <a href="#id-21-get-your-node-id-with" id="id-21-get-your-node-id-with"></a>
 
 `secretd tendermint show-node-id`
 
