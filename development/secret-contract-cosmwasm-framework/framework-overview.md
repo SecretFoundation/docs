@@ -25,12 +25,12 @@ A Secret contract has 4 different components as listed below each serving a diff
 * [Query](contract-components/queries.md) - these are functions that are ran as read-only and cannot modify contract data
 * [State/storage](contract-components/storage/) - the long-term storage of the contract. By default, data used by contracts will be lost between transactions.
 
-Each contract will contain these basic building blocks, with their logic being built around how they work. You can read more about the interplay of Entry-points as depicted in the graphic below in [this starter guide.](../secret-by-example/tutorials/millionaires-problem.md#entry-points)
+Each contract will contain these basic building blocks, with their logic being built around how they work. You can read more about the interplay of Entry-points as depicted in the graphic below in [this starter guide.](../example-contracts/millionaires-problem.md#entry-points)
 
 <figure><img src="../../.gitbook/assets/Copy of Cosmwasm diagrams2.png" alt=""><figcaption><p>An overview of the interplay of the CosmWasm components with the blockchain data layer. - (Image created by PolymerDao and OpenIBC)</p></figcaption></figure>
 
 {% hint style="info" %}
 Want to get started with CosmWasm development? - [**Get started with our 4 part crash course.**](../getting-started/) \
 \
-**Dont have much time? -** [**Try our guide on the millionaires problem instead!**](../secret-by-example/tutorials/millionaires-problem.md) **-** It teaches everything about the CosmWasm framework, message types and environment setup in a single page.
+**Dont have much time? -** [**Try our guide on the millionaires problem instead!**](../example-contracts/millionaires-problem.md) **-** It teaches everything about the CosmWasm framework, message types and environment setup in a single page.
 {% endhint %}
