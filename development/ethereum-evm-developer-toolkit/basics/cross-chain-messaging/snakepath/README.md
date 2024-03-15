@@ -16,8 +16,7 @@ The following sections provide a detailed technical overview of the _current_ re
 
 1. To get an overview of the Architecture go here: [architecture-overview.md](architecture-overview.md "mention")
 2. If you like to use SecretVRF in the most elegant way for you as an EVM developer, go here:[vrf-developer-tutorial.md](../../../usecases/vrf/vrf-developer-tutorial.md "mention")
-3. If you like to [Broken link](broken-reference "mention")
-4. [gateway-contracts](../../../gateway-contracts/ "mention")
+3. To review supported EVM chains, go here: [gateway-contracts](../../../gateway-contracts/ "mention")
 
 _As an user and developer_, all you need to know is how to send messages to one gateway/receive messages from a gateway, which will be covered in those respective documentation sections. More tutorials with encrypted payloads are coming soon.
 

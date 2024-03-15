@@ -14,3 +14,5 @@ With GMP you can:
 
 * Call a contract on chain B from chain A.
 * Call a contract on chain B from chain A and attach some tokens.
+
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2024-03-15 at 11.58.52 AM.png" alt=""><figcaption><p>Diagram from the Axelar GMP docs</p></figcaption></figure>
