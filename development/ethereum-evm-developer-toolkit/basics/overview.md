@@ -6,7 +6,7 @@ The toolkit allows EVM developers to build novel cross-chain applications such a
 
 Secret Network currently supports two cross-chain messaging solutions:&#x20;
 
-1. **SnakePath (recommended for confidential computation)**
+1. **SecretPath (recommended)**
 
 {% hint style="info" %}
 There are currently 10+ supported chains. See the [Gateway contracts](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/gateway-contracts) to review supported chains.&#x20;
