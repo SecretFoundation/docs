@@ -1,6 +1,6 @@
-# Snakepath mainnet (secret-4) contracts
+# SecretPath mainnet (secret-4) contracts
 
-For the Secret Network testnet (secret-4) side, the gateway contract information are:
+For the Secret Network mainnet (secret-4) side, the gateway contract information are:
 
 * Gateway contract code id: `1533`
 * Gateway contract address: `secret1qzk574v8lckjmqdg3r3qf3337pk45m7qd8x02a`
