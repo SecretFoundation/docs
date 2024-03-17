@@ -4,7 +4,7 @@ For a detailed demonstration, you can watch our video tutorial available here:
 
 [![Cross-chain Randomness | HackSecret 2024 Developer Workshop](https://img.youtube.com/vi/\_BwgZiGWmlw/0.jpg)](https://www.youtube.com/watch?v=\_BwgZiGWmlw)
 
-After we've gone through an extensive example on how our example contract works, here's how to implement SecretVRF via Snakepath in your own contract in 4 easy steps:&#x20;
+After we've gone through an extensive example on how our example contract works, here's how to implement SecretVRF via SecretPath in your own contract in 4 easy steps:&#x20;
 
 ## Importing the Interface
 

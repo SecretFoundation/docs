@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to use Snakepath on EVM to access on-chain verifiable random
+  Learn how to use SecretPath on EVM to access on-chain verifiable random
   numbers.
 ---
 
@@ -8,7 +8,7 @@ description: >-
 
 ## Overview
 
-[SecretVRF](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness) over Snakepath enables EVM developers to access **on-chain verifiable random numbers** at a fraction of the cost and block time of traditional RNG oracles such as ChainlinkVRF. With fewer than 100 lines of code, you will have access to an infinite supply of randomness. Let'sssss go! [🐍](https://emojipedia.org/snake)
+[SecretVRF](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness) over SecretPath enables EVM developers to access **on-chain verifiable random numbers** at a fraction of the cost and block time of traditional RNG oracles such as ChainlinkVRF. With fewer than 100 lines of code, you will have access to an infinite supply of randomness.&#x20;
 
 {% hint style="info" %}
 To learn how SecretVRF works underneath the hood, refer to the docs [here](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness). 🤓
@@ -73,7 +73,7 @@ RANDOMNESS_RECEIVER_CONTRACT_ADDRESS="0x08D05bC52e503C68c38A32c1fA997FB521e614C4
 
 ### Execute RandomnessReceiver.sol
 
-Now that you've uploaded your contract, it's time to set the Snakepath gateway address for Polygon Mumbai and then request on-chain verifiable random numbers!
+Now that you've uploaded your contract, it's time to set the SecretPath gateway address for Polygon Mumbai and then request on-chain verifiable random numbers!
 
 {% hint style="info" %}
 Gateways are the on-chain smart contracts that handle the broadcasting, receipt, packaging, and verification of messages.
@@ -135,13 +135,13 @@ Random Numbers: 9441263037904447493423293483890970037596060688213882108383739687
 ```
 {% endcode %}
 
-Congrats! You've just used Snakepath to request your first verifiable on-chain random numbers! 🎉&#x20;
+Congrats! You've just used SecretPath to request your first verifiable on-chain random numbers! 🎉&#x20;
 
 {% hint style="info" %}
 If you don't see your random numbers returned, it means that our testnet relayer might have dropped the transaction. **See below to learn how to relay your transaction manually.**&#x20;
 {% endhint %}
 
-#### Execute Snakepath Manually with Polygonscan
+#### Execute SecretPath Manually with Polygonscan
 
 To relay your random numbers manually, you can use Polygonscan and Secret.js!
 
@@ -176,10 +176,10 @@ Now, open [Polygonscan for the Mumbai proxy contract](https://mumbai.polygonscan
 
 Once you have entered your transaction info, select "Write" to execute the transaction.&#x20;
 
-Congrats! You've just used Snakepath to request your first verifiable on-chain random numbers! 🎉&#x20;
+Congrats! You've just used SecretPath to request your first verifiable on-chain random numbers! 🎉&#x20;
 
 ### Conclusion
 
-Snakepath RNG offers an innovative and cost-effective solution for EVM developers seeking access to verifiable random numbers. By following this guide, you've successfully set up your environment, deployed the `RandomnessReceiver.sol` contract, and interacted with the Snakepath network to request and receive random numbers.  Dive into the world of decentralized randomness with Snakepath, where security meets simplicity. 🌟
+Secret VRF offers an innovative and cost-effective solution for EVM developers seeking access to verifiable random numbers. By following this guide, you've successfully set up your environment, deployed the `RandomnessReceiver.sol` contract, and interacted with the SecretPath network to request and receive random numbers.  Dive into the world of decentralized randomness with SecretPath, where security meets simplicity. 🌟
 
 ##
