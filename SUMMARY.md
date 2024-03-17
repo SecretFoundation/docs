@@ -149,7 +149,7 @@
     * [Cross-chain Messaging](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/README.md)
       * [SecretPath](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/README.md)
         * [Architecture Overview](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/architecture-overview.md)
-        * [Snakepath Developer Tutorial](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/snakepath-developer-tutorial.md)
+        * [SecretPath Developer Tutorial](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/secretpath-developer-tutorial.md)
       * [Axelar GMP](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/axelar-gmp/README.md)
         * [Architecture Overview](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/axelar-gmp/architecture-overview.md)
         * [Axelar GMP Developer Tutorial](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/axelar-gmp/evm-general-message-passing.md)
