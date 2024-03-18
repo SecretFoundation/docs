@@ -9,8 +9,11 @@ Secret network has active integrations with:
   * [Squid ](https://app.squidrouter.com)is a cheaper (gas wise) version for Axelar based bridging one can use as a widget.&#x20;
 * [SecretPath](../ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/)
   * Uses Secret's confidential computation to open a connection to any EVM chain  - find [examples under the EVM developer toolkit.](../ethereum-evm-developer-toolkit/)
+* [Gravity Bridge](https://bridge.blockscape.network/)
 
 Coming soon:
 
 * [Wormhole](https://wormhole.com/)
 * [Union](https://union.build/)
+
+To access all of our current token bridging interfaces, see the [Secret Dashboard bridge page.](https://dashboard.scrt.network/bridge)
