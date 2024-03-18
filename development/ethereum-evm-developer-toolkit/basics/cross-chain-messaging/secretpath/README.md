@@ -20,7 +20,7 @@ The following sections provide a detailed technical overview of the _current_ re
 
 _As an user and developer_, all you need to know is how to send messages to one gateway/receive messages from a gateway, which will be covered in those respective documentation sections. More tutorials with encrypted payloads are coming soon.
 
-_As a maintainer_, you might want to look more closely at the relayer section of the codebase as well here: [https://github.com/SecretSaturn/TNLS](https://github.com/SecretSaturn/TNLS)
+_As a maintainer_, you might want to look more closely at the relayer section of the codebase as well here: [https://github.com/SecretSaturn/SecretPath](https://github.com/SecretSaturn/SecretPath)
 
 You can try a demo of SecretPath that bridges Secret VRF into EVMs here: [vrfdemo.secretsaturn.net](https://vrfdemo.secretsaturn.net)
 
