@@ -1,8 +1,10 @@
 # Performance figures of SecretVRF vs competitors
 
-In comparison to one of its biggest competitors, SecretVRF offers an around 4x cost advantage while also being twice as fast. This is due to its extremely efficient handling with gas as well as the ability to pay in the EVM chains native gas token.&#x20;
+SecretVRF stands out in the competitive landscape of verifiable random functions (VRFs) by offering a significant cost and speed advantage over its principal competitors. Notably, it provides approximately a 4 times cost benefit, which is a massive saving for projects that rely on random number generation at scale. This economic efficiency is largely due to its optimized gas usage, which minimizes the on-chain transaction cost.
 
-To demonstrate, we have this small video here outlining all of the advantages of SecretVRF vs. it's biggest competitor:&#x20;
+In addition to its cost benefits, SecretVRF is also twice as fast as its closest competitor. This speed improvement is critical for applications that require almost real-time randomness, such as gaming, lotteries, and various DeFi protocols.
+
+To demonstrate, we have this small video here outlining all of the advantages of SecretVRF vs. its biggest competitor:&#x20;
 
 {% embed url="https://drive.google.com/file/d/1TLwx2sZhxt8ba9BpHsAroR0RmBWfi7-R/view?usp=sharing" %}
 Short Video from Sean Rad (Dev Rel at the Secret Network Foundation) showing off the advantages of SecretVRF vs competitors.
@@ -28,4 +30,4 @@ In total, we also do not need to pay in special LINK tokens and instead can just
 
 <figure><img src="../../../../.gitbook/assets/telegram-cloud-photo-size-2-5458675461103147564-y.jpg" alt=""><figcaption><p>Comparison of SecretVRF via SecretPath (left) vs ChainlinkVRF (right). The total cost difference between both is around 450%. </p></figcaption></figure>
 
-In conclusion, we have around 3x less gas usage, while also being twice as fast.
+To summarize, SecretVRF's combination of cost efficiency, speed, and EVM chain compatibility makes it a compelling choice for developers and projects seeking reliable and economical verifiable random functions. Its technical innovations position it as a leader in the space, offering tangible benefits that can significantly enhance the performance and cost-effectiveness of a wide range of blockchain applications.
