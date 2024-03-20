@@ -14,7 +14,7 @@ The "master private gateway" is a confidential smart contract living on Secret N
 
 Since this contract is confidential by default , we can _store_ a (secret) private key, which only this smart contract can use to _sign_ messages/packets and is unknown to the operators or to any contract administrators.&#x20;
 
-The only trust assumption that we have for this bridge model to work is therefore that the private key does not leak out the TEE (trusted execution environment)/confidential computation environment. In case the TEE breaks and that private signing keys could potentially leak, they encryption and verification keys can be rotated to new ones, therefore keeping the bridge intact. Since we only rely on a smart contract to handle the core bridging functionality, we call this _**trustless**_. Some may argue that since we are using TEE's, we are not completely trustless but instead _"trust-minimized"_.
+The only trust assumption that we have for this bridge model to work is therefore that the private key does not leak out the TEE (trusted execution environment)/confidential computation environment. In case the TEE breaks and that private signing keys could potentially leak, the encryption and verification keys can be rotated to new ones, keeping the bridge intact. Since we only rely on a smart contract to handle the core bridging functionality, we call this _**trustless**_. Some may argue that since we are using TEE's, we are not completely trustless but instead _**trust-minimized**_**.**
 
 Everything else around this "master private gateway" is _**untrusted**_. We only use a lot of consistency checks and hashing to ensure that data weren't manipulated along any transmission path.&#x20;
 
@@ -32,5 +32,5 @@ Both gateways also handle serialize/deserialize operations. They convert contrac
 
 ### 3. Re-encrypt inputs&#x20;
 
-Third, gateways on privacy-preserving chains can re-encrypt their inputs under the key of the final compute contract.
+Third, gateways on privacy-preserving chains can re-encrypt their inputs under the key of the final compute contract. The master private gateway can handle encrypted or unencrypted payloads. In the case of encrypted payloads, the payload is encrypted using a shared key that is generated via ECDH from a users randomly generated private key and the gateways encryption public key. We use the well known Chacha20-Poly1305 to do the symmetric encryption using that shared key.&#x20;
 

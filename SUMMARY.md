@@ -162,6 +162,7 @@
     * [VRF](development/ethereum-evm-developer-toolkit/usecases/vrf/README.md)
       * [Implementing VRF into any EVM Contract](development/ethereum-evm-developer-toolkit/usecases/vrf/implementing-vrf-into-any-evm-contract.md)
       * [VRF Developer Tutorial](development/ethereum-evm-developer-toolkit/usecases/vrf/vrf-developer-tutorial.md)
+      * [Performance figures of SecretVRF vs competitors](development/ethereum-evm-developer-toolkit/usecases/vrf/performance-figures-of-secretvrf-vs-competitors.md)
     * [NFTs](development/ethereum-evm-developer-toolkit/usecases/nfts.md)
     * [Tokens](development/ethereum-evm-developer-toolkit/usecases/tokens.md)
     * [Defi](development/ethereum-evm-developer-toolkit/usecases/defi.md)
