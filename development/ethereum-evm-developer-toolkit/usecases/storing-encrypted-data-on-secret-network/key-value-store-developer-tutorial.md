@@ -2,22 +2,26 @@
 description: Learn how to use Snakepath on EVM to encrypt payloads.
 ---
 
-# EVM Encrypted Payloads Tutorial
+# Key Value store Developer Tutorial
+
+{% hint style="info" %}
+_NOTE: these docs are currently in progress 3.20.24_
+{% endhint %}
 
 ## Getting Started
 
-To get started, clone the encrypted payloads example repo:
+To get started, clone the SecretPath tutorials repository:
 
 ```bash
-git clone https://github.com/writersblockchain/encrypted-payloads.git
+git clone https://github.com/SecretFoundation/Secretpath-tutorials
 ```
 
 ### Configuring Environment Variables
 
-`cd` into sepolia
+`cd` into encrypted-payloads/evm-contract
 
 ```bash
-cd sepolia
+cd encrypted-payloads/contract
 ```
 
 Install the dependencies:
@@ -26,9 +30,24 @@ Install the dependencies:
 npm install
 ```
 
-Create an `env` file and add your EVM wallet private key.&#x20;
+Create an `env` file and add:
 
-Update [lines 73-76](https://github.com/writersblockchain/encrypted-payloads/blob/71c86e979978dfa9bf28c5cf380c6c260b119704/sepolia/scripts/encrypt.js#L73) with your eth wallet address (`myAddress)`, a key (any `string` of your choosing), a value, (any `string` of your choosing), and a viewing\_key (any `string` of your choosing).&#x20;
+* EVM wallet private key
+* Infura API endpoint (Sepolia testnet)
+
+{% hint style="info" %}
+See [here](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/encrypted-payloads/evm-contract/.env.local) for a properly configured example env file
+{% endhint %}
+
+Get sepolia tokens from faucet:&#x20;
+
+* [Sepolia faucet ](https://www.infura.io/faucet/sepolia)
+
+Now that your developer environment is properly configured, you're ready to encrypt your first payload with SecretPath!&#x20;
+
+### Encrypt a payload
+
+Update [lines 70-74 ](https://github.com/SecretFoundation/Secretpath-tutorials/blob/8a3273c050719075609cbfae7769837ee9c6ec6d/encrypted-payloads/evm-contract/scripts/encrypt.js#L70)with your EVM wallet address (`myAddress)`, a key (any `string` of your choosing), a value, (any `string` of your choosing), and a viewing\_key (any `string` of your choosing).&#x20;
 
 {% hint style="info" %}
 `value` is the the data that you want to encrypt, `key` and `viewing_key` are parameters you pass to encrypt the `value.`
