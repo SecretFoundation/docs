@@ -1,12 +1,14 @@
 ---
-description: Learn how to use Snakepath on EVM to encrypt payloads.
+description: Learn how to use SecretPath on EVM to encrypt payloads.
 ---
 
-# Key Value store Developer Tutorial
+# Key-Value store Developer Tutorial
 
-{% hint style="info" %}
-_NOTE: these docs are currently in progress 3.20.24_
-{% endhint %}
+## Overview
+
+SecretPath seamlessly handles encrypted payloads on the EVM, which means EVM developers can use SecretPath to encrypt and decrypt messages cross-chain with little-to-no Rust experience required.&#x20;
+
+This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on the EVM. After this tutorial, you will have the tools you need to use SecretPath to encrypt messages.&#x20;
 
 ## Getting Started
 
@@ -21,7 +23,7 @@ git clone https://github.com/SecretFoundation/Secretpath-tutorials
 `cd` into encrypted-payloads/evm-contract
 
 ```bash
-cd encrypted-payloads/contract
+cd encrypted-payloads/evm-contract
 ```
 
 Install the dependencies:
@@ -30,7 +32,7 @@ Install the dependencies:
 npm install
 ```
 
-Create an `env` file and add:
+Create an `env` file and add your:
 
 * EVM wallet private key
 * Infura API endpoint (Sepolia testnet)
@@ -43,11 +45,98 @@ Get sepolia tokens from faucet:&#x20;
 
 * [Sepolia faucet ](https://www.infura.io/faucet/sepolia)
 
+{% hint style="info" %}
+This tutorial is for Sepolia testnet, but there are 10+ chains currently configured that are also compatible by simply swapping out the [SecretPath gateway address](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/gateway-contracts/evm-testnet/evm-testnet-gateway-contracts).
+{% endhint %}
+
 Now that your developer environment is properly configured, you're ready to encrypt your first payload with SecretPath!&#x20;
+
+### Upload the Key value store contract on Secret Network
+
+`cd` into encrypted-payloads/secret-contract
+
+```bash
+cd encrypted-payloads/secret-contract
+```
+
+Compile the Secret Network key value store contract:&#x20;
+
+<pre class="language-bash"><code class="lang-bash"><strong>RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown
+</strong></code></pre>
+
+`cd` into secret-contract/node
+
+```bash
+cd secret-contract/node
+```
+
+Install the dependencies:
+
+```bash
+npm i
+```
+
+Open the upload.js file and review the instantiate message at [line 70](https://github.com/SecretFoundation/Secretpath-tutorials/blob/e5d5d01926a14e8f8509e8d842b7b196be15f858/encrypted-payloads/secret-contract/node/upload.js#L70):&#x20;
+
+```javascript
+ let init = {
+    gateway_address: gatewayAddress,
+    gateway_hash: gatewayHash,
+    gateway_key: gatewayPublicKeyBytes,
+  };
+```
+
+* gatewayAddress is the SecretPath gateway contract address for testnet
+* gatewayHash is the SecretPath gateway contract hash for testnet
+* gatewayKey is public key used for SecretPath encryption on Secret testnet
+
+{% hint style="warning" %}
+These three parameters remain constant and must be passed for every Secret Network contract that implements SecretPath. They can be found [here](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/gateway-contracts/evm-testnet/secretpath-testnet-pulsar-3-contracts) for testnet.&#x20;
+{% endhint %}
+
+To upload and instantiate the contract, run `node upload`:&#x20;
+
+```bash
+node upload
+```
+
+Upon successful upload, a `contractHash` and `address` will be returned:&#x20;
+
+```javascript
+codeId:  5701
+Contract_hash: "6311a3f85261fc720d9a61e4ee46fae1c8a23440122b2ed1bbcebf49e3e46ad2"
+contract_address:  "secret1j0gpu6tlwnc9fw55wcfsfuml00kqpcnqz7dck7"
+```
 
 ### Encrypt a payload
 
-Update [lines 70-74 ](https://github.com/SecretFoundation/Secretpath-tutorials/blob/8a3273c050719075609cbfae7769837ee9c6ec6d/encrypted-payloads/evm-contract/scripts/encrypt.js#L70)with your EVM wallet address (`myAddress)`, a key (any `string` of your choosing), a value, (any `string` of your choosing), and a viewing\_key (any `string` of your choosing).&#x20;
+Now that you have your key value store smart contract uploaded on Secret Network, let's use it to store  encrypted messages. Most of the ECDH cryptography has been abstracted away so there are only a few values you need to change.&#x20;
+
+`cd` into encrypted-payloads/evm-contract:
+
+```bash
+cd encrypted-payloads/evm-contract
+```
+
+Open `encrypt.js` in evm-contract/scripts and navigate to [lines 43-49](https://github.com/SecretFoundation/Secretpath-tutorials/blob/f3e3bd85a2b9f868cab26f12143630ce598ae152/encrypted-payloads/evm-contract/scripts/encrypt.js#L43).&#x20;
+
+Update the `routing_contract` and `routing_code_hash` to the contract address and `codehash` of the Secret Network smart contract that you instantiated:&#x20;
+
+```javascript
+  //EVM gateway contract address
+  const publicClientAddress = "0x3879E146140b627a5C858a08e507B171D9E43139";
+
+  //the contract you want to call in secret
+  const routing_contract = "secret1z9wdcmxdad2c07m6m8l5cwvrhmwrkexp64fck0";
+  const routing_code_hash =
+    "6311a3f85261fc720d9a61e4ee46fae1c8a23440122b2ed1bbcebf49e3e46ad2";
+```
+
+{% hint style="info" %}
+`publicClientAddress` is the gateway contract address for Sepolia, which is found in Secret's gateway contract docs [here](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/gateway-contracts/evm-testnet/evm-testnet-gateway-contracts).&#x20;
+{% endhint %}
+
+Next, update[ lines 73-77](https://github.com/SecretFoundation/Secretpath-tutorials/blob/63a1df61cab6b9e863989d779bc6b98665e73509/encrypted-payloads/evm-contract/scripts/encrypt.js#L73) with the EVM wallet address associated with the private key in your env file (`myAddress)`, a key (any `string` of your choosing), a value, (any `string` of your choosing), and a viewing\_key (any `string` of your choosing).&#x20;
 
 {% hint style="info" %}
 `value` is the the data that you want to encrypt, `key` and `viewing_key` are parameters you pass to encrypt the `value.`
@@ -59,6 +148,18 @@ Update [lines 70-74 ](https://github.com/SecretFoundation/Secretpath-tutorials/b
   const value = "";
   const viewing_key = "";
 ```
+
+Next, you are going to set the `handle` variable to call the `store_value` function inside of the Secret contract that you instantiated earlier.  You do this with [line 80](https://github.com/SecretFoundation/Secretpath-tutorials/blob/63a1df61cab6b9e863989d779bc6b98665e73509/encrypted-payloads/evm-contract/scripts/encrypt.js#L80), which corresponds to the [`store_value` function in the Secret contract](https://github.com/SecretFoundation/Secretpath-tutorials/blob/63a1df61cab6b9e863989d779bc6b98665e73509/encrypted-payloads/secret-contract/src/contract.rs#L67):&#x20;
+
+{% code overflow="wrap" %}
+```rust
+    let handle = msg.handle.as_str();
+    match handle {
+        "store_value" => store_value(deps, env, msg.input_values, msg.task, msg.input_hash),
+        "retrieve_value" => retrieve_value(deps, env, msg.input_values, msg.task, msg.input_hash),
+        _ => Err(StdError::generic_err("invalid handle".to_string())),
+```
+{% endcode %}
 
 Once you have decided upon these parameters, simply run `encrypt.js:`&#x20;
 
@@ -84,15 +185,17 @@ Transaction sent! Hash: 0x7cba6149de15e42d0198a1c33548dbcaf6e1142c778f665f62b25a
 Transaction confirmed! Block Number: 5412596
 ```
 
+Congrats, you have encrypted your first cross-chain payload with SecretPath!&#x20;
+
 ## Decrypt your payload
 
-To decrypt your encrypted payload, open a new terminal and `cd` into `secret-contract/node`
+To decrypt your encrypted payload, `cd` into `secret-contract/node`
 
 ```bash
 cd secret-contract/node
 ```
 
-Update [lines 8-9 ](https://github.com/writersblockchain/encrypted-payloads/blob/71c86e979978dfa9bf28c5cf380c6c260b119704/secret-contract/node/decrypt.js#L8)with your `key` and `viewing-key:`
+Open decrypt.js and update [lines 8-9](https://github.com/SecretFoundation/Secretpath-tutorials/blob/8ccd1668c718741826760f3831f33488313ef897/encrypted-payloads/secret-contract/node/decrypt.js#L8) with your `key` and `viewing-key:`
 
 ```javascript
   const key = "secret sauce";
@@ -105,14 +208,21 @@ Then run `node decrypt:`
 node decrypt 
 ```
 
-And your decrypted payload will be returned:
+Your decrypted payload will be returned:
 
 ```bash
 {
   key: 'secret sauce',
-  value: 'i love anewbiz',
+  value: 'secret to the moon',
   message: 'Retrieved value successfully'
 }
 ```
 
-Congrats! You have now used Snakepath to encrypt and decrypt cross-chain payloads.&#x20;
+Congrats! You have now used SecretPath to encrypt and decrypt cross-chain payloads! [🔥](https://emojipedia.org/fire)
+
+### Summary
+
+SecretPath is a powerful addition to Secret Network’s cross-chain messaging capabilities. Along with [IBC](https://cosmos.network/ibc/) and [Axelar GMP](https://docs.axelar.dev/dev/general-message-passing/overview), and eventually to be joined by additional bridging technologies like [Wormhole](https://wormhole.com/) and [Union](https://union.build/), it enables [groundbreaking new use-cases](https://scrt.network/blog/introducing-privacy-as-a-service/) for Web3 applications by providing access to confidential computation. This facilitates novel applications such as [private voting for DAOs](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/confidential-voting/confidential-voting-developer-tutorial), [secure random number generation](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/vrf/vrf-developer-tutorial), confidential data access control via NFTs, encrypted DeFi order books, sealed-bid auctions, and [storing encrypted data](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial).&#x20;
+
+We also encourage developers to check out our [grants program](https://scrt.network/blog/q224-grants-open/) to get funding for building with SecretPath, and to join our [Discord](https://scrt.network/discord) and [Telegram](https://t.me/SCRTCommunity) to get involved with our community. You can also [contact our team](https://share.hsforms.com/1mdCYD6BmS9OFdTGnnzQ8Lwqgzib) directly if you have any questions about building on Secret.
+

@@ -156,7 +156,7 @@
         * [Axelar GMP Developer Tutorial](development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/axelar-gmp/evm-general-message-passing.md)
   * [Usecases](development/ethereum-evm-developer-toolkit/usecases/README.md)
     * [Storing Encrypted Data on Secret Network](development/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/README.md)
-      * [Key Value store Developer Tutorial](development/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
+      * [Key-Value store Developer Tutorial](development/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
     * [Confidential Voting](development/ethereum-evm-developer-toolkit/usecases/confidential-voting/README.md)
       * [Confidential Voting Developer Tutorial](development/ethereum-evm-developer-toolkit/usecases/confidential-voting/confidential-voting-developer-tutorial.md)
     * [VRF](development/ethereum-evm-developer-toolkit/usecases/vrf/README.md)
