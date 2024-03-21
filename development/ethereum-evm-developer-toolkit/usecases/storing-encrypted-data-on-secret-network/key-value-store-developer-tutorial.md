@@ -8,7 +8,7 @@ description: Learn how to use SecretPath on EVM to encrypt payloads.
 
 SecretPath seamlessly handles encrypted payloads on the EVM, which means EVM developers can use SecretPath to encrypt and decrypt messages cross-chain with little-to-no Rust experience required.&#x20;
 
-This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on the EVM. After this tutorial, you will have the tools you need to use SecretPath to encrypt messages.&#x20;
+This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on the EVM, as well as how to encrypt payloads and transmit them cross-chain. After this tutorial, you will have the tools you need to use SecretPath to encrypt messages on any [EVM-compatible chain](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/gateway-contracts/evm-testnet/evm-testnet-gateway-contracts).&#x20;
 
 ## Getting Started
 

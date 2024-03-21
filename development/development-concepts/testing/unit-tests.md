@@ -30,7 +30,7 @@ For a practical understanding of writing unit tests for Secret Contracts, naviga
 
 Let's examine `proper_initialization()` to understand how unit tests check for correctness of various execution messages in Secret Smart Contracts.&#x20;
 
-#### **proper\_initialization()**
+### Deep dive: Understanding the proper-initialization() test
 
 [Review line 71 of the contract.rs file](https://github.com/scrtlabs/secret-template/blob/7f21404f0ef51a3e2d5cc725319dbe92e419a03b/src/contract.rs#L71), which contains the `proper_initialization()` test and tests whether or not **the counter contract is properly instantiated**. Let's break this function down line-by-line so we have a thorough understanding of each piece of the code.&#x20;
 
@@ -44,22 +44,33 @@ mod tests {
     }
 ```
 
+The `use super::*;` line imports all the modules from the parent module ([ie everything that is imported at the top](https://github.com/scrtlabs/secret-template/blob/7f21404f0ef51a3e2d5cc725319dbe92e419a03b/src/contract.rs#L1) of the `contract.rs` file). This allows the test module to access `contract.rs`'s imports and test its functionality.
+
+The `use cosmwasm_std::testing::*;` line imports all the testing utilities from the `cosmwasm_std` crate.&#x20;
+
 The `#[cfg(test)]` annotation on the tests module tells Rust to compile and run this test code only when you run `cargo test` , and not when you run `cargo build` . This saves compile time when you only want to build the library and saves space in the resulting compiled artifact because the tests are not included.
 
 The `mod tests { }` block defines a new module named `tests`. This is a conventional way of organizing test functions in Rust. Tests can be run with `cargo test`.
+
+```bash
+cargo test
+```
 
 {% hint style="success" %}
 If you run **`cargo test`,** `the terminal will return 3 passing tests!`
 {% endhint %}
 
-The `use super::*;` line imports all the modules from the parent module ([ie everything that is imported at the top](https://github.com/scrtlabs/secret-template/blob/7f21404f0ef51a3e2d5cc725319dbe92e419a03b/src/contract.rs#L1) of the `contract.rs` file). This allows the test module to access `contract.rs`'s imports and test its functionality.
+Since Rust's testing framework, Cargo, runs tests in parallel by default, this can lead to nondeterministic behavior if the code being tested is not designed to handle concurrent execution safely (for example, `keymap` with `iterator` and `AppendStore`). **The immediate fix for this issue is to enforce the tests to run serially**, **thus avoiding the problems caused by concurrent access and modification**. This can be achieved by using the following command:
 
-The `use cosmwasm_std::testing::*;` line imports all the testing utilities from the `cosmwasm_std` crate.&#x20;
+```bash
+cargo test -- --test-threads=1
+```
 
-The `use cosmwasm_std::{from_binary, Coin, StdError, Uint128};` line  are imports commonly used in CosmWasm smart contracts, and include functions for parsing binary data, working with tokens (Coins), and reporting errors (StdError).
+This command tells Cargo to run the tests with only one thread, effectively serializing test execution and preventing concurrent access to shared resources.
+
+**Mock dependenices**&#x20;
 
 ```
- //examine this code block and then read the analysis below
  #[test]
     fn proper_initialization() {
         let mut deps = mock_dependencies();
@@ -72,16 +83,15 @@ The `use cosmwasm_std::{from_binary, Coin, StdError, Uint128};` line  are import
         );
 ```
 
-The `#[test]` attribute marks the function as a test function and tells Rust to run this function when you run `cargo test.`
-
 The `let mut deps = mock_dependencies();` line creates a new set of **mock dependencies**, which simulate the necessary dependencies of a smart contract in a testing environment. These dependencies include storage, a message handler, and an API client.
 
 The `let info = mock_info("creator", &[Coin { denom: "earth".to_string(), amount: Uint128::new(1000), }], );` line creates a new mock transaction context, which simulates the context in which a transaction would be executed on the blockchain. This context includes information about the sender of the transaction (in this case, the creator), as well as any tokens (in this case, a single "earth" token with a balance of 1000).
 
 Taken together, these lines set up a mock environment in which the counter contract can be tested. The `proper_initialization()` function can now perform its tests using these mock dependencies and transaction context.
 
+**Init\_msg**&#x20;
+
 ```
-//examine this code block and then read the analysis below
 let init_msg = InstantiateMsg { count: 17 };
 
         let res = instantiate(deps.as_mut(), mock_env(), info, init_msg).unwrap();
