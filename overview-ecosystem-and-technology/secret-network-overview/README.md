@@ -2,7 +2,7 @@
 description: One-page overview of Secret Network
 ---
 
-# Secret Network Overview
+# 🚀 Secret Network Overview
 
 Secret Network is the first blockchain with customizable privacy. You get to choose what you share, who you share with, and how long you share it for. This protects users and empowers developers to build a better Web3.
 

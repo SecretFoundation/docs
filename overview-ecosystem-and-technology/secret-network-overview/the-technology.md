@@ -21,7 +21,7 @@ Secret brings privacy to the Interchain by leveraging CosmWasm IBC compatible sm
 * [Privacy technology](../techstack/privacy-technology/)
   * [Encryption - Key Management](../techstack/privacy-technology/encryption-key-management/)
   * [Trusted Execution Environments (TEE) - Intel SGX](../techstack/privacy-technology/intel-sgx/)
-  * [Access Control](../../development/secret-contract-fundamentals/access-control/)
+  * [Access Control](../../development/development-concepts/example-contracts/secret-contract-fundamentals/access-control/)
   * [Private Smart contracts](../techstack/privacy-technology/private-computation-and-consensus-flow.md)
   * [Plans Beyond SGX](../techstack/privacy-technology/plans-beyond-sgx.md)
   * [Theoretical Attacks](../techstack/privacy-technology/theoretical-attacks/)

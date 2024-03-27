@@ -86,7 +86,7 @@ Alternatively you can directly interact with their testnet secret contracts. Bel
 
 With Keplr you’ll need to approve a connection request for each protocol that you want to connect to. You can easily manage active website connections under “**Manage Connections**” in the Keplr settings.
 
-_**Note:** If you’re using `secretcli` view a full list of commands for_ [_Secret Contracts here_](../../infrastructure/secret-cli/secret-contracts.md)_._
+_**Note:** If you’re using `secretcli` view a full list of commands for_ [_Secret Contracts here_](../../infrastructure/resources/secret-cli/secret-contracts.md)_._
 
 ## Viewing Testnet Transactions
 

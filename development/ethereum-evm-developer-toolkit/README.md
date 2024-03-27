@@ -6,3 +6,22 @@ description: >-
 
 # 🤝 Ethereum (EVM) Developer Toolkit
 
+**Basics**
+
+* [Overview ](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/basics/overview)
+* [Connecting Metamask to Secret Network](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/basics/connecting-metamask-to-secret-network)
+* [Cross-chain Messaging ](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging)
+
+**Usecases**
+
+* [Storing Encrypted Data on Secret Network ](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network)
+* [Confidential Voting ](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/confidential-voting)
+* [VRF](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/vrf)
+* [NFTs](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/nfts)
+* [Tokens](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/tokens)
+* [Defi](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/defi)
+
+**Supported Networks**
+
+* [EVM Mainnet](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/gateway-contracts/evm-mainnet)
+* [EVM Testnet](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/gateway-contracts/evm-testnet)

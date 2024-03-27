@@ -1,2 +1,2 @@
-# Resources - API/Contract addresses
+# 📬 Deployment Addresses/ API Endpoints
 

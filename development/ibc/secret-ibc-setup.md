@@ -7,7 +7,7 @@ description: >-
 # Secret IBC setup
 
 {% hint style="success" %}
-For deployment of production level relaying services and config/guide information for both RLY and Hermes please refer to --> [IBC relayers documentation](../../../infrastructure/ibc-relayers/)
+For deployment of production level relaying services and config/guide information for both RLY and Hermes please refer to --> [IBC relayers documentation](../../infrastructure/resources/ibc-relayers/)
 {% endhint %}
 
 ### Secret IBC setup
@@ -55,7 +55,7 @@ hermes create channel --a-chain secretdev-1 --b-chain secretdev-2 --a-port trans
 
 SecretCLI will ask you to confirm the transaction before signing:&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-09-06 at 4.51.59 PM.png" alt=""><figcaption><p>IBC transfer message in LocalSecret</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-09-06 at 4.51.59 PM.png" alt=""><figcaption><p>IBC transfer message in LocalSecret</p></figcaption></figure>
 
 Query that the transaction was successful:&#x20;
 
@@ -112,5 +112,5 @@ secretcli q bank balances secret1ap26qrlp8mcq2pg6r47w43l0y8zkqm8a450s03
 
 Congrats 🎉 You should now see the ibc-denom returned in the transaction query:&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-09-06 at 6.02.20 PM.png" alt=""><figcaption><p>IBC-denom transaction query</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-09-06 at 6.02.20 PM.png" alt=""><figcaption><p>IBC-denom transaction query</p></figcaption></figure>
 

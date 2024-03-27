@@ -2,7 +2,7 @@
 description: Learn how to connect Secret Network contracts to a frontend.
 ---
 
-# Frontend Development
+# 🖼️ Frontend Development
 
 ## SecretJS
 

@@ -22,7 +22,7 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 [Trusted Execution Environments (TEE) - Intel SGX](intel-sgx/)
 
-[Access Control](../../../development/secret-contract-fundamentals/access-control/)
+[Access Control](../../../development/development-concepts/example-contracts/secret-contract-fundamentals/access-control/)
 
 [Plans Beyond SGX](plans-beyond-sgx.md)
 

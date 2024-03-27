@@ -13,7 +13,7 @@ The crosschain contract that we are examining can be cloned from [this repo](htt
 The contract code uses conditional compilation and feature flags in Rust to support different configurations within a single codebase. If you navigate to [contract.rs](https://github.com/scrtlabs/crosschain-contract-demo/blob/old-std-name/src/contract.rs), you will find two sets of imports for different features, either `"secret"` or `"vanilla"`. The imports are conditionally compiled using `#[cfg(feature = "…")]` attributes. The `"secret"` feature uses the `secret_std` crate, whereas the `"vanilla"` feature uses the `cosmwasm_std` crate.
 
 {% hint style="info" %}
-For more information about the feature differences of Standard CosmWasm vs the secret version please visit [this page.](../secret-contract-cosmwasm-framework/differences-from-vanilla-cw.md)\
+For more information about the feature differences of Standard CosmWasm vs the secret version please visit [this page.](example-contracts/secret-contract-fundamentals/secret-contract-cosmwasm-framework/differences-from-vanilla-cw.md)\
 \
 **TLDR**: No raw queries, iterators and upgradeability
 {% endhint %}

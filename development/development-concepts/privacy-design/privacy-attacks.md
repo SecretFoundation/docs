@@ -5,5 +5,5 @@ The ["potential attack vector"](../../../overview-ecosystem-and-technology/techs
 
 
 
-The ["Privacy essentials" ](../../secret-contract-fundamentals/privacy-essentials.md)section also quickly describes everything to take into account.
+The ["Privacy essentials" ](../example-contracts/secret-contract-fundamentals/privacy-essentials.md)section also quickly describes everything to take into account.
 {% endhint %}

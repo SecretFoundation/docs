@@ -1,4 +1,4 @@
-# Secret Network Techstack
+# 🛠️ Secret Network Techstack
 
 Secret Network is built with the Cosmos SDK and the Tendermint consensus engine. Secret Network provides a platform for scalable, private permissionless smart contracts which can connect to the interchain.
 
@@ -20,7 +20,7 @@ In this Section we dive into all of these elements of the techstack.
 * [Privacy technology](privacy-technology/)
   * [Encryption - Key Management](privacy-technology/encryption-key-management/)
   * [Trusted Execution Environments (TEE) - Intel SGX](privacy-technology/intel-sgx/)
-  * [Access Control](../../development/secret-contract-fundamentals/access-control/)
+  * [Access Control](../../development/development-concepts/example-contracts/secret-contract-fundamentals/access-control/)
   * [Private Computation & Consensus Flow](privacy-technology/private-computation-and-consensus-flow.md)
   * [Plans Beyond SGX](privacy-technology/plans-beyond-sgx.md)
   * [Theoretical Attacks](privacy-technology/theoretical-attacks/)
