@@ -16,6 +16,7 @@ description: >-
 
 * [Storing Encrypted Data on Secret Network ](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network)
 * [Confidential Voting ](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/confidential-voting)
+* [Sealed Bid Auctions](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/sealed-bid-auction)
 * [VRF](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/vrf)
 * [NFTs](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/nfts)
 * [Tokens](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/tokens)
