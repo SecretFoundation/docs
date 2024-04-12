@@ -111,6 +111,8 @@
   * [Usecases](development/ethereum-evm-developer-toolkit/usecases/README.md)
     * [Storing Encrypted Data on Secret Network](development/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/README.md)
       * [Key-Value store Developer Tutorial](development/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
+    * [Sealed Bid Auction](development/ethereum-evm-developer-toolkit/usecases/sealed-bid-auction/README.md)
+      * [Sealed Bid Auction Developer Tutorial](development/ethereum-evm-developer-toolkit/usecases/sealed-bid-auction/sealed-bid-auction-developer-tutorial.md)
     * [Confidential Voting](development/ethereum-evm-developer-toolkit/usecases/confidential-voting/README.md)
       * [Confidential Voting Developer Tutorial](development/ethereum-evm-developer-toolkit/usecases/confidential-voting/confidential-voting-developer-tutorial.md)
     * [VRF](development/ethereum-evm-developer-toolkit/usecases/vrf/README.md)

@@ -19,7 +19,7 @@ In this tutorial you will learn **how to encrypt and decrypt votes on the EVM** 
 See a [live demo here](https://private-voting.vercel.app/), configured for Polygon testnet! _(To use the demo, make sure Polygon testnet is added to your Metamask wallet)_&#x20;
 {% endhint %}
 
-You will start by configuring your developer environment and then learn how to generate cryptographic keys in a Secret Network smart contract which you will use to encrypt votes on the EVM. To learn more about Secret Network encryption, see the EVM encryption docs [here](broken-reference).&#x20;
+You will start by configuring your developer environment and then learn how to generate cryptographic keys in a Secret Network smart contract which you will use to encrypt votes on the EVM.&#x20;
 
 ## Getting Started
 
