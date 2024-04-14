@@ -49,7 +49,7 @@
         * [Permits](development/development-concepts/example-contracts/secret-contract-fundamentals/access-control/permits.md)
       * [Trusted and untrusted data](development/development-concepts/example-contracts/secret-contract-fundamentals/secret-contracts.md)
       * [Secret-VRF - on-chain Randomness](development/development-concepts/example-contracts/secret-contract-fundamentals/secret-vrf-on-chain-randomness.md)
-      * [Privacy as a Service (PaaS)](development/development-concepts/example-contracts/secret-contract-fundamentals/privacy-as-a-service-paas.md)
+      * [Decentralized Confidential Computation (DeCC)](development/development-concepts/example-contracts/secret-contract-fundamentals/privacy-as-a-service-paas.md)
       * [Fiat/Crypto Onboarding](development/development-concepts/example-contracts/secret-contract-fundamentals/fiat-crypto-onboarding.md)
       * [Account abstraction](development/development-concepts/example-contracts/secret-contract-fundamentals/account-abstraction.md)
       * [Fee abstraction](development/development-concepts/example-contracts/secret-contract-fundamentals/fee-abstraction.md)
