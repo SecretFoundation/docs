@@ -1,18 +1,19 @@
 ---
 description: >-
-  A technical deep-dive into providing privacy or added functionality to dApps
-  in other ecosystems by leveraging Secret Contracts.
+  A technical deep-dive into how Secret can provide confidential computation to
+  dApps on other blockchains by leveraging cross-chain communication and Secret
+  contracts.
 ---
 
-# Decentralized Confidential Computation (DeCC)
+# Confidential Computing Layer
 
-This section will go over the 4 different design options for Decentralized Confidential Computation with highlighted use cases. This section should hopefully spark interest into DeCC using Secret contracts as a whole and help developers understand the possibilities and limitations of this contract development paradigm.
+This section will go over 4 different design options with highlighted use cases. This section should hopefully spark interest into using Secret's Confidential Computing Layer (or "CCL") as a whole and help developers understand the possibilities and limitations of this contract development paradigm.
 
-### Understanding Decentralized Confidential Computation
+### Understanding the Confidential Computing Layer
 
-DeCC in its most basic form is the idea that one can create products with privacy or additional utility for users who are not on Secret Network itself while using Secret contracts in the backend for the application.
+The CCL in its most basic form is the idea that one can create products with privacy or additional utility for users who are not on Secret Network itself while using Secret contracts in the backend for the application.
 
-Do you want to tap into Ethereum's liquidity, the polygon NFT scene or just want to add additional encryption-powered use cases to your current techstack? DeCC might be a perfect fit.
+Do you want to tap into Ethereum's liquidity, the polygon NFT scene or just want to add additional encryption-powered use cases to your current techstack? Secret's CCL might be a perfect fit.
 
 {% hint style="info" %}
 The below design paradigms are separated based on the data flow in the app. The simplest apps only take data to and from Secret, while  more complex apps either keep all the data separate, or take private data in and return public output.
@@ -40,7 +41,7 @@ The Authentication use case however can be taken much further. A Secret contract
 
 ### 3. Sister contracts (ex. Private data for NFTs, verified p2p communication)
 
-In a "sister contract" design scheme the Secret contract and the DeCC consumer chain act as two separate entities with which the user interacts separately. This allows developers to work with encrypted output, something none of the other DeCC design flows allow.
+In a "sister contract" design scheme the Secret contract and the CCL consumer chain act as two separate entities with which the user interacts separately. This allows developers to work with encrypted output, something none of the other CCL design flows allow.
 
 Sister Contracts is the idea that one can accompany applications on other networks with access controlled data or functions by leveraging a Secret contract. The simplest usecase to explain here is in the realm of NFTs, certificates or other non-fungible personally assigned data objects. It is of paramount importance to many dApps that their usecase is accessible by many, hence why developers often choose for EVM or specifically Ethereum as their home network. With Sister contracts, one can have NFTs, certificates, Invoices or any other item be created on this user-rich chain while simultaneously linking it to a counterpart on Secret network. At any moment in time, the user who owns the item on Ethereum can verify their ownership to the Secret counter-party contract to reveal additional information only visible to them.&#x20;
 
@@ -59,7 +60,7 @@ One can design a dApp that allows Ethereum (or any other chain) DAOs to vote pri
 This same concept applies to many different use cases like sealed bid auctions and obscuring the game-state of turn-based games. The first mainnet application on Polygon called [**Bidshop**](https://liquidfactory.io/) is using Secret Network in this way to enable a gamified auction platform. **To enable these use cases, cross-chain messaging is needed from either Axelar GMP, IBC or other solutions.**  Bidshop will be allowing integrations for other dApps on their novel trustless message bridge as well, want to get connected? Let us know!
 
 {% hint style="info" %}
-Want to get started with DeCC or explore the possibilities but need some extra help?\
+Want to get started with CCL or explore the possibilities but need some extra help?\
 \
 [**Get in Contact!**](https://forms.monday.com/forms/068ffff6bbc4e0308d44946273a9c612?r=use1)
 {% endhint %}
