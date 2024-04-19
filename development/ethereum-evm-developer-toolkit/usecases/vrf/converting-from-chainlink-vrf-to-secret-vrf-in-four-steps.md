@@ -1,10 +1,10 @@
-# Converting from Chainlink VRF to Secret VRF in three steps
+# Converting from Chainlink VRF to Secret VRF in four steps
 
 {% hint style="info" %}
 Got improvements or suggestions on how to convert your ChainlinkVRF contract to SecretVRF ? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
 {% endhint %}
 
-Converting from Chainlink VRF to Secret VRF is easier than you expect. Within three easy steps you can free your contract from bloat and use the lightweight and faster Secret VRF solution.&#x20;
+Converting from Chainlink VRF to Secret VRF is easier than you expect. Within four easy steps you can free your contract from bloat and use the lightweight and faster Secret VRF solution.&#x20;
 
 We start off with the example code from Chainlink from [here](https://docs.chain.link/vrf/v2/getting-started#how-can-i-use-chainlink-vrf):&#x20;
 
