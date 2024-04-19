@@ -21,7 +21,7 @@ Each contract will contain these basic building blocks, with their logic being b
 
 Now we can move on to examining our contract, which solves the Millionaire's problem. We'll start by looking at the directory structure:
 
-![](<../../../.gitbook/assets/image (1).png>)
+![](<../../../.gitbook/assets/image (1) (1).png>)
 
 For the most part, we can expect the files to contain the following data:
 
