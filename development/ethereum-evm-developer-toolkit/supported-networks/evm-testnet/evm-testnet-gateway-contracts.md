@@ -14,3 +14,5 @@
 | Near Aurora Testnet | `1313161555` | `0x6f1A599A902982dcD9a632b15D21628cb17f5Cd2` | `0x2171F60CD80b25b39ACf7648Efc200d115ED6aAE` | `0.2.0`          |
 | Linea Sepolia       | `59141`      | `0x8EaAB5e8551781F3E8eb745E7fcc7DAeEFd27b1f` | `0xb352D4449dC7355d4478784027d7AfAe69843085` | `0.2.0`          |
 | XDC Apothem         | `51`         | `0x8EaAB5e8551781F3E8eb745E7fcc7DAeEFd27b1f` | `0xb352D4449dC7355d4478784027d7AfAe69843085` | `0.2.0`          |
+| Lisk Sepolia        | `4202`       | `0x8EaAB5e8551781F3E8eb745E7fcc7DAeEFd27b1f` | `0xb352D4449dC7355d4478784027d7AfAe69843085` | `0.2.0`          |
+
