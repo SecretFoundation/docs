@@ -27,12 +27,12 @@ chmod +x secretcli
 ### Configure <a href="#setup-the-executable" id="setup-the-executable"></a>
 
 ```bash
-secretcli config chain-id pulsar-3
+secretcli config chain-id secret-4
 secretcli config output json
-secretcli config node https://rpc.pulsar.scrttestnet.com
+secretcli config node https://rpc.mainnet.secretsaturn.net
 ```
 
-You can find alternate node endpoints in the [API registry](../../../../development/resources-api-contract-addresses/connecting-to-the-network/), or run your own [full node](run-a-full-node.md)
+You can find alternate node endpoints in the [API registry](../../../../development/resources-api-contract-addresses/connecting-to-the-network/), or run your own [full node](../testnet/run-a-full-node.md)\\
 
 ### Check the installation <a href="#create-a-new-address" id="create-a-new-address"></a>
 

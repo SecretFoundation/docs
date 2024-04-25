@@ -293,6 +293,7 @@
       * [Quicksync / Snapshot](infrastructure/resources/setting-up-a-node-validator/node-setup/snapshot.md)
       * [Statesync](infrastructure/resources/setting-up-a-node-validator/node-setup/state-sync.md)
       * [Becoming A Validator](infrastructure/resources/setting-up-a-node-validator/node-setup/becoming-a-validator.md)
+      * [Installing CLI & Creating A New Address](infrastructure/resources/setting-up-a-node-validator/node-setup/installing-cli-and-creating-a-new-address.md)
   * [Maintaining a node/validator](infrastructure/resources/maintaining-a-node-validator/README.md)
     * [Slashing information](infrastructure/resources/maintaining-a-node-validator/node-runners.md)
     * [Migrating a Validator](infrastructure/resources/maintaining-a-node-validator/migrating-a-validator.md)

@@ -12,7 +12,7 @@ We will explore how to instantiate a contract on Secret Network with specific pa
 
 Before running this command, ensure you have the following:
 
-* A working installation of `secretcli`, see here:[installing-cli-and-creating-a-new-address.md](../../infrastructure/resources/setting-up-a-node-validator/testnet/installing-cli-and-creating-a-new-address.md "mention")
+* A working installation of `secretcli`, see here: [installing-cli-and-creating-a-new-address.md](../../infrastructure/resources/setting-up-a-node-validator/node-setup/installing-cli-and-creating-a-new-address.md "mention")
 * Understanding of smart contracts and Secret Network's privacy features
 * The correct IBC Token denomination, see below.
 
@@ -70,7 +70,7 @@ The JSON part of the command specifies the configuration for the contract:
 
 * **--admin**: The address that has administrative control over the contract.  Please keep this strictly assigned to the SCRT Labs admin address `secret1lrnpnp6ltfxwuhjeaz97htnajh096q7y72rp5d`.
 * **--from**: Specifies which account is executing the transaction, this is your key alias.
-* **--gas**: Sets the maximum gas limit for the transaction (150,000 units).
+* **--gas**: Sets the maximum gas limit for the transaction (150,000 gas units).
 * **--label**: A label to identify the instantiated contract ("secret-saga").
 * **-b block**: Waits for the transaction to be included in a block before completing.
 
