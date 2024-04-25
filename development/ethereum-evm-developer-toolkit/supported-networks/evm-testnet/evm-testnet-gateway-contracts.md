@@ -1,5 +1,9 @@
 # EVM Testnet Gateway contracts
 
+{% hint style="info" %}
+Can't find your network here? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord to support it.&#x20;
+{% endhint %}
+
 | Network             | Chain-ID     | Gateway Address                              | Proxy Admin                                  | Contract Version |
 | ------------------- | ------------ | -------------------------------------------- | -------------------------------------------- | ---------------- |
 | Ethereum Sepolia    | `11155111`   | `0x3879E146140b627a5C858a08e507B171D9E43139` | `0x38476c18226C98C821eE1DFc368D49691d44cE68` | `0.1.0`          |
