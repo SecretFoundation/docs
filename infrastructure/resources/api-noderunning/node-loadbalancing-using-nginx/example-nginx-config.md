@@ -17,7 +17,7 @@ events {
 
 http {
 
-    large_client_header_buffers 4 64k; 
+    large_client_header_buffers 4 128k; 
     server_names_hash_bucket_size 128;
 
 map $request_uri $short_uri {
@@ -52,7 +52,7 @@ map $request_uri $short_uri {
     }
 
     #Upstream group
-    upstream rpc_stream_mainnet {
+    upstream rpc_stream {
         least_conn; #Redirect requests to the server with least number of active connections
         server  XXX.XXX.XXX.XXX:26657 max_fails=1000 fail_timeout=30s; 
 	server  XXX.XXX.XXX.XXX:26657 max_fails=1000 fail_timeout=30s;
@@ -60,7 +60,7 @@ map $request_uri $short_uri {
 
     }
 
-    upstream grpc_stream_mainnet {
+    upstream grpc_stream {
         least_conn; #Redirect requests to the server with least number of active connections
         server  XXX.XXX.XXX.XXX:9091 max_fails=1000 fail_timeout=30s; 
 	server  XXX.XXX.XXX.XXX:9091 max_fails=1000 fail_timeout=30s;
@@ -68,7 +68,7 @@ map $request_uri $short_uri {
 
     }
 
-    upstream lcd_stream_mainnet {
+    upstream lcd_stream {
         least_conn; #Redirect requests to the server with least number of active connections
         server  XXX.XXX.XXX.XXX:1317 max_fails=1000 fail_timeout=30s; 
 	server  XXX.XXX.XXX.XXX:1317 max_fails=1000 fail_timeout=30s;
@@ -89,7 +89,7 @@ map $request_uri $short_uri {
             add_header 'Access-Control-Allow-Credentials' 'true' always;
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-            proxy_pass       http://rpc_stream_mainnet;
+            proxy_pass       http://rpc_stream;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -117,7 +117,7 @@ map $request_uri $short_uri {
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
 
-            proxy_pass       http://rpc_stream_mainnet;
+            proxy_pass       http://rpc_stream;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -143,7 +143,7 @@ map $request_uri $short_uri {
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
             
-            proxy_pass       http://grpc_stream_mainnet;
+            proxy_pass       http://grpc_stream;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -169,7 +169,7 @@ map $request_uri $short_uri {
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
             
-            proxy_pass       http://grpc_stream_mainnet;
+            proxy_pass       http://grpc_stream;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -198,7 +198,7 @@ server {
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' * always;
 
-            proxy_pass       http://lcd_stream_mainnet;
+            proxy_pass       http://lcd_stream;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -230,7 +230,7 @@ server {
             add_header 'Access-Control-Allow-Methods' * always;
 
 
-            proxy_pass       http://lcd_stream_mainnet;
+            proxy_pass       http://lcd_stream;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

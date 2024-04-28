@@ -14,7 +14,7 @@ There are 2 important things that must be done for each node:
 
 ### Setup
 
-This process assumes you already have a full node running. If you do not, proceed by [Setting Up a Full Node](../../setting-up-a-node-validator/node-setup/setup-full-node.md), then returning.
+This process assumes you already have a full node running. If you do not, proceed by [Setting Up a Full Node](../setting-up-a-node-validator/node-setup/setup-full-node.md), then returning.
 
 #### 1. Create a User
 
@@ -35,7 +35,7 @@ secretd status
 
 #### 3. Begin Setting up a Node
 
-On the new user, execute steps 1 and 2 of [Setting Up a Full Node](../../setting-up-a-node-validator/node-setup/setup-full-node.md). You should now have a `.secretd` directory on the new user, and the correct genesis file.
+On the new user, execute steps 1 and 2 of [Setting Up a Full Node](../setting-up-a-node-validator/node-setup/setup-full-node.md). You should now have a `.secretd` directory on the new user, and the correct genesis file.
 
 #### 4. Register the Node
 
@@ -51,7 +51,7 @@ secretd auto-register
 
 In order for these nodes to work in tandem, they cannot use the same ports. I recommend [this tool](https://cch.79anvi.com/) to help automate changing them.
 
-![Example Ports](<../../../../.gitbook/assets/Screen Shot 2022-07-04 at 3.57.33 PM.png>)
+![Example Ports](<../../../.gitbook/assets/Screen Shot 2022-07-04 at 3.57.33 PM.png>)
 
 Which will then create a command that looks like this:
 
@@ -92,7 +92,7 @@ EOF
 
 At this point, all unique behavior for additional nodes is complete! :tada:
 
-From here, you can return to[ step 9](../../setting-up-a-node-validator/node-setup/setup-full-node.md) of setting up a full node. Note that the service file name is different. The following is what the system file commands would look like.
+From here, you can return to[ step 9](../setting-up-a-node-validator/node-setup/setup-full-node.md) of setting up a full node. Note that the service file name is different. The following is what the system file commands would look like.
 
 ```
 sudo systemctl daemon-reload && sudo systemctl enable secretd && \
