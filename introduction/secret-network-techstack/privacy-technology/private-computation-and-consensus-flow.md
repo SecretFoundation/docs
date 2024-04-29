@@ -21,7 +21,3 @@ Want to learn more about the encryption specification of the contract state? - R
 Secret contracts are an altered version of the CosmWasm Rust based smart contract framework and share many resemblance. The contracts written in Rust compile to a Wasm binary that is than run by the Wasmd module of the cosmos SDK. The version of Secret is altered in such a way that all executions are done inside the secure enclave requiring additional data verification and more.\
 \
 This also means queries of the contract state or contract execution are permissioned to only the signer of the transaction themselves. Contract state queries requiring opening up the VM in the enclave and are therefore more intensive to run than generic plaintext cosmos-sdk queries.
-
-{% hint style="info" %}
-Want to learn more about the scalability implications of Secret contracts or access control? - Read on in the [Contract fundamentals section.](../../../development/development-concepts/example-contracts/tools-and-libraries/smart-contract-tools-utils/contract-development/)
-{% endhint %}

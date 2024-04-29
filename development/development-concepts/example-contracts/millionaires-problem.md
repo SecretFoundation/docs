@@ -331,6 +331,6 @@ Usually, you will want to define a custom return type for each separate query, w
 
 That's it! An entire Secret Contract from start to end. Thanks for taking the time to go through all of this guide (or even a small portion of it)! You should now have a good understanding of the building blocks of a contract not only on Secret Network, but for all blockchains that support CosmWasm.
 
-* [Intro to Secret Contracts](../../../) - a more in-depth Secret Contract guide
+* [Intro to Secret Contracts](<../../../README (1).md>) - a more in-depth Secret Contract guide
 * [CosmWasm Documentation](https://book.cosmwasm.com/) - everything you want to know about CosmWasm
 * [Secret.JS](https://docs.scrt.network/secret-network-documentation/development/secretjs/templates) - Building a web UI for a Secret Contract

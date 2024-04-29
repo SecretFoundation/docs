@@ -24,9 +24,9 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 [Access Control](../../../development/development-concepts/example-contracts/secret-contract-fundamentals/access-control/)
 
-[Plans Beyond SGX](plans-beyond-sgx.md)
+[Plans Beyond SGX](broken-reference)
 
-[Theoretical Attacks](theoretical-attacks/)
+[Theoretical Attacks](broken-reference)
 
 </details>
 

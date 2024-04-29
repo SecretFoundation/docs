@@ -1,6 +1,6 @@
-# Secretcli Vs. Secretd
+# Secretcli vs. Secretd
 
-There are differences between `secretcli` and `secretd`. `secretd` is a full node including the code running inside [SGX](../../../overview-ecosystem-and-technology/techstack/privacy-technology/intel-sgx/why-sgx.md), and secretcli is a command line interface (CLI) for sending and querying Secret Network transactions.
+There are differences between `secretcli` and `secretd`. `secretd` is a full node including the code running inside [SGX](../../../introduction/secret-network-techstack/privacy-technology/intel-sgx/why-sgx.md), and secretcli is a command line interface (CLI) for sending and querying Secret Network transactions.
 
 ## Why Make A Distinction Between `secretcli` And `secretd`?
 

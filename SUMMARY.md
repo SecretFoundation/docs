@@ -1,8 +1,36 @@
 # Table of contents
 
+## 👋 INTRODUCTION
+
+* [Secret Network Introduction](README.md)
+* [Secret Network Techstack](introduction/secret-network-techstack/README.md)
+  * [Private transactions - A quick summary](introduction/secret-network-techstack/consensus-for-secret-transactions.md)
+  * [Blockchain Technology](introduction/secret-network-techstack/blockchain-technology/README.md)
+    * [Cosmos Basics](introduction/secret-network-techstack/blockchain-technology/cosmos-basics.md)
+    * [Tendermint](introduction/secret-network-techstack/blockchain-technology/tendermint.md)
+    * [Cosmos SDK](introduction/secret-network-techstack/blockchain-technology/cosmos-sdk.md)
+    * [IBC](introduction/secret-network-techstack/blockchain-technology/ibc.md)
+    * [CosmWasm](introduction/secret-network-techstack/blockchain-technology/cosmwasm.md)
+  * [Privacy Technology](introduction/secret-network-techstack/privacy-technology/README.md)
+    * [Encryption - Key Management](introduction/secret-network-techstack/privacy-technology/encryption-key-management/README.md)
+      * [Overview](introduction/secret-network-techstack/privacy-technology/encryption-key-management/overview.md)
+      * [Key Derivation & Encryption Techniques](introduction/secret-network-techstack/privacy-technology/encryption-key-management/key-derivation-and-encryption-techniques.md)
+      * [The Initialization Of Secret Network](introduction/secret-network-techstack/privacy-technology/encryption-key-management/bootstrap-process.md)
+      * [Full Node Boostrap](introduction/secret-network-techstack/privacy-technology/encryption-key-management/full-node-boostrap.md)
+      * [Contract State Encryption](introduction/secret-network-techstack/privacy-technology/encryption-key-management/contract-state-encryption.md)
+      * [Transaction Encryption](introduction/secret-network-techstack/privacy-technology/encryption-key-management/transaction-encryption.md)
+      * [Consensus seed rotation](introduction/secret-network-techstack/privacy-technology/encryption-key-management/consensus-seed-rotation.md)
+    * [Trusted Execution Environments  (TEE) —  Intel SGX](introduction/secret-network-techstack/privacy-technology/intel-sgx/README.md)
+      * [How Secret Network Uses SGX](introduction/secret-network-techstack/privacy-technology/intel-sgx/overview.md)
+      * [SGX-SPS Security & Reliabillity](introduction/secret-network-techstack/privacy-technology/intel-sgx/why-sgx.md)
+      * [Remote Attestation](introduction/secret-network-techstack/privacy-technology/intel-sgx/remote-attestation.md)
+      * [Trusted & Untrusted Core](introduction/secret-network-techstack/privacy-technology/intel-sgx/trusted-core.md)
+      * [Sealing](introduction/secret-network-techstack/privacy-technology/intel-sgx/sealing.md)
+    * [Private smart contracts - overview](introduction/secret-network-techstack/privacy-technology/private-computation-and-consensus-flow.md)
+
 ## 💻 Development
 
-* [🏠 Getting Started](README.md)
+* [🏠 Getting Started](<README (1).md>)
   * [Setting Up Your Environment](development/getting-started/setting-up-your-environment/README.md)
     * [Cargo.toml Best Practices (Crates vs Dependencies)](development/getting-started/setting-up-your-environment/cargo.toml-best-practices-crates-vs-dependencies.md)
   * [Compile and Deploy](development/getting-started/compile-and-deploy.md)
@@ -164,7 +192,6 @@
 
 ## 🤫 Overview, Ecosystem and Technology
 
-* [☝️ Introduction](overview-ecosystem-and-technology/readme.md)
 * [🚀 Secret Network Overview](overview-ecosystem-and-technology/secret-network-overview/README.md)
   * [The SCRT coin](overview-ecosystem-and-technology/secret-network-overview/scrt-and-sscrt.md)
   * [Private Tokens](overview-ecosystem-and-technology/secret-network-overview/private-tokens.md)
@@ -203,37 +230,6 @@
       * [Support](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-committees/support.md)
       * [Governance](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-committees/governance.md)
   * [Secret Network Dictionary](overview-ecosystem-and-technology/ecosystem-overview/secret-network-dictionary.md)
-* [🛠️ Secret Network Techstack](overview-ecosystem-and-technology/techstack/README.md)
-  * [Private transactions - A quick summary](overview-ecosystem-and-technology/techstack/consensus-for-secret-transactions.md)
-  * [Blockchain Technology](overview-ecosystem-and-technology/techstack/blockchain-technology/README.md)
-    * [Cosmos Basics](overview-ecosystem-and-technology/techstack/blockchain-technology/cosmos-basics.md)
-    * [Tendermint](overview-ecosystem-and-technology/techstack/blockchain-technology/tendermint.md)
-    * [Cosmos SDK](overview-ecosystem-and-technology/techstack/blockchain-technology/cosmos-sdk.md)
-    * [IBC](overview-ecosystem-and-technology/techstack/blockchain-technology/ibc.md)
-    * [CosmWasm](overview-ecosystem-and-technology/techstack/blockchain-technology/cosmwasm.md)
-  * [Privacy Technology](overview-ecosystem-and-technology/techstack/privacy-technology/README.md)
-    * [Encryption - Key Management](overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/README.md)
-      * [Overview](overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/overview.md)
-      * [Key Derivation & Encryption Techniques](overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/key-derivation-and-encryption-techniques.md)
-      * [The Initialization Of Secret Network](overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/bootstrap-process.md)
-      * [Full Node Boostrap](overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/full-node-boostrap.md)
-      * [Contract State Encryption](overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/contract-state-encryption.md)
-      * [Transaction Encryption](overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/transaction-encryption.md)
-      * [Consensus seed rotation](overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/consensus-seed-rotation.md)
-    * [Trusted Execution Environments  (TEE) —  Intel SGX](overview-ecosystem-and-technology/techstack/privacy-technology/intel-sgx/README.md)
-      * [How Secret Network Uses SGX](overview-ecosystem-and-technology/techstack/privacy-technology/intel-sgx/overview.md)
-      * [SGX-SPS Security & Reliabillity](overview-ecosystem-and-technology/techstack/privacy-technology/intel-sgx/why-sgx.md)
-      * [Remote Attestation](overview-ecosystem-and-technology/techstack/privacy-technology/intel-sgx/remote-attestation.md)
-      * [Trusted & Untrusted Core](overview-ecosystem-and-technology/techstack/privacy-technology/intel-sgx/trusted-core.md)
-      * [Sealing](overview-ecosystem-and-technology/techstack/privacy-technology/intel-sgx/sealing.md)
-    * [Private smart contracts - overview](overview-ecosystem-and-technology/techstack/privacy-technology/private-computation-and-consensus-flow.md)
-    * [Plans Beyond SGX](overview-ecosystem-and-technology/techstack/privacy-technology/plans-beyond-sgx.md)
-    * [Potential Attacks](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/README.md)
-      * [Contract level](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/contract-level/README.md)
-        * [Contract storage](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/contract-level/contract-storage.md)
-        * [(meta-)data analysis](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/contract-level/meta-data-analysis.md)
-        * [Replay/side-chain](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/contract-level/replay-side-chain.md)
-      * [Network level](overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/network-level.md)
 
 ## 🔧 Infrastructure
 

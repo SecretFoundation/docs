@@ -31,7 +31,7 @@ Raw queries are not available since raw data is encrypted when stored on-chain. 
 CW-plus, a toolkit for CosmWasm contracts is largely supported but might not be optimal to use in all cases. Secret has its own Toolkit called [Secret-Toolkit](../../tools-and-libraries/smart-contract-tools-utils/secret-toolkit.md) that has the majority of CW-plus functionality. Alternatively one can alter small parts of CW-plus around the missing Iterator feature to leverage that library as well.
 
 {% hint style="info" %}
-Additionally one would have to learn about privacy design, [potential attack vectors](../../../../../overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/) and [trusted and untrusted data](../secret-contracts.md) to make their application properly privacy preserving.\
+Additionally one would have to learn about privacy design, [potential attack vectors](broken-reference) and [trusted and untrusted data](../secret-contracts.md) to make their application properly privacy preserving.\
 \
 An introduction to these concepts can be found[ here.](../../../privacy-design/)
 {% endhint %}

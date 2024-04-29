@@ -13,7 +13,7 @@ Smart contracts on Secret Network follow the widely used [CosmWasm](https://book
 Secret Contracts slightly differ from any standard CosmWasm implementation as they handle encrypted data, secure enclaves, and the key design around that. Secret currently emulates CosmWasm v1.1.9 and is completely compatible over IBC with other V1.0+ Cosmos Smart contract networks. To learn more about IBC compatible contracts you can read [this section](broken-reference).
 
 {% hint style="info" %}
-Want to learn about how Secret handles the Contract-state encryption and other details that relate to how CosmWasm works on secret? -- Read the implementation documentation [here!](../../../../../overview-ecosystem-and-technology/techstack/privacy-technology/private-computation-and-consensus-flow.md)
+Want to learn about how Secret handles the Contract-state encryption and other details that relate to how CosmWasm works on secret? -- Read the implementation documentation [here!](../../../../../introduction/secret-network-techstack/privacy-technology/private-computation-and-consensus-flow.md)
 {% endhint %}
 
 ### The components of a CosmWasm contract
@@ -30,7 +30,7 @@ Each contract will contain these basic building blocks, with their logic being b
 <figure><img src="../../../../../.gitbook/assets/Copy of Cosmwasm diagrams2.png" alt=""><figcaption><p>An overview of the interplay of the CosmWasm components with the blockchain data layer. - (Image created by PolymerDao and OpenIBC)</p></figcaption></figure>
 
 {% hint style="info" %}
-Want to get started with CosmWasm development? - [**Get started with our 4 part crash course.**](../../../../../) \
+Want to get started with CosmWasm development? - [**Get started with our 4 part crash course.**](<../../../../../README (1).md>) \
 \
 **Dont have much time? -** [**Try our guide on the millionaires problem instead!**](../../millionaires-problem.md) **-** It teaches everything about the CosmWasm framework, message types and environment setup in a single page.
 {% endhint %}

@@ -6,7 +6,7 @@ Fixed a critical bug in 1.7.0 that prevented new nodes from joining the network 
 
 ## 1.7.0
 
-* Added the ability to [rotate consensus seed](../../../overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/consensus-seed-rotation.md) during a network upgrade
+* Added the ability to [rotate consensus seed](../../../introduction/secret-network-techstack/privacy-technology/encryption-key-management/consensus-seed-rotation.md) during a network upgrade
   * this will be executed during this upgrade
 * Added expedited gov proposals
   * Initial params (can be amended with a param change proposal):

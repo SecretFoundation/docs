@@ -40,7 +40,7 @@ In practice a Secret contract developer does not have to think too much about th
 
 ### Replay/Side-chain attacks - privacy design
 
-When designing contracts for Secret network, one should take into account the usage of so-called replay attacks and other [theoretical attack](../../../../overview-ecosystem-and-technology/techstack/privacy-technology/theoretical-attacks/) vectors on secure enclave derived privacy. An example of this is the abundant usage of the Contract hash in Secret contract development. The usage of a contract hash is required to link the input to the specific contract being called. Otherwise one could make a forked chain and replace the contract with one that reads and prints the input parameters. Although encryption for Secret contracts is handled by the protocol, developers should still be mindful of their contract design to optimize for these privacy aspects.&#x20;
+When designing contracts for Secret network, one should take into account the usage of so-called replay attacks and other [theoretical attack](broken-reference) vectors on secure enclave derived privacy. An example of this is the abundant usage of the Contract hash in Secret contract development. The usage of a contract hash is required to link the input to the specific contract being called. Otherwise one could make a forked chain and replace the contract with one that reads and prints the input parameters. Although encryption for Secret contracts is handled by the protocol, developers should still be mindful of their contract design to optimize for these privacy aspects.&#x20;
 
 One example of such a privacy optimized design would be the use of the Gas evaporation function as added in the v1.9 upgrade and documented here (link coming soon).
 
@@ -60,7 +60,7 @@ Want to dive deeper into the CosmWasm framework? - You can read more about it's 
 
 #### Summary
 
-* Secret Contracts have private input, output and state. This means all data on-chain is stored as cyphertext and is only accessible by the owner (either the contract or the user). More details are available in the [encryption specs](../../../../overview-ecosystem-and-technology/techstack/privacy-technology/encryption-key-management/contract-state-encryption.md).
+* Secret Contracts have private input, output and state. This means all data on-chain is stored as cyphertext and is only accessible by the owner (either the contract or the user). More details are available in the [encryption specs](../../../../introduction/secret-network-techstack/privacy-technology/encryption-key-management/contract-state-encryption.md).
 * The binary of any contract is public, meaning the execution logic is verifiable just like any other smart contract blockchain.
 * Secret smart contracts are IBC compatible (CosmWasm v1.0+), allowing for cross-chain logic with other IBC-connected chains.
 * from v1.11 Secret now supports migrate-able contracts just like vanilla CW, it does not support iterators due to contract privacy design. Workarounds are highlighted under [storage](secret-contract-cosmwasm-framework/contract-components/storage/keymap.md).

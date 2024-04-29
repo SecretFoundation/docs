@@ -1,24 +1,21 @@
-# 🏠 Getting Started
+---
+cover: .gitbook/assets/header3.png
+coverY: 0
+---
 
-The "Getting Started" section is to help new community members start developing on Secret Network using standard tools for Secret Contract development. The goal is to provide an easy guide to follow with step-by-step instructions. We will also review some of the unique characteristics of contracts on Secret Network, though we will keep things at a very high level.
+# Secret Network Introduction
 
-Topics covered:
+Secret Network offers scalable permissionless smart contracts with a private by default design— bringing novel use cases to blockchain not feasible on public systems. Secret Network was the first protocol to provide private smart contracts on mainnet, live since September 2020.&#x20;
 
-* Setting up a development Environment
-* Compiling and Deploying a Secret Contract
-* Interacting with Contracts on the Secret Network
-* Breakdown of a Secret Contract (optional)
+Secret Network is built with the Cosmos Software Development Kit (SDK) bringing interoperable privacy to the entire Cosmos and EVM ecosystems. Secret Network uses a combination of the Intel SGX (Software Guard Extension) Trusted Execution Environment technology, several encryption schemes, and key management to bring privacy by default to blockchain users. Secret Contracts are an implementation of the Rust-based smart contract compiling toolkit CosmWasm, adding private metadata possibilities. Secret Network is powered by the Native public coin SCRT which is used for fees, Proof-of-Stake, security, and Governance. With more than 30+ Dapps on mainnet and 100+ full time builders, Secret Network aims to bring privacy to the world.
 
-What **won't** be covered:
+#### Join the community
 
-* An in-depth guide to developing Secret Contracts - [Secret By Example](development/development-concepts/example-contracts/guides-tutorials.md)
-* Secret Network architecture - [Secret Network Techstack](overview-ecosystem-and-technology/techstack/)
-* How to create a web UI for Secret Contracts - [Secret.Js](broken-reference)
+* [Telegram](https://t.me/SCRTCommunity)
+* [Twitter](https://twitter.com/SecretNetwork)
+* [Discord](https://scrt.network/discord/)
+* [Forum](https://forum.scrt.network/)
+* [Blog](https://scrt.network/blog/)
+* [Homepage](https://scrt.network/)
 
-Most of the topics covered focus directly on Secret Network but are also relevant to other cosmos-based blockchains.
-
-{% hint style="info" %}
-If at any point you have any trouble understanding or following along, [join us on discord](https://scrt.network/discord) to get help from the community!
-{% endhint %}
-
-If you have suggestions, improvements, or corrections, [let us know on GitHub](https://github.com/SecretFoundation/docs/issues)!
+Get the latest version: [https://github.com/scrtlabs/SecretNetwork](https://github.com/scrtlabs/SecretNetwork)

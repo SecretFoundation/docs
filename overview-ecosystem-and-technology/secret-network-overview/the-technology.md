@@ -12,19 +12,19 @@ Secret brings privacy to the Interchain by leveraging CosmWasm IBC compatible sm
 
 **Dive in deep by exploring our detailed documentation of the Secret Network technology stack:**
 
-* [Blockchain technology](../techstack/blockchain-technology/)
-  * [CosmWasm Smart contracts](../techstack/blockchain-technology/cosmwasm.md)
-  * [Inter-Blokchain Communication (IBC)](../techstack/blockchain-technology/ibc.md)
-  * [Cosmos SDK](../techstack/blockchain-technology/cosmos-sdk.md)
-  * [Tendermint Consensus](../techstack/blockchain-technology/tendermint.md)
-  * [Cosmos introduction](../techstack/blockchain-technology/cosmos-basics.md)
-* [Privacy technology](../techstack/privacy-technology/)
-  * [Encryption - Key Management](../techstack/privacy-technology/encryption-key-management/)
-  * [Trusted Execution Environments (TEE) - Intel SGX](../techstack/privacy-technology/intel-sgx/)
+* [Blockchain technology](../../introduction/secret-network-techstack/blockchain-technology/)
+  * [CosmWasm Smart contracts](../../introduction/secret-network-techstack/blockchain-technology/cosmwasm.md)
+  * [Inter-Blokchain Communication (IBC)](../../introduction/secret-network-techstack/blockchain-technology/ibc.md)
+  * [Cosmos SDK](../../introduction/secret-network-techstack/blockchain-technology/cosmos-sdk.md)
+  * [Tendermint Consensus](../../introduction/secret-network-techstack/blockchain-technology/tendermint.md)
+  * [Cosmos introduction](../../introduction/secret-network-techstack/blockchain-technology/cosmos-basics.md)
+* [Privacy technology](../../introduction/secret-network-techstack/privacy-technology/)
+  * [Encryption - Key Management](../../introduction/secret-network-techstack/privacy-technology/encryption-key-management/)
+  * [Trusted Execution Environments (TEE) - Intel SGX](../../introduction/secret-network-techstack/privacy-technology/intel-sgx/)
   * [Access Control](../../development/development-concepts/example-contracts/secret-contract-fundamentals/access-control/)
-  * [Private Smart contracts](../techstack/privacy-technology/private-computation-and-consensus-flow.md)
-  * [Plans Beyond SGX](../techstack/privacy-technology/plans-beyond-sgx.md)
-  * [Theoretical Attacks](../techstack/privacy-technology/theoretical-attacks/)
+  * [Private Smart contracts](../../introduction/secret-network-techstack/privacy-technology/private-computation-and-consensus-flow.md)
+  * [Plans Beyond SGX](broken-reference)
+  * [Theoretical Attacks](broken-reference)
 
 **Reading not your thing? Do not worry, our Secret technology basics video series got you covered.**
 

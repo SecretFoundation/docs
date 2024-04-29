@@ -30,7 +30,7 @@ The registration process is made up of three main steps:
 
 At the end of this process (if it is successful) the network will output an _encrypted seed_ (unique to this node), which is required for our node to start. After decryption inside the enclave, the result is a seed that is known to all enclaves on the network, and is the source of determinism between all network nodes.
 
-For a deeper dive into the protocol see the [protocol documentation](../../../../overview-ecosystem-and-technology/techstack/privacy-technology/)
+For a deeper dive into the protocol see the [protocol documentation](../../../../introduction/secret-network-techstack/privacy-technology/)
 
 ```
 Note: Due to the way rust and C code are compiled recompilation of the enclave code is non deterministic, and will be rejected during the attestation process.
