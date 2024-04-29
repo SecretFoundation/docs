@@ -1,9 +1,5 @@
 # Guides/Tutorials
 
-## Secret University
-
-Learn to build on Secret Network with [Secret University](https://scrt.university/pathways) and dive deep into the code with [Secret University Boxes](https://scrt.university/repositories), which are pre-built, preconfigured dApp templates built on Secret Network. Each Secret Box runs in its own sandbox developer environment and comes preconfigured with a simple UI kit.&#x20;
-
 ### Simple Secret Voting App
 
 Use [this link](https://github.com/scrtlabs/SecretSimpleVote/blob/master/src/contract.rs) to see a sample voting contract and a line-by-line description of everything you need to know.
