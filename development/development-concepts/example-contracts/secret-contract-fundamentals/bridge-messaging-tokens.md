@@ -7,8 +7,8 @@ Secret network has active integrations with:
 * Axelar Satellite/Squid Router
   * Using the Axelar SDK users can bridge Ethereum and other EVM/Non-EVM assets into Cosmos and Secret arriving immediately as Wrapped SNIP-20 private tokens into their Secret account.
   * [Squid ](https://app.squidrouter.com)is a cheaper (gas wise) version for Axelar based bridging one can use as a widget.&#x20;
-* [SecretPath](../../../ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/)
-  * Uses Secret's confidential computation to open a connection to any EVM chain  - find [examples under the EVM developer toolkit.](../../../ethereum-evm-developer-toolkit/)
+* [SecretPath](../../../../confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/)
+  * Uses Secret's confidential computation to open a connection to any EVM chain  - find [examples under the EVM developer toolkit.](../../../../confidential-computing-layer/ethereum-evm-developer-toolkit/)
 * [Gravity Bridge](https://bridge.blockscape.network/)
 
 Coming soon:

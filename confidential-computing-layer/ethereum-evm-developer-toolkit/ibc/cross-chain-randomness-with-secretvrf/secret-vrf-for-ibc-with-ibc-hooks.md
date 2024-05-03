@@ -33,7 +33,7 @@ To use SecretVRF on any IBC-enabled chain with IBC hooks, all that is required i
 You can look up existing transfer channels between Secret Network on a block explorer such as Ping [here.](https://ping.pub/secret/ibc/connection/connection-68)&#x20;
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/ibc connections.png" alt=""><figcaption><p>Existing IBC connections with Secret Network </p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/ibc connections.png" alt=""><figcaption><p>Existing IBC connections with Secret Network </p></figcaption></figure>
 
 ### Requesting Randomness
 
@@ -103,7 +103,7 @@ You can update the `job_id` string to any string of your choosing&#x20;
 
 Navigate to the recently [received transactions](https://ping.pub/juno/account/juno1srwcjsaslt9ewujg6wcpcwv08lsrsn6rx6ja5mqx4qngqjh8cugqt73c8m) for your contract:&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-02-14 at 10.08.08 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2024-02-14 at 10.08.08 AM.png" alt=""><figcaption></figcaption></figure>
 
 And then view the magic of cross-chain randomness with IBC hooks 😍:&#x20;
 
