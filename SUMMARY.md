@@ -184,14 +184,14 @@
     * [EVM Testnet](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm-testnet/README.md)
       * [EVM Testnet Gateway contracts](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm-testnet/evm-testnet-gateway-contracts.md)
       * [SecretPath testnet (pulsar-3) contracts](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm-testnet/secretpath-testnet-pulsar-3-contracts.md)
-  * [🌈 IBC & Secret Network](confidential-computing-layer/ethereum-evm-developer-toolkit/ibc/README.md)
-    * [Secret IBC setup](confidential-computing-layer/ethereum-evm-developer-toolkit/ibc/secret-ibc-setup.md)
-    * [IBC-Hooks](confidential-computing-layer/ethereum-evm-developer-toolkit/ibc/ibc-hooks/README.md)
-      * [Auto-wrapping of SNIP-20 tokens with IBC Hooks](confidential-computing-layer/ethereum-evm-developer-toolkit/ibc/ibc-hooks/auto-wrapping-of-snip-20-tokens-with-ibc-hooks.md)
-      * [Using auto-wrapping on SNIP-20 tokens on mainnet with secret.js](confidential-computing-layer/ethereum-evm-developer-toolkit/ibc/ibc-hooks/using-auto-wrapping-on-snip-20-tokens-on-mainnet-with-secret.js.md)
-    * [Cross-Chain randomness with SecretVRF](confidential-computing-layer/ethereum-evm-developer-toolkit/ibc/cross-chain-randomness-with-secretvrf/README.md)
-      * [Secret VRF for IBC with IBC-Hooks](confidential-computing-layer/ethereum-evm-developer-toolkit/ibc/cross-chain-randomness-with-secretvrf/secret-vrf-for-ibc-with-ibc-hooks.md)
-      * [SecretVRF for IBC via proxy contracts](confidential-computing-layer/ethereum-evm-developer-toolkit/ibc/cross-chain-randomness-with-secretvrf/secretvrf-for-ibc-via-proxy-contracts.md)
+* [🌈 IBC & Secret Network](confidential-computing-layer/ibc/README.md)
+  * [Secret IBC setup](confidential-computing-layer/ibc/secret-ibc-setup.md)
+  * [IBC-Hooks](confidential-computing-layer/ibc/ibc-hooks/README.md)
+    * [Auto-wrapping of SNIP-20 tokens with IBC Hooks](confidential-computing-layer/ibc/ibc-hooks/auto-wrapping-of-snip-20-tokens-with-ibc-hooks.md)
+    * [Using auto-wrapping on SNIP-20 tokens on mainnet with secret.js](confidential-computing-layer/ibc/ibc-hooks/using-auto-wrapping-on-snip-20-tokens-on-mainnet-with-secret.js.md)
+  * [Cross-Chain randomness with SecretVRF](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/README.md)
+    * [Secret VRF for IBC with IBC-Hooks](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/secret-vrf-for-ibc-with-ibc-hooks.md)
+    * [SecretVRF for IBC via proxy contracts](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/secretvrf-for-ibc-via-proxy-contracts.md)
 
 ## 🤫 Overview, Ecosystem and Technology
 
