@@ -5,23 +5,22 @@
 A first-price sealed-bid auction, also known as a "blind auction", is a type of auction in which all bidders simultaneously submit sealed bids so that no bidder knows the bid of any other participant. The highest bidder pays the price that was submitted. In this tutorial you will learn **how to create a cross-chain sealed bid auction dApp with encrypted bids using**[ **SecretPath**](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath).&#x20;
 
 {% hint style="success" %}
-See a live demo [here](https://sealed-bid-auctions.vercel.app/), configured for Sepolia testnet! _(To use the demo, make sure Sepolia testnet is added to your Metamask wallet). See the fullstack frontend code implementation_[ _here_](https://github.com/writersblockchain/sealed-bid-auctions/tree/master/frontend)_._&#x20;
+See a live demo [here](https://secretpath-tutorials.vercel.app/)! _See the fullstack frontend code implementation_ [_here_](https://github.com/SecretFoundation/Secretpath-tutorials/tree/master/sealed-bid-auctions/frontend)_._&#x20;
 {% endhint %}
 
-You will start by configuring your developer environment and then learn how to use SecretPath to enable cross-chain encryption and decryption, **using Secret Network as** **a Confidential Privacy Layer (CPL) for the EVM**.&#x20;
+You will start by configuring your developer environment and then learn how to use SecretPath to enable cross-chain encryption and decryption, **using Secret Network as** **a Confidential Computing Layer (CCL) for the EVM**.&#x20;
 
 ## Getting Started
 
-To get started, clone the Sealed Bid Auction repo:&#x20;
+To get started, clone the SecretPath tutorials repository:&#x20;
 
 ```bash
-git clone https://github.com/writersblockchain/sealed-bid-auctions
+git clone https://github.com/SecretFoundation/Secretpath-tutorials
 ```
 
 ### EVM Prerequisites&#x20;
 
-1. Add Sepolia testnet to Metamask.
-2. [Fund ](https://www.infura.io/faucet/sepolia)your Sepolia wallet.&#x20;
+1. [Fund ](https://www.infura.io/faucet/sepolia)your Sepolia wallet.&#x20;
 
 ### Secret Network Prerequisites
 
@@ -30,19 +29,13 @@ git clone https://github.com/writersblockchain/sealed-bid-auctions
 
 ### Uploading Sealed Bid Contract <a href="#configuring-environment-variables" id="configuring-environment-variables"></a>
 
-`cd` into `sealed-bid-auction/secret-contract`
+`cd` into `sealed-bid-auctions/sealed-bid-contract`
 
 ```bash
-cd secret-contract
+cd sealed-bid-auctions/sealed-bid-contract
 ```
 
-**Install the node dependencies**
-
-```bash
-npm install
-```
-
-Update the [`env` file](https://github.com/writersblockchain/sealed-bid-auctions/blob/master/secret-contract/node/.env.example) with your Secret Network wallet mnemonic, and rename it ".env" instead of ".env.example"
+Update the [`env` file](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/sealed-bid-auctions/sealed-bid-contract/node/.env.example) with your Secret Network wallet mnemonic, and rename it ".env" instead of ".env.example"
 
 **Compile the contract**
 
@@ -54,6 +47,12 @@ make build-mainnet
 
 ```bash
 cd node
+```
+
+**Install the node dependencies**
+
+```bash
+npm install
 ```
 
 **Set SecretPath parameters:**&#x20;
@@ -81,7 +80,7 @@ node upload
 ```
 
 {% hint style="success" %}
-Upon successful upload and instantiation, add the contract codehash and address to your [env file](https://github.com/writersblockchain/sealed-bid-auctions/blob/4bf0c2a42c4000abd609689c1a5df66e0993b7a0/secret-contract/node/.env.example#L2).
+Upon successful upload and instantiation, add the contract codehash and address to your [env](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/sealed-bid-auctions/sealed-bid-contract/node/.env.example).
 {% endhint %}
 
 ### List an Auction Item
@@ -102,7 +101,7 @@ npm i
 
 **Configure env**
 
-Configure the [`env` file](https://github.com/writersblockchain/sealed-bid-auctions/blob/3c9ac06091f6c1b7345ff3e8abc8435b957622d4/evm-contract/.env.example#L8) with your sealed bid auction contract address and codehash, and rename it ".env" instead of ".env.example".&#x20;
+Configure the [`env`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/sealed-bid-auctions/evm-contract/.env.example)with your sealed bid auction contract address and codehash, and rename it ".env" instead of ".env.example".&#x20;
 
 **Configure SecretPath**&#x20;
 
@@ -125,6 +124,10 @@ Now that you have all of your SecretPath code configured,  execute the SecretPat
 ```bash
 npx hardhat run scripts/create_auction.js --network sepolia 
 ```
+
+{% hint style="info" %}
+Each auction item you create will have an associated ID; the first auction item has ID 1, the second has ID 2, and so on.&#x20;
+{% endhint %}
 
 Upon successful execution, info about your SecretPath payload will be returned:&#x20;
 
@@ -162,10 +165,10 @@ Upon successful execution, info about your SecretPath payload will be returned. 
 
 ### Querying Auction Items and Bids
 
-`cd` into `sealed-bid-auctions/secret-contract/node`:&#x20;
+`cd` into `sealed-bid-auctions/sealed-bid-contract/node`:&#x20;
 
 ```bash
-cd sealed-bid-auctions/secret-contract/node
+cd sealed-bid-auctions/sealed-bid-contract/node
 ```
 
 Make sure you have added your Sealed bid contract address and codehash to your env file, and then query the auction item with `node query_auction`:&#x20;
@@ -173,6 +176,10 @@ Make sure you have added your Sealed bid contract address and codehash to your e
 ```bash
 node query_auction 
 ```
+
+{% hint style="info" %}
+Note that you are querying with key 1, because the first auction item is stored at index 1, the second auction item is stored at index 2, and so on.&#x20;
+{% endhint %}
 
 If your auction item was submitted successfully, it should be returned like so:&#x20;
 
@@ -186,10 +193,10 @@ If your auction item was submitted successfully, it should be returned like so:&
 ```
 
 {% hint style="info" %}
-NOTE: `end_time` is converted from minutes to Secret Network block height in the sealed bid auction contract 😎
+NOTE: `end_time` is converted from minutes to Secret Network block height [in the sealed bid auction contract](https://github.com/SecretFoundation/Secretpath-tutorials/blob/031814e7c46305b3594b747db397e62066b10554/sealed-bid-auctions/sealed-bid-contract/src/contract.rs#L287) 😎
 {% endhint %}
 
-Now, query the bids by running `node query_bid`:
+Now, query the [encrypted bids ](https://sepolia.etherscan.io/tx/0x815ff8c8c477a4b44ec174efa06cac4c855cec2e2621bd43f52e0350424ce620)by running `node query_bid`:
 
 ```basic
 node query_bid
@@ -207,14 +214,16 @@ If the bidding is closed, it will return the highest bid:&#x20;
 { message: 'Bidding is closed. The highest bid is: 300' }
 ```
 
-This is programmed in the [retrieve\_bids\_query function](https://github.com/writersblockchain/sealed-bid-auctions/blob/3c9ac06091f6c1b7345ff3e8abc8435b957622d4/secret-contract/src/contract.rs#L241) of the Sealed Bid contract and can be adjusted to your liking 😊
+This is programmed in the [retrieve\_bids\_query function](https://github.com/SecretFoundation/Secretpath-tutorials/blob/031814e7c46305b3594b747db397e62066b10554/sealed-bid-auctions/sealed-bid-contract/src/contract.rs#L241) of the Sealed Bid contract and can be adjusted to your liking 😊
 
 {% hint style="info" %}
-NOTE: Be sure to [update the index](https://github.com/writersblockchain/sealed-bid-auctions/blob/3c9ac06091f6c1b7345ff3e8abc8435b957622d4/secret-contract/node/query\_auction.js#L14) of the query for subsequent auction item queries&#x20;
+NOTE: Be sure to update the [index of the query](https://github.com/SecretFoundation/Secretpath-tutorials/blob/031814e7c46305b3594b747db397e62066b10554/sealed-bid-auctions/sealed-bid-contract/node/query\_bid.js#L14) for subsequent auction item queries&#x20;
 {% endhint %}
 
 ### Conclusion
 
-Congrats! You deployed your very own sealed bid auction contract on Secret Network and used SecretPath to send cross-chain encrypted bids on Sepolia testnet. You now have all of the tools you need to start building your own cross-chain SecretPath contracts on the EVM 🎉
+Congrats! You deployed your very own sealed bid auction contract on Secret Network and used SecretPath to send cross-chain encrypted bids on Sepolia testnet. See the fullstack demo [here](https://secretpath-tutorials.vercel.app/). You now have all of the tools you need to start building your own cross-chain SecretPath contracts on the EVM 🎉
+
+Note that the end user of the application is not exposed to Secret Network and is only working directly in the EVM environment. However, the data is fully protected and cannot be viewed by anyone.
 
 If you have any questions or run into any issues, post them on the [Secret Developer Discord ](https://discord.gg/secret-network-360051864110235648)and somebody will assist you shortly.&#x20;

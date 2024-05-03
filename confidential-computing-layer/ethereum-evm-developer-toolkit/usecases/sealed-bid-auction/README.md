@@ -5,7 +5,7 @@
 A first-price sealed-bid auction, also known as a "blind auction", is a type of auction in which all bidders simultaneously submit sealed bids so that no bidder knows the bid of any other participant. The highest bidder pays the price that was submitted. In this tutorial you will learn **how to create a cross-chain sealed bid auction dApp with encrypted bids using**[ **SecretPath**](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath).&#x20;
 
 {% hint style="success" %}
-See a live demo [here](https://sealed-bid-auctions.vercel.app/), configured for Sepolia testnet! _(To use the demo, make sure Sepolia testnet is added to your Metamask wallet)_&#x20;
+See a live demo [here](https://secretpath-tutorials.vercel.app/)!
 {% endhint %}
 
 ## SecretPath Contract Design

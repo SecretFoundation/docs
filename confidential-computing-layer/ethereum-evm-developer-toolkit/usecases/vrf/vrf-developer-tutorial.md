@@ -11,6 +11,10 @@ description: >-
 [SecretVRF](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness) over SecretPath enables EVM developers to access **on-chain verifiable random numbers** at a fraction of the cost and block time of traditional RNG oracles such as ChainlinkVRF. With fewer than 100 lines of code, you will have access to an infinite supply of randomness.&#x20;
 
 {% hint style="info" %}
+See a fullstack cross-chain SecretVRF demo [here](https://secretpath-ballz.vercel.app/)
+{% endhint %}
+
+{% hint style="info" %}
 To learn how SecretVRF works underneath the hood, refer to the docs [here](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness). 🤓
 {% endhint %}
 
