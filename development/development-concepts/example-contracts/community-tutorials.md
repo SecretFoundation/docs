@@ -28,6 +28,7 @@ Here are some examples of additional Secret Contracts for reference:
 
 #### Cosmwasm v1.0
 
+* [HackSecret repositories](https://github.com/SecretFoundation/hack-secret-repositories/tree/main) - Winning projects from past Secret hackathons
 * [Millionaire's Problem](https://github.com/scrtlabs/MillionaireProblemTutorial) - This is part of the [Getting Started Guide](https://docs.scrt.network/secret-network-documentation/development/getting-started). It is meant as an easy to understand first contract example that solves the Millionaire's Problem.
 * [Secret Template](https://github.com/scrtlabs/secret-template) - Quick-start template to start developing Secret Contracts.
 * [Template with Viewing Keys and Permits](https://github.com/TriviumNode/secret-contract-template) - Includes messages for frequently used permissioned functionality.

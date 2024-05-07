@@ -49,7 +49,7 @@ Notes:
 
 <figure><img src="https://secretjs.scrt.network/media/metamask-signing-example.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
-## Keplr Walllet
+## Keplr Wallet
 
 The recommended way of integrating Keplr is by using `window.keplr.getOfflineSignerOnlyAmino()`:
 
