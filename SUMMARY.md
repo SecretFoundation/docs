@@ -382,6 +382,8 @@
       * [Change Functionality](infrastructure/resources/how-to-contribute/pull-request-templates/change-functionality.md)
     * [Style Guide](infrastructure/resources/how-to-contribute/formatting-guide.md)
   * [Versioning & Changelog](infrastructure/resources/versioning-and-changelog/README.md)
+    * [Secret Network v1.13](infrastructure/resources/versioning-and-changelog/secret-network-v1.13.md)
+    * [Secret Network v1.12](infrastructure/resources/versioning-and-changelog/secret-network-v1.12.md)
     * [Secret Network v1.11](infrastructure/resources/versioning-and-changelog/secret-network-v1.11.md)
     * [Secret Network v1.10](infrastructure/resources/versioning-and-changelog/secret-network-v1.10.md)
     * [Secret network v1.9](infrastructure/resources/versioning-and-changelog/secret-network-v1.9.md)
