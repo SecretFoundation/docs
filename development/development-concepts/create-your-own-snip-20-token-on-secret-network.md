@@ -51,7 +51,7 @@ const wallet = new Wallet(
   "your walltet seed phrase to go here"
 );
 
-const txEncryptionSeed = EncryptionUtilsImpl.GenerateNewSeed();
+const EncryptionSeed = EncryptionUtilsImpl.GenerateNewSeed();
 
 const contract_wasm = fs.readFileSync("../contract.wasm.gz");
 
@@ -64,7 +64,7 @@ const secretjs = new SecretNetworkClient({
   url: "https://api.pulsar.scrttestnet.com",
   wallet: wallet,
   walletAddress: wallet.address,
-  txEncryptionSeed: txEncryptionSeed
+  EncryptionSeed: EncryptionSeed
 });
 
 let upload_contract = async () => {
@@ -190,7 +190,7 @@ Now that we have successfully instantiated our SNIP-20 contract, let's send an [
 
 Start by adding the token to your Keplr wallet. Click on Keplr, select the hamburger icon, select "Add Token", and then paste in your token's contract address. If you need to fund your wallet to execute the transaction, you can do so using the [pulsar-3 faucet here](https://faucet.pulsar.scrttestnet.com/). You should now see your token in your Keplr wallet!
 
-<figure><img src="../../../../.gitbook/assets/Screen Shot 2023-04-10 at 2.08.50 PM.png" alt=""><figcaption><p>keplr wallet with ZBRA token</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-04-10 at 2.08.50 PM.png" alt=""><figcaption><p>keplr wallet with ZBRA token</p></figcaption></figure>
 
 Let's [transfer some tokens](https://github.com/scrtlabs/snip20-reference-impl/blob/81ad9714e50b890a50d8394dcac718950da127b6/src/msg.rs#L107) to another wallet address. The transfer message is defined in msg.rs as follows:
 
