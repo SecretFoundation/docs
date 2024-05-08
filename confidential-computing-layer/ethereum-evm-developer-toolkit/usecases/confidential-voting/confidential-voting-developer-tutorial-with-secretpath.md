@@ -116,7 +116,7 @@ Let's create and vote on your first proposal with SecretPath!
 `cd` into `secretpath-voting/frontend`:
 
 ```
-cd sealed-bid-auctions/frontend
+cd secretpath-voting/frontend
 ```
 
 **Install the dependencies**
@@ -127,7 +127,7 @@ npm i
 
 **Configure env**
 
-Configure the [`env`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/secretpath-voting/frontend/.env)with your sealed bid auction `contractAddress` and `codeHash.`
+Configure the [`env`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/secretpath-voting/frontend/.env)with your confidential voting `contractAddress` and `codeHash.`
 
 **Run the application**
 
@@ -166,7 +166,7 @@ Upon successful execution,  your SecretPath [transaction hash](https://sepolia.e
 
 Open [VoteonProposal.js](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/secretpath-voting/frontend/src/components/VoteOnProposal.js) and navigate to the [`handleSubmit`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/7ddc6ec9da761ae1f046c27c75aff9c999ad7c25/secretpath-voting/frontend/src/components/VoteOnProposal.js#L79) function, which, again, contains all of our SecretPath logic.&#x20;
 
-1. [`data`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/7ddc6ec9da761ae1f046c27c75aff9c999ad7c25/secretpath-voting/frontend/src/components/VoteOnProposal.js#L116) is the encrypted data that we are passing from the EVM to the Secret Network voting contract. It takes a user input of  `vote`, ("yes" or "no"), `bidder_address` (the wallet address of the voter), and `index.`This corresponds with the [`VoteStoreMsg`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/7ddc6ec9da761ae1f046c27c75aff9c999ad7c25/secretpath-voting/voting-contract/src/msg.rs#L29) in the Secret contract.&#x20;
+1. [`data`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/7ddc6ec9da761ae1f046c27c75aff9c999ad7c25/secretpath-voting/frontend/src/components/VoteOnProposal.js#L116) is the encrypted data that we are passing from the EVM to the Secret Network voting contract. It takes a user input of  `vote`, ("yes" or "no"), `wallet_address` (the wallet address of the voter), and `index.`This corresponds with the [`VoteStoreMsg`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/7ddc6ec9da761ae1f046c27c75aff9c999ad7c25/secretpath-voting/voting-contract/src/msg.rs#L29) in the Secret contract.&#x20;
 
 {% hint style="info" %}
 The voting contract is designed so that each proposal has an ascending index starting with 1. The first proposal you create is index 1, the second is index 2, etc. So when you vote, the React application passes the corresponding index of the proposal that is to be voted on 🙂
