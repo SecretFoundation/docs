@@ -203,7 +203,7 @@ If you have any questions or run into any issues, post them on the [Secret Devel
 
 <summary><strong>SecretPath - a deep dive</strong> </summary>
 
-Let's dive a little deeper into the boilerplate SecretPath code to understand how our data is encryted, signed, and formmated by SecretPath. The following comments are for the [`handleSubmit`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/fb9560312a51ffd0ef0283df0d68f851a26d52ca/secretpath-voting/frontend/src/components/CreateProposal.js#L60) function of our CreateProposal component:
+Let's dive a little deeper into the boilerplate SecretPath code to understand how our data is encrypted, signed, and formatted by SecretPath. The following comments are for the [`handleSubmit`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/fb9560312a51ffd0ef0283df0d68f851a26d52ca/secretpath-voting/frontend/src/components/CreateProposal.js#L60) function of our CreateProposal component:
 
 ```javascript
 // Load the contract ABI into an ethers Interface.

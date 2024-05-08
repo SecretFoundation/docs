@@ -20,7 +20,6 @@ description: >-
 * [VRF](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/vrf)
 * [NFTs](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/nfts)
 * [Tokens](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/tokens)
-* [Defi](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/defi)
 
 **Supported Networks**
 

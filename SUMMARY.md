@@ -177,7 +177,6 @@
       * [Converting from Chainlink VRF to Secret VRF in four steps](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/vrf/converting-from-chainlink-vrf-to-secret-vrf-in-four-steps.md)
     * [NFTs](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/nfts.md)
     * [Tokens](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/tokens.md)
-    * [Defi](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/defi.md)
   * [Supported Networks](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/README.md)
     * [EVM Mainnet](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm-mainnet/README.md)
       * [EVM Mainnet Gateway contracts](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm-mainnet/evm-mainnet-gateway-contracts.md)
