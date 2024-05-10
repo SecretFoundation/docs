@@ -19,4 +19,4 @@ Can't find your network here? Please ask in the Secret Network [Telegram](https:
 | Linea Sepolia       | `59141`      | `0x8EaAB5e8551781F3E8eb745E7fcc7DAeEFd27b1f` | `0xb352D4449dC7355d4478784027d7AfAe69843085` | `0.2.0`          |
 | XDC Apothem         | `51`         | `0x8EaAB5e8551781F3E8eb745E7fcc7DAeEFd27b1f` | `0xb352D4449dC7355d4478784027d7AfAe69843085` | `0.2.0`          |
 | Lisk Sepolia        | `4202`       | `0x8EaAB5e8551781F3E8eb745E7fcc7DAeEFd27b1f` | `0xb352D4449dC7355d4478784027d7AfAe69843085` | `0.2.0`          |
-
+| Fhenix Frontier     | `42069`      | `0x59D8C9591dB7179c5d592c5bCD42694021885aFC` | `0x11791a1d6ade2a398f186efa6992ada12f9f87b4` | `0.2.0`          |
