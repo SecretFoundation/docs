@@ -1,5 +1,9 @@
 # Install SGX (new DCAP)
 
+{% hint style="info" %}
+Got problems with using DCAP in your system? Please ask in the Telegram or Discord for help. For Validators, you can also ask in the SN Validators chat.
+{% endhint %}
+
 Ensure your hardware is [hardware-compliance.md](../hardware-setup/hardware-compliance.md "mention").
 
 If you're running a local machine and not a cloud-based VM -
@@ -18,7 +22,7 @@ Make sure the SGX driver is installed. The following devices should appear:
 /dev/sgx_provision
 ```
 
-If your kernel version if 5.11 or higher, then you probably already have the SGX driver installed. Otherwise - please update the kernel version. Also make sure that the user under which the node is supposed to run has privileges to access SGX:
+If your kernel version if `5.11` or higher, then you probably already have the SGX driver installed. Otherwise - please update the kernel version to `5.11` or higher to ensure that these two devices appear. Also make sure that the user under which the node is supposed to run has privileges to access SGX:
 
 ```bash
 sudo groupadd sgx_prv
@@ -26,9 +30,11 @@ sudo usermod -a -G sgx_prv $USER
 
 # Check if the above has effect, by the following command
 groups
-
-# The sgx_prv should appear. If it does not - Logout and re-login may be needed, for the change to take effect.
 ```
+
+The `sgx_prv` should appear.&#x20;
+
+If it does not - Logout and re-login may be needed, for the change to take effect.
 
 ## Install the DCAP runtime and AESM service
 
@@ -89,7 +95,7 @@ The Quote Provider library is needed to provide the data for DCAP attestation.Th
 
 `/etc/sgx_default_qcnl.conf`
 
-1. **If you're running a physical machine**
+1. **Running a baremetal/physical machine**
 
 The simplest would be to use the PCCS run by SCRTLabs. Modify the following parameters in the file:
 
@@ -109,7 +115,7 @@ sudo sed -s -i 's/localhost:8081/pccs.scrtlabs.com:8081/' /etc/sgx_default_qcnl.
 sudo sed -s -i 's/"use_secure_cert": true/"use_secure_cert": false/' /etc/sgx_default_qcnl.conf
 ```
 
-2. **Cloud VPS providers**&#x20;
+2. **Running on Cloud VPS providers**&#x20;
 
 For cloud VPS providers, the cloud service providers may provide their own PCCS. Please see their documentation for more infomation.
 
@@ -117,8 +123,9 @@ For cloud VPS providers, the cloud service providers may provide their own PCCS.
 **Note:** You'll need to restart the AESMD service each time the configuration is changed
 {% endhint %}
 
+Next, restart your aesmd service for the changes to take effect.
+
 ```bash
-# Restart the AESMD service
 sudo systemctl restart aesmd.service
 ```
 
