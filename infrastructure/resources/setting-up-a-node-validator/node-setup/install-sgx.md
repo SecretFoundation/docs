@@ -1,13 +1,13 @@
-# Install SGX
+# Install SGX (old EPID)
 
-Ensure your hardware is [Secret Node Compliant](../hardware-setup/hardware-compliance.md).
+Ensure your hardware is [hardware-compliance.md](../hardware-setup/hardware-compliance.md "mention").
 
-If you're running a local machine or bare-metal and not a cloud-based VM -
+If you're running a local machine and not a cloud-based VM -
 
 1. Go to your BIOS menu
-2. Enable SGX (Software controlled is not enough)
+2. Enable SGX (Set to "YES", it's not enough to set it to "software controlled")
 3. Disable Secure Boot
-4. Disable Hyperthreading (recommended)
+4. Disable Hyperthreading
 
 ## Installation <a href="#installation" id="installation"></a>
 
