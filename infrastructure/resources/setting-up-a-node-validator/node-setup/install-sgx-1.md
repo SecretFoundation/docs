@@ -13,6 +13,18 @@ If you're running a local machine and not a cloud-based VM -
 3. Disable Secure Boot
 4. Disable Hyperthreading
 
+{% hint style="warning" %}
+During this brief testing phase for the SGX hardware, if feasible, please shut down your active node to avoid any potential app-hashing crashes.
+
+To shutdown your node temporarily, use:&#x20;
+
+`sudo systemctl stop secret-node`&#x20;
+
+To restart your node after the SGX test, run:&#x20;
+
+`sudo systemctl restart secret-node`&#x20;
+{% endhint %}
+
 ## Check latest SGX DCAP driver
 
 Make sure the SGX driver is installed. The following devices should appear:
@@ -131,7 +143,7 @@ sudo systemctl restart aesmd.service
 
 ## Use check-hw to test the DCAP attestation
 
-Download and run the check-hw tool (included in the Release package). You should see the following:
+Download and run the check-hw tool (included in the [Release package here](https://github.com/scrtlabs/SecretNetwork/releases/tag/v1.13.0-rc.2)). You should see the following:
 
 ```bash
 DCAP attestation ok
