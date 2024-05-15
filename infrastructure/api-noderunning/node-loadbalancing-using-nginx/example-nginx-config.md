@@ -85,11 +85,18 @@ map $request_uri $short_uri {
                 return 204;
             }
 
+            proxy_hide_header 'Access-Control-Allow-Origin';
+            proxy_hide_header 'Access-Control-Allow-Credentials';
+            proxy_hide_header 'Access-Control-Allow-Headers';
+            proxy_hide_header 'Access-Control-Allow-Methods';
+            
             add_header 'Access-Control-Allow-Origin' "$http_origin" always;
             add_header 'Access-Control-Allow-Credentials' 'true' always;
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+            
             proxy_pass       http://rpc_stream;
+            
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -97,10 +104,7 @@ map $request_uri $short_uri {
             proxy_set_header Upgrade $http_upgrade; #WSS compatibility config
             proxy_set_header Connection $connection_upgrade; #WSS compatibility config
         }
-
-
-
-}
+    }
 
 
    server {
@@ -112,12 +116,18 @@ map $request_uri $short_uri {
                 return 204;
             }
 
+            proxy_hide_header 'Access-Control-Allow-Origin';
+            proxy_hide_header 'Access-Control-Allow-Credentials';
+            proxy_hide_header 'Access-Control-Allow-Headers';
+            proxy_hide_header 'Access-Control-Allow-Methods';
+            
             add_header 'Access-Control-Allow-Origin' "$http_origin" always;
             add_header 'Access-Control-Allow-Credentials' 'true' always;
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-
+            
             proxy_pass       http://rpc_stream;
+            
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -138,12 +148,18 @@ map $request_uri $short_uri {
                 return 204;
             }
 
+            proxy_hide_header 'Access-Control-Allow-Origin';
+            proxy_hide_header 'Access-Control-Allow-Credentials';
+            proxy_hide_header 'Access-Control-Allow-Headers';
+            proxy_hide_header 'Access-Control-Allow-Methods';
+            
             add_header 'Access-Control-Allow-Origin' "$http_origin" always;
             add_header 'Access-Control-Allow-Credentials' 'true' always;
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
             
             proxy_pass       http://grpc_stream;
+            
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -151,9 +167,7 @@ map $request_uri $short_uri {
             proxy_set_header Upgrade $http_upgrade; #WSS compatibility config
             proxy_set_header Connection $connection_upgrade; #WSS compatibility config
         }
-    
-
-}
+    }
 
     server {
         listen 9091;
@@ -164,12 +178,18 @@ map $request_uri $short_uri {
                 return 204;
             }
 
+            proxy_hide_header 'Access-Control-Allow-Origin';
+            proxy_hide_header 'Access-Control-Allow-Credentials';
+            proxy_hide_header 'Access-Control-Allow-Headers';
+            proxy_hide_header 'Access-Control-Allow-Methods';
+            
             add_header 'Access-Control-Allow-Origin' "$http_origin" always;
             add_header 'Access-Control-Allow-Credentials' 'true' always;
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
             
             proxy_pass       http://grpc_stream;
+            
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -199,6 +219,7 @@ server {
             add_header 'Access-Control-Allow-Methods' * always;
 
             proxy_pass       http://lcd_stream;
+            
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -229,8 +250,8 @@ server {
             add_header 'Access-Control-Allow-Headers' * always;
             add_header 'Access-Control-Allow-Methods' * always;
 
-
             proxy_pass       http://lcd_stream;
+            
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
