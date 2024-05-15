@@ -25,5 +25,3 @@ Explain the problem and include additional details to help maintainers reproduce
 * **Explain which behavior you expected to see instead and why.**
 * **Include screenshots** that demonstrate the problem.
 * **If a** specific **action didn't trigger a problem**, describe what you were doing before the problem happened.
-
-##

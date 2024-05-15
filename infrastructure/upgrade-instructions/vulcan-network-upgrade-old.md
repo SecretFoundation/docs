@@ -33,10 +33,10 @@ rm -rf ~/.secretd/*
 rm -rf ~/.sgx_secrets/*
 ```
 
-You're probably familiar with [SGX](../../../introduction/secret-network-techstack/privacy-technology/intel-sgx/why-sgx.md) by now:
+You're probably familiar with [SGX](../../introduction/secret-network-techstack/privacy-technology/intel-sgx/why-sgx.md) by now:
 
 * [Setup SGX](../setting-up-a-node-validator/node-setup/install-sgx.md)
-* [Verify SGX](../../upgrade-instructions/broken-reference/)
+* [Verify SGX](broken-reference/)
 
 ### Prepare Your `secret-1` Validator To Halt After Block #1,246,400 <a href="#id-1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400" id="id-1-prepare-your-secret-1-validator-to-halt-after-block-1-246-400"></a>
 

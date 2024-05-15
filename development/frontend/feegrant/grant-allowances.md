@@ -8,7 +8,7 @@ Building a smart contract dapp that enables users to request a fee grant is a ch
 
 ## Create allowance using secretcli <a href="#create-allowance-using-archwayd" id="create-allowance-using-archwayd"></a>
 
-The **secretcli**  is a key tool for accessing the fundamental functionalities of the **Archway** Blockchain. To install **secretcli**, refer to [install.md](../../../infrastructure/resources/secret-cli/install.md "mention"). Here is an illustration of a typical transaction for creating a grant allowance:
+The **secretcli**  is a key tool for accessing the fundamental functionalities of the **Archway** Blockchain. To install **secretcli**, refer to [install.md](../../../infrastructure/secret-cli/install.md "mention"). Here is an illustration of a typical transaction for creating a grant allowance:
 
 ```bash
 secretcli tx feegrant grant "granter_address" "grantee_address" \

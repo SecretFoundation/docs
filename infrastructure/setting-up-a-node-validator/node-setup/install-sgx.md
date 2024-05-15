@@ -113,7 +113,7 @@ sudo apt install -y $PSW_PACKAGES
 
 #### Run `secretd init-enclave` <a href="#run-secretd-init-enclave" id="run-secretd-init-enclave"></a>
 
-See [Verify SGX](../../../node-runners/node-setup/broken-reference/) for a guide how to test your setup.
+See [Verify SGX](../../node-runners/node-setup/broken-reference/) for a guide how to test your setup.
 
 ## Uninstall <a href="#uninstall" id="uninstall"></a>
 

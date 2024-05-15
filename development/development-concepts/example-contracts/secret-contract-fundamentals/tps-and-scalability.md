@@ -10,7 +10,7 @@ You can find the Gas settings for Secret Network in the Network code here - [\[S
 
 The `max_gas` parameter is chosen in such a way that validators can ensure they process the full computational load within the target block execution time (\~6s). If this computation and expected blocktime don't align the blocks will become longer and longer as they await 66% of voting power to sign the block. When block time increases the TPS of the blockchain drastically decreases only complicating the situation further.
 
-You can read more about this interplay between blocktime, TPS and scalability in this [post mortem of the Shade airdrop](../../../../infrastructure/resources/post-mortems-upgrades/).
+You can read more about this interplay between blocktime, TPS and scalability in this [post mortem of the Shade airdrop](../../../../infrastructure/post-mortems-upgrades/).
 
 ### Encryption overhead
 

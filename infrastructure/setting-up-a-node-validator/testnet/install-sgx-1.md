@@ -71,10 +71,10 @@ sudo apt-get install -y \
     libsgx-dcap-ql \
     libsgx-dcap-quote-verify \
     libsgx-urts \
-	sgx-aesm-service \
-	libsgx-aesm-ecdsa-plugin \
-	libsgx-aesm-quote-ex-plugin \
-	libsgx-dcap-default-qpl	
+    sgx-aesm-service \
+    libsgx-aesm-ecdsa-plugin \
+    libsgx-aesm-quote-ex-plugin \
+    libsgx-dcap-default-qpl	
 
 sudo apt upgrade
 ```

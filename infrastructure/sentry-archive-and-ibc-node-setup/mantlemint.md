@@ -73,7 +73,7 @@ sudo apt install -y ./secretnetwork_1.3.1_mainnet_*_amd64.deb
 
 #### 4. Register the node
 
-To allow Mantlemint to sync blocks and run queries that contain encrypted data, we will need to [register](../../node-runners/sentry-archive-and-ibc-node-setup/broken-reference/) it.
+To allow Mantlemint to sync blocks and run queries that contain encrypted data, we will need to [register](../node-runners/sentry-archive-and-ibc-node-setup/broken-reference/) it.
 
 ```bash
 export SCRT_ENCLAVE_DIR=/usr/lib

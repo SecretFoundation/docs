@@ -68,6 +68,7 @@ sudo add-apt-repository "deb https://download.01.org/intel-sgx/sgx_repo/ubuntu j
 
 Next, install the necessary SGX libraries:
 
+{% code fullWidth="false" %}
 ```bash
 sudo apt-get update
 sudo apt-get install -y \
@@ -83,13 +84,14 @@ sudo apt-get install -y \
     libsgx-dcap-ql \
     libsgx-dcap-quote-verify \
     libsgx-urts \
-	sgx-aesm-service \
-	libsgx-aesm-ecdsa-plugin \
-	libsgx-aesm-quote-ex-plugin \
-	libsgx-dcap-default-qpl	
+    sgx-aesm-service \
+    libsgx-aesm-ecdsa-plugin \
+    libsgx-aesm-quote-ex-plugin \
+    libsgx-dcap-default-qpl	
 
 sudo apt upgrade
 ```
+{% endcode %}
 
 **If your system has 5th Gen Intel® Xeon® Scalable Processor(s)**
 
