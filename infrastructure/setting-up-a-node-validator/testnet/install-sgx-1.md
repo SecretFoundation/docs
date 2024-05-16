@@ -100,8 +100,8 @@ The Quote Provider library is needed to provide the data for DCAP attestation.Th
 The simplest would be to use the PCCS run by SCRTLabs. Modify the following parameters in the file:
 
 ```bash
-  //PCCS server address
-  "pccs_url": "https://pccs.scrtlabs.com/sgx/certification/v4/"
+//PCCS server address
+"pccs_url": "https://pccs.scrtlabs.com/sgx/certification/v4/"
 ```
 
 You can set those parameters by the following command:
