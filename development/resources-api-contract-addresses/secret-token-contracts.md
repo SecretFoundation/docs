@@ -75,3 +75,4 @@ Below are all actively used Secret (SNIP) tokens with details on their contract 
 | Secret ECLIP               | sECLIP     | 6           | `ibc/29E66548B3FE6F694001EE8902B40DD24D9FF2D538AAA8BB4C05E52C713B9C75` | `secret1r4cldegd4peufgtaxf0qpagclqspeqaf8dm0l9` | SNIP-25      |
 | Secret NLS                 | SNLS       | 6           | `ibc/862D31E2B69C7E2C08AF52E564E05FFE7A55061337912E43F55198268598E2D9` | `secret1yafpcu9wpauy5ktymggzk9kmsvmce0hkl9p2h7` | SNIP-25      |
 | Secret SAGA                | SSAGA      | 6           | `ibc/5938378D6974EF73519C90789CBBFFFAEC43992A3D2B5E3F465F5DA96E434029` | `secret19gmvklys9uywk3lf2e94wqwwc97r3jr5rwa2pa` | SNIP-25      |
+| Secret SWTH                | SSWTH      | 8           | `ibc/EA37770DA26C960C1F5CB4D89FAE6AA45216A8A22391DB74507FEEA7644BC7A2` | `secret187ehv3mquvfxwnwaff90c6keq0qf66hljw5xzt` | SNIP-25      |
