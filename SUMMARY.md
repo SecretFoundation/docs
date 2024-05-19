@@ -145,6 +145,7 @@
     * [API Endpoints Mainnet (Secret-4)](development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md)
     * [API Endpoints Testnet (Pulsar-3)](development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-3.md)
     * [Usage examples](development/resources-api-contract-addresses/connecting-to-the-network/usage-examples.md)
+    * [Comparison of endpoint types](development/resources-api-contract-addresses/connecting-to-the-network/comparison-of-endpoint-types.md)
   * [Create your own SNIP-25 IBC Token](development/resources-api-contract-addresses/create-your-own-snip-25-ibc-token.md)
 
 ## 🔓 Confidential Computing Layer
