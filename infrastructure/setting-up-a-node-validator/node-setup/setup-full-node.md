@@ -85,7 +85,7 @@ secretd init-enclave
 The attestation certificate should have been created by the previous step
 
 ```bash
-ls -lh /opt/secret/.sgx_secrets/attestation_cert.bin
+ls -lh /opt/secret/.sgx_secrets/attestation_combined.bin
 ```
 
 Verify the certificate is valid. A 64-character registration key will be printed if it was successful.
