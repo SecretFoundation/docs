@@ -62,7 +62,7 @@ wget -O mantlemint https://github.com/scrtlabs/mantlemint/releases/download/v0.0
 
 #### 2. Install SGX
 
-Install SGX the same way you would for a node, as described in the [Node Setup section](../setting-up-a-node-validator/node-setup/install-sgx.md)
+Install SGX the same way you would for a node, as described in the [Node Setup section](broken-reference)
 
 #### 3. Download and unpack the `secretd` package
 

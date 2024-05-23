@@ -1,4 +1,4 @@
-# Install SGX (new DCAP)
+# Install SGX
 
 {% hint style="info" %}
 Got problems with using DCAP in your system? Please ask in the Telegram or Discord for help. For Validators, you can also ask in the SN Validators chat.
@@ -22,7 +22,15 @@ Make sure the SGX driver is installed. The following devices should appear:
 /dev/sgx_provision
 ```
 
-If your kernel version if `5.11` or higher, then you probably already have the SGX driver installed. Otherwise - please update the kernel version to `5.11` or higher to ensure that these two devices appear. Also make sure that the user under which the node is supposed to run has privileges to access SGX:
+If your kernel version if `5.11` or higher, then you probably already have the SGX driver installed. Otherwise - please update the kernel version to `5.11` or higher to ensure that these two devices appear.&#x20;
+
+To upgrade to kernel `5.11` on Ubuntu 20.04 LTS, please install the Hardware Enablement Stack (HWE):&#x20;
+
+```bash
+sudo apt install linux-generic-hwe-20.04
+```
+
+Also make sure that the user under which the node is supposed to run has privileges to access SGX:
 
 ```bash
 sudo groupadd sgx_prv
@@ -38,25 +46,12 @@ If it does not - Logout and re-login may be needed, for the change to take effec
 
 ## Install the DCAP runtime and AESM service
 
-First, you need to add the Intel repository to APT:
-
-For Ubuntu 20.04, use this:&#x20;
+First, you need to add the Intel repository to APT and install the necessary SGX libraries:
 
 ```bash
 curl -fsSL https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | sudo apt-key add -
-sudo add-apt-repository "deb https://download.01.org/intel-sgx/sgx_repo/ubuntu focal main"
-```
-
-For Ubuntu 22.04, use this repository:&#x20;
-
-```bash
-curl -fsSL https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | sudo apt-key add -
-sudo add-apt-repository "deb https://download.01.org/intel-sgx/sgx_repo/ubuntu jammy main"
-```
-
-Next, install the necessary SGX libraries:
-
-```bash
+. /etc/os-release; VERSION_CODENAME=${VERSION_CODENAME}
+sudo add-apt-repository "deb https://download.01.org/intel-sgx/sgx_repo/ubuntu $VERSION_CODENAME main"
 sudo apt-get update
 sudo apt-get install -y \
     libsgx-aesm-launch-plugin \
@@ -74,6 +69,7 @@ sudo apt-get install -y \
     sgx-aesm-service \
     libsgx-aesm-ecdsa-plugin \
     libsgx-aesm-quote-ex-plugin \
+    libsgx-ae-qve \
     libsgx-dcap-default-qpl	
 
 sudo apt upgrade

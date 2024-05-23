@@ -4,7 +4,7 @@
 
 If you get this, generally your server has restarted erroneously. In order to fix it and get secret-node running again, you must reinstall sgx and reload the aesm.service. [Source Discord conversation](https://discord.com/channels/360051864110235648/507935210902650890/790944933547606027).
 
-1.  [Re-install sgx](../setting-up-a-node-validator/node-setup/install-sgx.md)
+1.  [Re-install sgx](broken-reference)
 
     ```bash
     sudo bash sgx
@@ -15,7 +15,7 @@ If you get this, generally your server has restarted erroneously. In order to fi
 systemctl restart aesmd && journalctl -fu aesmd
 ```
 
-![aesmd.service](<../../../.gitbook/assets/Screen Shot 2022-06-27 at 5.54.36 PM.png>)
+![aesmd.service](<../../.gitbook/assets/Screen Shot 2022-06-27 at 5.54.36 PM.png>)
 
 4\. Restart `secret-node.service`
 
@@ -23,7 +23,7 @@ systemctl restart aesmd && journalctl -fu aesmd
 systemctl restart secret-node && journalctl -fu secret-node
 ```
 
-![Expected Output](<../../../.gitbook/assets/Screen Shot 2022-06-27 at 5.57.39 PM.png>)
+![Expected Output](<../../.gitbook/assets/Screen Shot 2022-06-27 at 5.57.39 PM.png>)
 
 ## Blocks Aren't Being Produced
 
