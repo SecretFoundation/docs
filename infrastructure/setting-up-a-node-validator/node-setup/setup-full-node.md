@@ -12,7 +12,7 @@ Secret Network has strict Hardware Requirements, see [hardware-compliance.md](..
 * A public IP address, so that other nodes can connect to you.
 * Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 * Reading [Tendermint: Running in production](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html)
-* RPC address of an already active node. You can use any node that exposes RPC services, please see [mainnet-secret-4.md](../../../../development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md "mention").
+* RPC address of an already active node. You can use any node that exposes RPC services, please see [mainnet-secret-4.md](../../../development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md "mention").
 
 ## Installation <a href="#installation" id="installation"></a>
 
@@ -85,13 +85,13 @@ secretd init-enclave
 The attestation certificate should have been created by the previous step
 
 ```bash
-ls -lh /opt/secret/.sgx_secrets/attestation_cert.der
+ls -lh /opt/secret/.sgx_secrets/attestation_cert.bin
 ```
 
 Verify the certificate is valid. A 64-character registration key will be printed if it was successful.
 
 ```bash
-PUBLIC_KEY=$(secretd parse /opt/secret/.sgx_secrets/attestation_cert.der 2> /dev/null | cut -c 3-)
+PUBLIC_KEY=$(secretd dump /opt/secret/.sgx_secrets/pubkey.bin)
 echo $PUBLIC_KEY
 ```
 
@@ -134,7 +134,7 @@ This will output your address, a 45 character-string starting with `secret1...`.
 1. Register your node on-chain
 
 ```bash
-secretd tx register auth /opt/secret/.sgx_secrets/attestation_cert.der -y --from <key-alias>
+secretd tx register auth /opt/secret/.sgx_secrets/attestation_combined.bin -y --gas 700000 --from <key-alias>
 ```
 
 2\. Pull & check your node's encrypted seed from the network
