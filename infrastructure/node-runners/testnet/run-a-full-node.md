@@ -167,10 +167,11 @@ secretd configure-secret node-master-key.txt $SEED
 
 ```bash
 # seeds
-perl -i -pe 's/seeds = ""/seeds = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/seeds = ""/seeds = "b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,1fecec1117ca202c69da84a506f6ce69993c13e0\@108.181.124.141:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656"/' ~/.secretd/config/config.toml
+
 
 # persistent_peers
-perl -i -pe 's/persistent_peers = ""/persistent_peers = "07234140a165b470846fe995951401a8db88dd36\@bootstrap.pulsar3.scrtlabs.com:26656,b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656,c088b57ebc7b2cfa2ec99e8b4ffef90bead96b47\@185.56.139.84:26656"/' ~/.secretd/config/config.toml
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "b5d1bb9194c6148367b64586d6bc0128866fc646\@212.7.211.39:26656,1fecec1117ca202c69da84a506f6ce69993c13e0\@108.181.124.141:26656,a3c9c415fe6b46babd16f000c7dbd4d94be6e450\@178.162.151.73:26656"/' ~/.secretd/config/config.toml
 ```
 
 ### **Optimization**
