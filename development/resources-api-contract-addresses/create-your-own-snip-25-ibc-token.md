@@ -12,7 +12,7 @@ We will explore how to instantiate a contract on Secret Network with specific pa
 
 Before running this command, ensure you have the following:
 
-* A working installation of `secretcli`, see here: [installing-cli-and-creating-a-new-address.md](../../infrastructure/setting-up-a-node-validator/node-setup/installing-cli-and-creating-a-new-address.md "mention")
+* A working installation of `secretcli`, see here: [installing-cli-and-creating-a-new-address.md](../../infrastructure/running-a-node-validator/setting-up-a-node-validator/node-setup/installing-cli-and-creating-a-new-address.md "mention")
 * Understanding of smart contracts and Secret Network's privacy features
 * The correct IBC Token denomination, see below.
 

@@ -4,13 +4,6 @@
 
 An archive node keeps all the past blocks. An archive node makes it convenient to query the past state of the chain at any point in time. Finding out what an account's balance, stake size, etc at a certain block was, or which extrinsics resulted in a certain state change are fast operations when using an archive node. However, an archive node takes up a lot of disk space - nearly 2TB for `secret-4` as of Feb 1, 2023.
 
-### Recommended Requirements <a href="#recommended-requirements" id="recommended-requirements"></a>
-
-* 32GB RAM
-* 3TB NVMe SSD
-* 2 dedicated cores of any Intel Skylake processor (Intel® 6th generation) or better (Xeon gen3 (Ice Lake) NOT supported)
-* Motherboard with support for SGX in the BIOS
-
 More on hardware support [here](../setting-up-a-node-validator/hardware-setup/hardware-compliance.md).
 
 {% hint style="info" %}
@@ -21,29 +14,7 @@ To setup your archive node you can follow the instructions below:
 
 ### Install latest `secretd`
 
-Download the secretd .deb from the [latest release](https://github.com/scrtlabs/SecretNetwork/releases/latest).
-
-**Note**: As of writing these lines the latest release is `v1.6.0` will be referenced as so for the rest of this document.
-
-**Node**: Archive nodes are only available with `goleveldb`. If this doesn't mean anything to you, just proceed with this guide as usual.
-
-```bash
-# Get the v1.6.0 binaries
-wget "https://github.com/scrtlabs/SecretNetwork/releases/download/v1.6.0/secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb"
-
-# Verify the v1.6.0 binaries
-echo 'ce9ba85d346fa460ed3fc98871f2a254b269fafa835fc555c9184f6405d8c80a  secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb' | sha256sum --check
-```
-
-#### Install `secretd`
-
-```bash
-sudo dpkg -i secretnetwork_1.6.0_mainnet_goleveldb_amd64.deb
-
-# verify installation
-secretd version
-# 1.6.0
-```
+To install `secretd`, please visit [install-secretd.md](../setting-up-a-node-validator/node-setup/install-secretd.md "mention").
 
 ### Setup the Node
 

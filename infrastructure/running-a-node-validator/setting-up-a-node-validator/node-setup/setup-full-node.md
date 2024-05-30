@@ -12,7 +12,7 @@ Secret Network has strict Hardware Requirements, see [hardware-compliance.md](..
 * A public IP address, so that other nodes can connect to you.
 * Open ports `TCP 26656 & 26657` _Note: If you're behind a router or firewall then you'll need to port forward on the network device._
 * Reading [Tendermint: Running in production](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html)
-* RPC address of an already active node. You can use any node that exposes RPC services, please see [mainnet-secret-4.md](../../../development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md "mention").
+* RPC address of an already active node. You can use any node that exposes RPC services, please see [mainnet-secret-4.md](../../../../development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md "mention").
 
 ## Installation <a href="#installation" id="installation"></a>
 
