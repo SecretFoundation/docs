@@ -109,7 +109,7 @@ Now, simply send Sepolia USDC from your wallet to the deposit address that you c
 <figure><img src="../../../../.gitbook/assets/Screenshot 2024-05-31 at 3.51.47 PM.png" alt="" width="352"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-You can track your token transfer's status on [Axelarscan](https://testnet.axelarscan.io/transfer/951890D5FB52D3170CE675B728A2C164906CE80D1AC523C5FCEDEB3B20104821)
+You can track your token transfer's status on [Axelarscan](https://testnet.axelarscan.io/transfer/0xa55411fc31ecadb507ad3c6533f712fc38f4d1c579943d0b89687aa1d2b3c1a1)
 {% endhint %}
 
 ### Summary
