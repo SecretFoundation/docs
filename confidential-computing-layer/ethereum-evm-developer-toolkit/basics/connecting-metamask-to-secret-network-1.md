@@ -39,7 +39,7 @@ When you create your project, select project type "App - Enable users to access 
 4. Clone the SecretPath WalletConnect repository:&#x20;
 
 ```
-git clone https://github.com/writersblockchain/secretpath-walletconnect/tree/main
+git clone https://github.com/writersblockchain/secretpath-walletconnect
 ```
 
 5. install the dependencies:&#x20;

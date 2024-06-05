@@ -1,3 +1,3 @@
 # From Secret to EVM
 
-_Coming soon_&#x20;
+_Coming soon :D_&#x20;

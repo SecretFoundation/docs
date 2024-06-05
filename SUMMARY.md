@@ -177,7 +177,7 @@
       * [Performance figures of SecretVRF vs competitors](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/vrf/performance-figures-of-secretvrf-vs-competitors.md)
       * [Using encrypted payloads for VRF](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/vrf/using-encrypted-payloads-for-vrf.md)
       * [Converting from Chainlink VRF to Secret VRF in four steps](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/vrf/converting-from-chainlink-vrf-to-secret-vrf-in-four-steps.md)
-    * [NFTs](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/nfts.md)
+    * [Cross-Chain NFTs with SecretPath and OpenAI](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/nfts.md)
     * [Tokens](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/tokens/README.md)
       * [From EVM to Secret](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/tokens/from-evm-to-secret.md)
       * [From Secret to EVM](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/tokens/from-secret-to-evm.md)
