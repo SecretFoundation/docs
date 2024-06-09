@@ -23,7 +23,7 @@ interface ISecretVRF {
 
 ## Set the SecretVRF gateway contract&#x20;
 
-Second, set your gateway address to the Secret VRF Gateways that you can find [evm-testnet](../../supported-networks/evm-testnet/ "mention") and [evm-mainnet](../../supported-networks/evm-mainnet/ "mention"). You only need to make sure that your contract knows the correct SecretVRF Gateway address, for example:
+Second, set your gateway address to the Secret VRF Gateways that you can find [evm-testnet](../../supported-networks/evm/evm-testnet/ "mention") and [evm-mainnet](../../supported-networks/evm/evm-mainnet/ "mention"). You only need to make sure that your contract knows the correct SecretVRF Gateway address, for example:
 
 ```solidity
 /// @notice VRFGateway stores address to the Gateway contract to call for VRF
