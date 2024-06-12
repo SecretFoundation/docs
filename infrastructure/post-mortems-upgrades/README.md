@@ -1,4 +1,4 @@
-# Postmortems
+# ☠️ Postmortems
 
 This section of documentation is for keeping a record of issues occurring on the network since its inception:
 
