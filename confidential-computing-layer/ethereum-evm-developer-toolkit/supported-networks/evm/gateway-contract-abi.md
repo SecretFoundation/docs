@@ -1,6 +1,6 @@
 # Gateway Contract ABI
 
-The ABI for the Gateway contract on version `0.2.2` is the following:
+The ABI for the Gateway contract on version `0.2.3` is the following:
 
 {% code overflow="wrap" %}
 ```solidity
