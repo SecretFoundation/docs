@@ -1,4 +1,4 @@
-# Versioning & Changelog
+# 🌊 Versioning & Changelog
 
 Detailed Changelog of Secret Network can be found on the Github.
 

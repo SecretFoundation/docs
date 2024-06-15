@@ -1,4 +1,4 @@
-# IBC Relayers
+# ⛓️ IBC Relayers
 
 ## Setting up relayers <a href="#setting-up-hermes" id="setting-up-hermes"></a>
 

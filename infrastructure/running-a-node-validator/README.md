@@ -1,2 +1,2 @@
-# Running a node/validator
+# 🖥️ Running a node/validator
 

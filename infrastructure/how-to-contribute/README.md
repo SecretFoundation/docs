@@ -1,4 +1,4 @@
-# Contribute to the documentation
+# ✍️ Contribute to the documentation
 
 First of all, thanks for being here! Our intention is to be as transparent and collaborative as possible, and we hope you enjoy building Secret Contracts and secret apps. We are so grateful to the amazing people who make invaluable contributions to this open-source project and its ecosystem.
 
