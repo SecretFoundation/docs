@@ -182,6 +182,7 @@
       * [From EVM to Secret](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/tokens/from-evm-to-secret.md)
       * [From Secret to EVM](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/tokens/from-secret-to-evm.md)
   * [Supported Networks](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/README.md)
+    * [Solana](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/solana.md)
     * [EVM](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm/README.md)
       * [EVM Mainnet](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm/evm-mainnet/README.md)
         * [EVM Mainnet Gateway contracts](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm/evm-mainnet/evm-mainnet-gateway-contracts.md)
