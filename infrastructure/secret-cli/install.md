@@ -17,7 +17,7 @@ After downloading secretcli-Linux you will need to navigate to the folder you ha
 
 Right click on the secretcli-Linux file and select 'Properties', then select 'Permissions', and then check the 'Allow executing the file as program' box beside the 'Execute' column.
 
-![Make secretcli-Linux executable.](../../../.gitbook/assets/secretcliguiinstall.png)
+![Make secretcli-Linux executable.](../../.gitbook/assets/secretcliguiinstall.png)
 
 #### Command-line
 
@@ -64,6 +64,12 @@ mv secretcli-MacOS-arm64 secretcli
 chmod 755 secretcli
 ```
 
+
+
+{% hint style="info" %}
+If you are using an M1 or M3 chip, download MacOS-arm64, otherwise if you have an intel chip use secretcli-macOS. You can see what chip you have by viewing "about this Mac".&#x20;
+{% endhint %}
+
 Mac users are required to perform another step after making the `secretcli` executable on their machines. This is because MacOs cannot recognize the developer of the secretcli file. Try running the following command in the directory containing the executable `secretcli`:
 
 ```bash
@@ -84,7 +90,7 @@ Now you should be able to use the `secretcli` when inside of the folder it is fo
 
 You will see the following warning popup, click 'open'.
 
-![](../../../.gitbook/assets/cliwarning.png)
+![](../../.gitbook/assets/cliwarning.png)
 
 **After clicking open you should see the following output in your terminal application:**
 

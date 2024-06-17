@@ -135,9 +135,3 @@ secretcli tx slashing unjail --from mykey [flags]
 ```
 secretd tx slashing unjail --from mykey
 ```
-
-#### Example Output
-
-```
-// Some code
-```
