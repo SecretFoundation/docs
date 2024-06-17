@@ -1,22 +1,22 @@
 ---
 description: >-
   Learn how to use Secret Network smart contracts to encrypt and decrypt votes
-  on Polygon testnet.
+  on Polygon amoy testnet.
 ---
 
-# Confidential Voting Developer Tutorial
+# Confidential Voting Developer Tutorial with ECDH
 
 ## Intro
 
 In this tutorial you will learn **how to encrypt and decrypt votes on the EVM** with Secret Network smart contracts so that you can build confidential voting on any EVM chain of your choosing. You will be working with two smart contracts:
 
-1. [EVM smart contract](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/polygon/contracts/PrivateVoting.sol) deployed on Polygon testnet (voting contract)
+1. [EVM smart contract](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/polygon/contracts/PrivateVoting.sol) deployed on Polygon amoy testnet (voting contract)
 2. [Secret Network smart contract](https://github.com/scrtlabs/examples/blob/master/evm-confidential-voting/secret-network/src/contract.rs) deployed on Secret testnet (decryption contract)
 
 **The EVM contract stores encrypted proposals and votes, and the Secret contract decrypts the stored votes and reveals them in a query.**&#x20;
 
 {% hint style="success" %}
-See a [live demo here](https://private-voting.vercel.app/), configured for Polygon testnet! _(To use the demo, make sure Polygon testnet is added to your Metamask wallet)_&#x20;
+See a [live demo here](https://private-voting.vercel.app/), configured for Polygon testnet! _(To use the demo, make sure_ [_Polygon testnet_ ](https://support.polygon.technology/support/solutions/articles/82000907114-how-to-add-amoy-network-in-your-wallet-)_is added to your Metamask wallet)_&#x20;
 {% endhint %}
 
 You will start by configuring your developer environment and then learn how to generate cryptographic keys in a Secret Network smart contract which you will use to encrypt votes on the EVM.&#x20;
@@ -31,8 +31,8 @@ git clone https://github.com/scrtlabs/examples.git
 
 ### EVM Prerequisites&#x20;
 
-1. [Add Polygon Mumbai testnet to Metamask](https://docs.polygon.technology/tools/wallets/metamask/add-polygon-network/).
-2. [Fund your Mumbai wallet](https://faucet.polygon.technology/).&#x20;
+1. [Add Polygon Amoy testnet to Metamask.](https://support.polygon.technology/support/solutions/articles/82000907114-how-to-add-amoy-network-in-your-wallet-)
+2. [Fund your Amoy wallet](https://www.alchemy.com/faucets/polygon-amoy).&#x20;
 
 ### Secret Network Prerequisites
 
@@ -58,7 +58,7 @@ Update the `env` [file](https://github.com/scrtlabs/examples/blob/master/evm-con
 <figure><img src="../../../../.gitbook/assets/confidential voting env.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Make sure your Infura API key is configured for Polygon Matic testnet 😎
+Make sure your Infura API key is configured for Polygon Amoy testnet 😎
 {% endhint %}
 
 Next, generate encryption keys for your EVM contract and automatically add them to your  `env` file by running `create_keys.js`:&#x20;

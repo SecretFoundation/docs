@@ -10,11 +10,11 @@ In this tutorial, you will learn how to use Axelar GMP to send a `string` **betw
 
 ### Prerequisites
 
-* For GMP to work, both chain A and chain B must be EVM or Cosmos with a deployed Axelar Gateway contract. For this tutorial we will be using the [Polygon testnet Axelar Gateway contracts](https://docs.axelar.dev/resources/testnet). We will go into this in more detail momentarily.&#x20;
-* Have [Metamask installed](https://metamask.io/download/), Polygon Mumbai Network added to your wallet, and your wallet funded with Polygon tokens. &#x20;
+* For GMP to work, both chain A and chain B must be EVM or Cosmos with a deployed Axelar Gateway contract. For this tutorial we will be using the [Polygon Amoy testnet Axelar Gateway contract](https://docs.axelar.dev/resources/contract-addresses/testnet). We will go into this in more detail momentarily.&#x20;
+* Have [Metamask installed](https://metamask.io/download/), Polygon Amoy Network added to your wallet, and your wallet [funded with Polygon tokens](https://faucet.polygon.technology/). &#x20;
 
 {% hint style="info" %}
-Add Polygon Mumbai Network to your Metamask wallet by navigating to the [Polygon testnet explorer](https://mumbai.polygonscan.com/) and clicking "Add Mumbai Network" in the bottom righthand corner of the homepage.&#x20;
+Add Polygon Amoy Network to your Metamask wallet by adding the config info [here](https://support.polygon.technology/support/solutions/articles/82000907114-how-to-add-amoy-network-in-your-wallet-). If you need tokens in bulk, fill out the request form [here](https://docs.google.com/forms/d/e/1FAIpQLSe4npoGldJknEs9EBtPaV3AS-0HTso2IuMWDCiMmLEMCx8euQ/viewform?fbzx=-2461493958490590761)
 {% endhint %}
 
 ### Upload a contract to Polygon
@@ -33,20 +33,18 @@ First, navigate to Remix and create a new blank workspace:
 
 Next, create a new file called `SendReceive.sol` and paste the [Axelar GMP solidity code](https://github.com/axelarnetwork/evm-cosmos-gmp-sample/blob/main/cosmwasm-integration/send-receive/evm/contracts/SendReceive.sol). This will autofill your workspace with the necessary dependencies for your SendReceive.sol contract 🤯
 
-Now all that's left is to **compile and upload the contract**. Navigate to the Solidity compiler using the sidebar and click **"Compile SendReceive.sol"**. Then, navigate to "Deploy and run transactions." Toggle the Environment from "Remix VM (Shanghai)" to "Injected Provider - MetaMask" and make sure that in your MetaMask wallet **you have currently selected Mumbai network**.&#x20;
+Now all that's left is to **compile and upload the contract**. Navigate to the Solidity compiler using the sidebar and click **"Compile SendReceive.sol"**. Then, navigate to "Deploy and run transactions." Toggle the Environment from "Remix VM (Shanghai)" to "Injected Provider - MetaMask" and make sure that in your MetaMask wallet **you have currently selected Amoy network**.&#x20;
 
-The `constructor` of SendReceive.sol contains 3 variables that you must now input in order to instantiate the contract and link it to Axelar's Polygon **gateway contract** and **gas receiver contract**, as well as the Polygon Mumbai **chain name**:&#x20;
+The `constructor` of SendReceive.sol contains 3 variables that you must now input in order to instantiate the contract and link it to Axelar's Polygon **gateway contract** and **gas receiver contract**, as well as the Polygon Amoy **chain name**:&#x20;
 
-<pre class="language-bash"><code class="lang-bash">GATEWAY CONTRACT: "0xBF62ef1486468a6bd26Dd669C06db43dEd5B849B"
+<pre class="language-bash"><code class="lang-bash">GATEWAY CONTRACT: "0xe432150cce91c13a887f7D836923d5597adD8E31"
 GASRECEIVER CONTRACT: "0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6"
-<strong>CHAINNAME: "Polygon"
+<strong>CHAINNAME: "polygon-amoy"
 </strong></code></pre>
 
 Input these strings like so and then click "Transact":
 
-<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-10-11 at 4.57.52 PM.png" alt="" width="294"><figcaption><p>SendReceive constructor</p></figcaption></figure>
-
-Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then [view on Polygonscan](https://mumbai.polygonscan.com/address/0xAC3c5E4d9f20419Ca9b92B1EdF44309D2cd9F61C). And the deployed contract can now be interacted with in the "Deployed Contracts" window:&#x20;
+Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then view on the [Amoy explorer](https://www.oklink.com/amoy). And the deployed contract can now be interacted with in the "Deployed Contracts" window:&#x20;
 
 <figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -131,7 +129,7 @@ destinationMessage: "Your message that you want to send!"
 Once you have inputed these strings and your contract address, select "transact." Congratulations! You've just sent a `string` from Polygon to Secret Network! 🎉&#x20;
 
 {% hint style="info" %}
-* [Use Polygonscan to track the transaction on Polygon](https://mumbai.polygonscan.com/tx/0x4b0f964404b176752110f86f42d09ceff98dcaf3b586759b71c2cfb0fc59e8f5). Here is an already [deployed contract for reference](https://mumbai.polygonscan.com/address/0xAC3c5E4d9f20419Ca9b92B1EdF44309D2cd9F61C). Transaction times vary depending upon Poygon network congestion; you might want to "speed up" the transaction in Metamask.&#x20;
+* Use the [Amoy explorer](https://www.oklink.com/amoy) to track the transaction on Polygon. Transaction times vary depending upon Poygon network congestion; you might want to "speed up" the transaction in Metamask.&#x20;
 * [Use Axelarscan to track the transaction on Axelar](https://testnet.axelarscan.io/gmp/search). Here is a [successful transaction for reference](https://testnet.axelarscan.io/gmp/0x4b0f964404b176752110f86f42d09ceff98dcaf3b586759b71c2cfb0fc59e8f5:7).&#x20;
 {% endhint %}
 
@@ -228,15 +226,7 @@ The transaction should return a `transactionHash` as well as data about the IBC 
 
 Now, navigate to [Axelarscan to monitor the status of the transaction](https://testnet.axelarscan.io/gmp/FB15AFCBA36E8E6A1323A728527B151587E31B0667830B374D410A33837429FD).&#x20;
 
-And for good measure, [view the transaction on Polygonscan](https://mumbai.polygonscan.com/tx/0xd3bcbbdfb09b33f4b04795caa70d81075cadfe70bae4c3db9454e4642c5c0618) to see that the message was received!
-
-To actually see the message that you sent, click on "Click to see more":
-
-<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-10-17 at 1.59.36 PM.png" alt=""><figcaption><p>Polygonscan transaction</p></figcaption></figure>
-
-And then at "Input Data", **view the input as UTF-8** to reveal the decoded message!  👀
-
-<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-10-17 at 2.01.07 PM.png" alt=""><figcaption><p>Decoded String sent from Secret to Ethereum</p></figcaption></figure>
+And for good measure, view the transaction on the [Amoy Explorer](https://www.oklink.com/amoy) to see that the message was received!
 
 Congratulations! You now have all of the tools to send a message from Secret Network to Polygon using Axelar GMP! 🎉
 
