@@ -15,10 +15,6 @@ description: >-
 * CPU compilant with SGX (see [hardware-compliance.md](hardware-compliance.md "mention"))
 * Motherboard with support for SGX in the BIOS (see [hardware-compliance.md](hardware-compliance.md "mention"))
 
-{% hint style="danger" %}
-**For unknown reasons Ubuntu 22.04 LTS is not working with SGX . Please use Ubuntu 20.04 LTS in the meantime until this fixed.**
-{% endhint %}
-
 ### **Recommended Requirements**
 
 * 64GB RAM
