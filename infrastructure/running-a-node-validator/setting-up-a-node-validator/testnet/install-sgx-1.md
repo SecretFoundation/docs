@@ -1,17 +1,18 @@
 # Install SGX
 
 {% hint style="info" %}
-Got problems with using DCAP in your system? Please ask in the Telegram or Discord for help. For Validators, you can also ask in the SN Validators chat.
+Got problems with using SGX and DCAP attestation in your system? Please ask in the Telegram or Discord for help. For Validators, you can also ask in the SN Validators chat.
 {% endhint %}
 
 Ensure your hardware is [hardware-compliance.md](../hardware-setup/hardware-compliance.md "mention").
 
 If you're running a local machine and not a cloud-based VM -
 
-1. Go to your BIOS menu
-2. Enable SGX (Set to "YES", it's not enough to set it to "software controlled")
-3. Disable Secure Boot
-4. Disable Hyperthreading
+1. Update your BIOS to the latest available version
+2. Go to your BIOS menu
+3. Enable SGX (Set to "YES", it's not enough to set it to "software controlled")
+4. Disable Secure Boot
+5. Disable Hyperthreading
 
 {% hint style="warning" %}
 Please use Ubuntu 22.04 LTS If you install SGX on a fresh node to ensure that DCAP will work correctly. Ubuntu 20.04 LTS is not supported by default anymore.
