@@ -13,6 +13,10 @@ If you're running a local machine and not a cloud-based VM -
 3. Disable Secure Boot
 4. Disable Hyperthreading
 
+{% hint style="warning" %}
+Please use Ubuntu 22.04 LTS If you install SGX on a fresh node to ensure that DCAP will work correctly. Ubuntu 20.04 LTS is not supported by default anymore.
+{% endhint %}
+
 ## Check latest SGX DCAP driver
 
 Make sure the SGX driver is installed. The following devices should appear:
@@ -23,12 +27,6 @@ Make sure the SGX driver is installed. The following devices should appear:
 ```
 
 If your kernel version if `5.11` or higher, then you probably already have the SGX driver installed. Otherwise - please update the kernel version to `5.11` or higher to ensure that these two devices appear.&#x20;
-
-To upgrade to kernel `5.11` on Ubuntu 20.04 LTS, please install the Hardware Enablement Stack (HWE):&#x20;
-
-```bash
-sudo apt install linux-generic-hwe-20.04
-```
 
 Also make sure that the user under which the node is supposed to run has privileges to access SGX:
 
