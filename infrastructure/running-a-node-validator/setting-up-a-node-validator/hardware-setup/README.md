@@ -11,7 +11,7 @@ description: >-
 
 * 32GB RAM (use 20GB+ swap)
 * 512GB SDD
-* Ubuntu 20.04 LTS
+* Ubuntu 22.04 LTS
 * CPU compilant with SGX (see [hardware-compliance.md](hardware-compliance.md "mention"))
 * Motherboard with support for SGX in the BIOS (see [hardware-compliance.md](hardware-compliance.md "mention"))
 
@@ -19,6 +19,6 @@ description: >-
 
 * 64GB RAM
 * 1TB NVMe SSD
-* Ubuntu 20.04 LTS
+* Ubuntu 22.04 LTS
 * CPU compilant with SGX (see [hardware-compliance.md](hardware-compliance.md "mention"))
 * Motherboard with support for SGX in the BIOS (see [hardware-compliance.md](hardware-compliance.md "mention"))
