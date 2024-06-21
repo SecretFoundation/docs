@@ -33,7 +33,9 @@ Also make sure that the user under which the node is supposed to run has privile
 
 ```bash
 sudo groupadd sgx_prv
+sudo groupadd sgx
 sudo usermod -a -G sgx_prv $USER
+sudo usermod -a -G sgx $USER
 
 # Check if the above has effect, by the following command
 groups
