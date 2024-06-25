@@ -140,7 +140,7 @@ Configure the SDK client like so:&#x20;
       config.useSecretWallet(wallet);
 
       const gateway = "https://gateway.pinata.cloud";
-      const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI1NGEzMzEyOC1mOThiLTQ2ZDAtYTcyMS04Mzk5MDRlZWQ2NDMiLCJlbWFpbCI6InNlYW5yYWQxM0B5YWhvby5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJGUkExIn0seyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJOWUMxIn1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiYmEyY2ZjNWUyOTI0Yzg0OTI1NGEiLCJzY29wZWRLZXlTZWNyZXQiOiJlN2EyNTE4ZjRmODczZWNlNGNlMzZkM2NiNjY2OWViNzBmZmM1N2JjMTk5NzQ0YjVlMjlmMjEwZGM3OWVjZDBlIiwiZXhwIjoxNzUwODY2MzEwfQ.2Tv7_kNUjLfkiXZkUDWFs0xsy23gcMGz4e6ZsunQP_s"
+      const accessToken = "Your JWT token";
       
       const pinataStorage = new PinataStorage(gateway, accessToken);
       config.useStorage(pinataStorage);
