@@ -16,7 +16,7 @@ let secretPathAddress = "0x3879E146140b627a5C858a08e507B171D9E43139";
 
 For this example, we are going to execute the key value store contract on Secret Network.
 
-`executeSecretContract` requires the Secret `contractAddress`, `codeHash`, `handle` (ie the function you want to execute in the Secret Network contract), and any parameters needed for the handle function, which in this case is `data` and `password`.
+`executeSecretContract` requires the Secret `contractAddress`, `codeHash`, `network`, `handle` (ie the function you want to execute in the Secret Network contract), and any parameters needed for the handle function, which in this case is `data` and `password`.
 
 <pre class="language-javascript" data-overflow="wrap"><code class="lang-javascript">const {executeSecretContract} = require('./node_modules/secret-network-ccl')
 const dotenv = require('dotenv');
@@ -30,8 +30,10 @@ let secretPathAddress = "0x3879E146140b627a5C858a08e507B171D9E43139";
 let data = { key: "data", value: "moonbeam" }
 let password = { key: "password", value: "1234" };
 let handle = "request_encrypt";
+let network = "testnet";
+//use "mainnet" for network if contract is deployed on Secret mainnet
 
-executeSecretContract( privateKey, endpoint, secretPathAddress, routing_contract, routing_code_hash, handle,  data,
+executeSecretContract( privateKey, endpoint, secretPathAddress, routing_contract, routing_code_hash, network, handle, data,
   password); 
 </code></pre>
 

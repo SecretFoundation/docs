@@ -6,10 +6,6 @@ description: >-
 
 # Confidential Document Sharing
 
-{% hint style="danger" %}
-Note: This documentation is currently in progress: 6/25/24
-{% endhint %}
-
 ### Introduction
 
 In this tutorial you will learn how to implement the [`@secret-network/share-document` SDK](https://github.com/fifty-wei/secret-share-documents/tree/main) to store, view, and share confidential documents on the EVM using Secret Network as a confidential storage layer.&#x20;
@@ -77,18 +73,31 @@ declare module 'wagmi' {
 }
 ```
 
-Create a `.env` file with the following content:
+{% hint style="info" %}
+If you want to deploy your own EVM contract on a different chain rather than using the deployed contract on Polygon, you can do so by deploying the contract [here](https://github.com/fifty-wei/secret-share-documents/tree/main/polygon-secret). Make sure that you deploy your contract to an [Axelar GMP compatible chain](https://docs.axelar.dev/dev/reference/mainnet-chain-names) ⚠️&#x20;
+{% endhint %}
+
+Create a `.env` file with the following content since we are interacting with the Polygon Mainnet contract:
 
 ```
-ENVIRONMENT= "mainnet" | "testnet" | "local"
+ENVIRONMENT= "mainnet" 
 ```
+
+{% hint style="info" %}
+{% code overflow="wrap" %}
+```
+ENVIRONMENT can use the following variables depending on which dev environment you are using:
+"mainnet" | "testnet" | "local"
+```
+{% endcode %}
+{% endhint %}
 
 #### Storage API Keys
 
-Next, navigate to [Pinata](https://app.pinata.cloud/developers/api-keys) and generate a new `API key` + `JWT token` to use for storing documents. Make sure you save the credentials in a safe place because we will be using them shortly :D
+Next, navigate to [Pinata](https://app.pinata.cloud/developers/api-keys) and generate a new `API key` + `JWT token` to use for storing documents. Make sure you save the credentials in a safe place because we will use them shortly :D
 
 {% hint style="info" %}
-We are using Pinata as our storage solution for this tutorial, but you could use any of the [storage options](https://github.com/fifty-wei/secret-share-documents/tree/main/sdk-js/src/StoreDocument/Storage) provided in the SDK, or even build your own!&#x20;
+We are using Pinata as our storage solution for this tutorial, but you can use any of the [storage options](https://github.com/fifty-wei/secret-share-documents/tree/main/sdk-js/src/StoreDocument/Storage) provided in the SDK, or even build your own!&#x20;
 {% endhint %}
 
 #### React Imports & State Variables
@@ -96,7 +105,7 @@ We are using Pinata as our storage solution for this tutorial, but you could use
 Navigate to `/src/page.tsx`.
 
 {% hint style="info" %}
-To see a barebones implementation of all of the React logic, you can view the completed repo [here](https://github.com/SecretFoundation/share-documents-tutorial?tab=readme-ov-file). Simply clone it to your machine and run `npm run dev`to run it locally.&#x20;
+To see a barebones implementation of all of the React logic,  view the completed repo [here](https://github.com/SecretFoundation/share-documents-tutorial?tab=readme-ov-file). Simply clone it to your machine and run `npm run dev`to run it locally.&#x20;
 {% endhint %}
 
 Configure your React imports + state viarables like so:&#x20;
@@ -269,9 +278,13 @@ Configure the SDK client like so:&#x20;
   };
 ```
 
+{% hint style="info" %}
+You also have the ability to get existing file access, delete viewing access, and transfer file ownership. See the commented out code above for examples.
+{% endhint %}
+
 ### Summary
 
-This documentation provides a step-by-step guide on how to implement the `@secret-network/share-document` SDK to securely store, view, and share confidential documents on the EVM using Secret Network as the confidential storage layer. The tutorial walks through the process of creating a new wagmi project, configuring it for Polygon Mainnet, and integrating the Secret Network SDK. By following this guide, you have learned how to store documents, view their contents, and manage access permissions. Additionally, the tutorial includes instructions for setting up a Pinata storage solution and initializing the SDK client.
+This documentation provides a step-by-step guide on how to implement the `@secret-network/share-document` SDK to securely store, view, and share confidential documents on the EVM using Secret Network as a confidential storage layer. You learned how to create a new wagmi project, configure it for Polygon Mainnet, and integrate the Secret Network SDK. By following this guide, you can now store documents, view their content, and manage access permissions all on the EVM chain of your choosing.&#x20;
 
 ### Special Thanks
 

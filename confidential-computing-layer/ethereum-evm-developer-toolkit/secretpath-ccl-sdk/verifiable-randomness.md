@@ -14,7 +14,7 @@ Select the EVM chain that you want to use to execute the Secret Network smart co
 let secretPathAddress = "0x3879E146140b627a5C858a08e507B171D9E43139";
 ```
 
-`requestRandomness` requires `privateKey`, `endpoint`, `secretPathAddress`, `numbers,` and `max` parameters:&#x20;
+`requestRandomness` requires `privateKey`, `endpoint`, `secretPathAddress`, `network`, `numbers,` and `max` parameters:&#x20;
 
 `numbers` is the amount of numbers you want to request
 
@@ -29,8 +29,10 @@ let endpoint = `https://sepolia.infura.io/v3/${process.env.INFURA_ENDPOINT}`;
 let secretPathAddress = "0x3879E146140b627a5C858a08e507B171D9E43139";
 let numbers = "15";
 let max = "5"; 
+let network = "testnet";
+//use "mainnet" for network if contract is deployed on Secret mainnet
 
-requestRandomness(privateKey, endpoint, secretPathAddress, numbers, max); 
+requestRandomness(privateKey, endpoint, secretPathAddress, network numbers, max); 
 ```
 {% endcode %}
 
