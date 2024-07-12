@@ -24,7 +24,7 @@ If Quorum on a proposal is reached, a simple majority of staked SCRT is needed t
 
 The SCRT coin has no supply cap because it constantly rewards network participants with SCRT inflation to enable security of the protocol. When staked users secure the protocol from potential attacks, delegators are rewarded. Validators receive a commission from the inflation rewards of their delegators so they can run a sustainable business and pay their hardware.\
 \
-The Secret Network inflation parameters are dynamic: the current inflation is 15% as long as the ratio of staked to non-staked SCRT remains under 66%. If the bonded rate goes above 66%, the inflation gradually declines to 7%. The current Secret Network staking APR is \~23%, which is higher than the annual inflation.\
+The Secret Network inflation parameters are dynamic: the current inflation is 9% as long as the ratio of staked to non-staked SCRT remains under 66%. If the bonded rate goes above 66%, the inflation gradually declines to 7%. The current Secret Network staking APR is \~23%, which is higher than the annual inflation.\
 \
 If a user stakes SCRT, they gain a real return of \~5-7%. If a user does not stake, they are being diluted. These tokenomics  generate a sustainable environment for the SCRT coin and all network participants.
 
@@ -32,7 +32,7 @@ If a user stakes SCRT, they gain a real return of \~5-7%. If a user does not sta
 
 When processing transactions on Secret Network, users need to pay for the space they take up in a block. This payment for computation of data is called a gas fee. The gas fee on Secret Network is set by the validators and their `min_gas_fee` setting.
 
-The current gas fee per unit of gas is `0.0125uSCRT` . A transaction, on average, is sized at 100,000 gas units, each transaction therefore costs `100,000 * 0.0125 *10^-6 = 0.00125 SCRT` . The prices for these example transactions can always change if validators decide to run with different settings.
+The current gas fee per unit of gas is `0.05uSCRT` . A transaction, on average, is sized at 100,000 gas units, each transaction therefore costs `100,000 * 0.05 *10^-6 = 0.005 SCRT` . The prices for these example transactions can always change if validators decide to run with different settings.
 
 There is no reason for a fee market to arise on Secret Network due to high throughput and fast finality. The fee on Secret Network could be `0` but this is not done as to eliminate denial-of-service attacks. An attacker would have to pay a full block worth of gas every 6 seconds to maintain an attack, which disincentives the attacker.
 
