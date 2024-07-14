@@ -5,5 +5,5 @@ The ["potential attack vector"](broken-reference) section in the Encryption spec
 
 
 
-The ["Privacy essentials" ](../example-contracts/secret-contract-fundamentals/privacy-essentials.md)section also quickly describes everything to take into account.
+The ["Privacy essentials" ](../privacy-essentials.md)section also quickly describes everything to take into account.
 {% endhint %}

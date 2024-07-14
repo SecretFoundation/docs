@@ -11,9 +11,9 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * [Wallets](./#wallets)
 * [User Guides](./#user-guides)
 * [Development Concepts](../../development/development-concepts/)
-* [Developer Guides](../../development/development-concepts/example-contracts/guides-tutorials.md#developer-guides)
-* [Developer Tools](../../development/development-concepts/example-contracts/tools-and-libraries/)
-* [Reference Contracts](../../development/development-concepts/example-contracts/community-tutorials.md)
+* [Developer Guides](../../development/example-contracts/guides-tutorials.md#developer-guides)
+* [Developer Tools](../../development/example-contracts/tools-and-libraries/)
+* [Reference Contracts](../../development/example-contracts/community-tutorials.md)
 
 ## General Resources
 

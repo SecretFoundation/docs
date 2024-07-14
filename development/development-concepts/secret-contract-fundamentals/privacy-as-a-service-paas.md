@@ -27,7 +27,7 @@ In this dApp design scheme, we see Secret as a blackbox that has data accessible
 
 By leveraging a slightly altered version of Tendermint and the Secure Enclave of every validator, Secret managed to create a truly random number generator on-chain. Every block and every contract call, the number is different and the numbers are verifiable via a callback after the block finalises. A developer on another blockchain can design a lottery completely on-chain by determining the random outcome using Secret-vrf. Simply make a contract on the consumer chain that requests a random-number (over IBC) from a Secret contract. Make sure the lottery entries close before requesting the number as it will arrive over public channels after the block closes on Secret. The number is now used within the contract on the consumer chain to assign the winner; no data has to return to the Secret contract.
 
-**Want to leverage Secret-VRF for your application on EVM or IBC?** - [Read more here!](../../randomness-api/)
+**Want to leverage Secret-VRF for your application on EVM or IBC?** - [Read more here!](../randomness-api/)
 
 ### 2. Authentication via Secret contracts (ex. web-Auth login, Threshold wallets)
 

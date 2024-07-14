@@ -44,10 +44,10 @@ Some of the other risks should be mitigated by client-side software, such as wal
 The remaining privacy risks are those which can only be mitigated through contract design. Developers should strive to make all queries and executions appear indistinguishable from one another to an outside observer. This includes:
 
 * padding query and execution results (see [`pad_query_result`](https://github.com/scrtlabs/secret-toolkit/blob/master/packages/utils/src/padding.rs#L43) and [`pad_handle_result`](https://docs.scrt.network/secret-network-documentation/development/development-concepts/privacy-design/gas-evaporation-and-tracking) from the [Secret Toolkit](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/contract-development/secret-toolkit))
-* using [Gas Evaporation](../../privacy-design/gas-evaporation-and-tracking.md) to make all methods consume a consistent amount of gas
+* using [Gas Evaporation](privacy-design/gas-evaporation-and-tracking.md) to make all methods consume a consistent amount of gas
 * adding decoy attributes to the event log when necessary
 * understanding storage access pattern attacks and employing a system of decoys or oblivious data models (or even UTXO)
 
 {% hint style="info" %}
-Find code implementation of the above privacy preserving methods under our [Privacy design section.](../../privacy-design/)
+Find code implementation of the above privacy preserving methods under our [Privacy design section.](privacy-design/)
 {% endhint %}

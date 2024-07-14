@@ -22,6 +22,6 @@ Now let's assume we execute a swap for a single Dex pool. We can expect this to 
 
 Secret also allows for Gas abstraction for users by leveraging the CosmosSDK [FeeGrant module](https://docs.cosmos.network/main/modules/feegrant). This module allows one to submit transactions where a different wallet is paying the gas fees as long as they granted you a budget to do that.
 
-**Documentation** to create Feegrant functionality in your UI are [here](../../../frontend/feegrant/).\
+**Documentation** to create Feegrant functionality in your UI are [here](../../frontend/feegrant/).\
 \
 This tool is widely used in different Secret UIs (for ex: [Secret dashboard](https://dash.scrt.network)) and there is a community run FeeGrant faucet available for dApps to use. - [Faucet](https://faucet.secretsaturn.net/) - [Code](https://github.com/SecretSaturn/feegrant-faucet)

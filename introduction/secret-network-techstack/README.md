@@ -20,7 +20,7 @@ In this Section we dive into all of these elements of the techstack.
 * [Privacy technology](privacy-technology/)
   * [Encryption - Key Management](privacy-technology/encryption-key-management/)
   * [Trusted Execution Environments (TEE) - Intel SGX](privacy-technology/intel-sgx/)
-  * [Access Control](../../development/development-concepts/example-contracts/secret-contract-fundamentals/access-control/)
+  * [Access Control](../../development/development-concepts/secret-contract-fundamentals/access-control/)
   * [Private Computation & Consensus Flow](privacy-technology/private-computation-and-consensus-flow.md)
 
 For a video introduction to the Secret techstack you can watch this playlist:

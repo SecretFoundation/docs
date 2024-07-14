@@ -26,7 +26,7 @@ Randomness is essential in many applications, including:
     Thus each contract call gets a unique random seed.
 
 {% hint style="info" %}
-For a more in-depth explanation of why and how this method of randomness works feel free to read the [feature explainer](../example-contracts/secret-contract-fundamentals/secret-vrf-on-chain-randomness.md)
+For a more in-depth explanation of why and how this method of randomness works feel free to read the [feature explainer](../secret-contract-fundamentals/secret-vrf-on-chain-randomness.md)
 {% endhint %}
 
 

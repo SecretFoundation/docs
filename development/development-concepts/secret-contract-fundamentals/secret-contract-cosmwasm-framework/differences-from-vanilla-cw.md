@@ -11,7 +11,7 @@ description: >-
 Secret Contracts are an implementation of the Rust-based library CosmWasm, while additionally enabling computation with private metadata. This brings unique use cases to Secret Network which aren’t possible on other blockchains, and also means that Secret Contracts have features that are different from standard CosmWasm contracts including: contract hashes, a specialized approach to iterators, raw queries, and contract migration.&#x20;
 
 {% hint style="info" %}
-An in-depth analysis of [a smart contract](https://github.com/scrtlabs/crosschain-contract-demo/blob/old-std-name/src/contract.rs) that can be **deployed on a vanilla CosmWasm chain as well as Secret Network** can be found in our [cross-deployment tutorial.](../../../cross-deploy-vanilla-cw-and-secret-contracts.md)
+An in-depth analysis of [a smart contract](https://github.com/scrtlabs/crosschain-contract-demo/blob/old-std-name/src/contract.rs) that can be **deployed on a vanilla CosmWasm chain as well as Secret Network** can be found in our [cross-deployment tutorial.](../../cross-deploy-vanilla-cw-and-secret-contracts.md)
 {% endhint %}
 
 ### Contract Hashes
@@ -28,10 +28,10 @@ Raw queries are not available since raw data is encrypted when stored on-chain. 
 
 ### CW-plus
 
-CW-plus, a toolkit for CosmWasm contracts is largely supported but might not be optimal to use in all cases. Secret has its own Toolkit called [Secret-Toolkit](../../tools-and-libraries/smart-contract-tools-utils/secret-toolkit.md) that has the majority of CW-plus functionality. Alternatively one can alter small parts of CW-plus around the missing Iterator feature to leverage that library as well.
+CW-plus, a toolkit for CosmWasm contracts is largely supported but might not be optimal to use in all cases. Secret has its own Toolkit called [Secret-Toolkit](../../../example-contracts/tools-and-libraries/smart-contract-tools-utils/secret-toolkit.md) that has the majority of CW-plus functionality. Alternatively one can alter small parts of CW-plus around the missing Iterator feature to leverage that library as well.
 
 {% hint style="info" %}
 Additionally one would have to learn about privacy design, [potential attack vectors](broken-reference) and [trusted and untrusted data](../secret-contracts.md) to make their application properly privacy preserving.\
 \
-An introduction to these concepts can be found[ here.](../../../privacy-design/)
+An introduction to these concepts can be found[ here.](../privacy-design/)
 {% endhint %}

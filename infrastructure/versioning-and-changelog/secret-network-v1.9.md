@@ -1,10 +1,10 @@
 # Secret network v1.9
 
-* New Feature: [Randomness injection for secret contracts](../../../development/development-concepts/example-contracts/secret-contract-fundamentals/secret-vrf-on-chain-randomness.md).
+* New Feature: [Randomness injection for secret contracts](../../development/development-concepts/secret-contract-fundamentals/secret-vrf-on-chain-randomness.md).
   * Eliminates the need for contracts to bootstrap their own entropy pool.
   * Unique for every contract call.
   * Useful in lotteries, gaming, secure authentication protocols, protocols where unpredictable outcomes are essential for fairness and security, and much more. For more infomation on how to use this feature, see the documentation
-* New Feature: [FinalizeTx](../../../development/development-concepts/execution-finalization.md).
+* New Feature: [FinalizeTx](../../development/development-concepts/execution-finalization.md).
   * Contracts can force the transaction to finalize at a certain point, otherwise revert.
   * Example: protect against sandwich attacks and potential transaction rollbacks.
   * Example: protect against cheating in gaming applications, where a malicious player could try to rollback a transaction in which they lost.

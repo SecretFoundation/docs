@@ -13,5 +13,5 @@ To create a viewing key a user signs a transaction for a specific contract (ex s
 Anyone who knows the correct combination of key + address can view the private data without needing access to the private key of the address. Secret Network allows users to maintain control over their data and decide what is shared and with whom.
 
 {% hint style="info" %}
-for more on info on Viewing keys check out the Development section for [permissioned viewing](../../../permissioned-viewing/) and the SNIP-20 specification
+for more on info on Viewing keys check out the Development section for [permissioned viewing](../../permissioned-viewing/) and the SNIP-20 specification
 {% endhint %}
