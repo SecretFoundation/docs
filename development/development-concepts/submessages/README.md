@@ -55,7 +55,7 @@ Unlike other Cosmos chains, Secret Network requires the hash of the smart contra
 
 Contract hashes are what binds a transaction to the specific contract code being called. Otherwise, it would be possible to perform a replay attack in a forked chain with a modified contract that decrypts and prints the input message.&#x20;
 
-However, there is no need to pass a code hash because we have designed the helper function [`get_contract_code_hash`](https://github.com/writersblockchain/secret-submessages/blob/dcd776020e94f5128128a8756ade572f717b9754/manager/src/contract.rs#L71) which we call internally when executing the `Increment` function.&#x20;
+However, there is no need to pass a `code_hash` when doing cross contract or sub message calls because we have designed the helper function[`get_contract_code_hash`](https://github.com/writersblockchain/secret-submessages/blob/dcd776020e94f5128128a8756ade572f717b9754/manager/src/contract.rs#L71) which we call internally when executing the `Increment` function.&#x20;
 {% endhint %}
 
 Notice that we implement [HandleCallBack](https://github.com/writersblockchain/secret-submessages/blob/dcd776020e94f5128128a8756ade572f717b9754/manager/src/msg.rs#L20) for our `ExecuteMsg` enum, which is what allows our submessages to be converted into a `CosmosMsg` and executed:

@@ -6,13 +6,21 @@ description: get_contract_code_hash helper function
 
 ## Contract code hash helper function&#x20;
 
-To retrieve a Secret Network smart contract's code hash from within a Secret contract call, you can use [Stargate queries](https://docs.rs/cosmwasm-std/latest/cosmwasm\_std/enum.QueryRequest.html). The Secret Network [team](https://github.com/SecretSaturn) has designed a helper function, `get_contract_code_hash`, exactly for this purpose.&#x20;
+To retrieve a Secret Network smart contract's code hash from within a Secret contract call, you can use [Stargate queries](https://docs.rs/cosmwasm-std/latest/cosmwasm\_std/enum.QueryRequest.html) to directly query the on-chain data from inside the contract.&#x20;
+
+This helper function is particularly interesting if you desire to make complicated contract structures that involve submessages or just cross-contract messages to different Secret Network contracts. With this code snippet, you do not need to supply the `code_hash` of each contract  that you are going to call in submessage or normal messages. It is sufficient to know the contract address of the other contract, the code snipped will fetch the latest on chain `code_hash` for you.
+
+{% hint style="warning" %}
+Be aware that contracts can be upgraded on Secret Network! Since this code snippet always fetch the `code_hash` directly from the chain without any extra check (which was implictly done by manually supplying the `code_hash`), you need to be careful about silently (perhaps maliciously) upgraded contracts which potentially releveal confidential information.
+{% endhint %}
+
+The Secret Network [team](https://github.com/SecretSaturn) has designed a helper function, `get_contract_code_hash`, exactly for this purpose.&#x20;
 
 {% hint style="info" %}
 See an example usage of get\_contract\_code\_hash [here](https://github.com/writersblockchain/secret-submessages/blob/c2e31c440ec73e4cc753be90a630dd926fdc714d/manager/src/contract.rs#L54).&#x20;
 {% endhint %}
 
-Simply add the following imports to your `cargo.toml`:&#x20;
+Simply add the Anybuf package and the `"stargate"` feature for cosmwasm-std to your `cargo.toml`:&#x20;
 
 ```rust
 [dependencies]

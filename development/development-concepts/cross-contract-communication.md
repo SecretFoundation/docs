@@ -25,15 +25,16 @@ To follow along with this tutorial step-by-step, clone down the [Secret Network 
 
 We will be designing a Manager Smart Contract which can execute a Counter Contract that is deployed to the Secret testnet.  Let's start by creating the message that we want to execute on the counter smart contract. In the src directory (which currently contains `contract.rs`, `lib.rs`, `msg.rs` and `state.rs`), create a `counter.rs` file and add the following:
 
-<pre class="language-rust"><code class="lang-rust"><strong>use schemars::JsonSchema;
-</strong>use serde::{Deserialize, Serialize};
+```rust
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum CounterExecuteMsg {
     Increment {},
 }
-</code></pre>
+```
 
 `CounterExecuteMsg` contains a single function `Increment{}.` This is the function we will call to increment the counter contract once we have completed designing our Manager smart contract.&#x20;
 
