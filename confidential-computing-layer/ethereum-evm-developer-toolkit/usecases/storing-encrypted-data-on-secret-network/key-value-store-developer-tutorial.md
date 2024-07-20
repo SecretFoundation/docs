@@ -139,7 +139,7 @@ Update the `routing_contract` and `routing_code_hash` to the contract address an
 Next, update[ lines 73-77](https://github.com/SecretFoundation/Secretpath-tutorials/blob/63a1df61cab6b9e863989d779bc6b98665e73509/encrypted-payloads/evm-contract/scripts/encrypt.js#L73) with the EVM wallet address associated with the private key in your env file (`myAddress)`, a key (any `string` of your choosing), a value, (any `string` of your choosing), and a viewing\_key (any `string` of your choosing).&#x20;
 
 {% hint style="info" %}
-`value` is the the data that you want to encrypt, `key` and `viewing_key` are parameters you pass to encrypt the `value.`
+`value` is the data that you want to encrypt, `key` and `viewing_key` are parameters you pass to encrypt the `value.`
 {% endhint %}
 
 ```javascript

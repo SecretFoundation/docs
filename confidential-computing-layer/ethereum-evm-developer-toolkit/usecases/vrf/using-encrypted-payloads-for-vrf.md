@@ -10,7 +10,7 @@ Need help with using encrypted payloads with Snakepath or want to discuss use ca
 
 ## Install and import dependencies
 
-First, install all of the the dependencies via NPM:
+First, install all of the dependencies via NPM:
 
 ```bash
 npm install @solar-republic/cosmos-grpc @solar-republic/neutrino ethers secure-random
@@ -69,7 +69,7 @@ const [myAddress] = await provider.send("eth_requestAccounts", []);
 
 ## Generating the encryption key using ECDH
 
-Next, you generate ephermal keys and load in the public encryption key for the Secret Gateway that you can look up in [supported-networks](../../supported-networks/ "mention"). Then, use ECDH to create the encryption key:
+Next, you generate ephemeral keys and load in the public encryption key for the Secret Gateway that you can look up in [supported-networks](../../supported-networks/ "mention"). Then, use ECDH to create the encryption key:
 
 ```typescript
 //Generating ephemeral keys
@@ -103,7 +103,7 @@ const data = JSON.stringify({ numWords: Number(numWords) })
     
 const callbackAddress = publicClientAddress.toLowerCase();
 //This is an empty callback for the sake of having a callback in the sample code.
-//Here, you would put your callback selector for you contract in. 
+//Here, you would put your callback selector for your contract in. 
 const callbackSelector = iface.getSighash(iface.getFunction("upgradeHandler"))
 const callbackGasLimit = Number(callback_gas_limit)
 ```
@@ -149,7 +149,7 @@ const ciphertextHash = keccak256(ciphertext)
 Next, we use Metamask to sign the `ciphertextHash` using `personal_sign`. Then, we recover the `user_pubkey` from this signed message, which will be also passed into the Public Gateway.
 
 {% hint style="info" %}
-Internally, Metamask takes the  `ciphertextHash`, preprends the `"\x19Ethereum Signed Message:\n32"` string and then hashes it using Keccak256, which results the `payloadHash`. Metamask actually signs the `payloadHash` to get the signature. Keep this in mind when verifying the signature against the `payloadHash` and NOT the `ciphertextHash`.
+Internally, Metamask takes the  `ciphertextHash`, prepends the `"\x19Ethereum Signed Message:\n32"` string and then hashes it using Keccak256, which results the `payloadHash`. Metamask actually signs the `payloadHash` to get the signature. Keep this in mind when verifying the signature against the `payloadHash` and NOT the `ciphertextHash`.
 {% endhint %}
 
 ```typescript
@@ -198,7 +198,7 @@ const amountOfGas = gasFee.mul(callbackGasLimit).mul(3).div(2);
 
 ## Packing the Transaction & Send
 
-Lastly, we pack all the information we collected during previous steps into an `info` struct that we send into the Gateway contract. We the encode the function data. Finally, we set the tx\_params. Please make sure to set an approiate gas amount for your contract call, here we used 150k gas. For the value of the TX, we send over the estimated callback gas that we calculated above.
+Lastly, we pack all the information we collected during previous steps into an `info` struct that we send into the Gateway contract. We then encode the function data. Finally, we set the tx\_params. Please make sure to set an appropriate gas amount for your contract call, here we used 150k gas. For the value of the TX, we send over the estimated callback gas that we calculated above.
 
 ```typescript
 // function data to be abi encoded
