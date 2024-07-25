@@ -1,7 +1,7 @@
 # Migrating a Validator
 
 {% hint style="danger" %}
-Ensure you [backup your validator](https://docs.scrt.network/backup/backup-a-validator.html) before you migrate it. Do not forget!
+Ensure you [validator-backup.md](validator-backup.md "mention") before you migrate it. Do not forget!
 {% endhint %}
 
 ### [Run A Full Node](https://docs.scrt.network/node-guides/run-full-node-mainnet.html) On A New Machine <a href="#id-1-run-a-new-full-node-on-a-new-machine" id="id-1-run-a-new-full-node-on-a-new-machine"></a>

@@ -22,13 +22,18 @@
 Additional API nodes may be found in the [Cosmos chain registry](https://github.com/cosmos/chain-registry/blob/master/secretnetwork/chain.json)
 {% endhint %}
 
+### Archive Node Endpoint&#x20;
+
+These archive node endpoints are provided by [Mario](https://www.mintscan.io/secret/validators/secretvaloper16p9uqwcq2gvz75y5p9zvhn7vek9ra9zfunwyf0/) Validator. Note that the timespan of block coverage for each of these is different.
+
+<table><thead><tr><th width="140.66666666666666">Type</th><th width="342">API</th><th>Timespan</th></tr></thead><tbody><tr><td>RPC</td><td><code>https://rpc.archive.scrt.marionode.com</code></td><td>2022-12-14 - now</td></tr><tr><td>RPC</td><td><code>https://oldarchive.scrt.marionode.com:1317</code></td><td>2021-11-10 - 2022-12-02</td></tr><tr><td>LCD</td><td><code>https://lcd.archive.scrt.marionode.com</code></td><td>2022-12-14 - now</td></tr><tr><td>LCD</td><td><code>https://oldarchive.scrt.marionode.com:1317</code></td><td>2021-11-10 - 2022-12-02</td></tr></tbody></table>
+
 ### Seed nodes
 
 * `6fb7169f7630da9468bf7cc0bcbbed1eb9ed0d7b@scrt-seed-01.scrtlabs.com:26656`
 * `ab6394e953e0b570bb1deeb5a8b387aa0dc6188a@scrt-seed-02.scrtlabs.com:26656`
 * `9cdaa5856e0245ecd73bd464308fb990fbc53b57@scrt-seed-03.scrtlabs.com:26656`
 * `20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:17156`
-* `ebc272824924ea1a27ea3183dd0b9ba713494f83@secret.mainnet.seed.autostake.net:26656`
 
 {% hint style="success" %}
 **Are we missing your endpoint or tool?** Submit a Pull Request at [https://github.com/SecretFoundation/docs](https://github.com/SecretFoundation/docs)

@@ -1,5 +1,9 @@
 # Archive Nodes
 
+{% hint style="danger" %}
+Creating Archives nodes is not possible as this time. Please use the provided API Archive nodes in [mainnet-secret-4.md](../../../development/resources-api-contract-addresses/connecting-to-the-network/mainnet-secret-4.md "mention") if you need access to an Archive.
+{% endhint %}
+
 ## Archive All Blockchain Data. <a href="#archive-all-blockchain-data" id="archive-all-blockchain-data"></a>
 
 An archive node keeps all the past blocks. An archive node makes it convenient to query the past state of the chain at any point in time. Finding out what an account's balance, stake size, etc at a certain block was, or which extrinsics resulted in a certain state change are fast operations when using an archive node. However, an archive node takes up a lot of disk space - nearly 2TB for `secret-4` as of Feb 1, 2023.

@@ -18,8 +18,6 @@ If you're running a local machine and not a cloud-based VM -
 Please use Ubuntu 22.04 LTS If you install SGX on a fresh node to ensure that DCAP will work correctly. Ubuntu 20.04 LTS is not supported by default anymore.
 {% endhint %}
 
-Ensure your hardware is [hardware-compliance.md](../hardware-setup/hardware-compliance.md "mention").
-
 ## Check latest SGX DCAP driver
 
 Make sure the SGX driver is installed. The following devices should appear:

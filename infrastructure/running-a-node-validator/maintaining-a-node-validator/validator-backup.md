@@ -10,4 +10,4 @@ If you are using the software sign (which is the default signing method of tende
 2. Backup `~/.secretd/data/priv_validator_state.json`.
 3. Backup the self-delegator wallet. See the [wallet section](https://docs.scrt.network/backup/backup/wallets).
 
-Or you can use hardware to manage your Tendermint Key much more safely, such as [YubiHSM2](https://developers.yubico.com/YubiHSM2/).
+Or you can use hardware to manage your Tendermint Key much more safely, such as [YubiHSM2](https://docs.yubico.com/hardware/yubihsm-2/hsm-2-user-guide/index.html).
