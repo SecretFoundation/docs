@@ -1,8 +1,8 @@
-# Join As A Validator
+# Becoming a Testnet Validator
 
 ## How to become a validator on Secret Network <a href="#how-to-become-a-validator-on-secret-network" id="how-to-become-a-validator-on-secret-network"></a>
 
-### **1.** [**Run a Full Node**](run-a-full-node.md)\*\*\*\*
+### **1.** [**Run a Full Node**](run-a-full-node.md)
 
 In order to become a validator, you node must be fully synced with the network. You can check this by doing:
 
@@ -28,7 +28,7 @@ When the value of `catching_up` is _false_, your node is fully sync'd with the n
 
 ### **2. Confirm Wallet is Funded:**
 
-This is the `secret` wallet which you used \*\*\*\* to create your full node, and will use to delegate your funds to you own validator. You must delegate at least 1 SCRT (1000000uscrt) from this wallet to your validator.
+This is the `secret` wallet which you used to create your full node, and will use to delegate your funds to you own validator. You must delegate at least 1 SCRT (1000000uscrt) from this wallet to your validator.
 
 ```bash
 secretd q bank balances $(secretd keys show -a <key-alias>)
@@ -78,13 +78,13 @@ secretd q staking validators | grep moniker
 
 In order to stake more tokens beyond those in the initial transaction, run:
 
-```
+```bash
 secretd tx staking delegate $(secretcli keys show <key-alias> --bech=val -a) <amount>uscrt --from <key-alias>
 ```
 
 #### Editing your Validator <a href="#editing-your-validator" id="editing-your-validator"></a>
 
-```
+```bash
 secretd tx staking edit-validator \
   --moniker "<new-moniker>" \
   --website "https://scrt.network" \
@@ -97,25 +97,25 @@ secretd tx staking edit-validator \
 
 #### Seeing your rewards from being a validator <a href="#seeing-your-rewards-from-being-a-validator" id="seeing-your-rewards-from-being-a-validator"></a>
 
-```
+```bash
 secretd q distribution rewards $(secretcli keys show -a <key-alias>)
 ```
 
 #### Seeing your commissions from your delegators <a href="#seeing-your-commissions-from-your-delegators" id="seeing-your-commissions-from-your-delegators"></a>
 
-```
+```bash
 secretd q distribution commission $(secretcli keys show -a <key-alias> --bech=val)
 ```
 
 #### Withdrawing rewards <a href="#withdrawing-rewards" id="withdrawing-rewards"></a>
 
-```
+```bash
 secretd tx distribution withdraw-rewards $(secretcli keys show --bech=val -a <key-alias>) --from <key-alias>
 ```
 
 #### Withdrawing rewards+commissions <a href="#withdrawing-rewards-commissions" id="withdrawing-rewards-commissions"></a>
 
-```
+```bash
 secretd tx distribution withdraw-rewards $(secretcli keys show --bech=val -a <key-alias>) --from <key-alias> --commission
 ```
 
@@ -129,7 +129,7 @@ You are currently unable to modify the `--commission-max-rate` and `--commission
 
 Modifying the commision-rate can be done using this:
 
-```
+```bash
 secretd tx staking edit-validator --commission-rate="0.05" --from <key-alias>
 ```
 
@@ -139,7 +139,7 @@ secretd tx staking edit-validator --commission-rate="0.05" --from <key-alias>
 
 To unjail your jailed validator
 
-```
+```bash
 secretd tx slashing unjail --from <key-alias>
 ```
 
@@ -147,7 +147,7 @@ secretd tx slashing unjail --from <key-alias>
 
 To retrieve a validator's signing info:
 
-```
+```bash
 secretd q slashing signing-info <validator-conspub-key>
 ```
 
@@ -155,7 +155,7 @@ secretd q slashing signing-info <validator-conspub-key>
 
 You can get the current slashing parameters via:
 
-```
+```bash
 secretd q slashing params
 ```
 
@@ -163,6 +163,6 @@ secretd q slashing params
 
 You can get the current slashing parameters via:
 
-```
+```bash
 secretd q slashing params
 ```
