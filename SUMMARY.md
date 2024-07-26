@@ -209,6 +209,8 @@
   * [Cross-Chain randomness with SecretVRF](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/README.md)
     * [Secret VRF for IBC with IBC-Hooks](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/secret-vrf-for-ibc-with-ibc-hooks.md)
     * [SecretVRF for IBC via proxy contracts](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/secretvrf-for-ibc-via-proxy-contracts.md)
+  * [Storing Encrypted Data on Secret Network](confidential-computing-layer/ibc/storing-encrypted-data-on-secret-network/README.md)
+    * [Key-Value store Developer Tutorial](confidential-computing-layer/ibc/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
 
 ## 🤫 Overview, Ecosystem and Technology
 
