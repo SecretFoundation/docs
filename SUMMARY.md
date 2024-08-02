@@ -193,6 +193,7 @@
     * [Querying Secret contracts](confidential-computing-layer/ethereum-evm-developer-toolkit/secretpath-ccl-sdk/querying-secret-contracts.md)
   * [Supported Networks](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/README.md)
     * [Solana](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/solana/README.md)
+      * [Solana Mainnet & Testnet](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/solana/solana-mainnet-and-testnet.md)
       * [Gateway Contract IDL](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/solana/gateway-contract-idl.md)
     * [EVM](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm/README.md)
       * [EVM Mainnet](confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks/evm/evm-mainnet-gateway-contracts.md)
