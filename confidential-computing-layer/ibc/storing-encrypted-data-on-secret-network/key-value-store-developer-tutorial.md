@@ -6,26 +6,22 @@ description: >-
 
 # Key-Value store Developer Tutorial
 
-{% hint style="danger" %}
-_This documentation is curently in progress, 7/29/24_
-{% endhint %}
-
 ### Overview <a href="#overview" id="overview"></a>
 
 Secret Network's Confidential Computation SDK uses IBC hooks to seamlessly handle cross-chain encrypted payloads, which means **Cosmos developers can now encrypt and decrypt messages with a simple token transfer.**&#x20;
 
-This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on the Cosmos chain of your choice, as well as how to encrypt payloads and transmit them cross-chain. After this tutorial, you will have the tools you need to encrypt messages on any IBC hooks-enabled Cosmos chain.&#x20;
+This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on Secret Network and transmit them cross-chain from a Cosmos chain of your choice! After this tutorial, you will have the tools you need to encrypt messages on any IBC hooks-enabled Cosmos chain.&#x20;
 
 {% hint style="info" %}
-In this example, you will send a token from Axelar testnet to Secret testnet to encrypt a `string`🔥
+In this example, you will send a token from Axelar testnet to Secret Network testnet to encrypt a `string`🔥
 {% endhint %}
 
 ### Getting Started <a href="#getting-started" id="getting-started"></a>
 
-To get started, clone the repository:
+To get started, clone the [repository](https://github.com/writersblockchain/cosmos-ccl-sdk):
 
 ```
-git clone https://github.com/writersblockchain/cosmos-ccl-sdk/tree/main
+git clone https://github.com/writersblockchain/cosmos-ccl-sdk.git
 ```
 
 ### **Prerequisities**&#x20;
@@ -57,7 +53,7 @@ CONSUMER_PREFIX="axelar"
 ```
 
 {% hint style="info" %}
-Note that for our consumer chain, we are using the `endpoint`, `chainID`, `token`, and `prefix` for Axelar testnet. But you could update this for any Cosmos chain that has IBC hooks enabled and a transfer channel with Secret Network :smile:
+Note that for our consumer chain, we are using the `endpoint`, `chainID`, `token`, and `prefix` for Axelar testnet. But you could update this for any Cosmos chain that has IBC hooks enabled and a [transfer channel](https://www.mintscan.io/secret/relayers) with Secret Network :smile:
 {% endhint %}
 
 ### Upload the encryption contract on Secret Network
@@ -111,11 +107,15 @@ Update [`contracts.json`](https://github.com/writersblockchain/cosmos-ccl-sdk/bl
 }
 ```
 
-### Encrypt a payload <a href="#encrypt-a-payload" id="encrypt-a-payload"></a>
+### Encrypt a payload with Typescript SDK <a href="#encrypt-a-payload" id="encrypt-a-payload"></a>
 
-Now that you have your encryption smart contract uploaded on Secret Network, let's use it to store encrypted messages from Axelar. Most of the ECDH cryptography has been abstracted away so there are only a few values you need to change.
+Now that you have your encryption smart contract uploaded on Secret Network, let's use it to store encrypted messages from Axelar testnet. Most of the ECDH cryptography has been abstracted away so there are only a few values you need to change.
 
-[execute-gateway.js](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/main/src/execute-gateway.ts) demonstrates sending a token transfer to store an unencrypted as well as an encrypted message. Feel free to update the strings to be encrypted.&#x20;
+The functions in [./src](https://github.com/writersblockchain/cosmos-ccl-sdk/tree/930732c9d0b11d6f394d9d99cccb96380e103881/src) are helper functions that help us configure cross-chain network clients, IBC token transfers, etc. However, there is also an additional function which executes the gateway contract called [execute-gateway.js](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/main/src/execute-gateway.ts)! **Execute-gateway.js demonstrates sending a token transfer to store an unencrypted as well as an encrypted message.**&#x20;
+
+{% hint style="info" %}
+Feel free to update the [strings](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/930732c9d0b11d6f394d9d99cccb96380e103881/src/execute-gateway.ts#L44) to be encrypted.&#x20;
+{% endhint %}
 
 To encrypt the payload, run `execute-gateway.js`:&#x20;
 
@@ -123,7 +123,7 @@ To encrypt the payload, run `execute-gateway.js`:&#x20;
 node dist/execute-gateway.js
 ```
 
-Token transfer:&#x20;
+This will initiate a Token transfer:&#x20;
 
 ```bash
 Sending IBC token...
@@ -134,7 +134,7 @@ source_channel: channel-311
 memo: {"wasm":{"contract":"secret1q0mycclu927u5m0tn50zgl5af4utrlkzz706lm","msg":{"extension":{"msg":{"store_secret":{"text":"new_text_68ss4"}}}}}}
 ```
 
-IBC Acknowledgement response:&#x20;
+As well as an IBC Acknowledgement response:&#x20;
 
 ```bash
 Broadcasted IbcTX. Waiting for Ack: Promise { <pending> }
@@ -164,6 +164,83 @@ info ack: {
 ```
 
 Congrats! You have now used the Secret Network CCL SDK to encrypt a `string` on Axelar testnet!
+
+### Encryption SDK - how it works <a href="#encrypt-a-payload" id="encrypt-a-payload"></a>
+
+Now that you have used Secret Network's CCL SDK to successfully encrypt a `string` cross-chain,  let's examine the [gateway smart contract ](https://github.com/writersblockchain/cosmos-ccl-sdk/tree/main/contracts/gateway-simple)you deployed on Secret Network to understand how everything works underneath the hood.&#x20;
+
+At a high level, you can think of the SDK like so:&#x20;
+
+1. There is a gateway contract deployed to Secret Network, which has the ability to encrypt a `string`, as well as query the encrypted `string`.&#x20;
+2. The gateway contract imports helper functions from the [SDK](https://github.com/writersblockchain/cosmos-ccl-sdk/tree/main/packages/sdk/src), which is where the gateway contract imports encryption and query types, etc.&#x20;
+
+{% hint style="info" %}
+You can add additional functionality to the gateway contract as you see fit. For example, you could write an execute message that stores encrypted votes or encrypted NFTs, etc!&#x20;
+
+To use the SDK's encryption helper functions, simply write your gateway contract messages inside of the [`InnerMethods` enum ](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/930732c9d0b11d6f394d9d99cccb96380e103881/contracts/gateway-simple/src/msg.rs#L14C1-L17C1), which imports [GatewayExecuteMsg](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/930732c9d0b11d6f394d9d99cccb96380e103881/packages/sdk/src/gateway.rs#L9) from the SDK :)&#x20;
+{% endhint %}
+
+Now let's examine each of the gateway contract's files to understand how it encrypts a user-inputted `string`.
+
+### state.rs
+
+[state.rs](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/main/contracts/gateway-simple/src/state.rs) is where we define the `keymap` that holds our encrypted `strings.` The `keymap SECRETS` is designed to store a mapping from account user addresses (as strings) to their secrets (also as strings), using the Bincode2 serialization format.
+
+### msg.rs
+
+[msg.rs](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/main/contracts/gateway-simple/src/msg.rs) is where we define the functionality of our gateway contract. **It has 2 primary functionalities: storing encrypted strings and querying encrypted strings.** Note that the types `ExecuteMsg` and `QueryMsg` are defined in the SDK [here](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/930732c9d0b11d6f394d9d99cccb96380e103881/packages/sdk/src/gateway.rs#L9).&#x20;
+
+* **GatewayExecuteMsg**: Defines execution messages that can be sent to the contract, including resetting an encryption key, sending encrypted data, and extending with additional message types.
+* **GatewayQueryMsg**: Defines query messages that can be sent to the contract, including querying for an encryption key, querying with authentication data, querying with a permit, and extending with additional query types.
+
+### contract.rs
+
+[contract.rs](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/main/contracts/gateway-simple/src/contract.rs) contains the smart contract logic which allows the following:&#x20;
+
+* **Execution**: Processes messages to reset the encryption key or store a secret, ensuring only authorized access.
+* **Querying**: Handles queries to retrieve the encryption key and perform permissioned queries.&#x20;
+
+The encryption logic, `handle_encrypted_wrapper`, is imported from the SDK at [line 55](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/930732c9d0b11d6f394d9d99cccb96380e103881/contracts/gateway-simple/src/contract.rs#L55). **This is where the encryption magic happens** ⭐.&#x20;
+
+You can review the function in the SDK [here](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/930732c9d0b11d6f394d9d99cccb96380e103881/packages/sdk/src/common/handle.rs#L52). It has the following functionality:&#x20;
+
+1. Check if Message is Encrypted:
+   * If the message is encrypted (`msg.is_encrypted()`), it proceeds with decryption.
+2. Extract Encryption Parameters:
+   * Retrieves the encryption parameters from the message (`msg.encrypted()`).
+3. Check Nonce:
+   * Ensures the nonce has not been used before to prevent replay attacks.
+4. Load Encryption Wallet:
+   * Loads the encryption wallet from storage.
+5. Decrypt Payload:
+   * Decrypts the payload using the wallet and the provided parameters (`payload`, `user_key`, and `nonce`).
+
+```rust
+      let decrypted  = wallet.decrypt_to_payload(
+            &params.payload,
+            &params.user_key,
+            &params.nonce,
+        )?;
+```
+
+{% hint style="info" %}
+[decrypt\_to\_payload](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/930732c9d0b11d6f394d9d99cccb96380e103881/packages/sdk/src/crypto/wallets.rs#L177) uses chacha20poly1305 algorithm
+{% endhint %}
+
+6. Verify Credentials:
+
+* Constructs a `CosmosCredential` from the decrypted data.
+* Inserts the nonce into storage to mark it as used.
+* Verifies the sender using the `verify_arbitrary` function with the credential.
+
+7. Deserialize Inner Message:
+
+* Converts the decrypted payload into the original message type `E`.
+* Ensures the decrypted message is not encrypted (nested encryption is not allowed).
+
+8. Return Decrypted Message and Updated Info:
+
+* Returns the decrypted message and updated `MessageInfo` with the verified sender.
 
 ### Summary
 
