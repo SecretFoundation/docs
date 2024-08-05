@@ -4,7 +4,7 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
 
 ```json
 {
-  "address": "AncKJiH1v5qsP42u1GxHrZuteEbPadno9RPq6YSmpXvV",
+  "address": "DKDX8XbTnCgEk8o1RNnCUokiCmadG1Ch5HLxaz7CnhcD",
   "metadata": {
     "name": "solana_gateway",
     "version": "0.2.3",
@@ -97,6 +97,87 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
       ]
     },
     {
+      "name": "increase_task_state",
+      "discriminator": [
+        116,
+        13,
+        66,
+        131,
+        160,
+        82,
+        206,
+        223
+      ],
+      "accounts": [
+        {
+          "name": "gateway_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  97,
+                  116,
+                  101,
+                  119,
+                  97,
+                  121,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "task_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  115,
+                  107,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "gateway_state"
+          ]
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_len",
+          "type": "u64"
+        }
+      ]
+    },
+    {
       "name": "initialize",
       "discriminator": [
         175,
@@ -124,6 +205,29 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
                   119,
                   97,
                   121,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "task_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  115,
+                  107,
                   95,
                   115,
                   116,
@@ -216,7 +320,6 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
       "accounts": [
         {
           "name": "gateway_state",
-          "writable": true,
           "pda": {
             "seeds": [
               {
@@ -229,6 +332,29 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
                   119,
                   97,
                   121,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "task_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  115,
+                  107,
                   95,
                   115,
                   116,
@@ -309,6 +435,29 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
           }
         },
         {
+          "name": "task_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  115,
+                  107,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
           "name": "user",
           "writable": true,
           "signer": true
@@ -356,6 +505,19 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
         161,
         186
       ]
+    },
+    {
+      "name": "TaskState",
+      "discriminator": [
+        255,
+        33,
+        48,
+        249,
+        220,
+        80,
+        10,
+        9
+      ]
     }
   ],
   "errors": [
@@ -371,66 +533,61 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
     },
     {
       "code": 6002,
-      "name": "InvalidPayloadHashSize",
-      "msg": "Invalid payload hash size (must be 32 bytes long)"
-    },
-    {
-      "code": 6003,
       "name": "InvalidPacketHash",
       "msg": "Invalid packet hash"
     },
     {
-      "code": 6004,
+      "code": 6003,
       "name": "InvalidPublicKey",
       "msg": "Invalid Public key"
     },
     {
-      "code": 6005,
+      "code": 6004,
       "name": "Secp256k1RecoverFailure",
       "msg": "Secp256k1 recovery failed"
     },
     {
-      "code": 6006,
+      "code": 6005,
       "name": "InvalidPacketSignature",
       "msg": "Invalid packet signature"
     },
     {
-      "code": 6007,
+      "code": 6006,
       "name": "TaskNotFound",
       "msg": "Task not found"
     },
     {
-      "code": 6008,
+      "code": 6007,
       "name": "InsufficientFunds",
       "msg": "Insufficient funds"
     },
     {
-      "code": 6009,
+      "code": 6008,
       "name": "InvalidIndex",
       "msg": "Invalid lookup index"
     },
     {
-      "code": 6010,
-      "name": "TaskIdAlreadyPruned",
-      "msg": "Task Id already pruned"
+      "code": 6009,
+      "name": "InvalidTaskId",
+      "msg": "Invalid TaskID"
     },
     {
-      "code": 6011,
+      "code": 6010,
       "name": "InvalidCallbackAddresses",
       "msg": "Callback Addresses are invalid"
     },
     {
-      "code": 6012,
+      "code": 6011,
       "name": "BorshDataSerializationFailed",
       "msg": "Borsh Data Serialization failed"
     },
     {
-      "code": 6013,
+      "code": 6012,
       "name": "InvalidCallbackSelector",
       "msg": "Invalid Callback Selector"
     },
     {
-      "code": 6014,
+      "code": 6013,
       "name": "MissingRequiredSignature",
       "msg": "MissingRequiredSignature"
     }
@@ -463,7 +620,12 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
           },
           {
             "name": "nonce",
-            "type": "bytes"
+            "type": {
+              "array": [
+                "u8",
+                12
+              ]
+            }
           },
           {
             "name": "callback_gas_limit",
@@ -475,7 +637,12 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
           },
           {
             "name": "payload_signature",
-            "type": "bytes"
+            "type": {
+              "array": [
+                "u8",
+                64
+              ]
+            }
           }
         ]
       }
@@ -491,20 +658,6 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
           },
           {
             "name": "task_id",
-            "type": "u64"
-          },
-          {
-            "name": "tasks",
-            "type": {
-              "vec": {
-                "defined": {
-                  "name": "Task"
-                }
-              }
-            }
-          },
-          {
-            "name": "max_tasks",
             "type": "u64"
           },
           {
@@ -538,7 +691,12 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
           },
           {
             "name": "callback_gas_limit",
-            "type": "bytes"
+            "type": {
+              "array": [
+                "u8",
+                4
+              ]
+            }
           },
           {
             "name": "packet_signature",
@@ -569,26 +727,22 @@ The latest IDL for the Solana Gateway contract on version `0.2.3` is the followi
       }
     },
     {
-      "name": "Task",
+      "name": "TaskState",
+      "serialization": "bytemuckunsafe",
+      "repr": {
+        "kind": "c"
+      },
       "type": {
         "kind": "struct",
         "fields": [
           {
-            "name": "payload_hash",
+            "name": "tasks",
             "type": {
               "array": [
                 "u8",
-                32
+                296900
               ]
             }
-          },
-          {
-            "name": "task_id",
-            "type": "u64"
-          },
-          {
-            "name": "completed",
-            "type": "bool"
           }
         ]
       }
