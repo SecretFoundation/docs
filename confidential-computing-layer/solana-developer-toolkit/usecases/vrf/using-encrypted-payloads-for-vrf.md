@@ -1,5 +1,7 @@
 # Using encrypted payloads for VRF
 
+This example uses the example project [here](https://github.com/SecretSaturn/Secretpath-Encryption-Example/tree/Solana).
+
 {% hint style="info" %}
 Need help with using encrypted payloads with Secretpath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
 {% endhint %}
@@ -160,17 +162,18 @@ const [tasks_pda, task_bump] = web3.PublicKey.findProgramAddressSync(
 
 **3. Define the Callback Information**
 
-The callback information specifies where and how the response from the Secret contract should be handled. This typically involves setting a callback address and a callback selector (which identifies the specific function that will handle the response).
+The callback information specifies where and how the call should be handled. This involves setting a callback address and a callback selector.
 
 ```typescript
 // Include some address as a test (not needed here, you can add whatever you need for your dApp)
-const testAddress = new web3.PublicKey("HZy2bXo1NmcTWURJvk9c8zofqE2MUvpu7wU722o7gtEN");
-const callbackAddress = Buffer.concat([testAddress.toBuffer()]).toString("base64");
+const testAddress1 = new web3.PublicKey("HZy2bXo1NmcTWURJvk9c8zofqE2MUvpu7wU722o7gtEN");
+const testAddress2 = new web3.PublicKey("GPuidhXoR6PQ5skXEdrnJehYbffCXfLDf7pcnxH2EW7P");
+const callbackAddress = Buffer.concat([testAddress1.toBuffer(),testAddress2.toBuffer()]).toString("base64");
 ```
 
-* **Callback Address (`callbackAddress`)**: This is the address where the response from the Secret contract will be sent. In this example, it’s simply a test address. In a real-world application, this would typically be your contract's address or an address designated to handle the callback.
+* **Callback Address (`callbackAddress`)**: These are the addresses where the callback addresses needed for the CPI are included. In this example, it’s simply a test address. In a real-world application, this would typically be your callback contract's address or the addresses designated to handle the callback. The callback addresses are the concatenated 32 bytes of all addresses that need to be accessed for the callback CPI. We take two address public keys (32 bytes each), concatinate them together and then `base64` encode them.&#x20;
 
-Next, we define the **callback selector**. The callback selector is a unique identifier that indicates which function on the Solana side should handle the response from the Secret contract. It's a combination of the program ID and a specific function identifier.
+Next, we define the **callback selector**. The callback selector is a unique identifier that indicates which program and function the callback CPI should access. It's a combination of the program ID and a specific function identifier.
 
 ```typescript
 // 8 bytes of the function Identifier = CallbackTest in the SecretPath Solana Contract
