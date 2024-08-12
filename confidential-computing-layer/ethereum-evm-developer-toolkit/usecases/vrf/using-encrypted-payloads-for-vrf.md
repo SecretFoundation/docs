@@ -1,12 +1,8 @@
 # Using encrypted payloads for VRF
 
-
-
 {% hint style="info" %}
-Need help with using encrypted payloads with Snakepath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
+Need help with using encrypted payloads with Secretpath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
 {% endhint %}
-
-## Complete example
 
 ## Install and import dependencies
 
