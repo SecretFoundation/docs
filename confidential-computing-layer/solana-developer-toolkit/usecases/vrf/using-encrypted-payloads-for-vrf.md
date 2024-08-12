@@ -139,7 +139,7 @@ const data = JSON.stringify({ numWords: Number(numWords) });
 
 **2. Derive the Program Derived Addresses (PDAs)**
 
-In Solana, Program Derived Addresses (PDAs) are special types of addresses that are derived deterministically based on a seed and the program ID. Both PDAs are used here to store the gateway and the tasks state.&#x20;
+In Solana, Program Derived Addresses (PDAs) are special types of addresses that are derived deterministically based on a seed and the program ID. Both PDAs are used here to store the gateway and the tasks state. You do not need to manually save them as both of these can deterministally derived from the program id at any time.
 
 ```typescript
 // Derive the Gateway PDA / Program Derived Address
