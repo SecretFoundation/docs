@@ -153,6 +153,23 @@
 
 ## 🔓 Confidential Computing Layer
 
+* [🧑‍🚀 IBC Developer Toolkit](confidential-computing-layer/ibc/README.md)
+  * [Basics](confidential-computing-layer/ibc/basics/README.md)
+    * [Overview](confidential-computing-layer/ibc/basics/overview.md)
+    * [Cross-chain Messaging with IBC Hooks](confidential-computing-layer/ibc/basics/cross-chain-messaging-with-ibc-hooks.md)
+    * [Secret IBC setup](confidential-computing-layer/ibc/basics/secret-ibc-setup.md)
+    * [IBC-Hooks](confidential-computing-layer/ibc/basics/ibc-hooks/README.md)
+      * [Auto-wrapping of SNIP-20 tokens with IBC Hooks](confidential-computing-layer/ibc/basics/ibc-hooks/auto-wrapping-of-snip-20-tokens-with-ibc-hooks.md)
+      * [Using auto-wrapping on SNIP-20 tokens on mainnet with secret.js](confidential-computing-layer/ibc/basics/ibc-hooks/using-auto-wrapping-on-snip-20-tokens-on-mainnet-with-secret.js.md)
+  * [Usecases](confidential-computing-layer/ibc/usecases/README.md)
+    * [Storing Encrypted Data on Secret Network](confidential-computing-layer/ibc/usecases/storing-encrypted-data-on-secret-network/README.md)
+      * [Key-Value store Developer Tutorial](confidential-computing-layer/ibc/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
+    * [Secret VRF for IBC with IBC-Hooks](confidential-computing-layer/ibc/usecases/secret-vrf-for-ibc-with-ibc-hooks.md)
+    * [Confidential Voting](confidential-computing-layer/ibc/usecases/confidential-voting.md)
+    * [Sealed Bid Auctions](confidential-computing-layer/ibc/usecases/sealed-bid-auctions.md)
+  * [Supported Networks](confidential-computing-layer/ibc/supported-networks/README.md)
+    * [Mainnet](confidential-computing-layer/ibc/supported-networks/mainnet.md)
+    * [Testnet](confidential-computing-layer/ibc/supported-networks/testnet.md)
 * [🤝 Ethereum (EVM) Developer Toolkit](confidential-computing-layer/ethereum-evm-developer-toolkit/README.md)
   * [Basics](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/README.md)
     * [Overview](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/overview.md)
@@ -208,16 +225,6 @@
   * [Solana](confidential-computing-layer/solana-developer-toolkit/solana/README.md)
     * [Solana Mainnet & Testnet](confidential-computing-layer/solana-developer-toolkit/solana/solana-mainnet-and-testnet.md)
     * [Gateway Contract IDL](confidential-computing-layer/solana-developer-toolkit/solana/gateway-contract-idl.md)
-* [🌈 IBC & Secret Network](confidential-computing-layer/ibc/README.md)
-  * [Secret IBC setup](confidential-computing-layer/ibc/secret-ibc-setup.md)
-  * [IBC-Hooks](confidential-computing-layer/ibc/ibc-hooks/README.md)
-    * [Auto-wrapping of SNIP-20 tokens with IBC Hooks](confidential-computing-layer/ibc/ibc-hooks/auto-wrapping-of-snip-20-tokens-with-ibc-hooks.md)
-    * [Using auto-wrapping on SNIP-20 tokens on mainnet with secret.js](confidential-computing-layer/ibc/ibc-hooks/using-auto-wrapping-on-snip-20-tokens-on-mainnet-with-secret.js.md)
-  * [Cross-Chain randomness with SecretVRF](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/README.md)
-    * [Secret VRF for IBC with IBC-Hooks](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/secret-vrf-for-ibc-with-ibc-hooks.md)
-    * [SecretVRF for IBC via proxy contracts](confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/secretvrf-for-ibc-via-proxy-contracts.md)
-  * [Storing Encrypted Data on Secret Network](confidential-computing-layer/ibc/storing-encrypted-data-on-secret-network/README.md)
-    * [Key-Value store Developer Tutorial](confidential-computing-layer/ibc/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
 
 ## 🤫 Overview, Ecosystem and Technology
 
