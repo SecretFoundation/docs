@@ -6,19 +6,19 @@ description: >-
 
 # 🧑‍🚀 IBC Developer Toolkit
 
-## Basics
+## [Basics](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/basics)
 
-* Overview
-* Cross-chain Messaging with IBC hooks
+* [Overview](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/basics/overview)
+* [Cross-chain Messaging with IBC hooks](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/basics/cross-chain-messaging-with-ibc-hooks)
 
-## Usecases
+## [Usecases](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/usecases)
 
-* Key Value store
-* VRF
-* Confidential Voting
-* Sealed Bid Auctions
+* [Key Value store](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/usecases)
+* [VRF](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/usecases/secret-vrf-for-ibc-with-ibc-hooks)
+* [Confidential Voting](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/usecases/confidential-voting)
+* [Sealed Bid Auctions](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/usecases/sealed-bid-auctions)
 
-## Supported Networks
+## [Supported Networks](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/supported-networks)
 
-* Mainnet
-* Testnet
+* [Mainnet](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/supported-networks/mainnet)
+* [Testnet](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/supported-networks/testnet)
