@@ -10,10 +10,14 @@ description: >-
 
 Secret Network's Confidential Computation SDK uses IBC hooks to seamlessly handle cross-chain encrypted payloads, which means **Cosmos developers can now encrypt and decrypt messages with a simple token transfer.**&#x20;
 
+{% hint style="info" %}
+See fullstack demo for Osmosis Mainnet [here](https://cosmos-ccl-encrypted-payloads-demo.vercel.app/).&#x20;
+{% endhint %}
+
 This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on Secret Network and transmit them cross-chain from a Cosmos chain of your choice! After this tutorial, you will have the tools you need to encrypt messages on any IBC hooks-enabled Cosmos chain.&#x20;
 
 {% hint style="info" %}
-In this example, you will send a token from Axelar testnet to Secret Network testnet to encrypt a `string`🔥
+In this example, you will send a token from Osmosis mainnet to Secret Network mainnet to encrypt a `string`🔥
 {% endhint %}
 
 ### Getting Started <a href="#getting-started" id="getting-started"></a>
@@ -23,11 +27,6 @@ To get started, clone the [repository](https://github.com/writersblockchain/cosm
 ```
 git clone https://github.com/writersblockchain/cosmos-ccl-sdk.git
 ```
-
-### **Prerequisities**&#x20;
-
-1. **Get Axelar testnet tokens from** [**faucet**](https://faucet.testnet.axelar.dev/)
-2. **Get Secret testnet tokens from** [**faucet**](https://faucet.pulsar.scrttestnet.com/)
 
 ### Configuring Environment Variables
 
@@ -40,25 +39,28 @@ npm install
 Create an `env` file. Simply update [env.testnet](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/main/.env.testnet) to omit ".testnet" from the file name and then add your wallet's mnemonics:&#x20;
 
 ```purebasic
-SECRET_MNEMONIC="grant rice replace explain federal release fix clever romance raise often wild taxi quarter soccer fiber love must tape steak together observe swap guitar"
-SECRET_CHAIN_ENDPOINT="https://lcd.testnet.secretsaturn.net"
-SECRET_CHAIN_ID="pulsar-3"
+SECRET_MNEMONIC=""
+SECRET_CHAIN_ENDPOINT="https://lcd.mainnet.secretsaturn.net"
+SECRET_CHAIN_ID="secret-4"
 SECRET_TOKEN="uscrt"
 
-CONSUMER_MNEMONIC="jelly shadow frog dirt dragon use armed praise universe win jungle close inmate rain oil canvas beauty pioneer chef soccer icon dizzy thunder meadow"
-CONSUMER_CHAIN_ENDPOINT="https://lcd-axelar-testnet.imperator.co"
-CONSUMER_CHAIN_ID="axelar-testnet-lisbon-3"
-CONSUMER_TOKEN="uaxl"
-CONSUMER_PREFIX="axelar"
+
+CONSUMER_MNEMONIC=""
+CONSUMER_CHAIN_ENDPOINT="https://rpc.osmosis.zone:443"
+CONSUMER_CHAIN_ID="osmosis-1"
+CONSUMER_TOKEN="uosmo"
+CONSUMER_PREFIX="osmo"
+CONSUMER_GAS_PRICE="0.25"
+CONSUMER_DECIMALS=6
 ```
 
 {% hint style="info" %}
-Note that for our consumer chain, we are using the `endpoint`, `chainID`, `token`, and `prefix` for Axelar testnet. But you could update this for any Cosmos chain that has IBC hooks enabled and a [transfer channel](https://www.mintscan.io/secret/relayers) with Secret Network :smile:
+Note that for our consumer chain, we are using the `endpoint`, `chainID`, `token`, and `prefix` for Osmosis Mainnet. But you could update this for any Cosmos chain that has IBC hooks enabled and a [transfer channel](https://www.mintscan.io/secret/relayers) with Secret Network :smile:
 {% endhint %}
 
 ### Upload the encryption contract on Secret Network
 
-Now that you have your environment configured, it's time to upload the encryption contract to Secret Network testnet.&#x20;
+Now that you have your environment configured, it's time to upload the encryption contract to Secret Network.&#x20;
 
 First, compile the contract:&#x20;
 
@@ -82,7 +84,7 @@ npm run build
 
 Once you run the above command, the typescript files in .`/src` will be compiled as javascript files in `./dist`.&#x20;
 
-Upload and instantiate the encryption contract on Secret Network testnet:&#x20;
+Upload and instantiate the encryption contract on Secret Network Mainnet:&#x20;
 
 ```bash
 node dist/deploy.js
@@ -109,7 +111,7 @@ Update [`contracts.json`](https://github.com/writersblockchain/cosmos-ccl-sdk/bl
 
 ### Encrypt a payload with Typescript SDK <a href="#encrypt-a-payload" id="encrypt-a-payload"></a>
 
-Now that you have your encryption smart contract uploaded on Secret Network, let's use it to store encrypted messages from Axelar testnet. Most of the ECDH cryptography has been abstracted away so there are only a few values you need to change.
+Now that you have your encryption smart contract uploaded on Secret Network, let's use it to store encrypted messages from Osmosis Mainnet Most of the ECDH cryptography has been abstracted away so there are only a few values you need to change.
 
 The functions in [./src](https://github.com/writersblockchain/cosmos-ccl-sdk/tree/930732c9d0b11d6f394d9d99cccb96380e103881/src) are helper functions that help us configure cross-chain network clients, IBC token transfers, etc. However, there is also an additional function which executes the gateway contract called [execute-gateway.js](https://github.com/writersblockchain/cosmos-ccl-sdk/blob/main/src/execute-gateway.ts)! **Execute-gateway.js demonstrates sending a token transfer to store an unencrypted as well as an encrypted message.**&#x20;
 
@@ -128,9 +130,9 @@ This will initiate a Token transfer:&#x20;
 ```bash
 Sending IBC token...
 receiver: secret1q0mycclu927u5m0tn50zgl5af4utrlkzz706lm
-token: uaxl
+token: uosmo
 amount: 1
-source_channel: channel-311
+source_channel: channel-88
 memo: {"wasm":{"contract":"secret1q0mycclu927u5m0tn50zgl5af4utrlkzz706lm","msg":{"extension":{"msg":{"store_secret":{"text":"new_text_68ss4"}}}}}}
 ```
 
@@ -143,9 +145,9 @@ info ack: {
   packet: {
     sequence: '252',
     source_port: 'transfer',
-    source_channel: 'channel-311',
+    source_channel: 'channel-88',
     destination_port: 'transfer',
-    destination_channel: 'channel-3',
+    destination_channel: 'channel-1',
     data: Uint8Array(887) [
       123,  34,  97, 109, 111, 117, 110, 116,  34,  58,  34,  49,
        34,  44,  34, 100, 101, 110, 111, 109,  34,  58,  34, 117,
@@ -163,7 +165,7 @@ info ack: {
   },
 ```
 
-Congrats! You have now used the Secret Network CCL SDK to encrypt a `string` on Axelar testnet!
+Congrats! You have now used the Secret Network CCL SDK to encrypt a `string` on Osmosis Mainnet!
 
 ### Encryption SDK - how it works <a href="#encrypt-a-payload" id="encrypt-a-payload"></a>
 
@@ -247,7 +249,7 @@ You can review the function in the SDK [here](https://github.com/writersblockcha
 In this tutorial, you learned how to utilize Secret Network's Confidential Computation SDK to encrypt and decrypt messages across Cosmos chains using IBC hooks. By following the steps outlined, you successfully:
 
 1. Configured the development environment with the necessary dependencies and environment variables.
-2. Uploaded and instantiated an encryption contract on the Secret Network testnet.
-3. Encrypted and transmitted a payload from the Axelar testnet to the Secret testnet using IBC token transfers.
+2. Uploaded and instantiated an encryption contract on the Secret Network mainnet.
+3. Encrypted and transmitted a payload from the Osmosis Mainnet to the Secret mainnet using IBC token transfers.
 
 With these tools and knowledge, you are now equipped to handle cross-chain encrypted payloads on any IBC hooks-enabled Cosmos chain, enhancing the security and confidentiality of your blockchain applications.
