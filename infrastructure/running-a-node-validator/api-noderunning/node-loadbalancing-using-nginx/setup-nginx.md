@@ -64,7 +64,8 @@ sudo nginx -t
 4. **Enable and Start Nginx**: This will make sure Nginx starts on boot and starts running immediately.
 
 ```bash
-sudo systemctl enable nginx sudo systemctl start nginx
+sudo systemctl enable nginx 
+sudo systemctl start nginx
 ```
 
 ### **Secure with SSL/HTTPS**
