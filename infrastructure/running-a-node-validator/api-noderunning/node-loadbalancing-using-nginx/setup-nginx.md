@@ -72,8 +72,7 @@ sudo systemctl enable nginx sudo systemctl start nginx
 1. **Install Certbot**: This tool automates obtaining free SSL/TLS certificates from Let's Encrypt.
 
 ```bash
-sudo apt-get install certbot 
-sudo apt-get install python3-certbot-nginx
+sudo apt-get install certbot python3-certbot-nginx
 ```
 
 2. **Obtain the SSL Certificate for your domain**:
