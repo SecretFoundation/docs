@@ -8,7 +8,7 @@ description: >-
 
 **Usecases**
 
-* [VRF](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/usecases/vrf)
+* [vrf](usecases/vrf/ "mention")
 
 **Supported Networks**
 
