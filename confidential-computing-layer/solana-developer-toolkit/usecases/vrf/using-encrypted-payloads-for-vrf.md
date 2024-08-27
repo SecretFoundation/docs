@@ -1,14 +1,123 @@
-# Using encrypted payloads for VRF
+---
+description: >-
+  Learn how to send encrypted on-chain random numbers to Solana from Secret
+  Network
+---
 
-This example uses the example project [here](https://github.com/SecretSaturn/Secretpath-Encryption-Example/tree/Solana).
+# VRF Developer Tutorial
+
+<figure><img src="../../../../.gitbook/assets/solana-sp.png" alt=""><figcaption></figcaption></figure>
+
+
 
 {% hint style="info" %}
-Need help with using encrypted payloads with Secretpath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
+Try out requesting a random number on Solana Devnet from Secret testnet using the demo [here](https://solana-rng.vercel.app/)!
 {% endhint %}
 
-## Install and import dependencies
+Simply request a random number (up to 2000), and click submit. You can view your returned random number on the gateway program [here](https://explorer.solana.com/address/DKDX8XbTnCgEk8o1RNnCUokiCmadG1Ch5HLxaz7CnhcD?cluster=devnet).&#x20;
 
-First, install all of the the dependencies via NPM:
+After you make the request, you will see another [transaction signature](https://explorer.solana.com/tx/3kjVqyn2qwyBdBeq1bW7ajf79aKZGcFJmM36pZrTAebAYKfZfp9JDPfrtSJcPRmeGD4cP1u9ueiPHmWNdextJ32D?cluster=devnet) within a few seconds. Then, scroll down to the **program instruction logs** to view the returned random number as a base64 string:&#x20;
+
+<figure><img src="../../../../.gitbook/assets/Screenshot 2024-08-27 at 8.31.27 PM.png" alt=""><figcaption></figcaption></figure>
+
+## Overview
+
+[SecretVRF](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness) over SecretPath enables Solana developers to access **encrypted** **on-chain verifiable random numbers.**&#x20;
+
+{% hint style="info" %}
+To learn how SecretVRF works underneath the hood, refer to the Secret Network docs [here](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness). 🤓
+{% endhint %}
+
+## Getting Started <a href="#getting-started" id="getting-started"></a>
+
+To get started, clone the repo:
+
+```
+git clone https://github.com/writersblockchain/solana-rng
+```
+
+## Solana Prerequisites <a href="#evm-prerequisites" id="evm-prerequisites"></a>
+
+1. [Install Phantom wallet.](https://phantom.app/download)
+2. [Fund your Solana devnet wallet. ](https://faucet.solana.com/)
+
+## Upload RNG contract on Secret Network&#x20;
+
+`cd` into `solana-rng/rng`:
+
+```bash
+cd solana-rng/rng
+```
+
+Compile the randomness contract:
+
+{% hint style="info" %}
+If you want to make any changes to the Secret Network RNG contract before compiling, feel free to do so! You can learn more about Secret Network contracts in the Secret Network docs [here.](https://docs.scrt.network/secret-network-documentation/development/development-concepts)&#x20;
+{% endhint %}
+
+```bash
+make build-mainnet
+```
+
+`cd` into `node`:&#x20;
+
+```bash
+cd node
+```
+
+Install secretjs:&#x20;
+
+```bash
+npm i
+```
+
+Upload and instantiate the contract on Secret Network testnet:&#x20;
+
+```bash
+node upload
+```
+
+You will see a contract id, codehash, and address returned:&#x20;
+
+```bash
+codeId:  10207
+Contract hash: 931a6fa540446ca028955603fa4b924790cd3c65b3893196dc686de42b833f9c
+contract address:  secret1zdz2h5883nlz757dsq2ejfwdy0wpq0uwe2mz0r
+```
+
+Now let's call this contract address from your frontend!&#x20;
+
+## Connecting Solana RNG Contract to Frontend
+
+Open a new terminal window and `cd` into solana-rng/solana-frontend:
+
+```bash
+cd solana-rng/solana-frontend
+```
+
+Install the dependencies:&#x20;
+
+```bash
+npm i
+```
+
+Navigate to solana-rng/solana-frontend/src/submit.ts and update the [contract address](https://github.com/writersblockchain/solana-rng/blob/f75e5155381fea7baa2f9c9f873fe8f85e8bc628/solana-frontend/src/submit.ts#L25) and [code hash](https://github.com/writersblockchain/solana-rng/blob/f75e5155381fea7baa2f9c9f873fe8f85e8bc628/solana-frontend/src/submit.ts#L26) with your deployed contract and code hash.&#x20;
+
+Now it's time to run the progam! In the terminal:&#x20;
+
+```bash
+npm run dev 
+```
+
+Congrats! You now have your very own Solana RNG contract deployed on Secret Network and can request encrypted random numbers  on Solana!&#x20;
+
+Below, you can learn more how the frontend interacts with SecretPath and Solana on a deeper level 🤓
+
+<details>
+
+<summary>Frontend - in depth </summary>
+
+First, install the dependencies:
 
 ```bash
 npm install @solar-republic/cosmos-grpc @solar-republic/neutrino ethers secure-random @coral-xyz/anchor @solana/web3.js buffer js-sha3
@@ -41,7 +150,7 @@ optimizeDeps: {
 
 ## Import the IDL
 
-Next, import the IDL of the Solana Gateway Program into your project, which you can find here: [gateway-contract-idl.md](../../solana/gateway-contract-idl.md "mention").
+Next, import the IDL of the Solana Gateway Program into your project, which you can find here: [gateway-contract-idl.md](../../program-ids/gateway-contract-idl.md "mention").
 
 Import the IDL using:&#x20;
 
@@ -237,9 +346,7 @@ const payloadHash = Buffer.from(keccak256.arrayBuffer(ciphertext));
 
 Next, we use Phantom to sign the `payloadHash` using `signMessage`.&#x20;
 
-{% hint style="info" %}
 Internally, Phantom Wallet only allows for ASCII encoded strings to be signed to prevent any wallet drainers from signing arbitrary bytes. For us this means that we take the `payloadHash` and `base64` encode it. Phantom then actually directly signs the `base64` string (NOT: the `payloadHash` directly) of the `payloadHash` to get the signature. Keep this in mind when verifying the signature against the `payloadHash.`
-{% endhint %}
 
 ```typescript
 const payloadHashBase64 = Buffer.from(payloadHash.toString("base64"));
@@ -293,6 +400,12 @@ await connection.confirmTransaction(signature);
 console.log("Final result after rpc:", tx);
 ```
 
+</details>
+
 ## Summary
 
 In conclusion we constructed and encrypted a payload for SecretPath for Solana direct in the Frontend  as well as calling the SecretPath gateway contract.
+
+{% hint style="info" %}
+Need help with using encrypted payloads with Secretpath or want to discuss use cases for your dApp? Please ask in the Secret Network [Telegram](https://t.me/SCRTCommunity) or Discord.
+{% endhint %}

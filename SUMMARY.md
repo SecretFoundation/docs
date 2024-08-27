@@ -220,10 +220,10 @@
     * [Storing Encrypted Data on Secret Network](confidential-computing-layer/solana-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/README.md)
       * [Key-Value store Developer Tutorial](confidential-computing-layer/solana-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
     * [VRF](confidential-computing-layer/solana-developer-toolkit/usecases/vrf/README.md)
-      * [Using encrypted payloads for VRF](confidential-computing-layer/solana-developer-toolkit/usecases/vrf/using-encrypted-payloads-for-vrf.md)
-  * [Solana](confidential-computing-layer/solana-developer-toolkit/solana/README.md)
-    * [Solana Mainnet & Testnet](confidential-computing-layer/solana-developer-toolkit/solana/solana-mainnet-and-testnet.md)
-    * [Gateway Contract IDL](confidential-computing-layer/solana-developer-toolkit/solana/gateway-contract-idl.md)
+      * [VRF Developer Tutorial](confidential-computing-layer/solana-developer-toolkit/usecases/vrf/using-encrypted-payloads-for-vrf.md)
+  * [Program IDs](confidential-computing-layer/solana-developer-toolkit/program-ids/README.md)
+    * [Solana Mainnet & Testnet](confidential-computing-layer/solana-developer-toolkit/program-ids/solana-mainnet-and-testnet.md)
+    * [Gateway Contract IDL](confidential-computing-layer/solana-developer-toolkit/program-ids/gateway-contract-idl.md)
 
 ## 🤫 Overview, Ecosystem and Technology
 

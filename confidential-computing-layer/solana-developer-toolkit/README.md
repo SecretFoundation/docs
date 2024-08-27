@@ -12,4 +12,4 @@ description: >-
 
 **Supported Networks**
 
-[solana-mainnet-and-testnet.md](solana/solana-mainnet-and-testnet.md "mention")
+[solana-mainnet-and-testnet.md](program-ids/solana-mainnet-and-testnet.md "mention")
