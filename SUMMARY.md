@@ -218,7 +218,7 @@
 * [🙌 Solana Developer Toolkit](confidential-computing-layer/solana-developer-toolkit/README.md)
   * [Usecases](confidential-computing-layer/solana-developer-toolkit/usecases/README.md)
     * [Storing Encrypted Data on Secret Network](confidential-computing-layer/solana-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/README.md)
-      * [Key-Value store Developer Tutorial](confidential-computing-layer/solana-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
+      * [Key-value Store Developer Tutorial](confidential-computing-layer/solana-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/using-encrypted-payloads-for-vrf.md)
     * [VRF](confidential-computing-layer/solana-developer-toolkit/usecases/vrf/README.md)
       * [VRF Developer Tutorial](confidential-computing-layer/solana-developer-toolkit/usecases/vrf/using-encrypted-payloads-for-vrf.md)
   * [Program IDs](confidential-computing-layer/solana-developer-toolkit/program-ids/README.md)
