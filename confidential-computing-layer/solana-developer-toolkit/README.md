@@ -8,7 +8,8 @@ description: >-
 
 **Usecases**
 
-* [vrf](usecases/vrf/ "mention")
+* [Storing Encrypted Data on Secret Network ](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/solana-developer-toolkit/usecases/storing-encrypted-data-on-secret-network)
+* [VRF (Sending on-chain generated random numbers to Solana)](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/solana-developer-toolkit/usecases/vrf/using-encrypted-payloads-for-vrf)
 
 **Supported Networks**
 
