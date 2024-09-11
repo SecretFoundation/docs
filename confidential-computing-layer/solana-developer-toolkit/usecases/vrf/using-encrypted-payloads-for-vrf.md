@@ -6,27 +6,30 @@ description: >-
 
 # VRF Developer Tutorial
 
-<figure><img src="../../../../.gitbook/assets/solana-sp.png" alt=""><figcaption></figcaption></figure>
+Overview
 
+[SecretVRF](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness), Secret Network's on-chain random number generator, enables Solana developers to access **encrypted** **on-chain verifiable random numbers from Secret Network.**&#x20;
 
+In this tutorial, you will learn how to send random numbers from Secret Network to a Solana program. By this end of this tutorial you will:
+
+* Have an understanding of [SecretPath](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath), Secret Network's trustless Solana and EVM bridge&#x20;
+* Upload and instantiate your very own randomness contract on Secret Network
+* Request random numbers on Solana from Secret Network
+* Connect a frontend to your Solana application
+
+### Demo
 
 {% hint style="info" %}
-Try out requesting a random number on Solana Devnet from Secret testnet using the demo [here](https://solana-rng.vercel.app/)!
+Try out requesting a random number on Solana Devnet from Secret Network testnet using the demo [here](https://solana-rng.vercel.app/)!&#x20;
+
+Simply request a random number (up to 2000), and click "submit." You can view your returned random number on the gateway program [here](https://explorer.solana.com/address/DKDX8XbTnCgEk8o1RNnCUokiCmadG1Ch5HLxaz7CnhcD?cluster=devnet).&#x20;
+
+After you make the request, **you will see a second transaction signature within a few seconds.** Open the second transaction signature in a new window, then, scroll down to the **program instruction logs** to view the returned random number as a base64 string:&#x20;
 {% endhint %}
-
-Simply request a random number (up to 2000), and click submit. You can view your returned random number on the gateway program [here](https://explorer.solana.com/address/DKDX8XbTnCgEk8o1RNnCUokiCmadG1Ch5HLxaz7CnhcD?cluster=devnet).&#x20;
-
-After you make the request, you will see another [transaction signature](https://explorer.solana.com/tx/3kjVqyn2qwyBdBeq1bW7ajf79aKZGcFJmM36pZrTAebAYKfZfp9JDPfrtSJcPRmeGD4cP1u9ueiPHmWNdextJ32D?cluster=devnet) within a few seconds. Then, scroll down to the **program instruction logs** to view the returned random number as a base64 string:&#x20;
 
 <figure><img src="../../../../.gitbook/assets/Screenshot 2024-08-27 at 8.31.27 PM.png" alt=""><figcaption></figcaption></figure>
 
-## Overview
-
-[SecretVRF](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness) over SecretPath enables Solana developers to access **encrypted** **on-chain verifiable random numbers.**&#x20;
-
-{% hint style="info" %}
-To learn how SecretVRF works underneath the hood, refer to the Secret Network docs [here](https://docs.scrt.network/secret-network-documentation/development/secret-contract-fundamentals/available-native-features-modules/secret-vrf-on-chain-randomness). 🤓
-{% endhint %}
+Nice! You just sent an encrypted on-chain random number from Secret Network to a Solana program. Now it's time to learn how to upload your own randomness contract on Secret Network so that you can program it as you see fit. Let's get started 😊
 
 ## Getting Started <a href="#getting-started" id="getting-started"></a>
 
@@ -41,19 +44,90 @@ git clone https://github.com/writersblockchain/solana-rng
 1. [Install Phantom wallet.](https://phantom.app/download)
 2. [Fund your Solana devnet wallet. ](https://faucet.solana.com/)
 
-## Upload RNG contract on Secret Network&#x20;
+## Understanding SecretPath ✅
+
+Before you upload a randomness program to Secret Network, it is important for you to understand _how_ messages are sent from Solana to Secret Network and vice-versa. This is thanks to a protocol that Secret Network developed called [**SecretPath**](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath), which allows Solana developers to execute programs on Secret Network while preserving the privacy of the inputs and validity of the outputs using ECDH cryptography 🤯.&#x20;
+
+SecretPath has two main components: **gateways** and **relayers**.
+
+1. **The Gateway** is a Solana program created by Secret Network that acts as the interface for handling messages between Solana and Secret Network. The gateway contract packages, verifies, and encrypts/decrypts messages. **For your purposes, all that you must know is how to properly format your program's functions so they can be understood by the Solana gatway contract, which you will learn shortly**.&#x20;
+2. **Relayers** watch for messages on Solana and then pass them to Secret Network, and vice-versa. They do **not** have access to the actual data (since messages are encrypted), so they can't compromise security. Their main job is ensuring the network runs smoothly by transmitting the messages, but they don’t move tokens or handle funds. **For your purposes, you needn't focus on relayers as Secret Network maintains a relayer for all Solana transactions.**&#x20;
+
+Now that you understand the basics of SecretPath, let's upload your very own RNG contract to Secret Network! 🤓&#x20;
+
+## Understanding the RNG program on Secret Network&#x20;
 
 `cd` into `solana-rng/rng`:
 
 ```bash
-cd solana-rng/rng
+cd rng
 ```
 
-Compile the randomness contract:
+Let's examine the RNG smart contract. Open the `src` folder and you will see four files:
+
+* [`contract.rs`](https://github.com/writersblockchain/solana-rng/blob/main/RNG/src/contract.rs)
+* [`lib.rs`](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/RNG/src/lib.rs)
+* [`msg.rs`](using-encrypted-payloads-for-vrf.md#state.rs)
+* [`state.rs`](https://github.com/writersblockchain/solana-rng/blob/main/RNG/src/state.rs)
+
+Like Solana, programs on Secret Network are written in Rust.  Unlike Solana, Secret Network developers use a framework called Cosmwasm instead of Anchor. Let's examine each of these files before uploading the program to Secret Network testnet.&#x20;
+
+### [state.rs](https://github.com/writersblockchain/solana-rng/blob/main/RNG/src/state.rs)
+
+On Solana, programs are **stateless**. On Secret Network, programs (ie smart contracts) are **stateful**. This means that unlike Solana's stateless programs, Secret Network contracts maintain persistent state across transactions, allowing for private data storage and processing.&#x20;
+
+[**state.rs** ](https://github.com/writersblockchain/solana-rng/blob/main/RNG/src/state.rs)is where you manage your contract's state, which in this case is simply the program info for the Solana Gateway Contract:&#x20;
+
+```rust
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct State {
+    pub gateway_address: Addr,
+    pub gateway_hash: String,
+    pub gateway_key: Binary,
+}
+```
+
+When you instantiate your program on Secret Network, you save the Solana Gateway Program info (`gateway_address,` `gateway_hash`, and `gateway_key`) in the Secret contract so that it knows how to correctly route messages to the Solana Gateway program.&#x20;
+
+### [msg.rs](https://github.com/writersblockchain/solana-rng/blob/main/RNG/src/msg.rs)
+
+In Secret Network contracts, a **`msg.rs`** file typically defines the structure of messages that your program will send or receive. It outlines how the program interacts with external users, other programs, or blockchain modules, specifying what kind of data is expected in those interactions.
+
+For example, on Solana, you'd define instruction data formats in a similar way when developing programs that interact with accounts. In CosmWasm (Secret Network's smart contract framework), a `msg.rs` file similarly defines the data types for actions like instantiating, executing, and querying contracts.
+
+In the context of SecretPath, this `msg.rs` file defines the messages that will be sent to and received from the Solana gateway, which is responsible for managing cross-chain communication.&#x20;
+
+### [contract.rs](https://github.com/writersblockchain/solana-rng/blob/main/RNG/src/contract.rs)
+
+In the context of the Secret Network, the [`contract.rs`](https://github.com/writersblockchain/solana-rng/blob/main/RNG/src/contract.rs) file is the core of your smart contract logic, much like the Solana program's main instruction handler. It contains the main contract functions, handling instantiation, execution, and migration, as well as any specific functionality you’ve built in.
+
+In this file, you define how the contract will handle inputs, store state, interact with other contracts (like the Solana gateway in SecretPath), and process outputs. Let’s focus on the key function, [`try_random`](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/RNG/src/contract.rs#L74), since that's the core of how randomness is handled.
+
+#### [`try_random` ](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/RNG/src/contract.rs#L74)
+
+The [`try_random`](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/RNG/src/contract.rs#L74) function is designed to generate random numbers on Secret Network and send them to the Solana Gateway program. Here's a high-level explanation:
+
+**Random Data Generation:**
+
+* The randomness generation in the contract creates a buffer to store random data, fills it using a pseudorandom number generator (PRNG), and sends the result to the gateway.&#x20;
 
 {% hint style="info" %}
-If you want to make any changes to the Secret Network RNG contract before compiling, feel free to do so! You can learn more about Secret Network contracts in the Secret Network docs [here.](https://docs.scrt.network/secret-network-documentation/development/development-concepts)&#x20;
+You could modify this code by changing the buffer size, applying custom post-processing like converting to hex, combining randomness with on-chain data, generating numbers in specific ranges, using a different algorithm like a hash function, etc. The sky's the limit!&#x20;
 {% endhint %}
+
+**Returning the Randomness**:
+
+* After generating random numbers, the contract returns the result back to the gateway contract. The randomness result is packaged into a `PostExecutionMsg` and passed to the Solana gateway as a callback.
+
+If you want to make any changes to the Secret Network RNG contract before compiling, feel free to do so! You can learn more about Secret Network contracts in the Secret Network docs [here.](https://docs.scrt.network/secret-network-documentation/development/development-concepts)&#x20;
+
+Now that you understand how the program works, let's upload it to Secret Network!
+
+### Uploading the RNG program to Secret Network&#x20;
+
+Before you upload the randomness program to Secret Network, you first must compile the code.&#x20;
+
+Compile the randomness contract:
 
 ```bash
 make build-mainnet
@@ -71,6 +145,12 @@ Install secretjs:&#x20;
 npm i
 ```
 
+Open [`upload.js`](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/RNG/node/upload.js#L10) and examine the code. You needn't change anything here unless you want to upload the Secret Network program to Mainnet instead of testnet.&#x20;
+
+{% hint style="info" %}
+Remember earlier when you learned that you must instantiate the Secret Network program to correctly communicate with the Solana Gateway Program? Now that you are uploading your Secret Network randomness program, note that you are instantiating it with the Solana Gateway [address, code\_hash, and public\_key :D](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/RNG/node/upload.js#L10)&#x20;
+{% endhint %}
+
 Upload and instantiate the contract on Secret Network testnet:&#x20;
 
 ```bash
@@ -85,80 +165,25 @@ Contract hash: 931a6fa540446ca028955603fa4b924790cd3c65b3893196dc686de42b833f9c
 contract address:  secret1zdz2h5883nlz757dsq2ejfwdy0wpq0uwe2mz0r
 ```
 
-Now let's call this contract address from your frontend!&#x20;
+Now let's use this contract address to request random numbers on Solana!&#x20;
 
-## Connecting Solana RNG Contract to Frontend
+## Request Random Numbers on Solana
 
-Open a new terminal window and `cd` into solana-rng/solana-frontend:
+Now that you have deployed your randomness program on Secret Network, all that's left is to execute it from Solana! To do this, you will use the IDL of the Solana Gateway program in order to execute your randomness program on Secret Network.&#x20;
 
-```bash
-cd solana-rng/solana-frontend
-```
+Let's start by examining [`solana-rng/solana-frontend/src/submit.ts`](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/solana-frontend/src/submit.ts#L11)`.`&#x20;
 
-Install the dependencies:&#x20;
+{% hint style="info" %}
+`Submit.ts` is where you format and submit the transaction data to the Solana Gateway program so that it can execute your Secret Network randomness program, and then send the randomness back to the Solana Gateway 🤓&#x20;
+{% endhint %}
 
-```bash
-npm i
-```
-
-Navigate to solana-rng/solana-frontend/src/submit.ts and update the [contract address](https://github.com/writersblockchain/solana-rng/blob/f75e5155381fea7baa2f9c9f873fe8f85e8bc628/solana-frontend/src/submit.ts#L25) and [code hash](https://github.com/writersblockchain/solana-rng/blob/f75e5155381fea7baa2f9c9f873fe8f85e8bc628/solana-frontend/src/submit.ts#L26) with your deployed contract and code hash.&#x20;
-
-Now it's time to run the progam! In the terminal:&#x20;
-
-```bash
-npm run dev 
-```
-
-Congrats! You now have your very own Solana RNG contract deployed on Secret Network and can request encrypted random numbers  on Solana!&#x20;
-
-Below, you can learn more how the frontend interacts with SecretPath and Solana on a deeper level 🤓
-
-<details>
-
-<summary>Frontend - in depth </summary>
-
-First, install the dependencies:
-
-```bash
-npm install @solar-republic/cosmos-grpc @solar-republic/neutrino ethers secure-random @coral-xyz/anchor @solana/web3.js buffer js-sha3
-```
-
-Next, import the following into your code:&#x20;
-
-```typescript
-import { ecdh, chacha20_poly1305_seal } from "@solar-republic/neutrino";
-import { bytes_to_base64, json_to_bytes, sha256, concat, base64_to_bytes} from "@blake.regalia/belt";
-import { Connection } from "@solana/web3.js";
-import { AnchorProvider, Program, web3 } from "@coral-xyz/anchor";
-import { Buffer } from "buffer";
-import { keccak256 } from "js-sha3";
-import { SigningKey, ethers } from "ethers";
-```
-
-In your `vite.config.ts` in the project, you need to add the support for `bigInt` into the esbuildOptions:
-
-```typescript
-optimizeDeps: { 
-    esbuildOptions: { 
-        target: "esnext", 
-        supported: { 
-        bigint: true 
-        }, 
-    } 
-}
-```
-
-## Import the IDL
-
-Next, import the IDL of the Solana Gateway Program into your project, which you can find here: [gateway-contract-idl.md](../../program-ids/gateway-contract-idl.md "mention").
+Notice that the IDL of the Solana Gateway Program is imported into `submit.ts`, which you can find here: [gateway-contract-idl.md](../../program-ids/gateway-contract-idl.md "mention").
 
 Import the IDL using:&#x20;
 
 ```javascript
 import idl from "./solana_gateway.json";
 ```
-
-## Defining variables&#x20;
 
 To start, we first define all of our variables that we need for the encryption, as well as the gateway information:&#x20;
 
@@ -167,50 +192,9 @@ const routing_contract = "secret15n9rw7leh9zc64uqpfxqz2ap3uz4r90e0uz3y3"; //the 
 const routing_code_hash = "931a6fa540446ca028955603fa4b924790cd3c65b3893196dc686de42b833f9c" //its codehash
 ```
 
-First, we define the Gateway address that is specific to each chain, which can you can look up here [supported-networks](../../../ethereum-evm-developer-toolkit/supported-networks/ "mention").&#x20;
-
-Second, you need to input the private contract that you are going to call, in our case the Secret VRF RNG contact on Secret Network. The code for this example contract can be found [here](https://github.com/SecretSaturn/TNLS/tree/main/TNLS-Samples/RNG) in case you want to deploy it yourself.
-
-## **Initializing the Solana Client**
-
-Next, initialize the Solana client that you are using to call the contract with. Connect to the Phantom wallet and set up the Anchor provider with the Program IDL imported earier.
-
-```typescript
-const network = "https://api.devnet.solana.com";
-const connection = new Connection(network, "processed");
-
-const getProvider = () => {
-  if ("solana" in window) {
-    const provider = window.solana as any;
-    if (provider.isPhantom) {
-      return provider;
-    }
-  }
-  window.open("https://phantom.app/", "_blank");
-};
-
-const provider = getProvider();
-if (!provider) {
-  console.error("Phantom wallet not found");
-} else {
-  await provider.connect(); // Connect to the wallet
-}
-
-const wallet = {
-  publicKey: provider.publicKey,
-  signTransaction: provider.signTransaction.bind(provider),
-  signAllTransactions: provider.signAllTransactions.bind(provider),
-};
-
-const anchorProvider = new AnchorProvider(connection, wallet, {
-  preflightCommitment: "processed",
-});
-const program = new Program(idl, anchorProvider);
-```
-
 ## Generating the encryption key using ECDH
 
-Next, you generate ephermal keys and load in the public encryption key for the Secret Gateway that you can look up in [supported-networks](../../../ethereum-evm-developer-toolkit/supported-networks/ "mention"). Then, use ECDH to create the encryption key:
+Next, you [generate ephermal keys ](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/solana-frontend/src/submit.ts#L64)and load in the public encryption key for the Secret Gateway that you can look up in [supported-networks](../../../ethereum-evm-developer-toolkit/supported-networks/ "mention"). Then, use ECDH to create the encryption key:
 
 ```typescript
 //Generating ephemeral keys
@@ -400,7 +384,66 @@ await connection.confirmTransaction(signature);
 console.log("Final result after rpc:", tx);
 ```
 
-</details>
+Now that you know how to correctly format and package data for the Solana Gateway program, let's learn how to connect your program to a frontend 🚀
+
+## Connecting Solana RNG Contract to Frontend&#x20;
+
+Open a new terminal window and `cd` into solana-rng/solana-frontend:
+
+```bash
+cd solana-rng/solana-frontend
+```
+
+Install the dependencies:&#x20;
+
+```bash
+npm i
+```
+
+## **Initializing the Solana Client**
+
+Next, [initialize the Solana client](https://github.com/writersblockchain/solana-rng/blob/8c41f370eb609f123f6036391671c76593ba35b7/solana-frontend/src/submit.ts#L35) that you are using to call the contract with. Connect to the Phantom wallet and set up the Anchor provider with the Program IDL imported earlier.
+
+```typescript
+const network = "https://api.devnet.solana.com";
+const connection = new Connection(network, "processed");
+
+const getProvider = () => {
+  if ("solana" in window) {
+    const provider = window.solana as any;
+    if (provider.isPhantom) {
+      return provider;
+    }
+  }
+  window.open("https://phantom.app/", "_blank");
+};
+
+const provider = getProvider();
+if (!provider) {
+  console.error("Phantom wallet not found");
+} else {
+  await provider.connect(); // Connect to the wallet
+}
+
+const wallet = {
+  publicKey: provider.publicKey,
+  signTransaction: provider.signTransaction.bind(provider),
+  signAllTransactions: provider.signAllTransactions.bind(provider),
+};
+
+const anchorProvider = new AnchorProvider(connection, wallet, {
+  preflightCommitment: "processed",
+});
+const program = new Program(idl, anchorProvider);
+```
+
+Now it's time to run the progam! In the terminal:&#x20;
+
+```bash
+npm run dev 
+```
+
+Congrats! You now have your very own Solana RNG contract deployed on Secret Network and can request encrypted random numbers  on Solana!&#x20;
 
 ## Summary
 
