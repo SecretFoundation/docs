@@ -1,8 +1,12 @@
 # Storing Encrypted Data on Secret Network
 
-One of SecretPath's key features is the ability to use encrypted payloads to send over confidential messages to a Secret Smart contract.&#x20;
+Solana developers can now make use [SecretPath](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath) to pass encrypted messages to a Secret Network smart contract.&#x20;
 
-SecretPath can seamlessly handle encrypted payloads, as the master gateway contract on Secret automatically decrypts the payload and hands the decrypted payload over to the target contract.&#x20;
+SecretPath seamlessly handles encrypted payloads, as the master gateway contract on Secret Network automatically decrypts payloads and passes the decrypted payload over to the target contract deployed on Secret Network.&#x20;
+
+{% hint style="info" %}
+If this sounds confusing, fret now, we will walk you through each step in subsequent Solana developer tutorials 😊
+{% endhint %}
 
 The encryption of the payload is done using the [ChaCha20-Poly1305](https://en.wikipedia.org/wiki/ChaCha20-Poly1305), an [authenticated encryption with additional data (AEAD)](https://en.wikipedia.org/wiki/Authenticated\_encryption) algorithm.
 
@@ -13,4 +17,4 @@ The key for this symmetric encryption is created by using the [Elliptic-curve Di
 
 Combining both of these keys together via the ECDH Scheme yields our encryption key, which we use to encrypt the payload with ChaCha20-Poly1305.
 
-As a first example for this, we have used SecretPath to  encrypt a `string` and subsequently store it in a Secret contract.&#x20;
+Let's learn how to use SecretPath on Solana in the [key-value store developer tutorial](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/solana-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/using-encrypted-payloads-for-vrf) 😊.&#x20;

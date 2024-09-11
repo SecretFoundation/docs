@@ -32,7 +32,7 @@ To learn how SecretVRF works underneath the hood, refer to the Secret Network do
 
 To get started, clone the repo:
 
-```
+```bash
 git clone https://github.com/writersblockchain/solana-rng
 ```
 

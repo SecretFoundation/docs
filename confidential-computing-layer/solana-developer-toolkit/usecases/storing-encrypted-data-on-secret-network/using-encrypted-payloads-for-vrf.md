@@ -4,21 +4,21 @@ description: Learn how to send encrypted strings from Solana to Secret Network
 
 # Key-value Store Developer Tutorial
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2024-08-28 at 10.19.45 PM.png" alt=""><figcaption></figcaption></figure>
-
-Try out encrypting a `string` on Solana Devnet using the demo [here](https://solana-kv-store.vercel.app/)!
+{% hint style="info" %}
+Try out encrypting a `string` on Solana Devnet using the live demo [here](https://solana-kv-store.vercel.app/)!
+{% endhint %}
 
 ## Overview
 
-SecretPath seamlessly handles encrypted payloads on Solana, which means Solana developers can use SecretPath to encrypt and decrypt messages cross-chainon Secret Network with little-to-no Rust experience required.&#x20;
+SecretPath seamlessly handles encrypted payloads on Solana, which means **Solana developers can use SecretPath to encrypt and decrypt messages cross-chain on Secret Network!**
 
-This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on  Solana, as well as how to encrypt payloads and transmit them cross-chain.&#x20;
+This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on Solana and send them cross-chain to Secret Network. &#x20;
 
 ## Getting Started <a href="#getting-started" id="getting-started"></a>
 
 To get started, clone the repo:
 
-```
+```bash
 git clone https://github.com/writersblockchain/solana-kv-store
 ```
 
