@@ -121,7 +121,7 @@ If you want to make any changes to the Secret Network RNG program before compili
 
 Now that you understand how the program works, let's upload it to Secret Network!
 
-### Uploading the RNG program to Secret Network&#x20;
+## Uploading the RNG program to Secret Network&#x20;
 
 Before you upload the randomness program to Secret Network, you first must compile the code.&#x20;
 
