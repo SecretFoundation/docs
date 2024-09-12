@@ -6,13 +6,22 @@ description: Learn how to send encrypted strings from Solana to Secret Network
 
 {% hint style="info" %}
 Try out encrypting a `string` on Solana Devnet using the live demo [here](https://solana-kv-store.vercel.app/)!
+
+Get Solana devnet tokens from faucet [here](https://faucet.solana.com/) 😊
 {% endhint %}
 
 ## Overview
 
 SecretPath seamlessly handles encrypted payloads on Solana, which means **Solana developers can use SecretPath to encrypt and decrypt messages cross-chain on Secret Network!**
 
-This tutorial explains how to upload your own Key-value store contract on Secret Network, which you can use to encrypt values on Solana and send them cross-chain to Secret Network. &#x20;
+This tutorial explains how to upload your own Key-value store program on Secret Network, which you can use to encrypt values on Solana and send them cross-chain to Secret Network! :exploding\_head:&#x20;
+
+&#x20;By this end of this tutorial you will:
+
+* Have an understanding of [SecretPath](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath), Secret Network's trustless Solana and EVM bridge&#x20;
+* Upload and instantiate your very own key value store contract on Secret Network
+* Pass an encrypted string from Solana to Secret Network
+* Connect a frontend to your Solana application
 
 ## Getting Started <a href="#getting-started" id="getting-started"></a>
 

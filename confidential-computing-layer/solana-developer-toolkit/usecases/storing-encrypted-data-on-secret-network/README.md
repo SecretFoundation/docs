@@ -1,6 +1,13 @@
 # Storing Encrypted Data on Secret Network
 
-Solana developers can now make use [SecretPath](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath) to pass encrypted messages to a Secret Network smart contract.&#x20;
+Solana developers can now use [SecretPath](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath) to pass encrypted messages from Solana  applications to a Secret Network smart contract. With this capability, Solana developers can build privacy-centric applications, such as:
+
+* **Private DeFi protocols**: Allow users to interact with decentralized finance applications while keeping transaction details private.
+* **Confidential NFTs**: Create NFTs where ownership or content can be privately verified and shared.
+* **Encrypted messaging apps**: Build decentralized applications where users can exchange encrypted messages, ensuring confidentiality.
+* **Secure Voting Systems**: Implement voting mechanisms where individual votes remain private but outcomes are publicly verifiable.
+
+By integrating Solana with Secret Network via SecretPath, developers can bring enhanced privacy features to decentralized applications, improving security and user trust.
 
 SecretPath seamlessly handles encrypted payloads, as the master gateway contract on Secret Network automatically decrypts payloads and passes the decrypted payload over to the target contract deployed on Secret Network.&#x20;
 
