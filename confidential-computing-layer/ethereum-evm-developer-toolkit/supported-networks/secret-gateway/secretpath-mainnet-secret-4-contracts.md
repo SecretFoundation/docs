@@ -20,6 +20,6 @@ For the Secret Network mainnet (secret-4) side, the gateway contract information
 
 The RNG contract that provides the Randomness is:
 
-* RNG contract code id: `1534`
-* RNG contract address: `secret16pcjalfuy72r4k26r4kn5f5x64ruzv30knflwx`
-* RNG contract code hash: `49ffed0df451622ac1865710380c14d4af98dca2d32342bb20f2b22faca3d00d`
+* RNG contract code id: `1925`
+* RNG contract address: `secret10jyexwp4zrv50eysn3l7n4n2spf0u380lcq5nz`
+* RNG contract code hash: `0b9395a7550b49d2b8ed73497fd2ebaf896c48950c4186e491ded6d22e58b8c3`

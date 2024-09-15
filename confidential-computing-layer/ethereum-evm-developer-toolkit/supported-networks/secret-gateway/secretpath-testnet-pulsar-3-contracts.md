@@ -20,6 +20,6 @@ For the Secret Network testnet (pulsar-3) side, the gateway contract information
 
 The RNG contract that provides the Randomness is:
 
-* RNG contract code id: `3376`
-* RNG contract address:`secret1fxs74g8tltrngq3utldtxu9yys5tje8dzdvghr`
-* RNG contract code hash: `49ffed0df451622ac1865710380c14d4af98dca2d32342bb20f2b22faca3d00d`
+* RNG contract code id: `10212`
+* RNG contract address: `secret1cknezaxnzfys2w8lyyrr7fed9wxejvgq7alhqx`
+* RNG contract code hash: `0b9395a7550b49d2b8ed73497fd2ebaf896c48950c4186e491ded6d22e58b8c3`
