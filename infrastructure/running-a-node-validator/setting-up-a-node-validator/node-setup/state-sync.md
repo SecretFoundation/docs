@@ -29,7 +29,7 @@ First, adjust the configuration to be compatible with state-sync:
 
 IAVL fast node **must** be disabled, otherwise the daemon will attempt to upgrade the database whil state sync is occuring.&#x20;
 
-```
+```bash
 sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" $HOME/.secretd/config/app.toml
 ```
 
@@ -37,7 +37,7 @@ sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" $HOM
 
 To ensure that state-sync works on your node, it has to look for the correct snapshots that the snapshot RPC provides.
 
-```toml
+```bash
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = 2000/" -e "s/^snapshot-keep-recent *=.*/snapshot-keep-recent = 3/" $HOME/.secretd/config/app.toml
 ```
 
@@ -51,12 +51,13 @@ SNAP_RPC="https://rpc.statesync.secretsaturn.net:443"
 
 Set the state-sync `BLOCK_HEIGHT` and fetch the `TRUST_HASH` from the snapshot RPC. The `BLOCK_HEIGHT` to sync is determined by finding the latest block that's a multiple of snapshot-interval.
 
-<pre class="language-bash"><code class="lang-bash">SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
-<strong>BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &#x26;&#x26;
-</strong>TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+```bash
+SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &&
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &&
+TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
 echo $BLOCK_HEIGHT $TRUST_HASH
-</code></pre>
+```
 
 The output should be similar to:&#x20;
 
@@ -68,7 +69,7 @@ The output should be similar to:&#x20;
 
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync1.secretsaturn.net:26657,http://rpc.statesync2.secretsaturn.net:26657,http://rpc.statesync3.secretsaturn.net:26657\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync.secretsaturn.net:26657,http://rpc.statesync.secretsaturn.net:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml
 ```
@@ -113,25 +114,26 @@ sudo systemctl restart secret-node && journalctl -fu secret-node
 
 When state-sync fails, you can restart the process and try again using the condensed script below. This usually fixes some of the random problems with it:
 
-<pre class="language-bash"><code class="lang-bash">SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
-BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &#x26;&#x26;
-TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash) &#x26;&#x26;
+```bash
+SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &&
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &&
+TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash) &&
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync1.secretsaturn.net:26657,http://rpc.statesync2.secretsaturn.net:26657,http://rpc.statesync3.secretsaturn.net:26657\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync.secretsaturn.net:26657,http://rpc.statesync.secretsaturn.net:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml &#x26;&#x26;
-echo $BLOCK_HEIGHT $TRUST_HASH &#x26;&#x26;
-<strong>sudo systemctl stop secret-node &#x26;&#x26; 
-</strong>sudo umount -l /tmp &#x26;&#x26; 
-sudo mount -t tmpfs -o size=12G,mode=1777 overflow /tmp &#x26;&#x26;
-sudo rm -rf $HOME/.secretd/.compute &#x26;&#x26;
-sudo rm -rf $HOME/.secretd/data &#x26;&#x26;
-mkdir $HOME/.secretd/data &#x26;&#x26;
-secretd tendermint unsafe-reset-all  --home $HOME/.secretd &#x26;&#x26;
-mkdir $HOME/.secretd/data/snapshots/ &#x26;&#x26;
-sudo systemctl restart secret-node &#x26;&#x26; 
+s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml &&
+echo $BLOCK_HEIGHT $TRUST_HASH &&
+sudo systemctl stop secret-node && 
+sudo umount -l /tmp && 
+sudo mount -t tmpfs -o size=12G,mode=1777 overflow /tmp &&
+sudo rm -rf $HOME/.secretd/.compute &&
+sudo rm -rf $HOME/.secretd/data &&
+mkdir $HOME/.secretd/data &&
+secretd tendermint unsafe-reset-all  --home $HOME/.secretd &&
+mkdir $HOME/.secretd/data/snapshots/ &&
+sudo systemctl restart secret-node && 
 journalctl -fu secret-node
-</code></pre>
+```
 
 ## Fast State-sync script
 
@@ -139,27 +141,28 @@ journalctl -fu secret-node
 To safe time, you can use this script to quickly init everything you need for statesync. Please be aware that this might be dangerous if you have a validator.
 {% endhint %}
 
-<pre class="language-bash"><code class="lang-bash">sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" $HOME/.secretd/config/app.toml &#x26;&#x26;
-sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = 2000/" -e "s/^snapshot-keep-recent *=.*/snapshot-keep-recent = 3/" $HOME/.secretd/config/app.toml &#x26;&#x26;
-SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &#x26;&#x26;
-BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &#x26;&#x26;
-TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash) &#x26;&#x26;
+```bash
+sed -i.bak -e "s/^iavl-disable-fastnode *=.*/iavl-disable-fastnode = true/" $HOME/.secretd/config/app.toml &&
+sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = 2000/" -e "s/^snapshot-keep-recent *=.*/snapshot-keep-recent = 3/" $HOME/.secretd/config/app.toml &&
+SNAP_RPC="https://rpc.statesync.secretsaturn.net:443" &&
+BLOCK_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height | awk '{print $1 - ($1 % 2000-3)}') &&
+TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash) &&
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
-s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync1.secretsaturn.net:26657,http://rpc.statesync2.secretsaturn.net:26657,http://rpc.statesync3.secretsaturn.net:26657\"| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://rpc.statesync.secretsaturn.net:26657,http://rpc.statesync.secretsaturn.net:26657\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
-s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml &#x26;&#x26;
-echo $BLOCK_HEIGHT $TRUST_HASH &#x26;&#x26;
-<strong>sudo systemctl stop secret-node &#x26;&#x26; 
-</strong>sudo umount -l /tmp &#x26;&#x26; 
-sudo mount -t tmpfs -o size=12G,mode=1777 overflow /tmp &#x26;&#x26;
-sudo rm -rf $HOME/.secretd/.compute &#x26;&#x26;
-sudo rm -rf $HOME/.secretd/data &#x26;&#x26;
-mkdir $HOME/.secretd/data &#x26;&#x26;
-secretd tendermint unsafe-reset-all  --home $HOME/.secretd &#x26;&#x26;
-mkdir $HOME/.secretd/data/snapshots/ &#x26;&#x26;
-sudo systemctl restart secret-node &#x26;&#x26; 
+s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.secretd/config/config.toml &&
+echo $BLOCK_HEIGHT $TRUST_HASH &&
+sudo systemctl stop secret-node && 
+sudo umount -l /tmp && 
+sudo mount -t tmpfs -o size=12G,mode=1777 overflow /tmp &&
+sudo rm -rf $HOME/.secretd/.compute &&
+sudo rm -rf $HOME/.secretd/data &&
+mkdir $HOME/.secretd/data &&
+secretd tendermint unsafe-reset-all  --home $HOME/.secretd &&
+mkdir $HOME/.secretd/data/snapshots/ &&
+sudo systemctl restart secret-node && 
 journalctl -fu secret-node
-</code></pre>
+```
 
 [^1]: 
 
