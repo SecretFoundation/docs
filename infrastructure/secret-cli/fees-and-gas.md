@@ -1,6 +1,6 @@
 # Fees & Gas
 
-On the Secret Network gas is a special unit used for tracking the the use of resources during code execution (usually paid by the transaction sender). Gas fees are normally paid to execute read / write commands, but can also be used to pay for more resource intensive computational tasks.&#x20;
+On the Secret Network gas is a special unit used for tracking the use of resources during code execution (usually paid by the transaction sender). Gas fees are normally paid to execute read / write commands, but can also be used to pay for more resource intensive computational tasks.&#x20;
 
 Gas primarily serves two purposes:&#x20;
 

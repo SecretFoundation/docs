@@ -14,7 +14,7 @@ The following process is based on how Tendermint works to reach consensus in a s
    * Outputs are encrypted
 5. The block-proposing validator proposes a block containing the encrypted outputs and updated encrypted state
 6. At least 2/3 of participating validators achieve consensus on the encrypted output and state following Tendermint BFT
-7. The encrypted output and state is committed on-chain to the specific contract
+7. The encrypted output and state are committed on-chain to the specific contract
 
 ![](<../../.gitbook/assets/image (2).png>)
 

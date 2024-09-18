@@ -12,7 +12,7 @@ A virtual-machine interprets Smart Contracts to change the state of the underlyi
 
 * Specific programming language accepted by the VM
 * VM limited set of functions and lack of flexibility
-* Smart Contracts are all run by the same virtual machine restraining performance as all application compete for block resources
+* Smart Contracts are all run by the same virtual machine restraining performance as all applications compete for block resources
 * Limited sovereignty, meaning that the application is dependent of the underlying blockchain governance decision
 
 ### Development framework

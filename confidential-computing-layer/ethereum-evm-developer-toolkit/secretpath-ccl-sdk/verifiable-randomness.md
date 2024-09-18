@@ -18,7 +18,7 @@ let secretPathAddress = "0x3879E146140b627a5C858a08e507B171D9E43139";
 
 `numbers` is the amount of numbers you want to request
 
-`max` is the the max range the numbers can be. So if you set `max` to 200, the largest random number that can be returned is 200
+`max` is the max range the numbers can be. So if you set `max` to 200, the largest random number that can be returned is 200
 
 {% code overflow="wrap" %}
 ```javascript
