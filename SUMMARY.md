@@ -173,7 +173,7 @@
   * [Basics](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/README.md)
     * [Overview](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/overview.md)
     * [Connecting Metamask to Secret Network](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/connecting-metamask-to-secret-network.md)
-    * [SecretPath + WalletConnect integration](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/connecting-metamask-to-secret-network-1.md)
+    * [SecretPath + Reown integration](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/connecting-metamask-to-secret-network-1.md)
     * [Cross-chain Messaging](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/README.md)
       * [SecretPath](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/README.md)
         * [Architecture Overview](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/architecture-overview.md)
