@@ -18,8 +18,8 @@ registration_privkey = hkdf({
   ikm: Nonce-256bit ,
 }); // 256 bits
 
-registration_privkey = calculate_curve25519_pubkey(
-  registration_pubkey
+registration_pubkey = calculate_curve25519_pubkey(
+  registration_privkey
 );
 ```
 
