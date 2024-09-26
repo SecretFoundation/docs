@@ -46,7 +46,7 @@ The first thing you need to do is clone the counter contract from the [Secret Ne
 
 Go to the folder in which you want to save your counter smart contract and run:
 
-```
+```bash
 cargo generate --git https://github.com/scrtlabs/secret-template.git --name my-counter-contract
 ```
 

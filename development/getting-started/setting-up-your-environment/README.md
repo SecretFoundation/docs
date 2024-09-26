@@ -194,13 +194,24 @@ To get started, follow the instructions at the [main repo here](https://github.c
 
 To connect, prepend the port number with the Gitpod URL. e.g., if my workspace is at `https://scrtlabs-gitpoddevenv-shqyv12iyrv.ws-eu54.gitpod.io` then I would be able to connect to the RPC service at `https://26657-scrtlabs-gitpoddevenv-shqyv12iyrv.ws-eu54.gitpod.io`
 
-To set up SecretCLI to connect to this environment, use the following commands
+To set up SecretCLI to connect to this environment, use the following commands:
 
 ```bash
 secretcli config node https://26657-<your-gitpod-workspace>.gitpod.io
-secretcli config chain-id secret-testnet-1
+secretcli config chain-id secretdev-1
 secretcli config keyring-backend test
 secretcli config output json
+```
+
+Or, if you are using secretjs you can set up a client like so:&#x20;
+
+```javascript
+const secretjs = new SecretNetworkClient({
+    chainId: "secretdev-1",
+    url: "https://1317-scrtlabs-gitpodlocalsec-XXX.gitpod.io",
+    wallet: wallet,
+    walletAddress: wallet.address,
+  });
 ```
 {% endtab %}
 {% endtabs %}
