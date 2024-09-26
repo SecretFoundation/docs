@@ -1,2 +1,0 @@
-# Secret Contract / CosmWasm framework
-

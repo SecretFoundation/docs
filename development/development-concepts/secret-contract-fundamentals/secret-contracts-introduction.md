@@ -17,7 +17,7 @@ Secret Contracts slightly differ from any standard CosmWasm implementation as th
 Private data (contract input, output and state) on Secret is encrypted using an unforgeable contract encryption key which is unique for every contract. Moreover, the user dedicated state in a contract is only visible to the user themselves. Because of this design, contract migration is a privacy risk. If enabled, a contract admin could upload a malicious contract that reads and prints data entrusted to the old contract. **CosmWasm native contract migration is therefore disabled** on Secret; workarounds are available [here](broken-reference). Additionally, **iterators and raw queries are not supported** as one can not iterate over data stored by a different user as there is no access to their dedicated encryption key.&#x20;
 
 {% hint style="info" %}
-More information about the differences in implementations for a contract between Vanilla and Secret CosmWasm are listed [here.](secret-contract-cosmwasm-framework/differences-from-vanilla-cw.md)
+More information about the differences in implementations for a contract between Vanilla and Secret CosmWasm are listed [here.](../secret-contract-cosmwasm-framework/differences-from-vanilla-cw.md)
 {% endhint %}
 
 ### Available tools and cool features
@@ -63,7 +63,7 @@ Want to dive deeper into the CosmWasm framework? - You can read more about it's 
 * Secret Contracts have private input, output and state. This means all data on-chain is stored as cyphertext and is only accessible by the owner (either the contract or the user). More details are available in the [encryption specs](../../../introduction/secret-network-techstack/privacy-technology/encryption-key-management/contract-state-encryption.md).
 * The binary of any contract is public, meaning the execution logic is verifiable just like any other smart contract blockchain.
 * Secret smart contracts are IBC compatible (CosmWasm v1.0+), allowing for cross-chain logic with other IBC-connected chains.
-* from v1.11 Secret now supports migrate-able contracts just like vanilla CW, it does not support iterators due to contract privacy design. Workarounds are highlighted under [storage](secret-contract-cosmwasm-framework/contract-components/storage/keymap.md).
+* from v1.11 Secret now supports migrate-able contracts just like vanilla CW, it does not support iterators due to contract privacy design. Workarounds are highlighted under [storage](../secret-contract-cosmwasm-framework/contract-components/storage/keymap.md).
 * When designing Secret contracts, the verification of input-data is key to ensure the secure execution of transactions as not all blockchain data is exposed automatically to the enclave.
 * Developers need to be mindful of data leakage via replay attacks, improper padding, and more so that the privacy for users of their contracts is optimized.
 

@@ -7,6 +7,7 @@ description: An explainer of the query file inside of the CosmWasm code framewor
 **Query messages** retrieve the relevant smart contract and execute the query message. The results of the query are then returned to the sender of the query message, providing users with information about the state of the blockchain and the smart contracts running on it.
 
 ```rust
+#[entry_point]
 pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
     match msg {
         QueryMsg::GetCount {} => to_binary(&query_count(deps)?),

@@ -15,11 +15,11 @@ The same conventions from `Item` also apply here, that is:
 
 To import and initialize this storage object as a static constant in `state.rs`, do the following:
 
-```ignore
+```rust
 use secret_toolkit::storage::{AppendStore}
 ```
 
-```ignore
+```rust
 pub static COUNT_STORE: AppendStore<i32> = AppendStore::new(b"count");
 ```
 
@@ -27,14 +27,14 @@ pub static COUNT_STORE: AppendStore<i32> = AppendStore::new(b"count");
 
 Often times we need these storage objects to be associated to a user address or some other key that is variable. In this case, you need not initialize a completely new AppendStore inside `contract.rs`. Instead, you can create a new AppendStore by adding a suffix to an already existing AppendStore. This has the benefit of preventing you from having to rewrite the signature of the AppendStore. For example
 
-```ignore
+```rust
 // The compiler knows that user_count_store is AppendStore<i32, Bincode2>
 let user_count_store = COUNT_STORE.add_suffix(info.sender.to_string().as_bytes());
 ```
 
 Sometimes when iterating these objects, we may want to load the next `n` objects at once. This may be prefered if the objects we are iterating over are cheap to store or if we know that multiple objects will need to be accessed back to back. In such cases we may want to change the internal indexing size (default of 1). We do this in `state.rs`:
 
-```ignore
+```rust
 pub static COUNT_STORE: AppendStore<i32> = AppendStore::new_with_page_size(b"count", 5);
 ```
 
@@ -46,13 +46,13 @@ The main user facing methods to read/write to AppendStore are `pop`, `push`, `ge
 
 AppendStore also implements a readonly iterator feature. This feature is also used to create a paging wrapper method called `paging`. The way you create the iterator is:
 
-```ignore
+```rust
 let iter = user_count_store.iter(&deps.storage)?;
 ```
 
 More examples can be found in the unit tests. And the paging wrapper is used in the following manner:
 
-```ignore
+```rust
 let start_page: u32 = 0;
 let page_size: u32 = 5;
 // The compiler knows that values is Vec<i32>
