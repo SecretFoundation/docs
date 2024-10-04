@@ -180,6 +180,7 @@
         * [Detailed Architecture](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/detailed-architecture.md)
         * [SecretPath Developer Tutorials](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/secretpath-developer-tutorials.md)
         * [Public EVM Gateway Architecture](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/public-evm-gateway-architecture.md)
+        * [How to deploy SecretPath on your chain](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath/how-to-deploy-secretpath-on-your-chain.md)
       * [Axelar GMP](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/axelar-gmp/README.md)
         * [Architecture Overview](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/axelar-gmp/architecture-overview.md)
         * [Axelar GMP Developer Tutorial](confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/axelar-gmp/evm-general-message-passing.md)
