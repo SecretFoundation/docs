@@ -67,7 +67,7 @@ You need to adjust the gas price.
 
 a. **Estimate the Correct Gas Price**
 
-Visit the edeXa Testnet explorer to check recent gas prices:
+Visit the Ethereum Sepolia Testnet explorer to check recent gas prices:
 
 ```arduino
 https://sepolia.etherscan.io
@@ -79,7 +79,7 @@ Re-run the forge script with the `--with-gas-price` flag:
 
 ```bash
 forge script script/DeployGatewayScript.s.sol:DeployGatewayScript \
-  --rpc-url "https://testnet.edexa.com/rpc" \
+  --rpc-url "https://rpc.sepolia.org" \
   --broadcast \
   --retries 10 \
   -vvv \
