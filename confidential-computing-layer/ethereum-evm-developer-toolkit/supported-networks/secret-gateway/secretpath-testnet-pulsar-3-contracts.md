@@ -4,7 +4,7 @@ For the Secret Network testnet (pulsar-3) side, the gateway contract information
 
 * Gateway contract code id: `3375`
 * Gateway contract address: `secret10ex7r7c4y704xyu086lf74ymhrqhypayfk7fkj`
-* Gateway contract code hash: `012dd8efab9526dec294b6898c812ef6f6ad853e32172788f54ef3c305c1ecc5`
+* Gateway contract code hash: `ad8ca07ffba1cb26ebf952c29bc4eced8319c171430993e5b5089887f27b3f70`
 * Gateway encryption key for ChaChaPoly1305: `A20KrD7xDmkFXpNMqJn1CLpRaDLcdKpO1NdBBS7VpWh3`
 * Public key (uncompressed):&#x20;
 
