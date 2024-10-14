@@ -32,5 +32,5 @@ Both gateways also handle serialize/deserialize operations. They convert contrac
 
 ### 3. Re-encrypt inputs&#x20;
 
-Third, gateways on privacy-preserving chains can re-encrypt their inputs under the key of the final compute contract. The master private gateway can handle encrypted or unencrypted payloads. In the case of encrypted payloads, the payload is encrypted using a shared key that is generated via ECDH from a users randomly generated private key and the gateways encryption public key. We use the well known Chacha20-Poly1305 to do the symmetric encryption using that shared key.&#x20;
+Third, gateways on privacy-preserving chains can re-encrypt their inputs under the key of the final compute contract. The master private gateway can handle encrypted or unencrypted payloads. In the case of encrypted payloads, the payload is encrypted using a shared key that is generated via ECDH from a user's randomly generated private key and the gateways encryption public key. We use the well known Chacha20-Poly1305 to do the symmetric encryption using that shared key.&#x20;
 

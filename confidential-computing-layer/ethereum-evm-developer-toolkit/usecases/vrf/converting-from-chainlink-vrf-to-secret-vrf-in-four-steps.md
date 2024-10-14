@@ -215,7 +215,7 @@ constructor()  {
 
 ## Change request randomness function
 
-Next, we need to slightly adjust the behavior of the function `rollDice(address roller)` function and how it calls the Request Randomness function within Secret VRF. Here, we need to use the Secet VRF gateway and call it directly instead.
+Next, we need to slightly adjust the behavior of the function `rollDice(address roller)` function and how it calls the Request Randomness function within Secret VRF. Here, we need to use the Secret VRF gateway and call it directly instead.
 
 {% hint style="info" %}
 &#x20;Make sure to now mark this function as `payable`!

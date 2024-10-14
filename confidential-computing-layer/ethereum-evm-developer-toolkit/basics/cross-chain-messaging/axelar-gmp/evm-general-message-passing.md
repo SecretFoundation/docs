@@ -100,7 +100,7 @@ node index.js
 
 Upon successful instantiation, a Secret contract address is returned that you can then use to send messages to and from Polygon:
 
-<figure><img src="../../../../../.gitbook/assets/contract address.png" alt=""><figcaption><p>Secret contract address upon successful instantation </p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/contract address.png" alt=""><figcaption><p>Secret contract address upon successful instantiation </p></figcaption></figure>
 
 Now let's send a `string` from Polygon to Secret! 🚀
 

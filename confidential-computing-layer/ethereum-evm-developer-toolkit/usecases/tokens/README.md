@@ -10,4 +10,4 @@ An Axelar [deposit address](https://docs.axelar.dev/dev/axelarjs-sdk/token-trans
 Deposit addresses generally function for up to 24 hours.&#x20;
 {% endhint %}
 
-The following tutorials will teach you how to create Axelar deposit addresss to send Axelar USDC cross-chain from EVM to Secret Network and from Secret Network to EVM.&#x20;
+The following tutorials will teach you how to create Axelar deposit addresses to send Axelar USDC cross-chain from EVM to Secret Network and from Secret Network to EVM.&#x20;
