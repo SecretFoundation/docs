@@ -9,7 +9,7 @@ In this section we will explain in depth the components of the blockchain stack:
 * [Cosmos introduction](cosmos-basics.md)
 * [Tendermint Consensus](tendermint.md)
 * [Cosmos SDK](cosmos-sdk.md)
-* [Inter-Blokchain Communication (IBC)](ibc.md)
+* [Inter-Blockchain Communication (IBC)](ibc.md)
 * [CosmWasm Smart contracts](cosmwasm.md)
 
 **The Cosmos part of the Secret Techstack is also covered Part 1 and Part 2 of the Secret Network techstack video series.**
