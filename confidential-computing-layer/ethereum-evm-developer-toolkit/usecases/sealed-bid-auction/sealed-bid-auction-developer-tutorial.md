@@ -15,7 +15,7 @@ You will start by configuring your developer environment and then learn how to u
 To get started, clone the SecretPath tutorials repository:&#x20;
 
 ```bash
-git clone https://github.com/SecretFoundation/Secretpath-tutorials
+git clone https://github.com/writersblockchain/sealed-bid-auctions.git
 ```
 
 ### EVM Prerequisites&#x20;

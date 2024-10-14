@@ -35,7 +35,7 @@ You create and vote on proposals from the EVM, and then that data is sent to you
 To get started, clone the [examples repo](https://github.com/SecretFoundation/Secretpath-tutorials):
 
 ```
-git clone https://github.com/SecretFoundation/Secretpath-tutorials.git
+git clone https://github.com/writersblockchain/secretpath-voting.git
 ```
 
 cd into secretpath-tutorials/secretpath-voting/voting-contract:&#x20;
