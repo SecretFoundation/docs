@@ -87,4 +87,4 @@ secretcli status
 secretcli keys add <name>
 ```
 
-See more details on how to use the CLI [here](https://github.com/scrtlabs/SecretNetwork/blob/master/docs/node-guides/secretcli.md)
+See more details on how to use the CLI [here](https://docs.scrt.network/secret-network-documentation/infrastructure/secret-cli/generating-keys)

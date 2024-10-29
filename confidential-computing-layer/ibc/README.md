@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to use Secret Network's IBC Developer Toolkit to design dApps with
-  confidential computing on IBC-hooks enabled chains
+  confidential computing.
 ---
 
 # 🧑‍🚀 IBC Developer Toolkit

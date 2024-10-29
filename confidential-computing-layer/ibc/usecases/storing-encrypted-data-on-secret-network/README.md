@@ -1,12 +1,12 @@
 ---
 description: >-
   Learn how to use Secret Network as the confidential computation layer of the
-  Cosmos with IBC hooks
+  Cosmos
 ---
 
 # Storing Encrypted Data on Secret Network
 
-For any Cosmos chain that has IBC hooks enabled, you can use encrypted payloads to execute and query confidential messages on Secret Network smart contracts.&#x20;
+For any Cosmos chain, you can use encrypted payloads to execute and query confidential messages on Secret Network smart contracts.&#x20;
 
 Using our Confidential Computation Layer  (CCL) SDK, you can seamlessly handle encrypted payloads, as the master gateway contract on Secret  Network automatically decrypts the payload and hands the decrypted payload over to the target contract.&#x20;
 

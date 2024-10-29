@@ -1,6 +1,6 @@
 # Overview
 
-Secret Network's CCL (Confidential Computing Layer) IBC Toolkit is a cross-chain messaging and confidential computation SDK for Cosmos developers on IBC hooks-enabled chains.&#x20;
+Secret Network's CCL (Confidential Computing Layer) IBC Toolkit is a cross-chain messaging and confidential computation SDK for Cosmos developers.
 
 The toolkit allows Cosmos developers to build novel cross-chain applications such as:
 

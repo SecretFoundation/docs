@@ -10,8 +10,7 @@ The SDK can be used be for developing major gateways that forward incoming messa
 
 ### SDK Requirements&#x20;
 
-1. **IBC Hooks enabled on your consumer chain of choice**
-2. **IBC Transfer channel between the consumer chain and Secret Network**
+* **IBC Transfer channel between the consumer chain and Secret Network**
 
 {% hint style="info" %}
 See [Mintscan](https://www.mintscan.io/secret/relayers/) for a list of existing transfer channels between Cosmos chains and Secret Network
