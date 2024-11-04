@@ -6,7 +6,7 @@ description: Learn how to use submessages on Secret Network
 
 ## Introduction
 
-In the CosmWasm SDK, **submessages** are a powerful feature that allows a contract to execute additional messages within the context of its own execution. They provide a way to perform multiple actions atomically, ensuring that either all actions are successfully executed or none at all. This is particularly useful for complex transactions where multiple steps need to be taken, and any failure in one step should roll back the entire operation.
+In the CosmWasm SDK, **submessages** are a powerful feature that allows a contract to execute additional messages within the context of its own execution. `SubMsg` just wraps the `CosmosMsg`, adding some info to it: the `id` field, and `reply_on`. `reply_on`  describes if the `reply` message should be sent on processing success, on failure, or both. To create submessages, instead of setting all the fields separately, you would typically use helper constructors: `SubMsg::reply_on_success`, `SubMsg::reply_on_error` and `SubMsg::reply_always`.
 
 {% hint style="info" %}
 You can learn more about submessages [here](https://github.com/CosmWasm/cosmwasm/blob/main/SEMANTICS.md#submessages)!
