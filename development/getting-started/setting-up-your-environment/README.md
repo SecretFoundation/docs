@@ -254,7 +254,7 @@ Lastly, it will be helpful to configure SecretCLI by using the included "Configu
 
 LocalSecret cannot be run on an M1 Mac.
 
-To know whether you have a Mac with an M1 chip or an Intel chip, click on the Apple logo located in the lefthand corner of your desktop and navigate to **About This Mac/Overview,** and confirm whether the processor is M1 or Intel. If you have an Intel chip, you can run LocalSecret in docker, otherwise, proceed with these set up instructions to learn how to [run LocalSecret in Gitpod](https://github.com/scrtlabs/GitpodLocalSecret).
+To know whether you have a Mac with an M1 chip or an Intel chip, click on the Apple logo located in the lefthand corner of your desktop and navigate to **About This Mac** and confirm whether the processor is M1 or Intel. If you have an Intel chip, you can run LocalSecret in docker, otherwise, proceed with these set up instructions to learn how to [run LocalSecret in Gitpod](https://github.com/scrtlabs/GitpodLocalSecret).
 
 1. Run an instance of LocalSecret in Gitpod by [clicking here](https://gitpod.io/#https://github.com/scrtlabs/GitpodLocalSecret).
 2. Gitpod will automatically create a workspace and ask if you want to open it in your text editor. It will then prompt you to allow an extension to open the URI. Select "Open" to proceed.

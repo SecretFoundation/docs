@@ -36,18 +36,22 @@ Let's get started!
 
 To follow along with the guide, we will be using `npm,` `git,` `make,` `rust,` and `docker`. Follow the [Setting Up Your Environment guide here ](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment)if you need any assistance.
 
-Additionally, you will need to have the Secret Testnet configured with your keplr wallet and also fund it with testnet tokens. [Learn how to configure and fund your keplr wallet here.](https://docs.scrt.network/secret-network-documentation/overview-ecosystem-and-technology/secret-network-overview/testnet#set-up-with-keplr)
+Additionally, you will need to have the Secret Testnet configured with your keplr wallet and also fund it with testnet tokens.&#x20;
+
+{% hint style="info" %}
+[Learn how to configure and fund your keplr wallet ](https://docs.scrt.network/secret-network-documentation/overview-ecosystem-and-technology/secret-network-overview/testnet#set-up-with-keplr):ok\_hand:
+{% endhint %}
 
 ### Generate your new counter contract
 
 We will be working with a basic counter contract, which allows users to increment a counter variable by 1 and also reset the counter. If you've never worked with smart contracts written in Rust before that is perfectly fine.
 
-The first thing you need to do is clone the counter contract from the [Secret Network github repo](https://github.com/scrtlabs/secret-template). Secret Network developed this counter contract template so that developers have a simple structure to work with when developing new smart contracts, but we're going to use the contract exactly as it is for learning purposes.
+The first thing you need to do is clone the counter contract from the [Secret Network github repo](https://github.com/SecretFoundation/secret-template). Secret Network developed this counter contract template so that developers have a simple structure to work with when developing new smart contracts, but we're going to use the contract exactly as it is for learning purposes.
 
 Go to the folder in which you want to save your counter smart contract and run:
 
 ```bash
-cargo generate --git https://github.com/scrtlabs/secret-template.git --name my-counter-contract
+cargo generate --git https://github.com/SecretFoundation/secret-template.git --name my-counter-contract
 ```
 
 {% hint style="info" %}
@@ -57,10 +61,10 @@ When you run the above code, it will name your contract folder directory "my-cou
 Start by opening the `my-counter-contract` project folder in your text editor. If you navigate to `my-counter-contract/src` you will see`contract.rs, msg.rs, lib.rs, and state.rs`—these are the files that make up our counter smart contract. If you've never worked with a Rust smart contract before, perhaps take some time to familiarize yourself with the code, although in this tutorial we will not be going into detail discussing the contract logic.
 
 1. In your root project folder, ie `my-counter-contract`, create a new folder. For this tutorial I am choosing to call the folder `node`.
-2. In your `my-counter-contract/node` folder, create a new javascript file––I chose to name mine`index.js`.
+2. In your `my-counter-contract/node` folder, create a new javascript file––I chose to name mine `upload.js`.
 3. Run `npm init -y` to create a package.json file.
 4. Add `"type" : "module"` to your package.json file.
-5. Install secret.js and dotenv: `npm i secretjs dotenv`
+5. Install secret.js and dotenv: `npm i secretjs@v1.15.0-beta.0 dotenv`
 6. Create a `.env` file in your `node` folder, and add the variable `MNEMONIC` along with your wallet address seed phrase, like so:
 
 <pre><code><strong>MNEMONIC=grant rice replace explain federal release fix clever romance raise often wild taxi quarter soccer fiber love must tape steak together observe swap guitar
@@ -74,12 +78,12 @@ Congrats! 🎉 You now have your environment configured to develop with secret.j
 
 ### Compile the Code
 
-Since we are not making any changes to the contract code, we are going to compile it exactly as it is. To compile the code, run `make build` in your terminal. This will take our Rust code and build a Web Assembly file that we can deploy to Secret Network. Basically, it just takes the smart contract that we've written and translates the code into a language that the blockchain can understand.
+Since we are not making any changes to the contract code, we are going to compile it exactly as it is. To compile the code, run `make`[ `build-mainnet-reproducible`](https://github.com/SecretFoundation/secret-template/blob/6db4abd3669b1f607e507c1a12714eecef0346c6/Makefile#L33) in your terminal. This will take our Rust code and build a Web Assembly file that we can deploy to Secret Network. Basically, it just takes the smart contract that we've written and translates the code into a language that the blockchain can understand.
 
 {% tabs %}
 {% tab title="Linux/WSL/MacOS" %}
-```
-make build
+```bash
+make build-mainnet-reproducible
 ```
 {% endtab %}
 
@@ -98,26 +102,13 @@ Run `make build` from the terminal, or just GUI it up -
 {% endtab %}
 {% endtabs %}
 
-This will create a `contract.wasm` and `contract.wasm.gz` file in the root directory.
-
-While we could upload this contract wasm file to the blockchain exactly as it is, instead we are going to follow best practices and **optimize** the wasm file. This just means we are going to reduce the size of the file so that it costs less gas to upload, which is critical when you eventually upload contracts to mainnet. **Make sure you have docker installed** and then run the following code:
-
-**Optimize compiled wasm**
-
-```bash
-docker run --rm -v "$(pwd)":/contract \
-  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
-  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
-  enigmampc/secret-contract-optimizer  
-```
-
-You should now have an optimized `contract.wasm.gz` file in your root directory, which is ready to be uploaded to the blockchain! Also note that the optimizer should have removed the `contract.wasm` file from your root directory 👍
+This will create a `contract.wasm.gz` file in the root directory.
 
 ### Uploading the Contract
 
 Now that we have a working contract and an optimized wasm file, we can upload it to the blockchain and see it in action. This is called **storing the contract code**. We are using a public testnet environment, but the same commands apply no matter which network you want to use - local, public testnet, or mainnet.
 
-Start by configuring your `index.js` file like so:
+Start by configuring your `upload.js` file like so:
 
 ```javascript
 import { SecretNetworkClient, Wallet } from "secretjs";
@@ -149,7 +140,7 @@ const secretjs = new SecretNetworkClient({
 });
 ```
 
-Now `console.log(secretjs)` and run `node index.js` in the terminal of your `my-counter-contract/node` folder to see that you have successfully connected to the Secret Network Client:
+Now `console.log(secretjs)` and run `node upload.js` in the terminal of your `my-counter-contract/node` folder to see that you have successfully connected to the Secret Network Client:
 
 <figure><img src="../../.gitbook/assets/secret network client.png" alt=""><figcaption><p>Secret Network Client configuration</p></figcaption></figure>
 
@@ -188,7 +179,7 @@ let upload_contract = async () => {
 upload_contract();
 ```
 
-Run `node index.js` in your terminal to call the `upload_contract()` function. Upon successful upload, a **codeId** and a **contractCodeHash** will be logged in your terminal:
+Run `node upload.js` in your terminal to call the `upload_contract()` function. Upon successful upload, a **codeId** and a **contractCodeHash** will be logged in your terminal:
 
 ```
 codeId:  19904
@@ -196,7 +187,7 @@ Contract hash: d350eb20b4bf93ce2a060168a1fe6faf58dafa84989bc22d3e83ac665f8c119f
 ```
 
 {% hint style="warning" %}
-Be sure to save the codeId and contractCodeHash as variables so you can access them in additional function calls.
+Be sure to save the `codeId` and `contractCodeHash` as variables so you can access them in additional function calls.
 {% endhint %}
 
 ### Instantiating the Contract
@@ -233,7 +224,7 @@ let instantiate_contract = async () => {
 instantiate_contract();
 ```
 
-Run `node index.js` in your terminal to call the `instantiate_contract()` function. Upon successful instantiation, a contractAddress will be logged in your terminal:
+Run `node upload.js` in your terminal to call the `instantiate_contract()` function. Upon successful instantiation, a contractAddress will be logged in your terminal:
 
 ```
 secret1ez0nchvy6awpnnmzqqzvmqz62dcgke80pzaqc7
@@ -262,7 +253,7 @@ Let's query our counter smart contract to return the current count. It should be
 ```javascript
 let try_query_count = async () => {
   const my_query = await secretjs.query.compute.queryContract({
-    contract_address: contract_address,
+    contract_address: contractAddress,
     code_hash: contractCodeHash,
     query: { get_count: {} },
   });
@@ -296,7 +287,7 @@ let try_increment_count = async () => {
   let tx = await secretjs.tx.compute.executeContract(
     {
       sender: wallet.address,
-      contract_address: contract_address,
+      contract_address: contractAddress,
       code_hash: contractCodeHash, // optional but way faster
       msg: {
         increment: {},
@@ -325,7 +316,6 @@ Way to go! You have now successfully interacted with a Secret Network smart cont
 
 Congratulations! You completed the tutorial and successfully compiled, uploaded, deployed and executed a Secret Contract! The contract is the business logic that powers a blockchain application, but a full application contains other components as well. If you want to learn more about Secret Contracts, or explore what you just did more in depth, feel free to explore these awesome resources:
 
-* [Secret University counter contract breakdown ](https://github.com/secretuniversity/secret-counter-vuejs-box/blob/main/app/tutorial/guide.md)- explains the counter contract in depth
 * [Millionaire's problem breakdown](https://docs.scrt.network/secret-network-documentation/development/secret-by-example/millionaires-problem) - explains how a Secret Contract works
 * [CosmWasm Documentation](https://book.cosmwasm.com/) - everything you want to know about CosmWasm
 * [Secret.JS](https://docs.scrt.network/secret-network-documentation/development/secretjs/templates) - Building a web UI for a Secret Contract

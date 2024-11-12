@@ -89,7 +89,6 @@ Way to go! You have now successfully interacted with a Secret Network smart cont
 
 Congratulations! You completed the tutorial and successfully compiled, uploaded, deployed and executed a Secret Contract! The contract is the business logic that powers a blockchain application, but a full application contains other components as well. If you want to learn more about Secret Contracts, or explore what you just did more in depth, feel free to explore these awesome resources:
 
-* [Secret University counter contract breakdown ](https://github.com/secretuniversity/secret-counter-vuejs-box/blob/main/app/tutorial/guide.md)- explains the counter contract in depth
 * [Millionaire's problem breakdown](https://docs.scrt.network/secret-network-documentation/development/secret-by-example/millionaires-problem) - explains how a Secret Contract works
 * [CosmWasm Documentation](https://book.cosmwasm.com/) - everything you want to know about CosmWasm
 * [Secret.JS](https://docs.scrt.network/secret-network-documentation/development/secretjs/templates) - Building a web UI for a Secret Contract

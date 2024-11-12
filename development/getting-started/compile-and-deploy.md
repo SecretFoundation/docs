@@ -12,16 +12,16 @@ Now that you've set up your LocalSecret development environment, we are going to
 For a step-by-step Secret Network SecretCLI video tutorial, [follow along here](https://www.youtube.com/watch?v=ZpUz-9sORho\&ab\_channel=SecretNetwork) 🎥. Otherwise, continue reading!
 {% endhint %}
 
-We will be working with a basic [counter contract](https://github.com/scrtlabs/secret-template/blob/master/src/contract.rs), which allows users to increment a counter variable by 1 and also reset the counter. If you've never worked with smart contracts written in Rust before that is perfectly fine. By the end of this tutorial you will know how to upload and instantiate a Secret Network smart contract in your terminal using SecretCLI.
+We will be working with a basic [counter contract](https://github.com/SecretFoundation/secret-template), which allows users to increment a counter variable by 1 and also reset the counter. If you've never worked with smart contracts written in Rust before that is perfectly fine. By the end of this tutorial you will know how to upload and instantiate a Secret Network smart contract in your terminal using SecretCLI.
 
 ### Generate your new counter contract
 
-The first thing we need to do is clone the counter contract from the [Secret Network github repo](https://github.com/scrtlabs/secret-template). Secret Network developed this counter contract template so that developers have a simple structure to work with when developing new smart contracts, but we're going to use the contract exactly as it is for learning purposes.
+The first thing we need to do is clone the counter contract from the [Secret Network github repo](https://github.com/SecretFoundation/secret-template). Secret Network developed this counter contract template so that developers have a simple structure to work with when developing new smart contracts, but we're going to use the contract exactly as it is for learning purposes.
 
 Go to the folder in which you want to save your counter smart contract and run:
 
-```
-cargo generate --git https://github.com/scrtlabs/secret-template.git --name my-counter-contract
+```bash
+cargo generate --git https://github.com/SecretFoundation/secret-template.git --name my-counter-contract
 ```
 
 {% hint style="info" %}
@@ -50,7 +50,7 @@ Since we are not making any changes to the contract code, we are going to compil
 {% tabs %}
 {% tab title="Linux/WSL/MacOS" %}
 ```
-make build
+make build-mainnet-reproducible
 ```
 {% endtab %}
 
@@ -69,20 +69,7 @@ Run `make build` from the terminal, or just GUI it up -
 {% endtab %}
 {% endtabs %}
 
-This will create a `contract.wasm` and `contract.wasm.gz` file in the root directory.
-
-While we could upload this contract wasm file to the blockchain exactly as it is, instead we are going to follow best practices and **optimize** the wasm file. This just means we are going to reduce the size of the file so that it costs less gas to upload, which is critical when you eventually upload contracts to mainnet. Make sure you have an instance of LocalSecret running and then run the following code:
-
-**Optimize compiled wasm**
-
-```bash
-docker run --rm -v "$(pwd)":/contract \
-  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
-  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
-  enigmampc/secret-contract-optimizer  
-```
-
-You should now have an optimized `contract.wasm.gz` file in your root directory, which is ready to be uploaded to the blockchain! Also note that the optimizer should have removed the `contract.wasm` file from your root directory 👍
+This will create a `contract.wasm.gz` file in the root directory.
 
 ### Storing the Contract
 
