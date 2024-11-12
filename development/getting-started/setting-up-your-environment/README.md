@@ -22,7 +22,7 @@ There are 3 main tools we will use -
 * SecretCLI - a command-line tool to interact with the blockchain
 * LocalSecret - a local Secret Network chain set up for development purposes
 
-We're going to install our environment manually so that you can code in a text editor of your choosing, but if you would prefer to work with JetBrains you can also configure your environment that way using the resources at the bottom of this page.
+We're going to install our environment manually so that you can code in a text editor of your choosing.
 
 ### Install Requirements
 
@@ -223,30 +223,6 @@ Congrats! You now have a containerized version of LocalSecret running inside doc
 Now it's time to learn how to compile and deploy your first smart contract 🎉
 
 ### Additional Resources
-
-<details>
-
-<summary>JetBrains Dev Environment (Secret IDE)</summary>
-
-The amazing folks at [Digiline](https://www.digiline.io) created a prebuilt containerized environment containing an IDE (IntelliJ IDEA) that contains everything you need to get started. If you're comfortable with JetBrains IDEs, this may be a good choice for you.
-
-To complement Secret IDE, we will set up another docker container with LocalSecret, where we will deploy our contracts to test and play around with.
-
-To get started, visit [https://github.com/digiline-io/Secret-IDE-Plugin](https://github.com/digiline-io/Secret-IDE-Plugin), or just go for it and run the IDE from docker:
-
-`docker run -p 8888:8888 -it ghcr.io/digiline-io/secret-ide:0.0.8`
-
-Then after a few seconds you will be able to access your in-browser IDE at [https://localhost:8888](https://localhost:8888).
-
-Once the environment loads, clone the repository from [https://github.com/scrtlabs/secret-template](https://github.com/scrtlabs/secret-template)
-
-Secret IDE has built-in support for both the Pulsar testnet and mainnet, but for the purposes of this guide we will be using the SecretCLI via terminal.
-
-Secret-IDE is also available as a plugin for IDEA, so you can just install it from the marketplace.
-
-Lastly, it will be helpful to configure SecretCLI by using the included "Configure secretcli" command which will set up SecretCLI to target the public testnet
-
-</details>
 
 <details>
 

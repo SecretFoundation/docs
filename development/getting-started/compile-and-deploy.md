@@ -39,8 +39,17 @@ secretcli config keyring-backend test
 secretcli config output json
 ```
 
+Or, if you'd prefer to use Secret testnet instead of LocalSecret:&#x20;
+
+```bash
+secretcli config node https://rpc.testnet.secretsaturn.net
+secretcli config chain-id pulsar-3
+secretcli config output json
+secretcli config keyring-backend test
+```
+
 {% hint style="info" %}
-**Did you know?** By default, SecretCLI tries to connect to a locally running network
+You can get testnet tokens from the faucet [here](https://faucet.pulsar.scrttestnet.com/).
 {% endhint %}
 
 ### Compile the Code
@@ -109,7 +118,7 @@ Your wallet address should now have 1000000000 uscrt 🤯
 
 Finally, we can upload our contract:
 
-```
+```bash
 secretcli tx compute store contract.wasm.gz --gas 5000000 --from <name> --chain-id secretdev-1
 ```
 
