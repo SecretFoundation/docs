@@ -21,9 +21,7 @@ cosmwasm-storage = { package = "secret-cosmwasm-storage", version = "1.1.10" }
 secret-toolkit-storage = "0.9.0"
 ```
 
-{% hint style="info" %}
-Make sure you're compiling with rust < 1.70. Newer versions are currently not compatible.
-{% endhint %}
+
 
 ### Tutorial - Coin Flip
 

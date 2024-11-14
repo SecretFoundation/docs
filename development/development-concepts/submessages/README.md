@@ -121,7 +121,7 @@ Now let's use this manager smart contract to increment a counter smart contract 
 The counter contract we will be executing is deployed here:&#x20;
 
 ```javascript
-const contractAddress = "secret14q0jeyflxsd43zq3j82vkp08vp47r5ftt3glfr";
+const contractAddress = "secret1cldglt6wvueva2akly4x3wvzzlevk2hxzv0cvq";
 ```
 
 {% hint style="info" %}
@@ -192,7 +192,7 @@ node query
 You will see that the counter contract has been incremented by 1 :)
 
 ```bash
-{ count: 5 }
+{ count: 1 }
 ```
 
 ### Summary

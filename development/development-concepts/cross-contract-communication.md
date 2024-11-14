@@ -19,7 +19,7 @@ In this tutorial, [we will be designing a simple smart contract](https://github.
 
 By the end of this tutorial, you will understand how to implement the `Increment()` function on a Manager smart contract, which increments a counter smart contract by one every time the Increment function is called.&#x20;
 
-To follow along with this tutorial step-by-step, clone down the [Secret Network counter template repo here](https://github.com/scrtlabs/secret-template) 😊
+To follow along with this tutorial step-by-step, clone down the Secret Network counter template repo [here](https://github.com/SecretFoundation/secret-template) 😊
 
 ### Designing the Manager Contract
 
