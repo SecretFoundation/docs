@@ -6,23 +6,11 @@ description: >-
 
 # Setting Up Your Environment
 
-Secret Contracts are written using the [CosmWasm framework](https://book.cosmwasm.com/). CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a LocalSecret development environment with all the tools required so that you can upload, instantiate, and execute your smart contracts.
+Secret Contracts are written using the [CosmWasm framework](https://book.cosmwasm.com/). CosmWasm contracts are written in Rust, which is later compiled to WebAssembly (or WASM for short). To write our first Secret Contract, we need to set up a development environment with all of the tools required so that you can upload, instantiate, and execute your smart contracts.
 
 {% hint style="info" %}
 For a step-by-step Secret Network environment configuration video tutorial, [follow along here](https://www.youtube.com/watch?v=m64c\_3fui3o\&ab\_channel=SecretNetwork) 🎥. Otherwise, continue reading!
 {% endhint %}
-
-## What Is LocalSecret? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
-
-LocalSecret is a complete Secret Network testnet and ecosystem containerized with Docker. It simplifies the way secret contract developers test their contracts in a sandbox before they deploy them on a public testnet or mainnet (You can think of it like a local testnet that only you have access to).
-
-There are 3 main tools we will use -
-
-* IDE - a development environment (usually VS Code or JetBrains CLion/IDEA with Rust support)
-* SecretCLI - a command-line tool to interact with the blockchain
-* LocalSecret - a local Secret Network chain set up for development purposes
-
-We're going to install our environment manually so that you can code in a text editor of your choosing.
 
 ### Install Requirements
 
@@ -141,7 +129,7 @@ secretcli version
 {% endtab %}
 
 {% tab title="MacOS (Intel)" %}
-Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.15.0-alpha.15/secretcli-macOS).
+Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.15.0-beta.15/secretcli-macOS).
 
 Set the file name to `secretcli` and set it as executable
 
@@ -152,7 +140,7 @@ chmod 755 secretcli
 {% endtab %}
 
 {% tab title="MacOS (M1)" %}
-Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.15.0-alpha.15/secretcli-MacOS-arm64).
+Download `secretcli` for your system [here](https://github.com/scrtlabs/SecretNetwork/releases/download/v1.15.0-beta.15/secretcli-MacOS-arm64).
 
 Set the file name to `secretcli` and set it as executable
 
@@ -165,77 +153,5 @@ chmod 755 secretcli
 
 For a more detailed and in-depth guide on SecretCLI installation and usage, check out the [documentation here](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/secret-cli/install).
 
-#### Install LocalSecret
-
-{% hint style="warning" %}
-An instance of LocalSecret requires approximately 2.5 GB of RAM to run. You may need to increase the resources available in your Docker settings.
-{% endhint %}
-
-{% hint style="warning" %}
-The installation methods differ based on the processor architecture. This is because Secret Network makes use of Intel SGX to protect private data.
-{% endhint %}
-
-Now that you have docker installed, open the docker application and then in your terminal run:
-
-{% tabs %}
-{% tab title="x86 (Intel/AMD)" %}
-```bash
-docker run -it -p 9091:9091 -p 26657:26657 -p 1317:1317 -p 5000:5000 \
-  --name localsecret ghcr.io/scrtlabs/localsecret:latest
-```
-{% endtab %}
-
-{% tab title="ARM (Mac M1)" %}
-Unfortunately, even LocalSecret inside a docker cannot be run on an M1 Mac. As a workaround, we recommend using a LocalSecret instance in a Gitpod environment.
-
-This environment is set up in such a way that can be accessed remotely as well.
-
-To get started, follow the instructions at the [main repo here](https://github.com/scrtlabs/GitpodLocalSecret).
-
-To connect, prepend the port number with the Gitpod URL. e.g., if my workspace is at `https://scrtlabs-gitpoddevenv-shqyv12iyrv.ws-eu54.gitpod.io` then I would be able to connect to the RPC service at `https://26657-scrtlabs-gitpoddevenv-shqyv12iyrv.ws-eu54.gitpod.io`
-
-To set up SecretCLI to connect to this environment, use the following commands:
-
-```bash
-secretcli config node https://26657-<your-gitpod-workspace>.gitpod.io
-secretcli config chain-id secretdev-1
-secretcli config keyring-backend test
-secretcli config output json
-```
-
-Or, if you are using secretjs you can set up a client like so:&#x20;
-
-```javascript
-const secretjs = new SecretNetworkClient({
-    chainId: "secretdev-1",
-    url: "https://1317-scrtlabs-gitpodlocalsec-XXX.gitpod.io",
-    wallet: wallet,
-    walletAddress: wallet.address,
-  });
-```
-{% endtab %}
-{% endtabs %}
-
-Congrats! You now have a containerized version of LocalSecret running inside docker! You should see blocks being created in real time:
-
-<figure><img src="../../../.gitbook/assets/LocalSecret.png" alt=""><figcaption><p>LocalSecret developer testnet</p></figcaption></figure>
-
 Now it's time to learn how to compile and deploy your first smart contract 🎉
 
-### Additional Resources
-
-<details>
-
-<summary>Gitpod Set Up Instructions (for M1 Mac users)</summary>
-
-LocalSecret cannot be run on an M1 Mac.
-
-To know whether you have a Mac with an M1 chip or an Intel chip, click on the Apple logo located in the lefthand corner of your desktop and navigate to **About This Mac** and confirm whether the processor is M1 or Intel. If you have an Intel chip, you can run LocalSecret in docker, otherwise, proceed with these set up instructions to learn how to [run LocalSecret in Gitpod](https://github.com/scrtlabs/GitpodLocalSecret).
-
-1. Run an instance of LocalSecret in Gitpod by [clicking here](https://gitpod.io/#https://github.com/scrtlabs/GitpodLocalSecret).
-2. Gitpod will automatically create a workspace and ask if you want to open it in your text editor. It will then prompt you to allow an extension to open the URI. Select "Open" to proceed.
-3. If you don't have a registered SSH public key for your computer in your Gitpod account, it will ask you to copy a temporary password to use until you restart the workspace at a later date. Copy the password.
-4. Enter the password you copied in your text editor to finish setting up the SSH host connection.
-5. Congrats! You have successfully set up an instance of LocalSecret in Gitpod which you can use for testing your smart contracts.
-
-</details>

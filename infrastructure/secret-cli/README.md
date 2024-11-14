@@ -1,7 +1,3 @@
----
-description: https://docs.scrt.network/cli/secretcli.html
----
-
 # 🔓 Use SecretCLI
 
 The `secretcli`  (Secret Network Light Client) is a command-line interface tool for interacting with nodes running on the Secret Network blockchain. With the `secretcli`  you can perform many important functions related to:

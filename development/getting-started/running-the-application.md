@@ -20,8 +20,11 @@ A **Query Message** is used to request information from a contract; unlike `exec
 
 Let's query our counter smart contract to return the current count. It should be 1, because that was the count we instantiated in the previous section. We query the count by calling the Query Message `get_count {}`, which is defined in our msg.rs file.
 
-<pre><code><strong>secretcli query compute query secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg '{"get_count": {}}'
-</strong></code></pre>
+{% code overflow="wrap" %}
+```bash
+secretcli query compute query <your-contract-address> '{"get_count": {}}' --chain-id pulsar-3 --node https://rpc.testnet.secretsaturn.net 
+```
+{% endcode %}
 
 The query returns:
 
@@ -41,8 +44,8 @@ An **Execute Message** is used for handling messages which modify contract state
 
 The counter contract consists of two execute messages: `increment{}`, which increments the count by 1, and `reset{}`, which resets the count to any `i32` you want. The current count is 1, let's call the Execute Message `increment{}` to increase the contract count by 1:
 
-```
-secretcli tx compute execute secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg '{"increment": {}}' --from myWallet
+```bash
+secretcli tx compute execute <your-contract-address> '{"increment": {}}' --from <your-wallet> --chain-id pulsar-3 --node https://rpc.testnet.secretsaturn.net --fees=70000uscrt
 ```
 
 {% hint style="success" %}
@@ -55,9 +58,11 @@ SecretCLI will ask you to confirm the transaction before signing and broadcastin
 
 Nice work! Now we can query the contract once again to see if the contract state was successfully incremented by 1:
 
+{% code overflow="wrap" %}
+```bash
+secretcli query compute query <your-contract-address> '{"get_count": {}}' --chain-id pulsar-3 --node https://rpc.testnet.secretsaturn.net 
 ```
-secretcli query compute query secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg '{"get_count": {}}'
-```
+{% endcode %}
 
 The query returns:
 
@@ -67,9 +72,11 @@ The query returns:
 
 Now, we will call one final execute message, `reset{}`. This will reset the count to an `i32` that we specify. I am going to reset the count to 0 by running the following code in SecretCLI:
 
+{% code overflow="wrap" %}
+```bash
+ secretcli tx compute execute <your-contract-address> '{"reset": {"count": 0}}' --from <your-wallet> --chain-id pulsar-3 --node https://rpc.testnet.secretsaturn.net --fees=70000uscrt
 ```
-secretcli tx compute execute secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg '{"reset": {"count": 0}}' --from myWallet
-```
+{% endcode %}
 
 {% hint style="warning" %}
 Make sure your JSON message is formatted properly!

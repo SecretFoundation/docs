@@ -8,7 +8,7 @@ description: >-
 
 ### What is Secret.js? <a href="#what-is-localsecret" id="what-is-localsecret"></a>
 
-[In the previous section](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment), we learned how to upload, execute, and query a Secret Network smart contract using SecretCLI and LocalSecret. Now we are going to repeat this process, but we will be uploading, executing, and querying our smart contract **on a public testnet using Secret.js.**
+[In the previous section](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment), we learned how to upload, execute, and query a Secret Network smart contract using SecretCLI and Secret testnet. Now we are going to repeat this process, but we will be uploading, executing, and querying our smart contract **on a public testnet using Secret.js.**
 
 {% hint style="info" %}
 [Secret.js](https://secretjs.scrt.network/) is a JavaScript SDK for writing applications that interact with the Secret Network blockchain.
@@ -64,7 +64,7 @@ Start by opening the `my-counter-contract` project folder in your text editor. I
 2. In your `my-counter-contract/node` folder, create a new javascript file––I chose to name mine `upload.js`.
 3. Run `npm init -y` to create a package.json file.
 4. Add `"type" : "module"` to your package.json file.
-5. Install secret.js and dotenv: `npm i secretjs@v1.15.0-beta.0 dotenv`
+5. Install secret.js and dotenv: `npm i secretjs@v1.15.0-beta.1 dotenv`
 6. Create a `.env` file in your `node` folder, and add the variable `MNEMONIC` along with your wallet address seed phrase, like so:
 
 <pre><code><strong>MNEMONIC=grant rice replace explain federal release fix clever romance raise often wild taxi quarter soccer fiber love must tape steak together observe swap guitar
@@ -126,10 +126,6 @@ You now have secret.js imported, a `wallet` variable that points to your wallet 
 #### Secret Network Client
 
 Note the **chainId** and the **url** that we are using. This chainId and url are for the **Secret Network testnet**. If you want to upload to LocalSecret or Mainnet instead, all you would need to do is swap out the chainId and url. [A list of alternate API endpoints can be found here.](https://docs.scrt.network/secret-network-documentation/development/connecting-to-the-network)
-
-{% hint style="info" %}
-When connecting to a local node, you must indicate a port, which is `1317`
-{% endhint %}
 
 ```javascript
 const secretjs = new SecretNetworkClient({

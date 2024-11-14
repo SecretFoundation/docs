@@ -99,7 +99,6 @@
     * [Datatype Handling - Uint, floats etc.](development/development-concepts/testing/data-handling.md)
 * [👀 Secret Contract - Reference, Guides, Examples](development/example-contracts/README.md)
   * [Starter guide - Millionaire's Problem](development/example-contracts/millionaires-problem.md)
-  * [Guides/Tutorials](development/example-contracts/guides-tutorials.md)
   * [Reference Contracts](development/example-contracts/community-tutorials.md)
   * [Open source dApps](development/example-contracts/open-source-dapps.md)
   * [Tools & Libraries](development/example-contracts/tools-and-libraries/README.md)

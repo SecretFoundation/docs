@@ -9,11 +9,6 @@ Topics covered:
 * Interacting with Contracts on the Secret Network
 * Breakdown of a Secret Contract (optional)
 
-What **won't** be covered:
-
-* An in-depth guide to developing Secret Contracts - [Secret By Example](development/example-contracts/guides-tutorials.md)
-* Secret Network architecture - [Secret Network Techstack](https://docs.scrt.network/secret-network-documentation/introduction/secret-network-techstack)
-
 Most of the topics covered focus directly on Secret Network but are also relevant to other cosmos-based blockchains.
 
 {% hint style="info" %}

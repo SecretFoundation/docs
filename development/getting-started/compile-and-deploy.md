@@ -1,12 +1,12 @@
 ---
 description: >-
   In this example, we will compile, upload, and instantiate our first smart
-  contract using SecretCLI and LocalSecret.
+  contract using SecretCLI and Secret Testnet.
 ---
 
 # Compile and Deploy
 
-Now that you've set up your LocalSecret development environment, we are going to learn how to compile, upload, and instantiate a smart contract using SecretCLI in your LocalSecret testnet environment.
+Now that you've set up your development environment, we are going to learn how to compile, upload, and instantiate a smart contract using SecretCLI in your testnet environment.
 
 {% hint style="info" %}
 For a step-by-step Secret Network SecretCLI video tutorial, [follow along here](https://www.youtube.com/watch?v=ZpUz-9sORho\&ab\_channel=SecretNetwork) 🎥. Otherwise, continue reading!
@@ -30,35 +30,13 @@ When you run the above code, it will name your contract folder directory "my-cou
 
 Start by opening the `my-counter-contract` project folder in your text editor. If you navigate to `my-counter-contract/src` you will see`contract.rs, msg.rs, lib.rs, and state.rs`—these are the files that make up our counter smart contract. If you've never worked with a Rust smart contract before, perhaps take some time to familiarize yourself with the code, although in this tutorial we will not be going into detail discussing the contract logic.
 
-Next, configure SecretCLI to work with LocalSecret by running the following code in your text editor terminal (this is assuming you already have an instance of LocalSecret running in docker, which we learned in the previous section)
-
-```bash
-secretcli config node http://localhost:26657
-secretcli config chain-id secretdev-1
-secretcli config keyring-backend test
-secretcli config output json
-```
-
-Or, if you'd prefer to use Secret testnet instead of LocalSecret:&#x20;
-
-```bash
-secretcli config node https://rpc.testnet.secretsaturn.net
-secretcli config chain-id pulsar-3
-secretcli config output json
-secretcli config keyring-backend test
-```
-
-{% hint style="info" %}
-You can get testnet tokens from the faucet [here](https://faucet.pulsar.scrttestnet.com/).
-{% endhint %}
-
 ### Compile the Code
 
-Since we are not making any changes to the contract code, we are going to compile it exactly as it is. To compile the code, run `make build` in your terminal. This will take our Rust code and build a Web Assembly file that we can deploy to Secret Network. Basically, it just takes the smart contract that we've written and translates the code into a language that the blockchain can understand.
+Since we are not making any changes to the contract code, we are going to compile it exactly as it is. To compile the code, run `make build-mainnet-reproducible` in your terminal. This will take our Rust code and build a Web Assembly file that we can deploy to Secret Network. Basically, it just takes the smart contract that we've written and translates the code into a language that the blockchain can understand.
 
 {% tabs %}
 {% tab title="Linux/WSL/MacOS" %}
-```
+```bash
 make build-mainnet-reproducible
 ```
 {% endtab %}
@@ -82,7 +60,7 @@ This will create a `contract.wasm.gz` file in the root directory.
 
 ### Storing the Contract
 
-Now that we have a working contract and an optimized wasm file, we can upload it to the blockchain and see it in action. This is called **storing the contract code**. We are using a local testnet environment, but the same commands apply no matter which network you want to use - local, public testnet, or mainnet.
+Now that we have a working contract and an optimized wasm file, we can upload it to the blockchain and see it in action. This is called **storing the contract code**. We are using a testnet environment, but the same commands apply no matter which network you want to use - local, public testnet, or mainnet.
 
 In order to store the contract code, we first must create a wallet address in order to pay for transactions such as uploading and executing the contract.
 
@@ -102,24 +80,18 @@ You should now have access to a wallet with a unique name, address, and mnemonic
 
 The wallet currently has zero funds, which you query by running this secretcli command (be sure to use your wallet address in place of mine)
 
-```
-secretcli query bank balances "secret16u7w28vp68qmldffuc89am4f02045zlfsjht90"
-```
-
-To fund the wallet so that it can execute transactions, run:
-
-```
-curl http://localhost:5000/faucet?address=secret16u7w28vp68qmldffuc89am4f02045zlfsjht90
+```bash
+secretcli query bank balances "secret158v062sat459ygam4y5j9z6p6e6g8wcdw6z4xp"
 ```
 
-Your wallet address should now have 1000000000 uscrt 🤯
+To fund the wallet so that it can execute transactions, you can get testnet tokens from the faucet [here](https://faucet.pulsar.scrttestnet.com/).
 
 #### Upload the contract
 
 Finally, we can upload our contract:
 
 ```bash
-secretcli tx compute store contract.wasm.gz --gas 5000000 --from <name> --chain-id secretdev-1
+ secretcli tx compute store contract.wasm.gz --gas 5000000 --from myWallet --chain-id pulsar-3 --node https://rpc.testnet.secretsaturn.net --fees=70000uscrt
 ```
 
 {% hint style="info" %}
@@ -127,24 +99,20 @@ secretcli tx compute store contract.wasm.gz --gas 5000000 --from <name> --chain-
 
 `--gas 5000000` refers to the cost of the transaction we are sending. Gas is the unit of cost which we measure how expensive a transaction is.
 
-`--chain-id` refers to which chain we are uploading to, which in this case is LocalSecret!
+`--chain-id` refers to which chain we are uploading to, which in this case is for Secret testnet!
 {% endhint %}
 
 To verify whether storing the code has been successful, we can use SecretCLI to query the chain:
 
-```
-secretcli query compute list-code
+```bash
+secretcli query compute list-code --chain-id pulsar-3 --node https://rpc.testnet.secretsaturn.net
 ```
 
 Which should give an output similar to the following:
 
 ```json
 [
-    {
-        "code_id": 1,
-        "creator": "secret16u7w28vp68qmldffuc89am4f02045zlfsjht90",
-        "code_hash": "2658699cea6112052a342d16fd57ac4411cdf1c05cdac3deceba8de0f6ce026d"
-    }
+   {"code_id":"12163","creator":"secret158v062sat459ygam4y5j9z6p6e6g8wcdw6z4xp","code_hash":"672ff09984b417665122ec5b78dfd045292150c3252e45826f117af29a8aa83e","source":"","builder":""}]}
 ]
 ```
 
@@ -152,9 +120,11 @@ Which should give an output similar to the following:
 
 In the previous step we stored the contract code on the blockchain. To actually use it, we need to instantiate a new instance of it.
 
+{% code overflow="wrap" %}
+```bash
+secretcli tx compute instantiate <your-code-id> '{"count": 1}' --from <name> --label <your-label> --chain-id pulsar-3 --node https://rpc.testnet.secretsaturn.net --fees=70000uscrt -y
 ```
-secretcli tx compute instantiate 1 '{"count": 1}' --from <name> --label counterContract -y
-```
+{% endcode %}
 
 {% hint style="info" %}
 * `instantiate 1` is the code\_id that you created in the previous section
@@ -165,9 +135,11 @@ secretcli tx compute instantiate 1 '{"count": 1}' --from <name> --label counterC
 
 Let's check that the instantiate command worked:
 
+{% code overflow="wrap" %}
 ```bash
-secretcli query compute list-contract-by-code 1
+secretcli query compute list-contract-by-code <your-code-id> --chain-id pulsar-3 --node https://rpc.testnet.secretsaturn.net 
 ```
+{% endcode %}
 
 Now we will see the address of our deployed contract
 
