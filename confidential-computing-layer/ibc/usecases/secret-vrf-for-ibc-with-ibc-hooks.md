@@ -40,10 +40,10 @@ You can look up existing transfer channels between Secret Network on a block exp
 `Git clone` the IBC hooks randomness repository:&#x20;
 
 ```bash
-git clone https://github.com/writersblockchain/ibchooks-secretVRF.git
+git clone https://github.com/SecretFoundation/ibchooks-secretVRF.git
 ```
 
-Update the [`SECRET_TRANSFER_CHANNEL_ID`](https://github.com/writersblockchain/ibchooks-secretVRF/blob/2dcda23c8e6e446e57cd8d4b0ccae6b9a40fe2fb/consumer-side/src/contract.rs#L14) and the [`CHAIN_TRANSFER_CHANNEL_ID`](https://github.com/writersblockchain/ibchooks-secretVRF/blob/2dcda23c8e6e446e57cd8d4b0ccae6b9a40fe2fb/consumer-side/src/contract.rs#L15C7-L15C32) to the channel-id for your IBC-enabled chain:&#x20;
+Update the [`SECRET_TRANSFER_CHANNEL_ID`](https://github.com/SecretFoundation/ibchooks-secretVRF/blob/ecfb0ee314e72b4f9fdf8cfcc0c840ffc2d9d263/consumer-side/src/contract.rs#L14) and the [`CHAIN_TRANSFER_CHANNEL_ID`](https://github.com/SecretFoundation/ibchooks-secretVRF/blob/ecfb0ee314e72b4f9fdf8cfcc0c840ffc2d9d263/consumer-side/src/contract.rs#L15) to the channel-id for your IBC-enabled chain:&#x20;
 
 ```rust
 //Juno
@@ -52,12 +52,12 @@ const CHAIN_TRANSFER_CHANNEL_ID: &str = "channel-48";
 ```
 
 {% hint style="info" %}
-For this example, we request randomness on Juno, **but you can request randomness on any IBC-compatible chain that has a transfer channel established with Secret Network.**&#x20;
+For this example, we request randomness on Juno Mainnet, **but you can request randomness on any IBC-compatible chain that has a transfer channel established with Secret Network.**&#x20;
 {% endhint %}
 
 Once you have updated the transfer channels, compile the contract:&#x20;
 
-```makefile
+```bash
 make build-mainnet-reproducible
 ```
 

@@ -174,13 +174,13 @@ pub static OPTION_2: Item<u128> = Item::new(OPTION_1_PREFIX);
 
 Thus, the Secret version relies on the `secret_std` and `secret_toolkit` crates, while the Vanilla version uses the `cosmwasm_std` and `cw_storage_plus` crates.  However, the overall purpose of the state management objects (VOTERS, OPTION\_1, and OPTION\_2) remains the same in both versions.
 
-### How to cross-deploy on different chains
+### How to cross-compilw on different chains
 
-```
-//Building for Secret
+```bash
+# Building for Secret
 make secret
 
-//Building for Juno
+# Building for Juno
 make vanilla
 ```
 

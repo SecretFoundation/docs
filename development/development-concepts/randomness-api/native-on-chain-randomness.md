@@ -12,35 +12,18 @@ For a detailed feature explainer head to the [network technical documentation](.
 
 ### Import Secret VRF
 
-In your Cargo.toml file, add secret-toolkit-storage 0.9.0:
+In your Cargo.toml file, add secret-toolkit-storage 0.10.1:
 
 ```rust
 [dependencies]
 cosmwasm-std = { package = "secret-cosmwasm-std", version = "1.1.10" }
 cosmwasm-storage = { package = "secret-cosmwasm-storage", version = "1.1.10" }
-secret-toolkit-storage = "0.9.0"
+secret-toolkit-storage = "0.10.1"
 ```
-
-
 
 ### Tutorial - Coin Flip
 
-What follows is a step-by-step tutorial of how to use Secret Network's randomness API to generate a coin flip (returning either 0 or 1) with true randomness. You can follow along and/or view [the completed code in this repo](https://github.com/scrtlabs/examples/tree/master/vrf-Randomness-Tutorial).&#x20;
-
-#### Environment Configuration
-
-LocalSecret is a tool that allows you to run a local Secret Network on your machine for testing and development purposes.&#x20;
-
-Here are the steps to use the randomness feature with LocalSecret:
-
-1. [Configure your developer environment](https://docs.scrt.network/secret-network-documentation/development/getting-started/setting-up-your-environment) and be sure to install the [latest version of SecretCLI.](https://docs.scrt.network/secret-network-documentation/development/tools-and-libraries/secret-cli/install)
-2. Clone the Secret Labs examples repo and then navigate to the vrf-randomness-tutorial folder:
-
-{% code overflow="wrap" %}
-```
-git clone https://github.com/scrtlabs/examples.git
-```
-{% endcode %}
+What follows is a step-by-step tutorial of how to use Secret Network's randomness API to generate a coin flip (returning either 0 or 1) with true randomness. You can follow along and/or view the [completed code in this repo](https://github.com/SecretFoundation/SecretNetwork-Randomness-Tutorial).&#x20;
 
 #### &#x20;Contract.rs
 
@@ -115,76 +98,45 @@ Now, let's compile, upload, instantiate, and execute the contract to see it in a
 
 #### Compile
 
-To compile your contract, in your terminal, make sure you have docker open, and then run:
+To compile your contract, run `make build-mainnet-reproducible`
 
-```rust
-docker run --rm -v "$(pwd)":/contract \                       
-  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
-  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
-  enigmampc/secret-contract-optimizer
+```bash
+make build-mainnet-reproducible
 ```
 
 This returns the optimized contract wasm file, ie `contract.wasm.gz`
 
-#### Upload
+#### Upload and Instantiate randomness contract
 
-To upload your contract to a containerized version of LocalSecret in docker, make sure you have docker installed and open, and then create a new tab in your terminal and run:&#x20;
+Upload and instantiate your contract to Secret Network testnet with the upload script [here](https://github.com/SecretFoundation/SecretNetwork-Randomness-Tutorial/blob/master/node/index.js).
 
-{% code overflow="wrap" %}
-```
-docker run -it --rm -p 26657:26657 -p 26656:26656 -p 1317:1317 -p 5000:5000 --name localsecret ghcr.io/scrtlabs/localsecret
-```
-{% endcode %}
-
-Congrats, you now have a new instance of LocalSecret running that can access the random number feature!
-
-Next, [create and fund a wallet ](https://docs.scrt.network/secret-network-documentation/development/getting-started/compile-and-deploy#creating-a-wallet)so you can upload the contract to LocalSecret. Then run the following to upload:&#x20;
+If you would like to use your own wallet addres, be sure to update the [mnemonic](https://github.com/SecretFoundation/SecretNetwork-Randomness-Tutorial/blob/ef75ef9b59e53b4e6374ff65b9a9c97e121a0e24/node/index.js#L7).
 
 {% code overflow="wrap" %}
-```
-secretcli tx compute store contract.wasm.gz --gas 5000000 --from <your wallet address> --chain-id secretdev-1
-```
-{% endcode %}
-
-To confirm that the contract upload was successful:
-
-```
-secretcli query compute list-code
-```
-
-#### Instantiate
-
-Now let's instantiate our contract with a starting flip of 1 (1 meaning Heads or Tales, up to you!)
-
-{% code overflow="wrap" %}
-```
-secretcli tx compute instantiate 1 '{"flip": 1}' --from <your wallet address> --label flipContract
+```bash
+cd node 
+npm i
+node index
 ```
 {% endcode %}
-
-To confirm that the contract instantiation was successful:
-
-```
-secretcli query compute list-contract-by-code 1
-```
 
 #### Execute
 
-Now that we have a **contract address** (which is returned from the `list-contract-by-code` query above), we an execute the coin flip with the randomness feature!&#x20;
+Now that you have a **contract address** you can execute the coin flip with the randomness feature!&#x20;
 
-To flip the coin simply run:&#x20;
+To flip the coin, update the [contract address](https://github.com/SecretFoundation/SecretNetwork-Randomness-Tutorial/blob/69f6a35f8574fc10a2fb4a0499e2b3bac188f4c2/node/try-flip.js#L16) and [code hash](https://github.com/SecretFoundation/SecretNetwork-Randomness-Tutorial/blob/69f6a35f8574fc10a2fb4a0499e2b3bac188f4c2/node/try-flip.js#L20) with your parameters and run:&#x20;
 
 {% code overflow="wrap" %}
-```
-secretcli tx compute execute <your contract address> '{"flip": {}}' --from myWallet
+```bash
+node try-flip
 ```
 {% endcode %}
 
-And to query that it was successful, run:&#x20;
+And to query that it was successful, update the [contract address](https://github.com/SecretFoundation/SecretNetwork-Randomness-Tutorial/blob/69f6a35f8574fc10a2fb4a0499e2b3bac188f4c2/node/query-flip.js#L14) and [code hash](https://github.com/SecretFoundation/SecretNetwork-Randomness-Tutorial/blob/69f6a35f8574fc10a2fb4a0499e2b3bac188f4c2/node/query-flip.js#L15) with your parameters and run:&#x20;
 
 {% code overflow="wrap" %}
-```
-secretcli query compute query <your contract address> '{"get_flip": {}}'
+```bash
+node query-flip
 ```
 {% endcode %}
 
@@ -194,6 +146,6 @@ You might have to execute the flip function a few times to see the queried flip 
 
 ### Summary
 
-Congrats! In this step-by-step tutorial on creating a coin flip contract, you learned how to compile, upload, instantiate, and execute a contract on LocalSecret using Secret Network's randomness API to generate random numbers 🎉\
+Congrats! In this step-by-step tutorial on creating a coin flip contract, you learned how to compile, upload, instantiate, and execute a contract on Secret testnet using Secret Network's randomness API to generate random numbers 🎉\
 \
 For documentation on Secret VRF in a contract on another IBC-connected chain, [click here](https://docs.scrt.network/secret-network-documentation/development/development-concepts/randomness-api/cross-chain-ibc-randomness).
