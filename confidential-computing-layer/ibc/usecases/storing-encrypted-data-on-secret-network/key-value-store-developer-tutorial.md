@@ -64,21 +64,21 @@ Now that you have your environment configured, it's time to upload the encryptio
 
 First, compile the contract:&#x20;
 
-```
-make build-mainnet
+```bash
+make build-mainnet-reproducible
 ```
 
 This compiles the contract and creates a `wasm` file in the following directory:&#x20;
 
-```wasm
-"./target/wasm32-unknown-unknown/release/gateway_simple.wasm"
+```bash
+"./optimized-wasm/gateway_simple.wasm.gz"
 ```
 
 The files that make up the IBC SDK, including the script to upload the contract to Secret Network, are in [./src](https://github.com/writersblockchain/cosmos-ccl-sdk/tree/main/src).&#x20;
 
 Compile the typescript files so you can execute them with node:&#x20;
 
-```
+```bash
 npm run build
 ```
 

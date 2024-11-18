@@ -20,10 +20,10 @@ To learn how SecretVRF works underneath the hood, refer to the docs [here](https
 
 ### Getting Started   &#x20;
 
-To get started, clone the [Secret Labs examples repo](https://github.com/scrtlabs/examples):&#x20;
+To get started, clone the repo:&#x20;
 
 ```bash
-git clone https://github.com/scrtlabs/examples.git
+git clone https://github.com/SecretFoundation/evm-secretpath-rng.git
 ```
 
 ### EVM Prerequisites&#x20;
@@ -32,12 +32,6 @@ git clone https://github.com/scrtlabs/examples.git
 2. [Fund your Amoy wallet](https://www.alchemy.com/faucets/polygon-amoy).&#x20;
 
 ### Configuring Environment Variables
-
-`cd` into examples/EVM-secretpath-RNG:
-
-```bash
-cd examples/EVM-secretpath-RNG
-```
 
 Install the node dependencies:
 
@@ -99,13 +93,7 @@ This tutorial is for Polygon testnet, but you can find a list of additional EVM 
 
 Next, create an event listener so you can listen to when the random numbers that you request have been fulfilled.&#x20;
 
-Open a new terminal window and `cd` into `examples/EVM-secretpath-RNG:`
-
-```basic
-cd examples/EVM-snakepath-RNG
-```
-
-Then, create the event listener by executing `fulfill_randomness_event.js`:&#x20;
+Create the event listener by executing `fulfill_randomness_event.js`:&#x20;
 
 ```bash
 npx hardhat --network polygon run ./scripts/fulfill_randomness_event.js
@@ -133,7 +121,7 @@ Random Numbers requested successfully!
 Navigate to your event listener terminal to see the returned random numbers:&#x20;
 
 {% code overflow="wrap" %}
-```atom
+```markup
 Random numbers fulfilled for request ID: 7
 Random Numbers: 94412630379044474934232934838909700375960606882138821083837396872559692127250,113337239238407277551866961530595655396141218773986266698805816049961297644274,27422614896457590254145871678336430245204859898445275988406473498974116581231
 ```
@@ -144,5 +132,3 @@ Congrats! You've just used SecretPath to request your first verifiable on-chain 
 ### Conclusion
 
 Secret VRF offers an innovative and cost-effective solution for EVM developers seeking access to verifiable random numbers. By following this guide, you've successfully set up your environment, deployed the `RandomnessReceiver.sol` contract, and interacted with the SecretPath network to request and receive random numbers.  Dive into the world of decentralized randomness with SecretPath, where security meets simplicity. 🌟
-
-##

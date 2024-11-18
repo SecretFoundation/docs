@@ -85,21 +85,22 @@ npm install
 
 Open [upload.js](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/secretpath-voting/voting-contract/node/upload.js) and configure the SecretPath `gatewayAddress`, `gatewayHash`, and `gatewayPublicKey:`
 
-```
+```javascript
 const gatewayAddress = "secret10ex7r7c4y704xyu086lf74ymhrqhypayfk7fkj";
 
 const gatewayHash =
-  "012dd8efab9526dec294b6898c812ef6f6ad853e32172788f54ef3c305c1ecc5";
+ "ad8ca07ffba1cb26ebf952c29bc4eced8319c171430993e5b5089887f27b3f70";
 
 const gatewayPublicKey =
-  "0x046d0aac3ef10e69055e934ca899f508ba516832dc74aa4ed4d741052ed5a568774d99d3bfed641a7935ae73aac8e34938db747c2f0e8b2aa95c25d069a575cc8b";
+"0x046d0aac3ef10e69055e934ca899f508ba516832dc74aa4ed4d741052ed5a568774d99d3bfed641a7935ae73aac8e34938db747c2f0e8b2aa95c25d069a575cc8b";
+
 ```
 
 `gatewayAddress, gatewayHash`, and `gatewayPublicKey` are needed for instantiating contracts that utilize SecretPath and can be found in the docs [here](https://docs.scrt.network/secret-network-documentation/development/ethereum-evm-developer-toolkit/supported-networks/evm-testnet/secretpath-testnet-pulsar-3-contracts). You will always use these same 3 parameters for instantiating a SecretPath-compatible contract on testnet.
 
 Upload and instantiate the contract:
 
-```
+```bash
 node upload
 ```
 
@@ -115,13 +116,13 @@ Let's create and vote on your first proposal with SecretPath!
 
 `cd` into `secretpath-voting/frontend`:
 
-```
+```bash
 cd secretpath-voting/frontend
 ```
 
 **Install the dependencies**
 
-```
+```bash
 npm i
 ```
 
@@ -131,7 +132,7 @@ Configure the [`env`](https://github.com/SecretFoundation/Secretpath-tutorials/b
 
 **Run the application**
 
-```
+```bash
 npm run start
 ```
 

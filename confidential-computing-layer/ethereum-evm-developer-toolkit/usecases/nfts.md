@@ -4,11 +4,15 @@ description: Learn how to mint cross-chain privacy-preserving NFTs with SecretPa
 
 # Cross-Chain NFTs with SecretPath and OpenAI
 
+{% hint style="danger" %}
+**These docs are currently being upated 11/18/24**
+{% endhint %}
+
 ## Overview
 
 [SecretPath](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath) enables EVM developers to use Secret Network as a Confidential Computation Layer (CCL) for [all EVM-compatible chains](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks).
 
-In this developer tutorial, you will learn how to use SecretPath to enable cross-chain NFTs on the EVM. You will mint an NFT on Sepolia testnet that uses a [sister contract](https://docs.scrt.network/secret-network-documentation/development/development-concepts/example-contracts/secret-contract-fundamentals/privacy-as-a-service-paas#id-3.-sister-contracts-ex.-private-data-for-nfts-verified-p2p-communication) on Secret Network to store private metadata, which can only be accessed by a private password stored in the Secret Contract. And to spice things up, **we will generate the NFT image with OpenAI** 🔥. &#x20;
+In this developer tutorial, you will learn how to use SecretPath to enable cross-chain NFTs on the EVM. You will mint an NFT on Amoy testnet that uses a [sister contract](https://docs.scrt.network/secret-network-documentation/development/development-concepts/example-contracts/secret-contract-fundamentals/privacy-as-a-service-paas#id-3.-sister-contracts-ex.-private-data-for-nfts-verified-p2p-communication) on Secret Network to store private metadata, which can only be accessed by a private password stored in the Secret Contract. And to spice things up, **we will generate the NFT image with OpenAI** 🔥. &#x20;
 
 <figure><img src="../../../.gitbook/assets/cross-chain NFT.png" alt="" width="375"><figcaption><p>Cross-Chain NFT on Secret Network</p></figcaption></figure>
 
@@ -23,27 +27,27 @@ See Cross-Chain NFT demo [here](https://secretpath-nft.vercel.app/).&#x20;
 
 ### Getting Started
 
-1. Git clone the SecretPath tutorials repository:&#x20;
+1. Git clone the repository:&#x20;
 
-```
-git clone https://github.com/SecretFoundation/Secretpath-tutorials.git
+```bash
+git clone https://github.com/writersblockchain/secretpath-nft.git
 ```
 
 2. Get Secret Network testnet tokens from [faucet](https://faucet.pulsar.scrttestnet.com/)
-3. Get Sepolia testnet tokens from [faucet ](https://www.alchemy.com/faucets/ethereum-sepolia)
+3. Get Amoy testnet tokens from [faucet ](https://faucet.polygon.technology/)
 
 ### Deploying Secret Network Sister Contract
 
 cd into secretpath-nft/secret-contract
 
-```
+```bash
 cd secretpath-nft/secret-contract
 ```
 
 Compile the contract:
 
-```
-make build-mainnet
+```bash
+make build-mainnet-reproducible
 ```
 
 {% hint style="info" %}
@@ -62,7 +66,7 @@ See [here](https://github.com/rust-bitcoin/rust-secp256k1/issues/283#issuecommen
 
 Once the contract compiles successfully, install the dependencies to upload it to testnet: &#x20;
 
-```
+```bash
 cd node && npm i 
 ```
 
@@ -74,7 +78,7 @@ MNEMONIC="your mnemonic words to go here"
 
 Upload the contract:
 
-```
+```bash
 node upload
 ```
 
@@ -90,7 +94,7 @@ contract address: secret1cndts3q2shapmkmjsmf74r8v6u6drvwjl52v7p
 
 Before we upload the EVM contract which mints the NFT, let's examine what the Secret Network sister contract does.&#x20;
 
-Navigate to the [state.rs](https://github.com/SecretFoundation/Secretpath-tutorials/blob/3fd35ab7521cc2ade9b8344687f0febd706f4df6/secretpath-nft/secret-contract/src/state.rs#L17) file to the `ConfidentialMetadata` struct:&#x20;
+Navigate to the `state.rs` file to the `ConfidentialMetadata` struct:&#x20;
 
 ```rust
 pub struct ConfidentialMetadata {
@@ -104,7 +108,7 @@ pub struct ConfidentialMetadata {
 
 This is the confidential metadata that you will be storing in the Secret Network smart contract for each NFT that you mint on the EVM. There is an `owner`,  `token_id`,  `uri`, `private_metdata`, and `password`, all of which will be associated with each NFT you mint.&#x20;
 
-Now open [contract.rs](https://github.com/SecretFoundation/Secretpath-tutorials/blob/3fd35ab7521cc2ade9b8344687f0febd706f4df6/secretpath-nft/secret-contract/src/contract.rs#L115) and navigate to the `execute_store_confidential_metadata` function.&#x20;
+Now open `contract.rs` and navigate to the `execute_store_confidential_metadata` function.&#x20;
 
 Here we have a `keymap` called `CONFIDENTIAL_METADATA`, which maps the `token id` of your EVM NFT to a `ConfidentialMetadata` struct. So for every NFT you mint on EVM, it has an associated private metadata stored in the Secret Contract. Pretty cool, right!&#x20;
 
@@ -116,15 +120,15 @@ Now let's deploy our EVM Minting contract 😊
 
 ### Deploying EVM NFT Contract
 
-cd into cd secretpath-nft/evm-contract:&#x20;
+`cd` into evm-contract:&#x20;
 
-```
-cd secretpath-nft/evm-contract
+```bash
+cd evm-contract
 ```
 
 Install the dependencies:&#x20;
 
-```
+```bash
 npm i 
 ```
 
@@ -137,8 +141,8 @@ INFURA_KEY=7bb38fdsfjddkfjdfaljf9d82
 
 Once you have your env file configured, upload the minting contract:
 
-```
-npx hardhat run scripts/deployNFT.js --network sepolia
+```bash
+npx hardhat run scripts/deployNFT.js --network amoy
 ```
 
 Upon successful upload, a contract address will be returned:&#x20;
@@ -147,7 +151,7 @@ Upon successful upload, a contract address will be returned:&#x20;
 0x0061b1aecAAe02Ddd3ce9De631a2C817c5be18F8
 ```
 
-Congrats! You now have a private metadata contract deployed on Secret Network and a minting contract deployed on Sepolia testnet! Now let's learn how to use SecretPath to send data confidentially from the EVM to Secret Network 😎
+Congrats! You now have a private metadata contract deployed on Secret Network and a minting contract deployed on Amoy testnet! Now let's learn how to use SecretPath to send data confidentially from the EVM to Secret Network 😎
 
 ### Sending Cross-Chain Confidential Metadata with SecretPath
 
@@ -163,7 +167,7 @@ cd frontend && npm i
 
 Create an [`env`](https://github.com/SecretFoundation/Secretpath-tutorials/blob/master/secretpath-nft/frontend/.env) and add the following:
 
-```
+```markdown
 # Secret Contract Address and CodeHash
 REACT_APP_SECRET_CONTRACT_ADDRESS="your secret contract address"
 REACT_APP_SECRET_CODE_HASH="your secret contract codehash"
@@ -171,10 +175,10 @@ REACT_APP_SECRET_CODE_HASH="your secret contract codehash"
 # EVM Minting Contract Address 
 REACT_APP_CONTRACT_ADDRESS="your evm minting contract address"
 
-# SecretPath Address for Sepolia
-REACT_APP_SECRETPATH_ADDRESS="0x3879E146140b627a5C858a08e507B171D9E43139"
+# SecretPath Address for Amoy
+REACT_APP_SECRETPATH_ADDRESS="0x8EaAB5e8551781F3E8eb745E7fcc7DAeEFd27b1f"
 
-# ChainID for Sepolia ( hexadecimal)
+# ChainID for Amoy ( hexadecimal)
 REACT_APP_CHAIN_ID="0xAA36A7"
 
 # Pinata API Key

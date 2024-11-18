@@ -190,7 +190,6 @@
       * [Sealed Bid Auction Developer Tutorial](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/sealed-bid-auction/sealed-bid-auction-developer-tutorial.md)
     * [Confidential Voting](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/confidential-voting/README.md)
       * [Confidential Voting Developer Tutorial with SecretPath](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/confidential-voting/confidential-voting-developer-tutorial-with-secretpath.md)
-      * [Confidential Voting Developer Tutorial with ECDH](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/confidential-voting/confidential-voting-developer-tutorial.md)
     * [VRF](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/vrf/README.md)
       * [Implementing VRF into any EVM Contract](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/vrf/implementing-vrf-into-any-evm-contract.md)
       * [VRF Developer Tutorial](confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/vrf/vrf-developer-tutorial.md)
