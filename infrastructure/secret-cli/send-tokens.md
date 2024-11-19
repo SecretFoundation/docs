@@ -51,7 +51,7 @@ _**Note:** When querying an account balance with zero tokens, you will get the e
 Use the following command to send tokens from one account to another:
 
 ```bash
-secretcli tx bank send <sender-key-alias-or-address> <recipient-address> 10uscrt
+secretcli tx bank send <sender-key-alias-or-address> <recipient-address> --fees=70000uscrt 10uscrt
 ```
 
 _**Note:** The `amount` argument accepts the format `<value|coin_name>`. You may want to cap the maximum gas consumed by transactions via the `--gas` flag._
@@ -77,7 +77,7 @@ You can also check balances at any block height using the `--height` flag:
 secretcli query bank balances <secret-address> --height=<block_height>
 ```
 
-#### Example&#x20;
+#### Example
 
 ```bash
 secretcli query bank balances \ 
@@ -102,9 +102,9 @@ secretcli query bank balances \
 }
 ```
 
-### Note&#x20;
+### Note
 
-You can add a note (previously called 'memo') to any transaction using the `--note` flag:&#x20;
+You can add a note (previously called 'memo') to any transaction using the `--note` flag:
 
 ```bash
 secretcli tx bank send \ 
@@ -140,7 +140,7 @@ confirm transaction before signing and broadcasting [y/N]: y
 }
 ```
 
-### Dry Run&#x20;
+### Dry Run
 
 You can simulate a transaction without actually broadcasting it by appending the `--dry-run` flag:
 
@@ -176,7 +176,7 @@ secretcli tx sign \
 
 _**Note:** The `--generate-only` flag prevents `secretcli` from accessing the local keybase. When the flag is supplied `<sender-key-alias-or-address>` must be an address._
 
-#### Validate Signatures&#x20;
+#### Validate Signatures
 
 You can validate transaction signatures by typing the following:
 
