@@ -31,14 +31,14 @@ All of the above steps can also be done manually if you wish.
 Quicksync / snapshots are provided by [Lavender.five Nodes](https://services.lavenderfive.com/mainnet/secretnetwork/snapshot).
 
 ```
-wget -O secret.tar.lz4 https://snapshots.lavenderfive.com/snapshots/secretnetwork/latest.tar.lz4
+wget -O secret.tar.zst https://snapshots.lavenderfive.com/snapshots/secretnetwork/latest.tar.zst
 ```
 
 ### Install dependencies
 
 ```bash
 sudo apt update
-sudo apt install snapd lz4 pv
+sudo apt install snapd zst pv
 ```
 
 ### Delete old data
@@ -53,7 +53,7 @@ secretd tendermint unsafe-reset-all --home $HOME/.secretd
 ### Decompress snapshot
 
 ```bash
-lz4 -c -d secret.tar.lz4 | pv -s $(du -sb secret.tar.lz4 | awk '{ print $1 }') | tar -x -C $HOME/.secretd
+tar -axf secret.tar.zst
 ```
 
 ### Download latest addrbook
