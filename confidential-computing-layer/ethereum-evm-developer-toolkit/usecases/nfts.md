@@ -4,15 +4,11 @@ description: Learn how to mint cross-chain privacy-preserving NFTs with SecretPa
 
 # Cross-Chain NFTs with SecretPath and OpenAI
 
-{% hint style="danger" %}
-**These docs are currently being upated 11/18/24**
-{% endhint %}
-
 ## Overview
 
 [SecretPath](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/basics/cross-chain-messaging/secretpath) enables EVM developers to use Secret Network as a Confidential Computation Layer (CCL) for [all EVM-compatible chains](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/supported-networks).
 
-In this developer tutorial, you will learn how to use SecretPath to enable cross-chain NFTs on the EVM. You will mint an NFT on Amoy testnet that uses a [sister contract](https://docs.scrt.network/secret-network-documentation/development/development-concepts/example-contracts/secret-contract-fundamentals/privacy-as-a-service-paas#id-3.-sister-contracts-ex.-private-data-for-nfts-verified-p2p-communication) on Secret Network to store private metadata, which can only be accessed by a private password stored in the Secret Contract. And to spice things up, **we will generate the NFT image with OpenAI** 🔥. &#x20;
+In this developer tutorial, you will learn how to use SecretPath to enable cross-chain NFTs on the EVM. You will mint an NFT on Sepolia testnet that uses a [sister contract](https://docs.scrt.network/secret-network-documentation/development/development-concepts/example-contracts/secret-contract-fundamentals/privacy-as-a-service-paas#id-3.-sister-contracts-ex.-private-data-for-nfts-verified-p2p-communication) on Secret Network to store private metadata, which can only be accessed by a private password stored in the Secret Contract. And to spice things up, **we will generate the NFT image with OpenAI** 🔥. &#x20;
 
 <figure><img src="../../../.gitbook/assets/cross-chain NFT.png" alt="" width="375"><figcaption><p>Cross-Chain NFT on Secret Network</p></figcaption></figure>
 
@@ -34,7 +30,7 @@ git clone https://github.com/writersblockchain/secretpath-nft.git
 ```
 
 2. Get Secret Network testnet tokens from [faucet](https://faucet.pulsar.scrttestnet.com/)
-3. Get Amoy testnet tokens from [faucet ](https://faucet.polygon.technology/)
+3. Get Sepolia testnet tokens from [faucet](https://www.alchemy.com/faucets/ethereum-sepolia)&#x20;
 
 ### Deploying Secret Network Sister Contract
 
@@ -142,7 +138,7 @@ INFURA_KEY=7bb38fdsfjddkfjdfaljf9d82
 Once you have your env file configured, upload the minting contract:
 
 ```bash
-npx hardhat run scripts/deployNFT.js --network amoy
+npx hardhat run scripts/deployNFT.js --network sepolia
 ```
 
 Upon successful upload, a contract address will be returned:&#x20;
@@ -151,7 +147,7 @@ Upon successful upload, a contract address will be returned:&#x20;
 0x0061b1aecAAe02Ddd3ce9De631a2C817c5be18F8
 ```
 
-Congrats! You now have a private metadata contract deployed on Secret Network and a minting contract deployed on Amoy testnet! Now let's learn how to use SecretPath to send data confidentially from the EVM to Secret Network 😎
+Congrats! You now have a private metadata contract deployed on Secret Network and a minting contract deployed on Sepolia testnet! Now let's learn how to use SecretPath to send data confidentially from the EVM to Secret Network 😎
 
 ### Sending Cross-Chain Confidential Metadata with SecretPath
 
@@ -161,7 +157,7 @@ It's time to connect your EVM minting contract and your Secret confidential meta
 
 cd into secretpath-nft/frontend and install the dependencies:
 
-```
+```bash
 cd frontend && npm i 
 ```
 
@@ -175,11 +171,11 @@ REACT_APP_SECRET_CODE_HASH="your secret contract codehash"
 # EVM Minting Contract Address 
 REACT_APP_CONTRACT_ADDRESS="your evm minting contract address"
 
-# SecretPath Address for Amoy
-REACT_APP_SECRETPATH_ADDRESS="0x8EaAB5e8551781F3E8eb745E7fcc7DAeEFd27b1f"
+# SecretPath Address for Sepolia
+REACT_APP_SECRETPATH_ADDRESS="0x3879E146140b627a5C858a08e507B171D9E43139"
 
-# ChainID for Amoy ( hexadecimal)
-REACT_APP_CHAIN_ID="0xAA36A7"
+# ChainID for Sepolia ( hexadecimal)
+REACT_APP_CHAIN_ID='0xAA36A7'
 
 # Pinata API Key
 REACT_APP_PINATA_JWT="Your Pinata JWT Key"
@@ -201,13 +197,13 @@ We will dive into the SecretPath code shortly, but first, let's create your firs
 
 cd into frontend:
 
-```
+```bash
 cd frontend
 ```
 
 Then run the program:
 
-```
+```bash
 npm run start
 ```
 
