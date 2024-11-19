@@ -73,10 +73,6 @@ declare module 'wagmi' {
 }
 ```
 
-{% hint style="info" %}
-If you want to deploy your own EVM contract on a different chain rather than using the deployed contract on Polygon, you can do so by deploying the contract [here](https://github.com/fifty-wei/secret-share-documents/tree/main/polygon-secret). Make sure that you deploy your contract to an [Axelar GMP compatible chain](https://docs.axelar.dev/dev/reference/mainnet-chain-names) ⚠️&#x20;
-{% endhint %}
-
 Create a `.env` file with the following content since we are interacting with the Polygon Mainnet contract:
 
 ```
@@ -91,6 +87,22 @@ ENVIRONMENT can use the following variables depending on which dev environment y
 ```
 {% endcode %}
 {% endhint %}
+
+### Custom chain
+
+{% hint style="info" %}
+If you want to deploy your own EVM contract on a different chain rather than using the deployed contract on Polygon, you can do so by deploying the contract [here](https://github.com/fifty-wei/secret-share-documents/tree/main/polygon-secret). Make sure that you deploy your contract to an [Axelar GMP compatible chain](https://docs.axelar.dev/dev/reference/mainnet-chain-names) ⚠️&#x20;
+{% endhint %}
+
+```javascript
+import { scroll } from "viem/chains";
+import { Config, EvmChain } from "@secret-network/share-document"
+
+const config = new Config({
+  sourceChain: EvmChain.SCROLL,
+  customChain: scroll  
+});
+```
 
 #### Storage API Keys
 
