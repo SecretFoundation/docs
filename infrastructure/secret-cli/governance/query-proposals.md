@@ -49,9 +49,9 @@ voting_end_time: "2022-06-28T14:16:06.110227079Z"
 voting_start_time: "2022-06-28T13:16:06.110227079Z"
 ```
 
-### Query For All Proposals&#x20;
+### Query For All Proposals
 
-You can query for all available proposals using:&#x20;
+You can query for all available proposals using:
 
 ```bash
 secretcli query gov proposals
@@ -59,7 +59,7 @@ secretcli query gov proposals
 
 ### Query For Proposal Depositor
 
-You can query for the proposal depositor using:&#x20;
+You can query for the proposal depositor using:
 
 ```bash
 secretcli query gov deposit \
@@ -70,17 +70,17 @@ secretcli query gov deposit \
 
 ### Query For Proposal Depositors
 
-You can query for the proposal depositors using:&#x20;
+You can query for the proposal depositors using:
 
 ```bash
-secretlcli query gov deposits \
+secretcli query gov deposits \
     [proposal-id] \
     [flags]
 ```
 
 ### Query For Proposal Voter
 
-You can query for the proposal voter using:&#x20;
+You can query for the proposal voter using:
 
 ```bash
 secretcli query gov vote \
