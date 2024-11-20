@@ -181,7 +181,7 @@ _**Note:** The `--generate-only` flag prevents `secretcli` from accessing the lo
 You can validate transaction signatures by typing the following:
 
 ```
-secretcli tx sign --validate-signatures --from=<key-alias> signedSendTx.json
+secretcli tx validate-signatures --from=<key-alias> signedSendTx.json
 ```
 
 #### Broadcast Signed Transaction
