@@ -20,19 +20,19 @@ Events can be combined to query for more specific results using the `&` symbol.
 You can query transactions by `events` as follows:
 
 ```bash
-secretcli q txs --events='message.sender=secret1...'
+secretcli q txs --query "message.sender='secret1...'"
 ```
 
 And for using multiple `events`:
 
 ```bash
-secretcli q txs --events='message.sender=secret1...&message.action=withdraw_delegator_reward'
+secretcli q txs --query "message.sender='secret1...' AND message.action='/secret.compute.v1beta1.MsgInstantiateContract' "
 ```
 
 The pagination is supported as well via `page` and `limit`:
 
 ```bash
-secretcli q txs --events='message.sender=secret1...' --page=1 --limit=20
+secretcli q txs --query "message.sender='secret1...'" --page=1 --limit=20
 ```
 
 _**Note:** The action tag always equals the message type returned by the `Type()` function of the relevant message._
