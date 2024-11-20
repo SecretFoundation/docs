@@ -2,7 +2,7 @@
 
 ## Matching a Set of Events <a href="#matching-a-set-of-events" id="matching-a-set-of-events"></a>
 
-Querying transaction commands use the following format:&#x20;
+Querying transaction commands use the following format:
 
 ```bash
 secretcli query tx \
@@ -41,11 +41,11 @@ _**Note:** The action tag always equals the message type returned by the `Type()
 
 You can find a list of available `events` on each of the SDK modules:
 
-* [Staking events](https://github.com/cosmos/cosmos-sdk/blob/master/x/staking/spec/07\_events.md)
-* [Governance events](https://github.com/cosmos/cosmos-sdk/blob/master/x/gov/spec/04\_events.md)
-* [Slashing events](https://github.com/cosmos/cosmos-sdk/blob/master/x/slashing/spec/06\_events.md)
-* [Distribution events](https://github.com/cosmos/cosmos-sdk/blob/master/x/distribution/spec/06\_events.md)
-* [Bank events](https://github.com/cosmos/cosmos-sdk/blob/master/x/bank/spec/04\_events.md)
+* [Staking events](https://github.com/cosmos/cosmos-sdk/blob/main/x/staking/README.md)
+* [Governance events](https://github.com/cosmos/cosmos-sdk/blob/main/x/gov/README.md)
+* [Slashing events](https://github.com/cosmos/cosmos-sdk/blob/main/x/slashing/README.md)
+* [Distribution events](https://github.com/cosmos/cosmos-sdk/blob/main/x/distribution/README.md)
+* [Bank events](https://github.com/cosmos/cosmos-sdk/blob/main/x/bank/README.md)
 
 ## Matching a Transaction Hash <a href="#matching-a-transaction-hash" id="matching-a-transaction-hash"></a>
 
@@ -59,18 +59,18 @@ secretcli q tx [hash]
 
 There are four flags associated with querying Secret Network transactions using the `secretcli.`
 
-### Height&#x20;
+### Height
 
-The `--height [int]` flag uses a specific height to query the state of the Secret Network (there will be an error if the node is pruning state).&#x20;
+The `--height [int]` flag uses a specific height to query the state of the Secret Network (there will be an error if the node is pruning state).
 
-### Node&#x20;
+### Node
 
-The `--node [string]` flag uses \<host>:\<port> to connect with the Tendermint RPC for a specific chain (default is "tcp://localhost:26657").&#x20;
+The `--node [string]` flag uses \<host>:\<port> to connect with the Tendermint RPC for a specific chain (default is "tcp://localhost:26657").
 
-### Type&#x20;
+### Type
 
-The `--type [string]` flag is for querying a tx, and can be the 'hash' (default), 'acc\_seq', or 'signature'.&#x20;
+The `--type [string]` flag is for querying a tx, and can be the 'hash' (default), 'acc\_seq', or 'signature'.
 
 ### Help
 
-The `--help` flag will generate an output giving further details on flags to use with the `tx` class of `secretcli` commands, and information about `global flags` to use with the `secretcli`.&#x20;
+The `--help` flag will generate an output giving further details on flags to use with the `tx` class of `secretcli` commands, and information about `global flags` to use with the `secretcli`.
