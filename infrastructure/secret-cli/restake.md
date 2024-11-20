@@ -17,7 +17,7 @@ Learn more about the Restake feature [here](../../development/development-concep
 You can query the restaking situation per delegator and receive a list with validator addresses for which the user has turned this feature on.
 
 ```
-secretd query distribution restake-entries [delegator] [flags]
+secretcli query distribution restake-entries [delegator] [flags]
 ```
 
 ### Enable restake <a href="#bond-tokens" id="bond-tokens"></a>
@@ -27,7 +27,7 @@ On the Secret Network mainnet, we delegate `uscrt`, where `1scrt = 1000000uscrt`
 One must be staked before one can activate restaking. The following command can be used to activate restaking for the stake that is with that validator as long more tokens are bonded than `restake-threshold`(currently `10000000 uSCRT = 10 SCRT`).
 
 ```
-secretcli tx distribution set-auto-restaking [validator] [true/false] --from [delegator]
+secretcli tx distribution set-auto-restaking [delegator] [validator] [true/false]
 ```
 
 ### Query restake Parameters
