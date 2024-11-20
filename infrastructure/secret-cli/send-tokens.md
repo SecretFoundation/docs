@@ -2,7 +2,7 @@
 
 ## Testnet Faucet <a href="#get-tokens" id="get-tokens"></a>
 
-On a testnet, getting tokens is usually done via a faucet. You can get tokens for testing purposes using the [Secret Network faucet](https://faucet.secrettestnet.io/).
+On a testnet, getting tokens is usually done via a faucet. You can get tokens for testing purposes using the [Secret Network faucet](https://faucet.pulsar.scrttestnet.com/).
 
 ## Query Account Balance <a href="#query-account-balance" id="query-account-balance"></a>
 

@@ -24,7 +24,7 @@ secretcli keys show test_multisig --pubkey
   mnemonic: ""
 ```
 
-The `-p` flag can be used interchangeably with the `--pubkey` flag to only show the output of pubkey information.&#x20;
+The `-p` flag can be used interchangeably with the `--pubkey` flag to only show the output of pubkey information.
 
 ```
 secretcli keys show test_multisig -p
@@ -32,13 +32,13 @@ secretcli keys show test_multisig -p
 
 ## Initiate Multisig Transaction
 
-General usage of the secretcli for sending transactions uses the follow format:&#x20;
+General usage of the secretcli for sending transactions uses the follow format:
 
 ```bash
 secretcli tx bank send [from_key_or_address] [to_address] [amount] [flags]
 ```
 
-**Note:** To be able to correctly test multisig transactions you will need tokens owned by the multisig wallet. [Get testnet tokens using the faucet. ](https://faucet.secrettestnet.io/)
+**Note:** To be able to correctly test multisig transactions you will need tokens owned by the multisig wallet. [Get testnet tokens using the faucet.](https://faucet.pulsar.scrttestnet.com/)
 
 The first step to create a multisig transaction is to initiate it on behalf of the multisig address created above using the following command:
 
@@ -216,7 +216,7 @@ The transaction can now be broadcast to the network using the singed.json file:
 secretcli tx broadcast signedTx.jshon
 ```
 
-After executing the above command an output will be generated containing information about the transaction:&#x20;
+After executing the above command an output will be generated containing information about the transaction:
 
 ```bash
 {
@@ -236,4 +236,4 @@ After executing the above command an output will be generated containing informa
 }
 ```
 
-Broadcasted transactions can be viewed online using a Secret Network block explorer by searching for the transaction has (txhash). For example, the testnet transaction above can be viewed [here](https://testnet.ping.pub/secret/tx/52A1CB5C4049023A14616462A37A419240EBE99E7C941B7E9E17BD32FE92B134).&#x20;
+Broadcasted transactions can be viewed online using a Secret Network block explorer by searching for the transaction has (txhash). For example, the testnet transaction above can be viewed [here](https://testnet.ping.pub/secret/tx/52A1CB5C4049023A14616462A37A419240EBE99E7C941B7E9E17BD32FE92B134).
