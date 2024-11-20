@@ -99,11 +99,11 @@ secretcli q distribution slashes <validator-operator-address> <start-height> <en
 To check current rewards for a delegation (were they to be withdrawn), run:
 
 ```bash
-secretcli q distribution rewards <delegator-address> <validator-address>
+secretcli q distribution rewards-by-validator <delegator-address> <validator-address>
 ```
 
 ```json
-# secretcli q distribution rewards secret1kcy20p0cs2wakeqz00xgs5m0cmj65283xqmvfs secretvaloper1gutgtpw0caqfsp8ja0r5yecv8jxz2y8vxxa9mw | jq
+# secretcli q distribution rewards-by-validator secret1kcy20p0cs2wakeqz00xgs5m0cmj65283xqmvfs secretvaloper1gutgtpw0caqfsp8ja0r5yecv8jxz2y8vxxa9mw | jq
 
 {
   "rewards": [
