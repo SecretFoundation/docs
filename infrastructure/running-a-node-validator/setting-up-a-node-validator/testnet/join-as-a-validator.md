@@ -40,7 +40,7 @@ If you get the following message, it means that you have no tokens, or your node
 ERROR: unknown address: account secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx does not exist
 ```
 
-Copy/paste the address to get some test-SCRT from [the faucet](https://faucet.secrettestnet.io/). Continue when you have confirmed your account has some test-SCRT in it.
+Copy/paste the address to get some test-SCRT from [the faucet](https://faucet.pulsar.scrttestnet.com/). Continue when you have confirmed your account has some test-SCRT in it.
 
 ### **3. Create Validator**
 
