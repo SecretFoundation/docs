@@ -226,10 +226,10 @@ If someone wants to add you as a peer, have them add the above address to their 
 And if someone wants to use your node from their secretcli then have them run:
 
 ```bash
-secretcli config chain-id pulsar-3
-secretcli config output json
-secretcli config indent true
-secretcli config node tcp://<your-public-ip>:26657
+secretcli config set client chain-id pulsar-3
+secretcli config set client output json
+secretcli config set client indent true
+secretcli config set client node tcp://<your-public-ip>:26657
 ```
 
 ### **State Sync**
