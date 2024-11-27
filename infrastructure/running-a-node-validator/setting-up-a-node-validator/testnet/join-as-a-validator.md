@@ -7,7 +7,7 @@
 In order to become a validator, you node must be fully synced with the network. You can check this by doing:
 
 ```bash
-secretd status | jq .SyncInfo.catching_up
+secretd status | jq .sync_info.catching_up
 ```
 
 When the value of `catching_up` is _false_, your node is fully sync'd with the network. You can speed up syncing time by [State Syncing](testnet-state-sync.md) to the current block.
