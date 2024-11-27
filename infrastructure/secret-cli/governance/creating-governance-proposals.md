@@ -10,12 +10,58 @@ _**Note:** Please remember through the duration of this guide that the `secretcl
 
 Various modules outside of governance may implement their own proposal types and handlers (eg. parameter changes), where the governance module itself supports `Text` proposals. Any module outside of governance has it's command mounted on top of `submit-proposal`.
 
+## Submit-Proposal
+
+Proposals can be submitted using `secretcli tx gov submit-proposal`.
+
+Using `secretcli tx gov draft-proposal` can help prepare a proposal. The tool will create a file containing the specified proposal message and it also helps with populating all the required proposal fields. You can always edit the file after you create it using `draft-proposal`
+
+To submit a proposal:
+
+```
+secretdcli tx gov submit-proposal path/to/proposal.json
+
+Where proposal.json contains:
+
+{
+  // array of proto-JSON-encoded sdk.Msgs
+  "messages": [
+    {
+      "@type": "/cosmos.bank.v1beta1.MsgSend",
+      "from_address": "cosmos1...",
+      "to_address": "cosmos1...",
+      "amount":[{"denom": "stake","amount": "10"}]
+    }
+  ],
+  // metadata can be any of base64 encoded, raw text, stringified json, IPFS link to json
+  // see below for example metadata
+  "metadata": "4pIMOgIGx1vZGU=",
+  "deposit": "10stake",
+  "title": "My proposal",
+  "summary": "A short summary of my proposal",
+  "expedited": false
+}
+```
+
+metadata example:
+
+```
+{
+        "title": "",
+        "authors": [""],
+        "summary": "",
+        "details": "",
+        "proposal_forum_url": "",
+        "vote_option_context": "",
+}
+```
+
 ## Text <a href="#text" id="text"></a>
 
 To submit a `Text` proposal:
 
 ```
-secretcli tx gov submit-proposal \
+secretcli tx gov submit-legacy-proposal \
   --title <title> \
   --description <description> \
   --type Text \
@@ -27,7 +73,7 @@ You may also provide the proposal directly through the `--proposal` flag which p
 
 ```bash
 secretcli tx gov \
-    submit-proposal \
+    submit-legacy-proposal \
     --proposal <path/to/proposal.json> \
     --from <key_alias>
 ```
@@ -45,27 +91,65 @@ Where `proposal.json` is:
 
 ## Param Change <a href="#param-change" id="param-change"></a>
 
-To submit a parameter change proposal, you must provide a proposal file as its contents are less friendly to `secretcli` input:
+Most cosmos-sdk modules allow changing their governance gated parameters using a `MsgUpdateParams` which is a new way of updating governance parameters. It is important to note that `MsgUpdateParams` requires **all parameters to be specified** in the proposal message.
+
+We will use `draft-proposal` to help us create a proposal file that we will later submit.
 
 ```
-secretcli tx gov submit-proposal param-change <path/to/proposal.json> --from <key_alias>
+secretcli tx gov draft-proposal
+// running the command will start a terminal applet allowing you to choose the proposal type
+
+// 1st screen
+Use the arrow keys to navigate: ↓ ↑ → ←
+? Select proposal type:
+    text
+    community-pool-spend
+    software-upgrade
+    cancel-software-upgrade
+  ▸ other // choose this
+
+// 2nd screen
+✔ other
+Use the arrow keys to navigate: ↓ ↑ → ←
+? Select proposal message type::
+↑   /cosmos.staking.v1beta1.MsgUndelegate
+  ▸ /cosmos.staking.v1beta1.MsgUpdateParams // choose this option
+    /cosmos.staking.v1beta1.MsgValidatorBond
+    /cosmos.upgrade.v1beta1.MsgCancelUpgrade
+↓   /cosmos.upgrade.v1beta1.MsgSoftwareUpgrade
 ```
 
-Where `proposal.json` is:
+After choosing the `/cosmos.staking.v1beta1.MsgUpdateParams` message, the applet will allow you to set the message fields and some other proposal details. Upon completion, the proposal will be available in the directory where you called the `gaiad` command inside the `draft_proposal.json` file.
+
+Here is an example of the `draft_proposal.json` file:
 
 ```
 {
-  "title": "Param Change",
-  "description": "Update max validators with line breaks \n and `code formatting`",
-  "changes": [
-    {
-      "subspace": "Staking",
-      "key": "MaxValidators",
-      "value": 105
-    }
-  ],
-  "deposit": "10000000uscrt"
+ "messages": [
+  {
+   "@type": "/cosmos.staking.v1beta1.MsgUpdateParams",
+   "authority": "secret1...",
+   "params": {
+    "unbonding_time": "0s",
+    "max_validators": 0,
+    "max_entries": 0,
+    "historical_entries": 0,
+    "bond_denom": "",
+    "min_commission_rate": "0.000000000000000000"
+   }
+  }
+ ],
+ "metadata": "ipfs://CID",
+ "deposit": "",
+ "title": "Updating the staking params",
+ "summary": ""
 }
+```
+
+Finally, we submit the proposal:
+
+```
+secretcli tx gov submit-proposal <path_to_proposal.json>
 ```
 
 You can see another `param-change` example here: [enigma-1-proposal-3.json](https://github.com/scrtlabs/SecretNetwork/blob/4561c0904c7b7659f019b96147cde13ac8db0933/enigma-1-proposal-3.json)
@@ -123,7 +207,7 @@ You can see another `param-change` example here: [enigma-1-proposal-3.json](http
   * [See an example here](https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L19-L22)
 * The `value`'s type is usually near the `key` definition
   * [See an example here](https://github.com/cosmos/cosmos-sdk/blob/v0.38.1/x/distribution/types/params.go#L26-L31)
-* ⚠️ `subspace` and `key` are case sensitive and `value` must be of the correct type and within the allowed bounds.&#x20;
+* ⚠️ `subspace` and `key` are case sensitive and `value` must be of the correct type and within the allowed bounds.
   * Proposals with errors on these inputs should not enter voting period (should not get deposits) or be voted on with `NoWithVeto`.
 * ⚠️ Currently parameter changes are _evaluated_ but not _validated_, so it is very important that any `value` change is valid (i.e. correct type and within bounds) for its respective parameter, eg. `MaxValidators` should be an integer and not a decimal.
 * ⚠️ Proper vetting of a parameter change proposal should prevent this from happening (no deposits should occur during the governance process), but it should be noted regardless.
@@ -132,28 +216,53 @@ You can see another `param-change` example here: [enigma-1-proposal-3.json](http
 
 * `distribution.baseproposerreward + distribution.bonusproposerreward < 1`. See [this](https://github.com/scrtlabs/SecretNetwork/issues/95) and [this](https://github.com/cosmos/cosmos-sdk/issues/5808) for more info.
 
-To read more go to the [Cosmos Parameters Wiki](https://github.com/gavinly/CosmosParametersWiki).&#x20;
+To read more go to the [Cosmos Parameters Wiki](https://github.com/gavinly/CosmosParametersWiki).
 
 ## Community Pool Spend <a href="#community-pool-spend" id="community-pool-spend"></a>
 
 To submit a community pool spend proposal, you also must provide a proposal file as its contents are less friendly to `secretcli` input:
 
 ```
-secretcli tx gov submit-proposal community-pool-spend <path/to/proposal.json> --from <key_alias>
+secretcli tx gov submit-proposal <path/to/proposal.json> --from <key_alias>
 ```
 
-Where `proposal.json` is (make sure to change the recipient address to a real address when testing):
+We can create`proposal.json` using `tx gov draft-proposal`
 
-```json
-{
-  "title": "Community Pool Spend",
-  "description": "Spend 10 SCRT with line breaks \n and `code formatting`",
-  "recipient": "secret1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "amount": "100000000uscrt",
-  "deposit": "100000000uscrt"
-}
+```
+secretcli tx gov draft-proposal
+// running the command will start a terminal applet allowing you to choose the proposal type
+
+// 1st screen
+Use the arrow keys to navigate: ↓ ↑ → ←
+? Select proposal type:
+    text
+    community-pool-spend
+  > software-upgrade
+    cancel-software-upgrade
+    other
 ```
 
 ## Software Upgrade <a href="#software-upgrade" id="software-upgrade"></a>
 
-The `SoftwareUpgrade` is currently not supported as it's not implemented and currently does not differ from the semantics of a `Text` proposal.
+To submit a `software upgrade` proposal use:
+
+```
+secretcli tx gov submit-proposal <path/to/proposal.json> --from <key_alias>
+```
+
+We can create`proposal.json` using `tx gov draft-proposal`
+
+```
+secretcli tx gov draft-proposal
+// running the command will start a terminal applet allowing you to choose the proposal type
+
+// 1st screen
+Use the arrow keys to navigate: ↓ ↑ → ←
+? Select proposal type:
+    text
+    community-pool-spend
+  > software-upgrade
+    cancel-software-upgrade
+    other
+```
+
