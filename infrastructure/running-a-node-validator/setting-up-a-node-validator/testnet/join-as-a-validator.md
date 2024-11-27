@@ -47,17 +47,25 @@ Copy/paste the address to get some test-SCRT from [the faucet](https://faucet.pu
 (remember 1 SCRT = 1,000,000 uSCRT, and so the command below stakes 100 SCRT).
 
 ```bash
-secretd tx staking create-validator \
-  --amount=100000000uscrt \
-  --pubkey=$(secretd tendermint show-validator) \
-  --identity={KEYBASE_IDENTITY} \
-  --details="To infinity and beyond!" \
-  --commission-rate="0.10" \
-  --commission-max-rate="0.20" \
-  --commission-max-change-rate="0.01" \
-  --min-self-delegation="1" \
-  --moniker=<MONIKER> \
-  --from=<key-alias>
+secretd tx staking create-validator path/to/validator.json --from <key-alias>
+
+Where validator.json contains:
+
+{
+    "pubkey": {
+        <secretd tendermint show-validator>
+    },
+    "amount": "100000000uscrt",
+    "moniker": "<MONIKER>",
+    "identity": "optional identity signature (ex. UPort or Keybase)",
+    "website": "validator's optional website",
+    "security": "validator's optional security contact email",
+    "details": "To infinity and beyond!",
+    "commission-rate": "0.10",
+    "commission-max-rate": "0.20",
+    "commission-max-change-rate": "0.01",
+    "min-self-delegation": "1"
+}
 ```
 
 ***
@@ -67,7 +75,7 @@ secretd tx staking create-validator \
 You should see your moniker listed.
 
 ```bash
-secretd q staking validators | grep moniker
+secretd q staking validators | grep <MONIKER>
 ```
 
 ## Important CLI Commands for Validators <a href="#dangers-in-running-a-validator" id="dangers-in-running-a-validator"></a>
@@ -86,7 +94,7 @@ secretd tx staking delegate $(secretcli keys show <key-alias> --bech=val -a) <am
 
 ```bash
 secretd tx staking edit-validator \
-  --moniker "<new-moniker>" \
+  --new-moniker "<new-moniker>" \
   --website "https://scrt.network" \
   --identity 6A0D65E29A4CBC8E \
   --details "To infinity and beyond!" \
@@ -149,14 +157,6 @@ To retrieve a validator's signing info:
 
 ```bash
 secretd q slashing signing-info <validator-conspub-key>
-```
-
-**Query Parameters**
-
-You can get the current slashing parameters via:
-
-```bash
-secretd q slashing params
 ```
 
 **Query Parameters**
