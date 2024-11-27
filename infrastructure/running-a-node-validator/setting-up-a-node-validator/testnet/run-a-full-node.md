@@ -107,9 +107,9 @@ The following steps should use `secretd` be ran on the full node itself. To run 
 Configure `secretd`. Initially you'll be using the bootstrap node, as you'll need to connect to a running node and your own node is not running yet.
 
 ```bash
-secretd config chain-id pulsar-3
-secretd config node https://rpc.pulsar.scrttestnet.com
-secretd config output json
+secretd config set client chain-id pulsar-3
+secretd config set client node https://rpc.pulsar.scrttestnet.com
+secretd config set client output json
 ```
 
 ### **Fund Secret Wallet**

@@ -27,9 +27,9 @@ chmod +x secretcli
 ### Configure <a href="#setup-the-executable" id="setup-the-executable"></a>
 
 ```bash
-secretcli config chain-id secret-4
-secretcli config output json
-secretcli config node https://rpc.mainnet.secretsaturn.net
+secretcli config set client chain-id secret-4
+secretcli config set client output json
+secretcli config set client node https://rpc.mainnet.secretsaturn.net
 ```
 
 You can find alternate node endpoints in the [API registry](../../../../development/resources-api-contract-addresses/connecting-to-the-network/), or run your own [full node](../testnet/run-a-full-node.md)\\
