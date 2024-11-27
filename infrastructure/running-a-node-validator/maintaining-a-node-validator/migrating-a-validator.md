@@ -23,7 +23,7 @@ To check on the new full node if it finished catching-up:
 
 ```bash
 # on the new full node
-secretd status | jq .SyncInfo
+secretd status | jq .sync_info
 
 # expected output should be similar to:
 {
