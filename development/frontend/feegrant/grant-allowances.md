@@ -66,7 +66,6 @@ const gasPriceInFeeDenom = 0.5 //means: 0.5 uscrt/gas unit
           feeDenom: "uscrt",
           gasPriceInFeeDenom: gasPriceInFeeDenom,
           gasLimit: gasLimit,
-          broadcastMode: BroadcastMode.Block,
         },
     )
 </code></pre>

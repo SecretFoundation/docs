@@ -51,7 +51,7 @@ Notes:
 
 ## Keplr Wallet
 
-The recommended way of integrating Keplr is by using `window.keplr.getOfflineSignerOnlyAmino()`:
+The recommended way of integrating Keplr is by using `window.keplr.getOfflineSigner()`:
 
 ```ts
 import { SecretNetworkClient } from "secretjs";
@@ -61,7 +61,7 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 while (
   !window.keplr ||
   !window.getEnigmaUtils ||
-  !window.getOfflineSignerOnlyAmino
+  !window.getOfflineSigner
 ) {
   await sleep(50);
 }
@@ -70,7 +70,7 @@ const CHAIN_ID = "secret-4";
 
 await window.keplr.enable(CHAIN_ID);
 
-const keplrOfflineSigner = window.keplr.getOfflineSignerOnlyAmino(CHAIN_ID);
+const keplrOfflineSigner = window.keplr.getOfflineSigner(CHAIN_ID);
 const [{ address: myAddress }] = await keplrOfflineSigner.getAccounts();
 
 const url = "TODO get from https://github.com/scrtlabs/api-registry";
@@ -100,17 +100,17 @@ Links:
 * [**Official Keplr Website »**](https://www.keplr.app/)
 * [**Keplr API Docs »**](https://docs.keplr.app/api)
 
-[`SignerOnlyAmino` vs `Signer` vs `SignerAuto`](https://secretjs.scrt.network/#signeronlyamino-vs-signer-vs-signerauto)
+`Signer vs SignerAuto vs SignerOnlyAmino`
 
 TLDR:
 
-* [`getOfflineSignerOnlyAmino()`](https://secretjs.scrt.network/#windowkeplrgetofflinesigneronlyamino): The recommended way. Supports Ledger, has a nice UI.
-* [`getOfflineSigner()`](https://secretjs.scrt.network/#windowkeplrgetofflinesigner): No Ledger support, ugly UI, can send IBC **relayer** txs and submit IBC gov proposals.
-* [`getOfflineSignerAuto()`](https://secretjs.scrt.network/#windowkeplrgetofflinesignerauto): If Ledger alias for `getOfflineSignerOnlyAmino()`, otherwise alias for `getOfflineSigner()`.
+* [`getOfflineSigner()`](https://github.com/scrtlabs/secret.js/tree/v1.15.0-beta.0?tab=readme-ov-file#windowkeplrgetofflinesigner): The **recommended way**. Efficient, supports all transaction types except Ledger.
+* [`getOfflineSignerAuto()`](https://github.com/scrtlabs/secret.js/tree/v1.15.0-beta.0?tab=readme-ov-file#windowkeplrgetofflinesignerauto): Automatically selects the best signer based on the account type (Ledger or not).
+* [`getOfflineSignerOnlyAmino()`](https://github.com/scrtlabs/secret.js/tree/v1.15.0-beta.0?tab=readme-ov-file#windowkeplrgetofflinesigneronlyamino): The legacy way. Recommended only for Ledger users.
 
 [**`window.keplr.getOfflineSignerOnlyAmino()`**](https://secretjs.scrt.network/#windowkeplrgetofflinesigneronlyamino)
 
-Although this is the legacy way of signing transactions on cosmos-sdk, it's still the most recommended for connecting to Keplr due to Ledger support & better UI on Keplr.
+The **legacy and non-recommended way** of signing transactions on cosmos-sdk. Suitable only for Ledger users due to its limited transaction support and better UI.
 
 * 🟩 Looks good on Keplr
 * 🟩 Supports users signing with Ledger
@@ -125,13 +125,20 @@ Note that [ibc\_transfer/MsgTransfer](https://secretjs.scrt.network/classes/MsgT
 
 [**`window.keplr.getOfflineSigner()`**](https://secretjs.scrt.network/#windowkeplrgetofflinesigner)
 
-The new way of signing transactions on cosmos-sdk, it's more efficient but still doesn't have Ledger support, so it's most recommended for usage in apps that don't require signing transactions with Ledger.
+The **recommended way** of signing transactions on cosmos-sdk. Efficient and supports all transaction types except those requiring a Ledger.
 
 * 🟥 Looks bad on Keplr
 * 🟥 Doesn't support users signing with Ledger
 * 🟩 Supports signing transactions with all types of Msgs
 
 [**`window.keplr.getOfflineSignerAuto()`**](https://secretjs.scrt.network/#windowkeplrgetofflinesignerauto)
+
+Automatically chooses the best signing method based on the user's Keplr account:
+
+* For Ledger users, uses `window.keplr.getOfflineSignerOnlyAmino()`.
+* For non-Ledger users, uses `window.keplr.getOfflineSigner()`.
+* 🟩 Smart and adaptable
+* 🟩 Provides flexibility for both Ledger and non-Ledger accounts
 
 <figure><img src="https://secretjs.scrt.network/media/keplr-proto.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -164,7 +171,7 @@ Links:
 
 ## Leap Cosmos Wallet
 
-The recommended way of integrating Leap is by using `window.leap.getOfflineSignerOnlyAmino()`:
+The recommended way of integrating Leap is by using `window.leap.getOfflineSigner()`:
 
 ```ts
 import { SecretNetworkClient } from "secretjs";
@@ -183,7 +190,7 @@ const CHAIN_ID = "secret-4";
 
 await window.leap.enable(CHAIN_ID);
 
-const leapOfflineSigner = window.leap.getOfflineSignerOnlyAmino(CHAIN_ID);
+const leapOfflineSigner = window.leap.getOfflineSigner(CHAIN_ID);
 const [{ address: myAddress }] = await leapOfflineSigner.getAccounts();
 
 const url = "TODO get from https://github.com/scrtlabs/api-registry";

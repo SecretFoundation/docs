@@ -55,7 +55,7 @@ const {
     txSigLimit,
     txSizeCostPerByte,
   },
-} = await secretjs.query.auth.params();
+} = await secretjs.query.auth.params({});
 ```
 
 [**`secretjs.query.authz.grants()`**](https://secretjs.scrt.network/#secretjsqueryauthzgrants)
@@ -256,119 +256,119 @@ Deposits queries all deposits of a single proposal.
 
 TallyResult queries the tally of a proposal vote.
 
-[**`secretjs.query.ibc_channel.channel()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelchannel)
+[**`secretjs.query.ibc_channel.channel()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelchannel)
 
 Channel queries an IBC Channel.
 
-[**`secretjs.query.ibc_channel.channels()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelchannels)
+[**`secretjs.query.ibc_channel.channels()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelchannels)
 
 Channels queries all the IBC channels of a chain.
 
-[**`secretjs.query.ibc_channel.connectionChannels()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelconnectionchannels)
+[**`secretjs.query.ibc_channel.connectionChannels()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelconnectionchannels)
 
 ConnectionChannels queries all the channels associated with a connection end.
 
-[**`secretjs.query.ibc_channel.channelClientState()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelchannelclientstate)
+[**`secretjs.query.ibc_channel.channelClientState()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelchannelclientstate)
 
 ChannelClientState queries for the client state for the channel associated with the provided channel identifiers.
 
-[**`secretjs.query.ibc_channel.channelConsensusState()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelchannelconsensusstate)
+[**`secretjs.query.ibc_channel.channelConsensusState()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelchannelconsensusstate)
 
 ChannelConsensusState queries for the consensus state for the channel associated with the provided channel identifiers.
 
-[**`secretjs.query.ibc_channel.packetCommitment()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelpacketcommitment)
+[**`secretjs.query.ibc_channel.packetCommitment()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelpacketcommitment)
 
 PacketCommitment queries a stored packet commitment hash.
 
-[**`secretjs.query.ibc_channel.packetCommitments()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelpacketcommitments)
+[**`secretjs.query.ibc_channel.packetCommitments()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelpacketcommitments)
 
 PacketCommitments returns all the packet commitments hashes associated with a channel.
 
-[**`secretjs.query.ibc_channel.packetReceipt()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelpacketreceipt)
+[**`secretjs.query.ibc_channel.packetReceipt()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelpacketreceipt)
 
 PacketReceipt queries if a given packet sequence has been received on the queried chain
 
-[**`secretjs.query.ibc_channel.packetAcknowledgement()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelpacketacknowledgement)
+[**`secretjs.query.ibc_channel.packetAcknowledgement()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelpacketacknowledgement)
 
 PacketAcknowledgement queries a stored packet acknowledgement hash.
 
-[**`secretjs.query.ibc_channel.packetAcknowledgements()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelpacketacknowledgements)
+[**`secretjs.query.ibc_channel.packetAcknowledgements()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelpacketacknowledgements)
 
 PacketAcknowledgements returns all the packet acknowledgements associated with a channel.
 
-[**`secretjs.query.ibc_channel.unreceivedPackets()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelunreceivedpackets)
+[**`secretjs.query.ibc_channel.unreceivedPackets()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelunreceivedpackets)
 
 UnreceivedPackets returns all the unreceived IBC packets associated with a channel and sequences.
 
-[**`secretjs.query.ibc_channel.unreceivedAcks()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelunreceivedacks)
+[**`secretjs.query.ibc_channel.unreceivedAcks()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelunreceivedacks)
 
 UnreceivedAcks returns all the unreceived IBC acknowledgements associated with a channel and sequences.
 
-[**`secretjs.query.ibc_channel.nextSequenceReceive()`**](https://secretjs.scrt.network/#secretjsqueryibc\_channelnextsequencereceive)
+[**`secretjs.query.ibc_channel.nextSequenceReceive()`**](https://secretjs.scrt.network/#secretjsqueryibc_channelnextsequencereceive)
 
 NextSequenceReceive returns the next receive sequence for a given channel.
 
-[**`secretjs.query.ibc_client.clientState()`**](https://secretjs.scrt.network/#secretjsqueryibc\_clientclientstate)
+[**`secretjs.query.ibc_client.clientState()`**](https://secretjs.scrt.network/#secretjsqueryibc_clientclientstate)
 
 ClientState queries an IBC light client.
 
-[**`secretjs.query.ibc_client.clientStates()`**](https://secretjs.scrt.network/#secretjsqueryibc\_clientclientstates)
+[**`secretjs.query.ibc_client.clientStates()`**](https://secretjs.scrt.network/#secretjsqueryibc_clientclientstates)
 
 ClientStates queries all the IBC light clients of a chain.
 
-[**`secretjs.query.ibc_client.consensusState()`**](https://secretjs.scrt.network/#secretjsqueryibc\_clientconsensusstate)
+[**`secretjs.query.ibc_client.consensusState()`**](https://secretjs.scrt.network/#secretjsqueryibc_clientconsensusstate)
 
 ConsensusState queries a consensus state associated with a client state at a given height.
 
-[**`secretjs.query.ibc_client.consensusStates()`**](https://secretjs.scrt.network/#secretjsqueryibc\_clientconsensusstates)
+[**`secretjs.query.ibc_client.consensusStates()`**](https://secretjs.scrt.network/#secretjsqueryibc_clientconsensusstates)
 
 ConsensusStates queries all the consensus state associated with a given client.
 
-[**`secretjs.query.ibc_client.clientStatus()`**](https://secretjs.scrt.network/#secretjsqueryibc\_clientclientstatus)
+[**`secretjs.query.ibc_client.clientStatus()`**](https://secretjs.scrt.network/#secretjsqueryibc_clientclientstatus)
 
 Status queries the status of an IBC client.
 
-[**`secretjs.query.ibc_client.clientParams()`**](https://secretjs.scrt.network/#secretjsqueryibc\_clientclientparams)
+[**`secretjs.query.ibc_client.clientParams()`**](https://secretjs.scrt.network/#secretjsqueryibc_clientclientparams)
 
 ClientParams queries all parameters of the ibc client.
 
-[**`secretjs.query.ibc_client.upgradedClientState()`**](https://secretjs.scrt.network/#secretjsqueryibc\_clientupgradedclientstate)
+[**`secretjs.query.ibc_client.upgradedClientState()`**](https://secretjs.scrt.network/#secretjsqueryibc_clientupgradedclientstate)
 
 UpgradedClientState queries an Upgraded IBC light client.
 
-[**`secretjs.query.ibc_client.upgradedConsensusState()`**](https://secretjs.scrt.network/#secretjsqueryibc\_clientupgradedconsensusstate)
+[**`secretjs.query.ibc_client.upgradedConsensusState()`**](https://secretjs.scrt.network/#secretjsqueryibc_clientupgradedconsensusstate)
 
 UpgradedConsensusState queries an Upgraded IBC consensus state.
 
-[**`secretjs.query.ibc_connection.connection()`**](https://secretjs.scrt.network/#secretjsqueryibc\_connectionconnection)
+[**`secretjs.query.ibc_connection.connection()`**](https://secretjs.scrt.network/#secretjsqueryibc_connectionconnection)
 
 Connection queries an IBC connection end.
 
-[**`secretjs.query.ibc_connection.connections()`**](https://secretjs.scrt.network/#secretjsqueryibc\_connectionconnections)
+[**`secretjs.query.ibc_connection.connections()`**](https://secretjs.scrt.network/#secretjsqueryibc_connectionconnections)
 
 Connections queries all the IBC connections of a chain.
 
-[**`secretjs.query.ibc_connection.clientConnections()`**](https://secretjs.scrt.network/#secretjsqueryibc\_connectionclientconnections)
+[**`secretjs.query.ibc_connection.clientConnections()`**](https://secretjs.scrt.network/#secretjsqueryibc_connectionclientconnections)
 
 ClientConnections queries the connection paths associated with a client state.
 
-[**`secretjs.query.ibc_connection.connectionClientState()`**](https://secretjs.scrt.network/#secretjsqueryibc\_connectionconnectionclientstate)
+[**`secretjs.query.ibc_connection.connectionClientState()`**](https://secretjs.scrt.network/#secretjsqueryibc_connectionconnectionclientstate)
 
 ConnectionClientState queries the client state associated with the connection.
 
-[**`secretjs.query.ibc_connection.connectionConsensusState()`**](https://secretjs.scrt.network/#secretjsqueryibc\_connectionconnectionconsensusstate)
+[**`secretjs.query.ibc_connection.connectionConsensusState()`**](https://secretjs.scrt.network/#secretjsqueryibc_connectionconnectionconsensusstate)
 
 ConnectionConsensusState queries the consensus state associated with the connection.
 
-[**`secretjs.query.ibc_transfer.denomTrace()`**](https://secretjs.scrt.network/#secretjsqueryibc\_transferdenomtrace)
+[**`secretjs.query.ibc_transfer.denomTrace()`**](https://secretjs.scrt.network/#secretjsqueryibc_transferdenomtrace)
 
 DenomTrace queries a denomination trace information.
 
-[**`secretjs.query.ibc_transfer.denomTraces()`**](https://secretjs.scrt.network/#secretjsqueryibc\_transferdenomtraces)
+[**`secretjs.query.ibc_transfer.denomTraces()`**](https://secretjs.scrt.network/#secretjsqueryibc_transferdenomtraces)
 
 DenomTraces queries all denomination traces.
 
-[**`secretjs.query.ibc_transfer.params()`**](https://secretjs.scrt.network/#secretjsqueryibc\_transferparams)
+[**`secretjs.query.ibc_transfer.params()`**](https://secretjs.scrt.network/#secretjsqueryibc_transferparams)
 
 Params queries all parameters of the ibc-transfer module.
 

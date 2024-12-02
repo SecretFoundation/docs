@@ -563,15 +563,15 @@ const secretjsGrantee = new SecretNetworkClient({
 });
 
 // Send a tx from newWallet with secretjs.address as the fee payer
-cosnt txGrantee = await secretjsGrantee.tx.gov.submitProposal(
+const txGrantee = await secretjsGrantee.tx.gov.submitProposal(
   {
     proposer: secretjsGrantee.address,
-    type: ProposalType.TextProposal,
-    initial_deposit: [],
-    content: {
-      title: "Send a tx without any balance",
-      description: `Thanks ${secretjsGranter.address}!`,
-    },
+    initial_deposit: stringToCoins("1uscrt"),
+    messages: [],
+    metadata: "some_metadata",
+    summary: "Send a tx without any balance",
+    title: "Thanks ${secretjsGranter.address}!",
+    expedited: false,
   },
   {
     feeGranter: secretjsGranter.address,
@@ -632,16 +632,17 @@ Input: [MsgSubmitProposalParams](https://secretjs.scrt.network/interfaces/MsgSub
 ```ts
 const tx = await secretjs.tx.gov.submitProposal(
   {
-    type: ProposalType.TextProposal,
     proposer: myAddress,
-    initial_deposit: stringToCoins("100000000uscrt"),
-    content: {
-      title: "Hi",
-      description: "Let's vote on this",
+    initial_deposit: stringToCoins("1000000uscrt"),
+    messages: [],
+    metadata: "some_metadata",
+    summary: "summary",
+    title: "some proposal",
+    expedited: false,
     },
-  },
   {
-    gasLimit: 50_000,
+    broadcastCheckIntervalMs: 100,
+    gasLimit: 5_000_000,
   },
 );
 
@@ -693,9 +694,10 @@ const tx = await secretjs.tx.gov.voteWeighted(
     proposal_id: someProposalId,
     options: [
       // weights must sum to 1.0
-      { weight: 0.7, option: VoteOption.VOTE_OPTION_YES },
-      { weight: 0.3, option: VoteOption.VOTE_OPTION_ABSTAIN },
+      { weight: "0.7", option: VoteOption.VOTE_OPTION_YES },
+      { weight: "0.3", option: VoteOption.VOTE_OPTION_ABSTAIN },
     ],
+    metadata: "",
   },
   {
     gasLimit: 50_000,
