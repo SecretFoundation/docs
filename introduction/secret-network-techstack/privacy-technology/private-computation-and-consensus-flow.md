@@ -13,7 +13,7 @@ A Secret Contract’s code is **always deployed publicly on-chain**, so users an
 The encrypted data can **only be accessed from within the “trusted execution environment”**, or enclave, that the compute module requires each validator to run. The computation of the Secret Contract is then performed, within this trusted enclave, where the data is decrypted. When the computation is completed, the output is encrypted and recorded on-chain.
 
 {% hint style="info" %}
-Want to learn more about the encryption specification of the contract state? - Read the technical specification on Contract state encryption [here.](encryption-key-management/contract-state-encryption.md)
+Want to learn more about the encryption specification of the contract state? - Read the technical specification on Contract state encryption[ here.](https://docs.scrt.network/secret-network-documentation/introduction/secret-network-techstack/privacy-technology/encryption-key-management/contract-state-encryption)
 {% endhint %}
 
 ### The CosmWasm framework

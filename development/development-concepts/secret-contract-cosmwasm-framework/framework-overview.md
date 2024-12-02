@@ -13,12 +13,12 @@ Smart contracts on Secret Network follow the widely used [CosmWasm](https://book
 Secret Contracts slightly differ from any standard CosmWasm implementation as they handle encrypted data, secure enclaves, and the key design around that. Secret currently emulates CosmWasm v1.1.9 and is completely compatible over IBC with other V1.0+ Cosmos Smart contract networks.&#x20;
 
 {% hint style="info" %}
-Want to learn about how Secret handles the Contract-state encryption and other details that relate to how CosmWasm works on Secret? -- Read the implementation documentation [here!](../../../introduction/secret-network-techstack/privacy-technology/private-computation-and-consensus-flow.md)
+Want to learn about how Secret handles the Contract-state encryption and other details that relate to how CosmWasm works on Secret? -- Read the implementation documentation [here](https://docs.scrt.network/secret-network-documentation/introduction/secret-network-techstack/privacy-technology/encryption-key-management/contract-state-encryption)!
 {% endhint %}
 
 ### The components of a CosmWasm contract
 
-A Secret contract has 4 different components as listed below each serving a different function. A deeper overview of the implementation of these 4 components/files is given in the [**Contract-components section.**](contract-components/)
+A Secret contract has 4 different components as listed below each serving a different function. A deeper overview of the implementation of these 4 components/files is given in the **Contract-components section.**
 
 * [Instantiate](contract-components/init.md) - the logic that is ran once on initialization of the contract. This will usually be the initial conditions and configuration of the contract.
 * [Execute](contract-components/handles.md) - this is where the _transactional_ logic resides. These are functions that modify contract data

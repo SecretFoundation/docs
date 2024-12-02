@@ -11,7 +11,6 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 * [Wallets](./#wallets)
 * [User Guides](./#user-guides)
 * [Development Concepts](../../development/development-concepts/)
-* [Developer Guides](broken-reference)
 * [Developer Tools](../../development/example-contracts/tools-and-libraries/)
 * [Reference Contracts](../../development/example-contracts/community-tutorials.md)
 
@@ -62,7 +61,7 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
   * By validator [Secure Secrets](https://www.securesecrets.org)
 * [Travis Bonfigli Youtube](https://www.youtube.com/playlist?list=PL6Tc4k6dl9kK4gmFDdMXVwTiXuS-COgV8)
   * Has a series on Secret Network
-* [Secret Code Podcast YouTube - Tutorial Playlist](https://www.youtube.com/watch?v=C0zRTaV8XgI\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4\_Uwwdg)
+* [Secret Code Podcast YouTube - Tutorial Playlist](https://www.youtube.com/watch?v=C0zRTaV8XgI\&list=PLxrw7YCKLEXvPNUJ1SFoHQUUQa4_Uwwdg)
   * By validator [Secret Code Podcast Node](http://secretcodepodcast.com)
 * [Rebel Defi](https://www.youtube.com/c/RebelDefi)
   * Videos on Defi and NFTs in the Cosmos ecosystem
@@ -73,7 +72,7 @@ The ecosystem is always evolving so feel free to suggest changes as discussions,
 
 * [Secret Code](https://www.secretcodepodcast.com/)
   * Hosted by [Eric Waisanen](https://twitter.com/EricWaisanen) and [Paul Menexas](https://twitter.com/SecretKnight) ([Twitter](https://twitter.com/secretcodepod))
-* [Agents of the Round Table](https://linktr.ee/scrt\_aotrt)
-  * Hosted by the [Secret agent community](https://twitter.com/Secret\_AOTRT) and the [Secret Agency](https://mobile.twitter.com/SCRT\_Agency)
+* [Agents of the Round Table](https://linktr.ee/scrt_aotrt)
+  * Hosted by the [Secret agent community](https://twitter.com/Secret_AOTRT) and the [Secret Agency](https://mobile.twitter.com/SCRT_Agency)
 * [House of Shade](https://www.youtube.com/channel/UCCK9tPCUf7HNFgg7P1lJd3Q)
-  * Hosted by the [House of shade team](https://twitter.com/House\_of\_Shade)
+  * Hosted by the [House of shade team](https://twitter.com/House_of_Shade)
