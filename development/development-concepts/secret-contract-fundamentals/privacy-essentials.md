@@ -18,8 +18,6 @@ All outputs would appear to be random and unpredictable, with no discernible pat
 
 ### Understanding The Risks
 
-> **Most of the items below are covered in greater detail here:** [**Potential Attacks.**](broken-reference)
-
 In reality, there are many forms of contextual data that an attacker can use to infer information, de-anonymize users, or compromise the privacy of applications purely through analysis:
 
 * transaction sender's address, their public transaction history, the timing and frequency of their transactions, and their relation to other accounts on the network

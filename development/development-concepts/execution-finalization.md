@@ -1,6 +1,6 @@
 # Execution Finalization
 
-A new feature in Secret Network v1.9 is Execution Finalization**.**&#x20;
+A new feature in Secret Network v1.9 is Execution Finalizatio&#x6E;**.**&#x20;
 
 Execution Finalization is a concept where the contract notifies the chain that the current execution must be the last massage in a single transaction. Or, in other words, the last part of an execution unit. This will cause the chain to revert the transaction if any action is taken after this flag is set.
 

@@ -25,7 +25,7 @@ Secret Network has strict Hardware Requirements. If your machine does not meet t
 This guide assumes you've already installed the latest version of secretd and SGX. To setup an archive node, you must follow the [Archive Nodes](../../sentry-archive-and-ibc-node-setup/archive-nodes.md) instructions.
 {% endhint %}
 
-For more information on SGX, see instructions for [SGX Installation](broken-reference) and [Verifying SGX](../../../node-runners/testnet/broken-reference/). See [Node Registration Information](../../../node-runners/testnet/broken-reference/) if you'd like a more comprehensive overview on what's happening in these steps.
+For more information on SGX, see instructions for [SGX Installation](https://docs.scrt.network/secret-network-documentation/infrastructure/running-a-node-validator/setting-up-a-node-validator/testnet/install-sgx-1) and [Verifying SGX](../../../node-runners/testnet/broken-reference/). See [Node Registration Information](../../../node-runners/testnet/broken-reference/) if you'd like a more comprehensive overview on what's happening in these steps.
 
 ### **Initialize Secret Network Configs**
 

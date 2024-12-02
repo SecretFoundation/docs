@@ -22,7 +22,7 @@ Secret Network has strict Hardware Requirements, see [hardware-compliance.md](..
 This guide assumes you've already installed the latest version of secretd and SGX.
 {% endhint %}
 
-For more information on how to install SGX, see instructions for [Broken link](broken-reference "mention").
+For more information on how to install SGX, see instructions [here](https://docs.scrt.network/secret-network-documentation/infrastructure/running-a-node-validator/setting-up-a-node-validator/node-setup/install-sgx-1).&#x20;
 
 If you need help with installing secretd, please take a look at [install-secretd.md](../testnet/install-secretd.md "mention").
 
