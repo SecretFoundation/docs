@@ -7,10 +7,12 @@ description: >-
 # Confidential Voting
 
 {% hint style="danger" %}
-_**In progress - 12/3/24**_
+_**In progress - 12/4/24**_
 {% endhint %}
 
 ### Overview <a href="#overview" id="overview"></a>
+
+<figure><img src="../../../.gitbook/assets/voting header.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Clone the repo:
 
@@ -45,4 +47,96 @@ Start the application:
 
 ```bash
 npm run dev
+```
+
+### Understanding the contract
+
+**Execution Messages**
+
+To encrypt proposals and votes using the CCL SDK, use the `enum` called `InnerMethods`, which wraps the possible actions in the voting smart contract, namely, `CreateProposal` and `Vote,` with the CCL SDK encryption logic:
+
+```rust
+#[cw_serde]
+pub enum InnerMethods {
+    CreateProposal {
+        name: String,
+        description: String,
+        end_time: Uint64
+    },
+
+    Vote {
+        proposal_id: Uint64,
+        vote: VoteOption
+    },
+}
+
+pub type ExecuteMsg   =   GatewayExecuteMsg<InnerMethods>;
+```
+
+Which translates to:
+
+```rust
+#[cw_serde]
+pub enum ExecuteMsg {
+
+    Encrypted {
+        payload             :   Binary,
+        payload_signature   :   Binary,
+        payload_hash        :   Binary,
+        user_key            :   Binary,
+        nonce               :   Binary,
+    }
+
+    ResetEncryptionKey  { },
+
+    Extension {
+        msg: {
+            CreateProposal { ... }   /   Vote { ... },   
+        }
+    }
+}
+```
+
+**Query Messages**
+
+To query encrypted votes using the CCL SDK, use the `enum` called `InnerQueries`, which wraps the possible queries in the voting smart contract, namely, `MyVote`, with the CCL SDK encryption logic:
+
+```rust
+#[cw_serde]
+pub enum ExtendedQueries {
+    Proposals {},
+    Proposal { proposal_id: u64 },
+    AllVotes { proposal_id: u64 },
+}
+
+#[cw_serde]
+pub enum InnerQueries {
+    MyVote { proposal_id: u64 },
+}
+
+pub type QueryMsg   =   GatewayQueryMsg<InnerQueries, sdk::CosmosAuthData, ExtendedQueries>;
+```
+
+Which translates to:
+
+```rust
+#[cw_serde]
+pub enum QueryMsg {
+    EncryptionKey  {},
+
+    WithAuthData {
+        auth_data    :   sdk::CosmosAuthData,
+        query        :   { MyVote { proposal_id: u64 } }
+    },
+
+    WithPermit {
+        permit       :   secret_toolkit::permit::Permit,
+        hrp          :   Option<String>,
+        query        :   { MyVote { proposal_id: u64 } }
+    },
+
+    Extension {
+        query        :  { Proposals {}  /  Proposal { proposal_id: u64 }  /  AllVotes { proposal_id: u64 }  }
+    }
+}
 ```
