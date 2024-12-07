@@ -6,10 +6,6 @@ description: >-
 
 # Confidential Voting
 
-{% hint style="danger" %}
-_**In progress 12.5.24**_
-{% endhint %}
-
 ## Overview <a href="#overview" id="overview"></a>
 
 This tutorial explains how to upload a confidential voting contract on Secret Network, which you can execute and query for private voting on any IBC-connected chain. 🚀 In this example,  **you will learn how to deploy a confidential voting contract on Secret Network which you will execute from Osmosis mainnet**.&#x20;
@@ -44,9 +40,9 @@ git clone https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-dem
 cd next-frontend && npm install
 ```
 
-Add environment variables in cosmos-ccl-encrypted-payloads-demo/next-frontend:&#x20;
+Add [environment variables](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/main/next-frontend/.env) in `cosmos-ccl-encrypted-payloads-demo/next-frontend`:&#x20;
 
-```
+```bash
 NEXT_PUBLIC_SECRET_CHAIN_ENDPOINT="https://lcd.mainnet.secretsaturn.net"
 NEXT_PUBLIC_SECRET_CHAIN_ID="secret-4"
 NEXT_PUBLIC_CONSUMER_CHAIN_ID="osmosis-1"
@@ -58,13 +54,13 @@ Start the application:
 npm run dev
 ```
 
-Now that you have the application running in your browser, let's dive into the code to&#x20;
+The fullstack Next.js application should now be running in your browser! You can use it to create confidential votes and proposals. Now that you have the application running in your browser, let's dive into the smart contract logic!&#x20;
 
 ## Understanding the contract
 
-**Execution Messages**
+### **Execution Messages**
 
-To encrypt proposals and votes using the CCL SDK, use the `enum` called [`InnerMethods`](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/deploy-scripts/contracts/secret-voting/src/msg.rs#L13), which wraps the possible actions in the voting smart contract, namely, [`CreateProposal`](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/deploy-scripts/contracts/secret-voting/src/contract.rs#L69) and [`Vote`](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/deploy-scripts/contracts/secret-voting/src/contract.rs#L97), with the CCL SDK encryption logic:
+To encrypt proposals and votes using the SDK, we use the `enum` called [`InnerMethods`](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/deploy-scripts/contracts/secret-voting/src/msg.rs#L13), which wraps the possible actions in the voting smart contract, namely, [`CreateProposal`](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/deploy-scripts/contracts/secret-voting/src/contract.rs#L69) and [`Vote`](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/deploy-scripts/contracts/secret-voting/src/contract.rs#L97), with the  SDK encryption logic:
 
 ```rust
 #[cw_serde]
@@ -108,7 +104,110 @@ pub enum ExecuteMsg {
 }
 ```
 
-**Query Messages**
+**Understanding the Encryption SDK**
+
+The magic of Secret Network's encryption SDK happens [here](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/deploy-scripts/contracts/secret-voting/src/contract.rs#L49C5-L54C8), with `handle_encrypted_wrapper:`&#x20;
+
+```rust
+let (
+        msg, 
+        info
+    ) = sdk::handle_encrypted_wrapper(
+        deps.api, deps.storage, info, msg
+    )?;
+```
+
+The `Extension` variant in`ExecuteMsg` leverages the functionality of `handle_encrypted_wrapper` because the wrapper decrypts and verifies the entire message payload before the `Extension` message is processed. Here’s how it works:
+
+1. **`handle_encrypted_wrapper` Applies to the Entire Input:**
+   * When the `execute` function is called, the `msg` and `info` parameters are initially encrypted.
+   *   `handle_encrypted_wrapper` is invoked with these parameters:
+
+       ```rust
+        let (msg, info) = sdk::handle_encrypted_wrapper(deps.api, deps.storage, info, msg)?;
+       ```
+   * This function decrypts and verifies the wrapper (encrypted payload) to produce:
+     * A decrypted `msg` (of type `ExecuteMsg`).
+     * A decrypted `info` (with verified sender details).
+2. **Decrypted `msg` Can Contain `ExecuteMsg::Extension`:**
+   * After decryption, the `msg` can match any variant of `ExecuteMsg`, including `ExecuteMsg::Extension`.
+   *   For example:
+
+       ```rust
+       ExecuteMsg::Extension { msg } => {
+           match msg {
+               InnerMethods::CreateProposal { name, description, end_time } => { /* logic */ },
+               InnerMethods::Vote { proposal_id, vote } => { /* logic */ },
+           }
+       },
+       ```
+   * Here, `Extension` contains an additional layer of messages (`InnerMethods`) which define specific functionality.
+3. **How `handle_encrypted_wrapper` Affects `Extension`:**
+   * The `msg` inside `ExecuteMsg::Extension` (i.e., `InnerMethods`) is also encrypted in the original input.
+   * `handle_encrypted_wrapper` ensures:
+     * The outer `msg` is decrypted (revealing `Extension`).
+     * The inner data (e.g., `InnerMethods`) is now in cleartext and ready for logical execution.
+   * Without this decryption, the contract could not access or process `InnerMethods` within the `Extension`.
+4. **Validation and Security:**
+   * By verifying and decrypting the entire payload at the wrapper level, the contract ensures:
+     * The `Extension` message is authentic and unaltered.
+     * The sender (`info`) is authenticated and valid.
+     * Any operations within `InnerMethods` (like creating proposals or voting) are authorized based on the decrypted `info` and secure data.
+
+### **Frontend Encryption Logic**&#x20;
+
+Now that you understand how the encryption SDK functions, let's look how it's connected to the frontend. The Next.js encryption logic can be found in [Gateway.ts](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/main/next-frontend/src/functions/Gateway.ts):
+
+[Create Proposal](confidential-voting.md#overview):&#x20;
+
+```rust
+  const create_proposal = async (name: string, description: string, end_time: string = "60") => {
+    const contract = contractConfig.votes;
+    const msg = { create_proposal: { name, description, end_time } }
+    return await execute_gateway_contract(contract, msg);
+  }
+```
+
+[Vote on Proposal](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/next-frontend/src/functions/Gateway.ts#L71):&#x20;
+
+```rust
+ const vote_proposal = async (proposal_id: string, vote: string) => {
+    const contract = contractConfig.votes;
+    const msg = { vote: { proposal_id, vote } }
+    return await execute_gateway_contract(contract, msg);
+  }
+```
+
+Both of these functions access a confidential voting `contract` we have previously deployed on Secret Network contract.&#x20;
+
+Then, we call the `execute_gateway_contract` function, which is where all of the cross-chain SDK logic is implemented using IBC hooks:&#x20;
+
+```rust
+const execute_gateway_contract = async (contract: Contract, msg: object) => {
+    const ibcConfig = loadIbcConfig(chainId);
+    const keplrOfflineSigner = (window as any).getOfflineSigner(chainId);
+
+    const response = await sendIBCToken(
+      cosmosjs!,
+      keplrAddress!,
+      contract.address,
+      token!,
+      "1",
+      ibcConfig.consumer_channel_id,
+      await gatewayChachaHookMemo(
+        keplrOfflineSigner,
+        { extension: { msg } },
+        chainId!,
+        contract,
+      )
+    );
+    return response;
+  };
+```
+
+You can further examine `sendIBCToken` and `gatewayChachaHookMemo` in the CCL-SDK `ibc.ts` file [here](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/main/next-frontend/src/ccl-sdk/ibc.ts).&#x20;
+
+### **Query Messages**
 
 To query encrypted votes using the CCL SDK, use the `enum` called [`InnerQueries`](https://github.com/writersblockchain/cosmos-ccl-encrypted-payloads-demo/blob/1aa91625546547960fd9556e17f14f31d99d726f/deploy-scripts/contracts/secret-voting/src/msg.rs#L35), which wraps the possible queries in the voting smart contract, namely, `MyVote`, with the CCL SDK encryption logic:
 
@@ -192,4 +291,8 @@ In your terminal, a `codeID`, `codeHash`, and `contractAddress` will be returned
 "address": "secret1q0mycclu927u5m0tn50zgl5af4utrlkzz706lm"
 ```
 
-## To Be Continued...
+## Conclusion
+
+{% hint style="danger" %}
+_**In progress 12.6.24**_
+{% endhint %}
