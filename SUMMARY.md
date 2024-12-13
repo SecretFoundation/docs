@@ -157,6 +157,7 @@
       * [Functions, Methods, and Data Structures](confidential-computing-layer/ibc/basics/cross-chain-messaging-with-ibc-hooks/functions-methods-and-data-structures.md)
       * [Typescript SDK](confidential-computing-layer/ibc/basics/cross-chain-messaging-with-ibc-hooks/typescript-sdk.md)
       * [IBC-Hooks](confidential-computing-layer/ibc/basics/ibc-hooks/README.md)
+    * [IBC Relaying with Go Relayer](confidential-computing-layer/ibc/basics/ibc-relaying-with-go-relayer.md)
   * [Usecases](confidential-computing-layer/ibc/usecases/README.md)
     * [Storing Encrypted Data on Secret Network](confidential-computing-layer/ibc/usecases/storing-encrypted-data-on-secret-network/README.md)
       * [Key-Value store Developer Tutorial](confidential-computing-layer/ibc/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial.md)
