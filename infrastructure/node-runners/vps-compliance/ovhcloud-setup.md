@@ -7,7 +7,6 @@ Currently, it is advised to exercise caution when considering OVHCloud servers, 
 
 Please contact the node support in case you got more questions:&#x20;
 
-* You can find help in Telegram [here](https://t.me/SCRTNodeSupport)
 * Visit the Secret Network Discord [here](https://discord.com/invite/SJK32GY) and ask in #node-discussion or #node-support for help
 {% endhint %}
 
