@@ -18,13 +18,13 @@ A Ledger device is a hardware wallet that is considered one of the most secure w
 
 **5.** Have the latest version of our latest binaries installed in case you use Secret CLI. You can get it [here](https://github.com/scrtlabs/SecretNetwork/releases/latest).
 
-### Install Cosmos (or Secret) Ledger App
+### Install Cosmos or Secret Ledger App
 
 **1.** Open Ledger Live.
 
 ![Ledger Live](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/LedgerLiveScreen.png)
 
-**2.** Now go to Manager and search "Cosmos" or "secret":
+**2.** Now go to Manager and search "Cosmos" or "Secret":
 > Note : The Secret ledger app may not always be available in search. Try turning on "Experimental". Otherwise using the "Cosmos" app is considered stable.
 
 ![Secret Ledger App](https://raw.githubusercontent.com/SecretSaturn/docs/Old\_main\_backup/docs/guides/InstallSecret.png)
