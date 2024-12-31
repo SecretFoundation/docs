@@ -11,7 +11,6 @@ This section covers the hardware setup, as well as setting up a node for mainnet
 {% hint style="info" %}
 [Got questions or need help with setting up? ](#user-content-fn-1)[^1]
 
-* You can find help in Telegram [here](https://t.me/SCRTNodeSupport)
 * Visit the Secret Network Discord [here](https://discord.com/invite/SJK32GY) and ask in #node-discussion or #node-support for help
 {% endhint %}
 
