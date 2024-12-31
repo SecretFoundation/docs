@@ -11,5 +11,5 @@ A permit is a formatted message, it outlines several arguments such as what toke
 Users can sign permits with their account’s private key to give certain dApps or parties viewing access to specific parts of their private data for a specified amount of time. To get viewing access a user sends a query, with the signed permit as an argument, to a smart contract. Once received, the smart contract, using the user’s public key, can validate the identity based on the signature the user provided. If the user’s identity is confirmed, the smart contract returns the data as requested.
 
 {% hint style="info" %}
-For more information on Permits check out the [permissioned viewing](permits.md) section under development or the SNIP-24 specification
+For more information on Permits check out the [permissioned viewing section](https://docs.scrt.network/secret-network-documentation/development/development-concepts/permissioned-viewing/certs-viewing-permits) under development or the [SNIP-24 specification](https://github.com/SecretFoundation/SNIPs/blob/master/SNIP-24.md).
 {% endhint %}
