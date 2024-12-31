@@ -3,7 +3,6 @@
 {% hint style="info" %}
 [Got questions or need help with ](#user-content-fn-1)[^1]using state-sync properly?
 
-* You can find help in Telegram [here](https://t.me/SCRTNodeSupport)
 * Visit the Secret Network Discord [here](https://discord.com/invite/SJK32GY) and ask in #node-discussion or #node-support for help
 {% endhint %}
 
