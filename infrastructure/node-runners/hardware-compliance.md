@@ -31,7 +31,9 @@ The following are confirmed compliant Intel CPUs:
 |       |                   | `E-2334G`         |
 |       |                   | `E-2386G`         |
 |       |                   | `E-2388G`         |
-|       | XEON Gold-Series  | \*NOT SUPPORTED\* |
+|       | XEON 3rd Gen Scalable | `Supported w caveat` |
+|       | XEON 4th Gen Scalable | `Supported` |
+|       | XEON 5th Gen Scalable | `Supported` |
 | AMD   | \*NOT SUPPORTED\* |                   |
 
 {% hint style="warning" %}
