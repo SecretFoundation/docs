@@ -17,7 +17,7 @@ Before you begin, make sure you have the following installed on your system:
 1.  **Clone the SecretPath Repository**
 
     ```bash
-    git clone -b Solana https://github.com/SecretSaturn/SecretPath.git
+    git clone https://github.com/SecretSaturn/SecretPath.git
     ```
 2.  **Navigate to the Public Gateway Directory**
 
@@ -105,7 +105,7 @@ Upon successful deployment, you will see two contract addresses:
 ### **Navigate to the Relayer Directory**
 
 ```bash
-cd ../../TNLS-RELAYERS
+cd ../../TNLS-Relayers
 ```
 
 ### **Open `config.yml` for Editing**
@@ -116,7 +116,7 @@ nano config.yml
 
 ### **Add the Following Configuration**
 
-Replace `<YOUR_GATEWAY_ADDRESS>` with the Gateway Address obtained from the deployment step.
+Replace the value of `contract_address` shown below with your Gateway Address obtained from the deployment step.
 
 ```yaml
 "11155111": #Ethereum Sepolia
