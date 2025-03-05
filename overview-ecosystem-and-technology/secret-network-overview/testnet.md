@@ -8,7 +8,7 @@ In this step-by-step guide I’ll show you how to connect to a testnet with Kepl
 
 ## **Set Up With Keplr**
 
-The easy way to use a testnet is via the Keplr wallet browser extension, you can install it and set it up by following [this guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet) or [this video](https://www.youtube.com/watch?v=dsaRBsX5Nic\&ab\_channel=SecretNetwork).&#x20;
+The easy way to use a testnet is via the Keplr wallet browser extension, you can install it and set it up by following [this guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet) or [this video](https://www.youtube.com/watch?v=dsaRBsX5Nic\&ab_channel=SecretNetwork).&#x20;
 
 {% embed url="https://www.youtube.com/watch?ab_channel=SecretNetwork&v=dsaRBsX5Nic" %}
 
@@ -18,18 +18,11 @@ For safety reasons we recommend using a separate secondary wallet for testing pu
 
 Once you have saved your mnemonic phrase you can connect to the pulsar-3 chain.&#x20;
 
-* Go to [https://keplr-connect-pulsar3.vercel.app](https://keplr-connect-pulsar3.vercel.app) and click on the Keplr button
+* Go to [https://add-network-to-keplr.vercel.app/](https://add-network-to-keplr.vercel.app/) and add Secret Network testnet
 * Click “**approve**” once the Keplr window pops up to add the chain config
-
-![](<../../.gitbook/assets/add\_keplr (1).png>)
-
-And again to connect the website, and allow it to view your balances etc
-
-![](../../.gitbook/assets/connect\_keplr.png)
-
 * Now you should be able to see the Secret Testnet network on Keplr wallet by selecting it from the drop down menu. (verify that your Secret mainnet and testnet addresses coincide and start with “secret”)
 
-![](../../.gitbook/assets/keplr\_testnet.png)
+![](../../.gitbook/assets/keplr_testnet.png)
 
 You have now successfully added the Secret Testnet to your wallet and you’re ready to get your first tokens and experiment!
 
@@ -37,19 +30,18 @@ You have now successfully added the Secret Testnet to your wallet and you’re r
 
 The fastest and easiest way to get some test SCRT into your wallet is to use faucets which are tools that distribute a standard amount of tokens to a specific address.
 
-Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.
+Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.\
 
-* Go to [https://faucet.pulsar.scrttestnet.com/](https://faucet.pulsar.scrttestnet.com/)
-* Paste your address in the text box, verify the captcha and click on “**Send me tokens**”\
-  ![](<../../.gitbook/assets/testnetguide\_3 (1).png>)
 
-In a matter of seconds you should be able to see 100 test SCRT on your Keplr balance.
+Use the Pulsar-3 faucet [here](https://pulsar-3-faucet.vercel.app/)!
+
+In a matter of seconds you should be able to see 10 test SCRT on your Keplr balance.
 
 ## **Set Up SecretCLI**
 
 To have access to all the testnet functionalities and to develop you can connect using **SecretCLI**, a desktop client tool to interact with the blockchain from the console.
 
-* Install and configure SecretCLI by following this [tutorial](https://www.youtube.com/watch?v=m64c\_3fui3o\&ab\_channel=SecretNetwork)
+* Install and configure SecretCLI by following this [tutorial](https://www.youtube.com/watch?v=m64c_3fui3o\&ab_channel=SecretNetwork)
 *   Open your terminal and run the following commands to connect to pulsar-3 and add your wallet:
 
     ```
