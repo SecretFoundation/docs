@@ -7,7 +7,7 @@ The upgrade should proceed according to the following steps:
 
 1. Create a software-upgrade proposal (as usual). Vote for it, and wait till the upgrade height is reached.
 2. Install the new node version (v1.17)
-   - **Important**: do't start the new node yet.
+   - **Important**: don't start the new node yet.
 3. Run the migration command:
    - `secretd migrate_op 4`
    - This should import the legacy data (several files with `.sealed` extension, sealed with _mrsigner_)
