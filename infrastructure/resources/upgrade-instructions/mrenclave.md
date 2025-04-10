@@ -1,12 +1,12 @@
-The following is a general guide for upgrading the Secret Network starting from version **1.17**, where we finally switch to _mrenclave_ sealing.
+The following is a general guide for upgrading the Secret Network starting from version **1.18**, where we finally switch to _mrenclave_ sealing.
 
-# v1.17
+# v1.18
 
 This is the first scheduled version to use _mrenclave_ sealing. As part of the upgrade process, the legacy (i.e. files sealed with _mrsigner_) should be imported.
 The upgrade should proceed according to the following steps:
 
 1. Create a software-upgrade proposal (as usual). Vote for it, and wait till the upgrade height is reached.
-2. Install the new node version (v1.17)
+2. Install the new node version (v1.18)
    - **Important**: don't start the new node yet.
 3. Run the migration command:
    - `secretd migrate_op 4`
