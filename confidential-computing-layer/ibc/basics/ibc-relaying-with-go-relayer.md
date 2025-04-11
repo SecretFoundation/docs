@@ -28,6 +28,19 @@ Clone the [Go relayer repository](https://github.com/cosmos/relayer):
 git clone https://github.com/cosmos/relayer.git
 ```
 
+Install Go:
+
+```bash
+brew install go
+```
+
+Set Go path:
+
+```bash
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+```
+
 Build the Go relayer:
 
 ```bash
@@ -108,15 +121,21 @@ rly keys add neutrontestnet neutron-test #this is the name of your key
 Query your key balances:&#x20;
 
 ```bash
-rly query balance secretnetworktestnet
-rly query balance neutrontestnet
+rly query balance secretnetworktestnet secret-test
+rly query balance neutrontestnet neutron-test
 ```
 
 {% hint style="info" %}
-You can fund your Secret Network testnet wallet [here](https://faucet.pulsar.scrttestnet.com/) and your Neutron testnet wallet [here](https://t.me/+SyhWrlnwfCw2NGM6) :tada:
+You can fund your Secret Network testnet wallet [here](https://pulsar-3-faucet.vercel.app/) and your Neutron testnet wallet [here](https://t.me/+SyhWrlnwfCw2NGM6) :tada:
 {% endhint %}
 
-Then, dit the relayer's `key` values in the config file to match the `key-name`s chosen above. The configuration data is added to the config file, stored at `$HOME/.relayer/config/config.yaml:`
+Then, edit the relayer's `key` values in the config file to match the `key-name`s chosen above.&#x20;
+
+The configuration data is added to the config file, stored at `$HOME/.relayer/config/config.yaml:`
+
+{% hint style="info" %}
+You can unveil hidden folders on mac (ie `./relayer)` with keyboard shortcut : `Command + Shift + .`
+{% endhint %}
 
 ```yaml
 chains:
@@ -134,18 +153,12 @@ chains:
             key-directory: /Users/yourname/.relayer/keys/pulsar-3
             key: secret-test
             chain-id: pulsar-3
-            rpc-addr: https://rpc.pulsar.scrttestnet.com:443
+            rpc-addr: https://pulsar.rpc.secretnodes.com:443
 ```
 
 ### Configure path metadata in the config file
 
 You configured the _chain_ metadata, now you need _path_ metadata.
-
-There is one easy command to get this path information - from the [interchain folder](https://github.com/cosmos/relayer/tree/2.0.x/interchain) in the Go relayer repository:
-
-```bash
-rly paths fetch
-```
 
 Update your config file like so to use a configuration path that has been tested in production:
 
@@ -193,9 +206,9 @@ chains:
             key-directory: /Users/<your-user-name>/.relayer/keys/pulsar-3
             key: secret-test
             chain-id: pulsar-3
-            rpc-addr: https://rpc.pulsar.scrttestnet.com:443
+            rpc-addr: https://pulsar.rpc.secretnodes.com:443
             backup-rpc-addrs:
-                - https://rpc.testnet.secretsaturn.net:443
+                - https://pulsar.rpc.secretnodes.com:443
             account-prefix: secret
             keyring-backend: test
             dynamic-gas-price: false
@@ -215,34 +228,12 @@ chains:
             min-loop-duration: 0s
             extension-options: []
             feegrants: null
-paths:
-    my_demo_path:
-        src:
-            chain-id: pulsar-3
-            client-id: 07-tendermint-124
-            connection-id: connection-100
-        dst:
-            chain-id: pion-1
-            client-id: 07-tendermint-543
-            connection-id: connection-466
-        src-channel-filter:
-            rule: ""
-            channel-list: [channel-87, channel-1549]
-
 ```
 
-Alternatively, you can also create your own path like so:&#x20;
+**Create a relayer path:**
 
 ```bash
-rly paths new pulsar-3 pion-1 <your-path-name-here>
-```
-
-If you create your own path, be sure to add your transfer channels to the channel filters in the `config.yaml` like so:&#x20;
-
-```yaml
-src-channel-filter:
-            rule: ""
-            channel-list: [channel-87, channel-1549]
+rly paths new pulsar-3 pion-1 my-path #this is the name of your path 
 ```
 
 ### Check Configuration Status
@@ -281,7 +272,7 @@ In case one of the checks receives a `✘` instead of `✔`, you will need to ch
 Finally, start the relayer on the desired path. The relayer will periodically update the clients and listen for IBC messages to relay:
 
 ```
-rly start <your-path-name>
+rly start my-path 
 ```
 
 Congrats! You are now relaying between Secret Network testnet and Neutron testnet! :tada:

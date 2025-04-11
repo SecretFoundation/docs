@@ -84,7 +84,7 @@ The wallet currently has zero funds, which you query by running this secretcli c
 secretcli query bank balances "secret158v062sat459ygam4y5j9z6p6e6g8wcdw6z4xp"
 ```
 
-To fund the wallet so that it can execute transactions, you can get testnet tokens from the faucet [here](https://faucet.pulsar.scrttestnet.com/).
+To fund the wallet so that it can execute transactions, you can get testnet tokens from the faucet [here](https://pulsar-3-faucet.vercel.app/).
 
 #### Upload the contract
 

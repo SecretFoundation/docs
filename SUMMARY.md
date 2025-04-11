@@ -148,6 +148,19 @@
     * [Comparison of endpoint types](development/resources-api-contract-addresses/connecting-to-the-network/comparison-of-endpoint-types.md)
   * [Create your own SNIP-25 IBC Token](development/resources-api-contract-addresses/create-your-own-snip-25-ibc-token.md)
 
+## Secret AI
+
+* [🤝 Introduction](secret-ai/introduction.md)
+* [🏗️ Architecture](secret-ai/architecture.md)
+* [👩‍💻 Secret AI SDK](secret-ai/sdk/README.md)
+  * [Setting Up Your Environment](secret-ai/sdk/setting-up-your-environment.md)
+  * [Running the Application](secret-ai/sdk/running-the-application.md)
+* [🪙 Economics](secret-ai/economics.md)
+* [Smart Contract Reference](secret-ai/smart-contract-reference/README.md)
+  * [SubscriptionManager](secret-ai/smart-contract-reference/subscriptionmanager.md)
+  * [WorkerManager](secret-ai/smart-contract-reference/workermanager.md)
+  * [RewardsManager](secret-ai/smart-contract-reference/rewardsmanager.md)
+
 ## 🔓 Confidential Computing Layer
 
 * [🧑‍🚀 IBC Developer Toolkit](confidential-computing-layer/ibc/README.md)
@@ -256,19 +269,6 @@
       * [Support](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-committees/support.md)
       * [Governance](overview-ecosystem-and-technology/ecosystem-overview/contributors-and-entities/secret-committees/governance.md)
   * [Secret Network Dictionary](overview-ecosystem-and-technology/ecosystem-overview/secret-network-dictionary.md)
-
-## Secret AI
-
-* [🤝 Introduction](secret-ai/introduction.md)
-* [🏗️ Architecture](secret-ai/architecture.md)
-* [👩‍💻 Secret AI SDK](secret-ai/sdk/README.md)
-  * [Setting Up Your Environment](secret-ai/sdk/setting-up-your-environment.md)
-  * [Running the Application](secret-ai/sdk/running-the-application.md)
-* [🪙 Economics](secret-ai/economics.md)
-* [Smart Contract Reference](secret-ai/smart-contract-reference/README.md)
-  * [SubscriptionManager](secret-ai/smart-contract-reference/subscriptionmanager.md)
-  * [WorkerManager](secret-ai/smart-contract-reference/workermanager.md)
-  * [RewardsManager](secret-ai/smart-contract-reference/rewardsmanager.md)
 
 ## 🔧 Infrastructure
 
