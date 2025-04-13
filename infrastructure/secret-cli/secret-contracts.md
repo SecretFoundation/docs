@@ -5,11 +5,11 @@
 To upload a contract:
 
 ```bash
-secretcli tx compute store ./contract.wasm.gz --from mykey --source "https://github.com/<username>/<repo>/tarball/<version>" --builder "enigmampc/secret-contract-optimizer:1.0.2"
+secretcli tx compute store ./contract.wasm.gz --from mykey --source "https://github.com/<username>/<repo>/tarball/<version>" --builder "scrtlabs/secret-contract-optimizer:1.0.11"
 ```
 
 * `--source`: Optional tarball of the source code, so your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify).
-* `--builder`: Optional docker image used to compile `./contract.wasm.gz`, so that your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify). This is important for reproducible builds so you should figure out the exact version of `enigmampc/secret-contract-optimizer` that you were using.
+* `--builder`: Optional docker image used to compile `./contract.wasm.gz`, so that your contract will be [verifiable](https://github.com/CosmWasm/cosmwasm-verify). This is important for reproducible builds so you should figure out the exact version of `scrtlabs/secret-contract-optimizer` that you were using.
 
 To get the contract's code ID:
 
