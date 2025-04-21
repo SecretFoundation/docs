@@ -161,6 +161,20 @@
   * [WorkerManager](secret-ai/smart-contract-reference/workermanager.md)
   * [RewardsManager](secret-ai/smart-contract-reference/rewardsmanager.md)
 
+## 🌐 SecretVM - Confidential Virtual Machines
+
+* [🤝 Introduction](secretvm-confidential-virtual-machines/introduction.md)
+* [🏗️ Architecture](secretvm-confidential-virtual-machines/architecture.md)
+* [☑️ Attestation](secretvm-confidential-virtual-machines/attestation/README.md)
+  * [What is Attestation](secretvm-confidential-virtual-machines/attestation/what-is-attestation.md)
+  * [Obtaining Attestation Data](secretvm-confidential-virtual-machines/attestation/obtaining-attestation-data.md)
+  * [Attestation Report - Key Fields](secretvm-confidential-virtual-machines/attestation/attestation-report-key-fields.md)
+  * [Chain of Trust](secretvm-confidential-virtual-machines/attestation/chain-of-trust.md)
+* [🏁 Launching a SecretVM on the Secret AI Dev Portal](secretvm-confidential-virtual-machines/launching-a-secretvm-on-the-secret-ai-dev-portal.md)
+* [🛠️ Managing SecretVM Lifecycle](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle.md)
+* [✅ Verifying a SecretVM](secretvm-confidential-virtual-machines/verifying-a-secretvm.md)
+* [📖 Glossary](secretvm-confidential-virtual-machines/glossary.md)
+
 ## 🔓 Confidential Computing Layer
 
 * [🧑‍🚀 IBC Developer Toolkit](confidential-computing-layer/ibc/README.md)

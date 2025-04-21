@@ -286,4 +286,4 @@ function fulfillRandomWords(
 
 That's all that you need to convert your contract from ChainlinkVRF to SecretVRF.
 
-<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>

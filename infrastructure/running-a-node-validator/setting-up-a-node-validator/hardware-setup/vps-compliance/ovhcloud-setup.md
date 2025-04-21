@@ -3,9 +3,9 @@
 Websites: [Global](https://www.ovhcloud.com/en/) or [United States](https://us.ovhcloud.com/)
 
 {% hint style="danger" %}
-Currently, it is advised to exercise caution when considering OVHCloud servers, as there are concerns regarding the inadequate updating of their mainboards.&#x20;
+Currently, it is advised to exercise caution when considering OVHCloud servers, as there are concerns regarding the inadequate updating of their mainboards.
 
-Please contact the node support in case you got more questions:&#x20;
+Please contact the node support in case you got more questions:
 
 * Visit the Secret Network Discord [here](https://discord.com/invite/SJK32GY) and ask in #node-discussion or #node-support for help
 {% endhint %}
@@ -44,7 +44,7 @@ OVHCloud servers can come with either an ASUS or Asrock motherboard. The Asus mo
 
 7\. Disable Intel Speedstep Technology
 
-![Intel SpeedStep](<../../../../../.gitbook/assets/image (3).png>)
+![Intel SpeedStep](<../../../../../.gitbook/assets/image (3) (1).png>)
 
 8\. Under Chipset Configuration:
 

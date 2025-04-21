@@ -69,6 +69,30 @@ response = secret_ai_llm.invoke(messages, stream=False)
 * **`messages`**: The list of chat messages.
 * **`stream=False`**: Indicates that the response should be returned all at once rather than streamed in parts.
 
+### Manually Setting Up `node_url`
+
+If you experience issues with the default `node_url` (`SECRET_NODE_URL_DEFAULT` config variable), instead of declaring the client like this:
+
+```python
+secret_client = Secret()
+```
+
+you can manually specify a `node_url` when instantiating the `Secret` client:
+
+```python
+from secret_ai_sdk.secret import Secret
+
+secret_client = Secret(chain_id='pulsar-3', node_url=<LCD_NODE_URL>)
+```
+
+Alternatively, you can set the `node_url` via an environment variable:
+
+```bash
+export SECRET_NODE_URL=<LCD_NODE_URL>
+```
+
+For more details on available endpoints and a list of LCD nodes, refer to the official Secret Network documentation: [Connecting to the Network - Testnet Pulsar-3](https://docs.scrt.network/secret-network-documentation/development/resources-api-contract-addresses/connecting-to-the-network/testnet-pulsar-3)
+
 ### Run the application
 
 To run the sample application:
