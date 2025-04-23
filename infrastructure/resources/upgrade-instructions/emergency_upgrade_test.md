@@ -25,8 +25,10 @@ to demonstrate that the changes are purely *cosmetic*, and there's no privacy le
 
 Each validator with the voting power should run this command:
 ```
-secretd emergency_approve_upgrade <new_mrenclave>
+secretd emergency_approve_upgrade XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
+
+(whereas `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` will be replaced by the actual **MRENCLAVE** of the experimental enclave, once we build it)
 
 **Note:** this command can be run while the node is running. No need to stop the node.
 
