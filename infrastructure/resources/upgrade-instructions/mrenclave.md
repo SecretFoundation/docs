@@ -76,7 +76,7 @@ The following are the steps of the upgrade:
 
 ## Off-chain upgrade preparations
 
-Each validator was voting power should run this command:
+Each validator with the voting power should run this command:
 ```
 secretd emergency_approve_upgrade 3cd370317fd400d29afa3b4ef943d623599355eeb3aea40a86b23bd5d7adf6f0
 ```
