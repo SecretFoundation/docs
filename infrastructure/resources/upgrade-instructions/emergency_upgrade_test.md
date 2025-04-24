@@ -23,7 +23,7 @@ While, at the same time, we'll be confident the migration works correctly, and t
 We at secret built a new version of the Secret Node. Based on the officially released v1.18, we've made a *cosmetic* change, just to create a distinct version. Here's the change:
 https://github.com/scrtlabs/SecretNetwork/commit/f45cc994f41473e1ecf8300df99addd10f308c4a
 
-The **MRENCLAVE** measurement of this modified version is: `de8cfc1e6d0abf64416e7ae430e23c12dba909e0c1919fdd0eab70cc6e086646`. We've built it locally (and used our `MRSIGNER` publisher key to sign it), everyone is more than welcome to repeat the build locally,
+The **MRENCLAVE** measurement of this modified version is: `de8cfc1e6d0abf64416e7ae430e23c12dba909e0c1919fdd0eab70cc6e086646`. We've built it locally (and used our **MRSIGNER** publisher key to sign it), everyone is more than welcome to repeat the build locally,
 and make sure this is indeed the correct measurement.
 
 Each validator with the voting power should run this command:
