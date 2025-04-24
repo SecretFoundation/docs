@@ -20,15 +20,16 @@ While, at the same time, we'll be confident the migration works correctly, and t
 
 ## Test procedure
 
-We at secret will build a new version of the Secret Node. We'll perform a *cosmetic* change to the secret enclave source code, just to create a distinct version. We'll publish the **MRENCLAVE** measurement of it, along with the source code,
-to demonstrate that the changes are purely *cosmetic*, and there's no privacy leak risk.
+We at secret built a new version of the Secret Node. Based on the officially released v1.18, we've made a *cosmetic* change, just to create a distinct version. Here's the change:
+https://github.com/scrtlabs/SecretNetwork/commit/f45cc994f41473e1ecf8300df99addd10f308c4a
+
+The **MRENCLAVE** measurement of this modified version is: `de8cfc1e6d0abf64416e7ae430e23c12dba909e0c1919fdd0eab70cc6e086646`. We've built it locally (and used our `MRSIGNER` publisher key to sign it), everyone is more than welcome to repeat the build locally,
+and make sure this is indeed the correct measurement.
 
 Each validator with the voting power should run this command:
 ```
-secretd emergency_approve_upgrade XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+secretd emergency_approve_upgrade de8cfc1e6d0abf64416e7ae430e23c12dba909e0c1919fdd0eab70cc6e086646
 ```
-
-(whereas `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` will be replaced by the actual **MRENCLAVE** of the experimental enclave, once we build it)
 
 **Note:** this command can be run while the node is running. No need to stop the node.
 
