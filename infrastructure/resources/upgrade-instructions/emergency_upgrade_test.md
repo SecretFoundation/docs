@@ -49,7 +49,7 @@ Then we'll publish the test results.
 
 # Update 2025-04-29
 
-We're still collecting validator signatures. So far 32 validators have signed, with 56.8% overall voting power.
+We're collected enough validator signatures. So far 34 validators have signed, with 69% overall voting power.
 
 Those are the test results
  - Test the emergency signatures file is properly processed
@@ -62,6 +62,5 @@ Those are the test results
  - Test accept/reject criterias are properly verified
    - &#x2714; Migration is NOT autothrized if neither of the consensus criterias are met
    - &#x2714; Migration is authorized based on the emergency validator whitelist (at least 11 signatures)
-   - &#x274C; Migration is authorized based on >2/3 of the total voting power, and at least 4 whitelisted validators.
-     - Not tested yet, we didn't collect enough validator signatures.
+   - &#x2714; Migration is authorized based on >2/3 of the total voting power, and at least 4 whitelisted validators.
  - &#x2714; Test the new node runs normally after the migration procedure
