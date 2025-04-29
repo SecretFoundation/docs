@@ -46,3 +46,21 @@ We'll complete the migration to the experimental version locally, make sure the 
 Others won't need to do that, it's sufficient to test this on one machine.
 
 Then we'll publish the test results.
+
+# Update 2025-04-29
+
+We're still collecting validator signatures. So far 32 validators have signed, with 56.8% overall voting power.
+
+Those are the test results
+ - Test the emergency signatures file is properly processed
+   - &#x2714; File format is verified (malformed file isn't accepted)
+   - &#x2714; Duplicate entries are ignored
+ - Test signatures are properly verified
+   - &#x2714; modified signatures don't pass validation
+   - &#x2714; validator address can't be modified without breaking the signature
+   - &#x2714; signatures are bound to the specific `MRENCLAVE` (i.e. can't be reused to sign another emergency upgrade)
+ - Test accept/reject criterias are properly verified
+   - &#x2714; Migration is NOT autothrized if neither of the consensus criterias are met
+   - &#x2714; Migration is authorized based on the emergency validator whitelist (at least 11 signatures)
+   - &#x274C; Migration is authorized based on >2/3 of the total voting power, and at least 4 whitelisted validators.
+     - Not tested yet, we didn't collect enough validator signatures.
