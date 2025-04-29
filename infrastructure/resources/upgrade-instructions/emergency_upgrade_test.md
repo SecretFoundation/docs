@@ -54,7 +54,7 @@ We're still collecting validator signatures. So far 32 validators have signed, w
 Those are the test results
  - Test the emergency signatures file is properly processed
    - &#x2714; File format is verified (malformed file isn't accepted)
-   - &#x2714; Duplicate entries are ignored
+   - &#x2714; Duplicate entries (same validator address) are ignored
  - Test signatures are properly verified
    - &#x2714; modified signatures don't pass validation
    - &#x2714; validator address can't be modified without breaking the signature
@@ -64,3 +64,4 @@ Those are the test results
    - &#x2714; Migration is authorized based on the emergency validator whitelist (at least 11 signatures)
    - &#x274C; Migration is authorized based on >2/3 of the total voting power, and at least 4 whitelisted validators.
      - Not tested yet, we didn't collect enough validator signatures.
+ - &#x2714; Test the new node runs normally after the migration procedure
