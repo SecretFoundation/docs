@@ -1,5 +1,6 @@
 ---
 description: How to create verifiable workloads
+hidden: true
 ---
 
 # 💡 Best Practices for Developers
