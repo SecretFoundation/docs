@@ -1,4 +1,10 @@
-# 🏁 Launching a SecretVM on the Secret AI Dev Portal
+---
+hidden: true
+---
+
+# 🏁 Launching a SecretVM
+
+## Using SecretAI Portal
 
 You can easily create and deploy a Confidential Virtual Machine using the [Secret AI Dev Portal](https://preview-aidev.scrtlabs.com/). Follow the steps below to get started:
 
@@ -36,4 +42,12 @@ You can easily create and deploy a Confidential Virtual Machine using the [Secre
 * Click **`Launch VM`** to spin up your Confidential Virtual Machine.
 * Your SecretVM will begin provisioning, and you'll be able to monitor its status and access attestation endpoints once it's live.
 {% endstep %}
+
+{% step %}
+
+{% endstep %}
 {% endstepper %}
+
+## Using SecretAI CLI
+
+Coming soon

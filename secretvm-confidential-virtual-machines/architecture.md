@@ -1,5 +1,6 @@
 ---
-description: The Anatomy of Secret Virtual Machin
+description: The Anatomy of a Secret Virtual Machine.
+hidden: true
 ---
 
 # 🏗️ Architecture

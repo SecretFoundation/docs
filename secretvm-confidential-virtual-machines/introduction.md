@@ -2,6 +2,7 @@
 description: >-
   SecretVM is Secret Network's solution for creating and running Confidential
   Virtual Machines.
+hidden: true
 ---
 
 # 🤝 Introduction
@@ -18,6 +19,7 @@ description: >-
   Every workload can be cryptographically verified to ensure it's running trusted code in a secure enclave.
 * **Language & Stack Agnostic**\
   SecretVM supports Docker containers, allowing you to deploy applications in any language or framework.
+* **Low Overhead**
 
 #### 💡 Use Cases
 
