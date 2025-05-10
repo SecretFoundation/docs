@@ -1,6 +1,5 @@
 ---
 description: Useful notions related to SecretVM
-hidden: true
 ---
 
 # 📖 Glossary

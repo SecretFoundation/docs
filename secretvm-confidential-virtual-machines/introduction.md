@@ -2,7 +2,6 @@
 description: >-
   SecretVM is Secret Network's solution for creating and running Confidential
   Virtual Machines.
-hidden: true
 ---
 
 # 🤝 Introduction

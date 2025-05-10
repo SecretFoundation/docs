@@ -1,6 +1,5 @@
 ---
 description: Topics related to Attestation
-hidden: true
 ---
 
 # ☑️ Attestation

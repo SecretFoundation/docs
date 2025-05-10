@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # ✅ Verifying a SecretVM
 
 ### Follow the process below to verify the integrity of a given SecretVM instance:

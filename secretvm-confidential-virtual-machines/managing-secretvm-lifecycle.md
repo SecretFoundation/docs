@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 🛠️ Managing SecretVM Lifecycle
 
 ## Using SecretAI Portal
@@ -19,8 +15,6 @@ On SecretAI Portal, it is possible to stop, start, restart a SecretVM from the M
 ### Deleting a SecretVM
 
 Users can choose to delete the SecretVM. In this case, the machine's state will be lost forever.
-
-
 
 ## Using SecretAI CLI
 
