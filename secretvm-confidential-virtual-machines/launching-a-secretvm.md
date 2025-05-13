@@ -41,12 +41,8 @@ You can easily create and deploy a Confidential Virtual Machine using the [Secre
 * Click **`Launch your SecretVM`** to spin up your Confidential Virtual Machine.
 * Your SecretVM will begin provisioning, and you'll be able to monitor its status and access attestation endpoints once it's live.
 {% endstep %}
-
-{% step %}
-
-{% endstep %}
 {% endstepper %}
 
 ## Using SecretAI CLI
 
-Coming soon
+_Coming soon_
