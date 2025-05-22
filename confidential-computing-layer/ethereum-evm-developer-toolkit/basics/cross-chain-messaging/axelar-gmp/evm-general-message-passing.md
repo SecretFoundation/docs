@@ -42,7 +42,7 @@ Input these strings like so and then click "Transact":
 
 Upon successful instantiation, the contract address will be returned in the Remix terminal, which you can then view on the [Polygon explorer](https://polygonscan.com/address/0xF4e0949B643A89554a5A350C6A762B7bECd33813). And the deployed contract can now be interacted with in the "Deployed Contracts" window:
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Congrats, you've just deployed an Axelar GMP-compatible contract to Polygon mainnet that can send and receive messages to and from a Secret Network smart contract 🎉
 
