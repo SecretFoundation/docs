@@ -8,8 +8,8 @@ You can easily create and deploy a Confidential Virtual Machine using the [Secre
 {% step %}
 #### Log In
 
-* Visit the portal: [https://preview-aidev.scrtlabs.com](https://secretai.scrtlabs.com/)
-* Sign in with your GitHub, email, or preferred authentication method.
+* Visit the portal: [https://secretai.scrtlabs.com](https://secretai.scrtlabs.com/)
+* Sign in with your wallet or your Google account
 {% endstep %}
 
 {% step %}

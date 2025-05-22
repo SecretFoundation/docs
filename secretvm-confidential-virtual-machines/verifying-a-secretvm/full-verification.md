@@ -1,4 +1,4 @@
-# ✅ Verifying a SecretVM
+# 🐢 Full Verification
 
 ### Follow the process below to verify the integrity of a given SecretVM instance:
 
@@ -6,13 +6,21 @@
 {% step %}
 ### Retrieve the Attestation Quote
 
-Retrieve the Attestation Quote by accessing the `<your_machine_url>:29343/cpu`   endpoint on your machine.
+Retrieve the Attestation Quote by accessing the `<your_machine_url>:29343/cpu.html`   endpoint on your machine. Copy the Attestation Quote to use in the next step.
+
+To rule out a man-in-the-middle attack, view the certificate that secures the connection and note its fingerprint value
+
+<figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-### Verify the Attestation&#x20;
+### Verify and Parse the Attestation Quote
 
-Use Secret AI [Attestation Verification ](https://preview-aidev.scrtlabs.com/attestation)service, Phala's [TEE Attesation Explorer](https://proof.t16z.com/) or another 3rd party service to verify the quote and view the attestation report.&#x20;
+Use SecretAI Portal's [Verification ](https://preview-aidev.scrtlabs.com/attestation)page to paste the Attestation Quote on the Verify CPU Attestation tab and click "Verify" to confirm the validity of the quote and see the values of the attestation report fields.&#x20;
+
+<figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+
+Note the values of mr\_td, rtrmr0, rtmr1, rtmr2, rtmr3 and the report\_data registers
 {% endstep %}
 
 {% step %}
@@ -35,7 +43,7 @@ Alternatively, the artifacts can be downloaded from github [here](https://github
 {% step %}
 ### Independently Calculate the Expected Register Values
 
-We provide the [reproduce-mr](https://github.com/scrtlabs/reproduce-mr) tool (based on Phala's [dstack-mr](https://github.com/scrtlabs/dstack-mr) and Oasis' [oasis-cli](https://github.com/oasisprotocol/cli)) to perform the calculation of the relevant attestation report fields from the artifacts.
+We provide a [reproduce-mr](https://github.com/scrtlabs/reproduce-mr) tool (based on Phala's [dstack-mr](https://github.com/scrtlabs/dstack-mr) and Oasis' [oasis-cli](https://github.com/oasisprotocol/cli)) to perform the calculation of the relevant attestation report fields from the artifacts.
 
 Run <kbd>reproduce-mr</kbd> passing all the necessary parameters to independently calculate the MRTD, RTMR0, RTMR1, RTMR2 and RTMR3 registers of the Attestation Report.&#x20;
 
@@ -50,8 +58,20 @@ Sample output:
 {% step %}
 ### Compare and Validate
 
-Validate if the calculated register values to the one observed in the Attestation Report
+Validate if the calculated register values to the one observed in Step 2
 
-<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+If the values match, you just confirmed that you are dealing with a genuine Confidential Virtual Machine, that it is composed of the exact artifacts that you built/downloaded, and that it is running the specific docker-compose.yaml file.
+
+
+{% endstep %}
+
+{% step %}
+### Rule out Man-in-the-Midlde Attacks
+
+Verify that the first part of the report\_data field matches the fingerprint of the TLS certificate that was retrieved in Step 1
+
+
 {% endstep %}
 {% endstepper %}

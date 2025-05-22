@@ -12,5 +12,5 @@ All SecretVM machines have a built-in web server that returns the attestation-re
 
 > Note: upon startupm each SecretVM generates a TLS certificate that is used to secure the communication to the built-in web server. The fingerprint of the certificate is included into the attestation report's [reportdata](attestation-report-key-fields.md) field.
 
-Once you have obtained the information, you can proceed to [verifying](../verifying-a-secretvm.md) the VM.
+Once you have obtained the information, you can proceed to [verifying](../verifying-a-secretvm/) the VM.
 
