@@ -18,7 +18,9 @@ description: >-
   Every workload can be cryptographically verified to ensure it's running trusted code in a secure enclave.
 * **Language & Stack Agnostic**\
   SecretVM supports Docker containers, allowing you to deploy applications in any language or framework.
-* **Low Overhead**
+*   **Low Overhead**
+
+    Even heavy workloads, such as LLM inference, incur only mild performance overhead of 5-7% when running inside Confidential VMs.
 
 #### 💡 Use Cases
 
