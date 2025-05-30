@@ -175,15 +175,12 @@
 * [✅ Verifying a SecretVM](secretvm-confidential-virtual-machines/verifying-a-secretvm/README.md)
   * [🐢 Full Verification](secretvm-confidential-virtual-machines/verifying-a-secretvm/full-verification.md)
   * [🐰 Quick Verification](secretvm-confidential-virtual-machines/verifying-a-secretvm/quick-verification.md)
+* [👨‍💻 SecretVM CLI](secretvm-confidential-virtual-machines/secretvm-cli/README.md)
+  * [Getting started](secretvm-confidential-virtual-machines/secretvm-cli/getting-started.md)
+  * [Authentication Commands](secretvm-confidential-virtual-machines/secretvm-cli/authentication-commands.md)
+  * [Virtual Machine Commands](secretvm-confidential-virtual-machines/secretvm-cli/virtual-machine-commands.md)
 * [💡 Best Practices for Developers](secretvm-confidential-virtual-machines/best-practices-for-developers.md)
 * [📖 Glossary](secretvm-confidential-virtual-machines/glossary.md)
-
-***
-
-* [👨‍💻 SecretVM CLI](secretvm-cli/README.md)
-  * [Getting started](secretvm-cli/getting-started.md)
-  * [Authentication Commands](secretvm-cli/authentication-commands.md)
-  * [Virtual Machine Commands](secretvm-cli/virtual-machine-commands.md)
 
 ## 🔓 Confidential Computing Layer
 
