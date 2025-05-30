@@ -178,6 +178,13 @@
 * [💡 Best Practices for Developers](secretvm-confidential-virtual-machines/best-practices-for-developers.md)
 * [📖 Glossary](secretvm-confidential-virtual-machines/glossary.md)
 
+***
+
+* [👨‍💻 SecretVM CLI](secretvm-cli/README.md)
+  * [Getting started](secretvm-cli/getting-started.md)
+  * [Authentication Commands](secretvm-cli/authentication-commands.md)
+  * [Virtual Machine Commands](secretvm-cli/virtual-machine-commands.md)
+
 ## 🔓 Confidential Computing Layer
 
 * [🧑‍🚀 IBC Developer Toolkit](confidential-computing-layer/ibc/README.md)
