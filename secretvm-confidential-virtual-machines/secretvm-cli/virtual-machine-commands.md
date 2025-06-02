@@ -6,7 +6,7 @@ Commands for managing Virtual Machine instances.
 
 List all your virtual machine instances.
 
-**Usage:**`secretvm-cli vm listsecretvm-cli vm ls`
+**Usage:**`secretvm-cli vm ls`
 
 **Description:**\
 Retrieves and displays a list of all VM instances associated with your account. In interactive mode, it shows a table with details like ID, UUID, Name, Status, Type, Price/Hour, IP, Domain, and Creation Date.
