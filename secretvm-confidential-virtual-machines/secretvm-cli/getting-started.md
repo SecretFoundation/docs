@@ -34,3 +34,11 @@ You can also view the list of available commands and global options by running:
 ```bash
 secretvm-cli --help
 ```
+
+## Interactive mode
+
+It is possible to use SecretVM CLI in interactive mode with prompts and human-readable output. For this you can pass `-i` or `--interactive` flag to `secretvm-cli`. If not set, commands will output JSON.
+
+```bash
+secretvm-cli -i auth login
+```
