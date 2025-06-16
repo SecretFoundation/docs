@@ -4,7 +4,7 @@ The SecretAI Portal offers a Quick Verification feature, allowing the users to e
 
 To verify, access the[ Verify SecretVM Workload](https://secretai.scrtlabs.com/attestation) feature on the Portal:
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 On that page, paste or upload the contents of your docker-compose.yaml file in the first field. In the second field, paste either the SecretVM's attestation quote, or simply the URL of the deployed SecretVM  machine, and click Verify.
 
