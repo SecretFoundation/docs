@@ -180,6 +180,7 @@
   * [Authentication Commands](secretvm-confidential-virtual-machines/secretvm-cli/authentication-commands.md)
   * [Virtual Machine Commands](secretvm-confidential-virtual-machines/secretvm-cli/virtual-machine-commands.md)
 * [💡 Best Practices for Developers](secretvm-confidential-virtual-machines/best-practices-for-developers.md)
+* [🔐 Verifiable Message Signing](secretvm-confidential-virtual-machines/verifiable-message-signing.md)
 * [📖 Glossary](secretvm-confidential-virtual-machines/glossary.md)
 
 ## 🔓 Confidential Computing Layer

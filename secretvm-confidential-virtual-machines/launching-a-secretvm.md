@@ -18,7 +18,7 @@ You can easily create and deploy a Confidential Virtual Machine using the [Secre
 * In the left sidebar, navigate to **`SecretVMs`**.
 * Click the **`Create New SecretVM`** button.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
