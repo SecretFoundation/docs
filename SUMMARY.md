@@ -171,7 +171,8 @@
   * [Attestation Report - Key Fields](secretvm-confidential-virtual-machines/attestation/attestation-report-key-fields.md)
   * [Chain of Trust](secretvm-confidential-virtual-machines/attestation/chain-of-trust.md)
 * [🏁 Launching a SecretVM](secretvm-confidential-virtual-machines/launching-a-secretvm.md)
-* [🛠️ Managing SecretVM Lifecycle](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle.md)
+* [🛠️ Managing SecretVM Lifecycle](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/README.md)
+  * [⏫ SecretVM Upgradeability](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/secretvm-upgradeability.md)
 * [✅ Verifying a SecretVM](secretvm-confidential-virtual-machines/verifying-a-secretvm/README.md)
   * [🐢 Full Verification](secretvm-confidential-virtual-machines/verifying-a-secretvm/full-verification.md)
   * [🐰 Quick Verification](secretvm-confidential-virtual-machines/verifying-a-secretvm/quick-verification.md)
@@ -449,3 +450,11 @@
   * [Secret Network v1.6](infrastructure/versioning-and-changelog/secret-network-v1.6.md)
   * [Secret Network v1.5](infrastructure/versioning-and-changelog/secret-network-v1.5-placeholder.md)
   * [Secret Network v1.4 (CosmWasm 1.0)](infrastructure/versioning-and-changelog/migration-from-cw-0.10-to-1.0.md)
+
+***
+
+* [⏰ Cron module](cron-module/README.md)
+  * [Overview](cron-module/overview.md)
+  * [Client](cron-module/client.md)
+  * [State](cron-module/state.md)
+  * [Metrics](cron-module/metrics.md)
