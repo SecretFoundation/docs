@@ -14,7 +14,9 @@ The private and public keys, as well as the attestation quote, can be mounted in
 
 The following schematic illustrates the process:
 
-<figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+
+
 
 ## Key benefits
 
