@@ -2,22 +2,12 @@
 
 ### Mainnet
 
-* [Mintscan](https://www.mintscan.io/secret)
-  * Popular and highly featured explorer for many chains in the Cosmos ecosystem
-* [Cryptoclerk](https://www.cryptoclerk.xyz/introduction)
-  * Asset management platform with SNIP-20 TX history
+* [Zonescan](https://zonescan.io/blockchain/secret/explorer/overview)
+  * Explorer for Secret Network
 * [Ping Explorer](https://ping.pub/secret)
   * Supports dozens of Cosmos chains and includes a basic web wallet, by [ping.pub](https://ping.pub/)
-* [Contract verifier](https://github.com/digiline-io/secret-contract-verifier)
-  * Contract code verifier and explorer by Diggiline
-* [Secret Analytics](https://secretanalytics.xyz/)
-  * Analytics data collected about the Network, Bridges, and Sienna Network
-* [Xiphiar](https://scrthost.xiphiar.com/)
-  * Tools by Xiphiar for tracking of your SNIP-20 history
-* [Address Alias](https://btn.group/secret\_network/address\_alias)
-  * Create and search wallet aliases, by [btn.group](https://www.btn.group)
-* [Cashmaney Explorer](https://explorer.cashmaney.com) **(retired)**
-  * One of the first explorers, run by core-dev [Cashmaney](https://twitter.com/Cashmaney3/)
+* [Dashboard](https://dash.scrt.network)
+  * View analytics, IBC transactions, view balances, wrap/unwrap sASSETS
 
 ### Testnet - Pulsar-3
 
@@ -29,9 +19,9 @@
 
 ### Bots
 
-* [Gas Attendant](https://t.me/SCRT\_GasAttendant\_bot)
+* [Gas Attendant](https://t.me/SCRT_GasAttendant_bot)
   * Time your transactions with notifications for blocks with low or high gas fees, by secretSauce :honey\_pot:
-* [Node Hunter](https://t.me/SCRT\_Node\_Hunter\_bot)
+* [Node Hunter](https://t.me/SCRT_Node_Hunter_bot)
   * Get notified if a validator has been offline for a long time, by secretSauce :honey\_pot:
 
 ### Staking Calculators
