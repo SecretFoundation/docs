@@ -23,9 +23,10 @@ Create a new virtual machine.
 * `-t, --type <vmType>`: The type of the VM (e.g., small, medium, large). (Required if not in interactive mode)
 * `-d, --docker-compose <dockerComposePath>`: Path to the `docker-compose.yaml` (or similar) file for the VM configuration. (Required if not in interactive mode)
 * `-c, --invite-code <inviteCode>`: An optional invite code.
+* `-e, --env <env>`: Path to your .env file
 
 **Description:**\
-This command allows you to provision a new VM. It requires a name, type, and a Docker Compose file. In interactive mode, if options are not provided, you will be prompted for them. The Docker Compose file is uploaded to configure the VM.
+This command allows you to provision a new VM. It requires a name, type, and a Docker Compose file. In interactive mode, if options are not provided, you will be prompted for them. The Docker Compose file is uploaded to configure the VM. Environmental variables are passed securely using KMS contract.
 
 ## vm status
 
