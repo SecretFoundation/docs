@@ -24,6 +24,12 @@ Create a new virtual machine.
 * `-d, --docker-compose <dockerComposePath>`: Path to the `docker-compose.yaml` (or similar) file for the VM configuration. (Required if not in interactive mode)
 * `-c, --invite-code <inviteCode>`: An optional invite code.
 * `-e, --env <env>`: Path to your .env file
+* `-m, --domain`: Your custom controlled FQDN
+* `-p, --persistence`: Enable filesystem persistence (state is preserved across reboots)
+* `-u, --upgradeability`: Enable SecretVM upgradeability feature (state is preserved across docker image upgrades)
+* `-l, --docker-credentials`: Credentials for private docker registries (username:password)
+* `-r, --docker-registry`: Docker registry where your private image is hosted (default: docker.io)\
+  `-h, --help`: display help for command
 
 **Description:**\
 This command allows you to provision a new VM. It requires a name, type, and a Docker Compose file. In interactive mode, if options are not provided, you will be prompted for them. The Docker Compose file is uploaded to configure the VM. Environmental variables are passed securely using KMS contract.
