@@ -18,7 +18,7 @@ You can easily create and deploy a Confidential Virtual Machine using the [Secre
 * In the left sidebar, navigate to **`SecretVMs`**.
 * Click the **`Create New SecretVM`** button.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -28,6 +28,11 @@ You can easily create and deploy a Confidential Virtual Machine using the [Secre
   Choose from one of the available VM sizes
 
 <figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+* **Select your environment**\
+  Development environment can be accessed from the outside (via serial console or ssh). Also it has some development tools installed (e.g. `git`).
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Upload Docker Compose File**\
   Upload your custom `docker-compose.yaml` that defines the container workload
