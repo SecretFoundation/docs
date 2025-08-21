@@ -30,15 +30,15 @@ Inside the workflow file, the steps would usually include checking out the code 
 
 By way of example, here's an action run building SecretNetwork's Localsecret container from a specific commit:
 
-{% @github-files/github-code-block url="https://github.com/scrtlabs/SecretNetwork/actions/runs/14378183295" %}
+[https://github.com/scrtlabs/SecretNetwork/actions/runs/14378183295](https://github.com/scrtlabs/SecretNetwork/actions/runs/14378183295)
 
 In this Action run, the LocalSecret container in bult by the `publish-localsecret` job
 
-{% @github-files/github-code-block url="https://github.com/scrtlabs/SecretNetwork/actions/runs/14378183295/job/40317611046" %}
+[https://github.com/scrtlabs/SecretNetwork/actions/runs/14378183295/job/40317611046](https://github.com/scrtlabs/SecretNetwork/actions/runs/14378183295/job/40317611046)
 
 The output container is shown in the log (see screenshot below).&#x20;
 
-<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 For best verifiability, we recommend specifying the exact version and sha256 value in the address of the image in your docker-compose.yaml file.&#x20;
 
