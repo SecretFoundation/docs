@@ -88,59 +88,129 @@ If the request is successful, the server will return a JSON object containing th
 ## Code Sample
 
 ```python
-import requests
 import base64
-from cryptography.hazmat.primitives import serialization
+import requests
+import sys
+from cryptography.hazmat.primitives.asymmetric import ed25519
 from cryptography.exceptions import InvalidSignature
+from typing import Dict, Any
 
+# --- Configuration ---
+CONFIG = {
+    "SIGNING_SERVER_URL": "http://127.0.0.1:49153/sign",
+    "QUOTE_PARSER_URL": "https://pccs.scrtlabs.com/dcap-tools/quote-parse",
+    "REQUEST_TIMEOUT": 5,
+    "EXPECTED_ATTESTATION": {
+        "tcb_svn": "07010300000000000000000000000000",
+        "mr_seam": "49b66faa451d19ebbdbe89371b8daf2b65aa3984ec90110343e9e2eec116af08850fa20e3b1aa9a874d77a65380ee7e6",
+        "mr_td": "1e305ac8284517f73ada985bfc9fded48b23ed091ba8149678bb10207fb470c7903d7a8ddffa5a7be2a60e349bb75b6e",
+        "rtmr0": "9e314df50e8cc934afb28ceb6c96987a04ffea8180037f0d8e12b9690c0d6d34131ecacfd752334d70a40aefce572259",
+        "rtmr1": "269ceda0b6ab3d1d290e453c86e746745885bbc276244aa23cc1222b7a9c9570f4f5ba5cd69626f7f2d0acb63cd6656e",
+        "rtmr2": "034ef6b547ba74439f307423ec61fc224bacb76018504138b89a3378b5d096434dafbb14dd37700b2823f8b7d6675322",
+        "rtmr3": "848a15cc8b2c0bfb1e9e555bb01ed0c2652e6ec219205d6a795e74051e144c7943dcf02bb491df419ed69c8512e0d066",
+    },
+}
+ATTESTATION_KEYS = CONFIG["EXPECTED_ATTESTATION"].keys()
 
-def sign_with_server(payload: str) -> str | None:
-    signing_server_url = "http://172.17.0.1:49153/sign"
+# --- Custom Exceptions for clear error handling ---
+class SigningError(Exception): pass
+class QuoteParsingError(Exception): pass
+class VerificationError(Exception): pass
+
+def sign_with_server(payload: str) -> str:
+    """Requests a signature from a remote server."""
     request_data = {"key_type": "ed25519", "payload": payload}
-
     try:
-        response = requests.post(signing_server_url, json=request_data, timeout=5)
-
-        # Check if the request was successful
+        response = requests.post(
+            CONFIG["SIGNING_SERVER_URL"],
+            json=request_data,
+            timeout=CONFIG["REQUEST_TIMEOUT"]
+        )
         response.raise_for_status()
-
         signature = response.json().get("signature")
-        if signature:
-            return signature
-        else:
-            return None
-
+        if not signature:
+            raise SigningError("Signature not found in server response.")
+        return signature
     except requests.exceptions.RequestException as e:
-        print(f"Network or HTTP Error: Could not connect to the signing server. {e}")
-        return None
-    except ValueError:
-        print("Error: Failed to decode JSON response from server.")
-        return None
+        raise SigningError(f"Network error connecting to signing server: {e}") from e
+    except ValueError as e:
+        raise SigningError(f"Failed to decode server response: {e}") from e
 
-
-def verify(message: str, signature_b64: str, public_key_path: str) -> bool:
-    # Load public key
-    with open(public_key_path, "rb") as key_file:
-        public_key = serialization.load_pem_public_key(key_file.read())
-
-    # Decode signature
-    signature = base64.b64decode(signature_b64)
-
-    # Verify with public_key
+def parse_quote(quote_b64: str) -> Dict[str, Any]:
+    """Parses a quote using SCRT Labs PCCS service."""
     try:
-        public_key.verify(signature, bytes(message, "utf-8"))
+        response = requests.post(CONFIG["QUOTE_PARSER_URL"], json={"quote": quote_b64})
+        response.raise_for_status()
+        parsed_quote = response.json().get("quote")
+        if not parsed_quote:
+            raise QuoteParsingError("Parsed quote not found in service response.")
+        return parsed_quote
+    except requests.exceptions.RequestException as e:
+        raise QuoteParsingError(f"Network error connecting to quote parser: {e}") from e
+    except ValueError as e:
+        raise QuoteParsingError(f"Failed to decode parser response: {e}") from e
+
+def _is_attestation_valid(parsed_quote: Dict[str, Any]) -> bool:
+    """Compares the parsed quote against expected attestation values."""
+    return all(
+        parsed_quote.get(key) == CONFIG["EXPECTED_ATTESTATION"][key]
+        for key in ATTESTATION_KEYS
+    )
+
+def verify_signature_with_attestation(message: str, signature_b64: str, quote_file_path: str) -> bool:
+    """Verifies a signature against a public key derived from an attested quote."""
+    try:
+        # 1. Read and Parse Quote
+        with open(quote_file_path, "r") as f:
+            quote = f.read()
+        parsed_quote = parse_quote(quote)
+
+        # 2. Verify Attestation
+        if not _is_attestation_valid(parsed_quote):
+            raise VerificationError("Attestation mismatch: Parsed quote does not match expected values.")
+        print("Attestation is VALID.")
+
+        # 3. Extract Public Key & Verify Signature
+        report_data_hex = parsed_quote.get("report_data", "")
+        if len(report_data_hex) < 64:
+             raise VerificationError("Report data is too short to contain a public key.")
+        
+        public_key_bytes = bytes.fromhex(report_data_hex[:64])
+        public_key = ed25519.Ed25519PublicKey.from_public_bytes(public_key_bytes)
+        
+        signature_bytes = base64.b64decode(signature_b64)
+        public_key.verify(signature_bytes, message.encode('utf-8'))
+        
+        print("Signature is VALID.")
         return True
-    except InvalidSignature:
+        
+    except FileNotFoundError:
+        print(f"Quote file not found at: {quote_file_path}")
+        return False
+    except (InvalidSignature, VerificationError, QuoteParsingError, ValueError, TypeError) as e:
+        print(f"Verification FAILED: {e}")
+        return False
+    except Exception:
+        print("An unexpected error occurred during verification.")
         return False
 
+def main():
+    """Main execution function to demonstrate the workflow."""
+    message = "My Secret Message"
+    quote_file = "docker_attestation_ed25519.txt"
+    try:
+        signature = sign_with_server(message)
+        print(f"Received signature: {signature[:30]}...")
+        
+        is_valid = verify_signature_with_attestation(message, signature, quote_file)
+        print(f"\n--- Verification Result: {'Successful' if is_valid else 'Failed'} ---")
+
+    except SigningError as e:
+        print(f"Could not obtain signature: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    message = "My Secret Message"
-    public_key_file = "ed25519_public.pem"
-
-    signature = sign_with_server(message)
-
-    print(verify(message, signature, public_key_file))
+    main()
 
 ```
 
