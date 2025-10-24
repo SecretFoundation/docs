@@ -203,6 +203,7 @@
 * [💡 Best Practices for Developers](secretvm-confidential-virtual-machines/best-practices-for-developers/README.md)
   * [🤖 Generating Github Workflows](secretvm-confidential-virtual-machines/best-practices-for-developers/generating-github-workflows.md)
 * [🔐 Verifiable Message Signing](secretvm-confidential-virtual-machines/verifiable-message-signing.md)
+* [🪵 Log Forwarding](secretvm-confidential-virtual-machines/log-forwarding.md)
 * [📖 Glossary](secretvm-confidential-virtual-machines/glossary.md)
 
 ## 🔓 Confidential Computing Layer
