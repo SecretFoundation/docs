@@ -98,6 +98,20 @@ PUBLIC_KEY=$(secretd dump /opt/secret/.sgx_secrets/pubkey.bin)
 echo $PUBLIC_KEY
 ```
 
+### **Optional - Embed Azure Attestation Signature**
+
+This step is only relevant for Azure machines.
+
+```
+wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.23.0/embed_azure_attestation.sh
+
+chmod +x embed_azure_attestation.sh
+
+./embed_azure_attestation.sh /opt/secret/.sgx_secrets/attestation_combined.bin
+```
+
+Read more [here](../../adding-an-azure-node.md).
+
 ### **Configure `secretd`**
 
 {% hint style="info" %}
