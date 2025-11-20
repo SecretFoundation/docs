@@ -19,6 +19,8 @@ from secret_ai_sdk._enhanced_client import EnhancedSecretAIAsyncClient
 class ProductionSecretAIService:
     def __init__(self):
         self.client = EnhancedSecretAIAsyncClient(
+            host="https://your-ai-endpoint.com",
+            api_key="your_api_key",
             timeout=30.0,
             max_retries=3,
             validate_responses=True
@@ -50,7 +52,7 @@ class ProductionSecretAIService:
 async def main():
     async with ProductionSecretAIService() as service:
         response = await service.generate_text([
-            ("human", "Generate a summary of quantum computing")
+            {"role": "user", "content": "Generate a summary of quantum computing"}
         ])
         print(response)
 

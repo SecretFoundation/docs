@@ -149,6 +149,13 @@ audio_data = voice_client.synthesize_speech_streaming(
 
 # Stream audio data as it's generated
 with open("streaming_output.mp3", "wb") as f:
-    for chunk in audio_data:
-        f.write(chunk)
+    for chunk in audio_iter:
+        if isinstance(chunk, (bytes, bytearray)):
+            f.write(chunk)
+        elif isinstance(chunk, int):
+            f.write(bytes([chunk]))          # single byte
+        elif isinstance(chunk, (list, tuple)) and chunk and isinstance(chunk[0], int):
+            f.write(bytes(chunk))            # list of ints -> bytes
+        else:
+            raise TypeError(f"Unexpected chunk type: {type(chunk)}")
 ```

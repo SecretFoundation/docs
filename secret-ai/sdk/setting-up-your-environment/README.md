@@ -126,6 +126,10 @@ if 'tts-kokoro' not in models:
 stt_url = secret_client.get_urls(model='stt-whisper')
 tts_url = secret_client.get_urls(model='tts-kokoro')
 
+# if it's a list, take the first element
+if isinstance(stt_url, list): stt_url = stt_url[0]
+if isinstance(tts_url, list): tts_url = tts_url[0]
+
 # Initialize VoiceSecret with service URLs
 voice_client = VoiceSecret(
     stt_url=stt_url,
