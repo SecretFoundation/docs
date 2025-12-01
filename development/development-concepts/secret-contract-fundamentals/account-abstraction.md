@@ -20,4 +20,4 @@ Smart contracts can also use ICA/ICS-999 (although host module is not supported 
 
 ### Smart contract based
 
-One can also leverage cosmos wide forms of account abstraction like [this one](https://github.com/larry0x/abstract-account) implemented by Larry from delphi.\
+One can also leverage cosmos wide forms of account abstraction like [this one](https://github.com/larry0x/abstract-account) implemented by Larry from delphi.<br>

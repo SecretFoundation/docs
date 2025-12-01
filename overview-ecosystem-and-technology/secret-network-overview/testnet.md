@@ -30,8 +30,7 @@ You have now successfully added the Secret Testnet to your wallet and you’re r
 
 The fastest and easiest way to get some test SCRT into your wallet is to use faucets which are tools that distribute a standard amount of tokens to a specific address.
 
-Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.\
-
+Remember that all tokens on the Secret Testnet have **no real value** as they’re free to mint and they’re impossible to transfer to mainnet.<br>
 
 Use the Pulsar-3 faucet [here](https://pulsar-3-faucet.vercel.app/)!
 

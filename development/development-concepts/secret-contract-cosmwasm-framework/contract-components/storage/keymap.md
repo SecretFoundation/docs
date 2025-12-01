@@ -114,6 +114,5 @@ Our test is passing! This means that the first element returned by the iterator 
 
 ### **Additional Resources**
 
-For further examples demonstrating the usage of keymaps, refer to the [Secret Toolkit repo here](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/storage). \
-
+For further examples demonstrating the usage of keymaps, refer to the [Secret Toolkit repo here](https://github.com/scrtlabs/secret-toolkit/tree/master/packages/storage). <br>
 

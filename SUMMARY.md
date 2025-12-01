@@ -191,7 +191,12 @@
   * [Chain of Trust](secretvm-confidential-virtual-machines/attestation/chain-of-trust.md)
 * [🏁 Launching a SecretVM](secretvm-confidential-virtual-machines/launching-a-secretvm/README.md)
   * [🚩 Using Custom Domain Names](secretvm-confidential-virtual-machines/launching-a-secretvm/using-custom-domain-names.md)
+  * [🔐 Using Private Container Registries](secretvm-confidential-virtual-machines/launching-a-secretvm/using-private-container-registries.md)
+  * [🕶️ Hiding Runtime Info](secretvm-confidential-virtual-machines/launching-a-secretvm/hiding-runtime-info.md)
+  * [Providing Additional Files to Docker](secretvm-confidential-virtual-machines/launching-a-secretvm/providing-additional-files-to-docker.md)
 * [🛠️ Managing SecretVM Lifecycle](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/README.md)
+  * [🗒️ Viewing Logs](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/viewing-logs.md)
+  * [🪵 Log Forwarding](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/log-forwarding.md)
   * [⏫ SecretVM Upgradeability](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/secretvm-upgradeability.md)
 * [✅ Verifying a SecretVM](secretvm-confidential-virtual-machines/verifying-a-secretvm/README.md)
   * [🐢 Full Verification](secretvm-confidential-virtual-machines/verifying-a-secretvm/full-verification.md)
@@ -203,7 +208,6 @@
 * [💡 Best Practices for Developers](secretvm-confidential-virtual-machines/best-practices-for-developers/README.md)
   * [🤖 Generating Github Workflows](secretvm-confidential-virtual-machines/best-practices-for-developers/generating-github-workflows.md)
 * [🔐 Verifiable Message Signing](secretvm-confidential-virtual-machines/verifiable-message-signing.md)
-* [🪵 Log Forwarding](secretvm-confidential-virtual-machines/log-forwarding.md)
 * [📖 Glossary](secretvm-confidential-virtual-machines/glossary.md)
 
 ## 🔓 Confidential Computing Layer

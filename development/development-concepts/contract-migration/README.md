@@ -8,8 +8,7 @@ In some cases, for example when wanting to deliver support to users and deploy b
 
 **Secret used to not support the native CosmWasm implementation of contract migratability, since v1.11 it does.**\
 \
-The old manual examples are still displayed here as a reference.\
-
+The old manual examples are still displayed here as a reference.<br>
 
 {% hint style="info" %}
 During the v1.11 upgrade a set of old contracts were allowed to become migrateable, these contracts behave slightly different in that they are callable by both their new and old code hash.\

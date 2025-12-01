@@ -14,7 +14,7 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 <summary>Topics Covered</summary>
 
-[Steps Of A Private Transactions](broken-reference)
+[Steps Of A Private Transactions](/broken/pages/7g3yyuMvqlDuITccDDXI)
 
 [Private Computation & Consensus Flow](private-computation-and-consensus-flow.md)
 
@@ -24,9 +24,9 @@ To achieve such programmable privacy, Secret Network uses a combination of techn
 
 [Access Control](../../../development/development-concepts/secret-contract-fundamentals/access-control/)
 
-[Plans Beyond SGX](broken-reference)
+[Plans Beyond SGX](/broken/pages/KbjKxbHuzFhWPlTVSI3j)
 
-[Theoretical Attacks](broken-reference)
+[Theoretical Attacks](/broken/pages/WrLwy34PZ6rptgzfBo65)
 
 </details>
 

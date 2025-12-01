@@ -43,4 +43,4 @@ These canonical assets shall not have a suffix to avoid confusion about their is
 Native SNIP-20 to SNIP-2X assets should not have any prefixes or suffixes attached to their names.
 
 \
-\
+<br>

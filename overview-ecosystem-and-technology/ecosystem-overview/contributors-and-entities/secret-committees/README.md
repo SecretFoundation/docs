@@ -4,6 +4,6 @@ Secret network has a very active community pool which funds several different co
 
 #### Overview
 
-* [(Smart contract) development](broken-reference)
+* [(Smart contract) development](/broken/pages/8bdyZ6ToQwJtUDEmLfzy)
 * [User support](support.md)
 * [Governance](governance.md)

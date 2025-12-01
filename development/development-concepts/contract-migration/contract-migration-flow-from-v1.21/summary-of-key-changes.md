@@ -13,8 +13,7 @@
 * One-way governance flag: Contracts can irreversibly require governance approval
 * Four upgrade scenarios: Multiple combinations of admin and governance requirements
 * Batch migrations: Single governance proposal can authorize multiple contract migrations
-* Governance-only migration pattern: New mechanism for contracts with no admin but governance control\
-
+* Governance-only migration pattern: New mechanism for contracts with no admin but governance control<br>
 
 The schematics of the updated system is shown below:
 

@@ -69,4 +69,4 @@ message QueryAuthorizedMigrationResponse {
 
 **Purpose**: Query pending governance authorizations for a contract.
 
-\
+<br>

@@ -97,4 +97,4 @@ Seed used by chain = HKDF (DecryptREK(Erand), SHA256active_set)
 </strong>SHA256active_set = SHA256(PKval1 || VP1 || PKval2 || VP2 ….)
 </code></pre>
 
-\
+<br>
