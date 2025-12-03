@@ -15,7 +15,9 @@ In order to create such proposal, use:\
 
 Pick the MsgUpdateMachineWhitelist,  choose `/secret.Compute.Vibetal.MsgUpdateMachineWhitelistProposal` type and follow the instructions in the wizard.
 
-After the proposal is passed, it is necessary to send a transacion so that the information on the proposal  is received by the enclave:
+After the proposal is passed, it is necessary to send a transaction so that the information on the proposal  is received by the enclave:
 
 \
-`secretcli tx compute update-machine-whitelist <machine_id>`
+`secretcli tx compute update-machine-whitelist <machine_id>` \
+\
+Once the transaction succeeds, the Enclave will receive the new machine\_id and the new node will be able to register on Secret Network
