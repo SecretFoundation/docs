@@ -2,9 +2,9 @@
 
 Starting from v 1.23, Secret Network can accept Azure nodes without the need to whitelist them.
 
-In order to register an Azure node, an additional step is required to sign the attestation report with Azure Proo-of-cloud signature
+In order to register an Azure node, an additional step is required to sign the attestation report with an Azure signature.
 
-This additional step needs to be perfomed right after[ Verify Enclave Initialization](setting-up-a-node-validator/testnet/run-a-full-node.md#verify-enclave-initialization) step in the [Setup Full Node](setting-up-a-node-validator/testnet/run-a-full-node.md) guide
+This additional step needs to be performed right after[ Verify Enclave Initialization](setting-up-a-node-validator/testnet/run-a-full-node.md#verify-enclave-initialization) step in the [Setup Full Node](setting-up-a-node-validator/testnet/run-a-full-node.md) guide
 
 ```
 wget https://github.com/scrtlabs/SecretNetwork/releases/download/v1.23.0/embed_azure_attestation.sh
