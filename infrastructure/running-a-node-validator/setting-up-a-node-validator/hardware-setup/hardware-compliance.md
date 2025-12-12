@@ -16,21 +16,19 @@ This is not a comprehensive list of compliant hardware, but rather a guide for w
 
 The following are confirmed compliant Intel CPUs:
 
-| Brand | Family            | Model             |
-| ----- | ----------------- | ----------------- |
-| Intel | XEON E-Series     | `E-21xxG`         |
-|       |                   | `E-22xxG`         |
-|       |                   | `E-23xxG`         |
-|       | XEON D-1700       | `All-But bios Updates may be infrequent` |
-|       | XEON D-2700       | `All-But bios Updates may be infrequent` |
-|       | XEON D-1800       | `All-But bios Updates may be infrequent` |
-|       | XEON D-2800       | `All-But bios Updates may be infrequent` |
-|       | XEON MAX          | `All-But bios Updates may be infrequent` |
+| Brand | Family                | Model                                                                        |
+| ----- | --------------------- | ---------------------------------------------------------------------------- |
+| Intel | XEON E-Series         | `E-23xxG`                                                                    |
+|       | XEON D-1700           | `All-But bios Updates may be infrequent`                                     |
+|       | XEON D-2700           | `All-But bios Updates may be infrequent`                                     |
+|       | XEON D-1800           | `All-But bios Updates may be infrequent`                                     |
+|       | XEON D-2800           | `All-But bios Updates may be infrequent`                                     |
+|       | XEON MAX              | `All-But bios Updates may be infrequent`                                     |
 |       | XEON 3rd Gen Scalable | `Supported but requires extra configuration for multi-socket configurations` |
-|       | XEON 4th Gen Scalable | `Supported` |
-|       | XEON 5th Gen Scalable | `Supported` |
-|       | XEON 6th Gen Scalable | `Likely supported but yet to be confirmed` |
-| AMD   | \*NOT SUPPORTED\* |                   |
+|       | XEON 4th Gen Scalable | `Supported`                                                                  |
+|       | XEON 5th Gen Scalable | `Supported`                                                                  |
+|       | XEON 6th Gen Scalable | `Likely supported but yet to be confirmed`                                   |
+| AMD   | \*NOT SUPPORTED\*     |                                                                              |
 
 {% hint style="warning" %}
 Only Intel processors support SGX. AMD processors are \*NOT\* supported.

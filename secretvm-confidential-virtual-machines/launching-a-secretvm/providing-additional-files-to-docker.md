@@ -1,4 +1,4 @@
-# Providing Additional Files to Docker
+# 📂 Providing Additional Files to Docker
 
 SecretVM lets you attach an optional .tar archive containing extra files your workload needs at runtime.
 
