@@ -58,7 +58,7 @@ mkdir -p /opt/secret/.sgx_secrets
 
 You can choose between two methods, [**automatic**](setup-full-node.md#initialize-secret-enclave---automatic-registration-experimental) **or** [**manual**](setup-full-node.md#initialize-secret-enclave---manual-registration):
 
-#### **Initialize Secret Enclave - Automatic Registration (EXPERIMENTAL)**
+#### **Initialize Secret Enclave - c**
 
 {% hint style="danger" %}
 WARNING: This method is experimental, and may not work. If it doesn't work, skip to [manual registration](setup-full-node.md#initialize-secret-enclave---manual-registration).

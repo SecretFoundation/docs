@@ -12,7 +12,7 @@ However, there are use cases where the SecretVM owner wants to keep the workload
 
 This is where the "Hide Runtime Info" setting provides its value:
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 If the developer still wants to access those endpoints, they can provide a secret access token, and still be able to access those endpoints by providing teh token as Authorization Bearer or ?token parameter.
 

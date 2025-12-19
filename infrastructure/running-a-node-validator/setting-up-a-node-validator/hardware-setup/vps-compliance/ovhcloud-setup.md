@@ -44,7 +44,7 @@ OVHCloud servers can come with either an ASUS or Asrock motherboard. The Asus mo
 
 7\. Disable Intel Speedstep Technology
 
-![Intel SpeedStep](<../../../../../.gitbook/assets/image (3) (1) (1).png>)
+![Intel SpeedStep](<../../../../../.gitbook/assets/image (3) (1) (1) (1).png>)
 
 8\. Under Chipset Configuration:
 

@@ -12,7 +12,7 @@ In SecretVM, logs can be accessed separately for each running container, and thr
 
 Viewing Logs on the Portal is easy. Every VM offers a Logs tab, showing all the logs. The tabs on the left allow breaking the logs down by service (starting with secretvm runtime and all the running containers), plus the "All" tabs showing all the logs in chronological order.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Accessing Logs through the REST endpoint
 
