@@ -5,10 +5,17 @@
 ```python
 from openai import OpenAI
 import os
+from secret_ai_sdk.secret_ai import ChatSecret
+from secret_ai_sdk.secret import Secret
+
+# Initialize client & get models
+secret_client = Secret()
+models = secret_client.get_models()
+base_url = secret_client.get_urls(model=models[0])
 
 # Point OpenAI client to Secret AI via Ollama
 client = OpenAI(
-    base_url="http://localhost:11434/v1",
+    base_url=base_url,
     api_key=os.getenv("SECRET_AI_API_KEY")  # enforced by SecretAI
 )
 
