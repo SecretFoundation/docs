@@ -6,7 +6,7 @@ Commands for managing Virtual Machine instances.
 
 List all your virtual machine instances.
 
-**Usage:**`secretvm-cli vm list` or `secretvm-cli vm ls`&#x20;
+**Usage:** `secretvm-cli vm list` or `secretvm-cli vm ls`&#x20;
 
 **Description:**\
 Retrieves and displays a list of all VM instances associated with your account. In interactive mode, it shows a table with details like ID, UUID, Name, Status, Type, Price/Hour, IP, Domain, and Creation Date.
@@ -15,13 +15,14 @@ Retrieves and displays a list of all VM instances associated with your account. 
 
 Create a new virtual machine.
 
-**Usage:**`secretvm-cli vm create [options]`
+**Usage:** `secretvm-cli vm create [options]`
 
 **Options:**
 
 * `-n, --name <vmName>`: The name for the new VM. (Required if not in interactive mode)
 * `-t, --type <vmType>`: The type of the VM (e.g., small, medium, large). (Required if not in interactive mode)
 * `-d, --docker-compose <dockerComposePath>`: Path to the `docker-compose.yaml` (or similar) file for the VM configuration. (Required if not in interactive mode)
+* `-s, --tls:` Enable HTTPS with TLS
 * `-c, --invite-code <inviteCode>`: An optional invite code.
 * `-e, --env <env>`: Path to your .env file
 * `-m, --domain`: Your custom controlled FQDN
@@ -38,7 +39,7 @@ This command allows you to provision a new VM. It requires a name, type, and a D
 
 View the detailed status and configuration of a specific virtual machine.
 
-**Usage:**`secretvm-cli vm status <vmUUID>`
+**Usage:** `secretvm-cli vm status <vmUUID>`
 
 **Arguments:**
 
@@ -51,7 +52,7 @@ Fetches and displays comprehensive details about the specified VM, including its
 
 Start a virtual machine.
 
-**Usage:**`secretvm-cli vm start <vmId>`
+**Usage:** `secretvm-cli vm start <vmId>`
 
 **Arguments:**
 
@@ -64,7 +65,7 @@ Sends a request to start the specified VM. The command will output the status of
 
 Stop a virtual machine.
 
-**Usage:**`secretvm-cli vm stop <vmId>`
+**Usage:** `secretvm-cli vm stop <vmId>`
 
 **Arguments:**
 
@@ -73,11 +74,30 @@ Stop a virtual machine.
 **Description:**\
 Sends a request to stop the specified VM. The command will output the status of the request.
 
+## vm edit
+
+Edits an existing virtual machine.
+
+**Usage:** `secretvm-cli vm edit [options]`
+
+**Options:**
+
+* `-n, --name <vmName>`: New name for the VM.
+* `-d, --docker-compose <dockerComposePath>`: Path to the updated `docker-compose.yaml` file.
+* `-e, --env <env>`: Path to your .env file
+* `-p, --persistence`: Enable filesystem persistence (state is preserved across reboots)
+* `-l, --docker-credentials`: Credentials for private docker registries (username:password)
+* `-r, --docker-registry`: Docker registry where your private image is hosted (default: docker.io)\
+  `-h, --help`: display help for command
+
+**Description:**\
+This command allows you to edit an existing VM. Old environment variables and docker credentials (if there were any) will be lost, so it is necessary to provide them again in `edit` command.
+
 ## vm remove
 
 Remove (terminate and delete) a virtual machine.
 
-**Usage:**`secretvm-cli vm remove <vmId>`
+**Usage:** `secretvm-cli vm remove <vmId>`
 
 **Arguments:**
 
@@ -90,7 +110,7 @@ This command terminates and deletes the specified VM. In interactive mode, it wi
 
 View the logs of a specified virtual machine.
 
-**Usage:**`secretvm-cli vm logs <vmId>`
+**Usage:** `secretvm-cli vm logs <vmId>`
 
 **Arguments:**
 
@@ -103,7 +123,7 @@ Fetches and displays the Docker logs for the specified VM.
 
 View the CPU attestation of a specified virtual machine.
 
-**Usage:**`secretvm-cli vm attestation <vmId>`
+**Usage:** `secretvm-cli vm attestation <vmId>`
 
 **Arguments:**
 

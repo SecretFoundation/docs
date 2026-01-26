@@ -6,14 +6,12 @@ Commands for managing authentication with the SecretVM service.
 
 Login to the service using your Keplr wallet.
 
-**Usage:** `secretvm-cli auth login [options]`
+**Note**: Works only in interactive mode (`-i, --interactive`)
 
-**Options:**
+**Usage:** `secretvm-cli auth login`
 
-* `-w, --wallet-address <address>`: Your Keplr wallet address. If in interactive mode and this option is not provided, you will be prompted to enter it.
-
-**Description:**\
-This command initiates the login process. It retrieves a CSRF token, then attempts to log in using the provided Keplr wallet address. Successful login will save a session cookie to `~/.secretvm-cli/session.json`.
+**Description:** \
+Initiates an interactive browser-based login session. This command opens the SecretAI sign-in page for authentication via Keplr wallet and starts a local server to capture the resulting credentials.
 
 ## auth logout
 
