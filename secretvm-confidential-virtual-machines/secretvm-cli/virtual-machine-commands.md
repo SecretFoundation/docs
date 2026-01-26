@@ -27,6 +27,7 @@ Create a new virtual machine.
 * `-e, --env <env>`: Path to your .env file
 * `-m, --domain`: Your custom controlled FQDN
 * `-p, --persistence`: Enable filesystem persistence (state is preserved across reboots)
+* `-f, --platform`: AMD SEV-SNP (sev) or Intel TDX (tdx) (default)
 * `-u, --upgradeability`: Enable SecretVM upgradeability feature (state is preserved across docker image upgrades)
 * `-l, --docker-credentials`: Credentials for private docker registries (username:password)
 * `-r, --docker-registry`: Docker registry where your private image is hosted (default: docker.io)\
