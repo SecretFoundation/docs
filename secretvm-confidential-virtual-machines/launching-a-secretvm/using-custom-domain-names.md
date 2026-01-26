@@ -16,7 +16,7 @@ After Launch Your SecretVM is clicked, the machine will be created, but not yet 
 
 Go to the Network tab to find the IP address that was assigned to the new machine, and then configure your DNS to point the chosen FQDN to that IP.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Once the DNS records are created and sufficiently propagated, launch the SecretVM.
 

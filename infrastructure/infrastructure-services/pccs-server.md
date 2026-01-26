@@ -19,11 +19,11 @@ For Secret Network validators and node operators, running a PCCS ensures reliabl
 2. Click "Sign In" (even if you don't have an account)
 3. Enter your email.&#x20;
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 4. If the email is not known, the registration will start
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Obtain an API key
 
