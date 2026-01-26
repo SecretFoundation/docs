@@ -20,7 +20,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="llama3.1",
+    model=models[0],
     messages=[
         {"role": "system", "content": "You are a weather assistant."},
         {"role": "user", "content": "What's the weather in Paris today?"}
