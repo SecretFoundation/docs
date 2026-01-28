@@ -41,6 +41,16 @@ You can easily create and deploy a Confidential Virtual Machine using the [Secre
 {% endstep %}
 
 {% step %}
+### Choosing the Platform
+
+The Portal currently supports Intel TDX and AMD SEV platforms.&#x20;
+
+The developer can choose one of them, or let the Portal pick the technology.
+
+<figure><img src="../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
 **Launch the VM**
 
 * Click **`Launch your SecretVM`** to spin up your Confidential Virtual Machine.

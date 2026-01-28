@@ -13,3 +13,5 @@ The service will provide one of the following responses:
 1. SecretVM is authentic and is running the specified workload
 2. SecretVM is authentic, but is **not** running the specfied workload
 3. The attestation quote does not represent a valid SecretVM
+
+The Quick Verification feature works for both Intel TDX and AMD SEV-SNP based instances.
