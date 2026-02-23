@@ -11,7 +11,7 @@
 
 ### Faucets
 
-* [https://pulsar-3-faucet.vercel.app/](https://pulsar-3-faucet.vercel.app/)
+* [https://pulsar-3-faucet-wine.vercel.app/](https://pulsar-3-faucet-wine.vercel.app/)
 
 ### API endpoints
 
