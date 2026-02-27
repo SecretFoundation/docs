@@ -11,6 +11,15 @@ List all your virtual machine instances.
 **Description:**\
 Retrieves and displays a list of all VM instances associated with your account. In interactive mode, it shows a table with details like ID, UUID, Name, Status, Type, Price/Hour, IP, Domain, and Creation Date.
 
+## vm templates
+
+List available templates for SecretVM.
+
+**Usage:** `secretvm-cli vm templates`&#x20;
+
+**Description:**\
+Displays a list of all available VM templates. Templates provide pre-configured Docker Compose setups, environment variables, and default sizes to help you quickly launch a specific app in SecretVM.
+
 ## vm create
 
 Create a new virtual machine.
@@ -28,10 +37,12 @@ Create a new virtual machine.
 * `-m, --domain`: Your custom controlled FQDN
 * `-p, --persistence`: Enable filesystem persistence (state is preserved across reboots)
 * `-f, --platform`: AMD SEV-SNP (sev) or Intel TDX (tdx) (default)
+* `-E, --environment <env>`: Deployment environment (dev or prod (default)). Dev environment has SSH access and a few other development tools for debugging your SecretVM payload.
+* `-T, --template <templateId>`: Create VM from a template (ID or name).
 * `-u, --upgradeability`: Enable SecretVM upgradeability feature (state is preserved across docker image upgrades)
 * `-l, --docker-credentials`: Credentials for private docker registries (username:password)
-* `-r, --docker-registry`: Docker registry where your private image is hosted (default: docker.io)\
-  `-h, --help`: display help for command
+* `-r, --docker-registry`: Docker registry where your private image is hosted (default: docker.io)
+* `-h, --help`: display help for command
 
 **Description:**\
 This command allows you to provision a new VM. It requires a name, type, and a Docker Compose file. In interactive mode, if options are not provided, you will be prompted for them. The Docker Compose file is uploaded to configure the VM. Environmental variables are passed securely using KMS contract.
