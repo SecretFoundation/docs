@@ -16,7 +16,7 @@ After Launch Your SecretVM is clicked, the machine will be created, but not yet 
 
 Go to the Network tab to find the IP address that was assigned to the new machine, and then configure your DNS to point the chosen FQDN to that IP.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Once the DNS records are created and sufficiently propagated, launch the SecretVM.
 
@@ -26,7 +26,7 @@ After the VM starts, you will need to create an additional DNS record under your
 
 Go to the Logs tab of the machine, and search for "CNAME Challenge":<br>
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Copy the <mark style="color:red;">name</mark> of the record and the expected <mark style="color:green;">value</mark>, and create a respective record under your DNS. ZeroSSL script will continue retrying multiple times until it can read the expected record.
 

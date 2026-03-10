@@ -19,24 +19,24 @@ For Secret Network validators and node operators, running a PCCS ensures reliabl
 2. Click "Sign In" (even if you don't have an account)
 3. Enter your email.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 4. If the email is not known, the registration will start
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Obtain an API key
 
 Once logged in to Trusted Services, click "[Intel® SGX and Intel® TDX Registration Service](https://api.portal.trustedservices.intel.com/registration)"
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 \
 or just go to this URL: [https://api.portal.trustedservices.intel.com/registration](https://api.portal.trustedservices.intel.com/registration)
 
 Once on the Registration Service page, click "Subscribe":
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 After you confirm your subscription on the following page, you should be taken to the Subscription page. Click "show" next to the primary key and copy it to a secure location:
 

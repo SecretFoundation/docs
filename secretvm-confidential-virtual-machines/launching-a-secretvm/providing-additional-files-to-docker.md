@@ -4,7 +4,7 @@ SecretVM lets you attach an optional .tar archive containing extra files your wo
 
 When provided, the archive is automatically unpacked into the ./usr/ directory inside your SecretVM environment.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 These files become available to Docker Compose and can be mounted into your containers just like any local path.
 
