@@ -42,6 +42,10 @@ Create a new virtual machine.
 * `-u, --upgradeability`: Enable SecretVM upgradeability feature (state is preserved across docker image upgrades)
 * `-l, --docker-credentials`: Credentials for private docker registries (username:password)
 * `-r, --docker-registry`: Docker registry where your private image is hosted (default: docker.io)
+* `-A, --archive <archivePath>`: Path to a .tar archive with additional files needed for the docker compose.
+* `-K, --kms <kmsType>`: Type of KMS to use (GKMS, dstack, contract).
+* `--eip8004-registration-json <jsonPath>`: Path to EIP-8004 registration JSON file.
+* `--eip8004-chain <chainId>`: Chain to use for EIP-8004 registration (supported: base-mainnet).
 * `-h, --help`: display help for command
 
 **Description:**\
