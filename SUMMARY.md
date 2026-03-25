@@ -215,6 +215,7 @@
   * [Getting started](secretvm-confidential-virtual-machines/secretvm-cli/getting-started.md)
   * [Authentication Commands](secretvm-confidential-virtual-machines/secretvm-cli/authentication-commands.md)
   * [Virtual Machine Commands](secretvm-confidential-virtual-machines/secretvm-cli/virtual-machine-commands.md)
+  * [Attestation Verification Commands](secretvm-confidential-virtual-machines/secretvm-cli/attestation-verification-commands.md)
 * [💡 Best Practices for Developers](secretvm-confidential-virtual-machines/best-practices-for-developers/README.md)
   * [🤖 Generating Github Workflows](secretvm-confidential-virtual-machines/best-practices-for-developers/generating-github-workflows.md)
 * [🔐 Verifiable Message Signing](secretvm-confidential-virtual-machines/verifiable-message-signing.md)
