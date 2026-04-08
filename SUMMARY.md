@@ -396,7 +396,6 @@
       * [Statesync](infrastructure/running-a-node-validator/setting-up-a-node-validator/node-setup/state-sync.md)
       * [Becoming A Validator](infrastructure/running-a-node-validator/setting-up-a-node-validator/node-setup/becoming-a-validator.md)
       * [Installing CLI & Creating A New Address](infrastructure/running-a-node-validator/setting-up-a-node-validator/node-setup/installing-cli-and-creating-a-new-address.md)
-    * [Adding a New Node using Governance](infrastructure/running-a-node-validator/setting-up-a-node-validator/adding-a-new-node-using-governance.md)
   * [Maintaining a node/validator](infrastructure/running-a-node-validator/maintaining-a-node-validator/README.md)
     * [Slashing information](infrastructure/running-a-node-validator/maintaining-a-node-validator/node-runners.md)
     * [Migrating a Validator](infrastructure/running-a-node-validator/maintaining-a-node-validator/migrating-a-validator.md)
