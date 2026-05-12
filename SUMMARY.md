@@ -189,6 +189,7 @@
   * [What is Attestation](secretvm-confidential-virtual-machines/attestation/what-is-attestation.md)
   * [Obtaining Attestation Data](secretvm-confidential-virtual-machines/attestation/obtaining-attestation-data.md)
   * [Intel TDX Attestation Report - Key Fields](secretvm-confidential-virtual-machines/attestation/attestation-report-key-fields.md)
+  * [📝 Intel Trust Authority](secretvm-confidential-virtual-machines/attestation/intel-trust-authority.md)
   * [AMD SEV-SNP Attestation Report - Key Fields](secretvm-confidential-virtual-machines/attestation/amd-sev-snp-attestation-report-key-fields.md)
   * [Chain of Trust](secretvm-confidential-virtual-machines/attestation/chain-of-trust.md)
 * [🏁 Launching a SecretVM](secretvm-confidential-virtual-machines/launching-a-secretvm/README.md)
