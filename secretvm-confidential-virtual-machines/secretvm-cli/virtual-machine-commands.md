@@ -46,10 +46,21 @@ Create a new virtual machine.
 * `-K, --kms <kmsType>`: Type of KMS to use (GKMS, dstack, contract).
 * `--eip8004-registration-json <jsonPath>`: Path to EIP-8004 registration JSON file.
 * `--eip8004-chain <chainId>`: Chain to use for EIP-8004 registration (supported: base-mainnet).
+* `--enable_ita, --enable_intel_trust_authority`: Enable Intel Trust Authority (ITA) JWT endpoint. TDX platform only. Enabled by default on TDX VMs.
+* `--disable_ita`: Disable Intel Trust Authority (ITA) JWT endpoint.
+* `--enable_poc, --enable_proof_of_cloud`: Enable Proof of Cloud (PoC) JWT endpoint. Available on all platforms. Disabled by default.
+* `--disable-upgrades`: Disable SecretVM upgradeability for this VM.
+* `-a, --private`: Enable private mode.
 * `-h, --help`: display help for command
 
 **Description:**\
 This command allows you to provision a new VM. It requires a name, type, and a Docker Compose file. In interactive mode, if options are not provided, you will be prompted for them. The Docker Compose file is uploaded to configure the VM. Environmental variables are passed securely using KMS contract.
+
+{% hint style="info" %}
+**ITA (Intel Trust Authority):** When enabled, the VM exposes a JWT endpoint that provides Intel Trust Authority-signed attestation tokens. This allows third parties to cryptographically verify the VM's TEE integrity via Intel's attestation service. Only available on TDX-based VMs and enabled by default.
+
+**PoC (Proof of Cloud):** When enabled, the VM exposes a JWT endpoint for Proof of Cloud verification. This registers the VM's unique Machine ID with the [ProofOfCloud](https://www.proofofcloud.org) registry, allowing anyone to verify the VM is running on genuine confidential hardware. Available on all platforms.
+{% endhint %}
 
 ## vm status
 
