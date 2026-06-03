@@ -114,11 +114,21 @@ Edits an existing virtual machine.
 * `-e, --env <env>`: Path to your .env file
 * `-p, --persistence`: Enable filesystem persistence (state is preserved across reboots)
 * `-l, --docker-credentials`: Credentials for private docker registries (username:password)
-* `-r, --docker-registry`: Docker registry where your private image is hosted (default: docker.io)\
-  `-h, --help`: display help for command
+* `-r, --docker-registry`: Docker registry where your private image is hosted (default: docker.io)
+* `--enable-ita-jwt`: Enable Intel Trust Authority JWT
+* `--disable-ita-jwt`: Disable Intel Trust Authority JWT
+* `--enable-poc-jwt`: Enable Proof of Cloud JWT
+* `--disable-poc-jwt`: Disable Proof of Cloud JWT
+
+\
+`-h, --help`: display help for command
 
 **Description:**\
 This command allows you to edit an existing VM. Old environment variables and docker credentials (if there were any) will be lost, so it is necessary to provide them again in `edit` command.
+
+{% hint style="info" %}
+**Custom ITA API Keys:** If you want to use your own Intel Trust Authority API key instead of the default one, you can pass it via an environment file (`-e .env`) containing: `SECRETVM_ITA_KEYS={"your_key_name": {"api_key": "YOUR_API_KEY", "policy_ids": ["YOUR_POLICY_ID"]}}` This will automatically merge with the default key configuration.
+{% endhint %}
 
 ## vm remove
 
