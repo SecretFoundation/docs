@@ -205,6 +205,7 @@
 * [✅ Verifying a SecretVM](secretvm-confidential-virtual-machines/verifying-a-secretvm/README.md)
   * [🐢 Full Verification](secretvm-confidential-virtual-machines/verifying-a-secretvm/full-verification.md)
   * [🐰 Quick Verification](secretvm-confidential-virtual-machines/verifying-a-secretvm/quick-verification.md)
+* [⚙️ SecretVM REST API](secretvm-confidential-virtual-machines/secretvm-rest-api.md)
 * [🤖 Agentic Support](secretvm-confidential-virtual-machines/agentic-support/README.md)
   * [📃 EIP-8004 Support](secretvm-confidential-virtual-machines/agentic-support/eip-8004-support/README.md)
     * [✨ Creating a VM with ERC-8004 registration](secretvm-confidential-virtual-machines/agentic-support/eip-8004-support/creating-a-vm-with-erc-8004-registration.md)
