@@ -463,6 +463,7 @@
     * [Archive Nodes](infrastructure/running-a-node-validator/sentry-archive-and-ibc-node-setup/archive-nodes.md)
   * [Adding Nodes via Governance Proposal](infrastructure/running-a-node-validator/adding-nodes-via-governance-proposal.md)
   * [Adding an Azure node](infrastructure/running-a-node-validator/adding-an-azure-node.md)
+  * [Replacing an existing MachineID](infrastructure/running-a-node-validator/replacing-an-existing-machineid.md)
   * [Non-SGX Node (Beta)](infrastructure/running-a-node-validator/non-sgx-node-beta/README.md)
     * [How it Works](infrastructure/running-a-node-validator/non-sgx-node-beta/how-it-works.md)
     * [Setting up an SGX Provider Node](infrastructure/running-a-node-validator/non-sgx-node-beta/setting-up-an-sgx-provider-node/README.md)
