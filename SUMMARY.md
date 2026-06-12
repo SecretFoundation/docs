@@ -198,6 +198,8 @@
   * [🕶️ Hiding Runtime Info](secretvm-confidential-virtual-machines/launching-a-secretvm/hiding-runtime-info.md)
   * [🔑 Choosing the KMS provider](secretvm-confidential-virtual-machines/launching-a-secretvm/choosing-the-kms-provider.md)
   * [📂 Providing Additional Files to Docker](secretvm-confidential-virtual-machines/launching-a-secretvm/providing-additional-files-to-docker.md)
+  * [Deploying on Google Cloud Platform](secretvm-confidential-virtual-machines/launching-a-secretvm/deploying-on-google-cloud-platform.md)
+  * [🏗️ Bring Your Own GCP Project](secretvm-confidential-virtual-machines/launching-a-secretvm/bring-your-own-gcp-project.md)
 * [🛠️ Managing SecretVM Lifecycle](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/README.md)
   * [🗒️ Viewing Logs](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/viewing-logs.md)
   * [🪵 Log Forwarding](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/log-forwarding.md)
