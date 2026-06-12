@@ -8,6 +8,8 @@
   * Supports dozens of Cosmos chains and includes a basic web wallet, by [ping.pub](https://ping.pub/)
 * [Dashboard](https://dash.scrt.network)
   * View analytics, IBC transactions, view balances, wrap/unwrap sASSETS
+* [Valopers](https://secret.valopers.com)
+  * Explorer for Secret Network
 
 ### Testnet - Pulsar-3
 
