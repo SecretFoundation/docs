@@ -1,3 +1,7 @@
+---
+description: Create and launch a SecretVM from the SecretAI portal.
+---
+
 # 🏁 Launching a SecretVM
 
 ## Using SecretAI Portal
@@ -43,7 +47,7 @@ You can easily create and deploy a Confidential Virtual Machine using the [Secre
 {% step %}
 ### Choosing the Platform
 
-The Portal currently supports Intel TDX and AMD SEV platforms.&#x20;
+The Portal currently supports Intel TDX and AMD SEV platforms.
 
 The developer can choose one of them, or let the Portal pick the technology.
 

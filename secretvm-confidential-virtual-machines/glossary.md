@@ -50,6 +50,18 @@ This forms the **external trust chain** that links attestation results to Intel 
 
 A hardware-based **Confidential Computing** technology by Intel that enables the creation of **confidential virtual machines**. TDX isolates guest VMs from the host and hypervisor, offering enhanced data privacy and integrity.
 
+#### **AMD SEV-SNP**
+
+AMD's hardware-based confidential computing technology providing memory encryption and isolation for virtual machines. _(The glossary defines Intel TDX but not AMD SEV-SNP, even though the attestation docs cover both.)_
+
+#### **SecretVM**
+
+Secret Network's Confidential Virtual Machine framework for deploying workloads inside Trusted Execution Environments (TEEs). _(Used throughout the docs but not defined in the glossary.)_
+
+#### **Remote Attestation**
+
+The process by which a SecretVM cryptographically proves what code it is running and that it runs inside a genuine TEE. _(Central to the docs; the glossary defines the report/quote artifacts but not the term itself.)_
+
 #### **QEMU (Quick Emulator)**
 
 An open-source hardware **virtualization and emulation platform**. It can:

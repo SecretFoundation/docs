@@ -200,6 +200,9 @@
   * [📂 Providing Additional Files to Docker](secretvm-confidential-virtual-machines/launching-a-secretvm/providing-additional-files-to-docker.md)
   * [Deploying on Google Cloud Platform](secretvm-confidential-virtual-machines/launching-a-secretvm/deploying-on-google-cloud-platform.md)
   * [🏗️ Bring Your Own GCP Project](secretvm-confidential-virtual-machines/launching-a-secretvm/bring-your-own-gcp-project.md)
+* [📦 SecretVM Cluster Solutions](secretvm-confidential-virtual-machines/secretvm-cluster-solutions/README.md)
+  * [Load-Balanced Clusters](secretvm-confidential-virtual-machines/secretvm-cluster-solutions/load-balanced-clusters.md)
+  * [Kubernetes Clusters](secretvm-confidential-virtual-machines/secretvm-cluster-solutions/kubernetes-clusters.md)
 * [🛠️ Managing SecretVM Lifecycle](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/README.md)
   * [🗒️ Viewing Logs](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/viewing-logs.md)
   * [🪵 Log Forwarding](secretvm-confidential-virtual-machines/managing-secretvm-lifecycle/log-forwarding.md)
@@ -234,6 +237,7 @@
 * [💡 Best Practices for Developers](secretvm-confidential-virtual-machines/best-practices-for-developers/README.md)
   * [🤖 Generating Github Workflows](secretvm-confidential-virtual-machines/best-practices-for-developers/generating-github-workflows.md)
 * [🔐 Verifiable Message Signing](secretvm-confidential-virtual-machines/verifiable-message-signing.md)
+* [👥 Teams](secretvm-confidential-virtual-machines/teams.md)
 * [📖 Glossary](secretvm-confidential-virtual-machines/glossary.md)
 
 ## 🔓 Confidential Computing Layer
