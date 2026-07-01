@@ -9,7 +9,7 @@ First, the node operators need to explicitly connect their existing MachineID to
 ```
 # Obtain the attestation again, which is bound to the validator key
 # to avoid attestation-validator binding, specify --unbound-attestation flag
-secretcli init-enclave
+secretd init-enclave
 ```
 
 This will produce the opt/secret/.sgx\_secrets/attestation\_combined.bin  file that will include the binding of your validator key
