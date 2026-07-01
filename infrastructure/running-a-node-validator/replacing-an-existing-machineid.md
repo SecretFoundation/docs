@@ -17,7 +17,6 @@ This will produce the opt/secret/.sgx\_secrets/attestation\_combined.bin  file t
 ```
 secretcli tx register auth /opt/secret/.sgx_secrets/attestation_combined.bin \ 
  --gas-prices 0.25uscrt --gas 5000000
-
 ```
 
 After this transaction is processed, the MachineID of the node is attached to the validator key, and the owner of the key can, if needed, issue a transaction to replace this MachineID with a new one.
@@ -31,7 +30,6 @@ After that, issue the registration transaction to replace the existng MachineID 
 ```
 secretcli tx register auth /opt/secret/.sgx_secrets/attestation_combined.bin \ 
  –replace_machine_id <existing MachineID> --gas-prices 0.25uscrt --gas 5000000 
-
 ```
 
 After this transaction is mined, the node with old MachineID will stop working, and the new machine will be able to register with the network.
