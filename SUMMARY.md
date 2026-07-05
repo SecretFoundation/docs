@@ -229,6 +229,8 @@
     * [🍽️ SecretVM services](secretvm-confidential-virtual-machines/agentic-support/eip-8004-support/secretvm-services.md)
     * [👓 Viewing Agentic Settings after deployment](secretvm-confidential-virtual-machines/agentic-support/eip-8004-support/viewing-agentic-settings-after-deployment.md)
   * [💰 SecretVM REST API for Agents (x402)](secretvm-confidential-virtual-machines/agentic-support/secretvm-rest-api-for-agents-x402.md)
+  * [Confidential LLM Access for Agents (x402)](secretvm-confidential-virtual-machines/agentic-support/confidential-llm-access-for-agents-x402/README.md)
+    * [Complete Sample Agent](secretvm-confidential-virtual-machines/agentic-support/confidential-llm-access-for-agents-x402/complete-sample-agent.md)
 * [👨‍💻 SecretVM CLI](secretvm-confidential-virtual-machines/secretvm-cli/README.md)
   * [Getting started](secretvm-confidential-virtual-machines/secretvm-cli/getting-started.md)
   * [Authentication Commands](secretvm-confidential-virtual-machines/secretvm-cli/authentication-commands.md)
