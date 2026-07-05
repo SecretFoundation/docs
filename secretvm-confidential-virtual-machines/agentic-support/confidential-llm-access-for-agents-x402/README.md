@@ -4,7 +4,7 @@ icon: robot
 
 # Confidential LLM Access for Agents (x402)
 
-### Overview
+## Overview
 
 SecretAI Confidential LLMs can be consumed directly by autonomous agents using the **x402 payment protocol**. Instead of registering for an API key, an agent authenticates each request with an EIP-191 signature from its EVM wallet and pays per request from its portal balance.
 
