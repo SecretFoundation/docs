@@ -26,6 +26,7 @@ secretvm-verify <command> [options]
 
 | Option             | Description                                        |
 | ------------------ | -------------------------------------------------- |
+| `--enforce-gpu`    | Require a verifiable GPU; fail CPU-only VMs        |
 | `--json \| --raw`  | Structured output                                  |
 | `--strict`         | Disable stale-cache fallback on AMD KDS failure    |
 | `--proof-of-cloud` | Run the SCRT Labs proof-of-cloud check             |
