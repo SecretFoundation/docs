@@ -31,8 +31,7 @@ All of the above steps can also be done manually if you wish.
 Quicksync / snapshots are provided by [Lavender.five Nodes](https://www.lavenderfive.com/tools/secretnetwork/snapshot).
 
 ```bash
-curl -L https://snapshots.lavenderfive.com/snapshots/secretnetwork/secretnetwork_18259769.tar.zst | tar -Ilz4 -xf - -C $HOME/.secretd
-mv $HOME/.secretd/priv_validator_state.json.backup $HOME/.secretd/data/priv_validator_state.json
+wget -O secret.tar.zst https://snapshots.lavenderfive.com/snapshots/secretnetwork/latest.tar.zst
 ```
 
 ### Install dependencies
@@ -40,6 +39,12 @@ mv $HOME/.secretd/priv_validator_state.json.backup $HOME/.secretd/data/priv_vali
 ```bash
 sudo apt update
 sudo apt install snapd zstd pv
+```
+
+### Backup Validator State
+
+```bash
+cp $HOME/.secretd/data/priv_validator_state.json $HOME/.secretd/priv_validator_state.json.backup
 ```
 
 ### Delete old data
@@ -55,6 +60,12 @@ secretd tendermint unsafe-reset-all --home $HOME/.secretd
 
 ```bash
 tar -axf secret.tar.zst -C $HOME/.secretd
+```
+
+### Restore Validator State
+
+```bash
+mv $HOME/.secretd/priv_validator_state.json.backup $HOME/.secretd/data/priv_validator_state.json
 ```
 
 ### Download latest addrbook
